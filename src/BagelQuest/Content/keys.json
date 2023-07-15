@@ -1,0 +1,8 @@
+﻿{
+    "A": [ "Space", "Enter" ],
+    "B": [ "Escape", "NumPad0" ],
+    "Up": [ "Up", "NumPad8", "W" ],
+    "Left": [ "Left", "NumPad4", "A" ],
+    "Down": [ "Down", "NumPad2", "S" ],
+    "Right": [ "Right", "NumPad6", "D" ]
+}        

@@ -1,0 +1,15 @@
+﻿Public Module BoilerplateState
+    Public Const Abandon = "Abandon"
+    Public Const About = "About"
+    Public Const ConfirmQuit = "ConfirmQuit"
+    Public Const Embark = "Embark"
+    Public Const GameMenu = "GameMenu"
+    Public Const Load = "Load"
+    Public Const MainMenu = "MainMenu"
+    Public Const Neutral = "Neutral"
+    Public Const Options = "Options"
+    Public Const Save = "Save"
+    Public Const Splash = "Splash"
+    Public Const Volume = "Volume"
+    Public Const WindowSize = "WindowSize"
+End Module

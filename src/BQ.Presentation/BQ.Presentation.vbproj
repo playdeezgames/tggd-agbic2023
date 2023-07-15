@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>BQ.Presentation</RootNamespace>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <OptionStrict>On</OptionStrict>
+    <ImportedNamespaces>AOS.UI=False,BQ.Business=False,BQ.Persistence=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,BQ.Presentation=True</ImportedNamespaces>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AOS.UI\AOS.UI.vbproj" />
+    <ProjectReference Include="..\BQ.Business\BQ.Business.vbproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Import Include="AOS.UI" />
+    <Import Include="BQ.Business" />
+    <Import Include="BQ.Persistence" />
+  </ItemGroup>
+
+</Project>

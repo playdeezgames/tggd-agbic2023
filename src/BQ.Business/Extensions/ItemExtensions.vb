@@ -3,10 +3,6 @@ Imports BQ.Persistence
 
 Friend Module ItemExtensions
     <Extension>
-    Friend Function CanTake(item As IItem) As Boolean
-        Return item.Descriptor.CanTake
-    End Function
-    <Extension>
     Friend Function Descriptor(item As IItem) As ItemTypeDescriptor
         Return item.ItemType.ToItemTypeDescriptor
     End Function
@@ -19,29 +15,9 @@ Friend Module ItemExtensions
         Return If(item.HasStatistic(statisticType), item.Statistic(statisticType), defaultValue)
     End Function
     <Extension>
-    Friend Function Encumbrance(item As IItem) As Integer
-        Return item.TryGetStatistic(StatisticTypes.Encumbrance, 0)
-    End Function
-    <Extension>
     Friend Sub DoVerb(item As IItem, verbType As String, character As ICharacter)
         item.Descriptor.VerbTypes(verbType).Invoke(character, item)
     End Sub
-    <Extension>
-    Friend Function Durability(item As IItem) As Integer
-        Return item.TryGetStatistic(StatisticTypes.Durability, 0)
-    End Function
-    <Extension>
-    Friend Function MaximumDurability(item As IItem) As Integer
-        Return item.TryGetStatistic(StatisticTypes.MaximumDurability, 0)
-    End Function
-    <Extension>
-    Friend Sub SetDurability(item As IItem, durability As Integer)
-        item.Statistic(StatisticTypes.Durability) = Math.Clamp(durability, 0, item.MaximumDurability)
-    End Sub
-    <Extension>
-    Friend Function IsBroken(item As IItem) As Boolean
-        Return item.Durability = 0
-    End Function
     <Extension>
     Friend Function IsWeapon(item As IItem) As Boolean
         Return item.Descriptor.IsWeapon

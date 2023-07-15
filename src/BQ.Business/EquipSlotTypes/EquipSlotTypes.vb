@@ -1,18 +1,8 @@
 ﻿Imports System.Runtime.CompilerServices
 
 Friend Module EquipSlotTypes
-    Friend Const Weapon = "Weapon"
-    Friend Const Shield = "Shield"
-    Friend Const Chest = "Chest"
-    Friend Const Pelvis = "Pelvis"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, EquipSlotTypeDescriptor) =
-        New Dictionary(Of String, EquipSlotTypeDescriptor) From
-        {
-            {Weapon, New EquipSlotTypeDescriptor("Weapon")},
-            {Shield, New EquipSlotTypeDescriptor("Shield")},
-            {Chest, New EquipSlotTypeDescriptor("Chest")},
-            {Pelvis, New EquipSlotTypeDescriptor("Pelvis")}
-        }
+        New Dictionary(Of String, EquipSlotTypeDescriptor)
     <Extension>
     Friend Function ToEquipSlotTypeDescriptor(equipSlotType As String) As EquipSlotTypeDescriptor
         Return descriptors(equipSlotType)

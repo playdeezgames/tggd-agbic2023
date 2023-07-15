@@ -35,7 +35,7 @@ Friend Module MapInitializer
     End Sub
 
     Private Sub PopulateItem(map As IMap, itemType As String)
-        Dim candidate = RNG.FromEnumerable(map.Cells.Where(Function(x) x.IsTenable))
+        Dim candidate = RNG.FromEnumerable(map.Cells)
         Dim item = CreateItem(map.World, itemType)
         candidate.AddItem(item)
     End Sub

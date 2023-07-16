@@ -10,6 +10,7 @@
     Public Const Options = "Options"
     Public Const Save = "Save"
     Public Const Splash = "Splash"
-    Public Const Volume = "Volume"
+    Public Const SfxVolume = "SfxVolume"
+    Public Const MuxVolume = "MuxVolume"
     Public Const WindowSize = "WindowSize"
 End Module

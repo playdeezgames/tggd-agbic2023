@@ -15,7 +15,9 @@
             Case SetWindowSizeText
                 SetState(BoilerplateState.WindowSize)
             Case SetSfxVolumeText
-                SetState(BoilerplateState.Volume)
+                SetState(BoilerplateState.SfxVolume)
+            Case SetMuxVolumeText
+                SetState(BoilerplateState.MuxVolume)
             Case Else
                 Throw New NotImplementedException
         End Select
@@ -25,7 +27,8 @@
             {
                 (ToggleFullScreenText, ToggleFullScreenText),
                 (SetWindowSizeText, SetWindowSizeText),
-                (SetSfxVolumeText, SetSfxVolumeText)
+                (SetSfxVolumeText, SetSfxVolumeText),
+                (SetMuxVolumeText, SetMuxVolumeText)
             }
     End Function
 End Class

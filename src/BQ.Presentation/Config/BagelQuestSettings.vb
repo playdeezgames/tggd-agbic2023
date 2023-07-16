@@ -24,7 +24,7 @@ Public Class BagelQuestSettings
             {
                 .FullScreen = False,
                 .SfxVolume = 0.5,
-                .MuxVolume = 0.5,
+                .MuxVolume = 0.3,
                 .WindowHeight = DefaultScreenHeight,
                 .WindowWidth = DefaultScreenWidth
             }

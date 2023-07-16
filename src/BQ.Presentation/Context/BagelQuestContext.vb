@@ -6,39 +6,38 @@ Public Class BagelQuestContext
     Public Sub New(fontFilenames As IReadOnlyDictionary(Of String, String), viewSize As (Integer, Integer))
         MyBase.New(New WorldModel, fontFilenames, viewSize)
     End Sub
+    Private ReadOnly multipliers As IReadOnlyList(Of Integer) =
+        New List(Of Integer) From
+        {
+            3, 4, 5, 9, 10, 14, 15, 19, 20
+        }
 
     Public Overrides ReadOnly Property AvailableWindowSizes As IEnumerable(Of (Integer, Integer))
         Get
-            Return {
-                (ViewWidth * 3, ViewHeight * 3),
-                (ViewWidth * 4, ViewHeight * 4),
-                (ViewWidth * 5, ViewHeight * 5),
-                (ViewWidth * 6, ViewHeight * 6),
-                (ViewWidth * 9, ViewHeight * 9),
-                (ViewWidth * 12, ViewHeight * 12),
-                (ViewWidth * 15, ViewHeight * 15),
-                (ViewWidth * 18, ViewHeight * 18),
-                (ViewWidth * 21, ViewHeight * 21),
-                (ViewWidth * 24, ViewHeight * 24)
-                }
+            Return multipliers.Select(Function(x) (ViewWidth * x, ViewHeight * x))
         End Get
     End Property
-
+    Private ReadOnly DeltasAndColor As IReadOnlyList(Of (Integer, Integer, Integer)) =
+        New List(Of (Integer, Integer, Integer)) From
+        {
+            (-1, -1, Tan),
+            (0, -1, Tan),
+            (1, -1, Tan),
+            (-1, 0, Tan),
+            (1, 0, Tan),
+            (-1, 1, Tan),
+            (0, 1, Tan),
+            (1, 1, Tan),
+            (0, 0, Brown)
+        }
     Public Overrides Sub ShowSplashContent(displayBuffer As IPixelSink, font As Font)
         Dim text = "Bagel Quest"
         Dim x = ViewWidth \ 2 - font.TextWidth(text) \ 2
         Dim y = ViewHeight \ 2 - font.Height \ 2
         With font
-            .WriteText(displayBuffer, (x + 1, y - 1), text, Hue.Pink)
-            .WriteText(displayBuffer, (x + 1, y), text, Hue.Pink)
-            .WriteText(displayBuffer, (x + 1, y + 1), text, Hue.Pink)
-            .WriteText(displayBuffer, (x - 1, y - 1), text, Hue.Pink)
-            .WriteText(displayBuffer, (x - 1, y), text, Hue.Pink)
-            .WriteText(displayBuffer, (x - 1, y + 1), text, Hue.Pink)
-            .WriteText(displayBuffer, (x, y - 1), text, Hue.Pink)
-            .WriteText(displayBuffer, (x, y + 1), text, Hue.Pink)
-
-            .WriteText(displayBuffer, (x, y), text, Hue.Red)
+            For Each deltaAndColor In DeltasAndColor
+                .WriteText(displayBuffer, (x + deltaAndColor.Item1, y + deltaAndColor.Item2), text, deltaAndColor.Item3)
+            Next
         End With
         ShowStatusBar(displayBuffer, font, "Space/(A) - Continue", Hue.Black, Hue.LightGray)
     End Sub

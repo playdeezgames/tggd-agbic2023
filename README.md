@@ -1,5 +1,8 @@
 # Bagel Quest!
 
+Matura MT Script Capitals
+96
+
 # Winner!
 
 https://famicase.com/23/softs/058.html

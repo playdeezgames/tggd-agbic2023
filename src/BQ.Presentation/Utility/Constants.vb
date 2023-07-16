@@ -2,8 +2,8 @@
     Public Const DefaultScreenWidth = ViewWidth * 3
     Public Const DefaultScreenHeight = ViewHeight * 3
     Public Const BagelQuestFont = "BagelQuestFont"
-    Public Const ViewHeight = 180
-    Public Const ViewWidth = 320
+    Public Const ViewHeight = 216
+    Public Const ViewWidth = 384
 
 
     Friend Const CellHeight = 12

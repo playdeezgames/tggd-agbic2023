@@ -1,4 +1,4 @@
-﻿Friend Class VolumeState(Of TModel)
+﻿Friend Class SfxVolumeState(Of TModel)
     Inherits BasePickerState(Of TModel, Single)
     Public Sub New(parent As IGameController, setState As Action(Of String, Boolean), context As IUIContext(Of TModel))
         MyBase.New(parent, setState, context, "<placeholder>", context.ControlsText("Select", "Cancel"), BoilerplateState.Options)
@@ -7,11 +7,11 @@
         SfxVolume = value.Item2
         PlaySfx(BoilerplateSfx.SfxVolumeTest)
         SaveConfig()
-        HeaderText = $"Volume (Currently: {SfxVolume * 100:f0}%)"
+        HeaderText = $"Sfx Volume (Currently: {SfxVolume * 100:f0}%)"
     End Sub
     Protected Overrides Function InitializeMenuItems() As List(Of (String, Single))
         Dim currentVolume = $"{SfxVolume * 100:f0}%"
-        HeaderText = $"Volume (Currently: {currentVolume})"
+        HeaderText = $"Sfx Volume (Currently: {currentVolume})"
         Dim result As New List(Of (String, Single))
         For index = 0 To 10
             Dim menuItemText = $"{index * 10}%"

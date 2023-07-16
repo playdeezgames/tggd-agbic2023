@@ -8,7 +8,7 @@
     Friend Const OptionsText = "Options..."
     Friend Const QuitText = "Quit"
     Friend Const SaveGameText = "Save..."
-    Friend Const SetVolumeText = "Volume..."
+    Friend Const SetSfxVolumeText = "Sfx Volume..."
     Friend Const SetWindowSizeText = "Window Size..."
     Friend Const ToggleFullScreenText = "Toggle Full Screen"
     Friend Const YesText = "Yes"

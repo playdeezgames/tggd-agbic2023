@@ -31,6 +31,6 @@ Public Class BagelQuestSettings
         End Try
     End Function
     Public Sub Save() Implements ISettings.Save
-        File.WriteAllText(ConfigFileName, JsonSerializer.Serialize(New BagelQuestConfig With {.SfxVolume = SfxVolume, .WindowHeight = WindowSize.Item2, .WindowWidth = WindowSize.Item1, .FullScreen = FullScreen}))
+        File.WriteAllText(ConfigFileName, JsonSerializer.Serialize(New BagelQuestConfig With {.SfxVolume = SfxVolume, .MuxVolume = MuxVolume, .WindowHeight = WindowSize.Item2, .WindowWidth = WindowSize.Item1, .FullScreen = FullScreen}))
     End Sub
 End Class

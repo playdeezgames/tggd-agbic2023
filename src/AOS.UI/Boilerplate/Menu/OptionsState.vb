@@ -14,7 +14,7 @@
                 SaveConfig()
             Case SetWindowSizeText
                 SetState(BoilerplateState.WindowSize)
-            Case SetVolumeText
+            Case SetSfxVolumeText
                 SetState(BoilerplateState.Volume)
             Case Else
                 Throw New NotImplementedException
@@ -25,7 +25,7 @@
             {
                 (ToggleFullScreenText, ToggleFullScreenText),
                 (SetWindowSizeText, SetWindowSizeText),
-                (SetVolumeText, SetVolumeText)
+                (SetSfxVolumeText, SetSfxVolumeText)
             }
     End Function
 End Class

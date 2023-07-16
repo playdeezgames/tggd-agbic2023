@@ -93,7 +93,7 @@
         SetState(BoilerplateState.About, New AboutState(Of TModel)(Me, AddressOf SetCurrentState, context))
         SetState(BoilerplateState.Options, New OptionsState(Of TModel)(Me, AddressOf SetCurrentState, context))
         SetState(BoilerplateState.WindowSize, New WindowSizeState(Of TModel)(Me, AddressOf SetCurrentState, context))
-        SetState(BoilerplateState.Volume, New VolumeState(Of TModel)(Me, AddressOf SetCurrentState, context))
+        SetState(BoilerplateState.Volume, New SfxVolumeState(Of TModel)(Me, AddressOf SetCurrentState, context))
         SetState(BoilerplateState.Load, New LoadState(Of TModel)(Me, AddressOf SetCurrentState, context))
         SetState(BoilerplateState.Save, New SaveState(Of TModel)(Me, AddressOf SetCurrentState, context))
         SetState(BoilerplateState.Abandon, New ConfirmAbandonState(Of TModel)(Me, AddressOf SetCurrentState, context))

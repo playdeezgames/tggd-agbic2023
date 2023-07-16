@@ -5,7 +5,9 @@
     Sub Render(displayBuffer As IPixelSink)
     Sub Update(elapsedTime As TimeSpan)
     Sub SetSfxHook(handler As Action(Of String))
+    Sub SetMuxHook(handler As Action(Of String))
     Sub PlaySfx(sfx As String)
+    Sub PlayMux(mux As String)
     Property Volume As Single
     Property Size As (Integer, Integer)
     Property FullScreen As Boolean

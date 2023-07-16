@@ -79,4 +79,12 @@
     Public Sub SaveConfig() Implements IGameController.SaveConfig
         Parent.SaveConfig()
     End Sub
+
+    Public Sub SetMuxHook(handler As Action(Of String)) Implements IGameController.SetMuxHook
+        Parent.SetMuxHook(handler)
+    End Sub
+
+    Public Sub PlayMux(mux As String) Implements IGameController.PlayMux
+        Parent.PlayMux(mux)
+    End Sub
 End Class

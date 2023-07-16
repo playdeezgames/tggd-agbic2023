@@ -16,10 +16,16 @@ Module Program
             (ViewWidth, ViewHeight),
             hueTable,
             commandTable,
-            sfxFileNames)
+            sfxFileNames,
+            muxFileNameas)
             host.Run()
         End Using
     End Sub
+    Private ReadOnly muxFileNameas As IReadOnlyDictionary(Of String, String) =
+        New Dictionary(Of String, String) From
+        {
+            {BoilerplateMux.MainTheme, "Content/BagelQuest.ogg"}
+        }
     Private ReadOnly fontFileNames As IReadOnlyDictionary(Of String, String) =
         New Dictionary(Of String, String) From
         {

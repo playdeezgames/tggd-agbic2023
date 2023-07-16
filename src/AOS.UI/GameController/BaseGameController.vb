@@ -86,6 +86,7 @@
         SetState(BoilerplateState.GameMenu, New GameMenuState(Of TModel)(Me, AddressOf SetCurrentState, context))
     End Sub
     Private OnSfx As Action(Of String)
+    Private OnMux As Action(Of String)
     Public Sub HandleCommand(command As String) Implements IGameController.HandleCommand
         _states(_stateStack.Peek).HandleCommand(command)
     End Sub
@@ -111,5 +112,13 @@
 
     Public Sub SaveConfig() Implements IGameController.SaveConfig
         Settings.Save()
+    End Sub
+
+    Public Sub SetMuxHook(handler As Action(Of String)) Implements IGameController.SetMuxHook
+        OnMux = handler
+    End Sub
+
+    Public Sub PlayMux(mux As String) Implements IGameController.PlayMux
+        OnMux(mux)
     End Sub
 End Class

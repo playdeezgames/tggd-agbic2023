@@ -1,3 +1,5 @@
+Imports Microsoft.Xna.Framework.Media
+
 Public Class Host
     Inherits Game
     Private ReadOnly _controller As IGameController
@@ -10,6 +12,8 @@ Public Class Host
     Private ReadOnly _commandTable As IReadOnlyDictionary(Of String, Func(Of KeyboardState, GamePadState, Boolean))
     Private ReadOnly _sfxSoundEffects As New Dictionary(Of String, SoundEffect)
     Private ReadOnly _sfxFilenames As IReadOnlyDictionary(Of String, String)
+    Private ReadOnly _muxSongs As New Dictionary(Of String, Song)
+    Private ReadOnly _muxFilenames As IReadOnlyDictionary(Of String, String)
     Private ReadOnly _title As String
     Sub New(
            title As String,
@@ -17,13 +21,15 @@ Public Class Host
            viewSize As (Integer, Integer),
            hueTable As IReadOnlyDictionary(Of Integer, Color),
            commandTable As IReadOnlyDictionary(Of String, Func(Of KeyboardState, GamePadState, Boolean)),
-           sfxFileNames As IReadOnlyDictionary(Of String, String))
+           sfxFileNames As IReadOnlyDictionary(Of String, String),
+           muxFileNames As IReadOnlyDictionary(Of String, String))
         _title = title
         _graphics = New GraphicsDeviceManager(Me)
         _controller = controller
         _viewSize = viewSize
         _commandTable = commandTable
         _sfxFilenames = sfxFileNames
+        _muxFilenames = muxFileNames
         _hueTable = hueTable
         Content.RootDirectory = "Content"
     End Sub
@@ -34,7 +40,11 @@ Public Class Host
         For Each entry In _sfxFilenames
             _sfxSoundEffects(entry.Key) = SoundEffect.FromFile(entry.Value)
         Next
+        For Each entry In _muxFilenames
+            _muxSongs(entry.Key) = Song.FromUri(entry.Key, New Uri(entry.Value, UriKind.Relative))
+        Next
         _controller.SetSfxHook(AddressOf OnSfx)
+        _controller.SetMuxHook(AddressOf OnMux)
         MyBase.Initialize()
     End Sub
     Private Sub OnWindowSizeChange(newSize As (Integer, Integer), fullScreen As Boolean)
@@ -48,6 +58,11 @@ Public Class Host
     Private Sub OnSfx(sfx As String)
         If sfx IsNot Nothing AndAlso _sfxSoundEffects.ContainsKey(sfx) Then
             _sfxSoundEffects(sfx).Play(_controller.Volume, Pitch, Pan)
+        End If
+    End Sub
+    Private Sub OnMux(mux As String)
+        If mux IsNot Nothing AndAlso _muxFilenames.ContainsKey(mux) Then
+            MediaPlayer.Play(_muxSongs(mux))
         End If
     End Sub
     Protected Overrides Sub LoadContent()

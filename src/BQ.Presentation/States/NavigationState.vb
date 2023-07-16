@@ -14,5 +14,17 @@
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
         displayBuffer.Fill((0, 0), Context.ViewSize, Black)
+        RenderMap(displayBuffer)
+    End Sub
+    Private Function Plot(column As Integer, row As Integer) As (Integer, Integer)
+        Return (column * CellWidth + CenterCellX, row * CellHeight + CenterCellY)
+    End Function
+    Private Sub RenderMap(displayBuffer As IPixelSink)
+        'Dim font = Context.Font(BagelQuestFont)
+        For Each column In Enumerable.Range(LeftColumn, MapRenderColumns)
+            For Each row In Enumerable.Range(TopRow, MapRenderRows)
+                'displayBuffer.Fill(Plot(column, row), (CellWidth, CellHeight), Math.Abs(CInt(Math.Sqrt(row * row + column * column))) Mod 15)
+            Next
+        Next
     End Sub
 End Class

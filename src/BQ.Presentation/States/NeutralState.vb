@@ -14,7 +14,6 @@
     End Sub
     Public Overrides Sub OnStart()
         MyBase.OnStart()
-        Model.Abandon()
-        SetState(MainMenu)
+        SetState(GameState.Navigation)
     End Sub
 End Class

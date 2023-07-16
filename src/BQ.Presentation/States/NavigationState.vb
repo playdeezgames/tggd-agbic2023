@@ -13,11 +13,6 @@
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill((0, 0), Context.ViewSize, Purple)
-        Dim font = Context.Font(BagelQuestFont)
-        With font
-            .WriteText(displayBuffer, (0, 0), ChrW(1), Black)
-            .WriteText(displayBuffer, (0, 0), ChrW(2), Tan)
-        End With
+        displayBuffer.Fill((0, 0), Context.ViewSize, Black)
     End Sub
 End Class

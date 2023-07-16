@@ -1,6 +1,7 @@
 ﻿Public Interface ISettings
     Property WindowSize As (Integer, Integer)
     Property FullScreen As Boolean
-    Property Volume As Single
+    Property SfxVolume As Single
+    Property MuxVolume As Single
     Sub Save()
 End Interface

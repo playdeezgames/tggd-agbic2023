@@ -4,13 +4,13 @@
         MyBase.New(parent, setState, context, "<placeholder>", context.ControlsText("Select", "Cancel"), BoilerplateState.Options)
     End Sub
     Protected Overrides Sub OnActivateMenuItem(value As (String, Single))
-        Volume = value.Item2
+        SfxVolume = value.Item2
         PlaySfx(BoilerplateSfx.SfxVolumeTest)
         SaveConfig()
-        HeaderText = $"Volume (Currently: {Volume * 100:f0}%)"
+        HeaderText = $"Volume (Currently: {SfxVolume * 100:f0}%)"
     End Sub
     Protected Overrides Function InitializeMenuItems() As List(Of (String, Single))
-        Dim currentVolume = $"{Volume * 100:f0}%"
+        Dim currentVolume = $"{SfxVolume * 100:f0}%"
         HeaderText = $"Volume (Currently: {currentVolume})"
         Dim result As New List(Of (String, Single))
         For index = 0 To 10

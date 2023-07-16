@@ -44,12 +44,12 @@
             End If
         End Set
     End Property
-    Public Property Volume As Single Implements IGameController.Volume
+    Public Property SfxVolume As Single Implements IGameController.SfxVolume
         Get
-            Return Settings.Volume
+            Return Settings.SfxVolume
         End Get
         Set(value As Single)
-            Settings.Volume = Math.Clamp(value, 0.0F, 1.0F)
+            Settings.SfxVolume = Math.Clamp(value, 0.0F, 1.0F)
         End Set
     End Property
     Public ReadOnly Property QuitRequested As Boolean Implements IGameController.QuitRequested
@@ -69,10 +69,24 @@
         End Set
     End Property
     Public Property StartStateEnabled As Boolean = True Implements IGameController.StartStateEnabled
+
+    Public Property MuxVolume As Single Implements IGameController.MuxVolume
+        Get
+            Return Settings.MuxVolume
+        End Get
+        Set(value As Single)
+            Settings.MuxVolume = value
+            If OnMuxVolume IsNot Nothing Then
+                OnMuxVolume(Settings.MuxVolume)
+            End If
+        End Set
+    End Property
+
     Sub New(settings As ISettings, context As IUIContext(Of TModel))
         Me.Settings = settings
         Me.Settings.Save()
-        Me.Volume = settings.Volume
+        Me.SfxVolume = settings.SfxVolume
+        Me.MuxVolume = settings.MuxVolume
         SetState(BoilerplateState.Splash, New SplashState(Of TModel)(Me, AddressOf SetCurrentState, context))
         SetState(BoilerplateState.MainMenu, New MainMenuState(Of TModel)(Me, AddressOf SetCurrentState, context))
         SetState(BoilerplateState.ConfirmQuit, New ConfirmQuitState(Of TModel)(Me, AddressOf SetCurrentState, context))
@@ -87,6 +101,8 @@
     End Sub
     Private OnSfx As Action(Of String)
     Private OnMux As Action(Of String)
+    Private OnMuxVolume As Action(Of Single)
+
     Public Sub HandleCommand(command As String) Implements IGameController.HandleCommand
         _states(_stateStack.Peek).HandleCommand(command)
     End Sub
@@ -120,5 +136,9 @@
 
     Public Sub PlayMux(mux As String) Implements IGameController.PlayMux
         OnMux(mux)
+    End Sub
+
+    Public Sub SetMuxVolumeHook(hook As Action(Of Single)) Implements IGameController.SetMuxVolumeHook
+        OnMuxVolume = hook
     End Sub
 End Class

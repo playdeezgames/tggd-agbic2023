@@ -35,6 +35,7 @@ Public Class Host
     End Sub
     Protected Overrides Sub Initialize()
         _controller.SetSizeHook(AddressOf OnWindowSizeChange)
+        _controller.SetMuxVolumeHook(AddressOf OnMuxVolumeChange)
         Window.Title = _title
         OnWindowSizeChange(_controller.Size, _controller.FullScreen)
         For Each entry In _sfxFilenames
@@ -45,8 +46,14 @@ Public Class Host
         Next
         _controller.SetSfxHook(AddressOf OnSfx)
         _controller.SetMuxHook(AddressOf OnMux)
+        MediaPlayer.IsRepeating = True
         MyBase.Initialize()
     End Sub
+
+    Private Sub OnMuxVolumeChange(volume As Single)
+        MediaPlayer.Volume = volume
+    End Sub
+
     Private Sub OnWindowSizeChange(newSize As (Integer, Integer), fullScreen As Boolean)
         _graphics.PreferredBackBufferWidth = newSize.Item1
         _graphics.PreferredBackBufferHeight = newSize.Item2
@@ -57,11 +64,12 @@ Public Class Host
     Const Pan = 0.0F
     Private Sub OnSfx(sfx As String)
         If sfx IsNot Nothing AndAlso _sfxSoundEffects.ContainsKey(sfx) Then
-            _sfxSoundEffects(sfx).Play(_controller.Volume, Pitch, Pan)
+            _sfxSoundEffects(sfx).Play(_controller.SfxVolume, Pitch, Pan)
         End If
     End Sub
     Private Sub OnMux(mux As String)
         If mux IsNot Nothing AndAlso _muxFilenames.ContainsKey(mux) Then
+            MediaPlayer.Volume = _controller.MuxVolume
             MediaPlayer.Play(_muxSongs(mux))
         End If
     End Sub

@@ -26,12 +26,12 @@
         Parent.StartStateEnabled = True
         SetCurrentState(pushedState, True)
     End Sub
-    Public Property Volume As Single Implements IGameController.Volume
+    Public Property SfxVolume As Single Implements IGameController.SfxVolume
         Get
-            Return Parent.Volume
+            Return Parent.SfxVolume
         End Get
         Set(value As Single)
-            Parent.Volume = value
+            Parent.SfxVolume = value
         End Set
     End Property
     Public Property Size As (Integer, Integer) Implements IGameController.Size
@@ -58,6 +58,16 @@
         End Set
     End Property
     Public Property StartStateEnabled As Boolean Implements IGameController.StartStateEnabled
+
+    Public Property MuxVolume As Single Implements IGameController.MuxVolume
+        Get
+            Return Parent.MuxVolume
+        End Get
+        Set(value As Single)
+            Parent.MuxVolume = value
+        End Set
+    End Property
+
     Public MustOverride Sub HandleCommand(cmd As String) Implements IGameController.HandleCommand
     Public MustOverride Sub Render(displayBuffer As IPixelSink) Implements IGameController.Render
     Public Sub SetSfxHook(handler As Action(Of String)) Implements IGameController.SetSfxHook
@@ -86,5 +96,9 @@
 
     Public Sub PlayMux(mux As String) Implements IGameController.PlayMux
         Parent.PlayMux(mux)
+    End Sub
+
+    Public Sub SetMuxVolumeHook(hook As Action(Of Single)) Implements IGameController.SetMuxVolumeHook
+        Parent.SetMuxVolumeHook(hook)
     End Sub
 End Class

@@ -2,6 +2,13 @@
 
 Public Class WorldModel
     Implements IWorldModel
+
+    Public ReadOnly Property Map As IMapModel Implements IWorldModel.Map
+        Get
+            Return New MapModel(World.Avatar.Cell.Map, (World.Avatar.Cell.Column, World.Avatar.Cell.Row))
+        End Get
+    End Property
+
     Private Property World As IWorld
     Public Sub Embark() Implements IWorldModel.Embark
         World = New World(New WorldData)

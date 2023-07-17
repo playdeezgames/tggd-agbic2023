@@ -13,18 +13,36 @@
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill((0, 0), Context.ViewSize, Black)
+        displayBuffer.Fill((0, 0), Context.ViewSize, DarkGray)
         RenderMap(displayBuffer)
     End Sub
     Private Function Plot(column As Integer, row As Integer) As (Integer, Integer)
         Return (column * CellWidth + CenterCellX, row * CellHeight + CenterCellY)
     End Function
     Private Sub RenderMap(displayBuffer As IPixelSink)
-        'Dim font = Context.Font(BagelQuestFont)
+        Dim font = Context.Font(BagelQuestFont)
         For Each column In Enumerable.Range(LeftColumn, MapRenderColumns)
             For Each row In Enumerable.Range(TopRow, MapRenderRows)
-                'displayBuffer.Fill(Plot(column, row), (CellWidth, CellHeight), Math.Abs(CInt(Math.Sqrt(row * row + column * column))) Mod 15)
+                RenderCell(font, displayBuffer, (column, row), Plot(column, row))
             Next
         Next
+    End Sub
+
+    Private Sub RenderCell(font As Font, displayBuffer As IPixelSink, cellXY As (column As Integer, row As Integer), pixelXY As (Integer, Integer))
+        If Not Model.Map.CellExists(cellXY) Then
+            Return
+        End If
+        RenderTerrain(font, displayBuffer, cellXY, pixelXY)
+        Dim character = Model.Map.Character(cellXY)
+        If character.HasValue Then
+            font.WriteText(displayBuffer, pixelXY, character.Value.MaskGlyph, character.Value.MaskHue)
+            font.WriteText(displayBuffer, pixelXY, character.Value.Glyph, character.Value.Hue)
+        End If
+    End Sub
+
+    Private Sub RenderTerrain(font As Font, displayBuffer As IPixelSink, cellXY As (column As Integer, row As Integer), pixelXY As (Integer, Integer))
+        displayBuffer.Fill(pixelXY, (CellWidth, CellHeight), Black)
+        Dim terrain = Model.Map.Terrain(cellXY)
+        font.WriteText(displayBuffer, pixelXY, terrain.Glyph, terrain.Hue)
     End Sub
 End Class

@@ -11,7 +11,7 @@ Friend Module CharacterTypes
                 New CharacterTypeDescriptor(
                     "Schmeara",
                     ChrW(2),
-                    Tan,
+                    Pink,
                     ChrW(1),
                     Black)
             }

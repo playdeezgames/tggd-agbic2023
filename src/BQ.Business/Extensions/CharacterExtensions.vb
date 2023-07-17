@@ -31,4 +31,19 @@ Friend Module CharacterExtensions
         character.Cell.AddItem(item)
         character.RemoveItem(item)
     End Sub
+    <Extension>
+    Private Function CanEnter(character As ICharacter, cell As ICell) As Boolean
+        Return cell IsNot Nothing AndAlso cell.IsTenable
+    End Function
+    <Extension>
+    Friend Sub Move(character As ICharacter, delta As (x As Integer, y As Integer))
+        Dim cell = character.Cell
+        Dim nextCell = cell.Map.GetCell(cell.Column + delta.x, cell.Row + delta.y)
+        If Not character.CanEnter(nextCell) Then
+            Return
+        End If
+        nextCell.Character = character
+        character.Cell.Character = Nothing
+        character.Cell = nextCell
+    End Sub
 End Module

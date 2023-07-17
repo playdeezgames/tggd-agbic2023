@@ -1,10 +1,8 @@
-Imports System.ComponentModel.Design.Serialization
-Imports System.Threading
 Imports AOS.Presentation
 Imports AOS.UI
+Imports BQ.Presentation
 Imports Microsoft.Xna.Framework
 Imports Microsoft.Xna.Framework.Input
-Imports BQ.Presentation
 Module Program
     Private Const GameTitle = "Bagel Quest"
     Sub Main(args As String())

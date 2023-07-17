@@ -20,6 +20,9 @@ Public Module RNG
         Next
         Return FromGenerator(table)
     End Function
+    Function GenerateBoolean(falseWeight As Integer, trueWeight As Integer) As Boolean
+        Return FromGenerator(MakeBooleanGenerator(falseWeight, trueWeight))
+    End Function
     Function MakeBooleanGenerator(falseWeight As Integer, trueWeight As Integer) As Dictionary(Of Boolean, Integer)
         Return New Dictionary(Of Boolean, Integer) From
             {

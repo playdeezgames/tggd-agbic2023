@@ -10,6 +10,7 @@ Public Class GameController
         SetState(GameState.MoveDown, New MoveState(Me, AddressOf SetCurrentState, context, (0, 1)))
         SetState(GameState.MoveLeft, New MoveState(Me, AddressOf SetCurrentState, context, (-1, 0)))
         SetState(GameState.MoveRight, New MoveState(Me, AddressOf SetCurrentState, context, (1, 0)))
+        SetState(GameState.Message, New MessageState(Me, AddressOf SetCurrentState, context))
         SetCurrentState(BoilerplateState.Splash, True)
     End Sub
 End Class

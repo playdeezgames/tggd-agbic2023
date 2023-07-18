@@ -2,16 +2,20 @@
 
 Public Class WorldModel
     Implements IWorldModel
-
     Public ReadOnly Property Map As IMapModel Implements IWorldModel.Map
         Get
             Return New MapModel(World.Avatar.Cell.Map, (World.Avatar.Cell.Column, World.Avatar.Cell.Row))
         End Get
     End Property
-
     Public ReadOnly Property Avatar As IAvatarModel Implements IWorldModel.Avatar
         Get
             Return New AvatarModel(World.Avatar)
+        End Get
+    End Property
+
+    Public ReadOnly Property Message As IMessageModel Implements IWorldModel.Message
+        Get
+            Return New MessageModel(World)
         End Get
     End Property
 

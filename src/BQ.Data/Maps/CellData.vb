@@ -3,4 +3,5 @@
     Public Property CharacterId As Integer?
     Public Property ItemIds As New HashSet(Of Integer)
     Public Property Statistics As New Dictionary(Of String, Integer)
+    Public Property TriggerId As Integer?
 End Class

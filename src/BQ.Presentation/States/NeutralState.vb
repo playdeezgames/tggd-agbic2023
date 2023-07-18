@@ -14,6 +14,10 @@
     End Sub
     Public Overrides Sub OnStart()
         MyBase.OnStart()
+        If Model.Message.Exists Then
+            SetState(GameState.Message)
+            Return
+        End If
         SetState(GameState.Navigation)
     End Sub
 End Class

@@ -36,10 +36,17 @@ Friend Module CharacterExtensions
         Return cell IsNot Nothing AndAlso cell.IsTenable
     End Function
     <Extension>
+    Private Sub Bump(character As ICharacter, cell As ICell)
+        If cell.HasTrigger Then
+            cell.DoTrigger(character)
+        End If
+    End Sub
+    <Extension>
     Friend Sub Move(character As ICharacter, delta As (x As Integer, y As Integer))
         Dim cell = character.Cell
         Dim nextCell = cell.Map.GetCell(cell.Column + delta.x, cell.Row + delta.y)
         If Not character.CanEnter(nextCell) Then
+            character.Bump(nextCell)
             Return
         End If
         nextCell.Character = character

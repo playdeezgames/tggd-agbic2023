@@ -5,4 +5,5 @@
     Sub Save(filename As String)
     ReadOnly Property Map As IMapModel
     ReadOnly Property Avatar As IAvatarModel
+    ReadOnly Property Message As IMessageModel
 End Interface

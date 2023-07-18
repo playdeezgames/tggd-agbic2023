@@ -42,5 +42,6 @@ Friend Module TownInitializer
             Next
             row += 1
         Next
+        map.GetCell(2, 13).Trigger = map.CreateTrigger().SetTriggerType(TriggerTypes.Message).AddMessageLine(LightGray, "This is a sign.")
     End Sub
 End Module

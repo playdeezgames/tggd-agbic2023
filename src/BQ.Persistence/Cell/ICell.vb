@@ -13,4 +13,7 @@
     ReadOnly Property Items As IEnumerable(Of IItem)
     Property Statistic(statisticType As String) As Integer
     ReadOnly Property HasStatistic(statisticType As String) As Boolean
+    ReadOnly Property HasTrigger As Boolean
+    Sub DoTrigger(character As ICharacter)
+    Property Trigger As ITrigger
 End Interface

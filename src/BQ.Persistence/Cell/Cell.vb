@@ -97,11 +97,37 @@ Friend Class Cell
         End Get
     End Property
 
+    Public ReadOnly Property HasTrigger As Boolean Implements ICell.HasTrigger
+        Get
+            Return CellData.TriggerId.HasValue
+        End Get
+    End Property
+
+    Public Property Trigger As ITrigger Implements ICell.Trigger
+        Get
+            If Not HasTrigger Then
+                Return Nothing
+            End If
+            Return New Trigger(WorldData, Map.Id, CellData.TriggerId.Value)
+        End Get
+        Set(value As ITrigger)
+            If value Is Nothing Then
+                CellData.TriggerId = Nothing
+                Return
+            End If
+            CellData.TriggerId = value.Id
+        End Set
+    End Property
+
     Public Sub AddItem(item As IItem) Implements ICell.AddItem
         CellData.ItemIds.Add(item.Id)
     End Sub
 
     Public Sub RemoveItem(item As IItem) Implements ICell.RemoveItem
         CellData.ItemIds.Remove(item.Id)
+    End Sub
+
+    Public Sub DoTrigger(character As ICharacter) Implements ICell.DoTrigger
+        Trigger.Execute(character)
     End Sub
 End Class

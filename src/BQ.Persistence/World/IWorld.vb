@@ -11,4 +11,5 @@ Public Interface IWorld
     Function CreateMessage() As IMessage
     Function CreateItem(itemType As String) As IItem
     ReadOnly Property Item(id As Integer) As IItem
+    ReadOnly Property Map(id As Integer) As IMap
 End Interface

@@ -36,8 +36,8 @@ Friend Module CharacterExtensions
         Return cell IsNot Nothing AndAlso cell.IsTenable
     End Function
     <Extension>
-    Private Sub Bump(character As ICharacter, cell As ICell)
-        If cell.HasTrigger Then
+    Private Sub DoTrigger(character As ICharacter, cell As ICell)
+        If cell IsNot Nothing AndAlso cell.HasTrigger Then
             cell.DoTrigger(character)
         End If
     End Sub
@@ -46,11 +46,12 @@ Friend Module CharacterExtensions
         Dim cell = character.Cell
         Dim nextCell = cell.Map.GetCell(cell.Column + delta.x, cell.Row + delta.y)
         If Not character.CanEnter(nextCell) Then
-            character.Bump(nextCell)
+            character.DoTrigger(nextCell)
             Return
         End If
         nextCell.Character = character
         character.Cell.Character = Nothing
         character.Cell = nextCell
+        character.DoTrigger(nextCell)
     End Sub
 End Module

@@ -42,6 +42,63 @@ Friend Module TownInitializer
             Next
             row += 1
         Next
-        map.GetCell(2, 13).Trigger = map.CreateTrigger().SetTriggerType(TriggerTypes.Message).AddMessageLine(LightGray, "This is a sign.")
+
+        map.GetCell(2, 3).Trigger =
+            map.CreateTrigger().
+            SetTriggerType(TriggerTypes.Message).
+            AddMessageLine(LightGray, "This is sign #1.")
+        map.GetCell(14, 3).Trigger =
+            map.CreateTrigger().
+            SetTriggerType(TriggerTypes.Message).
+            AddMessageLine(LightGray, "This is sign #2.")
+        map.GetCell(7, 4).Trigger =
+            map.CreateTrigger().
+            SetTriggerType(TriggerTypes.Message).
+            AddMessageLine(LightGray, "This is sign #3.")
+        map.GetCell(5, 6).Trigger =
+            map.CreateTrigger().
+            SetTriggerType(TriggerTypes.Message).
+            AddMessageLine(LightGray, "This is sign #4.")
+        map.GetCell(11, 6).Trigger =
+            map.CreateTrigger().
+            SetTriggerType(TriggerTypes.Message).
+            AddMessageLine(LightGray, "This is sign #5.")
+        map.GetCell(5, 10).Trigger =
+            map.CreateTrigger().
+            SetTriggerType(TriggerTypes.Message).
+            AddMessageLine(LightGray, "This is sign #6.")
+        map.GetCell(11, 10).Trigger =
+            map.CreateTrigger().
+            SetTriggerType(TriggerTypes.Message).
+            AddMessageLine(LightGray, "This is sign #7.")
+        map.GetCell(9, 12).Trigger =
+            map.CreateTrigger().
+            SetTriggerType(TriggerTypes.Message).
+            AddMessageLine(LightGray, "This is sign #8.")
+        map.GetCell(2, 13).Trigger =
+            map.CreateTrigger().
+            SetTriggerType(TriggerTypes.Message).
+            AddMessageLine(LightGray, "This is sign #9.")
+        map.GetCell(14, 13).Trigger =
+            map.CreateTrigger().
+            SetTriggerType(TriggerTypes.Message).
+            AddMessageLine(LightGray, "This is sign #10.")
+
+        map.GetCell(map.Columns \ 2, map.Rows - 1).Trigger =
+            map.CreateTrigger().
+            SetTriggerType(TriggerTypes.Teleport).
+            SetDestination(map.GetCell(map.Columns \ 2, 0))
+        map.GetCell(map.Columns \ 2, 0).Trigger =
+            map.CreateTrigger().
+            SetTriggerType(TriggerTypes.Teleport).
+            SetDestination(map.GetCell(map.Columns \ 2, map.Rows - 1))
+        map.GetCell(0, map.Rows \ 2).Trigger =
+            map.CreateTrigger().
+            SetTriggerType(TriggerTypes.Teleport).
+            SetDestination(map.GetCell(map.Columns - 1, map.Rows \ 2))
+        map.GetCell(map.Columns - 1, map.Rows \ 2).Trigger =
+            map.CreateTrigger().
+            SetTriggerType(TriggerTypes.Teleport).
+            SetDestination(map.GetCell(0, map.Rows \ 2))
     End Sub
 End Module

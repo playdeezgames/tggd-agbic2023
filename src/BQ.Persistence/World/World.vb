@@ -54,6 +54,12 @@ Public Class World
         End Get
     End Property
 
+    Public ReadOnly Property Map(id As Integer) As IMap Implements IWorld.Map
+        Get
+            Return New Map(WorldData, id)
+        End Get
+    End Property
+
     Public Sub Save(filename As String) Implements IWorld.Save
         File.WriteAllText(filename, JsonSerializer.Serialize(WorldData))
     End Sub

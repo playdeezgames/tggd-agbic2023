@@ -4,4 +4,5 @@
     Sub Execute(character As ICharacter)
     Function SetTriggerType(triggerType As String) As ITrigger
     Function AddMessageLine(hue As Integer, text As String) As ITrigger
+    Function SetDestination(cell As ICell) As ITrigger
 End Interface

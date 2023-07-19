@@ -1,4 +1,5 @@
 ﻿Imports System.Runtime.CompilerServices
+Imports SPLORR.Game
 
 Friend Module CharacterExtensions
     <Extension>
@@ -53,5 +54,31 @@ Friend Module CharacterExtensions
         character.Cell.Character = Nothing
         character.Cell = nextCell
         character.DoTrigger(nextCell)
+        character.EnterCell()
     End Sub
+    <Extension>
+    Private Sub EnterCell(character As ICharacter)
+        If character.Cell.Peril > 0 Then
+            character.SetPeril(character.Peril + character.Cell.Peril)
+            If character.Peril > 0 Then
+                Dim roll = RNG.RollDice("1d20")
+                If roll <= character.Peril Then
+                    character.SetPeril(character.Peril - roll)
+                    'TODO: generate character to fight!
+                End If
+            End If
+        End If
+    End Sub
+    <Extension>
+    Private Sub SetPeril(character As ICharacter, peril As Integer)
+        character.Statistic(StatisticTypes.Peril) = Math.Max(0, peril)
+    End Sub
+    <Extension>
+    Private Function TryGetStatistic(character As ICharacter, statisticType As String, Optional defaultValue As Integer = 0) As Integer
+        Return If(character.HasStatistic(statisticType), character.Statistic(statisticType), defaultValue)
+    End Function
+    <Extension>
+    Private Function Peril(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.Peril)
+    End Function
 End Module

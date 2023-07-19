@@ -52,8 +52,19 @@ Friend Module TerrainTypes
             {RiverNESW, New TerrainTypeDescriptor("River", ChrW(&H19), Hue.Blue, False)},
             {RiverNS, New TerrainTypeDescriptor("River", ChrW(&HB), Hue.Blue, False)},
             {RiverEW, New TerrainTypeDescriptor("River", ChrW(&HC), Hue.Blue, False)},
-            {Tree, New TerrainTypeDescriptor("Tree", ChrW(&HA), Hue.Green, True)}
+            {
+                Tree,
+                New TerrainTypeDescriptor(
+                    "Tree",
+                    ChrW(&HA),
+                    Hue.Green,
+                    True,
+                    cellInitializer:=AddressOf InitializeTree)}
         }
+
+    Private Sub InitializeTree(cell As ICell)
+        cell.Statistic(StatisticTypes.Peril) = 1
+    End Sub
 
     <Extension>
     Friend Function ToTerrainTypeDescriptor(terrainType As String) As TerrainTypeDescriptor

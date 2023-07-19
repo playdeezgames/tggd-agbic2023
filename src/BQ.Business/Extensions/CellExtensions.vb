@@ -22,4 +22,12 @@ Friend Module CellExtensions
     Private Function TerrainTypeDescriptor(cell As ICell) As TerrainTypeDescriptor
         Return cell.TerrainType.ToTerrainTypeDescriptor
     End Function
+    <Extension>
+    Private Function TryGetStatistic(cell As ICell, statisticType As String, Optional defaultValue As Integer = 0) As Integer
+        Return If(cell.HasStatistic(statisticType), cell.Statistic(statisticType), defaultValue)
+    End Function
+    <Extension>
+    Friend Function Peril(cell As ICell) As Integer
+        Return cell.TryGetStatistic(StatisticTypes.Peril)
+    End Function
 End Module

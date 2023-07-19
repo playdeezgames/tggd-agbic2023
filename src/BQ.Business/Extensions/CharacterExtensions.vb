@@ -64,10 +64,19 @@ Friend Module CharacterExtensions
                 Dim roll = RNG.RollDice("1d20")
                 If roll <= character.Peril Then
                     character.SetPeril(character.Peril - roll)
-                    'TODO: generate character to fight!
+                    Dim enemyType = RNG.FromGenerator(character.Map.MapType.ToMapTypeDescriptor.EncounterGenerator)
+                    character.SetEnemy(CreateCharacter(enemyType, character.Cell))
                 End If
             End If
         End If
+    End Sub
+    <Extension>
+    Private Sub SetEnemy(character As ICharacter, enemy As ICharacter)
+        If enemy Is Nothing Then
+            character.RemoveStatistic(StatisticTypes.EnemyCharacterId)
+            Return
+        End If
+        character.Statistic(StatisticTypes.EnemyCharacterId) = enemy.Id
     End Sub
     <Extension>
     Private Sub SetPeril(character As ICharacter, peril As Integer)

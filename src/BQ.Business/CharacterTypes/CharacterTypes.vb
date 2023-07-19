@@ -3,6 +3,7 @@ Imports SPLORR.Game
 
 Friend Module CharacterTypes
     Friend Const Schmeara = "Schmeara"
+    Friend Const Glop = "Glop"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, CharacterTypeDescriptor) =
         New Dictionary(Of String, CharacterTypeDescriptor) From
         {
@@ -14,6 +15,15 @@ Friend Module CharacterTypes
                     Pink,
                     ChrW(1),
                     Black)
+            },
+            {
+                Glop,
+                New CharacterTypeDescriptor(
+                    "Glop",
+                    ChrW(&H1B),
+                    Hue.LightGreen,
+                    ChrW(&H1A),
+                    Hue.Black)
             }
         }
 

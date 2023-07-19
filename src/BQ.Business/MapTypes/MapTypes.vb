@@ -25,7 +25,14 @@ Friend Module MapTypes
                 New MapTypeDescriptor(
                     (WildernessColumns, WildernessRows),
                     TerrainTypes.Grass,
-                    customInitializer:=AddressOf WildernessInitializer.Initialize)
+                    customInitializer:=AddressOf WildernessInitializer.Initialize,
+                    encounterGenerator:=New Dictionary(Of String, Integer) From
+                    {
+                        {
+                            CharacterTypes.Glop,
+                            1
+                        }
+                    })
             }
         }
 

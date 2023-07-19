@@ -5,4 +5,5 @@
     Friend Const MoveDown = "MoveDown"
     Friend Const MoveLeft = "MoveLeft"
     Friend Const MoveRight = "MoveRight"
+    Friend Const Combat = "Combat"
 End Module

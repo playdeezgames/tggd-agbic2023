@@ -79,6 +79,13 @@ Friend Module CharacterExtensions
         character.Statistic(StatisticTypes.EnemyCharacterId) = enemy.Id
     End Sub
     <Extension>
+    Friend Function Enemy(character As ICharacter) As ICharacter
+        If Not character.HasStatistic(StatisticTypes.EnemyCharacterId) Then
+            Return Nothing
+        End If
+        Return character.World.Character(character.Statistic(StatisticTypes.EnemyCharacterId))
+    End Function
+    <Extension>
     Private Sub SetPeril(character As ICharacter, peril As Integer)
         character.Statistic(StatisticTypes.Peril) = Math.Max(0, peril)
     End Sub

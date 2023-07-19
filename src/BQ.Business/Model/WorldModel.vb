@@ -1,6 +1,4 @@
-﻿Imports BQ.Persistence
-
-Public Class WorldModel
+﻿Public Class WorldModel
     Implements IWorldModel
     Public ReadOnly Property Map As IMapModel Implements IWorldModel.Map
         Get
@@ -16,6 +14,12 @@ Public Class WorldModel
     Public ReadOnly Property Message As IMessageModel Implements IWorldModel.Message
         Get
             Return New MessageModel(World)
+        End Get
+    End Property
+
+    Public ReadOnly Property Enemy As IEnemyModel Implements IWorldModel.Enemy
+        Get
+            Return New EnemyModel(World)
         End Get
     End Property
 

@@ -18,6 +18,10 @@
             SetState(GameState.Message)
             Return
         End If
+        If Model.Enemy.Exists Then
+            SetState(GameState.Combat)
+            Return
+        End If
         SetState(GameState.Navigation)
     End Sub
 End Class

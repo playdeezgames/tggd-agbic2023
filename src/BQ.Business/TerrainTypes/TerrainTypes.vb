@@ -9,6 +9,23 @@ Friend Module TerrainTypes
     Friend Const Gravel = "Gravel"
     Friend Const House = "House"
     Friend Const Sign = "Sign"
+    Friend Const RiverN = "RiverN"
+    Friend Const RiverE = "RiverE"
+    Friend Const RiverW = "RiverS"
+    Friend Const RiverS = "RiverW"
+    Friend Const RiverNS = "RiverNS"
+    Friend Const RiverEW = "RiverEW"
+    Friend Const RiverNE = "RiverNE"
+    Friend Const RiverSE = "RiverSE"
+    Friend Const RiverSW = "RiverSW"
+    Friend Const RiverNW = "RiverNW"
+    Friend Const RiverNES = "RiverNES"
+    Friend Const RiverESW = "RiverESW"
+    Friend Const RiverSWN = "RiverSWN"
+    Friend Const RiverWNE = "RiverWNE"
+    Friend Const RiverNESW = "RiverNESW"
+    Friend Const Tree = "Tree"
+    Friend Const Town = "Town"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, TerrainTypeDescriptor) =
         New Dictionary(Of String, TerrainTypeDescriptor) From
         {
@@ -18,7 +35,24 @@ Friend Module TerrainTypes
             {Gravel, New TerrainTypeDescriptor("Gravel", ChrW(6), Hue.DarkGray, True)},
             {Fence, New TerrainTypeDescriptor("Fence", ChrW(5), Hue.Brown, False)},
             {House, New TerrainTypeDescriptor("House", ChrW(7), Hue.Red, False)},
-            {Sign, New TerrainTypeDescriptor("Sign", ChrW(8), Hue.Brown, False)}
+            {Town, New TerrainTypeDescriptor("Town", ChrW(7), Hue.Red, False)},
+            {Sign, New TerrainTypeDescriptor("Sign", ChrW(8), Hue.Brown, False)},
+            {RiverN, New TerrainTypeDescriptor("River", ChrW(&H17), Hue.Blue, False)},
+            {RiverE, New TerrainTypeDescriptor("River", ChrW(&H18), Hue.Blue, False)},
+            {RiverS, New TerrainTypeDescriptor("River", ChrW(&H15), Hue.Blue, False)},
+            {RiverW, New TerrainTypeDescriptor("River", ChrW(&H16), Hue.Blue, False)},
+            {RiverNE, New TerrainTypeDescriptor("River", ChrW(&H10), Hue.Blue, False)},
+            {RiverSE, New TerrainTypeDescriptor("River", ChrW(&HD), Hue.Blue, False)},
+            {RiverSW, New TerrainTypeDescriptor("River", ChrW(&HE), Hue.Blue, False)},
+            {RiverNW, New TerrainTypeDescriptor("River", ChrW(&HF), Hue.Blue, False)},
+            {RiverNES, New TerrainTypeDescriptor("River", ChrW(&H11), Hue.Blue, False)},
+            {RiverESW, New TerrainTypeDescriptor("River", ChrW(&H12), Hue.Blue, False)},
+            {RiverSWN, New TerrainTypeDescriptor("River", ChrW(&H13), Hue.Blue, False)},
+            {RiverWNE, New TerrainTypeDescriptor("River", ChrW(&H14), Hue.Blue, False)},
+            {RiverNESW, New TerrainTypeDescriptor("River", ChrW(&H19), Hue.Blue, False)},
+            {RiverNS, New TerrainTypeDescriptor("River", ChrW(&HB), Hue.Blue, False)},
+            {RiverEW, New TerrainTypeDescriptor("River", ChrW(&HC), Hue.Blue, False)},
+            {Tree, New TerrainTypeDescriptor("Tree", ChrW(&HA), Hue.Green, True)}
         }
 
     <Extension>

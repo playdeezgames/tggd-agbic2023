@@ -1,6 +1,8 @@
 ﻿Imports SPLORR.Game
 
 Friend Module TownInitializer
+    Friend Const TownColumns = 17
+    Friend Const TownRows = 17
     Private ReadOnly townMinimap As IReadOnlyList(Of String) =
         New List(Of String) From
         {

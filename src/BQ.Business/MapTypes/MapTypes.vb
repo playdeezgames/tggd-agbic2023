@@ -5,19 +5,28 @@ Imports BQ.Persistence
 
 Friend Module MapTypes
     Friend Const Town = "Town"
+    Friend Const Wilderness = "Wilderness"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, MapTypeDescriptor) =
         New Dictionary(Of String, MapTypeDescriptor) From
         {
             {
                 Town,
                 New MapTypeDescriptor(
-                    (17, 17),
+                    (TownColumns, TownRows),
                     TerrainTypes.Empty,
+                    customInitializer:=AddressOf TownInitializer.Initialize,
                     spawnCharacters:=New Dictionary(Of String, Integer) From
                     {
                         {CharacterTypes.Schmeara, 1}
-                    },
-                    customInitializer:=AddressOf TownInitializer.Initialize)}
+                    })
+            },
+            {
+                Wilderness,
+                New MapTypeDescriptor(
+                    (WildernessColumns, WildernessRows),
+                    TerrainTypes.Grass,
+                    customInitializer:=AddressOf WildernessInitializer.Initialize)
+            }
         }
 
     <Extension>

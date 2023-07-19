@@ -60,6 +60,12 @@ Public Class World
         End Get
     End Property
 
+    Public ReadOnly Property Maps As IEnumerable(Of IMap) Implements IWorld.Maps
+        Get
+            Return Enumerable.Range(0, WorldData.Maps.Count).Select(Function(x) New Map(WorldData, x))
+        End Get
+    End Property
+
     Public Sub Save(filename As String) Implements IWorld.Save
         File.WriteAllText(filename, JsonSerializer.Serialize(WorldData))
     End Sub

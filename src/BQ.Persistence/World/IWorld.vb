@@ -12,4 +12,5 @@ Public Interface IWorld
     Function CreateItem(itemType As String) As IItem
     ReadOnly Property Item(id As Integer) As IItem
     ReadOnly Property Map(id As Integer) As IMap
+    ReadOnly Property Maps As IEnumerable(Of IMap)
 End Interface

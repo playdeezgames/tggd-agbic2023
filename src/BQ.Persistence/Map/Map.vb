@@ -29,6 +29,13 @@
             Return MapId
         End Get
     End Property
+
+    Public ReadOnly Property MapType As String Implements IMap.MapType
+        Get
+            Return MapData.MapType
+        End Get
+    End Property
+
     Public Function GetCell(column As Integer, row As Integer) As ICell Implements IMap.GetCell
         If column < 0 OrElse row < 0 OrElse column >= Columns OrElse row >= Rows Then
             Return Nothing

@@ -6,4 +6,5 @@
     ReadOnly Property Id As Integer
     Function GetCell(column As Integer, row As Integer) As ICell
     Function CreateTrigger() As ITrigger
+    ReadOnly Property MapType As String
 End Interface

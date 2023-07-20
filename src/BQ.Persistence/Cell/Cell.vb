@@ -55,7 +55,7 @@ Friend Class Cell
         End Set
     End Property
 
-    Public ReadOnly Property HasCharacter As Boolean Implements ICell.HasCharacter
+    Public ReadOnly Property HasCharacters As Boolean Implements ICell.HasCharacters
         Get
             Return CellData.CharacterId.HasValue
         End Get
@@ -119,6 +119,12 @@ Friend Class Cell
         End Set
     End Property
 
+    Public ReadOnly Property HasCharacter(character As ICharacter) As Boolean Implements ICell.HasCharacter
+        Get
+            Return CellData.CharacterIds.Contains(character.Id)
+        End Get
+    End Property
+
     Public Sub AddItem(item As IItem) Implements ICell.AddItem
         CellData.ItemIds.Add(item.Id)
     End Sub
@@ -129,5 +135,13 @@ Friend Class Cell
 
     Public Sub DoTrigger(character As ICharacter) Implements ICell.DoTrigger
         Trigger.Execute(character)
+    End Sub
+
+    Public Sub AddCharacter(character As ICharacter) Implements ICell.AddCharacter
+        CellData.CharacterIds.Add(character.Id)
+    End Sub
+
+    Public Sub RemoveCharacter(character As ICharacter) Implements ICell.RemoveCharacter
+        CellData.CharacterIds.Remove(character.Id)
     End Sub
 End Class

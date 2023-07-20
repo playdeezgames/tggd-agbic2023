@@ -1,6 +1,9 @@
 ﻿Public Interface ICell
     Property Character As ICharacter
-    ReadOnly Property HasCharacter As Boolean
+    ReadOnly Property HasCharacters As Boolean
+    Sub AddCharacter(character As ICharacter)
+    Sub RemoveCharacter(character As ICharacter)
+    ReadOnly Property HasCharacter(character As ICharacter) As Boolean
     ReadOnly Property Id As Integer
     ReadOnly Property Map As IMap
     ReadOnly Property Column As Integer

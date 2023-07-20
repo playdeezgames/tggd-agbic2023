@@ -115,6 +115,12 @@ Friend Class Cell
         End Get
     End Property
 
+    Public ReadOnly Property HasOtherCharacters(character As ICharacter) As Boolean Implements ICell.HasOtherCharacters
+        Get
+            Return CellData.CharacterIds.Any(Function(x) x <> character.Id)
+        End Get
+    End Property
+
     Public Sub AddItem(item As IItem) Implements ICell.AddItem
         CellData.ItemIds.Add(item.Id)
     End Sub

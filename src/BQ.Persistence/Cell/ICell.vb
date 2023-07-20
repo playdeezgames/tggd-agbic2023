@@ -4,6 +4,7 @@
     Sub AddCharacter(character As ICharacter)
     Sub RemoveCharacter(character As ICharacter)
     ReadOnly Property HasCharacter(character As ICharacter) As Boolean
+    ReadOnly Property HasOtherCharacters(character As ICharacter) As Boolean
     ReadOnly Property Id As Integer
     ReadOnly Property Map As IMap
     ReadOnly Property Column As Integer

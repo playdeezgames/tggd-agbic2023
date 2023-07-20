@@ -68,27 +68,11 @@ Friend Module CharacterExtensions
                     character.SetPeril(character.Peril - roll)
                     Dim enemyType = RNG.FromGenerator(character.Map.MapType.ToMapTypeDescriptor.EncounterGenerator)
                     Dim enemy = CreateCharacter(enemyType, character.Cell)
-                    character.SetEnemy(enemy)
                     character.Cell.AddCharacter(enemy)
                 End If
             End If
         End If
     End Sub
-    <Extension>
-    Private Sub SetEnemy(character As ICharacter, enemy As ICharacter)
-        If enemy Is Nothing Then
-            character.RemoveStatistic(StatisticTypes.EnemyCharacterId)
-            Return
-        End If
-        character.Statistic(StatisticTypes.EnemyCharacterId) = enemy.Id
-    End Sub
-    <Extension>
-    Friend Function Enemy(character As ICharacter) As ICharacter
-        If Not character.HasStatistic(StatisticTypes.EnemyCharacterId) Then
-            Return Nothing
-        End If
-        Return character.World.Character(character.Statistic(StatisticTypes.EnemyCharacterId))
-    End Function
     <Extension>
     Private Sub SetPeril(character As ICharacter, peril As Integer)
         character.Statistic(StatisticTypes.Peril) = Math.Max(0, peril)

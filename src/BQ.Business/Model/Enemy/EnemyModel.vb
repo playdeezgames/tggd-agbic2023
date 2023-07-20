@@ -9,12 +9,11 @@
 
     Public ReadOnly Property Exists As Boolean Implements IEnemyModel.Exists
         Get
-            Return world.Avatar.Enemy IsNot Nothing
+            Return world.Avatar.Cell.HasOtherCharacters(world.Avatar)
         End Get
     End Property
 
     Public Sub Attack() Implements IEnemyModel.Attack
         'TODO: this is not how to attack
-        world.Avatar.RemoveStatistic(StatisticTypes.EnemyCharacterId)
     End Sub
 End Class

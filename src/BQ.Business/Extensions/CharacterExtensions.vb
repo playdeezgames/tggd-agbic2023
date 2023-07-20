@@ -85,4 +85,12 @@ Friend Module CharacterExtensions
     Private Function Peril(character As ICharacter) As Integer
         Return character.TryGetStatistic(StatisticTypes.Peril)
     End Function
+    <Extension>
+    Friend Function Health(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.Health)
+    End Function
+    <Extension>
+    Friend Function MaximumHealth(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.MaximumHealth)
+    End Function
 End Module

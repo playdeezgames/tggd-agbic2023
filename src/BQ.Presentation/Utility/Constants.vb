@@ -6,6 +6,7 @@
     Public Const ViewWidth = 384
 
 
+    Friend Const AttackText = "Attack!"
     Friend Const CellHeight = 16
     Friend Const CellWidth = 16
     Private Const CenterX = ViewWidth \ 2
@@ -20,6 +21,7 @@
     Friend Const MapRenderY = CenterCellY + TopRow * CellHeight
     Friend Const MapRenderColumns = RightColumn - LeftColumn
     Friend Const MapRenderRows = BottomRow - TopRow
+    Friend Const RunText = "Run!"
     'Friend Const DropText = "Drop"
     'Friend Const EquipText = "Equip"
     'Friend Const EquipmentText = "Equipment"

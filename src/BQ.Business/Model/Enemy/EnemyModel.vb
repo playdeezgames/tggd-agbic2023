@@ -21,7 +21,19 @@
         End Get
     End Property
 
-    Public Sub Attack() Implements IEnemyModel.Attack
-        'TODO: this is not how to attack
-    End Sub
+    Public ReadOnly Property Enemy(index As Integer) As (Name As String, Health As Integer, MaximumHealth As Integer) Implements IEnemyModel.Enemy
+        Get
+            Dim character = world.Avatar.Cell.
+                OtherCharacters(world.Avatar).ElementAt(index)
+            Return (character.Name, character.Health, character.MaximumHealth)
+        End Get
+    End Property
+
+    Public ReadOnly Property Count As Integer Implements IEnemyModel.Count
+        Get
+            Return world.Avatar.Cell.
+                OtherCharacters(world.Avatar).
+                Count
+        End Get
+    End Property
 End Class

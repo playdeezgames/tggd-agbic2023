@@ -23,7 +23,12 @@ Friend Module CharacterTypes
                     ChrW(&H1B),
                     Hue.LightGreen,
                     ChrW(&H1A),
-                    Hue.Black)
+                    Hue.Black,
+                    statistics:=New Dictionary(Of String, Integer) From
+                    {
+                        {StatisticTypes.Health, 1},
+                        {StatisticTypes.MaximumHealth, 1}
+                    })
             }
         }
 

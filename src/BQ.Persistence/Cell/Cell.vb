@@ -6,22 +6,6 @@ Friend Class Cell
     Public Sub New(worldData As Data.WorldData, mapId As Integer, cellIndex As Integer)
         MyBase.New(worldData, mapId, cellIndex)
     End Sub
-    Public Property Character As ICharacter Implements ICell.Character
-        Get
-            If CellData.CharacterId.HasValue Then
-                Return New Character(WorldData, CellData.CharacterId.Value)
-            End If
-            Return Nothing
-        End Get
-        Set(value As ICharacter)
-            If value Is Nothing Then
-                CellData.CharacterId = Nothing
-                Return
-            End If
-            CellData.CharacterId = value.Id
-        End Set
-    End Property
-
     Public ReadOnly Property Id As Integer Implements ICell.Id
         Get
             Return CellIndex
@@ -57,7 +41,7 @@ Friend Class Cell
 
     Public ReadOnly Property HasCharacters As Boolean Implements ICell.HasCharacters
         Get
-            Return CellData.CharacterId.HasValue
+            Return CellData.CharacterIds.Any
         End Get
     End Property
 

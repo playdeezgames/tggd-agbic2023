@@ -26,7 +26,7 @@ Friend Class MapModel
     Public ReadOnly Property Character(cellXY As (column As Integer, row As Integer)) As (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)? Implements IMapModel.Character
         Get
             cellXY = Translate(cellXY)
-            Dim descriptor = map.GetCell(cellXY.column, cellXY.row).Character?.CharacterType?.ToCharacterTypeDescriptor
+            Dim descriptor = map.GetCell(cellXY.column, cellXY.row).Characters.FirstOrDefault?.CharacterType?.ToCharacterTypeDescriptor
             If descriptor Is Nothing Then
                 Return Nothing
             End If

@@ -30,8 +30,8 @@ Friend Class Trigger
 
     Private Sub ExecuteTeleport(character As ICharacter)
         Dim nextCell = character.World.Map(TriggerData.Destination.MapId).GetCell(TriggerData.Destination.Column, TriggerData.Destination.Row)
-        nextCell.Character = character
-        character.Cell.Character = Nothing
+        nextCell.AddCharacter(character)
+        character.Cell.RemoveCharacter(character)
         character.Cell = nextCell
     End Sub
 

@@ -1,5 +1,4 @@
 ﻿Public Interface ICell
-    Property Character As ICharacter
     ReadOnly Property Characters As IEnumerable(Of ICharacter)
     ReadOnly Property HasCharacters As Boolean
     Sub AddCharacter(character As ICharacter)

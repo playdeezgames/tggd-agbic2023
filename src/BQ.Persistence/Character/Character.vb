@@ -109,7 +109,7 @@
                 RemoveItem(item)
                 Cell.AddItem(item)
             Next
-            Cell.Character = Nothing
+            Cell.RemoveCharacter(Me)
             CharacterData.Recycled = True
         End If
     End Sub

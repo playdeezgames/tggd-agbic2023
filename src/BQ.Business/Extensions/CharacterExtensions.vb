@@ -50,9 +50,11 @@ Friend Module CharacterExtensions
             character.DoTrigger(nextCell)
             Return
         End If
-        nextCell.Character = character
-        character.Cell.Character = Nothing
+
+        nextCell.AddCharacter(character)
+        character.Cell.RemoveCharacter(character)
         character.Cell = nextCell
+
         character.DoTrigger(nextCell)
         character.EnterCell()
     End Sub
@@ -65,7 +67,9 @@ Friend Module CharacterExtensions
                 If roll <= character.Peril Then
                     character.SetPeril(character.Peril - roll)
                     Dim enemyType = RNG.FromGenerator(character.Map.MapType.ToMapTypeDescriptor.EncounterGenerator)
-                    character.SetEnemy(CreateCharacter(enemyType, character.Cell))
+                    Dim enemy = CreateCharacter(enemyType, character.Cell)
+                    character.SetEnemy(enemy)
+                    character.Cell.AddCharacter(enemy)
                 End If
             End If
         End If

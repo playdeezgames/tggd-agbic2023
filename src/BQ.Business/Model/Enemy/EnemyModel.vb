@@ -13,6 +13,14 @@
         End Get
     End Property
 
+    Public ReadOnly Property Enemies As IEnumerable(Of (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)) Implements IEnemyModel.Enemies
+        Get
+            Return world.Avatar.Cell.
+                OtherCharacters(world.Avatar).
+                Select(Function(x) (x.CharacterType.ToCharacterTypeDescriptor.Glyph, x.CharacterType.ToCharacterTypeDescriptor.Hue, x.CharacterType.ToCharacterTypeDescriptor.MaskGlyph, x.CharacterType.ToCharacterTypeDescriptor.MaskHue))
+        End Get
+    End Property
+
     Public Sub Attack() Implements IEnemyModel.Attack
         'TODO: this is not how to attack
     End Sub

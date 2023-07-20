@@ -14,5 +14,13 @@
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
         displayBuffer.Fill((0, 0), Context.ViewSize, Black)
+        Dim font = Context.Font(BagelQuestFont)
+        Dim enemies = Model.Enemy.Enemies
+        Dim x = Context.ViewSize.Item1 \ 2 - font.TextWidth(ChrW(0)) * enemies.Count \ 2
+        For Each enemy In enemies
+            font.WriteText(displayBuffer, (x, 0), enemy.MaskGlyph, enemy.MaskHue)
+            font.WriteText(displayBuffer, (x, 0), enemy.Glyph, enemy.Hue)
+            x += font.TextWidth(ChrW(0))
+        Next
     End Sub
 End Class

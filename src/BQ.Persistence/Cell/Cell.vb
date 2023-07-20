@@ -121,6 +121,12 @@ Friend Class Cell
         End Get
     End Property
 
+    Public ReadOnly Property OtherCharacters(character As ICharacter) As IEnumerable(Of ICharacter) Implements ICell.OtherCharacters
+        Get
+            Return CellData.CharacterIds.Where(Function(x) x <> character.Id).Select(Function(x) New Character(WorldData, x))
+        End Get
+    End Property
+
     Public Sub AddItem(item As IItem) Implements ICell.AddItem
         CellData.ItemIds.Add(item.Id)
     End Sub

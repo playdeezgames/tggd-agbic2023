@@ -51,9 +51,32 @@
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
         displayBuffer.Fill((0, 0), Context.ViewSize, Black)
+        DrawAvatar(displayBuffer)
+        DrawAvatarStats(displayBuffer)
         DrawEnemies(displayBuffer)
         DrawEnemyStats(displayBuffer)
         DrawMenuItems(displayBuffer)
+    End Sub
+
+    Private Sub DrawAvatarStats(displayBuffer As IPixelSink)
+        Dim font = Context.Font(UIFont)
+        Dim centerX = Context.ViewSize.Width * 1 \ 3
+        Dim y = Context.ViewSize.Height \ 6 - font.Height * 2 \ 2
+        font.WriteText(displayBuffer, (centerX - font.TextWidth(Model.Avatar.Name) \ 2, y), Model.Avatar.Name, LightGray)
+        y += font.Height
+        Dim text = $"{Model.Avatar.Health}/{Model.Avatar.MaximumHealth}"
+        font.WriteText(displayBuffer, (centerX - font.TextWidth(text) \ 2, y), text, LightGray)
+    End Sub
+
+    Private Sub DrawAvatar(displayBuffer As IPixelSink)
+        Dim font = Context.Font(BagelQuestFont)
+        Dim character = Model.Avatar.Character
+        Dim centerX = Context.ViewSize.Width * 1 \ 3
+        Dim x = centerX - font.TextWidth(ChrW(0)) \ 2
+        Dim y = Context.ViewSize.Height \ 3 - font.Height \ 2
+        Dim glyphWidth = font.TextWidth(ChrW(0))
+        font.WriteText(displayBuffer, (x, y), character.MaskGlyph, character.MaskHue)
+        font.WriteText(displayBuffer, (x, y), character.Glyph, character.Hue)
     End Sub
 
     Private Sub DrawMenuItems(displayBuffer As IPixelSink)
@@ -69,18 +92,20 @@
 
     Private Sub DrawEnemyStats(displayBuffer As IPixelSink)
         Dim font = Context.Font(UIFont)
+        Dim centerX = Context.ViewSize.Width * 2 \ 3
         Dim y = Context.ViewSize.Height \ 6 - font.Height * 2 \ 2
         Dim enemy = Model.Combat.Enemy(CharacterIndex)
-        font.WriteText(displayBuffer, (Context.ViewSize.Width \ 2 - font.TextWidth(enemy.Name) \ 2, y), enemy.Name, LightGray)
+        font.WriteText(displayBuffer, (centerX - font.TextWidth(enemy.Name) \ 2, y), enemy.Name, LightGray)
         y += font.Height
         Dim text = $"{enemy.Health}/{enemy.MaximumHealth}"
-        font.WriteText(displayBuffer, (Context.ViewSize.Width \ 2 - font.TextWidth(text) \ 2, y), text, LightGray)
+        font.WriteText(displayBuffer, (centerX - font.TextWidth(text) \ 2, y), text, LightGray)
     End Sub
 
     Private Sub DrawEnemies(displayBuffer As IPixelSink)
         Dim font = Context.Font(BagelQuestFont)
         Dim enemies = Model.Combat.Enemies
-        Dim x = Context.ViewSize.Width \ 2 - font.TextWidth(ChrW(0)) * enemies.Count \ 2
+        Dim centerX = Context.ViewSize.Width * 2 \ 3
+        Dim x = centerX - font.TextWidth(ChrW(0)) * enemies.Count \ 2
         Dim y = Context.ViewSize.Height \ 3 - font.Height * 2 \ 2
         Dim glyphWidth = font.TextWidth(ChrW(0))
         font.WriteText(displayBuffer, (x + glyphWidth * CharacterIndex, y + font.Height), ChrW(&H1C), White)

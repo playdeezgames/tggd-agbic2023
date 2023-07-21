@@ -28,5 +28,6 @@
             SetState(Neutral)
             Return
         End If
+        PlaySfx(Model.Message.Current.Sfx)
     End Sub
 End Class

@@ -1,7 +1,8 @@
 ﻿Public Module Sfx
     Public Const EnemyDeath = "EnemyDeath"
     Public Const EnemyHit = "EnemyHit"
-    Public Const Miss = "Miss"
+    Public Const EnemyMiss = "EnemyMiss"
+    Public Const PlayerMiss = "PlayerMiss"
     Public Const PlayerDeath = "PlayerDeath"
     Public Const PlayerHit = "SfxVolumeTest"
     Public Const Shucks = "Failure"

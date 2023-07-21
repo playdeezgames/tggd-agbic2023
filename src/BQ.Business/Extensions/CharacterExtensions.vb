@@ -151,15 +151,18 @@ Friend Module CharacterExtensions
         Dim damage = Math.Max(0, attackRoll - defendRoll)
         If damage <= 0 Then
             msg.AddLine(LightGray, $"{attacker.Name} misses.")
+            msg.SetSfx(If(attacker.IsAvatar, Sfx.PlayerMiss, Sfx.EnemyMiss))
             Return False
         End If
         msg.AddLine(LightGray, $"{defender.Name} takes {damage} damage")
         defender.SetHealth(defender.Health - damage)
         If defender.IsDead Then
+            msg.SetSfx(If(defender.IsAvatar, Sfx.PlayerDeath, Sfx.EnemyDeath))
             msg.AddLine(LightGray, $"{attacker.Name} kills {defender.Name}")
             defender.Die()
             Return True
         End If
+        msg.SetSfx(If(defender.IsAvatar, Sfx.PlayerHit, Sfx.EnemyHit))
         msg.AddLine(LightGray, $"{defender.Name} has {defender.Health}/{defender.MaximumHealth} health.")
         Return True
     End Function

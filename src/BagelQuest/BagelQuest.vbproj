@@ -29,10 +29,12 @@
     <None Remove="Content\Eat.wav" />
     <None Remove="Content\EnemyDeath.wav" />
     <None Remove="Content\EnemyHit.wav" />
+    <None Remove="Content\EnemyMiss.wav" />
     <None Remove="Content\keys.json" />
     <None Remove="Content\Miss.wav" />
     <None Remove="Content\PlayerDeath.wav" />
     <None Remove="Content\PlayerHit.wav" />
+    <None Remove="Content\PlayerMiss.wav" />
     <None Remove="Content\Shucks.wav" />
     <None Remove="Content\Take.wav" />
     <None Remove="Content\Tasty.wav" />
@@ -78,16 +80,19 @@
     <Content Include="Content\EnemyHit.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\keys.json">
+    <Content Include="Content\EnemyMiss.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Miss.wav">
+    <Content Include="Content\keys.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\PlayerDeath.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\PlayerHit.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\PlayerMiss.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Shucks.wav">

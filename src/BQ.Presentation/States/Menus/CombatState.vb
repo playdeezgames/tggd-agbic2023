@@ -28,6 +28,8 @@
             Case RunText
                 SetState(GameState.Run)
             Case AttackText
+                Model.Combat.Attack(CharacterIndex)
+                SetState(Neutral)
         End Select
     End Sub
 

@@ -57,4 +57,16 @@ Friend Class CombatModel
         world.CreateMessage().AddLine(LightGray, $"{world.Avatar.Name} cannot run away!")
         'TODO: counter attacks
     End Sub
+
+    Public Sub Attack(enemyIndex As Integer) Implements ICombatModel.Attack
+        Dim target = world.Avatar.Cell.
+                OtherCharacters(world.Avatar).ElementAt(enemyIndex)
+        world.Avatar.Attack(target)
+        Dim index = 1
+        Dim counterAttackers = world.Avatar.Cell.OtherCharacters(world.Avatar)
+        For Each counterAttacker In counterAttackers
+            counterAttacker.Attack(world.Avatar, $"Counter Attack {index}/{counterAttackers.Count}")
+            index += 1
+        Next
+    End Sub
 End Class

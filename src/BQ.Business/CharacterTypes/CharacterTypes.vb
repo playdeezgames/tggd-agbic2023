@@ -14,7 +14,16 @@ Friend Module CharacterTypes
                     ChrW(2),
                     Pink,
                     ChrW(1),
-                    Black)
+                    Black,
+                    statistics:=New Dictionary(Of String, Integer) From
+                    {
+                        {StatisticTypes.Health, 3},
+                        {StatisticTypes.MaximumHealth, 3},
+                        {StatisticTypes.AttackDice, 2},
+                        {StatisticTypes.MaximumAttack, 1},
+                        {StatisticTypes.DefendDice, 4},
+                        {StatisticTypes.MaximumDefend, 2}
+                    })
             },
             {
                 OliveGlop,
@@ -27,7 +36,11 @@ Friend Module CharacterTypes
                     statistics:=New Dictionary(Of String, Integer) From
                     {
                         {StatisticTypes.Health, 1},
-                        {StatisticTypes.MaximumHealth, 1}
+                        {StatisticTypes.MaximumHealth, 1},
+                        {StatisticTypes.AttackDice, 2},
+                        {StatisticTypes.MaximumAttack, 1},
+                        {StatisticTypes.DefendDice, 1},
+                        {StatisticTypes.MaximumDefend, 1}
                     })
             }
         }

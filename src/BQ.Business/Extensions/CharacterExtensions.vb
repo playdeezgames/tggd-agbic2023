@@ -94,4 +94,73 @@ Friend Module CharacterExtensions
     Friend Function MaximumHealth(character As ICharacter) As Integer
         Return character.TryGetStatistic(StatisticTypes.MaximumHealth)
     End Function
+    <Extension>
+    Private Function Attack(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.AttackDice)
+    End Function
+    <Extension>
+    Private Function MaximumAttack(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.MaximumAttack)
+    End Function
+    <Extension>
+    Private Function Defend(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.DefendDice)
+    End Function
+    <Extension>
+    Private Function MaximumDefend(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.MaximumDefend)
+    End Function
+    <Extension>
+    Private Function RollAttack(character As ICharacter) As Integer
+        Return Math.Min(character.MaximumAttack, Enumerable.Range(0, character.Attack).Sum(Function(x) RNG.RollDice("1d6/6")))
+    End Function
+    <Extension>
+    Private Function RollDefend(character As ICharacter) As Integer
+        Return Math.Min(character.MaximumDefend, Enumerable.Range(0, character.Defend).Sum(Function(x) RNG.RollDice("1d6/6")))
+    End Function
+    <Extension>
+    Private Sub SetHealth(character As ICharacter, health As Integer)
+        character.Statistic(StatisticTypes.Health) = Math.Clamp(health, 0, character.MaximumHealth)
+    End Sub
+    <Extension>
+    Private Function IsDead(character As ICharacter) As Boolean
+        Return character.Health <= 0
+    End Function
+    <Extension>
+    Private Sub Die(character As ICharacter)
+        If Not character.IsAvatar Then
+            character.Cell.RemoveCharacter(character)
+            'TODO: drop stuff
+            character.Recycle()
+        End If
+    End Sub
+    <Extension>
+    Friend Function Attack(attacker As ICharacter, defender As ICharacter, Optional message As String = Nothing) As Boolean
+        If defender.IsDead Then
+            Return False
+        End If
+        Dim msg = attacker.World.CreateMessage
+        If Not String.IsNullOrEmpty(message) Then
+            msg.AddLine(LightGray, message)
+        End If
+        msg.AddLine(LightGray, $"{attacker.Name} attacks {defender.Name}")
+        Dim attackRoll = attacker.RollAttack()
+        msg.AddLine(LightGray, $"{attacker.Name} rolls an attack of {attackRoll}")
+        Dim defendRoll = defender.RollDefend()
+        msg.AddLine(LightGray, $"{defender.Name} rolls a defend of {defendRoll}")
+        Dim damage = Math.Max(0, attackRoll - defendRoll)
+        If damage <= 0 Then
+            msg.AddLine(LightGray, $"{attacker.Name} misses.")
+            Return False
+        End If
+        msg.AddLine(LightGray, $"{defender.Name} takes {damage} damage")
+        defender.SetHealth(defender.Health - damage)
+        If defender.IsDead Then
+            msg.AddLine(LightGray, $"{attacker.Name} kills {defender.Name}")
+            defender.Die()
+            Return True
+        End If
+        msg.AddLine(LightGray, $"{defender.Name} has {defender.Health}/{defender.MaximumHealth} health.")
+        Return True
+    End Function
 End Module

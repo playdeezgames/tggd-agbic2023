@@ -19,7 +19,6 @@
   <ItemGroup>
     <None Remove="aboot.txt" />
     <None Remove="Content\BagelQuest.json" />
-    <None Remove="Content\BagelQuest.ogg" />
     <None Remove="Content\CombatTheme.ogg" />
     <None Remove="Content\Craft.wav" />
     <None Remove="Content\CyFont3x5.json" />
@@ -31,6 +30,7 @@
     <None Remove="Content\EnemyHit.wav" />
     <None Remove="Content\EnemyMiss.wav" />
     <None Remove="Content\keys.json" />
+    <None Remove="Content\MainTheme.ogg" />
     <None Remove="Content\Miss.wav" />
     <None Remove="Content\PlayerDeath.wav" />
     <None Remove="Content\PlayerHit.wav" />
@@ -47,67 +47,67 @@
     <Content Include="aboot.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\BagelQuest.json">
+    <Content Include="Content\Fonts\BagelQuest.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\BagelQuest.ogg">
+    <Content Include="Content\Audio\Mux\MainTheme.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\CombatTheme.ogg">
+    <Content Include="Content\Audio\Mux\CombatTheme.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Craft.wav">
+    <Content Include="Content\Audio\Sfx\Craft.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\CyFont3x5.json">
+    <Content Include="Content\Fonts\CyFont3x5.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\CyFont4x6.json">
+    <Content Include="Content\Fonts\CyFont4x6.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\CyFont5x7.json">
+    <Content Include="Content\Fonts\CyFont5x7.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\CyFont8x8.json">
+    <Content Include="Content\Fonts\CyFont8x8.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Eat.wav">
+    <Content Include="Content\Audio\Sfx\Eat.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\EnemyDeath.wav">
+    <Content Include="Content\Audio\Sfx\EnemyDeath.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\EnemyHit.wav">
+    <Content Include="Content\Audio\Sfx\EnemyHit.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\EnemyMiss.wav">
+    <Content Include="Content\Audio\Sfx\EnemyMiss.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\keys.json">
+    <Content Include="Content\Config\keys.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\PlayerDeath.wav">
+    <Content Include="Content\Audio\Sfx\PlayerDeath.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\PlayerHit.wav">
+    <Content Include="Content\Audio\Sfx\PlayerHit.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\PlayerMiss.wav">
+    <Content Include="Content\Audio\Sfx\PlayerMiss.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Shucks.wav">
+    <Content Include="Content\Audio\Sfx\Shucks.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Take.wav">
+    <Content Include="Content\Audio\Sfx\Take.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Tasty.wav">
+    <Content Include="Content\Audio\Sfx\Tasty.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\WooHoo.wav">
+    <Content Include="Content\Audio\Sfx\WooHoo.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Yoink.wav">
+    <Content Include="Content\Audio\Sfx\Yoink.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

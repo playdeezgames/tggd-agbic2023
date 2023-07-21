@@ -22,31 +22,31 @@ Module Program
     Private ReadOnly muxFileNameas As IReadOnlyDictionary(Of String, String) =
         New Dictionary(Of String, String) From
         {
-            {BoilerplateMux.MainTheme, "Content/BagelQuest.ogg"},
-            {Mux.CombatTheme, "Content/CombatTheme.ogg"}
+            {BoilerplateMux.MainTheme, "Content/Audio/Mux/MainTheme.ogg"},
+            {Mux.CombatTheme, "Content/Audio/Mux/CombatTheme.ogg"}
         }
     Private ReadOnly fontFileNames As IReadOnlyDictionary(Of String, String) =
         New Dictionary(Of String, String) From
         {
-            {UIFont, "Content/CyFont8x8.json"},
-            {BagelQuestFont, "Content/BagelQuest.json"}
+            {UIFont, "Content/Fonts/CyFont8x8.json"},
+            {BagelQuestFont, "Content/Fonts/BagelQuest.json"}
         }
     Private ReadOnly sfxFileNames As IReadOnlyDictionary(Of String, String) =
         New Dictionary(Of String, String) From
         {
-            {Sfx.PlayerHit, "Content/PlayerHit.wav"},
-            {Sfx.PlayerDeath, "Content/PlayerDeath.wav"},
-            {Sfx.EnemyHit, "Content/EnemyHit.wav"},
-            {Sfx.EnemyDeath, "Content/EnemyDeath.wav"},
-            {Sfx.EnemyMiss, "Content/EnemyMiss.wav"},
-            {Sfx.PlayerMiss, "Content/PlayerMiss.wav"},
-            {Sfx.Shucks, "Content/Shucks.wav"},
-            {Sfx.Craft, "Content/Craft.wav"},
-            {Sfx.Eat, "Content/Eat.wav"},
-            {Sfx.Take, "Content/Take.wav"},
-            {Sfx.Tasty, "Content/Tasty.wav"},
-            {Sfx.WooHoo, "Content/WooHoo.wav"},
-            {Sfx.Yoink, "Content/Yoink.wav"}
+            {Sfx.PlayerHit, "Content/Audio/Sfx/PlayerHit.wav"},
+            {Sfx.PlayerDeath, "Content/Audio/Sfx/PlayerDeath.wav"},
+            {Sfx.EnemyHit, "Content/Audio/Sfx/EnemyHit.wav"},
+            {Sfx.EnemyDeath, "Content/Audio/Sfx/EnemyDeath.wav"},
+            {Sfx.EnemyMiss, "Content/Audio/Sfx/EnemyMiss.wav"},
+            {Sfx.PlayerMiss, "Content/Audio/Sfx/PlayerMiss.wav"},
+            {Sfx.Shucks, "Content/Audio/Sfx/Shucks.wav"},
+            {Sfx.Craft, "Content/Audio/Sfx/Craft.wav"},
+            {Sfx.Eat, "Content/Audio/Sfx/Eat.wav"},
+            {Sfx.Take, "Content/Audio/Sfx/Take.wav"},
+            {Sfx.Tasty, "Content/Audio/Sfx/Tasty.wav"},
+            {Sfx.WooHoo, "Content/Audio/Sfx/WooHoo.wav"},
+            {Sfx.Yoink, "Content/Audio/Sfx/Yoink.wav"}
         }
     Private ReadOnly hueTable As IReadOnlyDictionary(Of Integer, Color) =
         New Dictionary(Of Integer, Color) From

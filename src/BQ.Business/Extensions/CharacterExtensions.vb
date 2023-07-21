@@ -123,7 +123,7 @@ Friend Module CharacterExtensions
         character.Statistic(StatisticTypes.Health) = Math.Clamp(health, 0, character.MaximumHealth)
     End Sub
     <Extension>
-    Private Function IsDead(character As ICharacter) As Boolean
+    Friend Function IsDead(character As ICharacter) As Boolean
         Return character.Health <= 0
     End Function
     <Extension>

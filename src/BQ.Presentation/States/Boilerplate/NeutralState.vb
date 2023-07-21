@@ -18,6 +18,10 @@
             SetState(GameState.Message)
             Return
         End If
+        If Model.Avatar.IsDead Then
+            SetState(GameState.Dead)
+            Return
+        End If
         If Model.Combat.Exists Then
             SetState(GameState.Combat)
             Return

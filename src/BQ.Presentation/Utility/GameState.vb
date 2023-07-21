@@ -1,5 +1,6 @@
 ﻿Friend Module GameState
     Friend Const Combat = "Combat"
+    Friend Const Dead = "Dead"
     Friend Const Message = "Message"
     Friend Const MoveDown = "MoveDown"
     Friend Const MoveLeft = "MoveLeft"

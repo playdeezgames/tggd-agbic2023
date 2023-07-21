@@ -43,12 +43,12 @@ Friend Module CharacterExtensions
         End If
     End Sub
     <Extension>
-    Friend Sub Move(character As ICharacter, delta As (x As Integer, y As Integer))
+    Friend Function Move(character As ICharacter, delta As (x As Integer, y As Integer)) As Boolean
         Dim cell = character.Cell
         Dim nextCell = cell.Map.GetCell(cell.Column + delta.x, cell.Row + delta.y)
         If Not character.CanEnter(nextCell) Then
             character.DoTrigger(nextCell)
-            Return
+            Return False
         End If
 
         nextCell.AddCharacter(character)
@@ -57,7 +57,8 @@ Friend Module CharacterExtensions
 
         character.DoTrigger(nextCell)
         character.EnterCell()
-    End Sub
+        Return True
+    End Function
     <Extension>
     Private Sub EnterCell(character As ICharacter)
         If character.Cell.Peril > 0 Then

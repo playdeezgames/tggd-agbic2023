@@ -1,4 +1,6 @@
-﻿Friend Class CombatModel
+﻿Imports SPLORR.Game
+
+Friend Class CombatModel
     Implements ICombatModel
 
     Private world As IWorld
@@ -36,4 +38,23 @@
                 Count
         End Get
     End Property
+
+    Private ReadOnly runDeltas As IReadOnlyList(Of (Integer, Integer)) =
+        New List(Of (Integer, Integer)) From
+        {
+            (0, -1),
+            (0, 1),
+            (-1, 0),
+            (1, 0)
+        }
+    Public Sub Run() Implements ICombatModel.Run
+        Dim delta = RNG.FromEnumerable(runDeltas)
+        If world.Avatar.Move(delta) Then
+            world.CreateMessage().AddLine(LightGray, $"{world.Avatar.Name} runs away!")
+            'TODO: winding up in a different combat?
+            Return
+        End If
+        world.CreateMessage().AddLine(LightGray, $"{world.Avatar.Name} cannot run away!")
+        'TODO: counter attacks
+    End Sub
 End Class

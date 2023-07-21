@@ -26,6 +26,7 @@
     Private Sub ExecuteMenuItem()
         Select Case MenuItems(MenuItemIndex).CommandText
             Case RunText
+                SetState(GameState.Run)
             Case AttackText
         End Select
     End Sub

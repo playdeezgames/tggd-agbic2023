@@ -20,6 +20,7 @@
     <None Remove="aboot.txt" />
     <None Remove="Content\BagelQuest.json" />
     <None Remove="Content\BagelQuest.ogg" />
+    <None Remove="Content\CombatTheme.ogg" />
     <None Remove="Content\Craft.wav" />
     <None Remove="Content\CyFont3x5.json" />
     <None Remove="Content\CyFont4x6.json" />
@@ -48,6 +49,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\BagelQuest.ogg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\CombatTheme.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Craft.wav">

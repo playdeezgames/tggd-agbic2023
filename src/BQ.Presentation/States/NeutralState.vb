@@ -18,7 +18,7 @@
             SetState(GameState.Message)
             Return
         End If
-        If Model.Enemy.Exists Then
+        If Model.Combat.Exists Then
             SetState(GameState.Combat)
             Return
         End If

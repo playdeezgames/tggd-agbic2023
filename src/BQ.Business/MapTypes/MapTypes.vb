@@ -29,7 +29,7 @@ Friend Module MapTypes
                     encounterGenerator:=New Dictionary(Of String, Integer) From
                     {
                         {
-                            CharacterTypes.Glop,
+                            CharacterTypes.OliveGlop,
                             1
                         }
                     })

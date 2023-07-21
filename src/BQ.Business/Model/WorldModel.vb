@@ -17,9 +17,9 @@
         End Get
     End Property
 
-    Public ReadOnly Property Enemy As IEnemyModel Implements IWorldModel.Enemy
+    Public ReadOnly Property Combat As ICombatModel Implements IWorldModel.Combat
         Get
-            Return New EnemyModel(World)
+            Return New CombatModel(World)
         End Get
     End Property
 

@@ -15,6 +15,7 @@ Public Class Host
     Private ReadOnly _muxSongs As New Dictionary(Of String, Song)
     Private ReadOnly _muxFilenames As IReadOnlyDictionary(Of String, String)
     Private ReadOnly _title As String
+    Private _currentMux As String = Nothing
     Sub New(
            title As String,
            controller As IGameController,
@@ -68,9 +69,10 @@ Public Class Host
         End If
     End Sub
     Private Sub OnMux(mux As String)
-        If mux IsNot Nothing AndAlso _muxFilenames.ContainsKey(mux) Then
-            MediaPlayer.Volume = _controller.MuxVolume
+        MediaPlayer.Volume = _controller.MuxVolume
+        If mux IsNot Nothing AndAlso mux <> _currentMux AndAlso _muxFilenames.ContainsKey(mux) Then
             MediaPlayer.Play(_muxSongs(mux))
+            _currentMux = mux
         End If
     End Sub
     Protected Overrides Sub LoadContent()

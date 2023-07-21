@@ -6,5 +6,5 @@
     ReadOnly Property Map As IMapModel
     ReadOnly Property Avatar As IAvatarModel
     ReadOnly Property Message As IMessageModel
-    ReadOnly Property Enemy As IEnemyModel
+    ReadOnly Property Combat As ICombatModel
 End Interface

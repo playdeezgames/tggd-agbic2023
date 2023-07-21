@@ -18,15 +18,24 @@
                 PreviousEnemy()
             Case Command.Right
                 NextEnemy()
+            Case Command.A
+                ExecuteMenuItem()
+        End Select
+    End Sub
+
+    Private Sub ExecuteMenuItem()
+        Select Case MenuItems(MenuItemIndex).CommandText
+            Case RunText
+            Case AttackText
         End Select
     End Sub
 
     Private Sub NextEnemy()
-        CharacterIndex = (CharacterIndex + 1) Mod Model.Enemy.Count
+        CharacterIndex = (CharacterIndex + 1) Mod Model.Combat.Count
     End Sub
 
     Private Sub PreviousEnemy()
-        CharacterIndex = (CharacterIndex + Model.Enemy.Count - 1) Mod Model.Enemy.Count
+        CharacterIndex = (CharacterIndex + Model.Combat.Count - 1) Mod Model.Combat.Count
     End Sub
 
     Private Sub NextMenuItem()
@@ -58,7 +67,7 @@
     Private Sub DrawEnemyStats(displayBuffer As IPixelSink)
         Dim font = Context.Font(UIFont)
         Dim y = Context.ViewSize.Height \ 6 - font.Height * 2 \ 2
-        Dim enemy = Model.Enemy.Enemy(CharacterIndex)
+        Dim enemy = Model.Combat.Enemy(CharacterIndex)
         font.WriteText(displayBuffer, (Context.ViewSize.Width \ 2 - font.TextWidth(enemy.Name) \ 2, y), enemy.Name, LightGray)
         y += font.Height
         Dim text = $"{enemy.Health}/{enemy.MaximumHealth}"
@@ -67,7 +76,7 @@
 
     Private Sub DrawEnemies(displayBuffer As IPixelSink)
         Dim font = Context.Font(BagelQuestFont)
-        Dim enemies = Model.Enemy.Enemies
+        Dim enemies = Model.Combat.Enemies
         Dim x = Context.ViewSize.Width \ 2 - font.TextWidth(ChrW(0)) * enemies.Count \ 2
         Dim y = Context.ViewSize.Height \ 3 - font.Height * 2 \ 2
         Dim glyphWidth = font.TextWidth(ChrW(0))
@@ -80,14 +89,15 @@
     End Sub
     Public Overrides Sub OnStart()
         MyBase.OnStart()
-        If Not Model.Enemy.Exists Then
+        If Not Model.Combat.Exists Then
             SetState(Neutral)
             Return
         End If
-        If CharacterIndex >= Model.Enemy.Count Then
+        If CharacterIndex >= Model.Combat.Count Then
             CharacterIndex = 0
         End If
         RefreshMenuItems()
+        PlayMux(Mux.CombatTheme)
     End Sub
 
     Private Sub RefreshMenuItems()

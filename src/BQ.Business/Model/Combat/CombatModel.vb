@@ -1,5 +1,5 @@
-﻿Friend Class EnemyModel
-    Implements IEnemyModel
+﻿Friend Class CombatModel
+    Implements ICombatModel
 
     Private world As IWorld
 
@@ -7,13 +7,13 @@
         Me.world = world
     End Sub
 
-    Public ReadOnly Property Exists As Boolean Implements IEnemyModel.Exists
+    Public ReadOnly Property Exists As Boolean Implements ICombatModel.Exists
         Get
             Return world.Avatar.Cell.HasOtherCharacters(world.Avatar)
         End Get
     End Property
 
-    Public ReadOnly Property Enemies As IEnumerable(Of (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)) Implements IEnemyModel.Enemies
+    Public ReadOnly Property Enemies As IEnumerable(Of (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)) Implements ICombatModel.Enemies
         Get
             Return world.Avatar.Cell.
                 OtherCharacters(world.Avatar).
@@ -21,7 +21,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property Enemy(index As Integer) As (Name As String, Health As Integer, MaximumHealth As Integer) Implements IEnemyModel.Enemy
+    Public ReadOnly Property Enemy(index As Integer) As (Name As String, Health As Integer, MaximumHealth As Integer) Implements ICombatModel.Enemy
         Get
             Dim character = world.Avatar.Cell.
                 OtherCharacters(world.Avatar).ElementAt(index)
@@ -29,7 +29,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property Count As Integer Implements IEnemyModel.Count
+    Public ReadOnly Property Count As Integer Implements ICombatModel.Count
         Get
             Return world.Avatar.Cell.
                 OtherCharacters(world.Avatar).

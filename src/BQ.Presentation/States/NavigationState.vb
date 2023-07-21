@@ -53,4 +53,9 @@
         Dim terrain = Model.Map.Terrain(cellXY)
         font.WriteText(displayBuffer, pixelXY, terrain.Glyph, terrain.Hue)
     End Sub
+
+    Public Overrides Sub OnStart()
+        MyBase.OnStart()
+        PlayMux(BoilerplateMux.MainTheme)
+    End Sub
 End Class

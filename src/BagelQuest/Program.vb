@@ -22,7 +22,8 @@ Module Program
     Private ReadOnly muxFileNameas As IReadOnlyDictionary(Of String, String) =
         New Dictionary(Of String, String) From
         {
-            {BoilerplateMux.MainTheme, "Content/BagelQuest.ogg"}
+            {BoilerplateMux.MainTheme, "Content/BagelQuest.ogg"},
+            {Mux.CombatTheme, "Content/CombatTheme.ogg"}
         }
     Private ReadOnly fontFileNames As IReadOnlyDictionary(Of String, String) =
         New Dictionary(Of String, String) From

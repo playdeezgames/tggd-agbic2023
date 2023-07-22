@@ -7,6 +7,7 @@ Friend Class CharacterTypeDescriptor
     Friend ReadOnly Property Statistics As IReadOnlyDictionary(Of String, Integer)
     Friend ReadOnly Property Initializer As Action(Of ICharacter)
     Friend ReadOnly Property Verbs As IReadOnlyDictionary(Of String, Action(Of ICharacter, ICharacter))
+    Friend ReadOnly Property Triggers As IReadOnlyDictionary(Of String, Action(Of ICharacter, ITrigger))
     Private ReadOnly Flags As HashSet(Of String)
     Friend ReadOnly Property HasFlag(flagType As String) As Boolean
         Get
@@ -27,7 +28,8 @@ Friend Class CharacterTypeDescriptor
                   Optional statistics As IReadOnlyDictionary(Of String, Integer) = Nothing,
                   Optional initializer As Action(Of ICharacter) = Nothing,
                   Optional verbs As IReadOnlyDictionary(Of String, Action(Of ICharacter, ICharacter)) = Nothing,
-                  Optional flags As IEnumerable(Of String) = Nothing)
+                  Optional flags As IEnumerable(Of String) = Nothing,
+                  Optional triggers As IReadOnlyDictionary(Of String, Action(Of ICharacter, ITrigger)) = Nothing)
         MyBase.New(name, glyph, hue)
         Me.MaskGlyph = MaskGlyph
         Me.MaskHue = maskHue
@@ -36,5 +38,6 @@ Friend Class CharacterTypeDescriptor
         Me.Flags = New HashSet(Of String)(If(flags, New List(Of String)))
         Me.Initializer = If(initializer, Sub(x)
                                          End Sub)
+        Me.Triggers = If(triggers, New Dictionary(Of String, Action(Of ICharacter, ITrigger)))
     End Sub
 End Class

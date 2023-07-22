@@ -1,5 +1,4 @@
-﻿Imports System.Runtime.CompilerServices
-Imports BQ.Data
+﻿Imports BQ.Data
 
 Friend Class Trigger
     Inherits TriggerDataClient

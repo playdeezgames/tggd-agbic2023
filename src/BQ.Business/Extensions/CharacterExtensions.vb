@@ -135,6 +135,28 @@ Friend Module CharacterExtensions
         End If
     End Sub
     <Extension>
+    Private Function AddXP(character As ICharacter, xp As Integer) As Boolean
+        character.Statistic(StatisticTypes.XP) += xp
+        If character.XP >= character.XPGoal Then
+            character.Statistic(StatisticTypes.XPLevel) += 1
+            Dim currentGoal = character.XPGoal
+            character.Statistic(StatisticTypes.XPGoal) *= 2
+            character.AddXP(-currentGoal)
+            Return True
+        End If
+        Return False
+    End Function
+    <Extension>
+    Private Sub AwardXP(character As ICharacter, xp As Integer)
+        If Not character.IsAvatar Then
+            Return
+        End If
+        Dim msg = character.World.CreateMessage().AddLine(LightGray, $"{character.Name} gains {xp} XP!")
+        If character.AddXP(xp) Then
+            msg.AddLine(LightGreen, $"{character.Name} is now level {character.XPLevel}!")
+        End If
+    End Sub
+    <Extension>
     Friend Function Attack(attacker As ICharacter, defender As ICharacter, Optional message As String = Nothing) As Boolean
         If defender.IsDead Then
             Return False
@@ -159,6 +181,7 @@ Friend Module CharacterExtensions
         If defender.IsDead Then
             msg.SetSfx(If(defender.IsAvatar, Sfx.PlayerDeath, Sfx.EnemyDeath))
             msg.AddLine(LightGray, $"{attacker.Name} kills {defender.Name}")
+            attacker.AwardXP(defender.XP)
             defender.Die()
             Return True
         End If

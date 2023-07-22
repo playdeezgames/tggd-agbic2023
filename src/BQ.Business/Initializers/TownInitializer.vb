@@ -49,45 +49,44 @@ Friend Module TownInitializer
         map.GetCell(2, 3).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
-            AddMessageLine(LightGray, "This is sign #1.")
+            SetMetadata(MessageType, MessageTypes.TownSign1)
         map.GetCell(14, 3).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
-            AddMessageLine(LightGray, "This is sign #2.")
+            SetMetadata(MessageType, MessageTypes.TownSign2)
         map.GetCell(7, 4).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
-            AddMessageLine(LightGray, "This is sign #3.")
+            SetMetadata(MessageType, MessageTypes.TownSign3)
         map.GetCell(5, 6).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
-            AddMessageLine(LightGray, "This is sign #4.")
+            SetMetadata(MessageType, MessageTypes.TownSign4)
         map.GetCell(11, 6).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
-            AddMessageLine(LightGray, "This is sign #5.")
+            SetMetadata(MessageType, MessageTypes.TownSign5)
         map.GetCell(5, 10).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
-            AddMessageLine(LightGray, "This is sign #6.")
+            SetMetadata(MessageType, MessageTypes.TownSign6)
         map.GetCell(11, 10).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
-            AddMessageLine(LightGray, "This is sign #7.")
+            SetMetadata(MessageType, MessageTypes.TownSign7)
         map.GetCell(9, 12).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
-            AddMessageLine(LightGray, "This is sign #8.")
+            SetMetadata(MessageType, MessageTypes.TownSign8)
         map.GetCell(14, 13).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
-            AddMessageLine(LightGray, "This is sign #10.")
+            SetMetadata(MessageType, MessageTypes.TownSign10)
     End Sub
 
     Private Sub InitializeHealer(townMap As IMap)
         townMap.GetCell(2, 13).Trigger =
             townMap.CreateTrigger().
-            SetTriggerType(TriggerTypes.Message).
-            AddMessageLine(LightGray, "House of Nihilistic Healing")
+            SetTriggerType(TriggerTypes.Message).SetMetadata(MessageType, MessageTypes.TownSign9)
     End Sub
 End Module

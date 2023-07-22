@@ -36,8 +36,11 @@ Friend Class CharacterTypeDescriptor
         Me.Statistics = If(statistics, New Dictionary(Of String, Integer))
         Me.Verbs = If(verbs, New Dictionary(Of String, Action(Of ICharacter, ICharacter)))
         Me.Flags = New HashSet(Of String)(If(flags, New List(Of String)))
-        Me.Initializer = If(initializer, Sub(x)
-                                         End Sub)
+        Me.Initializer = If(initializer, AddressOf DoNothing)
         Me.Triggers = If(triggers, New Dictionary(Of String, Action(Of ICharacter, ITrigger)))
+    End Sub
+
+    Private Sub DoNothing(character As ICharacter)
+        'as ordered!
     End Sub
 End Class

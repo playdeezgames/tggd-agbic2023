@@ -135,10 +135,6 @@ Friend Class Cell
         CellData.ItemIds.Remove(item.Id)
     End Sub
 
-    Public Sub DoTrigger(character As ICharacter) Implements ICell.DoTrigger
-        Trigger.Execute(character)
-    End Sub
-
     Public Sub AddCharacter(character As ICharacter) Implements ICell.AddCharacter
         CellData.CharacterIds.Add(character.Id)
     End Sub

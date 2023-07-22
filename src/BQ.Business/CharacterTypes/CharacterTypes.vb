@@ -26,6 +26,10 @@ Friend Module CharacterTypes
                         {StatisticTypes.XP, 0},
                         {StatisticTypes.XPGoal, 10},
                         {StatisticTypes.XPLevel, 1}
+                    }, triggers:=New Dictionary(Of String, Action(Of ICharacter, ITrigger)) From
+                    {
+                        {TriggerTypes.Teleport, AddressOf DefaultTeleport},
+                        {TriggerTypes.Message, AddressOf DefaultMessage}
                     })
             },
             {
@@ -49,6 +53,21 @@ Friend Module CharacterTypes
                     })
             }
         }
+
+    Private Sub DefaultMessage(character As ICharacter, trigger As ITrigger)
+        Dim descriptor = trigger.Metadata(Metadatas.MessageType).ToMessageTypeDescriptor
+        Dim msg = character.World.CreateMessage().SetSfx(descriptor.Sfx)
+        For Each line In descriptor.Lines
+            msg.AddLine(line.hue, line.text)
+        Next
+    End Sub
+
+    Private Sub DefaultTeleport(character As ICharacter, trigger As ITrigger)
+        Dim nextCell = character.World.Map(trigger.Statistics(StatisticTypes.MapId)).GetCell(trigger.Statistics(StatisticTypes.CellColumn), trigger.Statistics(StatisticTypes.CellRow))
+        nextCell.AddCharacter(character)
+        character.Cell.RemoveCharacter(character)
+        character.Cell = nextCell
+    End Sub
 
     <Extension>
     Friend Function ToCharacterTypeDescriptor(characterType As String) As CharacterTypeDescriptor

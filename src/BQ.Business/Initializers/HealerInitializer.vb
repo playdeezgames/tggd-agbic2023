@@ -22,10 +22,6 @@
         healerCell.Trigger =
             map.CreateTrigger.
             SetTriggerType(TriggerTypes.Message).
-            AddMessageLine(LightGray, $"Welcome to the Nihilistic House of Healing.").
-            AddMessageLine(LightGray, $"If you go to the basin and wash,").
-            AddMessageLine(LightGray, $"you will be healed.").
-            AddMessageLine(LightGray, $"Not that I care or anything,").
-            AddMessageLine(LightGray, $"because I'm a nihilist.")
+            SetMetadata(Metadatas.MessageType, MessageTypes.HealerIntroduction)
     End Sub
 End Module

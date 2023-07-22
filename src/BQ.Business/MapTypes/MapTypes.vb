@@ -6,6 +6,7 @@ Imports BQ.Persistence
 Friend Module MapTypes
     Friend Const Town = "Town"
     Friend Const Wilderness = "Wilderness"
+    Friend Const Healer = "Healer"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, MapTypeDescriptor) =
         New Dictionary(Of String, MapTypeDescriptor) From
         {
@@ -33,6 +34,13 @@ Friend Module MapTypes
                             1
                         }
                     })
+            },
+            {
+                Healer,
+                New MapTypeDescriptor(
+                    (HealerColumns, HealerRows),
+                    TerrainTypes.Empty,
+                    customInitializer:=AddressOf HealerInitializer.Initialize)
             }
         }
 

@@ -45,6 +45,7 @@ Friend Module TownInitializer
             row += 1
         Next
 
+        InitializeHealer(map)
         map.GetCell(2, 3).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
@@ -77,30 +78,16 @@ Friend Module TownInitializer
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
             AddMessageLine(LightGray, "This is sign #8.")
-        map.GetCell(2, 13).Trigger =
-            map.CreateTrigger().
-            SetTriggerType(TriggerTypes.Message).
-            AddMessageLine(LightGray, "This is sign #9.")
         map.GetCell(14, 13).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
             AddMessageLine(LightGray, "This is sign #10.")
+    End Sub
 
-        map.GetCell(map.Columns \ 2, map.Rows - 1).Trigger =
-            map.CreateTrigger().
-            SetTriggerType(TriggerTypes.Teleport).
-            SetDestination(map.GetCell(map.Columns \ 2, 0))
-        map.GetCell(map.Columns \ 2, 0).Trigger =
-            map.CreateTrigger().
-            SetTriggerType(TriggerTypes.Teleport).
-            SetDestination(map.GetCell(map.Columns \ 2, map.Rows - 1))
-        map.GetCell(0, map.Rows \ 2).Trigger =
-            map.CreateTrigger().
-            SetTriggerType(TriggerTypes.Teleport).
-            SetDestination(map.GetCell(map.Columns - 1, map.Rows \ 2))
-        map.GetCell(map.Columns - 1, map.Rows \ 2).Trigger =
-            map.CreateTrigger().
-            SetTriggerType(TriggerTypes.Teleport).
-            SetDestination(map.GetCell(0, map.Rows \ 2))
+    Private Sub InitializeHealer(townMap As IMap)
+        townMap.GetCell(2, 13).Trigger =
+            townMap.CreateTrigger().
+            SetTriggerType(TriggerTypes.Message).
+            AddMessageLine(LightGray, "House of Nihilistic Healing")
     End Sub
 End Module

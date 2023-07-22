@@ -7,6 +7,24 @@ Friend Module WorldInitializer
         AvatarInitializer.Initialize(world)
     End Sub
     Private Sub StitchMaps(world As IWorld)
+        StitchTownToWilderness(world)
+        StitchHealerToTown(world)
+    End Sub
+
+    Private Sub StitchHealerToTown(world As IWorld)
+        Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
+        Dim healerMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Healer)
+        townMap.GetCell(3, 13).Trigger =
+            townMap.CreateTrigger().
+            SetTriggerType(Teleport).
+            SetDestination(healerMap.GetCell(HealerColumns \ 2, HealerRows - 2))
+        healerMap.GetCell(HealerColumns \ 2, HealerRows - 1).Trigger =
+            healerMap.CreateTrigger().
+            SetTriggerType(Teleport).
+            SetDestination(townMap.GetCell(4, 13))
+    End Sub
+
+    Private Sub StitchTownToWilderness(world As IWorld)
         Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
         Dim wildernessMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Wilderness)
         Dim townCell = wildernessMap.Cells.Single(Function(x) x.TerrainType = TerrainTypes.Town)

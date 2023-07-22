@@ -40,6 +40,6 @@ Module Program
                 Next
             Next
         Next
-        File.WriteAllText(Path.GetFullPath("..\..\..\..\BagelQuest\Content\BagelQuest.json"), JsonSerializer.Serialize(fontData))
+        File.WriteAllText(Path.GetFullPath("..\..\..\..\BagelQuest\Content\Fonts\BagelQuest.json"), JsonSerializer.Serialize(fontData))
     End Sub
 End Module

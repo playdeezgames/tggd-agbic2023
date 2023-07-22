@@ -19,6 +19,12 @@ Friend Class Trigger
         End Get
     End Property
 
+    Public ReadOnly Property Statistics(statisticType As String) As Integer Implements ITrigger.Statistics
+        Get
+            Return TriggerData.Statistics(statisticType)
+        End Get
+    End Property
+
     Public Sub Execute(character As ICharacter) Implements ITrigger.Execute
         Select Case TriggerType
             Case TriggerTypes.Message
@@ -58,6 +64,11 @@ Friend Class Trigger
             Return Me
         End If
         TriggerData.Destination = New TriggerDestinationData With {.MapId = cell.Map.Id, .Column = cell.Column, .Row = cell.Row}
+        Return Me
+    End Function
+
+    Public Function SetStatistic(statisticType As String, value As Integer) As ITrigger Implements ITrigger.SetStatistic
+        TriggerData.Statistics(statisticType) = value
         Return Me
     End Function
 End Class

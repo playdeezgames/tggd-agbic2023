@@ -40,7 +40,8 @@ Friend Module CharacterTypes
                         {StatisticTypes.AttackDice, 2},
                         {StatisticTypes.MaximumAttack, 1},
                         {StatisticTypes.DefendDice, 1},
-                        {StatisticTypes.MaximumDefend, 1}
+                        {StatisticTypes.MaximumDefend, 1},
+                        {StatisticTypes.Peril, 5}
                     })
             }
         }

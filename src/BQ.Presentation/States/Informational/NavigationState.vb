@@ -23,7 +23,17 @@
     Public Overrides Sub Render(displayBuffer As IPixelSink)
         displayBuffer.Fill((0, 0), Context.ViewSize, DarkGray)
         RenderMap(displayBuffer)
+        RenderStatistics(displayBuffer)
+        Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText("Actions", "Game Menu"), Black, LightGray)
     End Sub
+
+    Private Sub RenderStatistics(displayBuffer As IPixelSink)
+        Dim font = Context.Font(UIFont)
+        Dim text = $"H: {Model.Avatar.Health}/{Model.Avatar.MaximumHealth}"
+        font.WriteText(displayBuffer, (1, 1), text, Black)
+        font.WriteText(displayBuffer, (0, 0), text, Pink)
+    End Sub
+
     Private Function Plot(column As Integer, row As Integer) As (Integer, Integer)
         Return (column * CellWidth + CenterCellX, row * CellHeight + CenterCellY)
     End Function

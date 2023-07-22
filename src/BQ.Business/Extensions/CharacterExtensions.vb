@@ -166,4 +166,16 @@ Friend Module CharacterExtensions
         msg.AddLine(LightGray, $"{defender.Name} has {defender.Health}/{defender.MaximumHealth} health.")
         Return True
     End Function
+    <Extension>
+    Function XP(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.XP)
+    End Function
+    <Extension>
+    Function XPGoal(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.XPGoal)
+    End Function
+    <Extension>
+    Function XPLevel(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.XPLevel)
+    End Function
 End Module

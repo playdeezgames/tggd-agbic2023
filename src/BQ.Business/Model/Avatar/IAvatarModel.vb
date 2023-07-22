@@ -5,4 +5,7 @@
     ReadOnly Property Name As String
     ReadOnly Property Health As Integer
     ReadOnly Property MaximumHealth As Integer
+    ReadOnly Property XP As Integer
+    ReadOnly Property XPGoal As Integer
+    ReadOnly Property XPLevel As Integer
 End Interface

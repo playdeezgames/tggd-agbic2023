@@ -22,7 +22,10 @@ Friend Module CharacterTypes
                         {StatisticTypes.AttackDice, 2},
                         {StatisticTypes.MaximumAttack, 1},
                         {StatisticTypes.DefendDice, 4},
-                        {StatisticTypes.MaximumDefend, 2}
+                        {StatisticTypes.MaximumDefend, 2},
+                        {StatisticTypes.XP, 0},
+                        {StatisticTypes.XPGoal, 10},
+                        {StatisticTypes.XPLevel, 1}
                     })
             },
             {
@@ -41,7 +44,8 @@ Friend Module CharacterTypes
                         {StatisticTypes.MaximumAttack, 1},
                         {StatisticTypes.DefendDice, 1},
                         {StatisticTypes.MaximumDefend, 1},
-                        {StatisticTypes.Peril, 5}
+                        {StatisticTypes.Peril, 5},
+                        {StatisticTypes.XP, 1}
                     })
             }
         }

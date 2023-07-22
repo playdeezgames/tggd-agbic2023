@@ -6,4 +6,7 @@
     Friend Const MaximumDefend = "MaximumDefend"
     Friend Const MaximumHealth = "MaximumHealth"
     Friend Const Peril = "Peril"
+    Friend Const XP = "XP"
+    Friend Const XPGoal = "XPGoal"
+    Friend Const XPLevel = "XPLevel"
 End Module

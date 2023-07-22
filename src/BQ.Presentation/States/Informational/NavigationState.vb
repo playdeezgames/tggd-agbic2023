@@ -27,11 +27,17 @@
         Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText("Actions", "Game Menu"), Black, LightGray)
     End Sub
 
+
     Private Sub RenderStatistics(displayBuffer As IPixelSink)
         Dim font = Context.Font(UIFont)
-        Dim text = $"H: {Model.Avatar.Health}/{Model.Avatar.MaximumHealth}"
-        font.WriteText(displayBuffer, (1, 1), text, Black)
-        font.WriteText(displayBuffer, (0, 0), text, Pink)
+        RenderStatistic(displayBuffer, font, (0, 0), $"HP: {Model.Avatar.Health}/{Model.Avatar.MaximumHealth}", Pink)
+        RenderStatistic(displayBuffer, font, (0, font.Height), $"LV: {Model.Avatar.XPLevel}", Blue)
+        RenderStatistic(displayBuffer, font, (0, font.Height * 2), $"XP: {Model.Avatar.XP}/{Model.Avatar.XPGoal}", Hue.Cyan)
+    End Sub
+
+    Private Shared Sub RenderStatistic(displayBuffer As IPixelSink, font As Font, position As (x As Integer, y As Integer), text As String, hue As Integer)
+        font.WriteText(displayBuffer, (position.x + 1, position.y + 1), text, Black)
+        font.WriteText(displayBuffer, (position.x, position.y), text, hue)
     End Sub
 
     Private Function Plot(column As Integer, row As Integer) As (Integer, Integer)

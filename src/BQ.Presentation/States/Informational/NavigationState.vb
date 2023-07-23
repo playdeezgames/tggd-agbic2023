@@ -59,6 +59,9 @@
             Return
         End If
         RenderTerrain(font, displayBuffer, cellXY, pixelXY)
+        For Each item In Model.Map.Items(cellXY)
+            font.WriteText(displayBuffer, pixelXY, item.Glyph, item.Hue)
+        Next
         Dim character = Model.Map.Character(cellXY)
         If character.HasValue Then
             font.WriteText(displayBuffer, pixelXY, character.Value.MaskGlyph, character.Value.MaskHue)

@@ -34,6 +34,14 @@ Friend Class MapModel
         End Get
     End Property
 
+    Public ReadOnly Property Items(cellXY As (column As Integer, row As Integer)) As IEnumerable(Of (Glyph As Char, Hue As Integer)) Implements IMapModel.Items
+        Get
+            cellXY = Translate(cellXY)
+            Dim cell = map.GetCell(cellXY.column, cellXY.row)
+            Return cell.Items.Select(Function(x) x.ItemType).Distinct().Select(Function(x) (x.ToItemTypeDescriptor.Glyph, x.ToItemTypeDescriptor.Hue))
+        End Get
+    End Property
+
     Public Function CellExists(cellXY As (column As Integer, row As Integer)) As Boolean Implements IMapModel.CellExists
         cellXY = Translate(cellXY)
         Return cellXY.column >= 0 AndAlso cellXY.row >= 0 AndAlso cellXY.column < map.Columns AndAlso cellXY.row < map.Rows

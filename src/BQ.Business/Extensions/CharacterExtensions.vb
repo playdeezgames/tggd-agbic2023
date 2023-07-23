@@ -133,8 +133,16 @@ Friend Module CharacterExtensions
     <Extension>
     Private Sub Die(character As ICharacter)
         If Not character.IsAvatar Then
-            character.Cell.RemoveCharacter(character)
-            'TODO: drop stuff
+            Dim cell = character.Cell
+            cell.RemoveCharacter(character)
+            For Each item In character.EquippedItems
+                character.UnequipItem(item)
+                cell.AddItem(item)
+            Next
+            For Each item In character.Items
+                character.RemoveItem(item)
+                cell.AddItem(item)
+            Next
             character.Recycle()
         End If
     End Sub

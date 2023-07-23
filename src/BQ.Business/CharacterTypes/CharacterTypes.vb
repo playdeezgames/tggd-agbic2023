@@ -52,7 +52,8 @@ Friend Module CharacterTypes
                         {StatisticTypes.MaximumDefend, 1},
                         {StatisticTypes.Peril, 5},
                         {StatisticTypes.XP, 1}
-                    })
+                    },
+                    initializer:=AddressOf OliveGlopInitializer)
             },
             {
                 CherryGlop,
@@ -72,9 +73,18 @@ Friend Module CharacterTypes
                         {StatisticTypes.MaximumDefend, 1},
                         {StatisticTypes.Peril, 10},
                         {StatisticTypes.XP, 1}
-                    })
+                    },
+                    initializer:=AddressOf CherryGlopInitializer)
             }
         }
+
+    Private Sub CherryGlopInitializer(character As ICharacter)
+
+    End Sub
+
+    Private Sub OliveGlopInitializer(character As ICharacter)
+        character.AddItem(CreateItem(character.World, ItemTypes.PlantFiber))
+    End Sub
 
     Private Sub DefaultHeal(character As ICharacter, trigger As ITrigger)
         Dim maximumHealth = Math.Min(character.MaximumHealth, trigger.Statistics(StatisticTypes.MaximumHealth))

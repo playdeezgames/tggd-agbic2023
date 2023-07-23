@@ -1,0 +1,23 @@
+﻿Friend Class GroundState
+    Inherits BasePickerState(Of IWorldModel, String)
+
+    Public Sub New(parent As IGameController, setState As Action(Of String, Boolean), context As IUIContext(Of IWorldModel))
+        MyBase.New(parent, setState, context, "On the Ground", context.ControlsText("Select", "Cancel"), GameState.ActionMenu)
+    End Sub
+
+    Protected Overrides Sub OnActivateMenuItem(value As (String, String))
+
+    End Sub
+
+    Protected Overrides Function InitializeMenuItems() As List(Of (String, String))
+        Return Model.Map.GroundItems((0, 0))
+    End Function
+
+    Public Overrides Sub OnStart()
+        MyBase.OnStart()
+        If Not Model.Map.HasItems((0, 0)) Then
+            SetState(ActionMenu)
+            Return
+        End If
+    End Sub
+End Class

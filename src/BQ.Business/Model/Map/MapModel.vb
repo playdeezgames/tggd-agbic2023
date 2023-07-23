@@ -49,6 +49,17 @@ Friend Class MapModel
         End Get
     End Property
 
+    Public ReadOnly Property GroundItems(cellXY As (column As Integer, row As Integer)) As List(Of (String, String)) Implements IMapModel.GroundItems
+        Get
+            cellXY = Translate(cellXY)
+            Return map.
+                GetCell(cellXY.column, cellXY.row).Items.
+                GroupBy(Function(x) x.ItemType).
+                Select(Function(x) ($"{x.Key.ToItemTypeDescriptor.Name}(x{x.Count})", x.Key)).
+                ToList
+        End Get
+    End Property
+
     Public Function CellExists(cellXY As (column As Integer, row As Integer)) As Boolean Implements IMapModel.CellExists
         cellXY = Translate(cellXY)
         Return cellXY.column >= 0 AndAlso cellXY.row >= 0 AndAlso cellXY.column < map.Columns AndAlso cellXY.row < map.Rows

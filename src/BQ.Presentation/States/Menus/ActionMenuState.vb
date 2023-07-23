@@ -9,6 +9,8 @@
         Select Case value.Item2
             Case Constants.StatisticsText
                 SetState(GameState.Statistics)
+            Case Constants.GroundText
+                SetState(GameState.Ground)
         End Select
     End Sub
 

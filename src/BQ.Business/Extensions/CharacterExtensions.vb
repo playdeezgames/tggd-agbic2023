@@ -123,7 +123,7 @@ Friend Module CharacterExtensions
         Return Math.Min(character.MaximumDefend, Enumerable.Range(0, character.Defend).Sum(Function(x) RNG.RollDice("1d6/6")))
     End Function
     <Extension>
-    Private Sub SetHealth(character As ICharacter, health As Integer)
+    Friend Sub SetHealth(character As ICharacter, health As Integer)
         character.Statistic(StatisticTypes.Health) = Math.Clamp(health, 0, character.MaximumHealth)
     End Sub
     <Extension>
@@ -158,6 +158,8 @@ Friend Module CharacterExtensions
         Dim msg = character.World.CreateMessage().AddLine(LightGray, $"{character.Name} gains {xp} XP!")
         If character.AddXP(xp) Then
             msg.AddLine(LightGreen, $"{character.Name} is now level {character.XPLevel}!")
+        Else
+            msg.AddLine(LightGray, $"{character.Name} needs {character.XPGoal - character.XP} for the next level.")
         End If
     End Sub
     <Extension>

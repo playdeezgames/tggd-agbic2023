@@ -32,7 +32,7 @@ Friend Module MessageTypes
                     (LightGray, "Welcome to the Nihilistic House of Healing."),
                     (LightGray, "If you go to the basin And wash,"),
                     (LightGray, "you will be healed."),
-                    (LightGray, "Not that I care Or anything,"),
+                    (LightGray, "Not that I care or anything,"),
                     (LightGray, "because I'm a nihilist."))
             }
         }

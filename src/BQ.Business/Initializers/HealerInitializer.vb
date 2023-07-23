@@ -15,7 +15,7 @@
         basinCell.TerrainType = TerrainTypes.Basin
         basinCell.Trigger =
             map.CreateTrigger.
-            SetTriggerType(VerbTypes.Heal).
+            SetTriggerType(TriggerTypes.Heal).
             SetStatistic(StatisticTypes.MaximumHealth, 5)
         Dim healerCell = map.GetCell(map.Columns - 2, map.Rows - 2)
         healerCell.TerrainType = TerrainTypes.OldMan

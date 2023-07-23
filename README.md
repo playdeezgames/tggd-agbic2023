@@ -3,6 +3,29 @@
 Matura MT Script Capitals
 96
 
+# Main Quest
+
+* Warm Water
+    * water jug
+        * get it from a well?
+* Yeast
+    * yeast starter?
+* Bread Flour
+    * grinding
+        * winnowing
+            * threshing
+                * foraging
+* Molasses
+    * boil sugarcane
+* Salt
+    * evaporate salty water
+        * get salty water in a jug
+
+# Town Buildings
+
+* Healer
+* 
+
 # Winner!
 
 https://famicase.com/23/softs/058.html

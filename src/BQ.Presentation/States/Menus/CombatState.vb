@@ -129,6 +129,7 @@
     End Sub
 
     Private Sub RefreshMenuItems()
+        MenuItemIndex = 0
         MenuItems.Clear()
         MenuItems.Add((AttackText, AttackText))
         MenuItems.Add((RunText, RunText))

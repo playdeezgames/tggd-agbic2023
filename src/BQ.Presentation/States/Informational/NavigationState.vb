@@ -7,6 +7,8 @@
 
     Public Overrides Sub HandleCommand(cmd As String)
         Select Case cmd
+            Case Command.A
+                SetState(GameState.ActionMenu)
             Case Command.B
                 SetState(GameMenu)
             Case Command.Up

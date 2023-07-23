@@ -22,13 +22,13 @@
     Friend Const MapRenderColumns = RightColumn - LeftColumn
     Friend Const MapRenderRows = BottomRow - TopRow
     Friend Const RunText = "Run!"
+    Friend Const StatisticsText = "Statistics"
     'Friend Const DropText = "Drop"
     'Friend Const EquipText = "Equip"
     'Friend Const EquipmentText = "Equipment"
     'Friend Const GroundText = "Ground..."
     'Friend Const InventoryText = "Inventory"
     'Friend Const TakeText = "Take"
-    'Friend Const StatisticsText = "Statistics"
     'Friend Const BagelQuestDelaySeconds = 1.0
     'Friend Const UnequipText = "Unequip"
 End Module

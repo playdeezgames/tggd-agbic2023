@@ -8,4 +8,8 @@
     ReadOnly Property XP As Integer
     ReadOnly Property XPGoal As Integer
     ReadOnly Property XPLevel As Integer
+    ReadOnly Property AverageAttack As Double
+    ReadOnly Property AverageDefend As Double
+    ReadOnly Property MaximumAttack As Integer
+    ReadOnly Property MaximumDefend As Integer
 End Interface

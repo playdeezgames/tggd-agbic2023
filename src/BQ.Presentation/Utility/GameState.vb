@@ -1,4 +1,5 @@
 ﻿Friend Module GameState
+    Friend Const ActionMenu = "ActionMenu"
     Friend Const Combat = "Combat"
     Friend Const Dead = "Dead"
     Friend Const Message = "Message"
@@ -8,4 +9,5 @@
     Friend Const MoveUp = "MoveUp"
     Friend Const Navigation = "Navigation"
     Friend Const Run = "Run"
+    Friend Const Statistics = "Statistics"
 End Module

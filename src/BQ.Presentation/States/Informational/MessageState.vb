@@ -21,6 +21,7 @@
             font.WriteText(displayBuffer, (Context.ViewSize.Item1 \ 2 - font.TextWidth(line.Text) \ 2, y), line.Text, line.Hue)
             y += font.Height
         Next
+        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText("Continue", Nothing), Black, LightGray)
     End Sub
     Public Overrides Sub OnStart()
         MyBase.OnStart()

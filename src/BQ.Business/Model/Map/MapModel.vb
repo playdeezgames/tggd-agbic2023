@@ -42,6 +42,13 @@ Friend Class MapModel
         End Get
     End Property
 
+    Public ReadOnly Property HasItems(cellXY As (column As Integer, row As Integer)) As Boolean Implements IMapModel.HasItems
+        Get
+            cellXY = Translate(cellXY)
+            Return map.GetCell(cellXY.column, cellXY.row).HasItems
+        End Get
+    End Property
+
     Public Function CellExists(cellXY As (column As Integer, row As Integer)) As Boolean Implements IMapModel.CellExists
         cellXY = Translate(cellXY)
         Return cellXY.column >= 0 AndAlso cellXY.row >= 0 AndAlso cellXY.column < map.Columns AndAlso cellXY.row < map.Rows

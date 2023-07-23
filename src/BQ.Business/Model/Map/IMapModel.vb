@@ -3,4 +3,5 @@
     ReadOnly Property Terrain(cellXY As (column As Integer, row As Integer)) As (Glyph As Char, Hue As Integer)
     ReadOnly Property Character(cellXY As (column As Integer, row As Integer)) As (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)?
     ReadOnly Property Items(cellXY As (column As Integer, row As Integer)) As IEnumerable(Of (Glyph As Char, Hue As Integer))
+    ReadOnly Property HasItems(cellXY As (column As Integer, row As Integer)) As Boolean
 End Interface

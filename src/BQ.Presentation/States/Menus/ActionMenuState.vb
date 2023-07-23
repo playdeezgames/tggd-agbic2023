@@ -13,9 +13,13 @@
     End Sub
 
     Protected Overrides Function InitializeMenuItems() As List(Of (String, String))
-        Return New List(Of (String, String)) From
+        Dim result = New List(Of (String, String)) From
             {
                 (Constants.StatisticsText, Constants.StatisticsText)
             }
+        If Model.Map.HasItems((0, 0)) Then
+            result.Add((GroundText, GroundText))
+        End If
+        Return result
     End Function
 End Class

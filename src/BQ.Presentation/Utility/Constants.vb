@@ -9,6 +9,9 @@
     Friend Const GroundText = "Ground..."
     Friend Const RunText = "Run!"
     Friend Const StatisticsText = "Statistics"
+    Friend Const TakeAllText = "Take All"
+    Friend Const TakeHalfText = "Take Half"
+    Friend Const TakeOneText = "Take One"
 
     Friend Const CellHeight = 16
     Friend Const CellWidth = 16

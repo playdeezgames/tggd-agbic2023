@@ -6,7 +6,8 @@
     End Sub
 
     Protected Overrides Sub OnActivateMenuItem(value As (String, String))
-
+        Model.Item.Name = value.Item2
+        SetState(GameState.GroundDetail)
     End Sub
 
     Protected Overrides Function InitializeMenuItems() As List(Of (String, String))

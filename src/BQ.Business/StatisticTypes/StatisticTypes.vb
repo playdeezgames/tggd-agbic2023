@@ -4,6 +4,7 @@
     Friend Const CellRow = "CellRow"
     Friend Const DefendDice = "DefendDice"
     Friend Const Health = "Health"
+    Friend Const ItemCount = "ItemCount"
     Friend Const MapId = "MapId"
     Friend Const MaximumAttack = "MaximumAttack"
     Friend Const MaximumDefend = "MaximumDefend"

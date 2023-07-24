@@ -23,6 +23,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property Item As IItemModel Implements IWorldModel.Item
+        Get
+            Return New ItemModel(World)
+        End Get
+    End Property
+
     Private Property World As IWorld
     Public Sub Embark() Implements IWorldModel.Embark
         World = New World(New WorldData)

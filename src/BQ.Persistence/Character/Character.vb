@@ -144,6 +144,10 @@
         CharacterData.Statistics.Remove(statisticType)
     End Sub
 
+    Public Sub RemoveMetadata(identifier As String) Implements ICharacter.RemoveMetadata
+        CharacterData.Metadata.Remove(identifier)
+    End Sub
+
     Public Function HasStatistic(statisticType As String) As Boolean Implements ICharacter.HasStatistic
         Return CharacterData.Statistics.ContainsKey(statisticType)
     End Function

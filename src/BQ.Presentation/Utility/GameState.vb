@@ -3,6 +3,7 @@
     Friend Const Combat = "Combat"
     Friend Const Dead = "Dead"
     Friend Const Ground = "Ground"
+    Friend Const GroundDetail = "GroudDetail"
     Friend Const Message = "Message"
     Friend Const MoveDown = "MoveDown"
     Friend Const MoveLeft = "MoveLeft"
@@ -11,4 +12,5 @@
     Friend Const Navigation = "Navigation"
     Friend Const Run = "Run"
     Friend Const Statistics = "Statistics"
+    Friend Const Take = "Take"
 End Module

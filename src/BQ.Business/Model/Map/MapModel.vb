@@ -54,9 +54,19 @@ Friend Class MapModel
             cellXY = Translate(cellXY)
             Return map.
                 GetCell(cellXY.column, cellXY.row).Items.
-                GroupBy(Function(x) x.ItemType).
-                Select(Function(x) ($"{x.Key.ToItemTypeDescriptor.Name}(x{x.Count})", x.Key)).
+                GroupBy(Function(x) x.Name).
+                Select(Function(x) ($"{x.Key}(x{x.Count})", x.Key)).
                 ToList
+        End Get
+    End Property
+
+    Public ReadOnly Property ItemCount(cellXY As (column As Integer, row As Integer), itemName As String) As Integer Implements IMapModel.ItemCount
+        Get
+            cellXY = Translate(cellXY)
+            Return map.
+                GetCell(cellXY.column, cellXY.row).
+                Items.
+                Count(Function(x) x.Name = itemName)
         End Get
     End Property
 

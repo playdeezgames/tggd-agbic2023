@@ -83,7 +83,7 @@ Friend Module CharacterExtensions
         character.Statistic(StatisticTypes.Peril) = Math.Max(0, peril)
     End Sub
     <Extension>
-    Private Function TryGetStatistic(character As ICharacter, statisticType As String, Optional defaultValue As Integer = 0) As Integer
+    Friend Function TryGetStatistic(character As ICharacter, statisticType As String, Optional defaultValue As Integer = 0) As Integer
         Return If(character.HasStatistic(statisticType), character.Statistic(statisticType), defaultValue)
     End Function
     <Extension>

@@ -7,4 +7,5 @@
     ReadOnly Property Avatar As IAvatarModel
     ReadOnly Property Message As IMessageModel
     ReadOnly Property Combat As ICombatModel
+    ReadOnly Property Item As IItemModel
 End Interface

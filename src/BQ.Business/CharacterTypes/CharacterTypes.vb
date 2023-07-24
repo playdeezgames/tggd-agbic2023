@@ -26,12 +26,13 @@ Friend Module CharacterTypes
                         {StatisticTypes.MaximumDefend, 2},
                         {StatisticTypes.XP, 0},
                         {StatisticTypes.XPGoal, 10},
-                        {StatisticTypes.XPLevel, 1}
+                        {StatisticTypes.XPLevel, 1},
+                        {StatisticTypes.AdvancementPointsPerLevel, 10}
                     }, triggers:=New Dictionary(Of String, Action(Of ICharacter, ITrigger)) From
                     {
                         {TriggerTypes.Teleport, AddressOf DefaultTeleport},
                         {TriggerTypes.Message, AddressOf DefaultMessage},
-                        {TriggerTypes.Heal, AddressOf DefaultHeal}
+                        {TriggerTypes.Heal, AddressOf NihilisticHealing}
                     })
             },
             {
@@ -86,17 +87,24 @@ Friend Module CharacterTypes
         character.SetJools(RNG.RollDice("3d6/6"))
     End Sub
 
-    Private Sub DefaultHeal(character As ICharacter, trigger As ITrigger)
+    Private Sub NihilisticHealing(character As ICharacter, trigger As ITrigger)
         Dim maximumHealth = Math.Min(character.MaximumHealth, trigger.Statistics(StatisticTypes.MaximumHealth))
+
         If character.Health >= maximumHealth Then
             character.World.CreateMessage().AddLine(LightGray, "Nothing happens!")
             Return
         End If
         character.SetHealth(maximumHealth)
-        character.World.
-            CreateMessage().
-            AddLine(LightGray, $"{character.Name} is healed!").
-            AddLine(LightGray, $"{character.Name} now has {character.Health} health.")
+        Dim msg =
+            character.World.
+                CreateMessage().
+                AddLine(LightGray, $"{character.Name} is healed!").
+                AddLine(LightGray, $"{character.Name} now has {character.Health} health.")
+        Dim jools = character.Jools \ 2
+        character.AddJools(-jools)
+        If jools > 0 Then
+            msg.AddLine(Red, $"{character.Name} loses {jools} jools!")
+        End If
     End Sub
 
     Private Sub DefaultMessage(character As ICharacter, trigger As ITrigger)

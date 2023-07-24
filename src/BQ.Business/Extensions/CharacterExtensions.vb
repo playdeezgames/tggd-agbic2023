@@ -147,9 +147,18 @@ Friend Module CharacterExtensions
         End If
     End Sub
     <Extension>
+    Private Function AdvancementPointsPerLevel(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.AdvancementPointsPerLevel)
+    End Function
+    <Extension>
+    Private Sub AddAdvancementPoints(character As ICharacter, advancementPoints As Integer)
+        character.Statistic(StatisticTypes.AdvancementPoints) = Math.Max(0, character.TryGetStatistic(StatisticTypes.AdvancementPoints) + advancementPoints)
+    End Sub
+    <Extension>
     Private Function AddXP(character As ICharacter, xp As Integer) As Boolean
         character.Statistic(StatisticTypes.XP) += xp
         If character.XP >= character.XPGoal Then
+            character.AddAdvancementPoints(character.AdvancementPointsPerLevel)
             character.Statistic(StatisticTypes.XPLevel) += 1
             Dim currentGoal = character.XPGoal
             character.Statistic(StatisticTypes.XPGoal) *= 2
@@ -159,11 +168,11 @@ Friend Module CharacterExtensions
         Return False
     End Function
     <Extension>
-    Private Sub AddJools(character As ICharacter, jools As Integer)
+    Friend Sub AddJools(character As ICharacter, jools As Integer)
         character.SetJools(character.Jools + jools)
     End Sub
     <Extension>
-    Private Function Jools(character As ICharacter) As Integer
+    Friend Function Jools(character As ICharacter) As Integer
         Return character.TryGetStatistic(StatisticTypes.Jools)
     End Function
     <Extension>
@@ -181,6 +190,10 @@ Friend Module CharacterExtensions
         End If
     End Sub
     <Extension>
+    Private Function AdvancementPoints(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.AdvancementPoints)
+    End Function
+    <Extension>
     Private Sub AwardXP(character As ICharacter, msg As IMessage, xp As Integer)
         If Not character.IsAvatar Then
             Return
@@ -188,6 +201,7 @@ Friend Module CharacterExtensions
         msg.AddLine(LightGray, $"{character.Name} gains {xp} XP!")
         If character.AddXP(xp) Then
             msg.AddLine(LightGreen, $"{character.Name} is now level {character.XPLevel}!")
+            msg.AddLine(LightGray, $"{character.Name} now has {character.AdvancementPoints} AP!")
         Else
             msg.AddLine(LightGray, $"{character.Name} needs {character.XPGoal - character.XP} for the next level.")
         End If

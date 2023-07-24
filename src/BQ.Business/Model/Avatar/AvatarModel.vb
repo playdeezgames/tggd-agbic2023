@@ -1,6 +1,4 @@
-﻿Imports System.Threading
-
-Friend Class AvatarModel
+﻿Friend Class AvatarModel
     Implements IAvatarModel
 
     Private ReadOnly avatar As ICharacter
@@ -97,6 +95,12 @@ Friend Class AvatarModel
     Public ReadOnly Property ItemCount(itemName As String) As Integer Implements IAvatarModel.ItemCount
         Get
             Return avatar.Items.Count(Function(x) x.Name = itemName)
+        End Get
+    End Property
+
+    Public ReadOnly Property Jools As Integer Implements IAvatarModel.Jools
+        Get
+            Return avatar.TryGetStatistic(StatisticTypes.Jools)
         End Get
     End Property
 

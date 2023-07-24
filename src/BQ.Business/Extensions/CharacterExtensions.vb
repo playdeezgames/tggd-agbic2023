@@ -159,11 +159,33 @@ Friend Module CharacterExtensions
         Return False
     End Function
     <Extension>
-    Private Sub AwardXP(character As ICharacter, xp As Integer)
+    Private Sub AddJools(character As ICharacter, jools As Integer)
+        character.SetJools(character.Jools + jools)
+    End Sub
+    <Extension>
+    Private Function Jools(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.Jools)
+    End Function
+    <Extension>
+    Friend Sub SetJools(character As ICharacter, jools As Integer)
+        character.Statistic(StatisticTypes.Jools) = Math.Max(0, jools)
+    End Sub
+    <Extension>
+    Private Sub AwardJools(toCharacter As ICharacter, msg As IMessage, jools As Integer)
+        If Not toCharacter.IsAvatar Then
+            Return
+        End If
+        If jools > 0 Then
+            msg.AddLine(LightGray, $"{toCharacter.Name} gets {jools} jools!")
+            toCharacter.AddJools(jools)
+        End If
+    End Sub
+    <Extension>
+    Private Sub AwardXP(character As ICharacter, msg As IMessage, xp As Integer)
         If Not character.IsAvatar Then
             Return
         End If
-        Dim msg = character.World.CreateMessage().AddLine(LightGray, $"{character.Name} gains {xp} XP!")
+        msg.AddLine(LightGray, $"{character.Name} gains {xp} XP!")
         If character.AddXP(xp) Then
             msg.AddLine(LightGreen, $"{character.Name} is now level {character.XPLevel}!")
         Else
@@ -195,7 +217,8 @@ Friend Module CharacterExtensions
         If defender.IsDead Then
             msg.SetSfx(If(defender.IsAvatar, Sfx.PlayerDeath, Sfx.EnemyDeath))
             msg.AddLine(LightGray, $"{attacker.Name} kills {defender.Name}")
-            attacker.AwardXP(defender.XP)
+            attacker.AwardJools(msg, defender.Jools)
+            attacker.AwardXP(msg, defender.XP)
             defender.Die()
             Return True
         End If

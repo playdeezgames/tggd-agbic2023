@@ -15,12 +15,13 @@
     Public Overrides Sub Render(displayBuffer As IPixelSink)
         displayBuffer.Fill((0, 0), Context.ViewSize, Black)
         Dim font = Context.Font(UIFont)
-        Dim y = Context.ViewSize.Height \ 2 - font.Height * 5 \ 2
+        Dim y = Context.ViewSize.Height \ 2 - font.Height * 6 \ 2
         y = WriteLine(displayBuffer, font, y, $"Health: {Model.Avatar.Health}/{Model.Avatar.MaximumHealth}", Pink)
         y = WriteLine(displayBuffer, font, y, $"Attack: Max {Model.Avatar.MaximumAttack} avg {Model.Avatar.AverageAttack:f2}", Red)
         y = WriteLine(displayBuffer, font, y, $"Defend: Max {Model.Avatar.MaximumDefend} avg {Model.Avatar.AverageDefend:f2}", Green)
         y = WriteLine(displayBuffer, font, y, $"XP: {Model.Avatar.XP}/{Model.Avatar.XPGoal}", Cyan)
-        WriteLine(displayBuffer, font, y, $"Level: {Model.Avatar.XPLevel}", Blue)
+        y = WriteLine(displayBuffer, font, y, $"Level: {Model.Avatar.XPLevel}", Blue)
+        WriteLine(displayBuffer, font, y, $"Jools: {Model.Avatar.Jools}", Hue.LightGreen)
         Context.ShowHeader(displayBuffer, font, "Statistics", Black, Orange)
         Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(Nothing, "Go Back"), Black, LightGray)
     End Sub

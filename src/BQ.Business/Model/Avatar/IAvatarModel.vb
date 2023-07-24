@@ -15,4 +15,5 @@
     ReadOnly Property HasItems As Boolean
     ReadOnly Property Items As IEnumerable(Of (String, String))
     ReadOnly Property ItemCount(itemName As String) As Integer
+    ReadOnly Property Jools As Integer
 End Interface

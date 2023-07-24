@@ -83,7 +83,7 @@ Friend Module CharacterTypes
     End Sub
 
     Private Sub OliveGlopInitializer(character As ICharacter)
-        character.AddItem(CreateItem(character.World, ItemTypes.PlantFiber))
+        character.SetJools(RNG.RollDice("3d6/6"))
     End Sub
 
     Private Sub DefaultHeal(character As ICharacter, trigger As ITrigger)

@@ -9,6 +9,20 @@ Friend Module WorldInitializer
     Private Sub StitchMaps(world As IWorld)
         StitchTownToWilderness(world)
         StitchHealerToTown(world)
+        StitchHealthTrainerToTown(world)
+    End Sub
+
+    Private Sub StitchHealthTrainerToTown(world As IWorld)
+        Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
+        Dim trainerMap = world.Maps.Single(Function(x) x.MapType = MapTypes.HealthTrainer)
+        townMap.GetCell(8, 4).Trigger =
+            townMap.CreateTrigger().
+            SetTriggerType(Teleport).
+            SetDestination(trainerMap.GetCell(HealthTrainerColumns \ 2, HealthTrainerRows - 2))
+        trainerMap.GetCell(HealthTrainerColumns \ 2, HealthTrainerRows - 1).Trigger =
+            trainerMap.CreateTrigger().
+            SetTriggerType(Teleport).
+            SetDestination(townMap.GetCell(8, 3))
     End Sub
 
     Private Sub StitchHealerToTown(world As IWorld)

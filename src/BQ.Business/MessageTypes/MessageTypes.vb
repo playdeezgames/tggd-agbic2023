@@ -13,6 +13,7 @@ Friend Module MessageTypes
     Friend Const TownSign8 = "TownSign8"
     Friend Const TownSign9 = "TownSign9"
     Friend Const TownSign10 = "TownSign10"
+    Friend Const HealthTrainerIntroduction = "HealthTrainerIntroduction"
     Private Function MakeLines(ParamArray lines() As (hue As Integer, text As String)) As IEnumerable(Of (hue As Integer, text As String))
         Return lines
     End Function
@@ -24,7 +25,7 @@ Friend Module MessageTypes
         {
             {TownSign1, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #1")))},
             {TownSign2, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #2")))},
-            {TownSign3, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #3")))},
+            {TownSign3, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Health Training")))},
             {TownSign4, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #4")))},
             {TownSign5, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #5")))},
             {TownSign6, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #6")))},
@@ -45,6 +46,16 @@ Friend Module MessageTypes
                     choices:=MakeChoices(
                         ("Cool story, bro!", TriggerTypes.ExitDialog),
                         ("What's for sale?", TriggerTypes.NihilistPrices)))
+            },
+            {
+                HealthTrainerIntroduction,
+                New MessageTypeDescriptor(
+                    lines:=MakeLines(
+                        (LightGray, "I am the health trainer!"),
+                        (LightGray, "I can help you increase yer health."),
+                        (LightGray, "The cost is 5 AP times yer current health.")),
+                    choices:=MakeChoices(
+                        ("Cool story, bro!", TriggerTypes.ExitDialog)))
             }
         }
     <Extension>

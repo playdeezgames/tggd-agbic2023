@@ -122,13 +122,7 @@ Friend Module CharacterTypes
 
     Private Sub DefaultMessage(character As ICharacter, trigger As ITrigger)
         Dim descriptor = trigger.Metadata(Metadatas.MessageType).ToMessageTypeDescriptor
-        Dim msg = character.World.CreateMessage().SetSfx(descriptor.Sfx)
-        For Each line In descriptor.Lines
-            msg.AddLine(line.hue, line.text)
-        Next
-        For Each choice In descriptor.Choices
-            msg.AddChoice(choice.text, choice.triggerType)
-        Next
+        descriptor.CreateMessage(character.World)
     End Sub
 
     Private Sub DefaultTeleport(character As ICharacter, trigger As ITrigger)

@@ -16,4 +16,13 @@
             New List(Of (text As String, triggerType As String))(choices),
             New List(Of (text As String, triggerType As String)))
     End Sub
+    Sub CreateMessage(world As IWorld)
+        Dim msg = world.CreateMessage().SetSfx(Sfx)
+        For Each line In Lines
+            msg.AddLine(line.hue, line.text)
+        Next
+        For Each choice In Choices
+            msg.AddChoice(choice.text, choice.triggerType)
+        Next
+    End Sub
 End Class

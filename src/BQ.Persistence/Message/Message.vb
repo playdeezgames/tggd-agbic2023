@@ -12,6 +12,12 @@
         End Get
     End Property
 
+    Private ReadOnly Property ChoiceCount As Integer Implements IMessage.ChoiceCount
+        Get
+            Return MessageData.Choices.Count
+        End Get
+    End Property
+
     Public ReadOnly Property Lines As IEnumerable(Of IMessageLine) Implements IMessage.Lines
         Get
             Return Enumerable.Range(0, LineCount).Select(Function(x) New MessageLine(WorldData, MessageId, x))
@@ -27,6 +33,18 @@
         End Set
     End Property
 
+    Public ReadOnly Property HasChoices As Boolean Implements IMessage.HasChoices
+        Get
+            Return MessageData.Choices.Any
+        End Get
+    End Property
+
+    Public ReadOnly Property Choices As IEnumerable(Of IMessageChoice) Implements IMessage.Choices
+        Get
+            Return Enumerable.Range(0, ChoiceCount).Select(Function(x) New MessageChoice(WorldData, MessageId, x))
+        End Get
+    End Property
+
     Public Function AddLine(hue As Integer, text As String) As IMessage Implements IMessage.AddLine
         MessageData.Lines.Add(New Data.MessageLineData With
                               {
@@ -38,6 +56,15 @@
 
     Public Function SetSfx(sfx As String) As IMessage Implements IMessage.SetSfx
         Me.Sfx = sfx
+        Return Me
+    End Function
+
+    Public Function AddChoice(text As String, triggerType As String) As IMessage Implements IMessage.AddChoice
+        MessageData.Choices.Add(New Data.MessageChoiceData With
+            {
+                .Text = text,
+                .TriggerType = triggerType
+            })
         Return Me
     End Function
 End Class

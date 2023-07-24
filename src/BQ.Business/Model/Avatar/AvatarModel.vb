@@ -107,4 +107,13 @@
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub
+
+    Public Sub DoChoiceTrigger(index As Integer) Implements IAvatarModel.DoChoiceTrigger
+        avatar.
+            CharacterType.
+            ToCharacterTypeDescriptor.
+            Triggers(avatar.World.CurrentMessage.Choices.ElementAt(index).TriggerType).
+            Invoke(avatar, Nothing)
+        avatar.World.DismissMessage()
+    End Sub
 End Class

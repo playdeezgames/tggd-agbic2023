@@ -1,4 +1,5 @@
-﻿Imports System.Runtime.CompilerServices
+﻿Imports System.Data
+Imports System.Runtime.CompilerServices
 
 Friend Module MessageTypes
     Friend Const HealerIntroduction = "HealerIntroduction"
@@ -12,8 +13,11 @@ Friend Module MessageTypes
     Friend Const TownSign8 = "TownSign8"
     Friend Const TownSign9 = "TownSign9"
     Friend Const TownSign10 = "TownSign10"
-    Private Function MakeLines(ParamArray lines() As (Hue As Integer, Text As String)) As IEnumerable(Of (hue As Integer, text As String))
+    Private Function MakeLines(ParamArray lines() As (hue As Integer, text As String)) As IEnumerable(Of (hue As Integer, text As String))
         Return lines
+    End Function
+    Private Function MakeChoices(ParamArray choices() As (text As String, command As String)) As IEnumerable(Of (text As String, command As String))
+        Return choices
     End Function
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, MessageTypeDescriptor) =
         New Dictionary(Of String, MessageTypeDescriptor) From
@@ -31,14 +35,16 @@ Friend Module MessageTypes
             {
                 HealerIntroduction,
                 New MessageTypeDescriptor(
-                    Nothing,
-                    MakeLines(
+                    lines:=MakeLines(
                         (LightGray, "Welcome to the Nihilistic House of Healing."),
                         (LightGray, "If you go to the basin And wash,"),
                         (LightGray, "you will be healed,"),
                         (LightGray, "but it will cost you half of yer jools."),
                         (LightGray, "Not that I care or anything,"),
-                        (LightGray, "because I'm a nihilist.")))
+                        (LightGray, "because I'm a nihilist.")),
+                    choices:=MakeChoices(
+                        ("Cool story, bro!", TriggerTypes.ExitDialog),
+                        ("What's for sale?", TriggerTypes.NihilistPrices)))
             }
         }
     <Extension>

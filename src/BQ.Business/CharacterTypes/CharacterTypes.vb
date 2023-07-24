@@ -28,11 +28,14 @@ Friend Module CharacterTypes
                         {StatisticTypes.XPGoal, 10},
                         {StatisticTypes.XPLevel, 1},
                         {StatisticTypes.AdvancementPointsPerLevel, 10}
-                    }, triggers:=New Dictionary(Of String, Action(Of ICharacter, ITrigger)) From
+                    },
+                    triggers:=New Dictionary(Of String, Action(Of ICharacter, ITrigger)) From
                     {
                         {TriggerTypes.Teleport, AddressOf DefaultTeleport},
                         {TriggerTypes.Message, AddressOf DefaultMessage},
-                        {TriggerTypes.Heal, AddressOf NihilisticHealing}
+                        {TriggerTypes.Heal, AddressOf NihilisticHealing},
+                        {TriggerTypes.ExitDialog, AddressOf DoExitDialog},
+                        {TriggerTypes.NihilistPrices, AddressOf DoNihilistPrices}
                     })
             },
             {
@@ -79,6 +82,16 @@ Friend Module CharacterTypes
             }
         }
 
+    Private Sub DoNihilistPrices(character As ICharacter, trigger As ITrigger)
+        character.World.CreateMessage().
+            AddLine(LightGray, "I don't sell anything.").
+            AddLine(LightGray, "I'm a nihilist, remember?")
+    End Sub
+
+    Private Sub DoExitDialog(character As ICharacter, trigger As ITrigger)
+        'NOTHING!
+    End Sub
+
     Private Sub CherryGlopInitializer(character As ICharacter)
 
     End Sub
@@ -113,6 +126,9 @@ Friend Module CharacterTypes
         For Each line In descriptor.Lines
             msg.AddLine(line.hue, line.text)
         Next
+        For Each choice In descriptor.Choices
+            msg.AddChoice(choice.text, choice.triggerType)
+        Next
     End Sub
 
     Private Sub DefaultTeleport(character As ICharacter, trigger As ITrigger)
@@ -124,11 +140,17 @@ Friend Module CharacterTypes
 
     <Extension>
     Friend Function ToCharacterTypeDescriptor(characterType As String) As CharacterTypeDescriptor
-        Return descriptors(characterType)
+        Return Descriptors1(characterType)
     End Function
     Friend ReadOnly Property All As IEnumerable(Of String)
         Get
-            Return descriptors.Keys
+            Return Descriptors1.Keys
+        End Get
+    End Property
+
+    Friend ReadOnly Property Descriptors1 As IReadOnlyDictionary(Of String, CharacterTypeDescriptor)
+        Get
+            Return descriptors
         End Get
     End Property
 End Module

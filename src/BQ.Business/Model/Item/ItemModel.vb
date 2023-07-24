@@ -36,4 +36,16 @@
             world.Avatar.AddItem(item)
         Next
     End Sub
+
+    Public Sub Drop() Implements IItemModel.Drop
+        Dim itemCount = Count
+        Dim itemName = Name
+        world.Avatar.RemoveStatistic(StatisticTypes.ItemCount)
+        world.Avatar.RemoveMetadata(Metadatas.ItemType)
+        Dim items = world.Avatar.Items.Where(Function(x) x.Name = itemName).Take(itemCount)
+        For Each item In items
+            world.Avatar.Cell.AddItem(item)
+            world.Avatar.RemoveItem(item)
+        Next
+    End Sub
 End Class

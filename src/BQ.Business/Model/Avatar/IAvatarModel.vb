@@ -13,4 +13,6 @@
     ReadOnly Property MaximumAttack As Integer
     ReadOnly Property MaximumDefend As Integer
     ReadOnly Property HasItems As Boolean
+    ReadOnly Property Items As IEnumerable(Of (String, String))
+    ReadOnly Property ItemCount(itemName As String) As Integer
 End Interface

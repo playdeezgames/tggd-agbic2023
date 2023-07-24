@@ -88,6 +88,18 @@ Friend Class AvatarModel
         End Get
     End Property
 
+    Public ReadOnly Property Items As IEnumerable(Of (String, String)) Implements IAvatarModel.Items
+        Get
+            Return avatar.Items.GroupBy(Function(x) x.Name).Select(Function(x) ($"{x.Key}(x{x.Count})", x.Key))
+        End Get
+    End Property
+
+    Public ReadOnly Property ItemCount(itemName As String) As Integer Implements IAvatarModel.ItemCount
+        Get
+            Return avatar.Items.Count(Function(x) x.Name = itemName)
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub

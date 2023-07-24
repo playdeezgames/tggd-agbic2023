@@ -11,6 +11,8 @@
                 SetState(GameState.Statistics)
             Case Constants.GroundText
                 SetState(GameState.Ground)
+            Case Constants.InventoryText
+                SetState(GameState.Inventory)
         End Select
     End Sub
 
@@ -21,6 +23,9 @@
             }
         If Model.Map.HasItems((0, 0)) Then
             result.Add((GroundText, GroundText))
+        End If
+        If Model.Avatar.HasItems Then
+            result.Add((InventoryText, InventoryText))
         End If
         Return result
     End Function

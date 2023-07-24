@@ -4,6 +4,7 @@
     Friend Const Dead = "Dead"
     Friend Const Ground = "Ground"
     Friend Const GroundDetail = "GroudDetail"
+    Friend Const Inventory = "Inventory"
     Friend Const Message = "Message"
     Friend Const MoveDown = "MoveDown"
     Friend Const MoveLeft = "MoveLeft"

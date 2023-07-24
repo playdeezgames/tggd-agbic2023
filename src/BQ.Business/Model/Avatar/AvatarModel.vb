@@ -82,6 +82,12 @@ Friend Class AvatarModel
         End Get
     End Property
 
+    Public ReadOnly Property HasItems As Boolean Implements IAvatarModel.HasItems
+        Get
+            Return avatar.HasItems
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub

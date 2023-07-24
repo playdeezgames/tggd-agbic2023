@@ -12,4 +12,5 @@
     ReadOnly Property AverageDefend As Double
     ReadOnly Property MaximumAttack As Integer
     ReadOnly Property MaximumDefend As Integer
+    ReadOnly Property HasItems As Boolean
 End Interface

@@ -2,7 +2,11 @@
 Imports System.Runtime.CompilerServices
 
 Friend Module MessageTypes
-    Friend Const HealerIntroduction = "HealerIntroduction"
+    'TODO: move these to triggers?
+    Friend Const HealerTalk = "HealerTalk"
+    Friend Const HealthTrainerTalk = "HealthTrainerTalk"
+    Friend Const DruidTalk = "HealthTrainerTalk"
+
     Friend Const TownSign1 = "TownSign1"
     Friend Const TownSign2 = "TownSign2"
     Friend Const TownSign3 = "TownSign3"
@@ -13,8 +17,6 @@ Friend Module MessageTypes
     Friend Const TownSign8 = "TownSign8"
     Friend Const TownSign9 = "TownSign9"
     Friend Const TownSign10 = "TownSign10"
-    Friend Const HealthTrainerIntroduction = "HealthTrainerIntroduction"
-    Friend Const DruidIntroduction = "DruidIntroduction"
     Friend Const NothingHappens = "NothingHappens"
     Private Function MakeLines(ParamArray lines() As (hue As Integer, text As String)) As IEnumerable(Of (hue As Integer, text As String))
         Return lines
@@ -37,7 +39,7 @@ Friend Module MessageTypes
             {TownSign9, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "House of Nihilistic Healing")))},
             {TownSign10, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #10")))},
             {
-                HealerIntroduction,
+                HealerTalk,
                 New MessageTypeDescriptor(
                     lines:=MakeLines(
                         (LightGray, "Welcome to the Nihilistic House of Healing."),
@@ -51,7 +53,7 @@ Friend Module MessageTypes
                         ("What's for sale?", TriggerTypes.NihilistPrices)))
             },
             {
-                HealthTrainerIntroduction,
+                HealthTrainerTalk,
                 New MessageTypeDescriptor(
                     lines:=MakeLines(
                         (LightGray, "I am the health trainer!"),
@@ -62,7 +64,7 @@ Friend Module MessageTypes
                         ("Train Me!", TriggerTypes.TrainHealth)))
             },
             {
-                DruidIntroduction,
+                DruidTalk,
                 New MessageTypeDescriptor(
                     lines:=MakeLines(
                         (LightGray, "Greetings! I am a druid."),

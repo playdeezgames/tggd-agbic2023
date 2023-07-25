@@ -16,7 +16,7 @@
         trainerCell.Trigger =
             map.CreateTrigger.
             SetTriggerType(TriggerTypes.Message).
-            SetMetadata(Metadatas.MessageType, MessageTypes.HealthTrainerIntroduction)
+            SetMetadata(Metadatas.MessageType, MessageTypes.HealthTrainerTalk)
     End Sub
 
 End Module

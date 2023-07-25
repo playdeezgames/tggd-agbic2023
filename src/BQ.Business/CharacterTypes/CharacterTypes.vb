@@ -29,19 +29,7 @@ Friend Module CharacterTypes
                         {StatisticTypes.XPLevel, 1},
                         {StatisticTypes.AdvancementPointsPerLevel, 10}
                     },
-                    triggers:=New Dictionary(Of String, Action(Of ICharacter, ITrigger)) From
-                    {
-                        {TriggerTypes.Teleport, AddressOf DefaultTeleport},
-                        {TriggerTypes.Message, AddressOf DefaultMessage},
-                        {TriggerTypes.Heal, AddressOf NihilisticHealing},
-                        {TriggerTypes.ExitDialog, AddressOf DoExitDialog},
-                        {TriggerTypes.NihilistPrices, AddressOf DoNihilistPrices},
-                        {TriggerTypes.TrainHealth, AddressOf DoTrainHealth},
-                        {TriggerTypes.DruidAllergies, AddressOf DoDruidAllergies},
-                        {TriggerTypes.DruidTeachMenu, AddressOf DoDruidTeachMenu},
-                        {TriggerTypes.LearnForaging, AddressOf LoxyTriggerHandlers.LearnForaging},
-                        {TriggerTypes.LearnTwineMaking, AddressOf LoxyTriggerHandlers.LearnTwineMaking}
-                    })
+                    triggers:=LoxyTriggerHandlers.All)
             },
             {
                 OliveGlop,

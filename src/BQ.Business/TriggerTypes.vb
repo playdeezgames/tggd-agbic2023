@@ -9,4 +9,7 @@
     Friend Const NihilistPrices = "NihilistPrices"
     Friend Const Teleport = "Teleport"
     Friend Const TrainHealth = "TrainHealth"
+    Friend Const HealerTalk = "HealerTalk"
+    Friend Const HealthTrainerTalk = "HealthTrainerTalk"
+    Friend Const DruidTalk = "HealthTrainerTalk"
 End Module

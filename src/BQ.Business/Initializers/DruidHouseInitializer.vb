@@ -16,6 +16,6 @@
         druidCell.Trigger =
             map.CreateTrigger.
             SetTriggerType(TriggerTypes.Message).
-            SetMetadata(Metadatas.MessageType, MessageTypes.DruidIntroduction)
+            SetMetadata(Metadatas.MessageType, MessageTypes.DruidTalk)
     End Sub
 End Module

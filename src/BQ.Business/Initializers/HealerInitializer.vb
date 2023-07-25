@@ -22,6 +22,6 @@
         healerCell.Trigger =
             map.CreateTrigger.
             SetTriggerType(TriggerTypes.Message).
-            SetMetadata(Metadatas.MessageType, MessageTypes.HealerIntroduction)
+            SetMetadata(Metadatas.MessageType, MessageTypes.HealerTalk)
     End Sub
 End Module

@@ -1,32 +1,80 @@
 ﻿Friend Module LoxyTriggerHandlers
 
-    Friend Sub DefaultMessage(character As ICharacter, trigger As ITrigger)
+    Friend All As IReadOnlyDictionary(Of String, Action(Of ICharacter, ITrigger)) =
+        New Dictionary(Of String, Action(Of ICharacter, ITrigger)) From
+                    {
+                        {TriggerTypes.Teleport, AddressOf DefaultTeleport},
+                        {TriggerTypes.Message, AddressOf DefaultMessage},
+                        {TriggerTypes.Heal, AddressOf NihilisticHealing},
+                        {TriggerTypes.ExitDialog, AddressOf DoExitDialog},
+                        {TriggerTypes.NihilistPrices, AddressOf DoNihilistPrices},
+                        {TriggerTypes.TrainHealth, AddressOf DoTrainHealth},
+                        {TriggerTypes.DruidAllergies, AddressOf DoDruidAllergies},
+                        {TriggerTypes.DruidTeachMenu, AddressOf DoDruidTeachMenu},
+                        {TriggerTypes.LearnForaging, AddressOf LearnForaging},
+                        {TriggerTypes.LearnTwineMaking, AddressOf LearnTwineMaking},
+                        {TriggerTypes.DruidTalk, AddressOf DoDruidTalk},
+                        {TriggerTypes.HealthTrainerTalk, AddressOf DoHealthTrainerTalk},
+                        {TriggerTypes.HealerTalk, AddressOf DoHealerTalk}
+                    }
+
+    Private Sub DoHealerTalk(character As ICharacter, trigger As ITrigger)
+        Dim msg = character.World.CreateMessage.
+                        AddLine(LightGray, "Welcome to the Nihilistic House of Healing.").
+                        AddLine(LightGray, "If you go to the basin And wash,").
+                        AddLine(LightGray, "you will be healed,").
+                        AddLine(LightGray, "but it will cost you half of yer jools.").
+                        AddLine(LightGray, "Not that I care or anything,").
+                        AddLine(LightGray, "because I'm a nihilist.").
+                        AddChoice("Cool story, bro!", TriggerTypes.ExitDialog).
+                        AddChoice("What's for sale?", TriggerTypes.NihilistPrices)
+    End Sub
+
+    Private Sub DoHealthTrainerTalk(character As ICharacter, trigger As ITrigger)
+        Dim msg = character.World.CreateMessage.
+                        AddLine(LightGray, "I am the health trainer!").
+                        AddLine(LightGray, "I can help you increase yer health.").
+                        AddLine(LightGray, "The cost is 5 AP times yer current health.").
+                        AddChoice("Cool story, bro!", TriggerTypes.ExitDialog).
+                        AddChoice("Train Me!", TriggerTypes.TrainHealth)
+    End Sub
+
+    Private Sub DoDruidTalk(character As ICharacter, trigger As ITrigger)
+        Dim msg = character.World.CreateMessage.
+                        AddLine(LightGray, "Greetings! I am a druid.").
+                        AddLine(LightGray, "I can help you learn nature's way.").
+                        AddChoice("Cool story, bro!", TriggerTypes.ExitDialog).
+                        AddChoice("Don't druids live in the woods?", TriggerTypes.DruidAllergies).
+                        AddChoice("Teach me!", TriggerTypes.DruidTeachMenu)
+    End Sub
+
+    Private Sub DefaultMessage(character As ICharacter, trigger As ITrigger)
         Dim descriptor = trigger.Metadata(Metadatas.MessageType).ToMessageTypeDescriptor
         descriptor.CreateMessage(character.World)
     End Sub
 
-    Friend Sub DefaultTeleport(character As ICharacter, trigger As ITrigger)
+    Private Sub DefaultTeleport(character As ICharacter, trigger As ITrigger)
         Dim nextCell = character.World.Map(trigger.Statistics(StatisticTypes.MapId)).GetCell(trigger.Statistics(StatisticTypes.CellColumn), trigger.Statistics(StatisticTypes.CellRow))
         nextCell.AddCharacter(character)
         character.Cell.RemoveCharacter(character)
         character.Cell = nextCell
     End Sub
 
-    Friend Sub DoNihilistPrices(character As ICharacter, trigger As ITrigger)
+    Private Sub DoNihilistPrices(character As ICharacter, trigger As ITrigger)
         character.World.CreateMessage().
             AddLine(LightGray, "I don't sell anything.").
             AddLine(LightGray, "I'm a nihilist, remember?")
     End Sub
 
-    Friend Sub DoDruidAllergies(character As ICharacter, trigger As ITrigger)
+    Private Sub DoDruidAllergies(character As ICharacter, trigger As ITrigger)
         character.World.CreateMessage().
             AddLine(LightGray, "Alas, I have allergies.")
     End Sub
 
-    Friend Sub DoExitDialog(character As ICharacter, trigger As ITrigger)
+    Private Sub DoExitDialog(character As ICharacter, trigger As ITrigger)
         'NOTHING!
     End Sub
-    Friend Sub NihilisticHealing(character As ICharacter, trigger As ITrigger)
+    Private Sub NihilisticHealing(character As ICharacter, trigger As ITrigger)
         Dim maximumHealth = Math.Min(character.MaximumHealth, trigger.Statistics(StatisticTypes.MaximumHealth))
 
         If character.Health >= maximumHealth Then
@@ -46,7 +94,7 @@
         End If
     End Sub
 
-    Friend Sub DoTrainHealth(character As ICharacter, trigger As ITrigger)
+    Private Sub DoTrainHealth(character As ICharacter, trigger As ITrigger)
         Dim msg = character.World.CreateMessage
         Const Multiplier = 5
         Dim TrainingCost = Multiplier * character.MaximumHealth
@@ -66,7 +114,7 @@
         msg.AddLine(LightGray, "you don't really have anything!")
     End Sub
 
-    Friend Sub DoDruidTeachMenu(character As ICharacter, trigger As ITrigger)
+    Private Sub DoDruidTeachMenu(character As ICharacter, trigger As ITrigger)
         Dim canLearnForaging = Not character.Flag(FlagTypes.KnowsForaging)
         Dim canLearnTwineMaking = Not character.Flag(FlagTypes.KnowsTwineMaking)
         Dim canLearn = canLearnForaging OrElse canLearnTwineMaking
@@ -98,7 +146,7 @@
         End If
     End Sub
 
-    Friend Sub LearnForaging(character As ICharacter, trigger As ITrigger)
+    Private Sub LearnForaging(character As ICharacter, trigger As ITrigger)
         Dim msg = character.World.CreateMessage
         If character.Flag(trigger.Metadata(Metadatas.FlagType)) Then
             msg.AddLine(LightGray, $"{character.Name} already know how to forage!")
@@ -117,7 +165,7 @@
             AddLine(LightGray, "from the Actions menu.")
     End Sub
 
-    Friend Sub LearnTwineMaking(character As ICharacter, trigger As ITrigger)
+    Private Sub LearnTwineMaking(character As ICharacter, trigger As ITrigger)
         Dim msg = character.World.CreateMessage
         If character.Flag(trigger.Metadata(Metadatas.FlagType)) Then
             msg.AddLine(LightGray, $"{character.Name} already knows how to make twine!")

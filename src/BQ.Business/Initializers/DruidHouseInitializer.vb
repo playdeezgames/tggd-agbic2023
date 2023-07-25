@@ -15,7 +15,6 @@
         druidCell.TerrainType = TerrainTypes.Druid
         druidCell.Trigger =
             map.CreateTrigger.
-            SetTriggerType(TriggerTypes.Message).
-            SetMetadata(Metadatas.MessageType, MessageTypes.DruidTalk)
+            SetTriggerType(TriggerTypes.DruidTalk)
     End Sub
 End Module

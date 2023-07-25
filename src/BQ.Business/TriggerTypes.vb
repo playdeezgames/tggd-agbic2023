@@ -11,5 +11,5 @@
     Friend Const TrainHealth = "TrainHealth"
     Friend Const HealerTalk = "HealerTalk"
     Friend Const HealthTrainerTalk = "HealthTrainerTalk"
-    Friend Const DruidTalk = "HealthTrainerTalk"
+    Friend Const DruidTalk = "DruidTalk"
 End Module

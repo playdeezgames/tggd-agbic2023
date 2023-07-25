@@ -86,17 +86,11 @@ Friend Module CharacterTypes
 
     <Extension>
     Friend Function ToCharacterTypeDescriptor(characterType As String) As CharacterTypeDescriptor
-        Return Descriptors1(characterType)
+        Return descriptors(characterType)
     End Function
     Friend ReadOnly Property All As IEnumerable(Of String)
         Get
-            Return Descriptors1.Keys
-        End Get
-    End Property
-
-    Friend ReadOnly Property Descriptors1 As IReadOnlyDictionary(Of String, CharacterTypeDescriptor)
-        Get
-            Return descriptors
+            Return descriptors.Keys
         End Get
     End Property
 End Module

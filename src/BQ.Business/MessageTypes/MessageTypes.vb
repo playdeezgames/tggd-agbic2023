@@ -2,11 +2,6 @@
 Imports System.Runtime.CompilerServices
 
 Friend Module MessageTypes
-    'TODO: move these to triggers?
-    Friend Const HealerTalk = "HealerTalk"
-    Friend Const HealthTrainerTalk = "HealthTrainerTalk"
-    Friend Const DruidTalk = "HealthTrainerTalk"
-
     Friend Const TownSign1 = "TownSign1"
     Friend Const TownSign2 = "TownSign2"
     Friend Const TownSign3 = "TownSign3"

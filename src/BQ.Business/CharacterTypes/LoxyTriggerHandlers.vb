@@ -34,7 +34,7 @@
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "I am the health trainer!").
                         AddLine(LightGray, "I can help you increase yer health.").
-                        AddLine(LightGray, "The cost is 5 AP times yer current health.").
+                        AddLine(LightGray, $"The cost is {character.MaximumHealth * 5} AP.").
                         AddChoice("Cool story, bro!", TriggerTypes.ExitDialog).
                         AddChoice("Train Me!", TriggerTypes.TrainHealth)
     End Sub
@@ -173,7 +173,10 @@
         End If
         Dim learnCost = trigger.Statistics(StatisticTypes.AdvancementPoints)
         If character.AdvancementPoints < learnCost Then
-            msg.AddLine(LightGray, $"To learn to make twine, {character.Name} needs {learnCost} AP, but has {character.AdvancementPoints}!")
+            msg.
+                AddLine(LightGray, $"To learn to make twine,").
+                AddLine(LightGray, $"{character.Name} needs {learnCost} AP,").
+                AddLine(LightGray, $"but has {character.AdvancementPoints}!")
             Return
         End If
         If character.ItemTypeCount(ItemTypes.PlantFiber) < 2 Then

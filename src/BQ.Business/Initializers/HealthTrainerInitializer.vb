@@ -15,8 +15,7 @@
         trainerCell.TerrainType = TerrainTypes.StrongMan
         trainerCell.Trigger =
             map.CreateTrigger.
-            SetTriggerType(TriggerTypes.Message).
-            SetMetadata(Metadatas.MessageType, MessageTypes.HealthTrainerTalk)
+            SetTriggerType(TriggerTypes.HealthTrainerTalk)
     End Sub
 
 End Module

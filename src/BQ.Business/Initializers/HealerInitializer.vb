@@ -21,7 +21,6 @@
         healerCell.TerrainType = TerrainTypes.OldMan
         healerCell.Trigger =
             map.CreateTrigger.
-            SetTriggerType(TriggerTypes.Message).
-            SetMetadata(Metadatas.MessageType, MessageTypes.HealerTalk)
+            SetTriggerType(TriggerTypes.HealerTalk)
     End Sub
 End Module

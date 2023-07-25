@@ -69,7 +69,7 @@
     Friend Sub DoDruidTeachMenu(character As ICharacter, trigger As ITrigger)
         Dim canLearnForaging = Not character.Flag(FlagTypes.KnowsForaging)
         Dim canLearnTwineMaking = Not character.Flag(FlagTypes.KnowsTwineMaking)
-        Dim canLearn = canLearnForaging AndAlso canLearnTwineMaking
+        Dim canLearn = canLearnForaging OrElse canLearnTwineMaking
         Dim msg = character.World.CreateMessage()
         If Not canLearn Then
             msg.AddLine(LightGray, "You have learned all I have to teach you.")
@@ -77,16 +77,41 @@
         End If
         msg.AddLine(LightGray, "I can teach you these things:")
         If canLearnForaging Then
-            msg.AddChoice("Foraging(-1AP)", TriggerTypes.LearnForaging)
+            msg.AddChoice(
+                "Foraging(-1AP)",
+                TriggerTypes.LearnForaging,
+                Sub(choice)
+                    choice.
+                        SetStatistic(StatisticTypes.AdvancementPoints, 1).
+                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsForaging)
+                End Sub)
         End If
         If canLearnTwineMaking Then
-            msg.AddChoice("Twine Making(-1AP)", TriggerTypes.LearnTwineMaking)
+            msg.AddChoice(
+                "Twine Making(-1AP,-2 Plant Fiber)",
+                TriggerTypes.LearnTwineMaking,
+                Sub(choice)
+                    choice.
+                        SetStatistic(StatisticTypes.AdvancementPoints, 1).
+                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsTwineMaking)
+                End Sub)
         End If
     End Sub
 
     Friend Sub LearnForaging(character As ICharacter, trigger As ITrigger)
         Dim msg = character.World.CreateMessage
-        msg.AddLine(LightGray, "TODO: Learn Foraging")
+        If character.Flag(trigger.Metadata(Metadatas.FlagType)) Then
+            msg.AddLine(LightGray, "You already know how to forage!")
+            Return
+        End If
+        Dim learnCost = trigger.Statistics(StatisticTypes.AdvancementPoints)
+        If character.AdvancementPoints < learnCost Then
+            msg.AddLine(LightGray, $"To learn foraging, you need {learnCost} AP, but have {character.AdvancementPoints}!")
+            Return
+        End If
+        character.AddAdvancementPoints(-learnCost)
+        character.Flag(trigger.Metadata(Metadatas.FlagType)) = True
+        msg.AddLine(LightGray, "You now know how to forage!")
     End Sub
 
     Friend Sub LearnTwineMaking(character As ICharacter, trigger As ITrigger)

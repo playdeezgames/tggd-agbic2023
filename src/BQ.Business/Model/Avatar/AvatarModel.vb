@@ -109,11 +109,12 @@
     End Sub
 
     Public Sub DoChoiceTrigger(index As Integer) Implements IAvatarModel.DoChoiceTrigger
+        Dim choice = avatar.World.CurrentMessage.Choice(index)
         avatar.
             CharacterType.
             ToCharacterTypeDescriptor.
-            Triggers(avatar.World.CurrentMessage.Choices.ElementAt(index).TriggerType).
-            Invoke(avatar, Nothing)
+            Triggers(choice.TriggerType).
+            Invoke(avatar, choice)
         avatar.World.DismissMessage()
     End Sub
 End Class

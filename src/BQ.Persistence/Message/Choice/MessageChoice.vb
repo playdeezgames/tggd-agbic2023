@@ -17,4 +17,37 @@
             Return MessageChoiceData.TriggerType
         End Get
     End Property
+
+    Public ReadOnly Property Id As Integer Implements ITrigger.Id
+        Get
+            Return ChoiceId
+        End Get
+    End Property
+
+    Public ReadOnly Property Statistics(statisticType As String) As Integer Implements ITrigger.Statistics
+        Get
+            Return MessageChoiceData.Statistics(statisticType)
+        End Get
+    End Property
+
+    Public ReadOnly Property Metadata(identifier As String) As String Implements ITrigger.Metadata
+        Get
+            Return MessageChoiceData.Metadatas(identifier)
+        End Get
+    End Property
+
+    Public Function SetTriggerType(triggerType As String) As ITrigger Implements ITrigger.SetTriggerType
+        MessageChoiceData.TriggerType = triggerType
+        Return Me
+    End Function
+
+    Public Function SetStatistic(statisticType As String, value As Integer) As ITrigger Implements ITrigger.SetStatistic
+        MessageChoiceData.Statistics(statisticType) = value
+        Return Me
+    End Function
+
+    Public Function SetMetadata(identifier As String, value As String) As ITrigger Implements ITrigger.SetMetadata
+        MessageChoiceData.Metadatas(identifier) = value
+        Return Me
+    End Function
 End Class

@@ -59,12 +59,21 @@
         Return Me
     End Function
 
-    Public Function AddChoice(text As String, triggerType As String) As IMessage Implements IMessage.AddChoice
+    Public Function AddChoice(
+                             text As String,
+                             triggerType As String,
+                             Optional initializer As Action(Of IMessageChoice) = Nothing) As IMessage Implements IMessage.AddChoice
+        Dim id = MessageData.Choices.Count
         MessageData.Choices.Add(New Data.MessageChoiceData With
             {
                 .Text = text,
                 .TriggerType = triggerType
             })
+        initializer?.Invoke(Choice(id))
         Return Me
+    End Function
+
+    Public Function Choice(index As Integer) As IMessageChoice Implements IMessage.Choice
+        Return New MessageChoice(WorldData, MessageId, index)
     End Function
 End Class

@@ -3,6 +3,7 @@
     Friend Const Combat = "Combat"
     Friend Const Dead = "Dead"
     Friend Const Drop = "Drop"
+    Friend Const Forage = "Forage"
     Friend Const Ground = "Ground"
     Friend Const GroundDetail = "GroudDetail"
     Friend Const Inventory = "Inventory"

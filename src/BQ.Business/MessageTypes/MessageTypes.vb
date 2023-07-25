@@ -15,6 +15,7 @@ Friend Module MessageTypes
     Friend Const TownSign10 = "TownSign10"
     Friend Const HealthTrainerIntroduction = "HealthTrainerIntroduction"
     Friend Const DruidIntroduction = "DruidIntroduction"
+    Friend Const NothingHappens = "NothingHappens"
     Private Function MakeLines(ParamArray lines() As (hue As Integer, text As String)) As IEnumerable(Of (hue As Integer, text As String))
         Return lines
     End Function
@@ -24,6 +25,7 @@ Friend Module MessageTypes
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, MessageTypeDescriptor) =
         New Dictionary(Of String, MessageTypeDescriptor) From
         {
+            {NothingHappens, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Nothing happens.")))},
             {TownSign1, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #1")))},
             {TownSign2, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #2")))},
             {TownSign3, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Health Training")))},

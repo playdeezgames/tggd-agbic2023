@@ -104,6 +104,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property CanForage As Boolean Implements IAvatarModel.CanForage
+        Get
+            Return avatar.Flag(FlagTypes.KnowsForaging)
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub
@@ -116,5 +122,9 @@
             Triggers(choice.TriggerType).
             Invoke(avatar, choice)
         avatar.World.DismissMessage()
+    End Sub
+
+    Public Sub Forage() Implements IAvatarModel.Forage
+        avatar.Cell.DoVerb(VerbTypes.Forage, avatar)
     End Sub
 End Class

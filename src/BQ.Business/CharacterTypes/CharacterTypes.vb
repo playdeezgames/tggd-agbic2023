@@ -20,7 +20,7 @@ Friend Module CharacterTypes
                     {
                         {StatisticTypes.Health, 2},
                         {StatisticTypes.MaximumHealth, 2},
-                        {StatisticTypes.AttackDice, 2},
+                        {StatisticTypes.AttackDice, 1},
                         {StatisticTypes.MaximumAttack, 1},
                         {StatisticTypes.DefendDice, 4},
                         {StatisticTypes.MaximumDefend, 2},

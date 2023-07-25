@@ -1,6 +1,7 @@
 ﻿Public Interface IAvatarModel
     Sub Move(delta As (x As Integer, y As Integer))
     Sub DoChoiceTrigger(index As Integer)
+    Sub Forage()
     ReadOnly Property IsDead As Boolean
     ReadOnly Property Character As (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)
     ReadOnly Property Name As String
@@ -17,4 +18,5 @@
     ReadOnly Property Items As IEnumerable(Of (String, String))
     ReadOnly Property ItemCount(itemName As String) As Integer
     ReadOnly Property Jools As Integer
+    ReadOnly Property CanForage As Boolean
 End Interface

@@ -22,6 +22,7 @@ Public Class GameController
         SetState(GameState.Inventory, New InventoryState(Me, AddressOf SetCurrentState, context))
         SetState(GameState.InventoryDetail, New InventoryDetailState(Me, AddressOf SetCurrentState, context))
         SetState(GameState.Drop, New DropState(Me, AddressOf SetCurrentState, context))
+        SetState(GameState.Forage, New ForageState(Me, AddressOf SetCurrentState, context))
         SetCurrentState(BoilerplateState.Splash, True)
     End Sub
 End Class

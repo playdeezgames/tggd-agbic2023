@@ -114,7 +114,7 @@
         msg.
             AddLine(LightGray, "You now know how to forage!").
             AddLine(LightGray, "To forage, simply select 'Forage...'").
-            AddLine(LightGray, "from the action menu.")
+            AddLine(LightGray, "from the Actions menu.")
     End Sub
 
     Friend Sub LearnTwineMaking(character As ICharacter, trigger As ITrigger)

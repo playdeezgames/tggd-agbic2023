@@ -1,7 +1,17 @@
 ﻿Imports System.Runtime.CompilerServices
 Imports BQ.Persistence
+Imports SPLORR.Game
 
 Friend Module CellExtensions
+    <Extension>
+    Friend Sub DoVerb(cell As ICell, verbType As String, character As ICharacter)
+        Dim descriptor = cell.TerrainType.ToTerrainTypeDescriptor
+        If Not descriptor.VerbTypes.ContainsKey(verbType) Then
+            MessageTypes.NothingHappens.ToMessageTypeDescriptor.CreateMessage(character.World)
+            Return
+        End If
+        descriptor.VerbTypes(verbType).Invoke(character, cell)
+    End Sub
     <Extension>
     Friend Function IsTenable(cell As ICell) As Boolean
         Return cell.TerrainTypeDescriptor.Tenable

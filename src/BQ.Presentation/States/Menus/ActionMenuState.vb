@@ -13,6 +13,8 @@
                 SetState(GameState.Ground)
             Case Constants.InventoryText
                 SetState(GameState.Inventory)
+            Case Constants.ForageText
+                SetState(GameState.Forage)
         End Select
     End Sub
 
@@ -26,6 +28,9 @@
         End If
         If Model.Avatar.HasItems Then
             result.Add((InventoryText, InventoryText))
+        End If
+        If Model.Avatar.CanForage Then
+            result.Add((ForageText, ForageText))
         End If
         Return result
     End Function

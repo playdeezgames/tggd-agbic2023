@@ -9,6 +9,7 @@
     Friend Const DropAllText = "Drop All"
     Friend Const DropHalfText = "Drop Half"
     Friend Const DropOneText = "Drop One"
+    Friend Const ForageText = "Forage..."
     Friend Const GroundText = "Ground..."
     Friend Const InventoryText = "Inventory"
     Friend Const RunText = "Run!"

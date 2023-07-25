@@ -1,5 +1,6 @@
 ﻿Imports System.Runtime.CompilerServices
 Imports BQ.Persistence
+Imports SPLORR.Game
 
 Friend Module TerrainTypes
     Friend Const Empty = "Empty"
@@ -36,7 +37,23 @@ Friend Module TerrainTypes
         {
             {Empty, New TerrainTypeDescriptor("Empty", ChrW(0), Black, True)},
             {Wall, New TerrainTypeDescriptor("Wall", ChrW(3), Hue.LightGray, False)},
-            {Grass, New TerrainTypeDescriptor("Grass", ChrW(4), Hue.Green, True)},
+            {
+                Grass,
+                New TerrainTypeDescriptor(
+                    "Grass",
+                    ChrW(4),
+                    Hue.Green,
+                    True,
+                    verbTypes:=New Dictionary(Of String, Action(Of ICharacter, ICell)) From
+                    {
+                        {VerbTypes.Forage, AddressOf DefaultForage}
+                    },
+                    foragables:=New Dictionary(Of String, Integer) From
+                    {
+                        {String.Empty, 1},
+                        {ItemTypes.PlantFiber, 1}
+                    })
+            },
             {Gravel, New TerrainTypeDescriptor("Gravel", ChrW(6), Hue.DarkGray, True)},
             {Fence, New TerrainTypeDescriptor("Fence", ChrW(5), Hue.Brown, False)},
             {House, New TerrainTypeDescriptor("House", ChrW(7), Hue.Red, False)},
@@ -72,6 +89,18 @@ Friend Module TerrainTypes
                     cellInitializer:=AddressOf InitializeTree)
             }
         }
+
+    Private Sub DefaultForage(character As ICharacter, cell As ICell)
+        Dim descriptor = cell.TerrainType.ToTerrainTypeDescriptor
+        Dim itemType = RNG.FromGenerator(descriptor.Foragables)
+        If String.IsNullOrEmpty(itemType) Then
+            character.World.CreateMessage().AddLine(LightGray, $"{character.Name} finds nothing.")
+            Return
+        End If
+        Dim item = ItemInitializer.CreateItem(character.World, itemType)
+        character.AddItem(item)
+        character.World.CreateMessage().AddLine(LightGray, $"{character.Name} finds {item.Name}")
+    End Sub
 
     Private Sub InitializeTree(cell As ICell)
         cell.Statistic(StatisticTypes.Peril) = 1

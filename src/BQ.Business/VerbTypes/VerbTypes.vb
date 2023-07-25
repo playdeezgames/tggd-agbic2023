@@ -1,8 +1,12 @@
 ﻿Imports System.Runtime.CompilerServices
 
 Friend Module VerbTypes
+    Friend Const Forage = "Forage"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, VerbDescriptor) =
-        New Dictionary(Of String, VerbDescriptor)
+        New Dictionary(Of String, VerbDescriptor) From
+        {
+            {Forage, New VerbDescriptor(Forage)}
+        }
     <Extension>
     Friend Function ToVerbTypeDescriptor(verbType As String) As VerbDescriptor
         Return descriptors(verbType)

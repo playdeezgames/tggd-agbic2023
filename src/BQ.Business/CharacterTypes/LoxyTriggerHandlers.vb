@@ -101,24 +101,45 @@
     Friend Sub LearnForaging(character As ICharacter, trigger As ITrigger)
         Dim msg = character.World.CreateMessage
         If character.Flag(trigger.Metadata(Metadatas.FlagType)) Then
-            msg.AddLine(LightGray, "You already know how to forage!")
+            msg.AddLine(LightGray, $"{character.Name} already know how to forage!")
             Return
         End If
         Dim learnCost = trigger.Statistics(StatisticTypes.AdvancementPoints)
         If character.AdvancementPoints < learnCost Then
-            msg.AddLine(LightGray, $"To learn foraging, you need {learnCost} AP, but have {character.AdvancementPoints}!")
+            msg.AddLine(LightGray, $"To learn foraging, {character.Name} needs {learnCost} AP, but has {character.AdvancementPoints}!")
             Return
         End If
         character.AddAdvancementPoints(-learnCost)
         character.Flag(trigger.Metadata(Metadatas.FlagType)) = True
         msg.
-            AddLine(LightGray, "You now know how to forage!").
+            AddLine(LightGray, $"{character.Name} now knows how to forage!").
             AddLine(LightGray, "To forage, simply select 'Forage...'").
             AddLine(LightGray, "from the Actions menu.")
     End Sub
 
     Friend Sub LearnTwineMaking(character As ICharacter, trigger As ITrigger)
         Dim msg = character.World.CreateMessage
-        msg.AddLine(LightGray, "TODO: Learn Twine Making")
+        If character.Flag(trigger.Metadata(Metadatas.FlagType)) Then
+            msg.AddLine(LightGray, $"{character.Name} already knows how to make twine!")
+            Return
+        End If
+        Dim learnCost = trigger.Statistics(StatisticTypes.AdvancementPoints)
+        If character.AdvancementPoints < learnCost Then
+            msg.AddLine(LightGray, $"To learn to make twine, {character.Name} needs {learnCost} AP, but has {character.AdvancementPoints}!")
+            Return
+        End If
+        If character.ItemTypeCount(ItemTypes.PlantFiber) < 2 Then
+            msg.AddLine(LightGray, $"To learn to make twine, {character.Name} needs at least 2 plant fiber.")
+            Return
+        End If
+        character.AddAdvancementPoints(-learnCost)
+        character.Flag(trigger.Metadata(Metadatas.FlagType)) = True
+
+        character.MakeTwine()
+
+        msg.
+            AddLine(LightGray, "You now know how to make twine!").
+            AddLine(LightGray, "To do so, simply select 'Make Twine'").
+            AddLine(LightGray, "from the Actions menu.")
     End Sub
 End Module

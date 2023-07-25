@@ -33,11 +33,11 @@ Friend Module MapTypes
                     {
                         {
                             CharacterTypes.OliveGlop,
-                            100
+                            75
                         },
                         {
                             CharacterTypes.CherryGlop,
-                            10
+                            25
                         }
                     })
             },

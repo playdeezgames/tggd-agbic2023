@@ -110,6 +110,18 @@
         End Get
     End Property
 
+    Public ReadOnly Property CanMakeTwine As Boolean Implements IAvatarModel.CanMakeTwine
+        Get
+            Return avatar.Flag(FlagTypes.KnowsTwineMaking)
+        End Get
+    End Property
+
+    Public ReadOnly Property AdvancementPoints As Integer Implements IAvatarModel.AdvancementPoints
+        Get
+            Return avatar.AdvancementPoints
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub
@@ -126,5 +138,9 @@
 
     Public Sub Forage() Implements IAvatarModel.Forage
         avatar.Cell.DoVerb(VerbTypes.Forage, avatar)
+    End Sub
+
+    Public Sub MakeTwine() Implements IAvatarModel.MakeTwine
+        avatar.DoMakeTwine()
     End Sub
 End Class

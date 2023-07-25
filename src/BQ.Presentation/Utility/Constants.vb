@@ -12,6 +12,7 @@
     Friend Const ForageText = "Forage..."
     Friend Const GroundText = "Ground..."
     Friend Const InventoryText = "Inventory"
+    Friend Const MakeTwineText = "Make Twine"
     Friend Const RunText = "Run!"
     Friend Const StatisticsText = "Statistics"
     Friend Const TakeAllText = "Take All"

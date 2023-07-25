@@ -20,7 +20,7 @@ Friend Module CharacterTypes
                     {
                         {StatisticTypes.Health, 2},
                         {StatisticTypes.MaximumHealth, 2},
-                        {StatisticTypes.AttackDice, 1},
+                        {StatisticTypes.AttackDice, 2},
                         {StatisticTypes.MaximumAttack, 1},
                         {StatisticTypes.DefendDice, 4},
                         {StatisticTypes.MaximumDefend, 2},
@@ -74,14 +74,14 @@ Friend Module CharacterTypes
                     Hue.Black,
                     statistics:=New Dictionary(Of String, Integer) From
                     {
-                        {StatisticTypes.Health, 1},
-                        {StatisticTypes.MaximumHealth, 1},
+                        {StatisticTypes.Health, 2},
+                        {StatisticTypes.MaximumHealth, 2},
                         {StatisticTypes.AttackDice, 4},
                         {StatisticTypes.MaximumAttack, 2},
                         {StatisticTypes.DefendDice, 1},
                         {StatisticTypes.MaximumDefend, 1},
                         {StatisticTypes.Peril, 10},
-                        {StatisticTypes.XP, 1}
+                        {StatisticTypes.XP, 2}
                     },
                     initializer:=AddressOf CherryGlopInitializer)
             }

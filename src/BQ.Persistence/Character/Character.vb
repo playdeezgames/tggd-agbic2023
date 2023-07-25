@@ -164,4 +164,8 @@
     Public Function HasStatistic(statisticType As String) As Boolean Implements ICharacter.HasStatistic
         Return CharacterData.Statistics.ContainsKey(statisticType)
     End Function
+
+    Public Function ItemTypeCount(itemType As String) As Integer Implements ICharacter.ItemTypeCount
+        Return Items.Count(Function(x) x.ItemType = itemType)
+    End Function
 End Class

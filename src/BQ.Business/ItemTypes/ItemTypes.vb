@@ -4,10 +4,12 @@ Imports BQ.Persistence
 
 Friend Module ItemTypes
     Friend Const PlantFiber = "PlantFiber"
+    Friend Const Twine = "Twine"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, ItemTypeDescriptor) =
         New Dictionary(Of String, ItemTypeDescriptor) From
         {
-            {PlantFiber, New ItemTypeDescriptor("Plant Fiber", ChrW(&H23), LightGreen)}
+            {PlantFiber, New ItemTypeDescriptor("Plant Fiber", ChrW(&H23), LightGreen)},
+            {Twine, New ItemTypeDescriptor("Twine", ChrW(&H21), Tan)}
         }
 
     <Extension>

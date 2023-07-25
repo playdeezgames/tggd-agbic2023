@@ -8,6 +8,7 @@
     Friend Const GroundDetail = "GroudDetail"
     Friend Const Inventory = "Inventory"
     Friend Const InventoryDetail = "InventoryDetail"
+    Friend Const MakeTwine = "MakeTwine"
     Friend Const Message = "Message"
     Friend Const MoveDown = "MoveDown"
     Friend Const MoveLeft = "MoveLeft"

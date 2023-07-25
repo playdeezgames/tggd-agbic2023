@@ -19,6 +19,7 @@
     Sub UnequipItem(item As IItem)
     Sub RemoveStatistic(statisticType As String)
     Function HasStatistic(statisticType As String) As Boolean
+    Function ItemTypeCount(itemType As String) As Integer
     ReadOnly Property Equipment As IReadOnlyDictionary(Of String, IItem)
     ReadOnly Property EquippedItems As IReadOnlyList(Of IItem)
     Property Flag(flagType As String) As Boolean

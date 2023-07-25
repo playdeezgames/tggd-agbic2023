@@ -111,7 +111,10 @@
         End If
         character.AddAdvancementPoints(-learnCost)
         character.Flag(trigger.Metadata(Metadatas.FlagType)) = True
-        msg.AddLine(LightGray, "You now know how to forage!")
+        msg.
+            AddLine(LightGray, "You now know how to forage!").
+            AddLine(LightGray, "To forage, simply select 'Forage...'").
+            AddLine(LightGray, "from the action menu.")
     End Sub
 
     Friend Sub LearnTwineMaking(character As ICharacter, trigger As ITrigger)

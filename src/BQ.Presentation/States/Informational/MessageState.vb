@@ -31,13 +31,13 @@ Friend Class MessageState
         displayBuffer.Fill((0, 0), Context.ViewSize, Black)
         Dim message = Model.Message.Current
         Dim font = Context.Font(UIFont)
-        Dim y = If(message.HasChoices, Context.ViewSize.Item2 \ 4, Context.ViewSize.Item2 \ 2) - font.Height * message.LineCount \ 2
+        Dim y = If(message.HasChoices, Context.ViewSize.Item2 \ 3, Context.ViewSize.Item2 \ 2) - font.Height * message.LineCount \ 2
         For Each line In message.Lines
             font.WriteText(displayBuffer, (Context.ViewSize.Item1 \ 2 - font.TextWidth(line.Text) \ 2, y), line.Text, line.Hue)
             y += font.Height
         Next
         If message.HasChoices Then
-            y = Context.ViewSize.Height * 3 \ 4 - font.Height \ 2
+            y = Context.ViewSize.Height * 2 \ 3 - font.Height \ 2
             displayBuffer.Fill((0, y), (Context.ViewSize.Width, font.Height), Blue)
             y -= ChoiceIndex * font.Height
             Dim index = 0

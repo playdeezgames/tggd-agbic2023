@@ -30,6 +30,7 @@ Friend Module TerrainTypes
     Friend Const Basin = "Basin"
     Friend Const OldMan = "OldMan"
     Friend Const StrongMan = "StrongMan"
+    Friend Const Druid = "Druid"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, TerrainTypeDescriptor) =
         New Dictionary(Of String, TerrainTypeDescriptor) From
         {
@@ -60,6 +61,7 @@ Friend Module TerrainTypes
             {Basin, New TerrainTypeDescriptor("Basin", ChrW(&H1E), Hue.Blue, False)},
             {OldMan, New TerrainTypeDescriptor("Old Man", ChrW(&H1F), Hue.Purple, False)},
             {StrongMan, New TerrainTypeDescriptor("Strong Man", ChrW(&H23), Hue.Brown, False)},
+            {Druid, New TerrainTypeDescriptor("Druid", ChrW(&H24), Hue.LightGreen, False)},
             {
                 Tree,
                 New TerrainTypeDescriptor(
@@ -67,7 +69,8 @@ Friend Module TerrainTypes
                     ChrW(&HA),
                     Hue.Green,
                     True,
-                    cellInitializer:=AddressOf InitializeTree)}
+                    cellInitializer:=AddressOf InitializeTree)
+            }
         }
 
     Private Sub InitializeTree(cell As ICell)

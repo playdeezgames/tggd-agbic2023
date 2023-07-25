@@ -35,7 +35,12 @@ Friend Module CharacterTypes
                         {TriggerTypes.Message, AddressOf DefaultMessage},
                         {TriggerTypes.Heal, AddressOf NihilisticHealing},
                         {TriggerTypes.ExitDialog, AddressOf DoExitDialog},
-                        {TriggerTypes.NihilistPrices, AddressOf DoNihilistPrices}
+                        {TriggerTypes.NihilistPrices, AddressOf DoNihilistPrices},
+                        {TriggerTypes.TrainHealth, AddressOf DoTrainHealth},
+                        {TriggerTypes.DruidAllergies, AddressOf DoDruidAllergies},
+                        {TriggerTypes.DruidTeachMenu, AddressOf DoDruidTeachMenu},
+                        {TriggerTypes.LearnForaging, AddressOf LoxyTriggerHandlers.LearnForaging},
+                        {TriggerTypes.LearnTwineMaking, AddressOf LoxyTriggerHandlers.LearnTwineMaking}
                     })
             },
             {
@@ -82,16 +87,6 @@ Friend Module CharacterTypes
             }
         }
 
-    Private Sub DoNihilistPrices(character As ICharacter, trigger As ITrigger)
-        character.World.CreateMessage().
-            AddLine(LightGray, "I don't sell anything.").
-            AddLine(LightGray, "I'm a nihilist, remember?")
-    End Sub
-
-    Private Sub DoExitDialog(character As ICharacter, trigger As ITrigger)
-        'NOTHING!
-    End Sub
-
     Private Sub CherryGlopInitializer(character As ICharacter)
 
     End Sub
@@ -100,37 +95,6 @@ Friend Module CharacterTypes
         character.SetJools(RNG.RollDice("3d6/6"))
     End Sub
 
-    Private Sub NihilisticHealing(character As ICharacter, trigger As ITrigger)
-        Dim maximumHealth = Math.Min(character.MaximumHealth, trigger.Statistics(StatisticTypes.MaximumHealth))
-
-        If character.Health >= maximumHealth Then
-            character.World.CreateMessage().AddLine(LightGray, "Nothing happens!")
-            Return
-        End If
-        character.SetHealth(maximumHealth)
-        Dim msg =
-            character.World.
-                CreateMessage().
-                AddLine(LightGray, $"{character.Name} is healed!").
-                AddLine(LightGray, $"{character.Name} now has {character.Health} health.")
-        Dim jools = character.Jools \ 2
-        character.AddJools(-jools)
-        If jools > 0 Then
-            msg.AddLine(Red, $"{character.Name} loses {jools} jools!")
-        End If
-    End Sub
-
-    Private Sub DefaultMessage(character As ICharacter, trigger As ITrigger)
-        Dim descriptor = trigger.Metadata(Metadatas.MessageType).ToMessageTypeDescriptor
-        descriptor.CreateMessage(character.World)
-    End Sub
-
-    Private Sub DefaultTeleport(character As ICharacter, trigger As ITrigger)
-        Dim nextCell = character.World.Map(trigger.Statistics(StatisticTypes.MapId)).GetCell(trigger.Statistics(StatisticTypes.CellColumn), trigger.Statistics(StatisticTypes.CellRow))
-        nextCell.AddCharacter(character)
-        character.Cell.RemoveCharacter(character)
-        character.Cell = nextCell
-    End Sub
 
     <Extension>
     Friend Function ToCharacterTypeDescriptor(characterType As String) As CharacterTypeDescriptor

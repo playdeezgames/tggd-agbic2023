@@ -14,6 +14,7 @@ Friend Module MessageTypes
     Friend Const TownSign9 = "TownSign9"
     Friend Const TownSign10 = "TownSign10"
     Friend Const HealthTrainerIntroduction = "HealthTrainerIntroduction"
+    Friend Const DruidIntroduction = "DruidIntroduction"
     Private Function MakeLines(ParamArray lines() As (hue As Integer, text As String)) As IEnumerable(Of (hue As Integer, text As String))
         Return lines
     End Function
@@ -29,7 +30,7 @@ Friend Module MessageTypes
             {TownSign4, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #4")))},
             {TownSign5, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #5")))},
             {TownSign6, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #6")))},
-            {TownSign7, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #7")))},
+            {TownSign7, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Hippy Druid Lives Here")))},
             {TownSign8, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #8")))},
             {TownSign9, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "House of Nihilistic Healing")))},
             {TownSign10, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #10")))},
@@ -55,7 +56,19 @@ Friend Module MessageTypes
                         (LightGray, "I can help you increase yer health."),
                         (LightGray, "The cost is 5 AP times yer current health.")),
                     choices:=MakeChoices(
-                        ("Cool story, bro!", TriggerTypes.ExitDialog)))
+                        ("Cool story, bro!", TriggerTypes.ExitDialog),
+                        ("Train Me!", TriggerTypes.TrainHealth)))
+            },
+            {
+                DruidIntroduction,
+                New MessageTypeDescriptor(
+                    lines:=MakeLines(
+                        (LightGray, "Greetings! I am a druid."),
+                        (LightGray, "I can help you learn nature's way.")),
+                    choices:=MakeChoices(
+                        ("Cool story, bro!", TriggerTypes.ExitDialog),
+                        ("Don't druids live in the woods?", TriggerTypes.DruidAllergies),
+                        ("Teach me!", TriggerTypes.DruidTeachMenu)))
             }
         }
     <Extension>

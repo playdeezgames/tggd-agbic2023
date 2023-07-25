@@ -127,6 +127,11 @@ Friend Module CharacterExtensions
         character.Statistic(StatisticTypes.Health) = Math.Clamp(health, 0, character.MaximumHealth)
     End Sub
     <Extension>
+    Friend Sub SetMaximumHealth(character As ICharacter, maximumHealth As Integer)
+        character.Statistic(StatisticTypes.MaximumHealth) = Math.Max(1, maximumHealth)
+        character.SetHealth(character.Health)
+    End Sub
+    <Extension>
     Friend Function IsDead(character As ICharacter) As Boolean
         Return character.Health <= 0
     End Function
@@ -151,7 +156,7 @@ Friend Module CharacterExtensions
         Return character.TryGetStatistic(StatisticTypes.AdvancementPointsPerLevel)
     End Function
     <Extension>
-    Private Sub AddAdvancementPoints(character As ICharacter, advancementPoints As Integer)
+    Friend Sub AddAdvancementPoints(character As ICharacter, advancementPoints As Integer)
         character.Statistic(StatisticTypes.AdvancementPoints) = Math.Max(0, character.TryGetStatistic(StatisticTypes.AdvancementPoints) + advancementPoints)
     End Sub
     <Extension>
@@ -190,7 +195,7 @@ Friend Module CharacterExtensions
         End If
     End Sub
     <Extension>
-    Private Function AdvancementPoints(character As ICharacter) As Integer
+    Friend Function AdvancementPoints(character As ICharacter) As Integer
         Return character.TryGetStatistic(StatisticTypes.AdvancementPoints)
     End Function
     <Extension>

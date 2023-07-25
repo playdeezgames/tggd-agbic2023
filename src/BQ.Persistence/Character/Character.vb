@@ -100,6 +100,19 @@
         End Set
     End Property
 
+    Public Property Flag(flagType As String) As Boolean Implements ICharacter.Flag
+        Get
+            Return CharacterData.Flags.Contains(flagType)
+        End Get
+        Set(value As Boolean)
+            If value Then
+                CharacterData.Flags.Add(flagType)
+            Else
+                CharacterData.Flags.Remove(flagType)
+            End If
+        End Set
+    End Property
+
     Public Sub Recycle() Implements ICharacter.Recycle
         If Not IsAvatar Then
             For Each equippedItem In EquippedItems

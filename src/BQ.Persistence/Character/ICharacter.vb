@@ -21,4 +21,5 @@
     Function HasStatistic(statisticType As String) As Boolean
     ReadOnly Property Equipment As IReadOnlyDictionary(Of String, IItem)
     ReadOnly Property EquippedItems As IReadOnlyList(Of IItem)
+    Property Flag(flagType As String) As Boolean
 End Interface

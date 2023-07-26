@@ -30,4 +30,8 @@ Friend Module ItemExtensions
     Friend Function FullName(item As IItem) As String
         Return item.Descriptor.FullName(item)
     End Function
+    <Extension>
+    Friend Function CanEquip(item As IItem) As Boolean
+        Return item.Descriptor.CanEquip
+    End Function
 End Module

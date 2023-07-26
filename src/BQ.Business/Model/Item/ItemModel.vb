@@ -9,10 +9,10 @@
 
     Public Property Name As String Implements IItemModel.Name
         Get
-            Return world.Avatar.Metadata(Metadatas.ItemType)
+            Return world.Avatar.Metadata(Metadatas.ItemName)
         End Get
         Set(value As String)
-            world.Avatar.Metadata(Metadatas.ItemType) = value
+            world.Avatar.Metadata(Metadatas.ItemName) = value
         End Set
     End Property
 
@@ -25,11 +25,17 @@
         End Set
     End Property
 
+    Public ReadOnly Property CanEquip As Boolean Implements IItemModel.CanEquip
+        Get
+            Return world.Avatar.Items.Where(Function(x) x.Name = Name).Any(Function(x) x.CanEquip)
+        End Get
+    End Property
+
     Public Sub Take() Implements IItemModel.Take
         Dim itemCount = Count
         Dim itemName = Name
         world.Avatar.RemoveStatistic(StatisticTypes.ItemCount)
-        world.Avatar.RemoveMetadata(Metadatas.ItemType)
+        world.Avatar.RemoveMetadata(Metadatas.ItemName)
         Dim items = world.Avatar.Cell.Items.Where(Function(x) x.Name = itemName).Take(itemCount)
         For Each item In items
             world.Avatar.Cell.RemoveItem(item)
@@ -41,7 +47,7 @@
         Dim itemCount = Count
         Dim itemName = Name
         world.Avatar.RemoveStatistic(StatisticTypes.ItemCount)
-        world.Avatar.RemoveMetadata(Metadatas.ItemType)
+        world.Avatar.RemoveMetadata(Metadatas.ItemName)
         Dim items = world.Avatar.Items.Where(Function(x) x.Name = itemName).Take(itemCount)
         For Each item In items
             world.Avatar.Cell.AddItem(item)

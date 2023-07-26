@@ -30,6 +30,9 @@
             result.Add((DropHalfText, DropHalfText))
         End If
         result.Add((DropOneText, DropOneText))
+        If Model.Item.CanEquip Then
+            result.Add((EquipText, EquipText))
+        End If
         Return result
     End Function
 

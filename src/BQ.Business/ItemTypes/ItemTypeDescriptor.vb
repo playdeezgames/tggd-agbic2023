@@ -8,7 +8,6 @@ Friend Class ItemTypeDescriptor
     Friend ReadOnly Property Flags As IReadOnlyList(Of String)
     Friend ReadOnly Property EquipSlotType As String
     Friend ReadOnly Property FullName As Func(Of IItem, String)
-    Friend ReadOnly Property CanTake As Boolean
     Friend ReadOnly Property CanEquip As Boolean
         Get
             Return EquipSlotType IsNot Nothing
@@ -29,7 +28,6 @@ Friend Class ItemTypeDescriptor
         Me.EquipSlotType = equipSlotType
         Me.Statistics = If(statistics, New Dictionary(Of String, Integer))
         Me.FullName = If(fullName, AddressOf DefaultFullName)
-        Me.CanTake = canTake
         Me.Flags = If(flags, New List(Of String))
     End Sub
 

@@ -1,5 +1,7 @@
 # Bagel Quest!
 
+Bagel Quest, a game for the "A Game By Its Cover 2023" jam. ~18.5 days remaining. I have seen the Barbie movie. I, too, am "Kenough".
+
 Matura MT Script Capitals
 96
 

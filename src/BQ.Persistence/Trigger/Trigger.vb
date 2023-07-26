@@ -62,16 +62,6 @@ Friend Class Trigger
         Return Me
     End Function
 
-    Public Function SetStatistic(statisticType As String, value As Integer) As ITrigger Implements ITrigger.SetStatistic
-        TriggerData.Statistics(statisticType) = value
-        Return Me
-    End Function
-
-    Public Function SetMetadata(identifier As String, value As String) As ITrigger Implements ITrigger.SetMetadata
-        TriggerData.Metadata(identifier) = value
-        Return Me
-    End Function
-
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return TriggerData.Statistics.ContainsKey(statisticType)
     End Function

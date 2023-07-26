@@ -58,8 +58,21 @@
         End Set
     End Property
 
+    Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
+        Get
+            Return MapData.Metadata(identifier)
+        End Get
+        Set(value As String)
+            MapData.Metadata(identifier) = value
+        End Set
+    End Property
+
     Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
         MapData.Statistics.Remove(statisticType)
+    End Sub
+
+    Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
+        MapData.Metadata.Remove(identifier)
     End Sub
 
     Public Function GetCell(column As Integer, row As Integer) As ICell Implements IMap.GetCell
@@ -76,5 +89,9 @@
 
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return MapData.Statistics.ContainsKey(statisticType)
+    End Function
+
+    Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
+        Return MapData.Metadata.ContainsKey(identifier)
     End Function
 End Class

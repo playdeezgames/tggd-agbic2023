@@ -1,6 +1,7 @@
 ﻿Public Interface IMap
     Inherits IStatisticsHolder
     Inherits IFlagHolder
+    Inherits IMetadataHolder
     ReadOnly Property Columns As Integer
     ReadOnly Property Rows As Integer
     ReadOnly Property Cells As IEnumerable(Of ICell)

@@ -1,6 +1,4 @@
-﻿Imports System.Net.NetworkInformation
-
-Friend Class Item
+﻿Friend Class Item
     Inherits ItemDataClient
     Implements IItem
     Public Sub New(worldData As Data.WorldData, itemId As Integer)
@@ -40,6 +38,15 @@ Friend Class Item
         End Set
     End Property
 
+    Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
+        Get
+            Return ItemData.Metadata(identifier)
+        End Get
+        Set(value As String)
+            ItemData.Metadata(identifier) = value
+        End Set
+    End Property
+
     Public Sub Recycle() Implements IItem.Recycle
         ItemData.Recycled = True
     End Sub
@@ -48,7 +55,15 @@ Friend Class Item
         ItemData.Statistics.Remove(statisticType)
     End Sub
 
+    Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
+        ItemData.Metadata.Remove(identifier)
+    End Sub
+
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return ItemData.Statistics.ContainsKey(statisticType)
+    End Function
+
+    Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
+        Return ItemData.Metadata.ContainsKey(identifier)
     End Function
 End Class

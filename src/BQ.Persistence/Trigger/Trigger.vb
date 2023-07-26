@@ -12,10 +12,13 @@ Friend Class Trigger
         End Get
     End Property
 
-    Public ReadOnly Property TriggerType As String Implements ITrigger.TriggerType
+    Public Property TriggerType As String Implements ITrigger.TriggerType
         Get
             Return TriggerData.TriggerType
         End Get
+        Set(value As String)
+            TriggerData.TriggerType = value
+        End Set
     End Property
 
     Public Property Statistic(statisticType As String) As Integer Implements ITrigger.Statistic
@@ -56,11 +59,6 @@ Friend Class Trigger
     Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
         TriggerData.Metadata.Remove(identifier)
     End Sub
-
-    Public Function SetTriggerType(triggerType As String) As ITrigger Implements ITrigger.SetTriggerType
-        TriggerData.TriggerType = triggerType
-        Return Me
-    End Function
 
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return TriggerData.Statistics.ContainsKey(statisticType)

@@ -12,10 +12,13 @@
         End Get
     End Property
 
-    Public ReadOnly Property TriggerType As String Implements IMessageChoice.TriggerType
+    Public Property TriggerType As String Implements IMessageChoice.TriggerType
         Get
             Return MessageChoiceData.TriggerType
         End Get
+        Set(value As String)
+            MessageChoiceData.TriggerType = value
+        End Set
     End Property
 
     Public ReadOnly Property Id As Integer Implements ITrigger.Id
@@ -62,11 +65,6 @@
     Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
         MessageChoiceData.Metadata.Remove(identifier)
     End Sub
-
-    Public Function SetTriggerType(triggerType As String) As ITrigger Implements ITrigger.SetTriggerType
-        MessageChoiceData.TriggerType = triggerType
-        Return Me
-    End Function
 
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return MessageChoiceData.Statistics.ContainsKey(statisticType)

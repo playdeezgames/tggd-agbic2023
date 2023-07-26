@@ -3,6 +3,5 @@
     Inherits IFlagHolder
     Inherits IMetadataHolder
     ReadOnly Property Id As Integer
-    ReadOnly Property TriggerType As String
-    Function SetTriggerType(triggerType As String) As ITrigger
+    Property TriggerType As String
 End Interface

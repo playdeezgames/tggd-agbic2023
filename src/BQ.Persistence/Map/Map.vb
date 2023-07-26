@@ -45,6 +45,19 @@
         End Set
     End Property
 
+    Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
+        Get
+            Return MapData.Flags.Contains(flagType)
+        End Get
+        Set(value As Boolean)
+            If value Then
+                MapData.Flags.Add(flagType)
+            Else
+                MapData.Flags.Remove(flagType)
+            End If
+        End Set
+    End Property
+
     Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
         MapData.Statistics.Remove(statisticType)
     End Sub

@@ -1,5 +1,6 @@
 ﻿Public Interface ICell
     Inherits IStatisticsHolder
+    Inherits IFlagHolder
     ReadOnly Property Characters As IEnumerable(Of ICharacter)
     ReadOnly Property OtherCharacters(character As ICharacter) As IEnumerable(Of ICharacter)
     ReadOnly Property HasCharacters As Boolean

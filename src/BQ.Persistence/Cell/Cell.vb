@@ -121,6 +121,20 @@ Friend Class Cell
         End Get
     End Property
 
+    Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
+        Get
+
+            Return CellData.Flags.Contains(flagType)
+        End Get
+        Set(value As Boolean)
+            If value Then
+                CellData.Flags.Add(flagType)
+            Else
+                CellData.Flags.Remove(flagType)
+            End If
+        End Set
+    End Property
+
     Public Sub AddItem(item As IItem) Implements ICell.AddItem
         CellData.ItemIds.Add(item.Id)
     End Sub

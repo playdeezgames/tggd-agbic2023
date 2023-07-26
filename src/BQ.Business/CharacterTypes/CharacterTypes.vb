@@ -76,7 +76,7 @@ Friend Module CharacterTypes
         }
 
     Private Sub CherryGlopInitializer(character As ICharacter)
-
+        character.SetJools(RNG.RollDice("6d6/6"))
     End Sub
 
     Private Sub OliveGlopInitializer(character As ICharacter)

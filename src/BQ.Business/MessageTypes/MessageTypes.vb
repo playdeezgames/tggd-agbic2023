@@ -45,7 +45,7 @@ Friend Module MessageTypes
                         (LightGray, "because I'm a nihilist.")),
                     choices:=MakeChoices(
                         ("Cool story, bro!", TriggerTypes.ExitDialog),
-                        ("What's for sale?", TriggerTypes.NihilistPrices)))
+                        ("What's for sale?", TriggerTypes.HealerPrices)))
             },
             {
                 HealthTrainerTalk,

@@ -24,6 +24,9 @@ Friend Class DeadState
         Dim font = Context.Font(UIFont)
         Dim text = "Yer dead!"
         font.WriteText(displayBuffer, (Context.ViewSize.Width \ 2 - font.TextWidth(text) \ 2, Context.ViewSize.Height \ 2 - font.Height \ 2), text, Red)
+        If DateTimeOffset.Now >= showUntil Then
+            Context.ShowStatusBar(displayBuffer, font, Context.ControlsText("Continue", Nothing), Black, LightGray)
+        End If
     End Sub
 
     Public Overrides Sub OnStart()

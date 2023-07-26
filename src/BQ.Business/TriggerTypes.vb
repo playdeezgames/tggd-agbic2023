@@ -6,7 +6,7 @@
     Friend Const LearnForaging = "LearnForaging"
     Friend Const LearnTwineMaking = "LearnTwineMaking"
     Friend Const Message = "Message"
-    Friend Const NihilistPrices = "NihilistPrices"
+    Friend Const HealerPrices = "NihilistPrices"
     Friend Const Teleport = "Teleport"
     Friend Const TrainHealth = "TrainHealth"
     Friend Const HealerTalk = "HealerTalk"

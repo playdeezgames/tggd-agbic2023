@@ -7,7 +7,7 @@
                         {TriggerTypes.Message, AddressOf DefaultMessage},
                         {TriggerTypes.Heal, AddressOf NihilisticHealing},
                         {TriggerTypes.ExitDialog, AddressOf DoExitDialog},
-                        {TriggerTypes.NihilistPrices, AddressOf DoNihilistPrices},
+                        {TriggerTypes.HealerPrices, AddressOf DoNihilistPrices},
                         {TriggerTypes.TrainHealth, AddressOf DoTrainHealth},
                         {TriggerTypes.DruidAllergies, AddressOf DoDruidAllergies},
                         {TriggerTypes.DruidTeachMenu, AddressOf DoDruidTeachMenu},
@@ -27,7 +27,7 @@
                         AddLine(LightGray, "Not that I care or anything,").
                         AddLine(LightGray, "because I'm a nihilist.").
                         AddChoice("Cool story, bro!", TriggerTypes.ExitDialog).
-                        AddChoice("What's for sale?", TriggerTypes.NihilistPrices)
+                        AddChoice("What's for sale?", TriggerTypes.HealerPrices)
     End Sub
 
     Private Sub DoHealthTrainerTalk(character As ICharacter, trigger As ITrigger)
@@ -49,8 +49,7 @@
     End Sub
 
     Private Sub DefaultMessage(character As ICharacter, trigger As ITrigger)
-        Dim descriptor = trigger.Metadata(Metadatas.MessageType).ToMessageTypeDescriptor
-        descriptor.CreateMessage(character.World)
+        trigger.Metadata(Metadatas.MessageType).ToMessageTypeDescriptor.CreateMessage(character.World)
     End Sub
 
     Private Sub DefaultTeleport(character As ICharacter, trigger As ITrigger)
@@ -76,7 +75,6 @@
     End Sub
     Private Sub NihilisticHealing(character As ICharacter, trigger As ITrigger)
         Dim maximumHealth = Math.Min(character.MaximumHealth, trigger.Statistics(StatisticTypes.MaximumHealth))
-
         If character.Health >= maximumHealth Then
             character.World.CreateMessage().AddLine(LightGray, "Nothing happens!")
             Return
@@ -185,9 +183,7 @@
         End If
         character.AddAdvancementPoints(-learnCost)
         character.Flag(trigger.Metadata(Metadatas.FlagType)) = True
-
         character.MakeTwine()
-
         msg.
             AddLine(LightGray, "You now know how to make twine!").
             AddLine(LightGray, "To do so, simply select 'Make Twine'").

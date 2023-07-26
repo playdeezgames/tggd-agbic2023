@@ -27,13 +27,15 @@ Friend Class Item
         End Set
     End Property
 
-    Public ReadOnly Property HasStatistic(statisticType As String) As Boolean Implements IItem.HasStatistic
-        Get
-            Return ItemData.Statistics.ContainsKey(statisticType)
-        End Get
-    End Property
-
     Public Sub Recycle() Implements IItem.Recycle
         ItemData.Recycled = True
     End Sub
+
+    Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
+        ItemData.Statistics.Remove(statisticType)
+    End Sub
+
+    Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
+        Return ItemData.Statistics.ContainsKey(statisticType)
+    End Function
 End Class

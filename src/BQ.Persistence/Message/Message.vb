@@ -54,6 +54,19 @@
         End Set
     End Property
 
+    Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
+        Get
+            Return MessageData.Flags.Contains(flagType)
+        End Get
+        Set(value As Boolean)
+            If value Then
+                MessageData.Flags.Add(flagType)
+            Else
+                MessageData.Flags.Remove(flagType)
+            End If
+        End Set
+    End Property
+
     Public Function AddLine(hue As Integer, text As String) As IMessage Implements IMessage.AddLine
         MessageData.Lines.Add(New Data.MessageLineData With
                               {

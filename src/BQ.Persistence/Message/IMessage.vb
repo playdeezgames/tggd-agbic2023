@@ -1,5 +1,6 @@
 ﻿Public Interface IMessage
     Inherits IStatisticsHolder
+    Inherits IFlagHolder
     ReadOnly Property LineCount As Integer
     ReadOnly Property Lines As IEnumerable(Of IMessageLine)
     ReadOnly Property Choices As IEnumerable(Of IMessageChoice)

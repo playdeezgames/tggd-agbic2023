@@ -5,6 +5,15 @@
         MyBase.New(
             "Stick",
             ChrW(&H25),
-            Brown)
+            Brown,
+            equipSlotType:=EquipSlotTypes.Weapon,
+            statistics:=New Dictionary(Of String, Integer) From
+            {
+                {StatisticTypes.AttackDice, 2}
+            },
+            flags:=New List(Of String) From
+            {
+                FlagTypes.IsWeapon
+            })
     End Sub
 End Class

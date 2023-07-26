@@ -20,11 +20,11 @@ Friend Module ItemExtensions
     End Sub
     <Extension>
     Friend Function IsWeapon(item As IItem) As Boolean
-        Return item.Descriptor.IsWeapon
+        Return item.Descriptor.Flags.Contains(FlagTypes.IsWeapon)
     End Function
     <Extension>
     Friend Function IsArmor(item As IItem) As Boolean
-        Return item.Descriptor.IsArmor
+        Return item.Descriptor.Flags.Contains(FlagTypes.IsArmor)
     End Function
     <Extension>
     Friend Function FullName(item As IItem) As String

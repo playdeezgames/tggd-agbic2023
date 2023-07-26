@@ -135,6 +135,15 @@ Friend Class Cell
         End Set
     End Property
 
+    Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
+        Get
+            Return CellData.Metadata(identifier)
+        End Get
+        Set(value As String)
+            CellData.Metadata(identifier) = value
+        End Set
+    End Property
+
     Public Sub AddItem(item As IItem) Implements ICell.AddItem
         CellData.ItemIds.Add(item.Id)
     End Sub
@@ -154,6 +163,14 @@ Friend Class Cell
     Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
         CellData.Statistics.Remove(statisticType)
     End Sub
+
+    Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
+        CellData.Metadata.Remove(identifier)
+    End Sub
+
+    Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
+        Return CellData.Metadata.ContainsKey(identifier)
+    End Function
 
     Private Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return CellData.Statistics.ContainsKey(statisticType)

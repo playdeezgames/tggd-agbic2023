@@ -27,6 +27,19 @@ Friend Class Item
         End Set
     End Property
 
+    Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
+        Get
+            Return ItemData.Flags.Contains(flagType)
+        End Get
+        Set(value As Boolean)
+            If value Then
+                ItemData.Flags.Add(flagType)
+            Else
+                ItemData.Flags.Remove(flagType)
+            End If
+        End Set
+    End Property
+
     Public Sub Recycle() Implements IItem.Recycle
         ItemData.Recycled = True
     End Sub

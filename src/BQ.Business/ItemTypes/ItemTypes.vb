@@ -11,7 +11,7 @@ Friend Module ItemTypes
         {
             {PlantFiber, New ItemTypeDescriptor("Plant Fiber", ChrW(&H23), LightGreen)},
             {Twine, New ItemTypeDescriptor("Twine", ChrW(&H21), Tan)},
-            {Stick, New ItemTypeDescriptor("Stick", ChrW(&H25), Brown)}
+            {Stick, New StickDescriptor()}
         }
 
     <Extension>

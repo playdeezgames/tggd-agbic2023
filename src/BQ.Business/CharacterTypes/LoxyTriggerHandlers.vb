@@ -53,7 +53,9 @@
     End Sub
 
     Private Sub DefaultTeleport(character As ICharacter, trigger As ITrigger)
-        Dim nextCell = character.World.Map(trigger.Statistics(StatisticTypes.MapId)).GetCell(trigger.Statistics(StatisticTypes.CellColumn), trigger.Statistics(StatisticTypes.CellRow))
+        Dim nextCell = character.World.
+            Map(trigger.Statistic(StatisticTypes.MapId)).
+            GetCell(trigger.Statistic(StatisticTypes.CellColumn), trigger.Statistic(StatisticTypes.CellRow))
         nextCell.AddCharacter(character)
         character.Cell.RemoveCharacter(character)
         character.Cell = nextCell
@@ -74,7 +76,7 @@
         'NOTHING!
     End Sub
     Private Sub NihilisticHealing(character As ICharacter, trigger As ITrigger)
-        Dim maximumHealth = Math.Min(character.MaximumHealth, trigger.Statistics(StatisticTypes.MaximumHealth))
+        Dim maximumHealth = Math.Min(character.MaximumHealth, trigger.Statistic(StatisticTypes.MaximumHealth))
         If character.Health >= maximumHealth Then
             character.World.CreateMessage().AddLine(LightGray, "Nothing happens!")
             Return
@@ -150,7 +152,7 @@
             msg.AddLine(LightGray, $"{character.Name} already know how to forage!")
             Return
         End If
-        Dim learnCost = trigger.Statistics(StatisticTypes.AdvancementPoints)
+        Dim learnCost = trigger.Statistic(StatisticTypes.AdvancementPoints)
         If character.AdvancementPoints < learnCost Then
             msg.AddLine(LightGray, $"To learn foraging, {character.Name} needs {learnCost} AP, but has {character.AdvancementPoints}!")
             Return
@@ -169,7 +171,7 @@
             msg.AddLine(LightGray, $"{character.Name} already knows how to make twine!")
             Return
         End If
-        Dim learnCost = trigger.Statistics(StatisticTypes.AdvancementPoints)
+        Dim learnCost = trigger.Statistic(StatisticTypes.AdvancementPoints)
         If character.AdvancementPoints < learnCost Then
             msg.
                 AddLine(LightGray, $"To learn to make twine,").

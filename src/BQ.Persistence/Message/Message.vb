@@ -45,6 +45,15 @@
         End Get
     End Property
 
+    Public Property Statistic(statisticType As String) As Integer Implements IStatisticsHolder.Statistic
+        Get
+            Return MessageData.Statistics(statisticType)
+        End Get
+        Set(value As Integer)
+            MessageData.Statistics(statisticType) = value
+        End Set
+    End Property
+
     Public Function AddLine(hue As Integer, text As String) As IMessage Implements IMessage.AddLine
         MessageData.Lines.Add(New Data.MessageLineData With
                               {
@@ -75,5 +84,13 @@
 
     Public Function Choice(index As Integer) As IMessageChoice Implements IMessage.Choice
         Return New MessageChoice(WorldData, MessageId, index)
+    End Function
+
+    Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
+        MessageData.Statistics.Remove(statisticType)
+    End Sub
+
+    Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
+        Return MessageData.Statistics.ContainsKey(statisticType)
     End Function
 End Class

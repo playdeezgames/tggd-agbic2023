@@ -1,12 +1,11 @@
 ﻿Public Interface ICharacter
     Inherits IStatisticsHolder
     Inherits IFlagHolder
+    Inherits IMetadataHolder
     ReadOnly Property Id As Integer
     ReadOnly Property CharacterType As String
     Property Cell As ICell
     ReadOnly Property Map As IMap
-    Property Metadata(identifier As String) As String
-    Sub RemoveMetadata(identifier As String)
     ReadOnly Property World As IWorld
     Sub Recycle()
     ReadOnly Property Items As IEnumerable(Of IItem)

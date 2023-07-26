@@ -168,4 +168,8 @@
     Public Function ItemTypeCount(itemType As String) As Integer Implements ICharacter.ItemTypeCount
         Return Items.Count(Function(x) x.ItemType = itemType)
     End Function
+
+    Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
+        Return CharacterData.Metadata.ContainsKey(identifier)
+    End Function
 End Class

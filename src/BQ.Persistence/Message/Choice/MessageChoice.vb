@@ -39,6 +39,19 @@
         End Set
     End Property
 
+    Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
+        Get
+            Return MessageChoiceData.Flags.Contains(flagType)
+        End Get
+        Set(value As Boolean)
+            If value Then
+                MessageChoiceData.Flags.Add(flagType)
+            Else
+                MessageChoiceData.Flags.Remove(flagType)
+            End If
+        End Set
+    End Property
+
     Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
         MessageChoiceData.Statistics.Remove(statisticType)
     End Sub

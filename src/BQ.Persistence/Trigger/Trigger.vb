@@ -33,6 +33,19 @@ Friend Class Trigger
         End Get
     End Property
 
+    Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
+        Get
+            Return TriggerData.Flags.Contains(flagType)
+        End Get
+        Set(value As Boolean)
+            If value Then
+                TriggerData.Flags.Add(flagType)
+            Else
+                TriggerData.Flags.Remove(flagType)
+            End If
+        End Set
+    End Property
+
     Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
         TriggerData.Statistics.Remove(statisticType)
     End Sub

@@ -1,5 +1,6 @@
 ﻿Public Interface ITrigger
     Inherits IStatisticsHolder
+    Inherits IFlagHolder
     ReadOnly Property Id As Integer
     ReadOnly Property TriggerType As String
     Function SetTriggerType(triggerType As String) As ITrigger

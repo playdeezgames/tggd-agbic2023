@@ -36,15 +36,7 @@ Friend Module TerrainTypes
         New Dictionary(Of String, TerrainTypeDescriptor) From
         {
             {Grass, New GrassDescriptor()},
-            {
-                Tree,
-                New TerrainTypeDescriptor(
-                    "Tree",
-                    ChrW(&HA),
-                    Hue.Green,
-                    True,
-                    cellInitializer:=AddressOf InitializeTree)
-            },
+            {Tree, New TreeDescriptor()},
             {Empty, New TerrainTypeDescriptor("Empty", ChrW(0), Black, True)},
             {Wall, New TerrainTypeDescriptor("Wall", ChrW(3), Hue.LightGray, False)},
             {Gravel, New TerrainTypeDescriptor("Gravel", ChrW(6), Hue.DarkGray, True)},
@@ -73,10 +65,6 @@ Friend Module TerrainTypes
             {StrongMan, New TerrainTypeDescriptor("Strong Man", ChrW(&H23), Hue.Brown, False)},
             {Druid, New TerrainTypeDescriptor("Druid", ChrW(&H24), Hue.LightGreen, False)}
         }
-
-    Private Sub InitializeTree(cell As ICell)
-        cell.Statistic(StatisticTypes.Peril) = 1
-    End Sub
 
     <Extension>
     Friend Function ToTerrainTypeDescriptor(terrainType As String) As TerrainTypeDescriptor

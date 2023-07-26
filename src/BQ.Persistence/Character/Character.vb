@@ -100,7 +100,7 @@
         End Set
     End Property
 
-    Public Property Flag(flagType As String) As Boolean Implements ICharacter.Flag
+    Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
         Get
             Return CharacterData.Flags.Contains(flagType)
         End Get

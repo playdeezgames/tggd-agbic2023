@@ -1,5 +1,6 @@
 ﻿Public Interface ICharacter
     Inherits IStatisticsHolder
+    Inherits IFlagHolder
     ReadOnly Property Id As Integer
     ReadOnly Property CharacterType As String
     Property Cell As ICell
@@ -20,5 +21,4 @@
     Function ItemTypeCount(itemType As String) As Integer
     ReadOnly Property Equipment As IReadOnlyDictionary(Of String, IItem)
     ReadOnly Property EquippedItems As IReadOnlyList(Of IItem)
-    Property Flag(flagType As String) As Boolean
 End Interface

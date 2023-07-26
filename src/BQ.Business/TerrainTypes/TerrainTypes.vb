@@ -35,25 +35,18 @@ Friend Module TerrainTypes
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, TerrainTypeDescriptor) =
         New Dictionary(Of String, TerrainTypeDescriptor) From
         {
-            {Empty, New TerrainTypeDescriptor("Empty", ChrW(0), Black, True)},
-            {Wall, New TerrainTypeDescriptor("Wall", ChrW(3), Hue.LightGray, False)},
+            {Grass, New GrassDescriptor()},
             {
-                Grass,
+                Tree,
                 New TerrainTypeDescriptor(
-                    "Grass",
-                    ChrW(4),
+                    "Tree",
+                    ChrW(&HA),
                     Hue.Green,
                     True,
-                    verbTypes:=New Dictionary(Of String, Action(Of ICharacter, ICell)) From
-                    {
-                        {VerbTypes.Forage, AddressOf DefaultForage}
-                    },
-                    foragables:=New Dictionary(Of String, Integer) From
-                    {
-                        {String.Empty, 1},
-                        {ItemTypes.PlantFiber, 1}
-                    })
+                    cellInitializer:=AddressOf InitializeTree)
             },
+            {Empty, New TerrainTypeDescriptor("Empty", ChrW(0), Black, True)},
+            {Wall, New TerrainTypeDescriptor("Wall", ChrW(3), Hue.LightGray, False)},
             {Gravel, New TerrainTypeDescriptor("Gravel", ChrW(6), Hue.DarkGray, True)},
             {Fence, New TerrainTypeDescriptor("Fence", ChrW(5), Hue.Brown, False)},
             {House, New TerrainTypeDescriptor("House", ChrW(7), Hue.Red, False)},
@@ -78,29 +71,8 @@ Friend Module TerrainTypes
             {Basin, New TerrainTypeDescriptor("Basin", ChrW(&H1E), Hue.Blue, False)},
             {OldMan, New TerrainTypeDescriptor("Old Man", ChrW(&H1F), Hue.Purple, False)},
             {StrongMan, New TerrainTypeDescriptor("Strong Man", ChrW(&H23), Hue.Brown, False)},
-            {Druid, New TerrainTypeDescriptor("Druid", ChrW(&H24), Hue.LightGreen, False)},
-            {
-                Tree,
-                New TerrainTypeDescriptor(
-                    "Tree",
-                    ChrW(&HA),
-                    Hue.Green,
-                    True,
-                    cellInitializer:=AddressOf InitializeTree)
-            }
+            {Druid, New TerrainTypeDescriptor("Druid", ChrW(&H24), Hue.LightGreen, False)}
         }
-
-    Private Sub DefaultForage(character As ICharacter, cell As ICell)
-        Dim descriptor = cell.TerrainType.ToTerrainTypeDescriptor
-        Dim itemType = RNG.FromGenerator(descriptor.Foragables)
-        If String.IsNullOrEmpty(itemType) Then
-            character.World.CreateMessage().AddLine(LightGray, $"{character.Name} finds nothing.")
-            Return
-        End If
-        Dim item = ItemInitializer.CreateItem(character.World, itemType)
-        character.AddItem(item)
-        character.World.CreateMessage().AddLine(LightGray, $"{character.Name} finds {item.Name}")
-    End Sub
 
     Private Sub InitializeTree(cell As ICell)
         cell.Statistic(StatisticTypes.Peril) = 1

@@ -27,10 +27,13 @@ Friend Class Trigger
         End Set
     End Property
 
-    Public ReadOnly Property Metadata(identifier As String) As String Implements ITrigger.Metadata
+    Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
         Get
             Return TriggerData.Metadata(identifier)
         End Get
+        Set(value As String)
+            TriggerData.Metadata(identifier) = value
+        End Set
     End Property
 
     Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
@@ -50,6 +53,10 @@ Friend Class Trigger
         TriggerData.Statistics.Remove(statisticType)
     End Sub
 
+    Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
+        TriggerData.Metadata.Remove(identifier)
+    End Sub
+
     Public Function SetTriggerType(triggerType As String) As ITrigger Implements ITrigger.SetTriggerType
         TriggerData.TriggerType = triggerType
         Return Me
@@ -67,5 +74,9 @@ Friend Class Trigger
 
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return TriggerData.Statistics.ContainsKey(statisticType)
+    End Function
+
+    Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
+        Return TriggerData.Metadata.ContainsKey(identifier)
     End Function
 End Class

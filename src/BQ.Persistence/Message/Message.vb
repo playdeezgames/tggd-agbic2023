@@ -1,4 +1,6 @@
-﻿Friend Class Message
+﻿Imports BQ.Data
+
+Friend Class Message
     Inherits MessageDataClient
     Implements IMessage
 
@@ -67,6 +69,15 @@
         End Set
     End Property
 
+    Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
+        Get
+            Return MessageData.Metadata(identifier)
+        End Get
+        Set(value As String)
+            MessageData.Metadata(identifier) = value
+        End Set
+    End Property
+
     Public Function AddLine(hue As Integer, text As String) As IMessage Implements IMessage.AddLine
         MessageData.Lines.Add(New Data.MessageLineData With
                               {
@@ -106,4 +117,12 @@
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return MessageData.Statistics.ContainsKey(statisticType)
     End Function
+
+    Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
+        Return MessageData.Metadata.ContainsKey(identifier)
+    End Function
+
+    Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
+        MessageData.Metadata.Remove(identifier)
+    End Sub
 End Class

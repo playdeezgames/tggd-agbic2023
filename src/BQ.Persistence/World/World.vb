@@ -88,6 +88,15 @@ Public Class World
         End Set
     End Property
 
+    Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
+        Get
+            Return WorldData.Metadata(identifier)
+        End Get
+        Set(value As String)
+            WorldData.Metadata(identifier) = value
+        End Set
+    End Property
+
     Public Sub Save(filename As String) Implements IWorld.Save
         File.WriteAllText(filename, JsonSerializer.Serialize(WorldData))
     End Sub
@@ -100,6 +109,10 @@ Public Class World
 
     Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
         WorldData.Statistics.Remove(statisticType)
+    End Sub
+
+    Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
+        WorldData.Metadata.Remove(identifier)
     End Sub
 
     Public Shared Function Load(filename As String) As IWorld
@@ -172,5 +185,9 @@ Public Class World
 
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return WorldData.Statistics.ContainsKey(statisticType)
+    End Function
+
+    Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
+        Return WorldData.Metadata.ContainsKey(identifier)
     End Function
 End Class

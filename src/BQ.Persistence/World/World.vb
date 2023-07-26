@@ -75,6 +75,19 @@ Public Class World
         End Set
     End Property
 
+    Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
+        Get
+            Return WorldData.Flags.Contains(flagType)
+        End Get
+        Set(value As Boolean)
+            If value Then
+                WorldData.Flags.Add(flagType)
+            Else
+                WorldData.Flags.Remove(flagType)
+            End If
+        End Set
+    End Property
+
     Public Sub Save(filename As String) Implements IWorld.Save
         File.WriteAllText(filename, JsonSerializer.Serialize(WorldData))
     End Sub

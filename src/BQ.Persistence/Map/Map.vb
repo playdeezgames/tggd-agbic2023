@@ -36,6 +36,19 @@
         End Get
     End Property
 
+    Public Property Statistic(statisticType As String) As Integer Implements IStatisticsHolder.Statistic
+        Get
+            Return MapData.Statistics(statisticType)
+        End Get
+        Set(value As Integer)
+            MapData.Statistics(statisticType) = value
+        End Set
+    End Property
+
+    Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
+        MapData.Statistics.Remove(statisticType)
+    End Sub
+
     Public Function GetCell(column As Integer, row As Integer) As ICell Implements IMap.GetCell
         If column < 0 OrElse row < 0 OrElse column >= Columns OrElse row >= Rows Then
             Return Nothing
@@ -46,5 +59,9 @@
         Dim triggerId = MapData.Triggers.Count
         MapData.Triggers.Add(New Data.TriggerData)
         Return New Trigger(WorldData, MapId, triggerId)
+    End Function
+
+    Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
+        Return MapData.Statistics.ContainsKey(statisticType)
     End Function
 End Class

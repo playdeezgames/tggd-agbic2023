@@ -66,6 +66,15 @@ Public Class World
         End Get
     End Property
 
+    Public Property Statistic(statisticType As String) As Integer Implements IStatisticsHolder.Statistic
+        Get
+            Return WorldData.Statistics(statisticType)
+        End Get
+        Set(value As Integer)
+            WorldData.Statistics(statisticType) = value
+        End Set
+    End Property
+
     Public Sub Save(filename As String) Implements IWorld.Save
         File.WriteAllText(filename, JsonSerializer.Serialize(WorldData))
     End Sub
@@ -74,6 +83,10 @@ Public Class World
         If HasMessages Then
             WorldData.Messages.RemoveAt(0)
         End If
+    End Sub
+
+    Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
+        WorldData.Statistics.Remove(statisticType)
     End Sub
 
     Public Shared Function Load(filename As String) As IWorld
@@ -142,5 +155,9 @@ Public Class World
             WorldData.Items(index) = itemData
         End If
         Return New Item(WorldData, index)
+    End Function
+
+    Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
+        Return WorldData.Statistics.ContainsKey(statisticType)
     End Function
 End Class

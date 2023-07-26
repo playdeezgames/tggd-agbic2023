@@ -1,4 +1,5 @@
 ﻿Public Interface ICell
+    Inherits IStatisticsHolder
     ReadOnly Property Characters As IEnumerable(Of ICharacter)
     ReadOnly Property OtherCharacters(character As ICharacter) As IEnumerable(Of ICharacter)
     ReadOnly Property HasCharacters As Boolean
@@ -16,8 +17,6 @@
     ReadOnly Property TopItem As IItem
     ReadOnly Property HasItems As Boolean
     ReadOnly Property Items As IEnumerable(Of IItem)
-    Property Statistic(statisticType As String) As Integer
-    ReadOnly Property HasStatistic(statisticType As String) As Boolean
     ReadOnly Property HasTrigger As Boolean
     Property Trigger As ITrigger
 End Interface

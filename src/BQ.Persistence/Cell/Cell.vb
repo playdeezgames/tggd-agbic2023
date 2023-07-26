@@ -75,12 +75,6 @@ Friend Class Cell
         End Set
     End Property
 
-    Public ReadOnly Property HasStatistic(statisticType As String) As Boolean Implements ICell.HasStatistic
-        Get
-            Return CellData.Statistics.ContainsKey(statisticType)
-        End Get
-    End Property
-
     Public ReadOnly Property HasTrigger As Boolean Implements ICell.HasTrigger
         Get
             Return CellData.TriggerId.HasValue
@@ -142,4 +136,12 @@ Friend Class Cell
     Public Sub RemoveCharacter(character As ICharacter) Implements ICell.RemoveCharacter
         CellData.CharacterIds.Remove(character.Id)
     End Sub
+
+    Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
+        CellData.Statistics.Remove(statisticType)
+    End Sub
+
+    Private Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
+        Return CellData.Statistics.ContainsKey(statisticType)
+    End Function
 End Class

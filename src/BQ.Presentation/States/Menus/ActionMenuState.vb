@@ -17,6 +17,8 @@
                 SetState(GameState.Forage)
             Case Constants.MakeTwineText
                 SetState(GameState.MakeTwine)
+            Case Constants.EquipmentText
+                SetState(GameState.Equipment)
         End Select
     End Sub
 
@@ -30,6 +32,9 @@
         End If
         If Model.Avatar.HasItems Then
             result.Add((InventoryText, InventoryText))
+        End If
+        If Model.Avatar.HasEquipment Then
+            result.Add((EquipmentText, EquipmentText))
         End If
         If Model.Avatar.CanForage Then
             result.Add((ForageText, ForageText))

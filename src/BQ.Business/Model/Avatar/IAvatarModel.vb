@@ -22,4 +22,6 @@
     ReadOnly Property Jools As Integer
     ReadOnly Property CanForage As Boolean
     ReadOnly Property CanMakeTwine As Boolean
+    ReadOnly Property HasEquipment As Boolean
+    ReadOnly Property Equipment As IEnumerable(Of (String, String))
 End Interface

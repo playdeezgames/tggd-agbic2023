@@ -122,6 +122,18 @@
         End Get
     End Property
 
+    Public ReadOnly Property HasEquipment As Boolean Implements IAvatarModel.HasEquipment
+        Get
+            Return avatar.HasEquipment
+        End Get
+    End Property
+
+    Public ReadOnly Property Equipment As IEnumerable(Of (String, String)) Implements IAvatarModel.Equipment
+        Get
+            Return avatar.Equipment.Select(Function(x) ($"{x.Key.ToEquipSlotTypeDescriptor.Name}: {x.Value.FullName}", x.Key))
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub

@@ -4,6 +4,7 @@
     Friend Const Dead = "Dead"
     Friend Const Drop = "Drop"
     Friend Const Equip = "Equip"
+    Friend Const Equipment = "Equipment"
     Friend Const Forage = "Forage"
     Friend Const Ground = "Ground"
     Friend Const GroundDetail = "GroudDetail"

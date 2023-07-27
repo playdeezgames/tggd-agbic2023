@@ -276,4 +276,9 @@ Friend Module CharacterExtensions
     Function XPLevel(character As ICharacter) As Integer
         Return character.TryGetStatistic(StatisticTypes.XPLevel)
     End Function
+    <Extension>
+    Sub EquipItem(character As ICharacter, item As IItem)
+        Dim equipSlotType = item.ItemType.ToItemTypeDescriptor.EquipSlotType
+        character.Equip(equipSlotType, item)
+    End Sub
 End Module

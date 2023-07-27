@@ -31,6 +31,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property Equippables As IEnumerable(Of (fullName As String, itemId As Integer)) Implements IItemModel.Equippables
+        Get
+            Return world.Avatar.Items.Where(Function(x) x.Name = Name).Select(Function(x) (x.FullName, x.Id))
+        End Get
+    End Property
+
     Public Sub Take() Implements IItemModel.Take
         Dim itemCount = Count
         Dim itemName = Name
@@ -53,5 +59,9 @@
             world.Avatar.Cell.AddItem(item)
             world.Avatar.RemoveItem(item)
         Next
+    End Sub
+
+    Public Sub Equip(itemId As Integer) Implements IItemModel.Equip
+        world.Avatar.EquipItem(world.Item(itemId))
     End Sub
 End Class

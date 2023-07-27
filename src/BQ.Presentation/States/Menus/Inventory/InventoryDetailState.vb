@@ -16,6 +16,8 @@
             Case DropHalfText
                 Model.Item.Count = Model.Avatar.ItemCount(Model.Item.Name) \ 2
                 SetState(GameState.Drop)
+            Case EquipText
+                SetState(GameState.Equip)
         End Select
     End Sub
 

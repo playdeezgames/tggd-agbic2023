@@ -24,6 +24,7 @@ Public Class GameController
         SetState(GameState.Drop, New DropState(Me, AddressOf SetCurrentState, context))
         SetState(GameState.Forage, New ForageState(Me, AddressOf SetCurrentState, context))
         SetState(GameState.MakeTwine, New MakeTwineState(Me, AddressOf SetCurrentState, context))
+        SetState(GameState.Equip, New EquipState(Me, AddressOf SetCurrentState, context))
         SetCurrentState(BoilerplateState.Splash, True)
     End Sub
 End Class

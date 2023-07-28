@@ -58,7 +58,7 @@
 
     Public ReadOnly Property AverageAttack As Double Implements IAvatarModel.AverageAttack
         Get
-            Return avatar.Statistic(StatisticTypes.AttackDice) / 6
+            Return avatar.AttackDice / 6
         End Get
     End Property
 
@@ -70,7 +70,7 @@
 
     Public ReadOnly Property MaximumAttack As Integer Implements IAvatarModel.MaximumAttack
         Get
-            Return avatar.Statistic(StatisticTypes.MaximumAttack)
+            Return avatar.MaximumAttack
         End Get
     End Property
 

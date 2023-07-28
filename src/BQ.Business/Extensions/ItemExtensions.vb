@@ -34,4 +34,12 @@ Friend Module ItemExtensions
     Friend Function CanEquip(item As IItem) As Boolean
         Return item.Descriptor.CanEquip
     End Function
+    <Extension>
+    Friend Function AttackDice(item As IItem) As Integer
+        Return item.TryGetStatistic(StatisticTypes.AttackDice)
+    End Function
+    <Extension>
+    Friend Function MaximumAttack(item As IItem) As Integer
+        Return item.TryGetStatistic(StatisticTypes.MaximumAttack)
+    End Function
 End Module

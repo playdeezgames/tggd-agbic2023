@@ -16,7 +16,8 @@
         displayBuffer.Fill((0, 0), Context.ViewSize, Black)
         Dim font = Context.Font(UIFont)
         Dim y = Context.ViewSize.Height \ 2 - font.Height * 7 \ 2
-        y = WriteLine(displayBuffer, font, y, $"Health: {Model.Avatar.Health}/{Model.Avatar.MaximumHealth}", Pink)
+        Dim health = Model.Avatar.Health
+        y = WriteLine(displayBuffer, font, y, $"Health: {health.current}/{health.maximum}", Pink)
         Dim attack = Model.Avatar.Attack
         y = WriteLine(displayBuffer, font, y, $"Attack: Max {attack.maximum} avg {attack.average:f2}", Red)
         Dim defend = Model.Avatar.Defend

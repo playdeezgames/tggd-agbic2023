@@ -26,15 +26,9 @@
         End Get
     End Property
 
-    Public ReadOnly Property Health As Integer Implements IAvatarModel.Health
+    Public ReadOnly Property Health As (current As Integer, maximum As Integer) Implements IAvatarModel.Health
         Get
-            Return avatar.Health
-        End Get
-    End Property
-
-    Public ReadOnly Property MaximumHealth As Integer Implements IAvatarModel.MaximumHealth
-        Get
-            Return avatar.MaximumHealth
+            Return (avatar.Health, avatar.MaximumHealth)
         End Get
     End Property
 

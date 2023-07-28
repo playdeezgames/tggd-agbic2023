@@ -64,7 +64,8 @@
         Dim y = Context.ViewSize.Height \ 6 - font.Height * 2 \ 2
         font.WriteText(displayBuffer, (centerX - font.TextWidth(Model.Avatar.Name) \ 2, y), Model.Avatar.Name, LightGray)
         y += font.Height
-        Dim text = $"{Model.Avatar.Health}/{Model.Avatar.MaximumHealth}"
+        Dim health = Model.Avatar.Health
+        Dim text = $"{health.current}/{health.maximum}"
         font.WriteText(displayBuffer, (centerX - font.TextWidth(text) \ 2, y), text, LightGray)
     End Sub
 

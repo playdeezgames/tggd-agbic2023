@@ -3,6 +3,16 @@ Imports SPLORR.Game
 
 Friend Module CharacterExtensions
     <Extension>
+    Friend Sub Sleep(character As ICharacter)
+        If Not character.IsAvatar Then
+            Return
+        End If
+        character.AddEnergy(character.MaximumEnergy \ 2)
+        character.World.CreateMessage().
+            AddLine(LightGray, $"{character.Name} sleeps.").
+            AddLine(LightGray, $"{character.Name} now has {character.Energy}/{character.MaximumEnergy} energy.")
+    End Sub
+    <Extension>
     Friend Sub DoMakeTwine(character As ICharacter)
         Dim plantFibers = character.Items.Where(Function(x) x.ItemType = ItemTypes.PlantFiber)
         If plantFibers.Count < 2 Then

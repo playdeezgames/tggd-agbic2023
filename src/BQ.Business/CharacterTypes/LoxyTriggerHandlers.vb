@@ -180,7 +180,9 @@
             Return
         End If
         If character.ItemTypeCount(ItemTypes.PlantFiber) < 2 Then
-            msg.AddLine(LightGray, $"To learn to make twine, {character.Name} needs at least 2 plant fiber.")
+            msg.
+                AddLine(LightGray, $"To learn to make twine,").
+                AddLine(LightGray, $"{character.Name} needs at least 2 plant fiber.")
             Return
         End If
         character.AddAdvancementPoints(-learnCost)

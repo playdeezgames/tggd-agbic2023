@@ -18,6 +18,7 @@
     Friend Const MoveUp = "MoveUp"
     Friend Const Navigation = "Navigation"
     Friend Const Run = "Run"
+    Friend Const Sleep = "Sleep"
     Friend Const Statistics = "Statistics"
     Friend Const Take = "Take"
 End Module

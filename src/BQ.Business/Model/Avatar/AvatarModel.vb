@@ -122,6 +122,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property CanSleep As Boolean Implements IAvatarModel.CanSleep
+        Get
+            Return avatar.Energy < avatar.MaximumEnergy
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub
@@ -146,5 +152,9 @@
 
     Public Sub Unequip(equipSlotType As String) Implements IAvatarModel.Unequip
         avatar.Unequip(equipSlotType)
+    End Sub
+
+    Public Sub Sleep() Implements IAvatarModel.Sleep
+        avatar.Sleep()
     End Sub
 End Class

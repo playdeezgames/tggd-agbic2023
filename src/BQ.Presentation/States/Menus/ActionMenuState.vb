@@ -19,6 +19,8 @@
                 SetState(GameState.MakeTwine)
             Case Constants.EquipmentText
                 SetState(GameState.Equipment)
+            Case Constants.SleepText
+                SetState(GameState.Sleep)
         End Select
     End Sub
 
@@ -35,6 +37,9 @@
         End If
         If Model.Avatar.HasEquipment Then
             result.Add((EquipmentText, EquipmentText))
+        End If
+        If Model.Avatar.CanSleep Then
+            result.Add((SleepText, SleepText))
         End If
         If Model.Avatar.CanForage Then
             result.Add((ForageText, ForageText))

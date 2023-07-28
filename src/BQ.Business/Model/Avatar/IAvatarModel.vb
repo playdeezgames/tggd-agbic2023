@@ -4,6 +4,7 @@
     Sub Forage()
     Sub MakeTwine()
     Sub Unequip(equipSlotType As String)
+    Sub Sleep()
     ReadOnly Property IsDead As Boolean
     ReadOnly Property Character As (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)
     ReadOnly Property Name As String
@@ -23,4 +24,5 @@
     ReadOnly Property CanMakeTwine As Boolean
     ReadOnly Property HasEquipment As Boolean
     ReadOnly Property Equipment As IEnumerable(Of (String, String))
+    ReadOnly Property CanSleep As Boolean
 End Interface

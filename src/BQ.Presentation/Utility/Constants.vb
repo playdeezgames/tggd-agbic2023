@@ -16,6 +16,7 @@
     Friend Const InventoryText = "Inventory"
     Friend Const MakeTwineText = "Make Twine"
     Friend Const RunText = "Run!"
+    Friend Const SleepText = "Sleep"
     Friend Const StatisticsText = "Statistics"
     Friend Const TakeAllText = "Take All"
     Friend Const TakeHalfText = "Take Half"

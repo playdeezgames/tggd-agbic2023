@@ -59,7 +59,14 @@ Friend Class CombatModel
     End Sub
 
     Public Sub Attack(enemyIndex As Integer) Implements ICombatModel.Attack
-        Dim target = world.Avatar.Cell.
+        Const EnergyCost = 1
+        Dim avatar = world.Avatar
+        If avatar.Energy < EnergyCost Then
+            world.CreateMessage.AddLine(Red, $"{avatar.Name} doesn't have the energy to fight!")
+            Return
+        End If
+        avatar.AddEnergy(-EnergyCost)
+        Dim target = avatar.Cell.
                 OtherCharacters(world.Avatar).ElementAt(enemyIndex)
         Dim damageDone = False
         Do

@@ -155,4 +155,8 @@
     Public Sub MakeTwine() Implements IAvatarModel.MakeTwine
         avatar.DoMakeTwine()
     End Sub
+
+    Public Sub Unequip(equipSlotType As String) Implements IAvatarModel.Unequip
+        avatar.Unequip(equipSlotType)
+    End Sub
 End Class

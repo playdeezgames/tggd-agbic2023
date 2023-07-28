@@ -3,6 +3,7 @@
     Sub DoChoiceTrigger(index As Integer)
     Sub Forage()
     Sub MakeTwine()
+    Sub Unequip(equipSlotType As String)
     ReadOnly Property IsDead As Boolean
     ReadOnly Property Character As (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)
     ReadOnly Property Name As String

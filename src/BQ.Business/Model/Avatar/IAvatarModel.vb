@@ -13,10 +13,8 @@
     ReadOnly Property XPGoal As Integer
     ReadOnly Property XPLevel As Integer
     ReadOnly Property AdvancementPoints As Integer
-    ReadOnly Property AverageAttack As Double
-    ReadOnly Property AverageDefend As Double
-    ReadOnly Property MaximumAttack As Integer
-    ReadOnly Property MaximumDefend As Integer
+    ReadOnly Property Attack As (average As Double, maximum As Integer)
+    ReadOnly Property Defend As (average As Double, maximum As Integer)
     ReadOnly Property HasItems As Boolean
     ReadOnly Property Items As IEnumerable(Of (String, String))
     ReadOnly Property ItemCount(itemName As String) As Integer

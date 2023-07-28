@@ -126,11 +126,11 @@ Friend Module CharacterExtensions
         Return character.TryGetStatistic(StatisticTypes.MaximumAttack) + character.EquippedItems.Sum(Function(x) x.MaximumAttack)
     End Function
     <Extension>
-    Private Function Defend(character As ICharacter) As Integer
+    Friend Function DefendDice(character As ICharacter) As Integer
         Return character.TryGetStatistic(StatisticTypes.DefendDice)
     End Function
     <Extension>
-    Private Function MaximumDefend(character As ICharacter) As Integer
+    Friend Function MaximumDefend(character As ICharacter) As Integer
         Return character.TryGetStatistic(StatisticTypes.MaximumDefend)
     End Function
     <Extension>
@@ -139,7 +139,7 @@ Friend Module CharacterExtensions
     End Function
     <Extension>
     Private Function RollDefend(character As ICharacter) As Integer
-        Return Math.Min(character.MaximumDefend, Enumerable.Range(0, character.Defend).Sum(Function(x) RNG.RollDice("1d6/6")))
+        Return Math.Min(character.MaximumDefend, Enumerable.Range(0, character.DefendDice).Sum(Function(x) RNG.RollDice("1d6/6")))
     End Function
     <Extension>
     Friend Sub SetHealth(character As ICharacter, health As Integer)

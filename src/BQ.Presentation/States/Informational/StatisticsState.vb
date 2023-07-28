@@ -17,8 +17,10 @@
         Dim font = Context.Font(UIFont)
         Dim y = Context.ViewSize.Height \ 2 - font.Height * 7 \ 2
         y = WriteLine(displayBuffer, font, y, $"Health: {Model.Avatar.Health}/{Model.Avatar.MaximumHealth}", Pink)
-        y = WriteLine(displayBuffer, font, y, $"Attack: Max {Model.Avatar.MaximumAttack} avg {Model.Avatar.AverageAttack:f2}", Red)
-        y = WriteLine(displayBuffer, font, y, $"Defend: Max {Model.Avatar.MaximumDefend} avg {Model.Avatar.AverageDefend:f2}", Green)
+        Dim attack = Model.Avatar.Attack
+        y = WriteLine(displayBuffer, font, y, $"Attack: Max {attack.maximum} avg {attack.average:f2}", Red)
+        Dim defend = Model.Avatar.Defend
+        y = WriteLine(displayBuffer, font, y, $"Defend: Max {defend.maximum} avg {defend.average:f2}", Green)
         y = WriteLine(displayBuffer, font, y, $"XP: {Model.Avatar.XP}/{Model.Avatar.XPGoal}", Cyan)
         y = WriteLine(displayBuffer, font, y, $"Level: {Model.Avatar.XPLevel}", Blue)
         y = WriteLine(displayBuffer, font, y, $"AP: {Model.Avatar.AdvancementPoints}", Yellow)

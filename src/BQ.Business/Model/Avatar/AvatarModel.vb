@@ -56,30 +56,6 @@
         End Get
     End Property
 
-    Public ReadOnly Property AverageAttack As Double Implements IAvatarModel.AverageAttack
-        Get
-            Return avatar.AttackDice / 6
-        End Get
-    End Property
-
-    Public ReadOnly Property AverageDefend As Double Implements IAvatarModel.AverageDefend
-        Get
-            Return avatar.Statistic(StatisticTypes.DefendDice) / 6
-        End Get
-    End Property
-
-    Public ReadOnly Property MaximumAttack As Integer Implements IAvatarModel.MaximumAttack
-        Get
-            Return avatar.MaximumAttack
-        End Get
-    End Property
-
-    Public ReadOnly Property MaximumDefend As Integer Implements IAvatarModel.MaximumDefend
-        Get
-            Return avatar.Statistic(StatisticTypes.MaximumDefend)
-        End Get
-    End Property
-
     Public ReadOnly Property HasItems As Boolean Implements IAvatarModel.HasItems
         Get
             Return avatar.HasItems
@@ -131,6 +107,18 @@
     Public ReadOnly Property Equipment As IEnumerable(Of (String, String)) Implements IAvatarModel.Equipment
         Get
             Return avatar.Equipment.Select(Function(x) ($"{x.Key.ToEquipSlotTypeDescriptor.Name}: {x.Value.FullName}", x.Key))
+        End Get
+    End Property
+
+    Public ReadOnly Property Attack As (average As Double, maximum As Integer) Implements IAvatarModel.Attack
+        Get
+            Return (avatar.AttackDice / 6, avatar.MaximumAttack)
+        End Get
+    End Property
+
+    Public ReadOnly Property Defend As (average As Double, maximum As Integer) Implements IAvatarModel.Defend
+        Get
+            Return (avatar.DefendDice / 6, avatar.MaximumDefend)
         End Get
     End Property
 

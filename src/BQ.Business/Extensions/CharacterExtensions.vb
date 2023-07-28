@@ -110,6 +110,14 @@ Friend Module CharacterExtensions
         Return character.TryGetStatistic(StatisticTypes.Peril)
     End Function
     <Extension>
+    Friend Function Energy(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.Energy)
+    End Function
+    <Extension>
+    Friend Function MaximumEnergy(character As ICharacter) As Integer
+        Return character.TryGetStatistic(StatisticTypes.MaximumEnergy)
+    End Function
+    <Extension>
     Friend Function Health(character As ICharacter) As Integer
         Return character.TryGetStatistic(StatisticTypes.Health)
     End Function

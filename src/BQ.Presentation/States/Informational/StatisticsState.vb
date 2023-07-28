@@ -15,15 +15,17 @@
     Public Overrides Sub Render(displayBuffer As IPixelSink)
         displayBuffer.Fill((0, 0), Context.ViewSize, Black)
         Dim font = Context.Font(UIFont)
-        Dim y = Context.ViewSize.Height \ 2 - font.Height * 7 \ 2
+        Dim y = Context.ViewSize.Height \ 2 - font.Height * 8 \ 2
         Dim health = Model.Avatar.Health
         y = WriteLine(displayBuffer, font, y, $"Health: {health.current}/{health.maximum}", Pink)
+        Dim energy = Model.Avatar.Energy
+        y = WriteLine(displayBuffer, font, y, $"Energy: {energy.current}/{energy.maximum}", Blue)
         Dim attack = Model.Avatar.Attack
         y = WriteLine(displayBuffer, font, y, $"Attack: Max {attack.maximum} avg {attack.average:f2}", Red)
         Dim defend = Model.Avatar.Defend
         y = WriteLine(displayBuffer, font, y, $"Defend: Max {defend.maximum} avg {defend.average:f2}", Green)
         y = WriteLine(displayBuffer, font, y, $"XP: {Model.Avatar.XP}/{Model.Avatar.XPGoal}", Cyan)
-        y = WriteLine(displayBuffer, font, y, $"Level: {Model.Avatar.XPLevel}", Blue)
+        y = WriteLine(displayBuffer, font, y, $"Level: {Model.Avatar.XPLevel}", Purple)
         y = WriteLine(displayBuffer, font, y, $"AP: {Model.Avatar.AdvancementPoints}", Yellow)
         WriteLine(displayBuffer, font, y, $"Jools: {Model.Avatar.Jools}", Hue.LightGreen)
         Context.ShowHeader(displayBuffer, font, "Statistics", Black, Orange)

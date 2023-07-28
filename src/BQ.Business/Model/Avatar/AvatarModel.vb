@@ -116,6 +116,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property Energy As (current As Integer, maximum As Integer) Implements IAvatarModel.Energy
+        Get
+            Return (avatar.Energy, avatar.MaximumEnergy)
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub

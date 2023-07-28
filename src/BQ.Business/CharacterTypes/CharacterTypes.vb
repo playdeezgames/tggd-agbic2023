@@ -27,7 +27,9 @@ Friend Module CharacterTypes
                         {StatisticTypes.XP, 0},
                         {StatisticTypes.XPGoal, 10},
                         {StatisticTypes.XPLevel, 1},
-                        {StatisticTypes.AdvancementPointsPerLevel, 10}
+                        {StatisticTypes.AdvancementPointsPerLevel, 10},
+                        {StatisticTypes.Energy, 10},
+                        {StatisticTypes.MaximumEnergy, 10}
                     },
                     triggers:=LoxyTriggerHandlers.All)
             },

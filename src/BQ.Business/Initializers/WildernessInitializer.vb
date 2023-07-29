@@ -24,6 +24,7 @@ Module WildernessInitializer
             {TerrainTypes.Tree, 15}
         }
     Friend Sub Initialize(map As IMap)
+        map.SetFlag(FlagTypes.CampingAllowed, True)
         PaintTerrain(map)
         DrawRivers(map)
         PlaceTown(map)

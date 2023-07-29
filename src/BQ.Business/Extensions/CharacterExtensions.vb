@@ -7,10 +7,15 @@ Friend Module CharacterExtensions
         If Not character.IsAvatar Then
             Return
         End If
+        If Not character.Map.CampingAllowed Then
+            character.World.CreateMessage().AddLine(LightGray, $"{character.Name} cannot sleep here!")
+            Return
+        End If
         character.AddEnergy(character.MaximumEnergy \ 2)
         Dim msg = character.World.CreateMessage().
             AddLine(LightGray, $"{character.Name} sleeps.").
             AddLine(LightGray, $"{character.Name} now has {character.Energy}/{character.MaximumEnergy} energy.")
+        character.SetPeril(character.MaximumEnergy \ 2)
         character.Move((0, 0))
         If character.Cell.HasOtherCharacters(character) Then
             msg.AddLine(Red, $"{character.Name} awakens to a surprise attack!")

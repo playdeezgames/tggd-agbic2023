@@ -48,14 +48,16 @@ Friend Class CombatModel
             (1, 0)
         }
     Public Sub Run() Implements ICombatModel.Run
+        Retaliation("Opportunity Attack")
         Dim delta = RNG.FromEnumerable(runDeltas)
         If world.Avatar.Move(delta) Then
-            world.CreateMessage().AddLine(LightGray, $"{world.Avatar.Name} runs away!")
-            'TODO: winding up in a different combat?
+            Dim msg = world.CreateMessage().AddLine(LightGray, $"{world.Avatar.Name} runs away!")
+            If Exists Then
+                msg.AddLine(Red, "An ambush awaits!")
+            End If
             Return
         End If
         world.CreateMessage().AddLine(LightGray, $"{world.Avatar.Name} cannot run away!")
-        'TODO: counter attacks
     End Sub
 
     Public Sub Attack(enemyIndex As Integer) Implements ICombatModel.Attack
@@ -74,12 +76,17 @@ Friend Class CombatModel
                 world.DismissMessage()
             End While
             damageDone = damageDone Or world.Avatar.Attack(target)
-            Dim index = 1
-            Dim counterAttackers = world.Avatar.Cell.OtherCharacters(world.Avatar)
-            For Each counterAttacker In counterAttackers
-                damageDone = damageDone Or counterAttacker.Attack(world.Avatar, $"Counter Attack {index}/{counterAttackers.Count}")
-                index += 1
-            Next
+            damageDone = Retaliation("Counter Attack", damageDone)
         Loop Until damageDone
     End Sub
+
+    Private Function Retaliation(text As String, Optional damageDone As Boolean = False) As Boolean
+        Dim index = 1
+        Dim counterAttackers = world.Avatar.Cell.OtherCharacters(world.Avatar)
+        For Each counterAttacker In counterAttackers
+            damageDone = damageDone Or counterAttacker.Attack(world.Avatar, $"{text} {index}/{counterAttackers.Count}")
+            index += 1
+        Next
+        Return damageDone
+    End Function
 End Class

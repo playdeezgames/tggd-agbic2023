@@ -2,15 +2,15 @@
 Imports System.Runtime.CompilerServices
 
 Friend Module MessageTypes
-    Friend Const TownSign1 = "TownSign1"
+    Friend Const InnSign = "InnSign"
     Friend Const TownSign2 = "TownSign2"
-    Friend Const TownSign3 = "TownSign3"
+    Friend Const HealthTrainerSign = "HealthTrainerSign"
     Friend Const TownSign4 = "TownSign4"
     Friend Const TownSign5 = "TownSign5"
     Friend Const TownSign6 = "TownSign6"
-    Friend Const TownSign7 = "TownSign7"
+    Friend Const DruidSign = "DruidSign"
     Friend Const TownSign8 = "TownSign8"
-    Friend Const TownSign9 = "TownSign9"
+    Friend Const HealerSign = "HealerSign"
     Friend Const TownSign10 = "TownSign10"
     Friend Const NothingHappens = "NothingHappens"
     Private Function MakeLines(ParamArray lines() As (hue As Integer, text As String)) As IEnumerable(Of (hue As Integer, text As String))
@@ -23,15 +23,15 @@ Friend Module MessageTypes
         New Dictionary(Of String, MessageTypeDescriptor) From
         {
             {NothingHappens, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Nothing happens.")))},
-            {TownSign1, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #1")))},
+            {InnSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Jusdatip Inn")))},
             {TownSign2, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #2")))},
-            {TownSign3, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Health Training")))},
+            {HealthTrainerSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Health Training")))},
             {TownSign4, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #4")))},
             {TownSign5, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #5")))},
             {TownSign6, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #6")))},
-            {TownSign7, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Hippy Druid Lives Here")))},
+            {DruidSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Hippy Druid Lives Here")))},
             {TownSign8, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #8")))},
-            {TownSign9, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "House of Nihilistic Healing")))},
+            {HealerSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "House of Nihilistic Healing")))},
             {TownSign10, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #10")))},
             {
                 HealerTalk,

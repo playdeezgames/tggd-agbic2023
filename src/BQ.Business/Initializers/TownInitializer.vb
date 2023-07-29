@@ -49,7 +49,7 @@ Friend Module TownInitializer
         map.GetCell(2, 3).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
-            SetMetadata(MessageType, MessageTypes.TownSign1)
+            SetMetadata(MessageType, MessageTypes.InnSign)
         map.GetCell(14, 3).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
@@ -57,7 +57,7 @@ Friend Module TownInitializer
         map.GetCell(7, 4).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
-            SetMetadata(MessageType, MessageTypes.TownSign3)
+            SetMetadata(MessageType, MessageTypes.HealthTrainerSign)
         map.GetCell(5, 6).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
@@ -73,7 +73,7 @@ Friend Module TownInitializer
         map.GetCell(11, 10).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
-            SetMetadata(MessageType, MessageTypes.TownSign7)
+            SetMetadata(MessageType, MessageTypes.DruidSign)
         map.GetCell(9, 12).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
@@ -87,6 +87,6 @@ Friend Module TownInitializer
     Private Sub InitializeHealer(townMap As IMap)
         townMap.GetCell(2, 13).Trigger =
             townMap.CreateTrigger().
-            SetTriggerType(TriggerTypes.Message).SetMetadata(MessageType, MessageTypes.TownSign9)
+            SetTriggerType(TriggerTypes.Message).SetMetadata(MessageType, MessageTypes.HealerSign)
     End Sub
 End Module

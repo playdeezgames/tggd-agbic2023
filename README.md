@@ -5,6 +5,8 @@ Bagel Quest, a game for the "A Game By Its Cover 2023" jam. ~17.5 days remaining
 Matura MT Script Capitals
 96
 
+https://alumni.media.mit.edu/~wad/color/palette.html
+
 # Main Quest
 
 * Warm Water

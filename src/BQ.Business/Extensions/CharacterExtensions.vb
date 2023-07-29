@@ -8,9 +8,13 @@ Friend Module CharacterExtensions
             Return
         End If
         character.AddEnergy(character.MaximumEnergy \ 2)
-        character.World.CreateMessage().
+        Dim msg = character.World.CreateMessage().
             AddLine(LightGray, $"{character.Name} sleeps.").
             AddLine(LightGray, $"{character.Name} now has {character.Energy}/{character.MaximumEnergy} energy.")
+        character.Move((0, 0))
+        If character.Cell.HasOtherCharacters(character) Then
+            msg.AddLine(Red, $"{character.Name} awakens to a surprise attack!")
+        End If
     End Sub
     <Extension>
     Friend Sub DoMakeTwine(character As ICharacter)
@@ -84,9 +88,11 @@ Friend Module CharacterExtensions
             Return False
         End If
 
-        nextCell.AddCharacter(character)
-        character.Cell.RemoveCharacter(character)
-        character.Cell = nextCell
+        If delta.x <> 0 OrElse delta.y <> 0 Then
+            nextCell.AddCharacter(character)
+            character.Cell.RemoveCharacter(character)
+            character.Cell = nextCell
+        End If
 
         character.DoTrigger(nextCell)
         character.EnterCell()

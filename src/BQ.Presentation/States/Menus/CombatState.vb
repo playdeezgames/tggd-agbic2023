@@ -61,12 +61,16 @@
     Private Sub DrawAvatarStats(displayBuffer As IPixelSink)
         Dim font = Context.Font(UIFont)
         Dim centerX = Context.ViewSize.Width * 1 \ 3
-        Dim y = Context.ViewSize.Height \ 6 - font.Height * 2 \ 2
+        Dim y = Context.ViewSize.Height \ 6 - font.Height * 3 \ 2
         font.WriteText(displayBuffer, (centerX - font.TextWidth(Model.Avatar.Name) \ 2, y), Model.Avatar.Name, LightGray)
         y += font.Height
         Dim health = Model.Avatar.Health
-        Dim text = $"{health.current}/{health.maximum}"
-        font.WriteText(displayBuffer, (centerX - font.TextWidth(text) \ 2, y), text, LightGray)
+        Dim text = $"HP {health.current}/{health.maximum}"
+        font.WriteText(displayBuffer, (centerX - font.TextWidth(text) \ 2, y), text, Pink)
+        y += font.Height
+        Dim energy = Model.Avatar.Energy
+        text = $"EN {energy.current}/{energy.maximum}"
+        font.WriteText(displayBuffer, (centerX - font.TextWidth(text) \ 2, y), text, Blue)
     End Sub
 
     Private Sub DrawAvatar(displayBuffer As IPixelSink)
@@ -98,8 +102,8 @@
         Dim enemy = Model.Combat.Enemy(CharacterIndex)
         font.WriteText(displayBuffer, (centerX - font.TextWidth(enemy.Name) \ 2, y), enemy.Name, LightGray)
         y += font.Height
-        Dim text = $"{enemy.Health}/{enemy.MaximumHealth}"
-        font.WriteText(displayBuffer, (centerX - font.TextWidth(text) \ 2, y), text, LightGray)
+        Dim text = $"HP {enemy.Health}/{enemy.MaximumHealth}"
+        font.WriteText(displayBuffer, (centerX - font.TextWidth(text) \ 2, y), text, Pink)
     End Sub
 
     Private Sub DrawEnemies(displayBuffer As IPixelSink)

@@ -12,4 +12,8 @@
     Friend Const HealerTalk = "HealerTalk"
     Friend Const HealthTrainerTalk = "HealthTrainerTalk"
     Friend Const DruidTalk = "DruidTalk"
+    Friend Const GorachanTalk = "GorachanTalk"
+    Friend Const PervertInnkeeper = "PervertInnkeeper"
+    Friend Const PayInnkeeper = "PayInnkeeper"
+    Friend Const SleepAtInn = "SleepAtInn"
 End Module

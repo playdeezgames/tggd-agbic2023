@@ -31,5 +31,20 @@
             Next
             row += 1
         Next
+        InitializeGorachan(map)
+        InitializeBeds(map)
+    End Sub
+
+    Private Sub InitializeBeds(map As IMap)
+        Dim bedCells = map.Cells.Where(Function(x) x.TerrainType = TerrainTypes.Bed)
+        Dim trigger = map.CreateTrigger().SetTriggerType(TriggerTypes.SleepAtInn)
+        For Each bedCell In bedCells
+            bedCell.Trigger = trigger
+        Next
+    End Sub
+
+    Private Sub InitializeGorachan(map As IMap)
+        Dim gorachanCell = map.Cells.Single(Function(x) x.TerrainType = TerrainTypes.Gorachan)
+        gorachanCell.Trigger = map.CreateTrigger().SetTriggerType(TriggerTypes.GorachanTalk)
     End Sub
 End Module

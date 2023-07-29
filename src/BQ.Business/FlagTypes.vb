@@ -3,4 +3,5 @@
     Friend Const KnowsTwineMaking = "KnowsTwineMaking"
     Friend Const IsWeapon = "IsWeapon"
     Friend Const IsArmor = "IsArmor"
+    Friend Const PaidInnkeeper = "PaidInnkeeper"
 End Module

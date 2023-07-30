@@ -18,6 +18,9 @@
                 SetState(GameState.Drop)
             Case EquipText
                 SetState(GameState.Equip)
+            Case Else
+                Model.Item.DoVerb(value.Item2)
+                SetState(Neutral)
         End Select
     End Sub
 
@@ -35,6 +38,7 @@
         If Model.Item.CanEquip Then
             result.Add((EquipText, EquipText))
         End If
+        result.AddRange(Model.Item.VerbTypes)
         Return result
     End Function
 

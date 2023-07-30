@@ -37,6 +37,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property VerbTypes As IEnumerable(Of (text As String, verbType As String)) Implements IItemModel.VerbTypes
+        Get
+            Return world.Avatar.Items.First(Function(x) x.Name = Name).Descriptor.AllVerbTypes.Select(Function(x) (x.ToVerbTypeDescriptor.Name, x))
+        End Get
+    End Property
+
     Public Sub Take() Implements IItemModel.Take
         Dim itemCount = Count
         Dim itemName = Name
@@ -63,5 +69,9 @@
 
     Public Sub Equip(itemId As Integer) Implements IItemModel.Equip
         world.Avatar.EquipItem(world.Item(itemId))
+    End Sub
+
+    Public Sub DoVerb(verbType As String) Implements IItemModel.DoVerb
+        world.Avatar.DoVerb(verbType, world.Avatar.Items.First(Function(x) x.Name = Name))
     End Sub
 End Class

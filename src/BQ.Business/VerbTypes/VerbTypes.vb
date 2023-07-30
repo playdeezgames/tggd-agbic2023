@@ -6,7 +6,8 @@ Friend Module VerbTypes
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, VerbDescriptor) =
         New Dictionary(Of String, VerbDescriptor) From
         {
-            {Forage, New VerbDescriptor(Forage)}
+            {Forage, New VerbDescriptor(Forage)},
+            {Use, New VerbDescriptor(Use)}
         }
     <Extension>
     Friend Function ToVerbTypeDescriptor(verbType As String) As VerbDescriptor

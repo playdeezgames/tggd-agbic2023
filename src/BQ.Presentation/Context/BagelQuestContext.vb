@@ -46,7 +46,7 @@ Public Class BagelQuestContext
         With font
             .WriteText(displayBuffer, (0, 0), "About Bagel Quest", Hue.Orange)
             .WriteText(displayBuffer, (0, font.Height * 2), "Art:", Hue.White)
-            .WriteText(displayBuffer, (0, font.Height * 3), "https://vurmux.itch.io/urizen-onebit-tileset", Hue.White)
+            .WriteText(displayBuffer, (0, font.Height * 3), "https://kenney.nl/assets/1-bit-pack", Hue.White)
             .WriteText(displayBuffer, (0, font.Height * 5), "A Production of TheGrumpyGameDev", Hue.White)
             .WriteText(displayBuffer, (0, font.Height * 7), "For A Game By Its Cover 2023", Hue.White)
             .WriteText(displayBuffer, (0, font.Height * 9), "See 'aboot.txt'", Hue.White)

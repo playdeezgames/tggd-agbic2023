@@ -1,5 +1,7 @@
 ﻿Friend Module TriggerTypes
+    Friend Const Buy = "Buy"
     Friend Const DruidAllergies = "DruidAllergies"
+    Friend Const DruidPrices = "DruidPrices"
     Friend Const DruidTeachMenu = "DruidTeachMenu"
     Friend Const ExitDialog = "ExitDialog"
     Friend Const Heal = "Heal"

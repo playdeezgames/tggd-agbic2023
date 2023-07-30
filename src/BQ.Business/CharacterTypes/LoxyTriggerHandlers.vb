@@ -19,8 +19,42 @@
                         {TriggerTypes.GorachanTalk, AddressOf DoGorachanTalk},
                         {TriggerTypes.PervertInnkeeper, AddressOf DoPerventInnkeeper},
                         {TriggerTypes.PayInnkeeper, AddressOf DoPayInnkeeper},
-                        {TriggerTypes.SleepAtInn, AddressOf DoSleepAtInn}
+                        {TriggerTypes.SleepAtInn, AddressOf DoSleepAtInn},
+                        {TriggerTypes.DruidPrices, AddressOf DoDruidPrices},
+                        {TriggerTypes.Buy, AddressOf DoBuy}
                     }
+
+    Private Sub DoBuy(character As ICharacter, trigger As ITrigger)
+        Dim itemType = trigger.Metadata(Metadatas.ItemType)
+        Dim price = trigger.Statistic(StatisticTypes.Price)
+        If character.Jools < price Then
+            character.World.
+                CreateMessage().
+                AddLine(LightGray, "You don't have enough!").
+                AddChoice("Shucks!", trigger.Metadata(Metadatas.TriggerType))
+            Return
+        End If
+        character.AddJools(-price)
+        character.AddItem(ItemInitializer.CreateItem(character.World, itemType))
+        character.World.
+            CreateMessage().
+            AddLine(LightGray, "Thank you for yer purchase!").
+            AddChoice("No worries!", trigger.Metadata(Metadatas.TriggerType))
+    End Sub
+
+    Private Sub DoDruidPrices(character As ICharacter, trigger As ITrigger)
+        Dim msg = character.World.CreateMessage.
+                        AddLine(LightGray, "I sell a variety of herbs.").
+                        AddLine(LightGray, $"({character.Name} has {character.Jools} jools)").
+                        AddChoice("Good to know!", TriggerTypes.ExitDialog).
+                        AddChoice(
+                            "Buy Energy Herb(5 jools)",
+                            TriggerTypes.Buy,
+                            Sub(c) c.
+                                SetMetadata(Metadatas.ItemType, ItemTypes.EnergyHerb).
+                                SetStatistic(StatisticTypes.Price, 5).
+                                SetMetadata(Metadatas.TriggerType, TriggerTypes.DruidPrices))
+    End Sub
 
     Private Sub DoSleepAtInn(character As ICharacter, trigger As ITrigger)
         If Not character.Flag(FlagTypes.PaidInnkeeper) Then
@@ -99,7 +133,8 @@
                         AddLine(LightGray, "I can help you learn nature's way.").
                         AddChoice("Cool story, bro!", TriggerTypes.ExitDialog).
                         AddChoice("Don't druids live in the woods?", TriggerTypes.DruidAllergies).
-                        AddChoice("Teach me!", TriggerTypes.DruidTeachMenu)
+                        AddChoice("Teach me!", TriggerTypes.DruidTeachMenu).
+                        AddChoice("What's for sale?", TriggerTypes.DruidPrices)
     End Sub
 
     Private Sub DefaultMessage(character As ICharacter, trigger As ITrigger)

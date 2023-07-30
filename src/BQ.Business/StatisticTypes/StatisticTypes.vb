@@ -12,6 +12,7 @@
     Friend Const MaximumEnergy = "MaximumEnergy"
     Friend Const MaximumHealth = "MaximumHealth"
     Friend Const Peril = "Peril"
+    Friend Const Price = "Price"
     Friend Const XP = "XP"
     Friend Const XPGoal = "XPGoal"
     Friend Const XPLevel = "XPLevel"

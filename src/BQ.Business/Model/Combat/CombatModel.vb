@@ -49,6 +49,9 @@ Friend Class CombatModel
         }
     Public Sub Run() Implements ICombatModel.Run
         Retaliation("Opportunity Attack")
+        If world.Avatar.IsDead Then
+            Return
+        End If
         Dim delta = RNG.FromEnumerable(runDeltas)
         If world.Avatar.Move(delta) Then
             Dim msg = world.CreateMessage().AddLine(LightGray, $"{world.Avatar.Name} runs away!")

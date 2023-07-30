@@ -2,6 +2,7 @@
 
 Friend Module VerbTypes
     Friend Const Forage = "Forage"
+    Friend Const Use = "Use"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, VerbDescriptor) =
         New Dictionary(Of String, VerbDescriptor) From
         {

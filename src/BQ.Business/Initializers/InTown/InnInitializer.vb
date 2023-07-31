@@ -9,7 +9,7 @@
             "#  #  #",
             "##D#D##",
             "#     #",
-            "#    !#",
+            "#v   !#",
             "###D###"
         }
     Private ReadOnly table As IReadOnlyDictionary(Of Char, String) =
@@ -19,7 +19,8 @@
             {"b"c, TerrainTypes.Bed},
             {" "c, TerrainTypes.Empty},
             {"D"c, TerrainTypes.Door},
-            {"!"c, TerrainTypes.Gorachan}
+            {"!"c, TerrainTypes.Gorachan},
+            {"v"c, TerrainTypes.StairsDown}
         }
     Friend Sub Initialize(map As IMap)
         Dim row As Integer = 0

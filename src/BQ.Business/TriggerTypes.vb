@@ -20,4 +20,7 @@
     Friend Const Teleport = "Teleport"
     Friend Const TrainEnergy = "TrainEnergy"
     Friend Const TrainHealth = "TrainHealth"
+    Friend Const StartRatQuest = "StartRatQuest"
+    Friend Const AcceptRatQuest = "AcceptRatQuest"
+    Friend Const EnterCellar = "EnterCellar"
 End Module

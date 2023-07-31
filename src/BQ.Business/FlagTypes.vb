@@ -5,4 +5,5 @@
     Friend Const IsArmor = "IsArmor"
     Friend Const PaidInnkeeper = "PaidInnkeeper"
     Friend Const CampingAllowed = "CampingAllowed"
+    Friend Const RatQuest = "RatQuest"
 End Module

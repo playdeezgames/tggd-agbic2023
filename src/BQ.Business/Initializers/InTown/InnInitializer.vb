@@ -34,6 +34,11 @@
         Next
         InitializeGorachan(map)
         InitializeBeds(map)
+        InitializeStairs(map)
+    End Sub
+
+    Private Sub InitializeStairs(map As IMap)
+        map.GetCell(1, map.Rows - 2).Trigger = map.CreateTrigger().SetTriggerType(TriggerTypes.EnterCellar)
     End Sub
 
     Private Sub InitializeBeds(map As IMap)

@@ -31,6 +31,7 @@ Friend Module WorldInitializer
     Private Sub StitchInnToTown(world As IWorld)
         Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
         Dim innMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Inn)
+        Dim cellarMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Cellar)
         townMap.GetCell(3, 3).Trigger =
             townMap.CreateTrigger().
             SetTriggerType(Teleport).
@@ -39,6 +40,11 @@ Friend Module WorldInitializer
             innMap.CreateTrigger().
             SetTriggerType(Teleport).
             SetDestination(townMap.GetCell(3, 2))
+        Dim downStairs = innMap.Cells.Single(Function(x) x.TerrainType = TerrainTypes.StairsDown)
+        Dim upStairs = cellarMap.Cells.Single(Function(x) x.TerrainType = TerrainTypes.StairsUp)
+        downStairs.Trigger.
+            SetDestination(upStairs)
+        upStairs.Trigger.SetDestination(downStairs)
     End Sub
 
     Private Sub StitchDruidHouseToTown(world As IWorld)

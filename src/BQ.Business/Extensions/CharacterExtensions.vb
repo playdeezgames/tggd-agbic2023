@@ -150,6 +150,10 @@ Friend Module CharacterExtensions
         Return character.TryGetStatistic(StatisticTypes.MaximumEnergy)
     End Function
     <Extension>
+    Friend Sub SetMaximumEnergy(character As ICharacter, maximumEnergy As Integer)
+        character.Statistic(StatisticTypes.MaximumEnergy) = maximumEnergy
+    End Sub
+    <Extension>
     Friend Function Health(character As ICharacter) As Integer
         Return character.TryGetStatistic(StatisticTypes.Health)
     End Function

@@ -61,7 +61,7 @@ Friend Module TownInitializer
         map.GetCell(5, 6).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).
-            SetMetadata(MessageType, MessageTypes.TownSign4)
+            SetMetadata(MessageType, MessageTypes.EnergyTrainerSign)
         map.GetCell(11, 6).Trigger =
             map.CreateTrigger().
             SetTriggerType(TriggerTypes.Message).

@@ -34,6 +34,7 @@ Friend Module TerrainTypes
     Friend Const Druid = "Druid"
     Friend Const Bed = "Bed"
     Friend Const Gorachan = "Gorachan"
+    Friend Const EnergyTrainer = "EnergyTrainer"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, TerrainTypeDescriptor) =
         New Dictionary(Of String, TerrainTypeDescriptor) From
         {
@@ -67,7 +68,8 @@ Friend Module TerrainTypes
             {StrongMan, New TerrainTypeDescriptor("Strong Man", ChrW(&H23), Hue.Brown, False)},
             {Druid, New TerrainTypeDescriptor("Druid", ChrW(&H24), Hue.LightGreen, False)},
             {Bed, New TerrainTypeDescriptor("Bed", ChrW(&H26), Hue.Tan, False)},
-            {Gorachan, New TerrainTypeDescriptor("Gorachan", ChrW(&H27), Hue.Red, False)}
+            {Gorachan, New TerrainTypeDescriptor("Gorachan", ChrW(&H27), Hue.Red, False)},
+            {EnergyTrainer, New TerrainTypeDescriptor("Plucky Man", ChrW(&H29), Hue.Blue, False)}
         }
 
     <Extension>

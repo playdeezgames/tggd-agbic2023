@@ -32,12 +32,21 @@
 
     Private Sub RenderStatistics(displayBuffer As IPixelSink)
         Dim font = Context.Font(UIFont)
-        Dim health = Model.Avatar.Health
-        RenderStatistic(displayBuffer, font, (0, 0), $"HP: {health.current}/{health.maximum}", Pink)
-        Dim energy = Model.Avatar.Energy
-        RenderStatistic(displayBuffer, font, (0, font.Height), $"EN: {energy.current}/{energy.maximum}", Blue)
+        RenderHealth(displayBuffer, font)
+        RenderEnergy(displayBuffer, font)
         RenderStatistic(displayBuffer, font, (0, font.Height * 2), $"LV: {Model.Avatar.XPLevel}", Purple)
         RenderStatistic(displayBuffer, font, (0, font.Height * 3), $"XP: {Model.Avatar.XP}/{Model.Avatar.XPGoal}", Hue.Cyan)
+        RenderStatistic(displayBuffer, font, (0, font.Height * 4), $" $: {Model.Avatar.Jools}", Hue.LightGreen)
+    End Sub
+
+    Private Sub RenderEnergy(displayBuffer As IPixelSink, font As Font)
+        Dim energy = Model.Avatar.Energy
+        RenderStatistic(displayBuffer, font, (0, font.Height), $"EN: {energy.current}/{energy.maximum}", Blue)
+    End Sub
+
+    Private Sub RenderHealth(displayBuffer As IPixelSink, font As Font)
+        Dim health = Model.Avatar.Health
+        RenderStatistic(displayBuffer, font, (0, 0), $"HP: {health.current}/{health.maximum}", Pink)
     End Sub
 
     Private Shared Sub RenderStatistic(displayBuffer As IPixelSink, font As Font, position As (x As Integer, y As Integer), text As String, hue As Integer)

@@ -5,7 +5,7 @@ Friend Module MessageTypes
     Friend Const InnSign = "InnSign"
     Friend Const TownSign2 = "TownSign2"
     Friend Const HealthTrainerSign = "HealthTrainerSign"
-    Friend Const TownSign4 = "TownSign4"
+    Friend Const EnergyTrainerSign = "TownSign4"
     Friend Const TownSign5 = "TownSign5"
     Friend Const TownSign6 = "TownSign6"
     Friend Const DruidSign = "DruidSign"
@@ -26,7 +26,7 @@ Friend Module MessageTypes
             {InnSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Jusdatip Inn")))},
             {TownSign2, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #2")))},
             {HealthTrainerSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Health Training")))},
-            {TownSign4, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #4")))},
+            {EnergyTrainerSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Endurance Training")))},
             {TownSign5, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #5")))},
             {TownSign6, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #6")))},
             {DruidSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Hippy Druid Lives Here")))},

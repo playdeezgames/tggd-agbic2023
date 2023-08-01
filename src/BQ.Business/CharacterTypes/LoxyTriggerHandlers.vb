@@ -13,8 +13,9 @@ Friend Module LoxyTriggerHandlers
                         {TriggerTypes.TrainHealth, AddressOf DoTrainHealth},
                         {TriggerTypes.DruidAllergies, AddressOf DoDruidAllergies},
                         {TriggerTypes.DruidTeachMenu, AddressOf DoDruidTeachMenu},
-                        {TriggerTypes.LearnForaging, AddressOf LearnForaging},
-                        {TriggerTypes.LearnTwineMaking, AddressOf LearnTwineMaking},
+                        {TriggerTypes.LearnForaging, AddressOf DoLearnForaging},
+                        {TriggerTypes.LearnKnapping, AddressOf DoLearnKnapping},
+                        {TriggerTypes.LearnTwineMaking, AddressOf DoLearnTwineMaking},
                         {TriggerTypes.DruidTalk, AddressOf DoDruidTalk},
                         {TriggerTypes.HealthTrainerTalk, AddressOf DoHealthTrainerTalk},
                         {TriggerTypes.HealerTalk, AddressOf DoHealerTalk},
@@ -84,20 +85,6 @@ Friend Module LoxyTriggerHandlers
             AddLine(LightGray, "Thank you for yer purchase!").
             AddChoice("No worries!", trigger.Metadata(Metadatas.TriggerType))
     End Sub
-
-    Private Sub DoDruidPrices(character As ICharacter, trigger As ITrigger)
-        Dim msg = character.World.CreateMessage.
-                        AddLine(LightGray, "I sell a variety of herbs.").
-                        AddLine(LightGray, $"({character.Name} has {character.Jools} jools)").
-                        AddChoice("Good to know!", TriggerTypes.ExitDialog).
-                        AddChoice(
-                            "Buy Energy Herb(5 jools)",
-                            TriggerTypes.Buy,
-                            Sub(c) c.
-                                SetMetadata(Metadatas.ItemType, ItemTypes.EnergyHerb).
-                                SetStatistic(StatisticTypes.Price, 5).
-                                SetMetadata(Metadatas.TriggerType, TriggerTypes.DruidPrices))
-    End Sub
     Private Sub DoHealerTalk(character As ICharacter, trigger As ITrigger)
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "Welcome to the Nihilistic House of Healing.").
@@ -119,16 +106,6 @@ Friend Module LoxyTriggerHandlers
                         AddChoice("Train Me!", TriggerTypes.TrainHealth)
     End Sub
 
-    Private Sub DoDruidTalk(character As ICharacter, trigger As ITrigger)
-        Dim msg = character.World.CreateMessage.
-                        AddLine(LightGray, "Greetings! I am a druid.").
-                        AddLine(LightGray, "I can help you learn nature's way.").
-                        AddChoice("Cool story, bro!", TriggerTypes.ExitDialog).
-                        AddChoice("Don't druids live in the woods?", TriggerTypes.DruidAllergies).
-                        AddChoice("Teach me!", TriggerTypes.DruidTeachMenu).
-                        AddChoice("What's for sale?", TriggerTypes.DruidPrices)
-    End Sub
-
     Private Sub DefaultMessage(character As ICharacter, trigger As ITrigger)
         trigger.Metadata(Metadatas.MessageType).ToMessageTypeDescriptor.CreateMessage(character.World)
     End Sub
@@ -146,11 +123,6 @@ Friend Module LoxyTriggerHandlers
         character.World.CreateMessage().
             AddLine(LightGray, "I don't sell anything.").
             AddLine(LightGray, "I'm a nihilist, remember?")
-    End Sub
-
-    Private Sub DoDruidAllergies(character As ICharacter, trigger As ITrigger)
-        character.World.CreateMessage().
-            AddLine(LightGray, "Alas, I have allergies.")
     End Sub
 
     Private Sub DoExitDialog(character As ICharacter, trigger As ITrigger)
@@ -193,85 +165,5 @@ Friend Module LoxyTriggerHandlers
         msg.AddLine(LightGray, $"Yer now at {character.MaximumHealth} Maximum Health.")
         msg.AddLine(LightGray, "Remember! If you don't have yer health,")
         msg.AddLine(LightGray, "you don't really have anything!")
-    End Sub
-
-    Private Sub DoDruidTeachMenu(character As ICharacter, trigger As ITrigger)
-        Dim canLearnForaging = Not character.Flag(FlagTypes.KnowsForaging)
-        Dim canLearnTwineMaking = Not character.Flag(FlagTypes.KnowsTwineMaking)
-        Dim canLearn = canLearnForaging OrElse canLearnTwineMaking
-        Dim msg = character.World.CreateMessage()
-        If Not canLearn Then
-            msg.AddLine(LightGray, "You have learned all I have to teach you.")
-            Return
-        End If
-        msg.AddLine(LightGray, "I can teach you these things:")
-        If canLearnForaging Then
-            msg.AddChoice(
-                "Foraging(-1AP)",
-                TriggerTypes.LearnForaging,
-                Sub(choice)
-                    choice.
-                        SetStatistic(StatisticTypes.AdvancementPoints, 1).
-                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsForaging)
-                End Sub)
-        End If
-        If canLearnTwineMaking Then
-            msg.AddChoice(
-                "Twine Making(-1AP,-2 Plant Fiber)",
-                TriggerTypes.LearnTwineMaking,
-                Sub(choice)
-                    choice.
-                        SetStatistic(StatisticTypes.AdvancementPoints, 1).
-                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsTwineMaking)
-                End Sub)
-        End If
-    End Sub
-
-    Private Sub LearnForaging(character As ICharacter, trigger As ITrigger)
-        Dim msg = character.World.CreateMessage
-        If character.Flag(trigger.Metadata(Metadatas.FlagType)) Then
-            msg.AddLine(LightGray, $"{character.Name} already know how to forage!")
-            Return
-        End If
-        Dim learnCost = trigger.Statistic(StatisticTypes.AdvancementPoints)
-        If character.AdvancementPoints < learnCost Then
-            msg.AddLine(LightGray, $"To learn foraging, {character.Name} needs {learnCost} AP, but has {character.AdvancementPoints}!")
-            Return
-        End If
-        character.AddAdvancementPoints(-learnCost)
-        character.Flag(trigger.Metadata(Metadatas.FlagType)) = True
-        msg.
-            AddLine(LightGray, $"{character.Name} now knows how to forage!").
-            AddLine(LightGray, "To forage, simply select 'Forage...'").
-            AddLine(LightGray, "from the Actions menu.")
-    End Sub
-
-    Private Sub LearnTwineMaking(character As ICharacter, trigger As ITrigger)
-        Dim msg = character.World.CreateMessage
-        If character.Flag(trigger.Metadata(Metadatas.FlagType)) Then
-            msg.AddLine(LightGray, $"{character.Name} already knows how to make twine!")
-            Return
-        End If
-        Dim learnCost = trigger.Statistic(StatisticTypes.AdvancementPoints)
-        If character.AdvancementPoints < learnCost Then
-            msg.
-                AddLine(LightGray, $"To learn to make twine,").
-                AddLine(LightGray, $"{character.Name} needs {learnCost} AP,").
-                AddLine(LightGray, $"but has {character.AdvancementPoints}!")
-            Return
-        End If
-        If character.ItemTypeCount(ItemTypes.PlantFiber) < 2 Then
-            msg.
-                AddLine(LightGray, $"To learn to make twine,").
-                AddLine(LightGray, $"{character.Name} needs at least 2 plant fiber.")
-            Return
-        End If
-        character.AddAdvancementPoints(-learnCost)
-        character.Flag(trigger.Metadata(Metadatas.FlagType)) = True
-        character.MakeTwine()
-        msg.
-            AddLine(LightGray, "You now know how to make twine!").
-            AddLine(LightGray, "To do so, simply select 'Make Twine'").
-            AddLine(LightGray, "from the Actions menu.")
     End Sub
 End Module

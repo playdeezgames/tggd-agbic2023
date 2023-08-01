@@ -41,6 +41,16 @@ Friend Module CharacterExtensions
         character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.Twine))
     End Sub
     <Extension>
+    Friend Sub Knap(character As ICharacter)
+        Dim inputs = character.Items.Where(Function(x) x.ItemType = ItemTypes.Rock).Take(2)
+        For Each input In inputs
+            character.RemoveItem(input)
+            input.Recycle()
+        Next
+        character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.SharpRock))
+        character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.Rock))
+    End Sub
+    <Extension>
     Friend Function Name(character As ICharacter) As String
         Return character.CharacterType.ToCharacterTypeDescriptor.Name
     End Function

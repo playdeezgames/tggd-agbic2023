@@ -76,8 +76,12 @@ Friend Module MapTypes
                 Cellar,
                 New MapTypeDescriptor(
                     (CellarColumns, CellarRows),
-                    TerrainTypes.CellarFloor,
-                    customInitializer:=AddressOf CellarInitializer.Initialize)
+                    TerrainTypes.Empty,
+                    customInitializer:=AddressOf CellarInitializer.Initialize,
+                    encounterGenerator:=New Dictionary(Of String, Integer) From
+                    {
+                        {CharacterTypes.Rat, 1}
+                    })
             },
             {
                 EnergyTrainer,

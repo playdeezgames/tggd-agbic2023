@@ -5,6 +5,7 @@ Friend Module CharacterTypes
     Friend Const Loxy = "Loxy"
     Friend Const OliveGlop = "OliveGlop"
     Friend Const CherryGlop = "CherryGlop"
+    Friend Const Rat = "Rat"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, CharacterTypeDescriptor) =
         New Dictionary(Of String, CharacterTypeDescriptor) From
         {
@@ -55,6 +56,27 @@ Friend Module CharacterTypes
                     initializer:=AddressOf OliveGlopInitializer)
             },
             {
+                Rat,
+                New CharacterTypeDescriptor(
+                    "Rat",
+                    ChrW(&H2A),
+                    Hue.Brown,
+                    ChrW(&H32),
+                    Hue.Black,
+                    statistics:=New Dictionary(Of String, Integer) From
+                    {
+                        {StatisticTypes.Health, 1},
+                        {StatisticTypes.MaximumHealth, 1},
+                        {StatisticTypes.AttackDice, 1},
+                        {StatisticTypes.MaximumAttack, 1},
+                        {StatisticTypes.DefendDice, 1},
+                        {StatisticTypes.MaximumDefend, 1},
+                        {StatisticTypes.Peril, 3},
+                        {StatisticTypes.XP, 0}
+                    },
+                    initializer:=AddressOf RatInitializer)
+            },
+            {
                 CherryGlop,
                 New CharacterTypeDescriptor(
                     "Cherry Glop",
@@ -76,6 +98,10 @@ Friend Module CharacterTypes
                     initializer:=AddressOf CherryGlopInitializer)
             }
         }
+
+    Private Sub RatInitializer(character As ICharacter)
+        character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.RatCorpse))
+    End Sub
 
     Private Sub CherryGlopInitializer(character As ICharacter)
         character.SetJools(RNG.RollDice("6d6/6"))

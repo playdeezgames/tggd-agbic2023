@@ -7,4 +7,5 @@
     Friend Const PaidInnkeeper = "PaidInnkeeper"
     Friend Const CampingAllowed = "CampingAllowed"
     Friend Const RatQuest = "RatQuest"
+    Friend Const IsCuttingTool = "IsCuttingTool"
 End Module

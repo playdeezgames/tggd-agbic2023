@@ -3,11 +3,13 @@
 Friend Module VerbTypes
     Friend Const Forage = "Forage"
     Friend Const Use = "Use"
+    Friend Const CutOffTail = "CutOffTail"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, VerbDescriptor) =
         New Dictionary(Of String, VerbDescriptor) From
         {
             {Forage, New VerbDescriptor(Forage)},
-            {Use, New VerbDescriptor(Use)}
+            {Use, New VerbDescriptor(Use)},
+            {CutOffTail, New VerbDescriptor("Cut Off Tail")}
         }
     <Extension>
     Friend Function ToVerbTypeDescriptor(verbType As String) As VerbDescriptor

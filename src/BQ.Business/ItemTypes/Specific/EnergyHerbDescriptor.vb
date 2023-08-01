@@ -5,7 +5,8 @@
         MyBase.New(
             "Energy Herb",
             ChrW(&H28),
-            Cyan, verbTypes:=New Dictionary(Of String, Action(Of ICharacter, IItem)) From
+            Cyan,
+            verbTypes:=New Dictionary(Of String, Action(Of ICharacter, IItem)) From
             {
                 {Business.VerbTypes.Use, AddressOf UseEnergyHerb}
             })

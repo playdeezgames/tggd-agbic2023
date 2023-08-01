@@ -335,4 +335,8 @@ Friend Module CharacterExtensions
         Dim equipSlotType = item.ItemType.ToItemTypeDescriptor.EquipSlotType
         character.Equip(equipSlotType, item)
     End Sub
+    <Extension>
+    Function HasCuttingTool(character As ICharacter) As Boolean
+        Return character.Items.Any(Function(x) x.ItemType.ToItemTypeDescriptor.IsCuttingTool) OrElse character.EquippedItems.Any(Function(x) x.ItemType.ToItemTypeDescriptor.IsCuttingTool)
+    End Function
 End Module

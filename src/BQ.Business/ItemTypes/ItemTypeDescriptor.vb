@@ -43,4 +43,9 @@ Friend Class ItemTypeDescriptor
             Return VerbTypes.Keys
         End Get
     End Property
+    Friend ReadOnly Property IsCuttingTool As Boolean
+        Get
+            Return Flags.Contains(FlagTypes.IsCuttingTool)
+        End Get
+    End Property
 End Class

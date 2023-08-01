@@ -32,6 +32,17 @@
                         AddLine(LightGray, "Choose any bed you like.")
     End Sub
 
+    Friend Sub DoCompleteRatQuest(character As ICharacter, trigger As ITrigger)
+        Dim jools = 0
+        For Each item In character.Items.Where(Function(x) x.ItemType = ItemTypes.RatTail)
+            jools += 1
+            character.RemoveItem(item)
+            item.Recycle()
+        Next
+        character.AddJools(jools)
+        character.World.CreateMessage().AddLine(LightGray, $"{character.Name} receives {jools} jools.")
+    End Sub
+
     Friend Sub DoPerventInnkeeper(character As ICharacter, trigger As ITrigger)
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "I'm not a pervert!").
@@ -49,7 +60,9 @@
                         AddChoice("Yer a pervert!", TriggerTypes.PervertInnkeeper).
                         AddChoice("I'll take a bed.", TriggerTypes.PayInnkeeper)
         If character.Flag(FlagTypes.RatQuest) Then
-            'TODO: turn in rat tails
+            If character.HasItemTypeInInventory(ItemTypes.RatTail) Then
+                msg.AddChoice("Here's some rat tails!", TriggerTypes.CompleteRatQuest)
+            End If
         Else
             msg.AddChoice("I need a job!", TriggerTypes.StartRatQuest)
         End If

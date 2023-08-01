@@ -29,7 +29,7 @@ Friend Module CharacterTypes
                         {StatisticTypes.XPGoal, 10},
                         {StatisticTypes.XPLevel, 1},
                         {StatisticTypes.AdvancementPointsPerLevel, 10},
-                        {StatisticTypes.AdvancementPoints, 10},'TODO: delete me
+                        {StatisticTypes.AdvancementPoints, 0},'TODO: delete me
                         {StatisticTypes.Energy, 10},
                         {StatisticTypes.MaximumEnergy, 10}
                     },

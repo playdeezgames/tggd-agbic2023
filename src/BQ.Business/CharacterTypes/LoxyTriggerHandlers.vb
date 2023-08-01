@@ -29,7 +29,8 @@ Friend Module LoxyTriggerHandlers
                         {TriggerTypes.TrainEnergy, AddressOf DoTrainEnergy},
                         {StartRatQuest, AddressOf DoStartRatQuest},
                         {AcceptRatQuest, AddressOf DoAcceptRatQuest},
-                        {EnterCellar, AddressOf DoEnterCellar}
+                        {EnterCellar, AddressOf DoEnterCellar},
+                        {CompleteRatQuest, AddressOf DoCompleteRatQuest}
                     }
 
     Private Sub DoTrainEnergy(character As ICharacter, trigger As ITrigger)

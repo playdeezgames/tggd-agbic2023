@@ -3,6 +3,10 @@ Imports SPLORR.Game
 
 Friend Module CharacterExtensions
     <Extension>
+    Friend Function HasItemTypeInInventory(character As ICharacter, itemType As String) As Boolean
+        Return character.Items.Any(Function(x) x.ItemType = itemType)
+    End Function
+    <Extension>
     Friend Sub Sleep(character As ICharacter)
         If Not character.IsAvatar Then
             Return

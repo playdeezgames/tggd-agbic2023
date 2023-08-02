@@ -14,10 +14,10 @@ Friend Class Trigger
 
     Public Property TriggerType As String Implements ITrigger.TriggerType
         Get
-            Return TriggerData.TriggerType
+            Return TriggerData.EffectType
         End Get
         Set(value As String)
-            TriggerData.TriggerType = value
+            TriggerData.EffectType = value
         End Set
     End Property
 

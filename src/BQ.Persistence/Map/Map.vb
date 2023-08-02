@@ -83,7 +83,7 @@
     End Function
     Public Function CreateTrigger() As ITrigger Implements IMap.CreateTrigger
         Dim triggerId = MapData.Triggers.Count
-        MapData.Triggers.Add(New Data.TriggerData)
+        MapData.Triggers.Add(New Data.EffectData)
         Return New Trigger(WorldData, MapId, triggerId)
     End Function
 

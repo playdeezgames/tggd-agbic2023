@@ -1,6 +1,6 @@
 # Bagel Quest!
 
-Bagel Quest, a game for the "A Game By Its Cover 2023" jam. ~14.5 days remaining. I am "Kenough".
+Bagel Quest, a game for the "A Game By Its Cover 2023" jam. ~11.5 days remaining. I am "Kenough".
 
 Matura MT Script Capitals
 96

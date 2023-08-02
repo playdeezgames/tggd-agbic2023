@@ -3,7 +3,7 @@
 Friend Class TriggerDataClient
     Inherits MapDataClient
     Protected ReadOnly TriggerId As Integer
-    Protected ReadOnly Property TriggerData As TriggerData
+    Protected ReadOnly Property TriggerData As EffectData
         Get
             Return MapData.Triggers(TriggerId)
         End Get

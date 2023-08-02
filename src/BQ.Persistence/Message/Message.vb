@@ -100,7 +100,7 @@ Friend Class Message
         MessageData.Choices.Add(New Data.MessageChoiceData With
             {
                 .Text = text,
-                .TriggerType = triggerType
+                .EffectType = triggerType
             })
         initializer?.Invoke(Choice(id))
         Return Me

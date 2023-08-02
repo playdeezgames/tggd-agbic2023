@@ -1,6 +1,4 @@
 ﻿Imports System.Runtime.CompilerServices
-Imports BQ.Persistence
-Imports SPLORR.Game
 
 Friend Module CellExtensions
     <Extension>

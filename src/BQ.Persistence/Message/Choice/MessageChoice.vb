@@ -14,10 +14,10 @@
 
     Public Property TriggerType As String Implements IMessageChoice.TriggerType
         Get
-            Return MessageChoiceData.TriggerType
+            Return MessageChoiceData.EffectType
         End Get
         Set(value As String)
-            MessageChoiceData.TriggerType = value
+            MessageChoiceData.EffectType = value
         End Set
     End Property
 

@@ -4,6 +4,7 @@ Imports BQ.Persistence
 Friend Class ItemTypeDescriptor
     Inherits VisibleEntityDescriptor
     Friend ReadOnly Property VerbTypes As IReadOnlyDictionary(Of String, Action(Of ICharacter, IItem))
+    Private ReadOnly Property Effects As IReadOnlyDictionary(Of String, EffectData)
     Friend ReadOnly Property Statistics As IReadOnlyDictionary(Of String, Integer)
     Friend ReadOnly Property Flags As IReadOnlyList(Of String)
     Friend ReadOnly Property EquipSlotType As String
@@ -22,13 +23,15 @@ Friend Class ItemTypeDescriptor
                   Optional equipSlotType As String = Nothing,
                   Optional fullName As Func(Of IItem, String) = Nothing,
                   Optional canTake As Boolean = True,
-                  Optional flags As IReadOnlyList(Of String) = Nothing)
+                  Optional flags As IReadOnlyList(Of String) = Nothing,
+                  Optional effects As IReadOnlyDictionary(Of String, EffectData) = Nothing)
         MyBase.New(name, glyph, hue)
         Me.VerbTypes = If(verbTypes, New Dictionary(Of String, Action(Of ICharacter, IItem)))
         Me.EquipSlotType = equipSlotType
         Me.Statistics = If(statistics, New Dictionary(Of String, Integer))
         Me.FullName = If(fullName, AddressOf DefaultFullName)
         Me.Flags = If(flags, New List(Of String))
+        Me.Effects = If(effects, New Dictionary(Of String, EffectData))
     End Sub
 
     Private Function DefaultFullName(item As IItem) As String
@@ -48,4 +51,7 @@ Friend Class ItemTypeDescriptor
             Return Flags.Contains(FlagTypes.IsCuttingTool)
         End Get
     End Property
+    Friend Function ToItemEffect(effectType As String, item As IItem) As IItemEffect
+        Throw New NotImplementedException
+    End Function
 End Class

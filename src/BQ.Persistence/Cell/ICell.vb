@@ -20,5 +20,5 @@
     ReadOnly Property HasItems As Boolean
     ReadOnly Property Items As IEnumerable(Of IItem)
     ReadOnly Property HasTrigger As Boolean
-    Property Trigger As ITrigger
+    Property Trigger As IEffect
 End Interface

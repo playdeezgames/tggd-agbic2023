@@ -81,14 +81,14 @@ Friend Class Cell
         End Get
     End Property
 
-    Public Property Trigger As ITrigger Implements ICell.Trigger
+    Public Property Trigger As IEffect Implements ICell.Trigger
         Get
             If Not HasTrigger Then
                 Return Nothing
             End If
-            Return New Trigger(WorldData, Map.Id, CellData.TriggerId.Value)
+            Return New MapEffect(WorldData, Map.Id, CellData.TriggerId.Value)
         End Get
-        Set(value As ITrigger)
+        Set(value As IEffect)
             If value Is Nothing Then
                 CellData.TriggerId = Nothing
                 Return

@@ -1,4 +1,4 @@
 ﻿Public Interface IMessageChoice
-    Inherits ITrigger
+    Inherits IEffect
     ReadOnly Property Text As String
 End Interface

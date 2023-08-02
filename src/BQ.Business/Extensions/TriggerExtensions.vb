@@ -10,8 +10,8 @@ Friend Module TriggerExtensions
         Return trigger
     End Function
     <Extension>
-    Friend Function SetTriggerType(Of THolder As ITrigger)(trigger As THolder, triggerType As String) As THolder
-        trigger.TriggerType = triggerType
+    Friend Function SetTriggerType(Of THolder As IEffect)(trigger As THolder, triggerType As String) As THolder
+        trigger.EffectType = triggerType
         Return trigger
     End Function
 End Module

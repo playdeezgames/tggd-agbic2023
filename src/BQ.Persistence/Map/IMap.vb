@@ -8,6 +8,6 @@
     ReadOnly Property World As IWorld
     ReadOnly Property Id As Integer
     Function GetCell(column As Integer, row As Integer) As ICell
-    Function CreateTrigger() As ITrigger
+    Function CreateTrigger() As IEffect
     ReadOnly Property MapType As String
 End Interface

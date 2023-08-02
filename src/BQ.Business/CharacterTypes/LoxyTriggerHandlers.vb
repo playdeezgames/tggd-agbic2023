@@ -2,8 +2,8 @@
 
 Friend Module LoxyTriggerHandlers
 
-    Friend All As IReadOnlyDictionary(Of String, Action(Of ICharacter, ITrigger)) =
-        New Dictionary(Of String, Action(Of ICharacter, ITrigger)) From
+    Friend All As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect)) =
+        New Dictionary(Of String, Action(Of ICharacter, IEffect)) From
                     {
                         {TriggerTypes.Teleport, AddressOf DefaultTeleport},
                         {TriggerTypes.Message, AddressOf DefaultMessage},
@@ -33,7 +33,7 @@ Friend Module LoxyTriggerHandlers
                         {CompleteRatQuest, AddressOf DoCompleteRatQuest}
                     }
 
-    Private Sub DoTrainEnergy(character As ICharacter, trigger As ITrigger)
+    Private Sub DoTrainEnergy(character As ICharacter, trigger As IEffect)
         Dim msg = character.World.CreateMessage
         If character.AdvancementPoints < 1 Then
             msg.AddLine(LightGray, "You need at least 1 AP.")
@@ -59,7 +59,7 @@ Friend Module LoxyTriggerHandlers
         msg.AddLine(LightGray, "Persistence is futile!")
     End Sub
 
-    Private Sub DoEnergyTrainerTalk(character As ICharacter, trigger As ITrigger)
+    Private Sub DoEnergyTrainerTalk(character As ICharacter, trigger As IEffect)
         Dim trainCost = character.MaximumEnergy() * 2
         character.World.CreateMessage.
             AddLine(LightGray, "I am the endurance trainer.").
@@ -69,7 +69,7 @@ Friend Module LoxyTriggerHandlers
             AddChoice("Train Me!", TriggerTypes.TrainEnergy)
     End Sub
 
-    Private Sub DoBuy(character As ICharacter, trigger As ITrigger)
+    Private Sub DoBuy(character As ICharacter, trigger As IEffect)
         Dim itemType = trigger.Metadata(Metadatas.ItemType)
         Dim price = trigger.Statistic(StatisticTypes.Price)
         If character.Jools < price Then
@@ -86,7 +86,7 @@ Friend Module LoxyTriggerHandlers
             AddLine(LightGray, "Thank you for yer purchase!").
             AddChoice("No worries!", trigger.Metadata(Metadatas.TriggerType))
     End Sub
-    Private Sub DoHealerTalk(character As ICharacter, trigger As ITrigger)
+    Private Sub DoHealerTalk(character As ICharacter, trigger As IEffect)
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "Welcome to the Nihilistic House of Healing.").
                         AddLine(LightGray, "If you go to the basin And wash,").
@@ -98,7 +98,7 @@ Friend Module LoxyTriggerHandlers
                         AddChoice("What's for sale?", TriggerTypes.HealerPrices)
     End Sub
 
-    Private Sub DoHealthTrainerTalk(character As ICharacter, trigger As ITrigger)
+    Private Sub DoHealthTrainerTalk(character As ICharacter, trigger As IEffect)
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "I am the health trainer!").
                         AddLine(LightGray, "I can help you increase yer health.").
@@ -107,11 +107,11 @@ Friend Module LoxyTriggerHandlers
                         AddChoice("Train Me!", TriggerTypes.TrainHealth)
     End Sub
 
-    Private Sub DefaultMessage(character As ICharacter, trigger As ITrigger)
+    Private Sub DefaultMessage(character As ICharacter, trigger As IEffect)
         trigger.Metadata(Metadatas.MessageType).ToMessageTypeDescriptor.CreateMessage(character.World)
     End Sub
 
-    Friend Sub DefaultTeleport(character As ICharacter, trigger As ITrigger)
+    Friend Sub DefaultTeleport(character As ICharacter, trigger As IEffect)
         Dim nextCell = character.World.
             Map(trigger.Statistic(StatisticTypes.MapId)).
             GetCell(trigger.Statistic(StatisticTypes.CellColumn), trigger.Statistic(StatisticTypes.CellRow))
@@ -120,16 +120,16 @@ Friend Module LoxyTriggerHandlers
         character.Cell = nextCell
     End Sub
 
-    Private Sub DoNihilistPrices(character As ICharacter, trigger As ITrigger)
+    Private Sub DoNihilistPrices(character As ICharacter, trigger As IEffect)
         character.World.CreateMessage().
             AddLine(LightGray, "I don't sell anything.").
             AddLine(LightGray, "I'm a nihilist, remember?")
     End Sub
 
-    Private Sub DoExitDialog(character As ICharacter, trigger As ITrigger)
+    Private Sub DoExitDialog(character As ICharacter, trigger As IEffect)
         'NOTHING!
     End Sub
-    Private Sub NihilisticHealing(character As ICharacter, trigger As ITrigger)
+    Private Sub NihilisticHealing(character As ICharacter, trigger As IEffect)
         Dim maximumHealth = Math.Min(character.MaximumHealth, trigger.Statistic(StatisticTypes.MaximumHealth))
         If character.Health >= maximumHealth Then
             character.World.CreateMessage().AddLine(LightGray, "Nothing happens!")
@@ -148,7 +148,7 @@ Friend Module LoxyTriggerHandlers
         End If
     End Sub
 
-    Private Sub DoTrainHealth(character As ICharacter, trigger As ITrigger)
+    Private Sub DoTrainHealth(character As ICharacter, trigger As IEffect)
         Dim msg = character.World.CreateMessage
         Const Multiplier = 5
         Dim TrainingCost = Multiplier * character.MaximumHealth

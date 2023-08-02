@@ -1,7 +1,7 @@
-﻿Public Interface ITrigger
+﻿Public Interface IEffect
     Inherits IStatisticsHolder
     Inherits IFlagHolder
     Inherits IMetadataHolder
     ReadOnly Property Id As Integer
-    Property TriggerType As String
+    Property EffectType As String
 End Interface

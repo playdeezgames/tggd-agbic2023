@@ -1,6 +1,6 @@
 ﻿Friend Module InnTriggerHandlers
 
-    Friend Sub DoSleepAtInn(character As ICharacter, trigger As ITrigger)
+    Friend Sub DoSleepAtInn(character As ICharacter, trigger As IEffect)
         If Not character.Flag(FlagTypes.PaidInnkeeper) Then
             character.World.CreateMessage.
                         AddLine(LightGray, $"{character.Name} needs to pay Gorachan first!")
@@ -13,7 +13,7 @@
                         AddLine(LightGray, $"{character.Name} has {character.Energy}/{character.MaximumEnergy} energy.")
     End Sub
 
-    Friend Sub DoPayInnkeeper(character As ICharacter, trigger As ITrigger)
+    Friend Sub DoPayInnkeeper(character As ICharacter, trigger As IEffect)
         If character.Flag(FlagTypes.PaidInnkeeper) Then
             character.World.CreateMessage.
                         AddLine(LightGray, "You've already paid!")
@@ -32,7 +32,7 @@
                         AddLine(LightGray, "Choose any bed you like.")
     End Sub
 
-    Friend Sub DoCompleteRatQuest(character As ICharacter, trigger As ITrigger)
+    Friend Sub DoCompleteRatQuest(character As ICharacter, trigger As IEffect)
         Dim jools = 0
         For Each item In character.Items.Where(Function(x) x.ItemType = ItemTypes.RatTail)
             jools += 1
@@ -43,13 +43,13 @@
         character.World.CreateMessage().AddLine(LightGray, $"{character.Name} receives {jools} jools.")
     End Sub
 
-    Friend Sub DoPerventInnkeeper(character As ICharacter, trigger As ITrigger)
+    Friend Sub DoPerventInnkeeper(character As ICharacter, trigger As IEffect)
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "I'm not a pervert!").
                         AddLine(LightGray, "I'm just Australian!")
     End Sub
 
-    Friend Sub DoGorachanTalk(character As ICharacter, trigger As ITrigger)
+    Friend Sub DoGorachanTalk(character As ICharacter, trigger As IEffect)
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "Welcome to Jusdatip Inn!").
                         AddLine(LightGray, "I'm Gorachan.").
@@ -68,7 +68,7 @@
         End If
     End Sub
 
-    Friend Sub DoStartRatQuest(character As ICharacter, trigger As ITrigger)
+    Friend Sub DoStartRatQuest(character As ICharacter, trigger As IEffect)
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "Well, there are a bunch of rats in the cellar.").
                         AddLine(LightGray, "I'll pay you 1 jools for each rat tail.").
@@ -78,11 +78,11 @@
                         AddChoice("Mebbe later?", TriggerTypes.ExitDialog)
     End Sub
 
-    Friend Sub DoAcceptRatQuest(character As ICharacter, trigger As ITrigger)
+    Friend Sub DoAcceptRatQuest(character As ICharacter, trigger As IEffect)
         character.SetFlag(FlagTypes.RatQuest, True)
     End Sub
 
-    Friend Sub DoEnterCellar(character As ICharacter, trigger As ITrigger)
+    Friend Sub DoEnterCellar(character As ICharacter, trigger As IEffect)
         If Not character.Flag(FlagTypes.RatQuest) Then
             character.World.CreateMessage().AddLine(LightGray, $"{character.Name} has no business in the cellar.")
             Return

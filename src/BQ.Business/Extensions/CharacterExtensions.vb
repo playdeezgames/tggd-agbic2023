@@ -91,7 +91,7 @@ Friend Module CharacterExtensions
     Private Sub DoTrigger(character As ICharacter, cell As ICell)
         If cell IsNot Nothing AndAlso cell.HasTrigger Then
             Dim trigger = cell.Trigger
-            character.CharacterType.ToCharacterTypeDescriptor.Triggers(trigger.TriggerType).Invoke(character, trigger)
+            character.CharacterType.ToCharacterTypeDescriptor.Triggers(trigger.EffectType).Invoke(character, trigger)
         End If
     End Sub
     <Extension>

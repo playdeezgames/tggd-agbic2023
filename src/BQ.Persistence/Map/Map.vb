@@ -81,10 +81,10 @@
         End If
         Return New Cell(WorldData, MapId, column + row * Columns)
     End Function
-    Public Function CreateTrigger() As ITrigger Implements IMap.CreateTrigger
-        Dim triggerId = MapData.Triggers.Count
-        MapData.Triggers.Add(New Data.EffectData)
-        Return New Trigger(WorldData, MapId, triggerId)
+    Public Function CreateTrigger() As IEffect Implements IMap.CreateTrigger
+        Dim triggerId = MapData.Effects.Count
+        MapData.Effects.Add(New Data.EffectData)
+        Return New MapEffect(WorldData, MapId, triggerId)
     End Function
 
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic

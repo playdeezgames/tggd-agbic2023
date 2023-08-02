@@ -12,7 +12,7 @@
         End Get
     End Property
 
-    Public Property TriggerType As String Implements IMessageChoice.TriggerType
+    Public Property EffectType As String Implements IMessageChoice.EffectType
         Get
             Return MessageChoiceData.EffectType
         End Get
@@ -21,7 +21,7 @@
         End Set
     End Property
 
-    Public ReadOnly Property Id As Integer Implements ITrigger.Id
+    Public ReadOnly Property Id As Integer Implements IEffect.Id
         Get
             Return ChoiceId
         End Get

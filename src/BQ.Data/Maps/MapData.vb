@@ -4,5 +4,5 @@
     Public Property Rows As Integer
     Public Property MapType As String
     Public Property Cells As New List(Of CellData)
-    Public Property Triggers As New List(Of EffectData)
+    Public Property Effects As New List(Of EffectData)
 End Class

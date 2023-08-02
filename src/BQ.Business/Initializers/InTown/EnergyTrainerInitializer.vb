@@ -13,7 +13,7 @@
         map.GetCell(map.Columns \ 2, 0).TerrainType = TerrainTypes.Door
         Dim trainerCell = map.GetCell(map.Columns \ 2, map.Rows - 2)
         trainerCell.TerrainType = TerrainTypes.EnergyTrainer
-        trainerCell.Trigger =
+        trainerCell.Effect =
             map.CreateEffect.
             SetEffectType(EffectTypes.EnergyTrainerTalk)
     End Sub

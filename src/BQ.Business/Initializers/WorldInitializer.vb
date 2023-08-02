@@ -18,11 +18,11 @@ Friend Module WorldInitializer
     Private Sub StitchEnergyTrainerToTown(world As IWorld)
         Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
         Dim trainerMap = world.Maps.Single(Function(x) x.MapType = MapTypes.EnergyTrainer)
-        townMap.GetCell(6, 6).Trigger =
+        townMap.GetCell(6, 6).Effect =
             townMap.CreateEffect().
             SetEffectType(Teleport).
             SetDestination(trainerMap.GetCell(EnergyTrainerColumns \ 2, 1))
-        trainerMap.GetCell(EnergyTrainerColumns \ 2, 0).Trigger =
+        trainerMap.GetCell(EnergyTrainerColumns \ 2, 0).Effect =
             trainerMap.CreateEffect().
             SetEffectType(Teleport).
             SetDestination(townMap.GetCell(6, 5))
@@ -32,29 +32,29 @@ Friend Module WorldInitializer
         Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
         Dim innMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Inn)
         Dim cellarMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Cellar)
-        townMap.GetCell(3, 3).Trigger =
+        townMap.GetCell(3, 3).Effect =
             townMap.CreateEffect().
             SetEffectType(Teleport).
             SetDestination(innMap.GetCell(InnColumns \ 2, InnRows - 2))
-        innMap.GetCell(InnColumns \ 2, InnRows - 1).Trigger =
+        innMap.GetCell(InnColumns \ 2, InnRows - 1).Effect =
             innMap.CreateEffect().
             SetEffectType(Teleport).
             SetDestination(townMap.GetCell(3, 2))
         Dim downStairs = innMap.Cells.Single(Function(x) x.TerrainType = TerrainTypes.StairsDown)
         Dim upStairs = cellarMap.Cells.Single(Function(x) x.TerrainType = TerrainTypes.StairsUp)
-        downStairs.Trigger.
+        downStairs.Effect.
             SetDestination(upStairs)
-        upStairs.Trigger.SetDestination(downStairs)
+        upStairs.Effect.SetDestination(downStairs)
     End Sub
 
     Private Sub StitchDruidHouseToTown(world As IWorld)
         Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
         Dim druidMap = world.Maps.Single(Function(x) x.MapType = MapTypes.DruidHouse)
-        townMap.GetCell(10, 10).Trigger =
+        townMap.GetCell(10, 10).Effect =
             townMap.CreateEffect().
             SetEffectType(Teleport).
             SetDestination(druidMap.GetCell(1, DruidHouseRows \ 2))
-        druidMap.GetCell(0, DruidHouseRows \ 2).Trigger =
+        druidMap.GetCell(0, DruidHouseRows \ 2).Effect =
             druidMap.CreateEffect().
             SetEffectType(Teleport).
             SetDestination(townMap.GetCell(9, 10))
@@ -63,11 +63,11 @@ Friend Module WorldInitializer
     Private Sub StitchHealthTrainerToTown(world As IWorld)
         Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
         Dim trainerMap = world.Maps.Single(Function(x) x.MapType = MapTypes.HealthTrainer)
-        townMap.GetCell(8, 4).Trigger =
+        townMap.GetCell(8, 4).Effect =
             townMap.CreateEffect().
             SetEffectType(Teleport).
             SetDestination(trainerMap.GetCell(HealthTrainerColumns \ 2, HealthTrainerRows - 2))
-        trainerMap.GetCell(HealthTrainerColumns \ 2, HealthTrainerRows - 1).Trigger =
+        trainerMap.GetCell(HealthTrainerColumns \ 2, HealthTrainerRows - 1).Effect =
             trainerMap.CreateEffect().
             SetEffectType(Teleport).
             SetDestination(townMap.GetCell(8, 3))
@@ -76,11 +76,11 @@ Friend Module WorldInitializer
     Private Sub StitchHealerToTown(world As IWorld)
         Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
         Dim healerMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Healer)
-        townMap.GetCell(3, 13).Trigger =
+        townMap.GetCell(3, 13).Effect =
             townMap.CreateEffect().
             SetEffectType(Teleport).
             SetDestination(healerMap.GetCell(HealerColumns \ 2, HealerRows - 2))
-        healerMap.GetCell(HealerColumns \ 2, HealerRows - 1).Trigger =
+        healerMap.GetCell(HealerColumns \ 2, HealerRows - 1).Effect =
             healerMap.CreateEffect().
             SetEffectType(Teleport).
             SetDestination(townMap.GetCell(4, 13))
@@ -90,23 +90,23 @@ Friend Module WorldInitializer
         Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
         Dim wildernessMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Wilderness)
         Dim townCell = wildernessMap.Cells.Single(Function(x) x.TerrainType = TerrainTypes.Town)
-        townMap.GetCell(townMap.Columns \ 2, townMap.Rows - 1).Trigger =
+        townMap.GetCell(townMap.Columns \ 2, townMap.Rows - 1).Effect =
             townMap.CreateEffect().
             SetEffectType(EffectTypes.Teleport).
             SetDestination(townCell)
-        townMap.GetCell(townMap.Columns \ 2, 0).Trigger =
+        townMap.GetCell(townMap.Columns \ 2, 0).Effect =
             townMap.CreateEffect().
             SetEffectType(EffectTypes.Teleport).
             SetDestination(townCell)
-        townMap.GetCell(0, townMap.Rows \ 2).Trigger =
+        townMap.GetCell(0, townMap.Rows \ 2).Effect =
             townMap.CreateEffect().
             SetEffectType(EffectTypes.Teleport).
             SetDestination(townCell)
-        townMap.GetCell(townMap.Columns - 1, townMap.Rows \ 2).Trigger =
+        townMap.GetCell(townMap.Columns - 1, townMap.Rows \ 2).Effect =
             townMap.CreateEffect().
             SetEffectType(EffectTypes.Teleport).
             SetDestination(townCell)
-        townCell.Trigger =
+        townCell.Effect =
             wildernessMap.CreateEffect().
             SetEffectType(EffectTypes.Teleport).
             SetDestination(townMap.GetCell(townMap.Columns \ 2, townMap.Rows - 2))

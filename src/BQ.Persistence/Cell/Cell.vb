@@ -75,20 +75,20 @@ Friend Class Cell
         End Set
     End Property
 
-    Public ReadOnly Property HasTrigger As Boolean Implements ICell.HasTrigger
+    Public ReadOnly Property HasEffect As Boolean Implements ICell.HasEffect
         Get
             Return CellData.TriggerId.HasValue
         End Get
     End Property
 
-    Public Property Trigger As IEffect Implements ICell.Trigger
+    Public Property Effect As IMapEffect Implements ICell.Effect
         Get
-            If Not HasTrigger Then
+            If Not HasEffect Then
                 Return Nothing
             End If
             Return New MapEffect(WorldData, Map.Id, CellData.TriggerId.Value)
         End Get
-        Set(value As IEffect)
+        Set(value As IMapEffect)
             If value Is Nothing Then
                 CellData.TriggerId = Nothing
                 Return

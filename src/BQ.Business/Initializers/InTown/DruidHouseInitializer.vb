@@ -13,7 +13,7 @@
         map.GetCell(0, map.Rows \ 2).TerrainType = TerrainTypes.Door
         Dim druidCell = map.GetCell(map.Columns - 2, map.Rows \ 2)
         druidCell.TerrainType = TerrainTypes.Druid
-        druidCell.Trigger =
+        druidCell.Effect =
             map.CreateEffect.
             SetEffectType(EffectTypes.DruidTalk)
     End Sub

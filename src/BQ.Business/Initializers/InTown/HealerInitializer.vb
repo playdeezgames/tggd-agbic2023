@@ -13,13 +13,13 @@
         map.GetCell(map.Columns \ 2, map.Rows - 1).TerrainType = TerrainTypes.Door
         Dim basinCell = map.GetCell(map.Columns \ 2, 1)
         basinCell.TerrainType = TerrainTypes.Basin
-        basinCell.Trigger =
+        basinCell.Effect =
             map.CreateEffect.
             SetEffectType(EffectTypes.Heal).
             SetStatistic(StatisticTypes.MaximumHealth, 5)
         Dim healerCell = map.GetCell(map.Columns - 2, map.Rows - 2)
         healerCell.TerrainType = TerrainTypes.OldMan
-        healerCell.Trigger =
+        healerCell.Effect =
             map.CreateEffect.
             SetEffectType(EffectTypes.HealerTalk)
     End Sub

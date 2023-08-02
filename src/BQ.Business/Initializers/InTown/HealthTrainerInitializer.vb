@@ -13,7 +13,7 @@
         map.GetCell(map.Columns \ 2, map.Rows - 1).TerrainType = TerrainTypes.Door
         Dim trainerCell = map.GetCell(map.Columns \ 2, 1)
         trainerCell.TerrainType = TerrainTypes.StrongMan
-        trainerCell.Trigger =
+        trainerCell.Effect =
             map.CreateEffect.
             SetEffectType(EffectTypes.HealthTrainerTalk)
     End Sub

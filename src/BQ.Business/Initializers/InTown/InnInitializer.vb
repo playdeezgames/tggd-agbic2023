@@ -38,19 +38,19 @@
     End Sub
 
     Private Sub InitializeStairs(map As IMap)
-        map.GetCell(1, map.Rows - 2).Trigger = map.CreateEffect().SetEffectType(EffectTypes.EnterCellar)
+        map.GetCell(1, map.Rows - 2).Effect = map.CreateEffect().SetEffectType(EffectTypes.EnterCellar)
     End Sub
 
     Private Sub InitializeBeds(map As IMap)
         Dim bedCells = map.Cells.Where(Function(x) x.TerrainType = TerrainTypes.Bed)
         Dim trigger = map.CreateEffect().SetEffectType(EffectTypes.SleepAtInn)
         For Each bedCell In bedCells
-            bedCell.Trigger = trigger
+            bedCell.Effect = trigger
         Next
     End Sub
 
     Private Sub InitializeGorachan(map As IMap)
         Dim gorachanCell = map.Cells.Single(Function(x) x.TerrainType = TerrainTypes.Gorachan)
-        gorachanCell.Trigger = map.CreateEffect().SetEffectType(EffectTypes.GorachanTalk)
+        gorachanCell.Effect = map.CreateEffect().SetEffectType(EffectTypes.GorachanTalk)
     End Sub
 End Module

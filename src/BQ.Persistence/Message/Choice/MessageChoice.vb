@@ -21,12 +21,6 @@
         End Set
     End Property
 
-    Public ReadOnly Property Id As Integer Implements IEffect.Id
-        Get
-            Return ChoiceId
-        End Get
-    End Property
-
     Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
         Get
             Return MessageChoiceData.Metadatas(identifier)

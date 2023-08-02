@@ -2,11 +2,11 @@
 
 Friend Class MapEffect
     Inherits MapEffectDataClient
-    Implements IEffect
+    Implements IMapEffect
     Public Sub New(worldData As WorldData, mapId As Integer, mapEffectId As Integer)
         MyBase.New(worldData, mapId, mapEffectId)
     End Sub
-    Public ReadOnly Property Id As Integer Implements IEffect.Id
+    Public ReadOnly Property Id As Integer Implements IMapEffect.Id
         Get
             Return MapEffectId
         End Get

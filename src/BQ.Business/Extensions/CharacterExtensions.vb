@@ -89,8 +89,8 @@ Friend Module CharacterExtensions
     End Function
     <Extension>
     Private Sub DoTrigger(character As ICharacter, cell As ICell)
-        If cell IsNot Nothing AndAlso cell.HasTrigger Then
-            Dim trigger = cell.Trigger
+        If cell IsNot Nothing AndAlso cell.HasEffect Then
+            Dim trigger = cell.Effect
             character.CharacterType.ToCharacterTypeDescriptor.EffectHandlers(trigger.EffectType).Invoke(character, trigger)
         End If
     End Sub

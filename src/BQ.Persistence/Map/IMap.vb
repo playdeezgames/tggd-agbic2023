@@ -8,6 +8,6 @@
     ReadOnly Property World As IWorld
     ReadOnly Property Id As Integer
     Function GetCell(column As Integer, row As Integer) As ICell
-    Function CreateEffect() As IEffect
+    Function CreateEffect() As IMapEffect
     ReadOnly Property MapType As String
 End Interface

@@ -19,6 +19,6 @@
     ReadOnly Property TopItem As IItem
     ReadOnly Property HasItems As Boolean
     ReadOnly Property Items As IEnumerable(Of IItem)
-    ReadOnly Property HasTrigger As Boolean
-    Property Trigger As IEffect
+    ReadOnly Property HasEffect As Boolean
+    Property Effect As IMapEffect
 End Interface

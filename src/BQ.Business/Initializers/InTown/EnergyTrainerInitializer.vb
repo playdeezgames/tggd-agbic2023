@@ -14,8 +14,8 @@
         Dim trainerCell = map.GetCell(map.Columns \ 2, map.Rows - 2)
         trainerCell.TerrainType = TerrainTypes.EnergyTrainer
         trainerCell.Trigger =
-            map.CreateTrigger.
-            SetTriggerType(TriggerTypes.EnergyTrainerTalk)
+            map.CreateEffect.
+            SetEffectType(EffectTypes.EnergyTrainerTalk)
     End Sub
 
 End Module

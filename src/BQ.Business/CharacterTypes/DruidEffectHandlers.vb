@@ -1,13 +1,13 @@
-﻿Friend Module DruidTriggerHandlers
+﻿Friend Module DruidEffectHandlers
 
     Friend Sub DoDruidTalk(character As ICharacter, trigger As IEffect)
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "Greetings! I am Marcus, the hippy druid.").
                         AddLine(LightGray, "I can help you learn nature's way.").
-                        AddChoice("Cool story, bro!", TriggerTypes.ExitDialog).
-                        AddChoice("Don't druids live in the woods?", TriggerTypes.DruidAllergies).
-                        AddChoice("Teach me!", TriggerTypes.DruidTeachMenu).
-                        AddChoice("What's for sale?", TriggerTypes.DruidPrices)
+                        AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
+                        AddChoice("Don't druids live in the woods?", EffectTypes.DruidAllergies).
+                        AddChoice("Teach me!", EffectTypes.DruidTeachMenu).
+                        AddChoice("What's for sale?", EffectTypes.DruidPrices)
     End Sub
 
     Friend Sub DoDruidAllergies(character As ICharacter, trigger As IEffect)
@@ -19,14 +19,14 @@
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "I sell a variety of herbs.").
                         AddLine(LightGray, $"({character.Name} has {character.Jools} jools)").
-                        AddChoice("Good to know!", TriggerTypes.ExitDialog).
+                        AddChoice("Good to know!", EffectTypes.ExitDialog).
                         AddChoice(
                             "Buy Energy Herb(5 jools)",
-                            TriggerTypes.Buy,
+                            EffectTypes.Buy,
                             Sub(c) c.
                                 SetMetadata(Metadatas.ItemType, ItemTypes.EnergyHerb).
                                 SetStatistic(StatisticTypes.Price, 5).
-                                SetMetadata(Metadatas.TriggerType, TriggerTypes.DruidPrices))
+                                SetMetadata(Metadatas.EffectType, EffectTypes.DruidPrices))
     End Sub
 
     Private Function AlreadyKnows(character As ICharacter, trigger As IEffect, msg As IMessage, text As String) As Boolean
@@ -110,7 +110,7 @@
         If canLearnForaging Then
             msg.AddChoice(
                 "Foraging(-1AP)",
-                TriggerTypes.LearnForaging,
+                EffectTypes.LearnForaging,
                 Sub(choice)
                     choice.
                         SetStatistic(StatisticTypes.AdvancementPoints, 1).
@@ -120,7 +120,7 @@
         If canLearnTwineMaking Then
             msg.AddChoice(
                 "Twine Making(-1AP,-2 Plant Fiber)",
-                TriggerTypes.LearnTwineMaking,
+                EffectTypes.LearnTwineMaking,
                 Sub(choice)
                     choice.
                         SetStatistic(StatisticTypes.AdvancementPoints, 1).
@@ -130,7 +130,7 @@
         If canLearnKnapping Then
             msg.AddChoice(
                 "Knapping(-1AP,-2 Rock)",
-                TriggerTypes.LearnKnapping,
+                EffectTypes.LearnKnapping,
                 Sub(choice)
                     choice.
                         SetStatistic(StatisticTypes.AdvancementPoints, 1).

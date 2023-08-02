@@ -14,7 +14,7 @@
         Dim druidCell = map.GetCell(map.Columns - 2, map.Rows \ 2)
         druidCell.TerrainType = TerrainTypes.Druid
         druidCell.Trigger =
-            map.CreateTrigger.
-            SetTriggerType(TriggerTypes.DruidTalk)
+            map.CreateEffect.
+            SetEffectType(EffectTypes.DruidTalk)
     End Sub
 End Module

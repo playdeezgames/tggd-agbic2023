@@ -137,7 +137,7 @@
         avatar.
             CharacterType.
             ToCharacterTypeDescriptor.
-            Triggers(choice.EffectType).
+            EffectHandlers(choice.EffectType).
             Invoke(avatar, choice)
         avatar.World.DismissMessage()
     End Sub

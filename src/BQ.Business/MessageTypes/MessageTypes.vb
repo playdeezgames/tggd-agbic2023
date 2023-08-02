@@ -44,8 +44,8 @@ Friend Module MessageTypes
                         (LightGray, "Not that I care or anything,"),
                         (LightGray, "because I'm a nihilist.")),
                     choices:=MakeChoices(
-                        ("Cool story, bro!", TriggerTypes.ExitDialog),
-                        ("What's for sale?", TriggerTypes.HealerPrices)))
+                        ("Cool story, bro!", EffectTypes.ExitDialog),
+                        ("What's for sale?", EffectTypes.HealerPrices)))
             },
             {
                 HealthTrainerTalk,
@@ -55,8 +55,8 @@ Friend Module MessageTypes
                         (LightGray, "I can help you increase yer health."),
                         (LightGray, "The cost is 5 AP times yer current health.")),
                     choices:=MakeChoices(
-                        ("Cool story, bro!", TriggerTypes.ExitDialog),
-                        ("Train Me!", TriggerTypes.TrainHealth)))
+                        ("Cool story, bro!", EffectTypes.ExitDialog),
+                        ("Train Me!", EffectTypes.TrainHealth)))
             },
             {
                 DruidTalk,
@@ -65,9 +65,9 @@ Friend Module MessageTypes
                         (LightGray, "Greetings! I am a druid."),
                         (LightGray, "I can help you learn nature's way.")),
                     choices:=MakeChoices(
-                        ("Cool story, bro!", TriggerTypes.ExitDialog),
-                        ("Don't druids live in the woods?", TriggerTypes.DruidAllergies),
-                        ("Teach me!", TriggerTypes.DruidTeachMenu)))
+                        ("Cool story, bro!", EffectTypes.ExitDialog),
+                        ("Don't druids live in the woods?", EffectTypes.DruidAllergies),
+                        ("Teach me!", EffectTypes.DruidTeachMenu)))
             }
         }
     <Extension>

@@ -33,7 +33,7 @@ Friend Module CharacterTypes
                         {StatisticTypes.Energy, 10},
                         {StatisticTypes.MaximumEnergy, 10}
                     },
-                    triggers:=LoxyTriggerHandlers.All)
+                    effectHandlers:=LoxyEffectHandlers.All)
             },
             {
                 OliveGlop,

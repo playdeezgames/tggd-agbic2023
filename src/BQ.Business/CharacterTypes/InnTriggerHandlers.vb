@@ -56,15 +56,15 @@
                         AddLine(LightGray, "You can rest in a bed for 1 jools.").
                         AddLine(LightGray, "I'd offer to join you,").
                         AddLine(LightGray, "but then you wouldn't get any rest!").
-                        AddChoice("Cool story, bro!", TriggerTypes.ExitDialog).
-                        AddChoice("Yer a pervert!", TriggerTypes.PervertInnkeeper).
-                        AddChoice("I'll take a bed.", TriggerTypes.PayInnkeeper)
+                        AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
+                        AddChoice("Yer a pervert!", EffectTypes.PervertInnkeeper).
+                        AddChoice("I'll take a bed.", EffectTypes.PayInnkeeper)
         If character.Flag(FlagTypes.RatQuest) Then
             If character.HasItemTypeInInventory(ItemTypes.RatTail) Then
-                msg.AddChoice("Here's some rat tails!", TriggerTypes.CompleteRatQuest)
+                msg.AddChoice("Here's some rat tails!", EffectTypes.CompleteRatQuest)
             End If
         Else
-            msg.AddChoice("I need a job!", TriggerTypes.StartRatQuest)
+            msg.AddChoice("I need a job!", EffectTypes.StartRatQuest)
         End If
     End Sub
 
@@ -74,8 +74,8 @@
                         AddLine(LightGray, "I'll pay you 1 jools for each rat tail.").
                         AddLine(LightGray, "I only accept the tails, no corpses.").
                         AddLine(LightGray, "So you'll need to cut them off first.").
-                        AddChoice("I'm on it!", TriggerTypes.AcceptRatQuest).
-                        AddChoice("Mebbe later?", TriggerTypes.ExitDialog)
+                        AddChoice("I'm on it!", EffectTypes.AcceptRatQuest).
+                        AddChoice("Mebbe later?", EffectTypes.ExitDialog)
     End Sub
 
     Friend Sub DoAcceptRatQuest(character As ICharacter, trigger As IEffect)

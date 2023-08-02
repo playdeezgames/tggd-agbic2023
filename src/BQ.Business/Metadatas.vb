@@ -3,5 +3,5 @@
     Friend Const ItemName = "ItemName"
     Friend Const ItemType = "ItemType"
     Friend Const MessageType = "MessageType"
-    Friend Const TriggerType = "TriggerType"
+    Friend Const EffectType = "EffectType"
 End Module

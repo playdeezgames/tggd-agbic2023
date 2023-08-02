@@ -81,7 +81,7 @@
         End If
         Return New Cell(WorldData, MapId, column + row * Columns)
     End Function
-    Public Function CreateTrigger() As IEffect Implements IMap.CreateTrigger
+    Public Function CreateEffect() As IEffect Implements IMap.CreateEffect
         Dim triggerId = MapData.Effects.Count
         MapData.Effects.Add(New Data.EffectData)
         Return New MapEffect(WorldData, MapId, triggerId)

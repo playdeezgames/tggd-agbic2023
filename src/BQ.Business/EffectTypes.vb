@@ -1,4 +1,4 @@
-﻿Friend Module TriggerTypes
+﻿Friend Module EffectTypes
     Friend Const Buy = "Buy"
     Friend Const CompleteRatQuest = "CompleteRatQuest"
     Friend Const DruidAllergies = "DruidAllergies"

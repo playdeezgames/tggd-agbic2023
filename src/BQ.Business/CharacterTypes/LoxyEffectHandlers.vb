@@ -1,32 +1,32 @@
 ﻿Imports System.Data
 
-Friend Module LoxyTriggerHandlers
+Friend Module LoxyEffectHandlers
 
     Friend All As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect)) =
         New Dictionary(Of String, Action(Of ICharacter, IEffect)) From
                     {
-                        {TriggerTypes.Teleport, AddressOf DefaultTeleport},
-                        {TriggerTypes.Message, AddressOf DefaultMessage},
-                        {TriggerTypes.Heal, AddressOf NihilisticHealing},
-                        {TriggerTypes.ExitDialog, AddressOf DoExitDialog},
-                        {TriggerTypes.HealerPrices, AddressOf DoNihilistPrices},
-                        {TriggerTypes.TrainHealth, AddressOf DoTrainHealth},
-                        {TriggerTypes.DruidAllergies, AddressOf DoDruidAllergies},
-                        {TriggerTypes.DruidTeachMenu, AddressOf DoDruidTeachMenu},
-                        {TriggerTypes.LearnForaging, AddressOf DoLearnForaging},
-                        {TriggerTypes.LearnKnapping, AddressOf DoLearnKnapping},
-                        {TriggerTypes.LearnTwineMaking, AddressOf DoLearnTwineMaking},
-                        {TriggerTypes.DruidTalk, AddressOf DoDruidTalk},
-                        {TriggerTypes.HealthTrainerTalk, AddressOf DoHealthTrainerTalk},
-                        {TriggerTypes.HealerTalk, AddressOf DoHealerTalk},
-                        {TriggerTypes.GorachanTalk, AddressOf DoGorachanTalk},
-                        {TriggerTypes.PervertInnkeeper, AddressOf DoPerventInnkeeper},
-                        {TriggerTypes.PayInnkeeper, AddressOf DoPayInnkeeper},
-                        {TriggerTypes.SleepAtInn, AddressOf DoSleepAtInn},
-                        {TriggerTypes.DruidPrices, AddressOf DoDruidPrices},
-                        {TriggerTypes.Buy, AddressOf DoBuy},
-                        {TriggerTypes.EnergyTrainerTalk, AddressOf DoEnergyTrainerTalk},
-                        {TriggerTypes.TrainEnergy, AddressOf DoTrainEnergy},
+                        {EffectTypes.Teleport, AddressOf DefaultTeleport},
+                        {EffectTypes.Message, AddressOf DefaultMessage},
+                        {EffectTypes.Heal, AddressOf NihilisticHealing},
+                        {EffectTypes.ExitDialog, AddressOf DoExitDialog},
+                        {EffectTypes.HealerPrices, AddressOf DoNihilistPrices},
+                        {EffectTypes.TrainHealth, AddressOf DoTrainHealth},
+                        {EffectTypes.DruidAllergies, AddressOf DoDruidAllergies},
+                        {EffectTypes.DruidTeachMenu, AddressOf DoDruidTeachMenu},
+                        {EffectTypes.LearnForaging, AddressOf DoLearnForaging},
+                        {EffectTypes.LearnKnapping, AddressOf DoLearnKnapping},
+                        {EffectTypes.LearnTwineMaking, AddressOf DoLearnTwineMaking},
+                        {EffectTypes.DruidTalk, AddressOf DoDruidTalk},
+                        {EffectTypes.HealthTrainerTalk, AddressOf DoHealthTrainerTalk},
+                        {EffectTypes.HealerTalk, AddressOf DoHealerTalk},
+                        {EffectTypes.GorachanTalk, AddressOf DoGorachanTalk},
+                        {EffectTypes.PervertInnkeeper, AddressOf DoPerventInnkeeper},
+                        {EffectTypes.PayInnkeeper, AddressOf DoPayInnkeeper},
+                        {EffectTypes.SleepAtInn, AddressOf DoSleepAtInn},
+                        {EffectTypes.DruidPrices, AddressOf DoDruidPrices},
+                        {EffectTypes.Buy, AddressOf DoBuy},
+                        {EffectTypes.EnergyTrainerTalk, AddressOf DoEnergyTrainerTalk},
+                        {EffectTypes.TrainEnergy, AddressOf DoTrainEnergy},
                         {StartRatQuest, AddressOf DoStartRatQuest},
                         {AcceptRatQuest, AddressOf DoAcceptRatQuest},
                         {EnterCellar, AddressOf DoEnterCellar},
@@ -65,8 +65,8 @@ Friend Module LoxyTriggerHandlers
             AddLine(LightGray, "I am the endurance trainer.").
             AddLine(LightGray, "I can increase yer energy").
             AddLine(LightGray, $"for the cost of 1AP and {trainCost} jools.").
-            AddChoice("Cool story, bro!", TriggerTypes.ExitDialog).
-            AddChoice("Train Me!", TriggerTypes.TrainEnergy)
+            AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
+            AddChoice("Train Me!", EffectTypes.TrainEnergy)
     End Sub
 
     Private Sub DoBuy(character As ICharacter, trigger As IEffect)
@@ -76,7 +76,7 @@ Friend Module LoxyTriggerHandlers
             character.World.
                 CreateMessage().
                 AddLine(LightGray, "You don't have enough!").
-                AddChoice("Shucks!", trigger.Metadata(Metadatas.TriggerType))
+                AddChoice("Shucks!", trigger.Metadata(Metadatas.EffectType))
             Return
         End If
         character.AddJools(-price)
@@ -84,7 +84,7 @@ Friend Module LoxyTriggerHandlers
         character.World.
             CreateMessage().
             AddLine(LightGray, "Thank you for yer purchase!").
-            AddChoice("No worries!", trigger.Metadata(Metadatas.TriggerType))
+            AddChoice("No worries!", trigger.Metadata(Metadatas.EffectType))
     End Sub
     Private Sub DoHealerTalk(character As ICharacter, trigger As IEffect)
         Dim msg = character.World.CreateMessage.
@@ -94,8 +94,8 @@ Friend Module LoxyTriggerHandlers
                         AddLine(LightGray, "but it will cost you half of yer jools.").
                         AddLine(LightGray, "Not that I care or anything,").
                         AddLine(LightGray, "because I'm a nihilist.").
-                        AddChoice("Cool story, bro!", TriggerTypes.ExitDialog).
-                        AddChoice("What's for sale?", TriggerTypes.HealerPrices)
+                        AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
+                        AddChoice("What's for sale?", EffectTypes.HealerPrices)
     End Sub
 
     Private Sub DoHealthTrainerTalk(character As ICharacter, trigger As IEffect)
@@ -103,8 +103,8 @@ Friend Module LoxyTriggerHandlers
                         AddLine(LightGray, "I am the health trainer!").
                         AddLine(LightGray, "I can help you increase yer health.").
                         AddLine(LightGray, $"The cost is {character.MaximumHealth * 5} AP.").
-                        AddChoice("Cool story, bro!", TriggerTypes.ExitDialog).
-                        AddChoice("Train Me!", TriggerTypes.TrainHealth)
+                        AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
+                        AddChoice("Train Me!", EffectTypes.TrainHealth)
     End Sub
 
     Private Sub DefaultMessage(character As ICharacter, trigger As IEffect)

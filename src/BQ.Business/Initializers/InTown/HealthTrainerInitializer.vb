@@ -14,8 +14,8 @@
         Dim trainerCell = map.GetCell(map.Columns \ 2, 1)
         trainerCell.TerrainType = TerrainTypes.StrongMan
         trainerCell.Trigger =
-            map.CreateTrigger.
-            SetTriggerType(TriggerTypes.HealthTrainerTalk)
+            map.CreateEffect.
+            SetEffectType(EffectTypes.HealthTrainerTalk)
     End Sub
 
 End Module

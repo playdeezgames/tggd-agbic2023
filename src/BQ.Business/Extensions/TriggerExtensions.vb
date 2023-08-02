@@ -2,16 +2,16 @@
 
 Friend Module TriggerExtensions
     <Extension>
-    Friend Function SetDestination(Of THolder As IStatisticsHolder)(trigger As THolder, cell As ICell) As THolder
-        trigger.
+    Friend Function SetDestination(Of THolder As IStatisticsHolder)(effect As THolder, cell As ICell) As THolder
+        effect.
             SetStatistic(StatisticTypes.MapId, cell.Map.Id).
             SetStatistic(StatisticTypes.CellColumn, cell.Column).
             SetStatistic(StatisticTypes.CellRow, cell.Row)
-        Return trigger
+        Return effect
     End Function
     <Extension>
-    Friend Function SetTriggerType(Of THolder As IEffect)(trigger As THolder, triggerType As String) As THolder
-        trigger.EffectType = triggerType
-        Return trigger
+    Friend Function SetEffectType(Of THolder As IEffect)(effect As THolder, effectType As String) As THolder
+        effect.EffectType = effectType
+        Return effect
     End Function
 End Module

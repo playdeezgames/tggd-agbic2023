@@ -59,22 +59,11 @@ Friend Module CharacterExtensions
         Return character.CharacterType.ToCharacterTypeDescriptor.Name
     End Function
     <Extension>
-    Friend Function Verbs(character As ICharacter) As IEnumerable(Of String)
-        Return character.CharacterType.ToCharacterTypeDescriptor.AvailableVerbs
-    End Function
-    <Extension>
     Friend Sub DoVerb(
                      target As ICharacter,
                      verbType As String,
                      item As IItem)
         item.Descriptor.VerbTypes(verbType).Invoke(target, item)
-    End Sub
-    <Extension>
-    Friend Sub DoVerb(
-                     target As ICharacter,
-                     verbType As String,
-                     characterSource As ICharacter)
-        target.CharacterType.ToCharacterTypeDescriptor.Verbs(verbType).Invoke(characterSource, target)
     End Sub
     <Extension>
     Private Function Weapons(character As ICharacter) As IEnumerable(Of IItem)

@@ -3,7 +3,6 @@ Imports BQ.Persistence
 
 Friend Class ItemTypeDescriptor
     Inherits VisibleEntityDescriptor
-    Friend ReadOnly Property VerbTypes As IReadOnlyDictionary(Of String, Action(Of ICharacter, IItem))
     Private ReadOnly Property Effects As IReadOnlyDictionary(Of String, EffectData)
     Friend ReadOnly Property Statistics As IReadOnlyDictionary(Of String, Integer)
     Friend ReadOnly Property Flags As IReadOnlyList(Of String)
@@ -18,7 +17,6 @@ Friend Class ItemTypeDescriptor
                   name As String,
                   glyph As Char,
                   hue As Integer,
-                  Optional verbTypes As IReadOnlyDictionary(Of String, Action(Of ICharacter, IItem)) = Nothing,
                   Optional statistics As IReadOnlyDictionary(Of String, Integer) = Nothing,
                   Optional equipSlotType As String = Nothing,
                   Optional fullName As Func(Of IItem, String) = Nothing,
@@ -26,7 +24,6 @@ Friend Class ItemTypeDescriptor
                   Optional flags As IReadOnlyList(Of String) = Nothing,
                   Optional effects As IReadOnlyDictionary(Of String, EffectData) = Nothing)
         MyBase.New(name, glyph, hue)
-        Me.VerbTypes = If(verbTypes, New Dictionary(Of String, Action(Of ICharacter, IItem)))
         Me.EquipSlotType = equipSlotType
         Me.Statistics = If(statistics, New Dictionary(Of String, Integer))
         Me.FullName = If(fullName, AddressOf DefaultFullName)
@@ -37,15 +34,6 @@ Friend Class ItemTypeDescriptor
     Private Function DefaultFullName(item As IItem) As String
         Return item.Name
     End Function
-
-    Friend Function HasVerb(verbType As String) As Boolean
-        Return VerbTypes.ContainsKey(verbType)
-    End Function
-    Friend ReadOnly Property AllVerbTypes As IEnumerable(Of String)
-        Get
-            Return VerbTypes.Keys
-        End Get
-    End Property
     Friend ReadOnly Property AllEffectTypes As IEnumerable(Of String)
         Get
             Return Effects.Keys

@@ -6,13 +6,9 @@
             "Energy Herb",
             ChrW(&H28),
             Cyan,
-            verbTypes:=New Dictionary(Of String, Action(Of ICharacter, IItem)) From
-            {
-                {Business.VerbTypes.Use, AddressOf UseEnergyHerb}
-            },
             effects:=New Dictionary(Of String, EffectData) From
             {
-                {EffectTypes.UseEnergyHerb, New EffectData()}
+                {EffectTypes.UseEnergyHerb, New EffectData() With {.EffectType = EffectTypes.UseEnergyHerb}}
             })
     End Sub
 

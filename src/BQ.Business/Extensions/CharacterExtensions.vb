@@ -59,13 +59,6 @@ Friend Module CharacterExtensions
         Return character.CharacterType.ToCharacterTypeDescriptor.Name
     End Function
     <Extension>
-    Friend Sub DoVerb(
-                     target As ICharacter,
-                     verbType As String,
-                     item As IItem)
-        item.Descriptor.VerbTypes(verbType).Invoke(target, item)
-    End Sub
-    <Extension>
     Private Function Weapons(character As ICharacter) As IEnumerable(Of IItem)
         Return character.EquippedItems.Where(Function(x) x.IsWeapon)
     End Function
@@ -88,18 +81,27 @@ Friend Module CharacterExtensions
         Return cell IsNot Nothing AndAlso cell.IsTenable
     End Function
     <Extension>
-    Private Sub DoTrigger(character As ICharacter, cell As ICell)
+    Friend Sub DoMapEffect(character As ICharacter, cell As ICell)
         If cell IsNot Nothing AndAlso cell.HasEffect Then
-            Dim trigger = cell.Effect
-            character.CharacterType.ToCharacterTypeDescriptor.EffectHandlers(trigger.EffectType).Invoke(character, trigger)
+            Dim effect = cell.Effect
+            character.Descriptor.EffectHandlers(effect.EffectType).Invoke(character, effect)
         End If
+    End Sub
+    <Extension>
+    Friend Function Descriptor(character As ICharacter) As CharacterTypeDescriptor
+        Return character.CharacterType.ToCharacterTypeDescriptor
+    End Function
+    <Extension>
+    Friend Sub DoItemEffect(character As ICharacter, effectType As String, item As IItem)
+        Dim effect = item.ItemType.ToItemTypeDescriptor.ToItemEffect(effectType, item)
+        character.Descriptor.EffectHandlers(effect.EffectType).Invoke(character, effect)
     End Sub
     <Extension>
     Friend Function Move(character As ICharacter, delta As (x As Integer, y As Integer)) As Boolean
         Dim cell = character.Cell
         Dim nextCell = cell.Map.GetCell(cell.Column + delta.x, cell.Row + delta.y)
         If Not character.CanEnter(nextCell) Then
-            character.DoTrigger(nextCell)
+            character.DoMapEffect(nextCell)
             Return False
         End If
 
@@ -109,7 +111,7 @@ Friend Module CharacterExtensions
             character.Cell = nextCell
         End If
 
-        character.DoTrigger(nextCell)
+        character.DoMapEffect(nextCell)
         character.EnterCell()
         Return True
     End Function

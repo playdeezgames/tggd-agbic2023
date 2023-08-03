@@ -37,12 +37,6 @@
         End Get
     End Property
 
-    Public ReadOnly Property VerbTypes As IEnumerable(Of (text As String, verbType As String)) Implements IItemModel.VerbTypes
-        Get
-            Return world.Avatar.Items.First(Function(x) x.Name = Name).Descriptor.AllVerbTypes.Select(Function(x) (x.ToVerbTypeDescriptor.Name, x))
-        End Get
-    End Property
-
     Public ReadOnly Property EffectTypes As IEnumerable(Of (text As String, VerbTypes As String)) Implements IItemModel.EffectTypes
         Get
             Return world.Avatar.Items.First(Function(x) x.Name = Name).Descriptor.AllEffectTypes.Select(Function(x) (x.ToEffectTypeDescriptor.Name, x))
@@ -77,7 +71,9 @@
         world.Avatar.EquipItem(world.Item(itemId))
     End Sub
 
-    Public Sub DoVerb(verbType As String) Implements IItemModel.DoVerb
-        world.Avatar.DoVerb(verbType, world.Avatar.Items.First(Function(x) x.Name = Name))
+    Public Sub DoEffect(effectType As String) Implements IItemModel.DoEffect
+        Dim item = world.Avatar.Items.First(Function(x) x.Name = Name)
+        Dim effect = item.Descriptor.ToItemEffect(effectType, item)
+        world.Avatar.Descriptor.EffectHandlers(effectType).Invoke(world.Avatar, effect)
     End Sub
 End Class

@@ -6,13 +6,9 @@
             "Rat Corpse",
             ChrW(&H2D),
             DarkGray,
-            verbTypes:=New Dictionary(Of String, Action(Of ICharacter, IItem)) From
-            {
-                {Business.VerbTypes.CutOffTail, AddressOf DoCutOffTail}
-            },
             effects:=New Dictionary(Of String, EffectData) From
             {
-                {EffectTypes.CutOffTail, New EffectData()}
+                {EffectTypes.CutOffTail, New EffectData() With {.EffectType = EffectTypes.CutOffTail}}
             })
     End Sub
 

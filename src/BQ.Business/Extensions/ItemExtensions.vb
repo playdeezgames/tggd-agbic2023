@@ -15,8 +15,9 @@ Friend Module ItemExtensions
         Return If(item.HasStatistic(statisticType), item.Statistic(statisticType), defaultValue)
     End Function
     <Extension>
-    Friend Sub DoVerb(item As IItem, verbType As String, character As ICharacter)
-        item.Descriptor.VerbTypes(verbType).Invoke(character, item)
+    Friend Sub DoEffect(item As IItem, effectType As String, character As ICharacter)
+        Dim effect = item.Descriptor.ToItemEffect(effectType, item)
+        character.Descriptor.EffectHandlers(effectType).Invoke(character, effect)
     End Sub
     <Extension>
     Friend Function IsWeapon(item As IItem) As Boolean

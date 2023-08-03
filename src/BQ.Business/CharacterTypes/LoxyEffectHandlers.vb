@@ -1,4 +1,5 @@
 ﻿Imports System.Data
+Imports SPLORR.Game
 
 Friend Module LoxyEffectHandlers
 
@@ -32,8 +33,31 @@ Friend Module LoxyEffectHandlers
                         {EnterCellar, AddressOf DoEnterCellar},
                         {CompleteRatQuest, AddressOf DoCompleteRatQuest},
                         {EffectTypes.CutOffTail, AddressOf DoCutOffTail},
-                        {EffectTypes.UseEnergyHerb, AddressOf DoUseEnergyHerb}
+                        {EffectTypes.UseEnergyHerb, AddressOf DoUseEnergyHerb},
+                        {EffectTypes.EatRatCorpse, AddressOf DoEatRatCorpse}
                     }
+
+    Private Sub DoEatRatCorpse(character As ICharacter, effect As IEffect)
+        Dim item = CType(effect, IItemEffect).Item
+        character.RemoveItem(item)
+        item.Recycle()
+        If RNG.GenerateBoolean(50, 50) Then
+            character.SetHealth(character.Health + 1)
+            character.World.CreateMessage().
+                AddLine(LightGray, $"{item.Name} restores 1 health!").
+                AddLine(LightGray, $"{character.Name} now has {character.Health}/{character.MaximumHealth} health")
+        Else
+            character.SetHealth(character.Health - 1)
+            Dim msg = character.World.CreateMessage().
+                AddLine(LightGray, $"{item.Name} is tainted!").
+                AddLine(LightGray, $"{character.Name} loses 1 health!")
+            If character.IsDead Then
+                msg.AddLine(Red, $"{character.Name} dies.")
+            Else
+                msg.AddLine(LightGray, $"{character.Name} now has {character.Health}/{character.MaximumHealth} health")
+            End If
+        End If
+    End Sub
 
     Private Sub DoCutOffTail(character As ICharacter, effect As IEffect)
         If Not character.HasCuttingTool Then

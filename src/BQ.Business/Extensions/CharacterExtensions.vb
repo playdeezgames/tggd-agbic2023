@@ -268,7 +268,7 @@ Friend Module CharacterExtensions
     End Function
     <Extension>
     Private Sub AwardXP(character As ICharacter, msg As IMessage, xp As Integer)
-        If Not character.IsAvatar Then
+        If Not character.IsAvatar OrElse xp = 0 Then
             Return
         End If
         msg.AddLine(LightGray, $"{character.Name} gains {xp} XP!")

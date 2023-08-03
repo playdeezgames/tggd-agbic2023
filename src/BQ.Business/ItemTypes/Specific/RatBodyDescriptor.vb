@@ -1,14 +1,13 @@
-﻿Friend Class RatCorpseDescriptor
+﻿Friend Class RatBodyDescriptor
     Inherits ItemTypeDescriptor
 
     Friend Sub New()
         MyBase.New(
-            "Rat Corpse",
-            ChrW(&H2D),
+            "Rat Body",
+            ChrW(&H2F),
             DarkGray,
             effects:=New Dictionary(Of String, EffectData) From
             {
-                {EffectTypes.CutOffTail, New EffectData() With {.EffectType = EffectTypes.CutOffTail}},
                 {EffectTypes.EatRatCorpse, New EffectData() With {.EffectType = EffectTypes.EatRatCorpse}}
             })
     End Sub

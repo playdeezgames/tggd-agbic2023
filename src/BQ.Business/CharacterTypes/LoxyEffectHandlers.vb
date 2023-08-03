@@ -30,8 +30,33 @@ Friend Module LoxyEffectHandlers
                         {StartRatQuest, AddressOf DoStartRatQuest},
                         {AcceptRatQuest, AddressOf DoAcceptRatQuest},
                         {EnterCellar, AddressOf DoEnterCellar},
-                        {CompleteRatQuest, AddressOf DoCompleteRatQuest}
+                        {CompleteRatQuest, AddressOf DoCompleteRatQuest},
+                        {EffectTypes.CutOffTail, AddressOf DoCutOffTail},
+                        {EffectTypes.UseEnergyHerb, AddressOf DoUseEnergyHerb}
                     }
+
+    Private Sub DoCutOffTail(character As ICharacter, effect As IEffect)
+        If Not character.HasCuttingTool Then
+            character.World.CreateMessage().AddLine(LightGray, $"{character.Name} needs a cutting tool for that!")
+            Return
+        End If
+        character.RemoveItem(CType(effect, IItemEffect).Item)
+        character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.RatBody))
+        character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.RatTail))
+    End Sub
+
+    Private Sub DoUseEnergyHerb(character As ICharacter, effect As IEffect)
+        Dim item = CType(effect, IItemEffect).Item
+        Const energyBenefit = 10
+        character.AddEnergy(energyBenefit)
+        character.World.
+            CreateMessage().
+            AddLine(LightGray, $"{character.Name} eats the {item.Name}.").
+            AddLine(LightGray, $"{character.Name} regains energy!").
+            AddLine(LightGray, $"{character.Name} now has {character.Energy}/{character.MaximumEnergy} energy.")
+        character.RemoveItem(item)
+        item.Recycle()
+    End Sub
 
     Private Sub DoTrainEnergy(character As ICharacter, trigger As IEffect)
         Dim msg = character.World.CreateMessage

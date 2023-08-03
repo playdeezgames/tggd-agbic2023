@@ -9,6 +9,10 @@
             verbTypes:=New Dictionary(Of String, Action(Of ICharacter, IItem)) From
             {
                 {Business.VerbTypes.Use, AddressOf UseEnergyHerb}
+            },
+            effects:=New Dictionary(Of String, EffectData) From
+            {
+                {EffectTypes.UseEnergyHerb, New EffectData()}
             })
     End Sub
 

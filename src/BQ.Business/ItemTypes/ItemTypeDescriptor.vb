@@ -45,6 +45,6 @@ Friend Class ItemTypeDescriptor
         End Get
     End Property
     Friend Function ToItemEffect(effectType As String, item As IItem) As IItemEffect
-        Return New ItemEffect(Effects(effectType), item)
+        Return New ItemEffect(effectType, Effects(effectType), item)
     End Function
 End Class

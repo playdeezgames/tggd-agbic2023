@@ -46,12 +46,17 @@ Friend Class ItemTypeDescriptor
             Return VerbTypes.Keys
         End Get
     End Property
+    Friend ReadOnly Property AllEffectTypes As IEnumerable(Of String)
+        Get
+            Return Effects.Keys
+        End Get
+    End Property
     Friend ReadOnly Property IsCuttingTool As Boolean
         Get
             Return Flags.Contains(FlagTypes.IsCuttingTool)
         End Get
     End Property
     Friend Function ToItemEffect(effectType As String, item As IItem) As IItemEffect
-        Throw New NotImplementedException
+        Return New ItemEffect(Effects(effectType), item)
     End Function
 End Class

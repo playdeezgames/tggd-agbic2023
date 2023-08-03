@@ -43,6 +43,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property EffectTypes As IEnumerable(Of (text As String, VerbTypes As String)) Implements IItemModel.EffectTypes
+        Get
+            Return world.Avatar.Items.First(Function(x) x.Name = Name).Descriptor.AllEffectTypes.Select(Function(x) (x.ToEffectTypeDescriptor.Name, x))
+        End Get
+    End Property
+
     Public Sub Take() Implements IItemModel.Take
         Dim itemCount = Count
         Dim itemName = Name

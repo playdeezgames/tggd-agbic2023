@@ -25,6 +25,7 @@ Module WildernessInitializer
         }
     Friend Sub Initialize(map As IMap)
         map.SetFlag(FlagTypes.CampingAllowed, True)
+        map.SetFlag(FlagTypes.AllowFireBuilding, True)
         PaintTerrain(map)
         DrawRivers(map)
         PlaceTown(map)

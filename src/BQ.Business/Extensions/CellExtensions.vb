@@ -3,7 +3,7 @@
 Friend Module CellExtensions
     <Extension>
     Friend Function CanBuildFire(cell As ICell) As Boolean
-        Return cell.Descriptor.HasEffect(EffectTypes.BuildFire)
+        Return cell.Map.Flag(FlagTypes.AllowFireBuilding) AndAlso cell.Descriptor.HasEffect(EffectTypes.BuildFire)
     End Function
     <Extension>
     Friend Function CanForage(cell As ICell) As Boolean

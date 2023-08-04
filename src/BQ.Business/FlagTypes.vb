@@ -1,4 +1,5 @@
 ﻿Friend Module FlagTypes
+    Friend Const AllowFireBuilding = "AllowFireBuilding"
     Friend Const KnowsForaging = "KnowsForaging"
     Friend Const KnowsTwineMaking = "KnowsTwineMaking"
     Friend Const KnowsKnapping = "KnowsRockSharpening"

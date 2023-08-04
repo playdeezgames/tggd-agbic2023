@@ -35,8 +35,10 @@ Friend Module LoxyEffectHandlers
                         {EffectTypes.UseEnergyHerb, AddressOf DoUseEnergyHerb},
                         {EffectTypes.EatRatCorpse, AddressOf DoEatRatCorpse},
                         {EffectTypes.Forage, AddressOf DoForage},
-                        {EffectTypes.BuildFire, AddressOf DoCraftFire}
+                        {EffectTypes.BuildFire, AddressOf DoCraftFire},
+                        {EffectTypes.LearnFireMaking, AddressOf DoLearnFireMaking}
                     }
+
     Friend Function ConsumeEnergy(character As ICharacter, energyCost As Integer, actionName As String) As Boolean
         If character.Energy < energyCost Then
             character.World.CreateMessage().AddLine(LightGray, $"{character.Name} doesn't have the energy to {actionName}.")

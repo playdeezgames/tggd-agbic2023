@@ -1,6 +1,6 @@
 ﻿Friend Module DruidEffectHandlers
 
-    Friend Sub DoDruidTalk(character As ICharacter, trigger As IEffect)
+    Friend Sub DoDruidTalk(character As ICharacter, effect As IEffect)
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "Greetings! I am Marcus, the hippy druid.").
                         AddLine(LightGray, "I can help you learn nature's way.").
@@ -10,12 +10,12 @@
                         AddChoice("What's for sale?", EffectTypes.DruidPrices)
     End Sub
 
-    Friend Sub DoDruidAllergies(character As ICharacter, trigger As IEffect)
+    Friend Sub DoDruidAllergies(character As ICharacter, effect As IEffect)
         character.World.CreateMessage().
             AddLine(LightGray, "Alas, I have allergies.")
     End Sub
 
-    Friend Sub DoDruidPrices(character As ICharacter, trigger As IEffect)
+    Friend Sub DoDruidPrices(character As ICharacter, effect As IEffect)
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "I sell a variety of herbs.").
                         AddLine(LightGray, $"({character.Name} has {character.Jools} jools)").
@@ -29,34 +29,34 @@
                                 SetMetadata(Metadatas.EffectType, EffectTypes.DruidPrices))
     End Sub
 
-    Private Function AlreadyKnows(character As ICharacter, trigger As IEffect, msg As IMessage, text As String) As Boolean
-        If character.Flag(trigger.Metadata(Metadatas.FlagType)) Then
+    Private Function AlreadyKnows(character As ICharacter, effect As IEffect, msg As IMessage, text As String) As Boolean
+        If character.Flag(effect.Metadata(Metadatas.FlagType)) Then
             msg.AddLine(LightGray, $"{character.Name} already know how to {text}!")
             Return True
         End If
         Return False
     End Function
 
-    Friend Sub DoLearnForaging(character As ICharacter, trigger As IEffect)
+    Friend Sub DoLearnForaging(character As ICharacter, effect As IEffect)
         Dim msg = character.World.CreateMessage
-        If AlreadyKnows(character, trigger, msg, "forage") Then Return
-        If Not LearnSkill(character, trigger, msg, "forage") Then Return
+        If AlreadyKnows(character, effect, msg, "forage") Then Return
+        If Not LearnSkill(character, effect, msg, "forage") Then Return
         msg.
             AddLine(LightGray, $"{character.Name} now knows how to forage!").
             AddLine(LightGray, "To forage, simply select 'Forage...'").
             AddLine(LightGray, "from the Actions menu.")
     End Sub
 
-    Friend Sub DoLearnKnapping(character As ICharacter, trigger As IEffect)
+    Friend Sub DoLearnKnapping(character As ICharacter, effect As IEffect)
         Dim msg = character.World.CreateMessage
-        If AlreadyKnows(character, trigger, msg, "knap") Then Return
+        If AlreadyKnows(character, effect, msg, "knap") Then Return
         If character.ItemTypeCount(ItemTypes.Rock) < 2 Then
             msg.
                 AddLine(LightGray, $"To learn to knap,").
                 AddLine(LightGray, $"{character.Name} needs at least 2 rocks.")
             Return
         End If
-        If Not LearnSkill(character, trigger, msg, "knap") Then Return
+        If Not LearnSkill(character, effect, msg, "knap") Then Return
         character.Knap()
         msg.
             AddLine(LightGray, $"{character.Name} now knows how to knap rocks!").
@@ -64,8 +64,8 @@
             AddLine(LightGray, "from the Actions menu.")
     End Sub
 
-    Private Function LearnSkill(character As ICharacter, trigger As IEffect, msg As IMessage, text As String) As Boolean
-        Dim learnCost = trigger.Statistic(StatisticTypes.AdvancementPoints)
+    Private Function LearnSkill(character As ICharacter, effect As IEffect, msg As IMessage, text As String) As Boolean
+        Dim learnCost = effect.Statistic(StatisticTypes.AdvancementPoints)
         If character.AdvancementPoints < learnCost Then
             msg.
                 AddLine(LightGray, $"To learn to {text},").
@@ -74,13 +74,13 @@
             Return False
         End If
         character.AddAdvancementPoints(-learnCost)
-        character.Flag(trigger.Metadata(Metadatas.FlagType)) = True
+        character.Flag(effect.Metadata(Metadatas.FlagType)) = True
         Return True
     End Function
 
-    Friend Sub DoLearnTwineMaking(character As ICharacter, trigger As IEffect)
+    Friend Sub DoLearnTwineMaking(character As ICharacter, effect As IEffect)
         Dim msg = character.World.CreateMessage
-        If AlreadyKnows(character, trigger, msg, "make twine") Then Return
+        If AlreadyKnows(character, effect, msg, "make twine") Then Return
         If character.ItemTypeCount(ItemTypes.PlantFiber) < 2 Then
             msg.
             AddLine(LightGray, $"To learn to make twine,").
@@ -88,18 +88,40 @@
             Return
         End If
 
-        If Not LearnSkill(character, trigger, msg, "make twine") Then Return
+        If Not LearnSkill(character, effect, msg, "make twine") Then Return
         character.MakeTwine()
         msg.
             AddLine(LightGray, "You now know how to make twine!").
             AddLine(LightGray, "To do so, simply select 'Make Twine'").
             AddLine(LightGray, "from the Actions menu.")
     End Sub
+    Friend Sub DoLearnFireMaking(character As ICharacter, effect As IEffect)
+        Dim msg = character.World.CreateMessage
+        If AlreadyKnows(character, effect, msg, "make a fire") Then Return
+        Const SticksRequired = 5
+        Const RocksRequired = 5
+        If character.ItemTypeCount(ItemTypes.Stick) < SticksRequired OrElse character.ItemTypeCount(ItemTypes.Rock) < RocksRequired Then
+            msg.
+            AddLine(LightGray, $"To learn to make twine,").
+            AddLine(LightGray, $"{character.Name} needs:").
+            AddLine(LightGray, $"{SticksRequired} sticks").
+            AddLine(LightGray, $"{RocksRequired} rocks")
+            Return
+        End If
 
-    Friend Sub DoDruidTeachMenu(character As ICharacter, trigger As IEffect)
+        If Not LearnSkill(character, effect, msg, "make a fire") Then Return
+        msg.
+            AddLine(LightGray, "You now know how to make a fire!").
+            AddLine(LightGray, "To do so, simply select 'Build Fire'").
+            AddLine(LightGray, "from the Actions menu.").
+            AddLine(LightGray, "(only works in clear areas in the wilderness)")
+    End Sub
+
+    Friend Sub DoDruidTeachMenu(character As ICharacter, effect As IEffect)
         Dim canLearnForaging = Not character.Flag(FlagTypes.KnowsForaging)
         Dim canLearnTwineMaking = Not character.Flag(FlagTypes.KnowsTwineMaking)
         Dim canLearnKnapping = Not character.Flag(FlagTypes.KnowsKnapping)
+        Dim canLearnFireMaking = Not character.Flag(FlagTypes.KnowsFireMaking)
         Dim canLearn = canLearnForaging OrElse canLearnTwineMaking
         Dim msg = character.World.CreateMessage()
         If Not canLearn Then
@@ -135,6 +157,16 @@
                     choice.
                         SetStatistic(StatisticTypes.AdvancementPoints, 1).
                         SetMetadata(Metadatas.FlagType, FlagTypes.KnowsKnapping)
+                End Sub)
+        End If
+        If canLearnFireMaking Then
+            msg.AddChoice(
+                "Fire Making(-1AP,-5 Rock, -5 Sticks)",
+                EffectTypes.LearnFireMaking,
+                Sub(choice)
+                    choice.
+                        SetStatistic(StatisticTypes.AdvancementPoints, 1).
+                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsFireMaking)
                 End Sub)
         End If
     End Sub

@@ -130,7 +130,7 @@
 
     Public ReadOnly Property CanBuildFire As Boolean Implements IAvatarModel.CanBuildFire
         Get
-            Return avatar.Cell.CanBuildFire
+            Return avatar.Flag(FlagTypes.KnowsFireMaking) AndAlso avatar.Cell.CanBuildFire
         End Get
     End Property
 

@@ -25,6 +25,9 @@ https://alumni.media.mit.edu/~wad/color/palette.html
     * evaporate salty water
         * get salty water in a jug
 
+* Cooking Fire <- rocks + sticks
+* 
+
 # Town Buildings
 
 * Healer

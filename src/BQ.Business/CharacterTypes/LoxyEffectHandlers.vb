@@ -28,15 +28,33 @@ Friend Module LoxyEffectHandlers
                         {EffectTypes.Buy, AddressOf DoBuy},
                         {EffectTypes.EnergyTrainerTalk, AddressOf DoEnergyTrainerTalk},
                         {EffectTypes.TrainEnergy, AddressOf DoTrainEnergy},
-                        {StartRatQuest, AddressOf DoStartRatQuest},
-                        {AcceptRatQuest, AddressOf DoAcceptRatQuest},
-                        {EnterCellar, AddressOf DoEnterCellar},
-                        {CompleteRatQuest, AddressOf DoCompleteRatQuest},
+                        {EffectTypes.StartRatQuest, AddressOf DoStartRatQuest},
+                        {EffectTypes.AcceptRatQuest, AddressOf DoAcceptRatQuest},
+                        {EffectTypes.EnterCellar, AddressOf DoEnterCellar},
+                        {EffectTypes.CompleteRatQuest, AddressOf DoCompleteRatQuest},
                         {EffectTypes.CutOffTail, AddressOf DoCutOffTail},
                         {EffectTypes.UseEnergyHerb, AddressOf DoUseEnergyHerb},
-                        {EffectTypes.EatRatCorpse, AddressOf DoEatRatCorpse}
+                        {EffectTypes.EatRatCorpse, AddressOf DoEatRatCorpse},
+                        {EffectTypes.Forage, AddressOf DoForage}
                     }
-
+    Private Sub DoForage(character As ICharacter, effect As IEffect)
+        Dim cell As ICell = CType(effect, ITerrainEffect).Cell
+        Const EnergyCost = 1
+        If character.Energy < EnergyCost Then
+            character.World.CreateMessage().AddLine(LightGray, $"{character.Name} doesn't have the energy to forage.")
+            Return
+        End If
+        character.AddEnergy(-EnergyCost)
+        Dim descriptor = Cell.Descriptor
+        Dim itemType = RNG.FromGenerator(descriptor.Foragables)
+        If String.IsNullOrEmpty(itemType) Then
+            character.World.CreateMessage().AddLine(LightGray, $"{character.Name} finds nothing.")
+            Return
+        End If
+        Dim item = ItemInitializer.CreateItem(character.World, itemType)
+        character.AddItem(item)
+        character.World.CreateMessage().AddLine(LightGray, $"{character.Name} finds {item.Name}")
+    End Sub
     Private Sub DoEatRatCorpse(character As ICharacter, effect As IEffect)
         Dim item = CType(effect, IItemEffect).Item
         character.RemoveItem(item)

@@ -21,7 +21,10 @@ Friend Class TerrainTypeDescriptor
             Return Effects.Keys
         End Get
     End Property
-    Friend ReadOnly Property CellInitializer As Action(Of ICell)
+    Private ReadOnly Property CellInitializer As Action(Of ICell)
+    Friend Sub Initialize(cell As ICell)
+        CellInitializer.Invoke(cell)
+    End Sub
     Sub New(
            name As String,
            glyph As Char,

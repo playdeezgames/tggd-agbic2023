@@ -14,7 +14,7 @@ Friend Class MapModel
     Public ReadOnly Property Terrain(cellXY As (column As Integer, row As Integer)) As (Glyph As Char, Hue As Integer) Implements IMapModel.Terrain
         Get
             cellXY = Translate(cellXY)
-            Dim descriptor = map.GetCell(cellXY.column, cellXY.row).TerrainType.ToTerrainTypeDescriptor
+            Dim descriptor = map.GetCell(cellXY.column, cellXY.row).Descriptor
             Return (descriptor.Glyph, descriptor.Hue)
         End Get
     End Property

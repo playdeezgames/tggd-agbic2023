@@ -19,7 +19,7 @@ Friend Module MapInitializer
 
     Private Sub InitializeCells(map As IMap)
         For Each cell In map.Cells
-            cell.TerrainType.ToTerrainTypeDescriptor.CellInitializer.Invoke(cell)
+            cell.Descriptor.Initialize(cell)
         Next
     End Sub
 

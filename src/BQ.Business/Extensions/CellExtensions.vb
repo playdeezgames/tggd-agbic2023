@@ -2,8 +2,12 @@
 
 Friend Module CellExtensions
     <Extension>
+    Friend Function Descriptor(cell As ICell) As TerrainTypeDescriptor
+        Return cell.TerrainType.ToTerrainTypeDescriptor
+    End Function
+    <Extension>
     Friend Sub DoVerb(cell As ICell, verbType As String, character As ICharacter)
-        Dim descriptor = cell.TerrainType.ToTerrainTypeDescriptor
+        Dim descriptor = cell.Descriptor
         If Not descriptor.VerbTypes.ContainsKey(verbType) Then
             MessageTypes.NothingHappens.ToMessageTypeDescriptor.CreateMessage(character.World)
             Return
@@ -28,7 +32,7 @@ Friend Module CellExtensions
     End Function
     <Extension>
     Private Function TerrainTypeDescriptor(cell As ICell) As TerrainTypeDescriptor
-        Return cell.TerrainType.ToTerrainTypeDescriptor
+        Return cell.Descriptor
     End Function
     <Extension>
     Private Function TryGetStatistic(cell As ICell, statisticType As String, Optional defaultValue As Integer = 0) As Integer

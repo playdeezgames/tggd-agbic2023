@@ -9,7 +9,7 @@ Friend Class TreeDescriptor
                     ChrW(&HA),
                     Business.Hue.Green,
                     True,
-                    cellInitializer:=AddressOf Initialize,
+                    cellInitializer:=AddressOf InitializeTree,
                     verbTypes:=New Dictionary(Of String, Action(Of ICharacter, ICell)) From
                     {
                         {Business.VerbTypes.Forage, AddressOf DoForage}
@@ -22,7 +22,7 @@ Friend Class TreeDescriptor
                     })
     End Sub
 
-    Private Shared Sub Initialize(cell As ICell)
+    Private Shared Sub InitializeTree(cell As ICell)
         cell.Statistic(StatisticTypes.Peril) = 1
     End Sub
 End Class

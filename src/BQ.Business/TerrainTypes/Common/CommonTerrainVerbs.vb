@@ -8,7 +8,7 @@ Friend Module CommonTerrainVerbs
             Return
         End If
         character.AddEnergy(-EnergyCost)
-        Dim descriptor = cell.TerrainType.ToTerrainTypeDescriptor
+        Dim descriptor = cell.Descriptor
         Dim itemType = RNG.FromGenerator(descriptor.Foragables)
         If String.IsNullOrEmpty(itemType) Then
             character.World.CreateMessage().AddLine(LightGray, $"{character.Name} finds nothing.")

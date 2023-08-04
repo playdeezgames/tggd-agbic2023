@@ -21,6 +21,8 @@
                 SetState(GameState.Equipment)
             Case Constants.SleepText
                 SetState(GameState.Sleep)
+            Case Constants.BuildFireText
+                SetState(GameState.BuildFire)
         End Select
     End Sub
 
@@ -46,6 +48,9 @@
         End If
         If Model.Avatar.CanMakeTwine Then
             result.Add((MakeTwineText, MakeTwineText))
+        End If
+        If Model.Avatar.CanBuildFire Then
+            result.Add((BuildFireText, BuildFireText))
         End If
         Return result
     End Function

@@ -32,6 +32,7 @@ Public Class GameController
         SetState(GameState.Sleep, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Avatar.Sleep(), BoilerplateState.Neutral))
         SetState(GameState.Forage, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Avatar.Forage(), BoilerplateState.Neutral))
         SetState(GameState.MakeTwine, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Avatar.MakeTwine(), BoilerplateState.Neutral))
+        SetState(GameState.BuildFire, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Avatar.BuildFire(), BoilerplateState.Neutral))
     End Sub
 
     Private Sub SetBoilerplateStates(context As IUIContext(Of IWorldModel))

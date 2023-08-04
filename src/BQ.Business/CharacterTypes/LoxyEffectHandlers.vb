@@ -35,8 +35,14 @@ Friend Module LoxyEffectHandlers
                         {EffectTypes.CutOffTail, AddressOf DoCutOffTail},
                         {EffectTypes.UseEnergyHerb, AddressOf DoUseEnergyHerb},
                         {EffectTypes.EatRatCorpse, AddressOf DoEatRatCorpse},
-                        {EffectTypes.Forage, AddressOf DoForage}
+                        {EffectTypes.Forage, AddressOf DoForage},
+                        {EffectTypes.BuildFire, AddressOf DoBuildFire}
                     }
+
+    Private Sub DoBuildFire(character As ICharacter, effect As IEffect)
+        character.Cell.TerrainType = TerrainTypes.CookingFire
+    End Sub
+
     Private Sub DoForage(character As ICharacter, effect As IEffect)
         Dim cell As ICell = CType(effect, ITerrainEffect).Cell
         Const EnergyCost = 1
@@ -45,7 +51,7 @@ Friend Module LoxyEffectHandlers
             Return
         End If
         character.AddEnergy(-EnergyCost)
-        Dim descriptor = Cell.Descriptor
+        Dim descriptor = cell.Descriptor
         Dim itemType = RNG.FromGenerator(descriptor.Foragables)
         If String.IsNullOrEmpty(itemType) Then
             character.World.CreateMessage().AddLine(LightGray, $"{character.Name} finds nothing.")

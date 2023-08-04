@@ -1,6 +1,7 @@
 ﻿Imports System.Runtime.CompilerServices
 
 Friend Module EffectTypes
+    Friend Const BuildFire = "BuildFire"
     Friend Const Buy = "Buy"
     Friend Const CompleteRatQuest = "CompleteRatQuest"
     Friend Const DruidAllergies = "DruidAllergies"
@@ -63,7 +64,8 @@ Friend Module EffectTypes
             {Forage, New EffectTypeDescriptor("Forage")},
             {UseEnergyHerb, New EffectTypeDescriptor("Use")},
             {CutOffTail, New EffectTypeDescriptor("Cut Off Tail")},
-            {EatRatCorpse, New EffectTypeDescriptor("Eat")}
+            {EatRatCorpse, New EffectTypeDescriptor("Eat")},
+            {BuildFire, New EffectTypeDescriptor("Build Fire")}
         }
     <Extension>
     Friend Function ToEffectTypeDescriptor(verbType As String) As EffectTypeDescriptor

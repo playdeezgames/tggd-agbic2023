@@ -26,6 +26,10 @@ Friend Module CharacterExtensions
         End If
     End Sub
     <Extension>
+    Friend Sub DoBuildFire(character As ICharacter)
+        character.Cell.Descriptor.DoEffect(character, EffectTypes.BuildFire, character.Cell)
+    End Sub
+    <Extension>
     Friend Sub DoMakeTwine(character As ICharacter)
         Dim plantFibers = character.Items.Where(Function(x) x.ItemType = ItemTypes.PlantFiber)
         If plantFibers.Count < 2 Then

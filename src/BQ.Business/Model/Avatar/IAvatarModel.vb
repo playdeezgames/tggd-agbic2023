@@ -3,6 +3,7 @@
     Sub DoChoiceTrigger(index As Integer)
     Sub Forage()
     Sub MakeTwine()
+    Sub BuildFire()
     Sub Unequip(equipSlotType As String)
     Sub Sleep()
     ReadOnly Property IsDead As Boolean
@@ -25,4 +26,5 @@
     ReadOnly Property HasEquipment As Boolean
     ReadOnly Property Equipment As IEnumerable(Of (String, String))
     ReadOnly Property CanSleep As Boolean
+    ReadOnly Property CanBuildFire As Boolean
 End Interface

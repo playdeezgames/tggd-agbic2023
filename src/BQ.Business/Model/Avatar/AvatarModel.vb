@@ -128,6 +128,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property CanBuildFire As Boolean Implements IAvatarModel.CanBuildFire
+        Get
+            Return avatar.Cell.CanBuildFire
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub
@@ -156,5 +162,9 @@
 
     Public Sub Sleep() Implements IAvatarModel.Sleep
         avatar.Sleep()
+    End Sub
+
+    Public Sub BuildFire() Implements IAvatarModel.BuildFire
+        avatar.DoBuildFire()
     End Sub
 End Class

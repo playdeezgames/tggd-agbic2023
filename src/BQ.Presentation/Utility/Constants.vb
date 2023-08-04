@@ -6,6 +6,7 @@
     Public Const ViewWidth = 384
 
     Friend Const AttackText = "Attack!"
+    Friend Const BuildFireText = "Build Fire"
     Friend Const DropAllText = "Drop All"
     Friend Const DropHalfText = "Drop Half"
     Friend Const DropOneText = "Drop One"

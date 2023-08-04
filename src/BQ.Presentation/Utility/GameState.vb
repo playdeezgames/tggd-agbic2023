@@ -1,5 +1,6 @@
 ﻿Friend Module GameState
     Friend Const ActionMenu = "ActionMenu"
+    Friend Const BuildFire = "BuildFire"
     Friend Const Combat = "Combat"
     Friend Const Dead = "Dead"
     Friend Const Drop = "Drop"

@@ -10,7 +10,10 @@ Friend Class TreeDescriptor
                     Business.Hue.Green,
                     True,
                     cellInitializer:=AddressOf InitializeTree,
-                    effects:=New Dictionary(Of String, EffectData),
+                    effects:=New Dictionary(Of String, EffectData) From
+                    {
+                        {EffectTypes.Forage, New EffectData}
+                    },
                     foragables:=New Dictionary(Of String, Integer) From
                     {
                         {String.Empty, 75},

@@ -143,7 +143,7 @@
     End Sub
 
     Public Sub Forage() Implements IAvatarModel.Forage
-        avatar.Cell.DoVerb(VerbTypes.Forage, avatar)
+        avatar.Cell.DoEffect(VerbTypes.Forage, avatar)
     End Sub
 
     Public Sub MakeTwine() Implements IAvatarModel.MakeTwine

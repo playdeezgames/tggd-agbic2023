@@ -6,13 +6,13 @@ Friend Module CellExtensions
         Return cell.TerrainType.ToTerrainTypeDescriptor
     End Function
     <Extension>
-    Friend Sub DoVerb(cell As ICell, verbType As String, character As ICharacter)
+    Friend Sub DoEffect(cell As ICell, effectType As String, character As ICharacter)
         Dim descriptor = cell.Descriptor
-        If Not descriptor.VerbTypes.ContainsKey(verbType) Then
+        If Not descriptor.HasEffect(effectType) Then
             MessageTypes.NothingHappens.ToMessageTypeDescriptor.CreateMessage(character.World)
             Return
         End If
-        descriptor.VerbTypes(verbType).Invoke(character, cell)
+        descriptor.DoEffect(character, effectType, cell)
     End Sub
     <Extension>
     Friend Function IsTenable(cell As ICell) As Boolean

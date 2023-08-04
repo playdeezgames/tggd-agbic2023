@@ -4,4 +4,5 @@
     Friend Const ItemType = "ItemType"
     Friend Const MessageType = "MessageType"
     Friend Const EffectType = "EffectType"
+    Friend Const ForageTable = "ForageTable"
 End Module

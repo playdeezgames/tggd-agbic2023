@@ -9,10 +9,7 @@ Friend Class GrassDescriptor
                     ChrW(4),
                     Business.Hue.Green,
                     True,
-                    verbTypes:=New Dictionary(Of String, Action(Of ICharacter, ICell)) From
-                    {
-                        {Business.VerbTypes.Forage, AddressOf DoForage}
-                    },
+                    effects:=New Dictionary(Of String, EffectData),
                     foragables:=New Dictionary(Of String, Integer) From
                     {
                         {String.Empty, 1},

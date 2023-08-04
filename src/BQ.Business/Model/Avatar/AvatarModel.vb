@@ -76,7 +76,7 @@
 
     Public ReadOnly Property CanForage As Boolean Implements IAvatarModel.CanForage
         Get
-            Return avatar.Flag(FlagTypes.KnowsForaging)
+            Return avatar.Flag(FlagTypes.KnowsForaging) AndAlso avatar.Cell.CanForage
         End Get
     End Property
 

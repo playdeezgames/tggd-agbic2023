@@ -2,6 +2,10 @@
 
 Friend Module CellExtensions
     <Extension>
+    Friend Function CanForage(cell As ICell) As Boolean
+        Return cell.Descriptor.HasEffect(EffectTypes.Forage)
+    End Function
+    <Extension>
     Friend Function Descriptor(cell As ICell) As TerrainTypeDescriptor
         Return cell.TerrainType.ToTerrainTypeDescriptor
     End Function

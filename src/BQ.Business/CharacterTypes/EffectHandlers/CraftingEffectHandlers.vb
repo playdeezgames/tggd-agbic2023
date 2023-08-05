@@ -3,18 +3,16 @@
         If Not ConsumeEnergy(character, 1, "build a fire") Then
             Return
         End If
-        Const SticksRequired = 5
-        Const RocksRequired = 5
-        Dim stickCount = character.ItemTypeCount(ItemTypes.Stick)
-        Dim rockCount = character.ItemTypeCount(ItemTypes.Rock)
-        If stickCount < SticksRequired OrElse rockCount < RocksRequired Then
-            character.World.CreateMessage().
+        If Not RecipeTypes.CanCraft(RecipeTypes.CookingFire, character) Then
+            Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"To build a fire,").
-                AddLine(LightGray, $"{character.Name} needs:").
-                AddLine(LightGray, $"{SticksRequired} sticks (has {stickCount})").
-                AddLine(LightGray, $"{RocksRequired} rocks (has {rockCount})")
+                AddLine(LightGray, $"{character.Name} needs:")
+            For Each input In RecipeTypes.Inputs(RecipeTypes.CookingFire)
+                msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+            Next
             Return
         End If
+        RecipeTypes.Craft(RecipeTypes.CookingFire, character)
         character.World.CreateMessage().
                 AddLine(LightGray, $"{character.Name} builds a small fire.")
         character.Cell.TerrainType = TerrainTypes.CookingFire

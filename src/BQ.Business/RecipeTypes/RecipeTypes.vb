@@ -1,4 +1,7 @@
-﻿Friend Module RecipeTypes
+﻿Imports System.Runtime.CompilerServices
+Imports System.Threading
+
+Friend Module RecipeTypes
     Friend Const Twine = "Twine"
     Friend Const SharpRock = "SharpRock"
     Friend Const CookingFire = "CookingFire"
@@ -52,5 +55,8 @@
             Return True
         End If
         Return False
+    End Function
+    Friend Function Inputs(recipeName As String) As IEnumerable(Of (itemType As String, count As Integer))
+        Return Descriptors(recipeName).Inputs.Select(Function(x) (x.Key, x.Value))
     End Function
 End Module

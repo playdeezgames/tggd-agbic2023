@@ -98,17 +98,15 @@
     Friend Sub DoLearnFireMaking(character As ICharacter, effect As IEffect)
         Dim msg = character.World.CreateMessage
         If AlreadyKnows(character, effect, msg, "make a fire") Then Return
-        Const SticksRequired = 5
-        Const RocksRequired = 5
-        If character.ItemTypeCount(ItemTypes.Stick) < SticksRequired OrElse character.ItemTypeCount(ItemTypes.Rock) < RocksRequired Then
+        If Not RecipeTypes.CanCraft(RecipeTypes.CookingFire, character) Then
             msg.
-            AddLine(LightGray, $"To learn to make twine,").
-            AddLine(LightGray, $"{character.Name} needs:").
-            AddLine(LightGray, $"{SticksRequired} sticks").
-            AddLine(LightGray, $"{RocksRequired} rocks")
+            AddLine(LightGray, $"To learn to make a fire,").
+            AddLine(LightGray, $"{character.Name} needs:")
+            For Each input In RecipeTypes.Inputs(RecipeTypes.CookingFire)
+                msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+            Next
             Return
         End If
-
         If Not LearnSkill(character, effect, msg, "make a fire") Then Return
         msg.
             AddLine(LightGray, "You now know how to make a fire!").

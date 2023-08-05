@@ -15,7 +15,7 @@
 
     Public ReadOnly Property Character As (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer) Implements IAvatarModel.Character
         Get
-            Dim descriptor = avatar.CharacterType.ToCharacterTypeDescriptor
+            Dim descriptor = avatar.Descriptor
             Return (descriptor.Glyph, descriptor.Hue, descriptor.MaskGlyph, descriptor.MaskHue)
         End Get
     End Property

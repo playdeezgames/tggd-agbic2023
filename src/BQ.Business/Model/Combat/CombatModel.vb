@@ -19,7 +19,7 @@ Friend Class CombatModel
         Get
             Return world.Avatar.Cell.
                 OtherCharacters(world.Avatar).
-                Select(Function(x) (x.CharacterType.ToCharacterTypeDescriptor.Glyph, x.CharacterType.ToCharacterTypeDescriptor.Hue, x.CharacterType.ToCharacterTypeDescriptor.MaskGlyph, x.CharacterType.ToCharacterTypeDescriptor.MaskHue))
+                Select(Function(x) (x.Descriptor.Glyph, x.Descriptor.Hue, x.Descriptor.MaskGlyph, x.Descriptor.MaskHue))
         End Get
     End Property
 

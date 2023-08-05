@@ -4,6 +4,7 @@
     Friend Const CellRow = "CellRow"
     Friend Const DefendDice = "DefendDice"
     Friend Const Energy = "Energy"
+    Friend Const ForageRemaining = "ForageRemaining"
     Friend Const Health = "Health"
     Friend Const ItemCount = "ItemCount"
     Friend Const MapId = "MapId"

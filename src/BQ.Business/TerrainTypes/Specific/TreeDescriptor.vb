@@ -24,5 +24,6 @@ Friend Class TreeDescriptor
 
     Private Shared Sub InitializeTree(cell As ICell)
         cell.Statistic(StatisticTypes.Peril) = 1
+        cell.Statistic(StatisticTypes.ForageRemaining) = 50
     End Sub
 End Class

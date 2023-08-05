@@ -7,7 +7,7 @@ Friend Module CellExtensions
     End Function
     <Extension>
     Friend Function CanForage(cell As ICell) As Boolean
-        Return cell.Descriptor.HasEffect(EffectTypes.Forage)
+        Return cell.Descriptor.HasEffect(EffectTypes.Forage) AndAlso cell.TryGetStatistic(StatisticTypes.ForageRemaining) > 0
     End Function
     <Extension>
     Friend Function Descriptor(cell As ICell) As TerrainTypeDescriptor

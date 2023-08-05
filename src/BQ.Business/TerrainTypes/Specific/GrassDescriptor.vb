@@ -9,7 +9,10 @@ Friend Class GrassDescriptor
                     ChrW(4),
                     Business.Hue.Green,
                     True,
-                    effects:=New Dictionary(Of String, EffectData),
+                    effects:=New Dictionary(Of String, EffectData) From
+                    {
+                        {EffectTypes.Forage, New EffectData}
+                    },
                     foragables:=New Dictionary(Of String, Integer) From
                     {
                         {String.Empty, 1},

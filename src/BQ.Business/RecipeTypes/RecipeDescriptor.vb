@@ -1,11 +1,11 @@
-﻿Imports BQ.Persistence
-
-Friend Class RecipeDescriptor
+﻿Friend Class RecipeDescriptor
+    Friend ReadOnly Property Name As String
     Friend ReadOnly Property Inputs As IReadOnlyDictionary(Of String, Integer)
     Friend ReadOnly Property Outputs As IReadOnlyDictionary(Of String, Integer)
-    Sub New(inputs As IReadOnlyDictionary(Of String, Integer), outputs As IReadOnlyDictionary(Of String, Integer))
+    Sub New(name As String, inputs As IReadOnlyDictionary(Of String, Integer), Optional outputs As IReadOnlyDictionary(Of String, Integer) = Nothing)
+        Me.Name = name
         Me.Inputs = inputs
-        Me.Outputs = outputs
+        Me.Outputs = If(outputs, New Dictionary(Of String, Integer))
     End Sub
 
     Friend Function CanCraft(character As ICharacter) As Boolean
@@ -45,7 +45,7 @@ Friend Class RecipeDescriptor
         Next
     End Sub
 
-    Friend ReadOnly Property Name As String
+    Friend ReadOnly Property Description As String
         Get
             Dim inputText = String.Join("+", Inputs.Select(Function(x) $"{If(x.Value > 1, $"{x.Value} ", "")}{x.Key.ToItemTypeDescriptor.Name}").ToArray)
             Dim outputText = String.Join("+", Outputs.Select(Function(x) $"{If(x.Value > 1, $"{x.Value} ", "")}{x.Key.ToItemTypeDescriptor.Name}").ToArray)

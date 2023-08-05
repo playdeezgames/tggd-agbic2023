@@ -1,4 +1,56 @@
 ﻿Friend Module RecipeTypes
-    Friend ReadOnly Descriptors As IReadOnlyList(Of RecipeDescriptor) =
-        New List(Of RecipeDescriptor)
+    Friend Const Twine = "Twine"
+    Friend Const SharpRock = "SharpRock"
+    Friend Const CookingFire = "CookingFire"
+    Private ReadOnly Descriptors As IReadOnlyDictionary(Of String, RecipeDescriptor) =
+        New Dictionary(Of String, RecipeDescriptor) From
+        {
+            {
+                Twine,
+                New RecipeDescriptor(
+                    "Twine",
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.PlantFiber, 2}
+                    },
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.Twine, 1}
+                    })
+            },
+            {
+                SharpRock,
+                New RecipeDescriptor(
+                    "Sharp Rock",
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.Rock, 2}
+                    },
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.Rock, 1},
+                        {ItemTypes.SharpRock, 1}
+                    })
+            },
+            {
+                CookingFire,
+                New RecipeDescriptor(
+                    "Cooking Fire",
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.Rock, 5},
+                        {ItemTypes.Stick, 5}
+                    })
+            }
+        }
+    Friend Function CanCraft(recipeName As String, character As ICharacter) As Boolean
+        Return Descriptors(recipeName).CanCraft(character)
+    End Function
+    Friend Function Craft(recipeName As String, character As ICharacter) As Boolean
+        If CanCraft(recipeName, character) Then
+            Descriptors(recipeName).Craft(character)
+            Return True
+        End If
+        Return False
+    End Function
 End Module

@@ -15,7 +15,7 @@ Friend Module ItemTypes
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, ItemTypeDescriptor) =
         New Dictionary(Of String, ItemTypeDescriptor) From
         {
-            {PlantFiber, New ItemTypeDescriptor("Plant Fiber", ChrW(&H23), LightGreen)},
+            {PlantFiber, New ItemTypeDescriptor("Plant Fiber", ChrW(&H21), LightGreen)},
             {RatBody, New RatBodyDescriptor()},
             {RatTail, New ItemTypeDescriptor("Rat Tail", ChrW(&H2E), DarkGray)},
             {RatCorpse, New RatCorpseDescriptor()},
@@ -28,7 +28,7 @@ Friend Module ItemTypes
 
     <Extension>
     Friend Function ToItemTypeDescriptor(itemType As String) As ItemTypeDescriptor
-        Return descriptors(itemType)
+        Return If(descriptors.ContainsKey(itemType), descriptors(itemType), Nothing)
     End Function
     Friend ReadOnly Property All As IEnumerable(Of String)
         Get

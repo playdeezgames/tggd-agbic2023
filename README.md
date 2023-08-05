@@ -9,6 +9,12 @@ https://alumni.media.mit.edu/~wad/color/palette.html
 
 # Main Quest
 
+* Thindal is the cooking trainer
+    * sells a cook book?
+* paprika
+    * peppers
+        * dry them over fire
+            * season rat meat
 * Warm Water
     * water jug
         * get it from a well?

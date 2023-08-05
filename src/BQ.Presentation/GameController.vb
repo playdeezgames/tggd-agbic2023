@@ -18,6 +18,7 @@ Public Class GameController
         SetState(GameState.InventoryDetail, New InventoryDetailState(Me, AddressOf SetCurrentState, context))
         SetState(GameState.Equip, New EquipState(Me, AddressOf SetCurrentState, context))
         SetState(GameState.Equipment, New EquipmentState(Me, AddressOf SetCurrentState, context))
+        SetState(GameState.Forage, New ForageState(Me, AddressOf SetCurrentState, context))
         SetCurrentState(BoilerplateState.Splash, True)
     End Sub
 
@@ -30,7 +31,6 @@ Public Class GameController
         SetState(GameState.Drop, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Item.Drop(), GameState.Inventory))
         SetState(GameState.Take, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Item.Take(), GameState.Ground))
         SetState(GameState.Sleep, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Avatar.Sleep(), BoilerplateState.Neutral))
-        SetState(GameState.Forage, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Avatar.Forage(), BoilerplateState.Neutral))
         SetState(GameState.MakeTwine, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Avatar.MakeTwine(), BoilerplateState.Neutral))
         SetState(GameState.BuildFire, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Avatar.BuildFire(), BoilerplateState.Neutral))
     End Sub

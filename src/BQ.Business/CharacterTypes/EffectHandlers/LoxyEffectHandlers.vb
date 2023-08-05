@@ -52,8 +52,7 @@ Friend Module LoxyEffectHandlers
         If Not ConsumeEnergy(character, 1, "forage") Then
             Return
         End If
-        Dim descriptor = cell.Descriptor
-        Dim itemType = RNG.FromGenerator(descriptor.Foragables)
+        Dim itemType = cell.GenerateForageItemType()
         If String.IsNullOrEmpty(itemType) Then
             character.World.CreateMessage().AddLine(LightGray, $"{character.Name} finds nothing.")
             Return

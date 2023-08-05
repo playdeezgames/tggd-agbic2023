@@ -8,4 +8,5 @@
     ReadOnly Property Message As IMessageModel
     ReadOnly Property Combat As ICombatModel
     ReadOnly Property Item As IItemModel
+    ReadOnly Property Foraging As IForagingModel
 End Interface

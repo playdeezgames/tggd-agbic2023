@@ -120,7 +120,7 @@
         Dim canLearnTwineMaking = Not character.Flag(FlagTypes.KnowsTwineMaking)
         Dim canLearnKnapping = Not character.Flag(FlagTypes.KnowsKnapping)
         Dim canLearnFireMaking = Not character.Flag(FlagTypes.KnowsFireMaking)
-        Dim canLearn = canLearnForaging OrElse canLearnTwineMaking
+        Dim canLearn = canLearnForaging OrElse canLearnTwineMaking OrElse canLearnKnapping OrElse canLearnFireMaking
         Dim msg = character.World.CreateMessage()
         If Not canLearn Then
             msg.AddLine(LightGray, "You have learned all I have to teach you.")

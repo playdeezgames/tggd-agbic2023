@@ -1,9 +1,15 @@
 ﻿Imports System.Runtime.CompilerServices
+Imports SPLORR.Game
 
 Friend Module CellExtensions
     <Extension>
     Friend Function CanBuildFire(cell As ICell) As Boolean
         Return cell.Map.Flag(FlagTypes.AllowFireBuilding) AndAlso cell.Descriptor.HasEffect(EffectTypes.BuildFire)
+    End Function
+    <Extension>
+    Friend Function GenerateForageItemType(cell As ICell) As String
+        Dim descriptor = cell.Descriptor
+        Return RNG.FromGenerator(descriptor.Foragables)
     End Function
     <Extension>
     Friend Function CanForage(cell As ICell) As Boolean

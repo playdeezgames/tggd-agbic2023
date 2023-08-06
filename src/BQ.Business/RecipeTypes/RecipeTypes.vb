@@ -3,6 +3,7 @@
     Friend Const SharpRock = "SharpRock"
     Friend Const CookingFire = "CookingFire"
     Friend Const Torch = "Torch"
+    Friend Const Foraging = "Foraging"
     Private ReadOnly Descriptors As IReadOnlyDictionary(Of String, RecipeDescriptor) =
         New Dictionary(Of String, RecipeDescriptor) From
         {
@@ -18,6 +19,13 @@
                     {
                         {ItemTypes.Twine, 1}
                     })
+            },
+            {
+                Foraging,
+                New RecipeDescriptor(
+                    "Foraging",
+                    New Dictionary(Of String, Integer),
+                    New Dictionary(Of String, Integer))
             },
             {
                 Torch,

@@ -38,30 +38,11 @@
     End Function
 
     Friend Sub DoLearnForaging(character As ICharacter, effect As IEffect)
-        Dim msg = character.World.CreateMessage
-        If AlreadyKnows(character, effect, msg, "forage") Then Return
-        If Not LearnSkill(character, effect, msg, "forage") Then Return
-        msg.
-            AddLine(LightGray, $"{character.Name} now knows how to forage!").
-            AddLine(LightGray, "To forage, simply select 'Forage...'").
-            AddLine(LightGray, "from the Actions menu.")
+        DoLearnSkill(character, effect)
     End Sub
 
     Friend Sub DoLearnKnapping(character As ICharacter, effect As IEffect)
-        Dim msg = character.World.CreateMessage
-        If AlreadyKnows(character, effect, msg, "knap") Then Return
-        If character.ItemTypeCount(ItemTypes.Rock) < 2 Then
-            msg.
-                AddLine(LightGray, $"To learn to knap,").
-                AddLine(LightGray, $"{character.Name} needs at least 2 rocks.")
-            Return
-        End If
-        If Not LearnSkill(character, effect, msg, "knap") Then Return
-        character.Knap()
-        msg.
-            AddLine(LightGray, $"{character.Name} now knows how to knap!").
-            AddLine(LightGray, "To knap rocks, simply select 'Knap'").
-            AddLine(LightGray, "from the Actions menu.")
+        DoLearnSkill(character, effect)
     End Sub
 
     Private Function LearnSkill(character As ICharacter, effect As IEffect, msg As IMessage, text As String) As Boolean
@@ -79,20 +60,7 @@
     End Function
 
     Friend Sub DoLearnTwineMaking(character As ICharacter, effect As IEffect)
-        Dim msg = character.World.CreateMessage
-        If AlreadyKnows(character, effect, msg, "make twine") Then Return
-        If character.ItemTypeCount(ItemTypes.PlantFiber) < 2 Then
-            msg.
-            AddLine(LightGray, $"To learn to make twine,").
-            AddLine(LightGray, $"{character.Name} needs at least 2 plant fiber.")
-            Return
-        End If
-        If Not LearnSkill(character, effect, msg, "make twine") Then Return
-        character.MakeTwine()
-        msg.
-            AddLine(LightGray, "You now know how to make twine!").
-            AddLine(LightGray, "To do so, simply select 'Make Twine'").
-            AddLine(LightGray, "from the Actions menu.")
+        DoLearnSkill(character, effect)
     End Sub
     Private Sub DoLearnSkill(character As ICharacter, effect As IEffect)
         Dim msg = character.World.CreateMessage
@@ -121,23 +89,7 @@
         End If
     End Sub
     Friend Sub DoLearnFireMaking(character As ICharacter, effect As IEffect)
-        Dim msg = character.World.CreateMessage
-        If AlreadyKnows(character, effect, msg, "make a fire") Then Return
-        If Not RecipeTypes.CanCraft(RecipeTypes.CookingFire, character) Then
-            msg.
-            AddLine(LightGray, $"To learn to make a fire,").
-            AddLine(LightGray, $"{character.Name} needs:")
-            For Each input In RecipeTypes.Inputs(RecipeTypes.CookingFire)
-                msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
-            Next
-            Return
-        End If
-        If Not LearnSkill(character, effect, msg, "make a fire") Then Return
-        msg.
-            AddLine(LightGray, "You now know how to make a fire!").
-            AddLine(LightGray, "To do so, simply select 'Build Fire'").
-            AddLine(LightGray, "from the Actions menu.").
-            AddLine(LightGray, "(only works in clear areas in the wilderness)")
+        DoLearnSkill(character, effect)
     End Sub
 
     Friend Sub DoDruidTeachMenu(character As ICharacter, effect As IEffect)
@@ -161,7 +113,10 @@
                 Sub(choice)
                     choice.
                         SetStatistic(StatisticTypes.AdvancementPoints, 1).
-                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsForaging)
+                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsForaging).
+                        SetMetadata(Metadatas.TaskName, "forage").
+                        SetMetadata(Metadatas.ActionName, "Forage...").
+                        SetMetadata(Metadatas.RecipeType, RecipeTypes.Foraging)
                 End Sub)
         End If
         If canLearnTwineMaking Then
@@ -224,22 +179,6 @@
         End If
     End Sub
     Friend Sub DoLearnTorchMaking(character As ICharacter, effect As IEffect)
-        Dim msg = character.World.CreateMessage
-        If AlreadyKnows(character, effect, msg, "make a torch") Then Return
-        If Not RecipeTypes.CanCraft(RecipeTypes.Torch, character) Then
-            msg.
-            AddLine(LightGray, $"To learn to make a torch,").
-            AddLine(LightGray, $"{character.Name} needs:")
-            For Each input In RecipeTypes.Inputs(RecipeTypes.Torch)
-                msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
-            Next
-            Return
-        End If
-        If Not LearnSkill(character, effect, msg, "make a torch") Then Return
-        msg.
-            AddLine(LightGray, "You now know how to make a torch!").
-            AddLine(LightGray, "To do so, simply select 'Make Torch'").
-            AddLine(LightGray, "from the Actions menu.").
-            AddLine(LightGray, "(only works with a source of flames)")
+        DoLearnSkill(character, effect)
     End Sub
 End Module

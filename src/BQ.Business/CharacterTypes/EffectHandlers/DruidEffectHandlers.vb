@@ -120,7 +120,8 @@
         Dim canLearnTwineMaking = Not character.Flag(FlagTypes.KnowsTwineMaking)
         Dim canLearnKnapping = Not character.Flag(FlagTypes.KnowsKnapping)
         Dim canLearnFireMaking = Not character.Flag(FlagTypes.KnowsFireMaking)
-        Dim canLearn = canLearnForaging OrElse canLearnTwineMaking OrElse canLearnKnapping OrElse canLearnFireMaking
+        Dim canLearnTorchMaking = Not character.Flag(FlagTypes.KnowsTorchMaking)
+        Dim canLearn = canLearnForaging OrElse canLearnTwineMaking OrElse canLearnKnapping OrElse canLearnFireMaking OrElse canLearnTorchMaking
         Dim msg = character.World.CreateMessage()
         If Not canLearn Then
             msg.AddLine(LightGray, "You have learned all I have to teach you.")
@@ -168,6 +169,34 @@
                         SetMetadata(Metadatas.FlagType, FlagTypes.KnowsFireMaking)
                 End Sub)
         End If
+        If canLearnTorchMaking Then
+            msg.AddChoice(
+                "Torch Making(-1AP, -1 Stick, -1 Charcoal)",
+                EffectTypes.LearnTorchMaking,
+                Sub(choice)
+                    choice.
+                        SetStatistic(StatisticTypes.AdvancementPoints, 1).
+                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsFireMaking)
+                End Sub)
+        End If
     End Sub
-
+    Friend Sub DoLearnTorchMaking(character As ICharacter, effect As IEffect)
+        Dim msg = character.World.CreateMessage
+        If AlreadyKnows(character, effect, msg, "make a torch") Then Return
+        If Not RecipeTypes.CanCraft(RecipeTypes.Torch, character) Then
+            msg.
+            AddLine(LightGray, $"To learn to make a torch,").
+            AddLine(LightGray, $"{character.Name} needs:")
+            For Each input In RecipeTypes.Inputs(RecipeTypes.Torch)
+                msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+            Next
+            Return
+        End If
+        If Not LearnSkill(character, effect, msg, "make a torch") Then Return
+        msg.
+            AddLine(LightGray, "You now know how to make a torch!").
+            AddLine(LightGray, "To do so, simply select 'Make Torch'").
+            AddLine(LightGray, "from the Actions menu.").
+            AddLine(LightGray, "(only works with a source of flames)")
+    End Sub
 End Module

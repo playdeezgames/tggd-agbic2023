@@ -1,10 +1,8 @@
-﻿Imports System.Runtime.CompilerServices
-Imports System.Threading
-
-Friend Module RecipeTypes
+﻿Friend Module RecipeTypes
     Friend Const Twine = "Twine"
     Friend Const SharpRock = "SharpRock"
     Friend Const CookingFire = "CookingFire"
+    Friend Const Torch = "Torch"
     Private ReadOnly Descriptors As IReadOnlyDictionary(Of String, RecipeDescriptor) =
         New Dictionary(Of String, RecipeDescriptor) From
         {
@@ -19,6 +17,20 @@ Friend Module RecipeTypes
                     New Dictionary(Of String, Integer) From
                     {
                         {ItemTypes.Twine, 1}
+                    })
+            },
+            {
+                Torch,
+                New RecipeDescriptor(
+                    "Torch",
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.Charcoal, 1},
+                        {ItemTypes.Stick, 1}
+                    },
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.Torch, 1}
                     })
             },
             {

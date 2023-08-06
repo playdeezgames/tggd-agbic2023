@@ -18,6 +18,7 @@ Friend Module EffectTypes
     Friend Const LearnFireMaking = "LearnFireMaking"
     Friend Const LearnForaging = "LearnForaging"
     Friend Const LearnKnapping = "LearnKnapping"
+    Friend Const LearnTorchMaking = "LearnTorchMaking"
     Friend Const LearnTwineMaking = "LearnTwineMaking"
     Friend Const Message = "Message"
     Friend Const PayInnkeeper = "PayInnkeeper"

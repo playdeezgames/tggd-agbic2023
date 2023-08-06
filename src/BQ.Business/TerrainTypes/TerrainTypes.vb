@@ -87,7 +87,7 @@ Friend Module TerrainTypes
             {EnergyTrainer, New TerrainTypeDescriptor("Plucky Man", ChrW(&H29), Hue.Blue, False)},
             {StairsUp, New TerrainTypeDescriptor("Up Stairs", ChrW(&H2B), Hue.Orange, False)},
             {StairsDown, New TerrainTypeDescriptor("Down Stairs", ChrW(&H2C), Hue.Orange, False)},
-            {CookingFire, New TerrainTypeDescriptor("Cooking Fire", ChrW(&H33), Hue.Red, True)}
+            {CookingFire, New CookingFireDescriptor()}
         }
 
     <Extension>

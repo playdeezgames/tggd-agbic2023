@@ -23,6 +23,10 @@
                 SetState(GameState.Sleep)
             Case Constants.BuildFireText
                 SetState(GameState.BuildFire)
+            Case Constants.PutOutFireText
+                SetState(GameState.PutOutFire)
+            Case Constants.MakeTorchText
+                SetState(GameState.MakeTorch)
         End Select
     End Sub
 
@@ -51,6 +55,12 @@
         End If
         If Model.Avatar.CanBuildFire Then
             result.Add((BuildFireText, BuildFireText))
+        End If
+        If Model.Avatar.CanPutOutFire Then
+            result.Add((PutOutFireText, PutOutFireText))
+        End If
+        If Model.Avatar.CanMakeTorch Then
+            result.Add((MakeTorchText, MakeTorchText))
         End If
         Return result
     End Function

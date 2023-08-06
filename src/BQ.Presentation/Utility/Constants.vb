@@ -15,7 +15,9 @@
     Friend Const ForageText = "Forage..."
     Friend Const GroundText = "Ground..."
     Friend Const InventoryText = "Inventory"
+    Friend Const MakeTorchText = "Make Torch"
     Friend Const MakeTwineText = "Make Twine"
+    Friend Const PutOutFireText = "Put Out Fire"
     Friend Const RunText = "Run!"
     Friend Const SleepText = "Sleep"
     Friend Const StatisticsText = "Statistics"
@@ -37,12 +39,4 @@
     Friend Const MapRenderY = CenterCellY + TopRow * CellHeight
     Friend Const MapRenderColumns = RightColumn - LeftColumn
     Friend Const MapRenderRows = BottomRow - TopRow
-    'Friend Const DropText = "Drop"
-    'Friend Const EquipText = "Equip"
-    'Friend Const EquipmentText = "Equipment"
-    'Friend Const GroundText = "Ground..."
-    'Friend Const InventoryText = "Inventory"
-    'Friend Const TakeText = "Take"
-    'Friend Const BagelQuestDelaySeconds = 1.0
-    'Friend Const UnequipText = "Unequip"
 End Module

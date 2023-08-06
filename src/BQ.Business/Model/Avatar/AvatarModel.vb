@@ -134,6 +134,18 @@
         End Get
     End Property
 
+    Public ReadOnly Property CanPutOutFire As Boolean Implements IAvatarModel.CanPutOutFire
+        Get
+            Return avatar.Cell.HasFire
+        End Get
+    End Property
+
+    Public ReadOnly Property CanMakeTorch As Boolean Implements IAvatarModel.CanMakeTorch
+        Get
+            Return avatar.Flag(FlagTypes.KnowsTorchMaking) AndAlso avatar.Cell.CanMakeTorch
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub
@@ -166,5 +178,13 @@
 
     Public Sub BuildFire() Implements IAvatarModel.BuildFire
         avatar.DoBuildFire()
+    End Sub
+
+    Public Sub PutOutFire() Implements IAvatarModel.PutOutFire
+        avatar.DoPutOutFire()
+    End Sub
+
+    Public Sub MakeTorch() Implements IAvatarModel.MakeTorch
+        avatar.DoMakeTorch()
     End Sub
 End Class

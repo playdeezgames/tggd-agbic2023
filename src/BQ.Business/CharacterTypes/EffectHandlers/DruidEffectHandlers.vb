@@ -176,7 +176,7 @@
                 Sub(choice)
                     choice.
                         SetStatistic(StatisticTypes.AdvancementPoints, 1).
-                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsFireMaking)
+                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsTorchMaking)
                 End Sub)
         End If
     End Sub

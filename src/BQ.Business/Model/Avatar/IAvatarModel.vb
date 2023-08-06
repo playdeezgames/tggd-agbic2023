@@ -6,6 +6,8 @@
     Sub BuildFire()
     Sub Unequip(equipSlotType As String)
     Sub Sleep()
+    Sub PutOutFire()
+    Sub MakeTorch()
     ReadOnly Property IsDead As Boolean
     ReadOnly Property Character As (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)
     ReadOnly Property Name As String
@@ -27,4 +29,6 @@
     ReadOnly Property Equipment As IEnumerable(Of (String, String))
     ReadOnly Property CanSleep As Boolean
     ReadOnly Property CanBuildFire As Boolean
+    ReadOnly Property CanPutOutFire As Boolean
+    ReadOnly Property CanMakeTorch As Boolean
 End Interface

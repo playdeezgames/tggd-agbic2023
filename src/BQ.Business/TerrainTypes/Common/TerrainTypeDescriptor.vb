@@ -2,7 +2,8 @@
 
 Friend Class TerrainTypeDescriptor
     Inherits VisibleEntityDescriptor
-    Friend ReadOnly DepletedTerrainType As String
+    Friend ReadOnly Property DepletedTerrainType As String
+    Friend ReadOnly Property HasFire As Boolean
     Private ReadOnly Property Effects As IReadOnlyDictionary(Of String, EffectData)
     Friend ReadOnly Property Tenable As Boolean
     Friend ReadOnly Property CanInteract As Boolean
@@ -28,8 +29,10 @@ Friend Class TerrainTypeDescriptor
            Optional depletedTerrainType As String = Nothing,
            Optional cellInitializer As Action(Of ICell) = Nothing,
            Optional foragables As IReadOnlyDictionary(Of String, Integer) = Nothing,
-           Optional effects As IReadOnlyDictionary(Of String, EffectData) = Nothing)
+           Optional effects As IReadOnlyDictionary(Of String, EffectData) = Nothing,
+           Optional hasFire As Boolean = False)
         MyBase.New(name, glyph, hue)
+        Me.HasFire = hasFire
         Me.Tenable = tenable
         Me.DepletedTerrainType = depletedTerrainType
         Me.CellInitializer = If(cellInitializer, AddressOf DoNothing)

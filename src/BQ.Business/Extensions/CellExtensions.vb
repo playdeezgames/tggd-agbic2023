@@ -3,6 +3,14 @@ Imports SPLORR.Game
 
 Friend Module CellExtensions
     <Extension>
+    Friend Function HasFire(cell As ICell) As Boolean
+        Return cell.Descriptor.HasFire
+    End Function
+    <Extension>
+    Friend Function CanMakeTorch(cell As ICell) As Boolean
+        Return cell.Descriptor.HasEffect(EffectTypes.MakeTorch)
+    End Function
+    <Extension>
     Friend Function CanBuildFire(cell As ICell) As Boolean
         Return cell.Map.Flag(FlagTypes.AllowFireBuilding) AndAlso cell.Descriptor.HasEffect(EffectTypes.BuildFire)
     End Function

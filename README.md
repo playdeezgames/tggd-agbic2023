@@ -11,6 +11,17 @@ https://alumni.media.mit.edu/~wad/color/palette.html
 
 * Thindal is the cooking trainer
     * sells a cook book?
+* Black Tea making
+    * need dry tea leaves
+        * crafting dry tea leaves:
+            * humidity chamber for fermentation
+            * steamer/roaster
+        * need vessel with water
+            * crafted at a fire
+* Green Tea making
+    * need tea leaves
+        * need vessel with water
+            * crafted at a fire
 * paprika
     * peppers
         * dry them over fire

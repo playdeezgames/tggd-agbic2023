@@ -30,6 +30,14 @@ Friend Module CharacterExtensions
         character.Cell.Descriptor.DoEffect(character, EffectTypes.BuildFire, character.Cell)
     End Sub
     <Extension>
+    Friend Sub DoMakeTorch(character As ICharacter)
+        character.Cell.Descriptor.DoEffect(character, EffectTypes.MakeTorch, character.Cell)
+    End Sub
+    <Extension>
+    Friend Sub DoPutOutFire(character As ICharacter)
+        character.Cell.Descriptor.DoEffect(character, EffectTypes.PutOutFire, character.Cell)
+    End Sub
+    <Extension>
     Friend Sub DoMakeTwine(character As ICharacter)
         If Not RecipeTypes.CanCraft(RecipeTypes.Twine, character) Then
             character.World.CreateMessage.AddLine(LightGray, $"{character.Name} needs 2 plant fiber, but has {character.ItemTypeCount(ItemTypes.PlantFiber)}!")

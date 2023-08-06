@@ -6,6 +6,7 @@ Friend Module LoxyEffectHandlers
         New Dictionary(Of String, Action(Of ICharacter, IEffect)) From
                     {
                         {EffectTypes.Teleport, AddressOf DefaultTeleport},
+                        {EffectTypes.PutOutFire, AddressOf DoPutOutFlames},
                         {EffectTypes.Message, AddressOf DefaultMessage},
                         {EffectTypes.Heal, AddressOf NihilisticHealing},
                         {EffectTypes.ExitDialog, AddressOf DoExitDialog},
@@ -37,8 +38,11 @@ Friend Module LoxyEffectHandlers
                         {EffectTypes.Forage, AddressOf DoForage},
                         {EffectTypes.BuildFire, AddressOf DoCraftFire},
                         {EffectTypes.LearnFireMaking, AddressOf DoLearnFireMaking},
-                        {EffectTypes.LearnTorchMaking, AddressOf DoLearnTorchMaking}
+                        {EffectTypes.LearnTorchMaking, AddressOf DoLearnTorchMaking},
+                        {EffectTypes.MakeTorch, AddressOf CraftingEffectHandlers.DoMakeTorch}
                     }
+
+
 
     Friend Function ConsumeEnergy(character As ICharacter, energyCost As Integer, actionName As String) As Boolean
         If character.Energy < energyCost Then

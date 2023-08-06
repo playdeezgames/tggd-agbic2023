@@ -87,13 +87,38 @@
             AddLine(LightGray, $"{character.Name} needs at least 2 plant fiber.")
             Return
         End If
-
         If Not LearnSkill(character, effect, msg, "make twine") Then Return
         character.MakeTwine()
         msg.
             AddLine(LightGray, "You now know how to make twine!").
             AddLine(LightGray, "To do so, simply select 'Make Twine'").
             AddLine(LightGray, "from the Actions menu.")
+    End Sub
+    Private Sub DoLearnSkill(character As ICharacter, effect As IEffect)
+        Dim msg = character.World.CreateMessage
+        Dim taskName = effect.Metadata(Metadatas.TaskName)
+        If AlreadyKnows(character, effect, msg, taskName) Then Return
+        Dim recipeType = effect.Metadata(Metadatas.RecipeType)
+        If Not RecipeTypes.CanCraft(recipeType, character) Then
+            msg.
+            AddLine(LightGray, $"To learn to {taskName},").
+            AddLine(LightGray, $"{character.Name} needs:")
+            For Each input In RecipeTypes.Inputs(recipeType)
+                msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+            Next
+            Return
+        End If
+        If Not LearnSkill(character, effect, msg, taskName) Then Return
+        If effect.Flag(FlagTypes.LearnByDoing) Then
+            RecipeTypes.Craft(recipeType, character)
+        End If
+        msg.
+            AddLine(LightGray, $"You now know how to {taskName}!").
+            AddLine(LightGray, $"To do so, simply select '{effect.Metadata(Metadatas.ActionName)}'").
+            AddLine(LightGray, "from the Actions menu.")
+        If effect.HasMetadata(Metadatas.Caveat) Then
+            msg.AddLine(LightGray, effect.Metadata(Metadatas.Caveat))
+        End If
     End Sub
     Friend Sub DoLearnFireMaking(character As ICharacter, effect As IEffect)
         Dim msg = character.World.CreateMessage

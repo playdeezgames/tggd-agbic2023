@@ -9,6 +9,7 @@ Friend Class TreeDescriptor
                     ChrW(&HA),
                     Business.Hue.Green,
                     True,
+                    depletedTerrainType:=TerrainTypes.DepletedTree,
                     cellInitializer:=AddressOf InitializeTree,
                     effects:=New Dictionary(Of String, EffectData) From
                     {

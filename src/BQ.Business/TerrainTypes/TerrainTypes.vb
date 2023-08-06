@@ -6,6 +6,7 @@ Friend Module TerrainTypes
     Friend Const Empty = "Empty"
     Friend Const Wall = "Wall"
     Friend Const Grass = "Grass"
+    Friend Const DepletedGrass = "DepletedGrass"
     Friend Const Fence = "Fence"
     Friend Const Gravel = "Gravel"
     Friend Const House = "House"
@@ -26,6 +27,7 @@ Friend Module TerrainTypes
     Friend Const RiverWNE = "RiverWNE"
     Friend Const RiverNESW = "RiverNESW"
     Friend Const Tree = "Tree"
+    Friend Const DepletedTree = "DepletedTree"
     Friend Const Town = "Town"
     Friend Const Door = "Door"
     Friend Const Basin = "Basin"
@@ -42,7 +44,17 @@ Friend Module TerrainTypes
         New Dictionary(Of String, TerrainTypeDescriptor) From
         {
             {Grass, New GrassDescriptor()},
+            {DepletedGrass, New TerrainTypeDescriptor(
+                    "Grass",
+                    ChrW(4),
+                    Business.Hue.Brown,
+                    True)},
             {Tree, New TreeDescriptor()},
+            {DepletedTree, New TerrainTypeDescriptor(
+                    "Tree",
+                    ChrW(&HA),
+                    Business.Hue.Brown,
+                    True)},
             {Empty, New EmptyTerrainDescriptor()},
             {Wall, New TerrainTypeDescriptor("Wall", ChrW(3), Hue.LightGray, False)},
             {Gravel, New TerrainTypeDescriptor("Gravel", ChrW(6), Hue.DarkGray, True)},

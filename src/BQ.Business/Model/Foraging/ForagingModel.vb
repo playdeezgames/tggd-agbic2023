@@ -23,6 +23,9 @@ Friend Class ForagingModel
                 world.Avatar.AddItem(ItemInitializer.CreateItem(world, itemType))
             End If
             world.Avatar.Cell.Statistic(StatisticTypes.ForageRemaining) = world.Avatar.Cell.Statistic(StatisticTypes.ForageRemaining) - 1
+            If world.Avatar.Cell.Statistic(StatisticTypes.ForageRemaining) <= 0 Then
+                world.Avatar.Cell.TerrainType = world.Avatar.Cell.Descriptor.DepletedTerrainType
+            End If
             world.Avatar.AddEnergy(-1)
             Return True
         End If

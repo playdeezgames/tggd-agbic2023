@@ -59,7 +59,7 @@
         If Not LearnSkill(character, effect, msg, "knap") Then Return
         character.Knap()
         msg.
-            AddLine(LightGray, $"{character.Name} now knows how to knap rocks!").
+            AddLine(LightGray, $"{character.Name} now knows how to knap!").
             AddLine(LightGray, "To knap rocks, simply select 'Knap'").
             AddLine(LightGray, "from the Actions menu.")
     End Sub
@@ -171,7 +171,11 @@
                 Sub(choice)
                     choice.
                         SetStatistic(StatisticTypes.AdvancementPoints, 1).
-                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsTwineMaking)
+                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsTwineMaking).
+                        SetMetadata(Metadatas.TaskName, "make twine").
+                        SetMetadata(Metadatas.ActionName, "Make Twine").
+                        SetMetadata(Metadatas.RecipeType, RecipeTypes.Twine).
+                        SetFlag(FlagTypes.LearnByDoing, True)
                 End Sub)
         End If
         If canLearnKnapping Then
@@ -181,17 +185,26 @@
                 Sub(choice)
                     choice.
                         SetStatistic(StatisticTypes.AdvancementPoints, 1).
-                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsKnapping)
+                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsKnapping).
+                        SetMetadata(Metadatas.TaskName, "knap").
+                        SetMetadata(Metadatas.ActionName, "Knap").
+                        SetMetadata(Metadatas.RecipeType, RecipeTypes.SharpRock).
+                        SetFlag(FlagTypes.LearnByDoing, True)
                 End Sub)
         End If
         If canLearnFireMaking Then
             msg.AddChoice(
-                "Fire Making(-1AP,-5 Rock, -5 Sticks)",
+                "Fire Making(-1AP, -5 Rock, -5 Sticks)",
                 EffectTypes.LearnFireMaking,
                 Sub(choice)
                     choice.
                         SetStatistic(StatisticTypes.AdvancementPoints, 1).
-                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsFireMaking)
+                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsFireMaking).
+                        SetMetadata(Metadatas.TaskName, "make a fire").
+                        SetMetadata(Metadatas.ActionName, "Build Fire").
+                        SetMetadata(Metadatas.RecipeType, RecipeTypes.CookingFire).
+                        SetMetadata(Metadatas.Caveat, "(only works in clear areas in the wilderness)").
+                        SetFlag(FlagTypes.LearnByDoing, False)
                 End Sub)
         End If
         If canLearnTorchMaking Then
@@ -201,7 +214,12 @@
                 Sub(choice)
                     choice.
                         SetStatistic(StatisticTypes.AdvancementPoints, 1).
-                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsTorchMaking)
+                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsTorchMaking).
+                        SetMetadata(Metadatas.TaskName, "make a torch").
+                        SetMetadata(Metadatas.ActionName, "Make Torch").
+                        SetMetadata(Metadatas.RecipeType, RecipeTypes.Torch).
+                        SetMetadata(Metadatas.Caveat, "(only works with a source of flames)").
+                        SetFlag(FlagTypes.LearnByDoing, False)
                 End Sub)
         End If
     End Sub

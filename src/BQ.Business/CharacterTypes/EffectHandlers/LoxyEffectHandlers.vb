@@ -14,9 +14,9 @@ Friend Module LoxyEffectHandlers
                         {EffectTypes.TrainHealth, AddressOf DoTrainHealth},
                         {EffectTypes.DruidAllergies, AddressOf DoDruidAllergies},
                         {EffectTypes.DruidTeachMenu, AddressOf DoDruidTeachMenu},
-                        {EffectTypes.LearnForaging, AddressOf DoLearnForaging},
-                        {EffectTypes.LearnKnapping, AddressOf DoLearnKnapping},
-                        {EffectTypes.LearnTwineMaking, AddressOf DoLearnTwineMaking},
+                        {EffectTypes.LearnForaging, AddressOf DoLearnSkill},
+                        {EffectTypes.LearnKnapping, AddressOf DoLearnSkill},
+                        {EffectTypes.LearnTwineMaking, AddressOf DoLearnSkill},
                         {EffectTypes.DruidTalk, AddressOf DoDruidTalk},
                         {EffectTypes.HealthTrainerTalk, AddressOf DoHealthTrainerTalk},
                         {EffectTypes.HealerTalk, AddressOf DoHealerTalk},
@@ -37,8 +37,8 @@ Friend Module LoxyEffectHandlers
                         {EffectTypes.EatRatCorpse, AddressOf DoEatRatCorpse},
                         {EffectTypes.Forage, AddressOf DoForage},
                         {EffectTypes.BuildFire, AddressOf DoCraftFire},
-                        {EffectTypes.LearnFireMaking, AddressOf DoLearnFireMaking},
-                        {EffectTypes.LearnTorchMaking, AddressOf DoLearnTorchMaking},
+                        {EffectTypes.LearnFireMaking, AddressOf DoLearnSkill},
+                        {EffectTypes.LearnTorchMaking, AddressOf DoLearnSkill},
                         {EffectTypes.MakeTorch, AddressOf CraftingEffectHandlers.DoMakeTorch}
                     }
 

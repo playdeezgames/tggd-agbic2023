@@ -37,14 +37,6 @@
         Return False
     End Function
 
-    Friend Sub DoLearnForaging(character As ICharacter, effect As IEffect)
-        DoLearnSkill(character, effect)
-    End Sub
-
-    Friend Sub DoLearnKnapping(character As ICharacter, effect As IEffect)
-        DoLearnSkill(character, effect)
-    End Sub
-
     Private Function LearnSkill(character As ICharacter, effect As IEffect, msg As IMessage, text As String) As Boolean
         Dim learnCost = effect.Statistic(StatisticTypes.AdvancementPoints)
         If character.AdvancementPoints < learnCost Then
@@ -58,11 +50,7 @@
         character.Flag(effect.Metadata(Metadatas.FlagType)) = True
         Return True
     End Function
-
-    Friend Sub DoLearnTwineMaking(character As ICharacter, effect As IEffect)
-        DoLearnSkill(character, effect)
-    End Sub
-    Private Sub DoLearnSkill(character As ICharacter, effect As IEffect)
+    Friend Sub DoLearnSkill(character As ICharacter, effect As IEffect)
         Dim msg = character.World.CreateMessage
         Dim taskName = effect.Metadata(Metadatas.TaskName)
         If AlreadyKnows(character, effect, msg, taskName) Then Return
@@ -87,9 +75,6 @@
         If effect.HasMetadata(Metadatas.Caveat) Then
             msg.AddLine(LightGray, effect.Metadata(Metadatas.Caveat))
         End If
-    End Sub
-    Friend Sub DoLearnFireMaking(character As ICharacter, effect As IEffect)
-        DoLearnSkill(character, effect)
     End Sub
 
     Friend Sub DoDruidTeachMenu(character As ICharacter, effect As IEffect)
@@ -177,8 +162,5 @@
                         SetFlag(FlagTypes.LearnByDoing, False)
                 End Sub)
         End If
-    End Sub
-    Friend Sub DoLearnTorchMaking(character As ICharacter, effect As IEffect)
-        DoLearnSkill(character, effect)
     End Sub
 End Module

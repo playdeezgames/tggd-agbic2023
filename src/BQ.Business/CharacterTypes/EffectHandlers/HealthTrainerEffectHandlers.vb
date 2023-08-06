@@ -5,8 +5,8 @@
                         AddLine(LightGray, "I am the health trainer!").
                         AddLine(LightGray, "I can help you increase yer health.").
                         AddLine(LightGray, $"The cost is {character.MaximumHealth * 5} AP.").
-                        AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
-                        AddChoice("Train Me!", EffectTypes.TrainHealth)
+                        AddChoice(CoolStoryBro, EffectTypes.ExitDialog).
+                        AddChoice(TrainMe, EffectTypes.TrainHealth)
     End Sub
 
     Friend Sub DoTrainHealth(character As ICharacter, trigger As IEffect)

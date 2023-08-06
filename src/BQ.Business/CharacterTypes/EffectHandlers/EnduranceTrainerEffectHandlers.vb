@@ -32,8 +32,8 @@
             AddLine(LightGray, "I am the endurance trainer.").
             AddLine(LightGray, "I can increase yer energy").
             AddLine(LightGray, $"for the cost of 1AP and {trainCost} jools.").
-            AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
-            AddChoice("Train Me!", EffectTypes.TrainEnergy)
+            AddChoice(CoolStoryBro, EffectTypes.ExitDialog).
+            AddChoice(TrainMe, EffectTypes.TrainEnergy)
     End Sub
 
 End Module

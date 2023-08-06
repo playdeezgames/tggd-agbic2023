@@ -127,6 +127,7 @@
             Return
         End If
         msg.AddLine(LightGray, "I can teach you these things:")
+        msg.AddChoice("Good to know!", EffectTypes.ExitDialog)
         If canLearnForaging Then
             msg.AddChoice(
                 "Foraging(-1AP)",

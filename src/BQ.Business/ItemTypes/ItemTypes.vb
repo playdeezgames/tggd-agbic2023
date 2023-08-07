@@ -15,6 +15,7 @@ Friend Module ItemTypes
     Friend Const Torch = "Torch"
     Friend Const Charcoal = "Charcoal"
     Friend Const CookedRat = "CookedRat"
+    Friend Const Pepper = "Pepper"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, ItemTypeDescriptor) =
         New Dictionary(Of String, ItemTypeDescriptor) From
         {
@@ -24,6 +25,7 @@ Friend Module ItemTypes
             {CookedRat, New CookedRatDescriptor()},
             {RatCorpse, New RatCorpseDescriptor()},
             {Rock, New ItemTypeDescriptor("Rock", ChrW(&H30), LightGray)},
+            {Pepper, New ItemTypeDescriptor("Pepper", ChrW(&H39), Red)},
             {SharpRock, New SharpRockDescriptor()},
             {Twine, New ItemTypeDescriptor("Twine", ChrW(&H21), Tan)},
             {Torch, New ItemTypeDescriptor("Torch", ChrW(&H34), Red)},

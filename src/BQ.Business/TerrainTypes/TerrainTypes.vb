@@ -40,6 +40,7 @@ Friend Module TerrainTypes
     Friend Const StairsUp = "StairsUp"
     Friend Const StairsDown = "StairsDown"
     Friend Const CookingFire = "CookingFire"
+    Friend Const Farm = "Farm"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, TerrainTypeDescriptor) =
         New Dictionary(Of String, TerrainTypeDescriptor) From
         {
@@ -52,6 +53,7 @@ Friend Module TerrainTypes
             {Tree, New TreeDescriptor()},
             {DepletedTree, New DepletedTreeDescriptor()},
             {Empty, New EmptyTerrainDescriptor()},
+            {Farm, New FarmDescriptor()},
             {Wall, New TerrainTypeDescriptor("Wall", ChrW(3), Hue.LightGray, False)},
             {Gravel, New TerrainTypeDescriptor("Gravel", ChrW(6), Hue.DarkGray, True)},
             {Fence, New TerrainTypeDescriptor("Fence", ChrW(5), Hue.Brown, False)},

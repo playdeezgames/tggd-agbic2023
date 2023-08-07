@@ -21,7 +21,8 @@ Module WildernessInitializer
         {
             {TerrainTypes.Empty, 10},
             {TerrainTypes.Grass, 5},
-            {TerrainTypes.Tree, 15}
+            {TerrainTypes.Tree, 15},
+            {TerrainTypes.Farm, 1}
         }
     Friend Sub Initialize(map As IMap)
         map.SetFlag(FlagTypes.CampingAllowed, True)

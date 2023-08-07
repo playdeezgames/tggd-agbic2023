@@ -20,6 +20,18 @@ Friend Class TreeDescriptor
                         {String.Empty, 75},
                         {ItemTypes.Stick, 100},
                         {ItemTypes.Rock, 25}
+                    },
+                    peril:=1,
+                    creatureTypeGenerator:=New Dictionary(Of String, Integer) From
+                    {
+                        {
+                            CharacterTypes.OliveGlop,
+                            75
+                        },
+                        {
+                            CharacterTypes.CherryGlop,
+                            25
+                        }
                     })
     End Sub
 

@@ -7,7 +7,8 @@
             ChrW(&HA),
             Business.Hue.Brown,
             True,
-            cellInitializer:=AddressOf InitializeDepletedTree)
+            cellInitializer:=AddressOf InitializeDepletedTree,
+            peril:=1)
     End Sub
 
     Private Shared Sub InitializeDepletedTree(cell As ICell)

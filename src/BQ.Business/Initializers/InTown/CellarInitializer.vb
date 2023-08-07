@@ -13,7 +13,7 @@
         Dim stairsCell = map.GetCell(1, map.Rows - 2)
         stairsCell.TerrainType = TerrainTypes.StairsUp
         stairsCell.Effect = map.CreateEffect().SetEffectType(EffectTypes.Teleport)
-        For Each cell In map.Cells.Where(Function(x) x.TerrainType = TerrainTypes.Empty)
+        For Each cell In map.Cells.Where(Function(x) x.TerrainType = TerrainTypes.CellarFloor)
             cell.Statistic(StatisticTypes.Peril) = 1
         Next
     End Sub

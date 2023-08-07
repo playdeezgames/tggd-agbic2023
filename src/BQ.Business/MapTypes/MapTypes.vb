@@ -76,7 +76,7 @@ Friend Module MapTypes
                 Cellar,
                 New MapTypeDescriptor(
                     (CellarColumns, CellarRows),
-                    TerrainTypes.Empty,
+                    TerrainTypes.CellarFloor,
                     customInitializer:=AddressOf CellarInitializer.Initialize,
                     encounterGenerator:=New Dictionary(Of String, Integer) From
                     {

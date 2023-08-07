@@ -31,10 +31,7 @@
     End Sub
 
     Protected Overrides Function InitializeMenuItems() As List(Of (String, String))
-        Dim result = New List(Of (String, String)) From
-            {
-                (Constants.StatisticsText, Constants.StatisticsText)
-            }
+        Dim result = New List(Of (String, String))
         If Model.Map.HasItems((0, 0)) Then
             result.Add((GroundText, GroundText))
         End If
@@ -62,6 +59,7 @@
         If Model.Avatar.CanMakeTorch Then
             result.Add((MakeTorchText, MakeTorchText))
         End If
+        result.Add((StatisticsText, StatisticsText))
         Return result
     End Function
 End Class

@@ -30,36 +30,26 @@
         End Select
     End Sub
 
+    Private ReadOnly actionConditions As IReadOnlyList(Of (text As String, condition As Func(Of IWorldModel, Boolean))) =
+        New List(Of (String, Func(Of IWorldModel, Boolean))) From
+        {
+            (GroundText, Function(m) m.Map.HasItems((0, 0))),
+            (InventoryText, Function(m) m.Avatar.HasItems),
+            (EquipmentText, Function(m) m.Avatar.HasEquipment),
+            (SleepText, Function(m) m.Avatar.CanSleep),
+            (ForageText, Function(m) m.Avatar.CanForage),
+            (MakeTwineText, Function(m) m.Avatar.CanMakeTwine),
+            (BuildFireText, Function(m) m.Avatar.CanBuildFire),
+            (PutOutFireText, Function(m) m.Avatar.CanPutOutFire),
+            (MakeTorchText, Function(m) m.Avatar.CanMakeTorch),
+            (StatisticsText, Function(m) True)
+        }
+
+
     Protected Overrides Function InitializeMenuItems() As List(Of (String, String))
-        Dim result = New List(Of (String, String))
-        If Model.Map.HasItems((0, 0)) Then
-            result.Add((GroundText, GroundText))
-        End If
-        If Model.Avatar.HasItems Then
-            result.Add((InventoryText, InventoryText))
-        End If
-        If Model.Avatar.HasEquipment Then
-            result.Add((EquipmentText, EquipmentText))
-        End If
-        If Model.Avatar.CanSleep Then
-            result.Add((SleepText, SleepText))
-        End If
-        If Model.Avatar.CanForage Then
-            result.Add((ForageText, ForageText))
-        End If
-        If Model.Avatar.CanMakeTwine Then
-            result.Add((MakeTwineText, MakeTwineText))
-        End If
-        If Model.Avatar.CanBuildFire Then
-            result.Add((BuildFireText, BuildFireText))
-        End If
-        If Model.Avatar.CanPutOutFire Then
-            result.Add((PutOutFireText, PutOutFireText))
-        End If
-        If Model.Avatar.CanMakeTorch Then
-            result.Add((MakeTorchText, MakeTorchText))
-        End If
-        result.Add((StatisticsText, StatisticsText))
-        Return result
+        Return actionConditions.
+            Where(Function(x) x.condition(Model)).
+            Select(Function(x) (x.text, x.text)).
+            ToList
     End Function
 End Class

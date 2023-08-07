@@ -54,4 +54,43 @@
         character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.RatBody))
         character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.RatTail))
     End Sub
+
+    Friend Sub DoCookRatBody(character As ICharacter, effect As IEffect)
+        Dim recipeType = RecipeTypes.CookedRatBody
+        Dim taskName = "cook a rat body"
+        Dim resultName = "cooks a rat body"
+        If Not character.Cell.Descriptor.HasFire Then
+            character.World.CreateMessage().
+                AddLine(LightGray, $"{character.Name} needs a fire to {taskName}.")
+            Return
+        End If
+        DoRecipe(character, recipeType, taskName, resultName)
+    End Sub
+
+    Friend Sub DoCookRatCorpse(character As ICharacter, effect As IEffect)
+        Dim recipeType = RecipeTypes.CookedRatCorpse
+        Dim taskName = "cook a rat corpse"
+        Dim resultName = "cooks a rat corpse"
+        If Not character.Cell.Descriptor.HasFire Then
+            character.World.CreateMessage().
+                AddLine(LightGray, $"{character.Name} needs a fire to {taskName}.")
+            Return
+        End If
+        DoRecipe(character, recipeType, taskName, resultName)
+    End Sub
+
+    Private Sub DoRecipe(character As ICharacter, recipeType As String, taskName As String, resultName As String)
+        If Not RecipeTypes.CanCraft(recipeType, character) Then
+            Dim msg = character.World.CreateMessage().
+                AddLine(LightGray, $"To {taskName},").
+                AddLine(LightGray, $"{character.Name} needs:")
+            For Each input In RecipeTypes.Inputs(recipeType)
+                msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+            Next
+            Return
+        End If
+        RecipeTypes.Craft(recipeType, character)
+        character.World.CreateMessage().
+                AddLine(LightGray, $"{character.Name} {resultName}.")
+    End Sub
 End Module

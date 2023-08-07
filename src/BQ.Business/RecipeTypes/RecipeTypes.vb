@@ -4,6 +4,8 @@
     Friend Const CookingFire = "CookingFire"
     Friend Const Torch = "Torch"
     Friend Const Foraging = "Foraging"
+    Friend Const CookedRatBody = "CookedRatBody"
+    Friend Const CookedRatCorpse = "CookedRatCorpse"
     Private ReadOnly Descriptors As IReadOnlyDictionary(Of String, RecipeDescriptor) =
         New Dictionary(Of String, RecipeDescriptor) From
         {
@@ -18,6 +20,36 @@
                     New Dictionary(Of String, Integer) From
                     {
                         {ItemTypes.Twine, 1}
+                    })
+            },
+            {
+                CookedRatBody,
+                New RecipeDescriptor(
+                    "Cooked Rat Body",
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.RatBody, 1},
+                        {ItemTypes.Stick, 2}
+                    },
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.CookedRat, 1},
+                        {ItemTypes.Stick, 1}
+                    })
+            },
+            {
+                CookedRatCorpse,
+                New RecipeDescriptor(
+                    "Cooked Rat Corpse",
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.RatCorpse, 1},
+                        {ItemTypes.Stick, 2}
+                    },
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.CookedRat, 1},
+                        {ItemTypes.Stick, 1}
                     })
             },
             {

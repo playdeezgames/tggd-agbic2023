@@ -4,6 +4,8 @@ Friend Module EffectTypes
     Friend Const BuildFire = "BuildFire"
     Friend Const Buy = "Buy"
     Friend Const CompleteRatQuest = "CompleteRatQuest"
+    Friend Const CookRatBody = "CookRatBody"
+    Friend Const CookRatCorpse = "CookRatCorpse"
     Friend Const DruidAllergies = "DruidAllergies"
     Friend Const DruidPrices = "DruidPrices"
     Friend Const DruidTalk = "DruidTalk"
@@ -71,7 +73,9 @@ Friend Module EffectTypes
             {EatRatCorpse, New EffectTypeDescriptor("Eat")},
             {BuildFire, New EffectTypeDescriptor("Build Fire")},
             {MakeTorch, New EffectTypeDescriptor("Make Torch")},
-            {PutOutFire, New EffectTypeDescriptor("Put Out Fire")}
+            {PutOutFire, New EffectTypeDescriptor("Put Out Fire")},
+            {CookRatBody, New EffectTypeDescriptor("Cook")},
+            {CookRatCorpse, New EffectTypeDescriptor("Cook")}
         }
     <Extension>
     Friend Function ToEffectTypeDescriptor(verbType As String) As EffectTypeDescriptor

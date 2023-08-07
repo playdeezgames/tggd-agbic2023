@@ -39,10 +39,10 @@ Friend Module LoxyEffectHandlers
                         {EffectTypes.BuildFire, AddressOf DoCraftFire},
                         {EffectTypes.LearnFireMaking, AddressOf DoLearnSkill},
                         {EffectTypes.LearnTorchMaking, AddressOf DoLearnSkill},
-                        {EffectTypes.MakeTorch, AddressOf CraftingEffectHandlers.DoMakeTorch}
+                        {EffectTypes.MakeTorch, AddressOf CraftingEffectHandlers.DoMakeTorch},
+                        {EffectTypes.CookRatBody, AddressOf DoCookRatBody},
+                        {EffectTypes.CookRatCorpse, AddressOf DoCookRatCorpse}
                     }
-
-
 
     Friend Function ConsumeEnergy(character As ICharacter, energyCost As Integer, actionName As String) As Boolean
         If character.Energy < energyCost Then

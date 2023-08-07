@@ -41,7 +41,8 @@ Friend Module LoxyEffectHandlers
                         {EffectTypes.LearnTorchMaking, AddressOf DoLearnSkill},
                         {EffectTypes.MakeTorch, AddressOf CraftingEffectHandlers.DoMakeTorch},
                         {EffectTypes.CookRatBody, AddressOf DoCookRatBody},
-                        {EffectTypes.CookRatCorpse, AddressOf DoCookRatCorpse}
+                        {EffectTypes.CookRatCorpse, AddressOf DoCookRatCorpse},
+                        {EffectTypes.EatCookedRat, AddressOf DoEatCookedRat}
                     }
 
     Friend Function ConsumeEnergy(character As ICharacter, energyCost As Integer, actionName As String) As Boolean

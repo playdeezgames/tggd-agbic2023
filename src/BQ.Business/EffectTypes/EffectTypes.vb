@@ -37,6 +37,7 @@ Friend Module EffectTypes
     Friend Const UseEnergyHerb = "UseEnergyHerb"
     Friend Const CutOffTail = "CutOffTail"
     Friend Const EatRatCorpse = "EatRatCorpse"
+    Friend Const EatCookedRat = "EatCookedRat"
     Friend Const MakeTorch = "MakeTorch"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, EffectTypeDescriptor) =
         New Dictionary(Of String, EffectTypeDescriptor) From
@@ -71,6 +72,7 @@ Friend Module EffectTypes
             {UseEnergyHerb, New EffectTypeDescriptor("Use")},
             {CutOffTail, New EffectTypeDescriptor("Cut Off Tail")},
             {EatRatCorpse, New EffectTypeDescriptor("Eat")},
+            {EatCookedRat, New EffectTypeDescriptor("Eat")},
             {BuildFire, New EffectTypeDescriptor("Build Fire")},
             {MakeTorch, New EffectTypeDescriptor("Make Torch")},
             {PutOutFire, New EffectTypeDescriptor("Put Out Fire")},

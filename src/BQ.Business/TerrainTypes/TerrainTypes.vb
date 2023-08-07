@@ -50,11 +50,7 @@ Friend Module TerrainTypes
                     Business.Hue.Brown,
                     True)},
             {Tree, New TreeDescriptor()},
-            {DepletedTree, New TerrainTypeDescriptor(
-                    "Tree",
-                    ChrW(&HA),
-                    Business.Hue.Brown,
-                    True)},
+            {DepletedTree, New DepletedTreeDescriptor()},
             {Empty, New EmptyTerrainDescriptor()},
             {Wall, New TerrainTypeDescriptor("Wall", ChrW(3), Hue.LightGray, False)},
             {Gravel, New TerrainTypeDescriptor("Gravel", ChrW(6), Hue.DarkGray, True)},

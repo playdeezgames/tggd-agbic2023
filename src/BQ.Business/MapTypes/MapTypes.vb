@@ -31,18 +31,7 @@ Friend Module MapTypes
                 New MapTypeDescriptor(
                     (WildernessColumns, WildernessRows),
                     TerrainTypes.Grass,
-                    customInitializer:=AddressOf WildernessInitializer.Initialize,
-                    encounterGenerator:=New Dictionary(Of String, Integer) From
-                    {
-                        {
-                            CharacterTypes.OliveGlop,
-                            75
-                        },
-                        {
-                            CharacterTypes.CherryGlop,
-                            25
-                        }
-                    })
+                    customInitializer:=AddressOf WildernessInitializer.Initialize)
             },
             {
                 Healer,
@@ -77,11 +66,7 @@ Friend Module MapTypes
                 New MapTypeDescriptor(
                     (CellarColumns, CellarRows),
                     TerrainTypes.CellarFloor,
-                    customInitializer:=AddressOf CellarInitializer.Initialize,
-                    encounterGenerator:=New Dictionary(Of String, Integer) From
-                    {
-                        {CharacterTypes.Rat, 1}
-                    })
+                    customInitializer:=AddressOf CellarInitializer.Initialize)
             },
             {
                 EnergyTrainer,

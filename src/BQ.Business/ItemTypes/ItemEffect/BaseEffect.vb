@@ -8,13 +8,10 @@
         Me.EffectType = effectType
     End Sub
 
-    Public Property Statistic(statisticType As String) As Integer Implements IStatisticsHolder.Statistic
+    Public ReadOnly Property Statistic(statisticType As String) As Integer Implements IStatisticsHolder.Statistic
         Get
             Return data.Statistics(statisticType)
         End Get
-        Set(value As Integer)
-            data.Statistics(statisticType) = value
-        End Set
     End Property
 
     Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
@@ -49,8 +46,12 @@
         Data.Metadata.Remove(identifier)
     End Sub
 
+    Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
+        data.Statistics(statisticType) = value
+    End Sub
+
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
-        Return Data.Statistics.ContainsKey(statisticType)
+        Return data.Statistics.ContainsKey(statisticType)
     End Function
 
     Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
@@ -59,5 +60,10 @@
 
     Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic
         Return If(HasStatistic(statisticType), Statistic(statisticType), defaultValue)
+    End Function
+
+    Public Function AddStatistic(statisticType As String, delta As Integer) As Integer Implements IStatisticsHolder.AddStatistic
+        SetStatistic(statisticType, Statistic(statisticType) + delta)
+        Return Statistic(statisticType)
     End Function
 End Class

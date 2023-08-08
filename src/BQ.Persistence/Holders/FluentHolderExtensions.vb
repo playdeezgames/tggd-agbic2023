@@ -7,8 +7,8 @@ Public Module FluentHolderExtensions
         Return holder
     End Function
     <Extension>
-    Public Function SetStatistic(Of THolder As IStatisticsHolder)(holder As THolder, statisticType As String, value As Integer) As THolder
-        holder.Statistic(statisticType) = value
+    Public Function SetStatisticTo(Of THolder As IStatisticsHolder)(holder As THolder, statisticType As String, value As Integer) As THolder
+        holder.SetStatistic(statisticType, value)
         Return holder
     End Function
     <Extension>

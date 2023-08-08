@@ -27,6 +27,6 @@
     End Sub
 
     Private Shared Sub InitializeFarm(cell As ICell)
-        cell.Statistic(StatisticTypes.ForageRemaining) = 30
+        cell.SetStatistic(StatisticTypes.ForageRemaining, 30)
     End Sub
 End Class

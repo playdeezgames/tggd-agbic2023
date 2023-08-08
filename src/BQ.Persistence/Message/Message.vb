@@ -47,13 +47,10 @@ Friend Class Message
         End Get
     End Property
 
-    Public Property Statistic(statisticType As String) As Integer Implements IStatisticsHolder.Statistic
+    Public ReadOnly Property Statistic(statisticType As String) As Integer Implements IStatisticsHolder.Statistic
         Get
             Return MessageData.Statistics(statisticType)
         End Get
-        Set(value As Integer)
-            MessageData.Statistics(statisticType) = value
-        End Set
     End Property
 
     Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
@@ -128,5 +125,14 @@ Friend Class Message
 
     Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic
         Return If(HasStatistic(statisticType), Statistic(statisticType), defaultValue)
+    End Function
+
+    Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
+        MessageData.Statistics(statisticType) = value
+    End Sub
+
+    Public Function AddStatistic(statisticType As String, delta As Integer) As Integer Implements IStatisticsHolder.AddStatistic
+        SetStatistic(statisticType, Statistic(statisticType) + delta)
+        Return Statistic(statisticType)
     End Function
 End Class

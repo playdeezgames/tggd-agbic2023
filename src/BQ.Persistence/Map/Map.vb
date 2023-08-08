@@ -36,13 +36,10 @@
         End Get
     End Property
 
-    Public Property Statistic(statisticType As String) As Integer Implements IStatisticsHolder.Statistic
+    Public ReadOnly Property Statistic(statisticType As String) As Integer Implements IStatisticsHolder.Statistic
         Get
             Return MapData.Statistics(statisticType)
         End Get
-        Set(value As Integer)
-            MapData.Statistics(statisticType) = value
-        End Set
     End Property
 
     Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
@@ -75,6 +72,10 @@
         MapData.Metadata.Remove(identifier)
     End Sub
 
+    Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
+        MapData.Statistics(statisticType) = value
+    End Sub
+
     Public Function GetCell(column As Integer, row As Integer) As ICell Implements IMap.GetCell
         If column < 0 OrElse row < 0 OrElse column >= Columns OrElse row >= Rows Then
             Return Nothing
@@ -97,5 +98,10 @@
 
     Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic
         Return If(HasStatistic(statisticType), Statistic(statisticType), defaultValue)
+    End Function
+
+    Public Function AddStatistic(statisticType As String, delta As Integer) As Integer Implements IStatisticsHolder.AddStatistic
+        SetStatistic(statisticType, Statistic(statisticType) + delta)
+        Return Statistic(statisticType)
     End Function
 End Class

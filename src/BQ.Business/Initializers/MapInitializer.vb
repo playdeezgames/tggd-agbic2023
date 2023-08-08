@@ -67,7 +67,7 @@ Friend Module MapInitializer
         Dim descriptor = character.Descriptor
         With character
             For Each entry In descriptor.Statistics
-                .Statistic(entry.Key) = entry.Value
+                .SetStatistic(entry.Key, entry.Value)
             Next
         End With
         descriptor.Initializer.Invoke(character)

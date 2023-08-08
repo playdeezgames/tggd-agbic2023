@@ -66,13 +66,10 @@ Public Class World
         End Get
     End Property
 
-    Public Property Statistic(statisticType As String) As Integer Implements IStatisticsHolder.Statistic
+    Public ReadOnly Property Statistic(statisticType As String) As Integer Implements IStatisticsHolder.Statistic
         Get
             Return WorldData.Statistics(statisticType)
         End Get
-        Set(value As Integer)
-            WorldData.Statistics(statisticType) = value
-        End Set
     End Property
 
     Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
@@ -113,6 +110,10 @@ Public Class World
 
     Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
         WorldData.Metadata.Remove(identifier)
+    End Sub
+
+    Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
+        WorldData.Statistics(statisticType) = value
     End Sub
 
     Public Shared Function Load(filename As String) As IWorld
@@ -193,5 +194,10 @@ Public Class World
 
     Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic
         Return If(HasStatistic(statisticType), Statistic(statisticType), defaultValue)
+    End Function
+
+    Public Function AddStatistic(statisticType As String, delta As Integer) As Integer Implements IStatisticsHolder.AddStatistic
+        SetStatistic(statisticType, Statistic(statisticType) + delta)
+        Return Statistic(statisticType)
     End Function
 End Class

@@ -25,7 +25,7 @@
                             EffectTypes.Buy,
                             Sub(c) c.
                                 SetMetadata(Metadatas.ItemType, ItemTypes.EnergyHerb).
-                                SetStatistic(StatisticTypes.Price, 5).
+                                SetStatisticTo(StatisticTypes.Price, 5).
                                 SetMetadata(Metadatas.EffectType, EffectTypes.DruidPrices))
     End Sub
 
@@ -98,7 +98,7 @@
                 EffectTypes.LearnForaging,
                 Sub(choice)
                     choice.
-                        SetStatistic(StatisticTypes.AdvancementPoints, 1).
+                        SetStatisticTo(StatisticTypes.AdvancementPoints, 1).
                         SetMetadata(Metadatas.FlagType, FlagTypes.KnowsForaging).
                         SetMetadata(Metadatas.TaskName, "forage").
                         SetMetadata(Metadatas.ActionName, "Forage...").
@@ -111,7 +111,7 @@
                 EffectTypes.LearnTwineMaking,
                 Sub(choice)
                     choice.
-                        SetStatistic(StatisticTypes.AdvancementPoints, 1).
+                        SetStatisticTo(StatisticTypes.AdvancementPoints, 1).
                         SetMetadata(Metadatas.FlagType, FlagTypes.KnowsTwineMaking).
                         SetMetadata(Metadatas.TaskName, "make twine").
                         SetMetadata(Metadatas.ActionName, "Make Twine").
@@ -125,7 +125,7 @@
                 EffectTypes.LearnKnapping,
                 Sub(choice)
                     choice.
-                        SetStatistic(StatisticTypes.AdvancementPoints, 1).
+                        SetStatisticTo(StatisticTypes.AdvancementPoints, 1).
                         SetMetadata(Metadatas.FlagType, FlagTypes.KnowsKnapping).
                         SetMetadata(Metadatas.TaskName, "knap").
                         SetMetadata(Metadatas.ActionName, "Knap").
@@ -139,7 +139,7 @@
                 EffectTypes.LearnFireMaking,
                 Sub(choice)
                     choice.
-                        SetStatistic(StatisticTypes.AdvancementPoints, 1).
+                        SetStatisticTo(StatisticTypes.AdvancementPoints, 1).
                         SetMetadata(Metadatas.FlagType, FlagTypes.KnowsFireMaking).
                         SetMetadata(Metadatas.TaskName, "make a fire").
                         SetMetadata(Metadatas.ActionName, "Build Fire").
@@ -154,7 +154,7 @@
                 EffectTypes.LearnTorchMaking,
                 Sub(choice)
                     choice.
-                        SetStatistic(StatisticTypes.AdvancementPoints, 1).
+                        SetStatisticTo(StatisticTypes.AdvancementPoints, 1).
                         SetMetadata(Metadatas.FlagType, FlagTypes.KnowsTorchMaking).
                         SetMetadata(Metadatas.TaskName, "make a torch").
                         SetMetadata(Metadatas.ActionName, "Make Torch").
@@ -169,7 +169,7 @@
                 EffectTypes.LearnHatchedMaking,
                 Sub(choice)
                     choice.
-                        SetStatistic(StatisticTypes.AdvancementPoints, 1).
+                        SetStatisticTo(StatisticTypes.AdvancementPoints, 1).
                         SetMetadata(Metadatas.FlagType, FlagTypes.KnowsHatchetMaking).
                         SetMetadata(Metadatas.TaskName, "make a hatchet").
                         SetMetadata(Metadatas.ActionName, "Make Hatchet").

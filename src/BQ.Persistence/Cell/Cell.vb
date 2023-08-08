@@ -66,13 +66,10 @@ Friend Class Cell
         End Get
     End Property
 
-    Public Property Statistic(statisticType As String) As Integer Implements ICell.Statistic
+    Public ReadOnly Property Statistic(statisticType As String) As Integer Implements ICell.Statistic
         Get
             Return CellData.Statistics(statisticType)
         End Get
-        Set(value As Integer)
-            CellData.Statistics(statisticType) = value
-        End Set
     End Property
 
     Public ReadOnly Property HasEffect As Boolean Implements ICell.HasEffect
@@ -168,12 +165,21 @@ Friend Class Cell
         CellData.Metadata.Remove(identifier)
     End Sub
 
+    Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
+        CellData.Statistics(statisticType) = value
+    End Sub
+
     Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
         Return CellData.Metadata.ContainsKey(identifier)
     End Function
 
     Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic
         Return If(HasStatistic(statisticType), Statistic(statisticType), defaultValue)
+    End Function
+
+    Public Function AddStatistic(statisticType As String, delta As Integer) As Integer Implements IStatisticsHolder.AddStatistic
+        SetStatistic(statisticType, Statistic(statisticType) + delta)
+        Return Statistic(statisticType)
     End Function
 
     Private Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic

@@ -23,6 +23,6 @@ Friend Class GrassDescriptor
     End Sub
 
     Private Shared Sub InitializeGrass(cell As ICell)
-        cell.Statistic(StatisticTypes.ForageRemaining) = 20
+        cell.SetStatistic(StatisticTypes.ForageRemaining, 20)
     End Sub
 End Class

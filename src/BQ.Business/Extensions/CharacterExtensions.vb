@@ -154,7 +154,7 @@ Friend Module CharacterExtensions
     End Sub
     <Extension>
     Private Sub SetPeril(character As ICharacter, peril As Integer)
-        character.Statistic(StatisticTypes.Peril) = Math.Max(0, peril)
+        character.SetStatistic(StatisticTypes.Peril, Math.Max(0, peril))
     End Sub
     <Extension>
     Private Function Peril(character As ICharacter) As Integer
@@ -166,7 +166,7 @@ Friend Module CharacterExtensions
     End Function
     <Extension>
     Friend Sub AddEnergy(character As ICharacter, delta As Integer)
-        character.Statistic(StatisticTypes.Energy) = Math.Clamp(character.Energy + delta, 0, character.MaximumEnergy)
+        character.SetStatistic(StatisticTypes.Energy, Math.Clamp(character.Energy + delta, 0, character.MaximumEnergy))
     End Sub
     <Extension>
     Friend Function MaximumEnergy(character As ICharacter) As Integer
@@ -174,7 +174,7 @@ Friend Module CharacterExtensions
     End Function
     <Extension>
     Friend Sub SetMaximumEnergy(character As ICharacter, maximumEnergy As Integer)
-        character.Statistic(StatisticTypes.MaximumEnergy) = maximumEnergy
+        character.SetStatistic(StatisticTypes.MaximumEnergy, maximumEnergy)
     End Sub
     <Extension>
     Friend Function Health(character As ICharacter) As Integer
@@ -210,11 +210,11 @@ Friend Module CharacterExtensions
     End Function
     <Extension>
     Friend Sub SetHealth(character As ICharacter, health As Integer)
-        character.Statistic(StatisticTypes.Health) = Math.Clamp(health, 0, character.MaximumHealth)
+        character.SetStatistic(StatisticTypes.Health, Math.Clamp(health, 0, character.MaximumHealth))
     End Sub
     <Extension>
     Friend Sub SetMaximumHealth(character As ICharacter, maximumHealth As Integer)
-        character.Statistic(StatisticTypes.MaximumHealth) = Math.Max(1, maximumHealth)
+        character.SetStatistic(StatisticTypes.MaximumHealth, Math.Max(1, maximumHealth))
         character.SetHealth(character.Health)
     End Sub
     <Extension>
@@ -243,16 +243,16 @@ Friend Module CharacterExtensions
     End Function
     <Extension>
     Friend Sub AddAdvancementPoints(character As ICharacter, advancementPoints As Integer)
-        character.Statistic(StatisticTypes.AdvancementPoints) = Math.Max(0, character.TryGetStatistic(StatisticTypes.AdvancementPoints) + advancementPoints)
+        character.SetStatistic(StatisticTypes.AdvancementPoints, Math.Max(0, character.TryGetStatistic(StatisticTypes.AdvancementPoints) + advancementPoints))
     End Sub
     <Extension>
     Private Function AddXP(character As ICharacter, xp As Integer) As Boolean
-        character.Statistic(StatisticTypes.XP) += xp
+        character.AddStatistic(StatisticTypes.XP, xp)
         If character.XP >= character.XPGoal Then
             character.AddAdvancementPoints(character.AdvancementPointsPerLevel)
-            character.Statistic(StatisticTypes.XPLevel) += 1
+            character.AddStatistic(StatisticTypes.XPLevel, 1)
             Dim currentGoal = character.XPGoal
-            character.Statistic(StatisticTypes.XPGoal) *= 2
+            character.AddStatistic(StatisticTypes.XPGoal, character.Statistic(StatisticTypes.XPGoal))
             character.AddXP(-currentGoal)
             Return True
         End If
@@ -268,7 +268,7 @@ Friend Module CharacterExtensions
     End Function
     <Extension>
     Friend Sub SetJools(character As ICharacter, jools As Integer)
-        character.Statistic(StatisticTypes.Jools) = Math.Max(0, jools)
+        character.SetStatistic(StatisticTypes.Jools, Math.Max(0, jools))
     End Sub
     <Extension>
     Private Sub AwardJools(toCharacter As ICharacter, msg As IMessage, jools As Integer)

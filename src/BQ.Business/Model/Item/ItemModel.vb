@@ -21,7 +21,7 @@
             Return world.Avatar.TryGetStatistic(StatisticTypes.ItemCount)
         End Get
         Set(value As Integer)
-            world.Avatar.Statistic(StatisticTypes.ItemCount) = value
+            world.Avatar.SetStatistic(StatisticTypes.ItemCount, value)
         End Set
     End Property
 

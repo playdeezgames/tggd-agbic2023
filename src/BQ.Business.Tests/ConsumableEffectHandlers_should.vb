@@ -26,12 +26,12 @@ Public Class ConsumableEffectHandlers_should
         character.Verify(Function(x) x.TryGetStatistic(StatisticTypes.MaximumHealth, 0))
         character.VerifyGet(Function(x) x.CharacterType)
         character.VerifyGet(Function(x) x.World)
+        character.Verify(Sub(x) x.SetStatistic(StatisticTypes.Health, It.IsAny(Of Integer)))
 
         message.VerifyNoOtherCalls()
         item.VerifyNoOtherCalls()
         world.VerifyNoOtherCalls()
         effect.VerifyNoOtherCalls()
-
-        character.Invocations.Where(Function(x) Not x.IsVerified).Count.ShouldBe(1)
+        character.VerifyNoOtherCalls()
     End Sub
 End Class

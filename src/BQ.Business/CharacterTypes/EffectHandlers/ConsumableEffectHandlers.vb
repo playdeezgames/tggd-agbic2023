@@ -1,7 +1,7 @@
 ﻿Friend Module ConsumableEffectHandlers
     Friend Sub DoEatRatCorpse(character As ICharacter, effect As IEffect)
         Dim item As IItem = ConsumedItem(character, effect)
-        If RNG.GenerateBoolean(50, 50) Then
+        If RNG.GenerateBoolean(0, 50) Then
             DoHealing(character, item, 1)
         Else
             character.SetHealth(character.Health - 1)

@@ -1,6 +1,4 @@
-﻿Imports SPLORR.Game
-
-Friend Module ConsumableEffectHandlers
+﻿Friend Module ConsumableEffectHandlers
     Friend Sub DoEatRatCorpse(character As ICharacter, effect As IEffect)
         Dim item As IItem = ConsumedItem(character, effect)
         If RNG.GenerateBoolean(50, 50) Then

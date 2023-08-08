@@ -41,6 +41,7 @@ Friend Module LoxyEffectHandlers
                         {EffectTypes.LearnTorchMaking, AddressOf DoLearnSkill},
                         {EffectTypes.LearnHatchedMaking, AddressOf DoLearnSkill},
                         {EffectTypes.MakeTorch, AddressOf CraftingEffectHandlers.DoMakeTorch},
+                        {EffectTypes.MakeHatchet, AddressOf CraftingEffectHandlers.DoMakeHatchet},
                         {EffectTypes.CookRatBody, AddressOf DoCookRatBody},
                         {EffectTypes.CookRatCorpse, AddressOf DoCookRatCorpse},
                         {EffectTypes.EatCookedRat, AddressOf DoEatCookedRat}

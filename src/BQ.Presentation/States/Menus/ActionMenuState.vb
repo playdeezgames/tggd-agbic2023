@@ -27,6 +27,10 @@
                 SetState(GameState.PutOutFire)
             Case Constants.MakeTorchText
                 SetState(GameState.MakeTorch)
+            Case Constants.MakeHatchetText
+                SetState(GameState.MakeHatchet)
+            Case Constants.KnapText
+                SetState(GameState.Knap)
         End Select
     End Sub
 
@@ -42,6 +46,8 @@
             (BuildFireText, Function(m) m.Avatar.CanBuildFire),
             (PutOutFireText, Function(m) m.Avatar.CanPutOutFire),
             (MakeTorchText, Function(m) m.Avatar.CanMakeTorch),
+            (KnapText, Function(m) m.Avatar.CanKnap),
+            (MakeHatchetText, Function(m) m.Avatar.CanMakeHatchet),
             (StatisticsText, Function(m) True)
         }
 

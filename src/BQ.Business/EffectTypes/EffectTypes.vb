@@ -40,6 +40,7 @@ Friend Module EffectTypes
     Friend Const EatRatCorpse = "EatRatCorpse"
     Friend Const EatCookedRat = "EatCookedRat"
     Friend Const MakeTorch = "MakeTorch"
+    Friend Const MakeHatchet = "MakeHatchet"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, EffectTypeDescriptor) =
         New Dictionary(Of String, EffectTypeDescriptor) From
         {

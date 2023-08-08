@@ -7,7 +7,7 @@
             Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"To make a torch,").
                 AddLine(LightGray, $"{character.Name} needs:")
-            For Each input In RecipeTypes.Inputs(RecipeTypes.CookingFire)
+            For Each input In RecipeTypes.Inputs(RecipeTypes.Torch)
                 msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next
             Return
@@ -77,6 +77,28 @@
             Return
         End If
         DoRecipe(character, recipeType, taskName, resultName)
+    End Sub
+
+    Friend Sub DoMakeHatchet(character As ICharacter, effect As IEffect)
+        If Not ConsumeEnergy(character, 1, "make a hatchet") Then
+            Return
+        End If
+        If Not RecipeTypes.CanCraft(RecipeTypes.Hatchet, character) Then
+            Dim msg = character.World.CreateMessage().
+                AddLine(LightGray, $"To make a hatchet,").
+                AddLine(LightGray, $"{character.Name} needs:")
+            AddRecipeInputs(character, msg, RecipeTypes.Hatchet)
+            Return
+        End If
+        RecipeTypes.Craft(RecipeTypes.Hatchet, character)
+        character.World.CreateMessage().
+                AddLine(LightGray, $"{character.Name} makes a hatchet.")
+    End Sub
+
+    Friend Sub AddRecipeInputs(character As ICharacter, msg As IMessage, recipeType As String)
+        For Each input In RecipeTypes.Inputs(recipeType)
+            msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+        Next
     End Sub
 
     Private Sub DoRecipe(character As ICharacter, recipeType As String, taskName As String, resultName As String)

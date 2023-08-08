@@ -146,6 +146,18 @@
         End Get
     End Property
 
+    Public ReadOnly Property CanMakeHatchet As Boolean Implements IAvatarModel.CanMakeHatchet
+        Get
+            Return avatar.Flag(FlagTypes.KnowsHatchetMaking)
+        End Get
+    End Property
+
+    Public ReadOnly Property CanKnap As Boolean Implements IAvatarModel.CanKnap
+        Get
+            Return avatar.Flag(FlagTypes.KnowsKnapping)
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub
@@ -186,5 +198,13 @@
 
     Public Sub MakeTorch() Implements IAvatarModel.MakeTorch
         avatar.DoMakeTorch()
+    End Sub
+
+    Public Sub MakeHatchet() Implements IAvatarModel.MakeHatchet
+        avatar.DoMakeHatchet()
+    End Sub
+
+    Public Sub Knap() Implements IAvatarModel.Knap
+        avatar.DoKnap()
     End Sub
 End Class

@@ -34,21 +34,39 @@ Friend Module CharacterExtensions
         character.Cell.Descriptor.DoEffect(character, EffectTypes.MakeTorch, character.Cell)
     End Sub
     <Extension>
+    Friend Sub DoMakeHatchet(character As ICharacter)
+        DoMakeItem(character, RecipeTypes.Hatchet, "a hatchet", AddressOf MakeHatchet)
+    End Sub
+
+    Private Sub DoMakeItem(character As ICharacter, recipeType As String, noun As String, makeAction As Action(Of ICharacter))
+        If Not RecipeTypes.CanCraft(recipeType, character) Then
+            Dim msg = character.World.CreateMessage.AddLine(LightGray, $"To make {noun},").AddLine(LightGray, $"{character.Name} needs:")
+            CraftingEffectHandlers.AddRecipeInputs(character, msg, recipeType)
+            Return
+        End If
+        makeAction.Invoke(character)
+        character.World.CreateMessage.AddLine(LightGray, $"{character.Name} makes {noun}.")
+    End Sub
+
+    <Extension>
     Friend Sub DoPutOutFire(character As ICharacter)
         character.Cell.Descriptor.DoEffect(character, EffectTypes.PutOutFire, character.Cell)
     End Sub
     <Extension>
+    Friend Sub DoKnap(character As ICharacter)
+        DoMakeItem(character, RecipeTypes.SharpRock, "a sharp rock", AddressOf Knap)
+    End Sub
+    <Extension>
     Friend Sub DoMakeTwine(character As ICharacter)
-        If Not RecipeTypes.CanCraft(RecipeTypes.Twine, character) Then
-            character.World.CreateMessage.AddLine(LightGray, $"{character.Name} needs 2 plant fiber, but has {character.ItemTypeCount(ItemTypes.PlantFiber)}!")
-            Return
-        End If
-        character.MakeTwine()
-        character.World.CreateMessage.AddLine(LightGray, $"{character.Name} makes twine.")
+        DoMakeItem(character, RecipeTypes.Twine, "twine", AddressOf MakeTwine)
     End Sub
     <Extension>
     Friend Sub MakeTwine(character As ICharacter)
         RecipeTypes.Craft(RecipeTypes.Twine, character)
+    End Sub
+    <Extension>
+    Friend Sub MakeHatchet(character As ICharacter)
+        RecipeTypes.Craft(RecipeTypes.Hatchet, character)
     End Sub
     <Extension>
     Friend Sub Knap(character As ICharacter)

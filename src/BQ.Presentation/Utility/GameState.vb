@@ -11,6 +11,8 @@
     Friend Const GroundDetail = "GroudDetail"
     Friend Const Inventory = "Inventory"
     Friend Const InventoryDetail = "InventoryDetail"
+    Friend Const Knap = "Knap"
+    Friend Const MakeHatchet = "MakeHatchet"
     Friend Const MakeTorch = "MakeTorch"
     Friend Const MakeTwine = "MakeTwine"
     Friend Const Message = "Message"

@@ -15,6 +15,8 @@
     Friend Const ForageText = "Forage..."
     Friend Const GroundText = "Ground..."
     Friend Const InventoryText = "Inventory"
+    Friend Const KnapText = "Knap"
+    Friend Const MakeHatchetText = "Make Hatchet"
     Friend Const MakeTorchText = "Make Torch"
     Friend Const MakeTwineText = "Make Twine"
     Friend Const PutOutFireText = "Put Out Fire"

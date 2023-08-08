@@ -35,6 +35,8 @@ Public Class GameController
         SetState(GameState.BuildFire, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Avatar.BuildFire(), BoilerplateState.Neutral))
         SetState(GameState.PutOutFire, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Avatar.PutOutFire(), BoilerplateState.Neutral))
         SetState(GameState.MakeTorch, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Avatar.MakeTorch(), BoilerplateState.Neutral))
+        SetState(GameState.Knap, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Avatar.Knap(), BoilerplateState.Neutral))
+        SetState(GameState.MakeHatchet, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Avatar.MakeHatchet(), BoilerplateState.Neutral))
     End Sub
 
     Private Sub SetBoilerplateStates(context As IUIContext(Of IWorldModel))

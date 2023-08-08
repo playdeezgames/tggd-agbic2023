@@ -40,4 +40,15 @@ Public Class CellExtensions_should
         subject.VerifyGet(Function(x) x.TerrainType)
         subject.VerifyNoOtherCalls()
     End Sub
+    <Theory>
+    <InlineData(TerrainTypes.Tree, 0, ItemTypes.Stick)>
+    <InlineData(TerrainTypes.Grass, 0, ItemTypes.PlantFiber)>
+    Public Sub generate_forage_appropriate_to_terrain_type(givenTerrainType As String, givenSeed As Integer, expectedItemType As String)
+        Dim random As New Random(givenSeed)
+        Dim subject = New Mock(Of ICell)
+        subject.SetupGet(Function(x) x.TerrainType).Returns(givenTerrainType)
+        CellExtensions.GenerateForageItemType(subject.Object, random).ShouldBe(expectedItemType)
+        subject.VerifyGet(Function(x) x.TerrainType)
+        subject.VerifyNoOtherCalls()
+    End Sub
 End Class

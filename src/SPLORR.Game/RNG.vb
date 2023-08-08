@@ -3,8 +3,8 @@
 Public Module RNG
     Private ReadOnly random As New Random
     Const Zero = 0
-    Function FromGenerator(Of TGenerated)(table As IReadOnlyDictionary(Of TGenerated, Integer)) As TGenerated
-        Dim generated = random.Next(table.Values.Sum)
+    Function FromGenerator(Of TGenerated)(table As IReadOnlyDictionary(Of TGenerated, Integer), Optional r As Random = Nothing) As TGenerated
+        Dim generated = If(r, random).Next(table.Values.Sum)
         For Each entry In table
             generated -= entry.Value
             If generated < Zero Then

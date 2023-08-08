@@ -1,0 +1,43 @@
+﻿Imports System.Security.Cryptography.X509Certificates
+Imports BQ.Persistence
+Imports Moq
+Imports Shouldly
+Imports Xunit
+
+Public Class CellExtensions_should
+    <Theory>
+    <InlineData(TerrainTypes.Empty, True)>
+    <InlineData(TerrainTypes.CookingFire, False)>
+    Public Sub indicate_when_cell_can_build_fire(givenTerrainType As String, expectedResult As Boolean)
+        Dim subject = New Mock(Of ICell)
+        subject.SetupGet(Function(x) x.TerrainType).Returns(givenTerrainType)
+        Dim map = New Mock(Of IMap)
+        map.SetupGet(Function(x) x.Flag(FlagTypes.AllowFireBuilding)).Returns(True)
+        subject.SetupGet(Function(x) x.Map).Returns(map.Object)
+        CellExtensions.CanBuildFire(subject.Object).ShouldBe(expectedResult)
+        subject.VerifyGet(Function(x) x.TerrainType)
+        map.VerifyGet(Function(x) x.Flag(FlagTypes.AllowFireBuilding))
+        subject.VerifyNoOtherCalls()
+        map.VerifyNoOtherCalls()
+    End Sub
+    <Theory>
+    <InlineData(TerrainTypes.CookingFire, True)>
+    <InlineData(TerrainTypes.Wall, False)>
+    Public Sub indicate_when_cell_has_fire(givenTerrainType As String, expectedResult As Boolean)
+        Dim subject = New Mock(Of ICell)
+        subject.SetupGet(Function(x) x.TerrainType).Returns(givenTerrainType)
+        CellExtensions.HasFire(subject.Object).ShouldBe(expectedResult)
+        subject.VerifyGet(Function(x) x.TerrainType)
+        subject.VerifyNoOtherCalls()
+    End Sub
+    <Theory>
+    <InlineData(TerrainTypes.CookingFire, True)>
+    <InlineData(TerrainTypes.Wall, False)>
+    Public Sub indicate_when_cell_can_make_torch(givenTerrainType As String, expectedResult As Boolean)
+        Dim subject = New Mock(Of ICell)
+        subject.SetupGet(Function(x) x.TerrainType).Returns(givenTerrainType)
+        CellExtensions.CanMakeTorch(subject.Object).ShouldBe(expectedResult)
+        subject.VerifyGet(Function(x) x.TerrainType)
+        subject.VerifyNoOtherCalls()
+    End Sub
+End Class

@@ -100,10 +100,8 @@ Public Class CellExtensions_should
         Dim subject = New Mock(Of ICell)
         subject.SetupGet(Function(x) x.TerrainType).Returns(givenTerrainType)
         CellExtensions.DoEffect(subject.Object, givenEffectType, character.Object)
-
         subject.VerifyGet(Function(x) x.TerrainType)
         message.Verify(Function(x) x.AddLine(It.IsAny(Of Integer)(), It.IsAny(Of String)()))
-
         character.VerifyNoOtherCalls()
         world.VerifyNoOtherCalls()
         message.VerifyNoOtherCalls()

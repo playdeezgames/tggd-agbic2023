@@ -83,7 +83,8 @@
         Dim canLearnKnapping = Not character.Flag(FlagTypes.KnowsKnapping)
         Dim canLearnFireMaking = Not character.Flag(FlagTypes.KnowsFireMaking)
         Dim canLearnTorchMaking = Not character.Flag(FlagTypes.KnowsTorchMaking)
-        Dim canLearn = canLearnForaging OrElse canLearnTwineMaking OrElse canLearnKnapping OrElse canLearnFireMaking OrElse canLearnTorchMaking
+        Dim canLearnHatchetMaking = Not character.Flag(FlagTypes.KnowsHatchetMaking)
+        Dim canLearn = canLearnForaging OrElse canLearnTwineMaking OrElse canLearnKnapping OrElse canLearnFireMaking OrElse canLearnTorchMaking OrElse canLearnHatchetMaking
         Dim msg = character.World.CreateMessage()
         If Not canLearn Then
             msg.AddLine(LightGray, "You have learned all I have to teach you.")
@@ -160,6 +161,20 @@
                         SetMetadata(Metadatas.RecipeType, RecipeTypes.Torch).
                         SetMetadata(Metadatas.Caveat, "(only works with a source of flames)").
                         SetFlag(FlagTypes.LearnByDoing, False)
+                End Sub)
+        End If
+        If canLearnHatchetMaking Then
+            msg.AddChoice(
+                "Hatchet Making(-1AP,-1Stick,-1S.Rock,-1Twine)",
+                EffectTypes.LearnHatchedMaking,
+                Sub(choice)
+                    choice.
+                        SetStatistic(StatisticTypes.AdvancementPoints, 1).
+                        SetMetadata(Metadatas.FlagType, FlagTypes.KnowsHatchetMaking).
+                        SetMetadata(Metadatas.TaskName, "make a hatchet").
+                        SetMetadata(Metadatas.ActionName, "Make Hatchet").
+                        SetMetadata(Metadatas.RecipeType, RecipeTypes.Hatchet).
+                        SetFlag(FlagTypes.LearnByDoing, True)
                 End Sub)
         End If
     End Sub

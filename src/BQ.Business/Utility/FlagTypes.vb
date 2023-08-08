@@ -7,6 +7,7 @@
     Friend Const IsWeapon = "IsWeapon"
     Friend Const KnowsFireMaking = "KnowsFireMaking"
     Friend Const KnowsForaging = "KnowsForaging"
+    Friend Const KnowsHatchetMaking = "KnowsHatchetMaking"
     Friend Const KnowsTwineMaking = "KnowsTwineMaking"
     Friend Const KnowsKnapping = "KnowsRockSharpening"
     Friend Const KnowsTorchMaking = "KnowsTorchMaking"

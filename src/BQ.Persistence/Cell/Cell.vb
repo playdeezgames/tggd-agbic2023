@@ -172,6 +172,10 @@ Friend Class Cell
         Return CellData.Metadata.ContainsKey(identifier)
     End Function
 
+    Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic
+        Return If(HasStatistic(statisticType), Statistic(statisticType), defaultValue)
+    End Function
+
     Private Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return CellData.Statistics.ContainsKey(statisticType)
     End Function

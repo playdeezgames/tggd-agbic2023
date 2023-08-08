@@ -125,4 +125,8 @@ Friend Class Message
     Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
         MessageData.Metadata.Remove(identifier)
     End Sub
+
+    Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic
+        Return If(HasStatistic(statisticType), Statistic(statisticType), defaultValue)
+    End Function
 End Class

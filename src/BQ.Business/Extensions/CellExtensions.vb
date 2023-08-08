@@ -1,7 +1,4 @@
-﻿Imports System.Runtime.CompilerServices
-Imports SPLORR.Game
-
-Friend Module CellExtensions
+﻿Friend Module CellExtensions
     <Extension>
     Friend Function HasFire(cell As ICell) As Boolean
         Return cell.Descriptor.HasFire
@@ -24,12 +21,8 @@ Friend Module CellExtensions
         Return cell.Descriptor.HasEffect(EffectTypes.Forage) AndAlso cell.TryGetStatistic(StatisticTypes.ForageRemaining) > 0
     End Function
     <Extension>
-    Friend Function Descriptor(cell As ICell) As TerrainTypeDescriptor
-        Return cell.TerrainType.ToTerrainTypeDescriptor
-    End Function
-    <Extension>
     Friend Function IsTenable(cell As ICell) As Boolean
-        Return cell.TerrainTypeDescriptor.Tenable
+        Return cell.Descriptor.Tenable
     End Function
     Private ReadOnly deltas As IReadOnlyList(Of (Integer, Integer)) =
         New List(Of (Integer, Integer)) From
@@ -42,10 +35,6 @@ Friend Module CellExtensions
     <Extension>
     Friend Function Neighbors(cell As ICell) As IEnumerable(Of ICell)
         Return deltas.Select(Function(xy) cell.Map.GetCell(xy.Item1 + cell.Column, xy.Item2 + cell.Row)).Where(Function(x) x IsNot Nothing)
-    End Function
-    <Extension>
-    Private Function TerrainTypeDescriptor(cell As ICell) As TerrainTypeDescriptor
-        Return cell.Descriptor
     End Function
     <Extension>
     Private Function TryGetStatistic(cell As ICell, statisticType As String, Optional defaultValue As Integer = 0) As Integer

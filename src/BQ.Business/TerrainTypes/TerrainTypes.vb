@@ -87,14 +87,8 @@ Friend Module TerrainTypes
             {StairsDown, New TerrainTypeDescriptor("Down Stairs", ChrW(&H2C), Hue.Orange, False)},
             {CookingFire, New CookingFireDescriptor()}
         }
-
     <Extension>
-    Friend Function ToTerrainTypeDescriptor(terrainType As String) As TerrainTypeDescriptor
-        Return descriptors(terrainType)
+    Friend Function Descriptor(cell As ICell) As TerrainTypeDescriptor
+        Return descriptors(cell.TerrainType)
     End Function
-    Friend ReadOnly Property All As IEnumerable(Of String)
-        Get
-            Return descriptors.Keys
-        End Get
-    End Property
 End Module

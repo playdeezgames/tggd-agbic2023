@@ -66,4 +66,8 @@
     Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
         Return ItemData.Metadata.ContainsKey(identifier)
     End Function
+
+    Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic
+        Return If(HasStatistic(statisticType), Statistic(statisticType), defaultValue)
+    End Function
 End Class

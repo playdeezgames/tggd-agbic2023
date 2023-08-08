@@ -62,6 +62,6 @@ Friend Module CellExtensions
     End Function
     <Extension>
     Friend Function Peril(cell As ICell) As Integer
-        Return cell.TryGetStatistic(StatisticTypes.Peril)
+        Return cell.Descriptor.Peril
     End Function
 End Module

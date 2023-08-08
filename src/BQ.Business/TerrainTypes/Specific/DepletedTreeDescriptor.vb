@@ -7,11 +7,6 @@
             ChrW(&HA),
             Business.Hue.Brown,
             True,
-            cellInitializer:=AddressOf InitializeDepletedTree,
             peril:=1)
-    End Sub
-
-    Private Shared Sub InitializeDepletedTree(cell As ICell)
-        cell.Statistic(StatisticTypes.Peril) = 1
     End Sub
 End Class

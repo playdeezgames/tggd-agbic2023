@@ -116,13 +116,17 @@ Friend Module CharacterExtensions
         Return True
     End Function
     <Extension>
+    Private Sub AddPeril(character As ICharacter, delta As Integer)
+        character.SetPeril(character.Peril + delta)
+    End Sub
+    <Extension>
     Private Sub EnterCell(character As ICharacter)
         If character.Cell.Peril > 0 Then
-            character.SetPeril(character.Peril + character.Cell.Peril)
+            character.AddPeril(character.Cell.Peril)
             If character.Peril > 0 Then
                 Dim roll = RNG.RollDice("1d20")
                 If roll <= character.Peril Then
-                    Dim enemyType = RNG.FromGenerator(character.Map.MapType.ToMapTypeDescriptor.EncounterGenerator)
+                    Dim enemyType = character.Cell.Descriptor.GenerateCreatureType()
                     Dim enemy = CreateCharacter(enemyType, character.Cell)
                     character.SetPeril(character.Peril - enemy.Peril)
                     character.Cell.AddCharacter(enemy)

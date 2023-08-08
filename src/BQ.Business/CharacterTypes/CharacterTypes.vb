@@ -6,6 +6,7 @@ Friend Module CharacterTypes
     Friend Const OliveGlop = "OliveGlop"
     Friend Const CherryGlop = "CherryGlop"
     Friend Const Rat = "Rat"
+    Friend Const Scarecrow = "Scarecrow"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, CharacterTypeDescriptor) =
         New Dictionary(Of String, CharacterTypeDescriptor) From
         {
@@ -78,6 +79,27 @@ Friend Module CharacterTypes
                     initializer:=AddressOf RatInitializer)
             },
             {
+                Scarecrow,
+                New CharacterTypeDescriptor(
+                    "Scarecrow",
+                    ChrW(&H3A),
+                    Hue.Yellow,
+                    ChrW(&H3C),
+                    Hue.Black,
+                    statistics:=New Dictionary(Of String, Integer) From
+                    {
+                        {StatisticTypes.Health, 3},
+                        {StatisticTypes.MaximumHealth, 3},
+                        {StatisticTypes.AttackDice, 4},
+                        {StatisticTypes.MaximumAttack, 2},
+                        {StatisticTypes.DefendDice, 3},
+                        {StatisticTypes.MaximumDefend, 3},
+                        {StatisticTypes.Peril, 7},
+                        {StatisticTypes.XP, 3}
+                    },
+                    initializer:=AddressOf ScarecrowInitializer)
+            },
+            {
                 CherryGlop,
                 New CharacterTypeDescriptor(
                     "Cherry Glop",
@@ -99,6 +121,12 @@ Friend Module CharacterTypes
                     initializer:=AddressOf CherryGlopInitializer)
             }
         }
+
+    Private Sub ScarecrowInitializer(character As ICharacter)
+        If RNG.RollDice("1d5/5") > 0 Then
+            character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.StrawHat))
+        End If
+    End Sub
 
     Private Sub RatInitializer(character As ICharacter)
         character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.RatCorpse))

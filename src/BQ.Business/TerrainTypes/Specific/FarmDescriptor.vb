@@ -7,6 +7,7 @@
             ChrW(&H38),
             Business.Hue.Brown,
             True,
+            peril:=1,
             depletedTerrainType:=TerrainTypes.Empty,
             cellInitializer:=AddressOf InitializeFarm,
             effects:=New Dictionary(Of String, EffectData) From
@@ -19,7 +20,10 @@
                 {ItemTypes.PlantFiber, 1},
                 {ItemTypes.Pepper, 1}
             },
-            creatureTypeGenerator:=New Dictionary(Of String, Integer))
+            creatureTypeGenerator:=New Dictionary(Of String, Integer) From
+            {
+                {CharacterTypes.Scarecrow, 1}
+            })
     End Sub
 
     Private Shared Sub InitializeFarm(cell As ICell)

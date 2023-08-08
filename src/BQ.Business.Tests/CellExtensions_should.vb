@@ -88,24 +88,25 @@ Public Class CellExtensions_should
         subject.VerifyNoOtherCalls()
     End Sub
     <Theory>
-    <InlineData(TerrainTypes.Tree, EffectTypes.Forage, CharacterTypes.Loxy)>
-    Public Sub do_forage_effect_on_tree(givenTerrainType As String, givenEffectType As String, givenCharacterType As String)
+    <InlineData(TerrainTypes.Tree, EffectTypes.PutOutFire, CharacterTypes.Loxy)>
+    Public Sub do_nonexistant_effect_on_terrain(givenTerrainType As String, givenEffectType As String, givenCharacterType As String)
         Dim character As New Mock(Of ICharacter)
         Dim world As New Mock(Of IWorld)
         Dim message As New Mock(Of IMessage)
+        message.Setup(Function(x) x.SetSfx(It.IsAny(Of String)())).Returns(message.Object)
         world.Setup(Function(x) x.CreateMessage()).Returns(message.Object)
         character.SetupGet(Function(x) x.CharacterType).Returns(givenCharacterType)
         character.SetupGet(Function(x) x.World).Returns(world.Object)
         Dim subject = New Mock(Of ICell)
         subject.SetupGet(Function(x) x.TerrainType).Returns(givenTerrainType)
         CellExtensions.DoEffect(subject.Object, givenEffectType, character.Object)
+
         subject.VerifyGet(Function(x) x.TerrainType)
-        subject.VerifyNoOtherCalls()
-        character.VerifyGet(Function(x) x.CharacterType)
-        character.Verify(Function(x) x.TryGetStatistic(StatisticTypes.Energy))
         message.Verify(Function(x) x.AddLine(It.IsAny(Of Integer)(), It.IsAny(Of String)()))
+
         character.VerifyNoOtherCalls()
         world.VerifyNoOtherCalls()
         message.VerifyNoOtherCalls()
+        subject.VerifyNoOtherCalls()
     End Sub
 End Class

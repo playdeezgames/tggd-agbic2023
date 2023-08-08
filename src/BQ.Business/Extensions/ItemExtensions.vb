@@ -11,10 +11,6 @@ Friend Module ItemExtensions
         Return item.Descriptor.Name
     End Function
     <Extension>
-    Friend Function TryGetStatistic(item As IItem, statisticType As String, Optional defaultValue As Integer = 0) As Integer
-        Return If(item.HasStatistic(statisticType), item.Statistic(statisticType), defaultValue)
-    End Function
-    <Extension>
     Friend Sub DoEffect(item As IItem, effectType As String, character As ICharacter)
         Dim effect = item.Descriptor.ToItemEffect(effectType, item)
         character.Descriptor.EffectHandlers(effectType).Invoke(character, effect)

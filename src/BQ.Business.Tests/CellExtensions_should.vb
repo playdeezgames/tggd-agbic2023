@@ -77,4 +77,14 @@ Public Class CellExtensions_should
         subject.VerifyGet(Function(x) x.TerrainType)
         subject.VerifyNoOtherCalls()
     End Sub
+    <Theory>
+    <InlineData(TerrainTypes.Tree, 1)>
+    <InlineData(TerrainTypes.Wall, 0)>
+    Public Sub indicate_peril(givenTerrainType As String, expectedResult As Integer)
+        Dim subject = New Mock(Of ICell)
+        subject.SetupGet(Function(x) x.TerrainType).Returns(givenTerrainType)
+        CellExtensions.Peril(subject.Object).ShouldBe(expectedResult)
+        subject.VerifyGet(Function(x) x.TerrainType)
+        subject.VerifyNoOtherCalls()
+    End Sub
 End Class

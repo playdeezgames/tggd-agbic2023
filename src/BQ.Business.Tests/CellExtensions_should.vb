@@ -51,4 +51,24 @@ Public Class CellExtensions_should
         subject.VerifyGet(Function(x) x.TerrainType)
         subject.VerifyNoOtherCalls()
     End Sub
+    <Theory>
+    <InlineData(TerrainTypes.Tree, True, 1, True, True)>
+    <InlineData(TerrainTypes.Tree, True, 0, True, False)>
+    <InlineData(TerrainTypes.Tree, False, 0, True, False)>
+    <InlineData(TerrainTypes.Empty, False, 0, False, False)>
+    Public Sub indicate_foraging_possible_on_terrain_type(givenTerrainType As String, hasForagingRemaining As Boolean, foragingRemaining As Integer, expectStatisticCheck As Boolean, expectedResult As Boolean)
+        Dim subject = New Mock(Of ICell)
+        subject.SetupGet(Function(x) x.TerrainType).Returns(givenTerrainType)
+        subject.Setup(Function(x) x.HasStatistic(It.IsAny(Of String)())).Returns(hasForagingRemaining)
+        subject.SetupGet(Function(x) x.Statistic(StatisticTypes.ForageRemaining)).Returns(foragingRemaining)
+        CellExtensions.CanForage(subject.Object).ShouldBe(expectedResult)
+        subject.VerifyGet(Function(x) x.TerrainType)
+        If expectStatisticCheck Then
+            subject.Verify(Function(x) x.HasStatistic(StatisticTypes.ForageRemaining))
+            If hasForagingRemaining Then
+                subject.VerifyGet(Function(x) x.Statistic(StatisticTypes.ForageRemaining))
+            End If
+        End If
+        subject.VerifyNoOtherCalls()
+    End Sub
 End Class

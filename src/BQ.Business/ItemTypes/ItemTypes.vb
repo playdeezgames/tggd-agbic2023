@@ -33,7 +33,7 @@ Friend Module ItemTypes
             {Torch, New ItemTypeDescriptor("Torch", ChrW(&H34), Red)},
             {Charcoal, New ItemTypeDescriptor("Charcoal", ChrW(&H36), DarkGray)},
             {StrawHat, New ItemTypeDescriptor("Straw Hat", ChrW(&H3B), Yellow)},
-            {Hatchet, New ItemTypeDescriptor("Hatchet", ChrW(&H3D), DarkGray)},
+            {Hatchet, New HatchetDescriptor()},
             {Stick, New StickDescriptor()},
             {EnergyHerb, New EnergyHerbDescriptor()}
         }

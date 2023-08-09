@@ -1,7 +1,4 @@
-﻿Imports System.Runtime.CompilerServices
-Imports SPLORR.Game
-
-Friend Module CharacterExtensions
+﻿Friend Module CharacterExtensions
     <Extension>
     Friend Function HasItemTypeInInventory(character As ICharacter, itemType As String) As Boolean
         Return character.Items.Any(Function(x) x.ItemType = itemType)

@@ -36,7 +36,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{1AB4700B-D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4CE880BE-181B-4C5F-85DC-77D7D9F59144}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BQ.Business.Tests", "BQ.Business.Tests\BQ.Business.Tests.vbproj", "{2FF369B5-6800-469C-BA73-0FFAD4B2FD3E}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "BQ.Business.Tests", "BQ.Business.Tests\BQ.Business.Tests.vbproj", "{2FF369B5-6800-469C-BA73-0FFAD4B2FD3E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BQ.Persistence.Tests", "BQ.Persistence.Tests\BQ.Persistence.Tests.vbproj", "{59421256-D6EF-4E06-A5ED-F28FD2078A08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,6 +86,10 @@ Global
 		{2FF369B5-6800-469C-BA73-0FFAD4B2FD3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FF369B5-6800-469C-BA73-0FFAD4B2FD3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FF369B5-6800-469C-BA73-0FFAD4B2FD3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59421256-D6EF-4E06-A5ED-F28FD2078A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59421256-D6EF-4E06-A5ED-F28FD2078A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59421256-D6EF-4E06-A5ED-F28FD2078A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59421256-D6EF-4E06-A5ED-F28FD2078A08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +103,7 @@ Global
 		{6B33AE59-5592-452D-8B70-EDA3B47F0F82} = {1AB4700B-D6EE-48DB-947A-82A906FBA7BC}
 		{B86F0600-988D-4E1F-AFE7-A957A2466D71} = {B232F840-8787-4F9D-B6AB-9C5A1DAECF34}
 		{2FF369B5-6800-469C-BA73-0FFAD4B2FD3E} = {4CE880BE-181B-4C5F-85DC-77D7D9F59144}
+		{59421256-D6EF-4E06-A5ED-F28FD2078A08} = {4CE880BE-181B-4C5F-85DC-77D7D9F59144}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A0C4C385-6B48-4578-9AE0-6962F94DB8F4}

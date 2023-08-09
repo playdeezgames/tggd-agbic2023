@@ -1,13 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>BQ.Business.Tests</RootNamespace>
+    <RootNamespace>BQ.Persistence.Tests</RootNamespace>
     <TargetFramework>net6.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
     <OptionStrict>On</OptionStrict>
-    <ImportedNamespaces>Moq=False,Shouldly=False,SPLORR.Game=False,Xunit=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,BQ.Business.Tests=True</ImportedNamespaces>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -20,7 +19,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.0" />
-    <PackageReference Include="Moq" Version="4.20.2" />
     <PackageReference Include="Shouldly" Version="4.2.1" />
     <PackageReference Include="xunit" Version="2.5.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.0">
@@ -34,14 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BQ.Business\BQ.Business.vbproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Import Include="Moq" />
-    <Import Include="Shouldly" />
-    <Import Include="SPLORR.Game" />
-    <Import Include="Xunit" />
+    <ProjectReference Include="..\BQ.Persistence\BQ.Persistence.vbproj" />
   </ItemGroup>
 
 </Project>

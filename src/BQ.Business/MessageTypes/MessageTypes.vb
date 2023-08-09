@@ -11,7 +11,7 @@ Friend Module MessageTypes
     Friend Const DruidSign = "DruidSign"
     Friend Const TownSign8 = "TownSign8"
     Friend Const HealerSign = "HealerSign"
-    Friend Const TownSign10 = "TownSign10"
+    Friend Const PotterSign = "PotterSign"
     Friend Const NothingHappens = "NothingHappens"
     Private Function MakeLines(ParamArray lines() As (hue As Integer, text As String)) As IEnumerable(Of (hue As Integer, text As String))
         Return lines
@@ -32,7 +32,7 @@ Friend Module MessageTypes
             {DruidSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Hippy Druid Lives Here")))},
             {TownSign8, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #8")))},
             {HealerSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "House of Nihilistic Healing")))},
-            {TownSign10, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #10")))},
+            {PotterSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Harold, the Potter"), (LightGray, "(no relation)")))},
             {
                 HealerTalk,
                 New MessageTypeDescriptor(

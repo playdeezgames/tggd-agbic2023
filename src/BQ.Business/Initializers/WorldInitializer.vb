@@ -13,6 +13,20 @@ Friend Module WorldInitializer
         StitchDruidHouseToTown(world)
         StitchInnToTown(world)
         StitchEnergyTrainerToTown(world)
+        StitchPotterToTown(world)
+    End Sub
+
+    Private Sub StitchPotterToTown(world As IWorld)
+        Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
+        Dim potterMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Potter)
+        townMap.GetCell(13, 13).Effect =
+            townMap.CreateEffect().
+            SetEffectType(Teleport).
+            SetDestination(potterMap.GetCell(PotterColumns \ 2, PotterRows - 2))
+        potterMap.GetCell(PotterColumns \ 2, PotterRows - 1).Effect =
+            potterMap.CreateEffect().
+            SetEffectType(Teleport).
+            SetDestination(townMap.GetCell(13, 12))
     End Sub
 
     Private Sub StitchEnergyTrainerToTown(world As IWorld)

@@ -12,6 +12,7 @@ Friend Module MapTypes
     Friend Const Inn = "Inn"
     Friend Const EnergyTrainer = "EnergyTrainer"
     Friend Const Cellar = "Cellar"
+    Friend Const Potter = "Potter"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, MapTypeDescriptor) =
         New Dictionary(Of String, MapTypeDescriptor) From
         {
@@ -46,6 +47,13 @@ Friend Module MapTypes
                     (HealthTrainerColumns, HealthTrainerRows),
                     TerrainTypes.Empty,
                     customInitializer:=AddressOf HealthTrainerInitializer.Initialize)
+            },
+            {
+                Potter,
+                New MapTypeDescriptor(
+                    (PotterColumns, PotterRows),
+                    TerrainTypes.Empty,
+                    customInitializer:=AddressOf PotterInitializer.Initialize)
             },
             {
                 DruidHouse,

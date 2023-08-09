@@ -26,6 +26,7 @@ Friend Module EffectTypes
     Friend Const Message = "Message"
     Friend Const PayInnkeeper = "PayInnkeeper"
     Friend Const PervertInnkeeper = "PervertInnkeeper"
+    Friend Const PotterTalk = "PotterTalk"
     Friend Const PutOutFire = "PutOutFire"
     Friend Const SleepAtInn = "SleepAtInn"
     Friend Const Teleport = "Teleport"

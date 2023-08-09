@@ -81,7 +81,7 @@ Friend Module TownInitializer
         map.GetCell(14, 13).Effect =
             map.CreateEffect().
             SetEffectType(EffectTypes.Message).
-            SetMetadata(MessageType, MessageTypes.TownSign10)
+            SetMetadata(MessageType, MessageTypes.PotterSign)
     End Sub
 
     Private Sub InitializeHealer(townMap As IMap)

@@ -19,10 +19,12 @@ Module WildernessInitializer
     Private ReadOnly terrainTable As IReadOnlyDictionary(Of String, Integer) =
         New Dictionary(Of String, Integer) From
         {
-            {TerrainTypes.Empty, 10},
-            {TerrainTypes.Grass, 5},
-            {TerrainTypes.Tree, 15},
-            {TerrainTypes.Farm, 1}
+            {TerrainTypes.Empty, 100},
+            {TerrainTypes.Grass, 50},
+            {TerrainTypes.Tree, 150},
+            {TerrainTypes.Farm, 10},
+            {TerrainTypes.ClayPit, 1},
+            {TerrainTypes.RockQuarry, 5}
         }
     Friend Sub Initialize(map As IMap)
         map.SetFlag(FlagTypes.CampingAllowed, True)

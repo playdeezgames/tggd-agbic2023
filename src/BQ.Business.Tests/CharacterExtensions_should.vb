@@ -80,4 +80,42 @@ Public Class CharacterExtensions_should
         map.VerifyNoOtherCalls()
         character.VerifyNoOtherCalls()
     End Sub
+    <Fact>
+    Public Sub attempts_to_build_fire()
+        Dim character As New Mock(Of ICharacter)
+        Dim stickItem As New Mock(Of IItem)
+        Dim rockItem As New Mock(Of IItem)
+        Dim message As New Mock(Of IMessage)
+
+        stickItem.SetupGet(Function(x) x.ItemType).Returns(ItemTypes.Stick)
+        rockItem.SetupGet(Function(x) x.ItemType).Returns(ItemTypes.Rock)
+        character.Setup(Function(x) x.World.CreateMessage()).Returns(Message.Object)
+        character.SetupGet(Function(x) x.CharacterType).Returns(CharacterTypes.Loxy)
+        character.SetupGet(Function(x) x.Items).Returns({stickItem.Object, stickItem.Object, stickItem.Object, stickItem.Object, stickItem.Object, rockItem.Object, rockItem.Object, rockItem.Object, rockItem.Object, rockItem.Object})
+        character.Setup(Function(x) x.TryGetStatistic(StatisticTypes.Energy)).Returns(1)
+        character.SetupGet(Function(x) x.Cell.TerrainType).Returns(TerrainTypes.Empty)
+        character.SetupSet(Sub(x) x.Cell.TerrainType = TerrainTypes.CookingFire).Verifiable()
+
+        CharacterExtensions.DoBuildFire(character.Object)
+
+        character.VerifyGet(Function(x) x.CharacterType)
+        character.VerifyGet(Function(x) x.Items)
+        character.Verify(Function(x) x.TryGetStatistic(StatisticTypes.Energy))
+        character.Verify(Function(x) x.TryGetStatistic(StatisticTypes.MaximumEnergy))
+        character.Verify(Sub(x) x.RemoveItem(stickItem.Object), Times.Exactly(5))
+        character.Verify(Sub(x) x.RemoveItem(rockItem.Object), Times.Exactly(5))
+        character.Verify(Sub(x) x.SetStatistic(StatisticTypes.Energy, 0))
+        message.Verify(Function(x) x.AddLine(It.IsAny(Of Integer)(), It.IsAny(Of String)()))
+        character.VerifyGet(Function(x) x.Cell.TerrainType)
+        character.VerifySet(Sub(x) x.Cell.TerrainType = TerrainTypes.CookingFire)
+        stickItem.VerifyGet(Function(x) x.ItemType, Times.Exactly(25))
+        stickItem.Verify(Sub(x) x.Recycle(), Times.Exactly(5))
+        rockItem.VerifyGet(Function(x) x.ItemType, Times.Exactly(20))
+        rockItem.Verify(Sub(x) x.Recycle(), Times.Exactly(5))
+
+        character.VerifyNoOtherCalls()
+        rockItem.VerifyNoOtherCalls()
+        stickItem.VerifyNoOtherCalls()
+        message.VerifyNoOtherCalls()
+    End Sub
 End Class

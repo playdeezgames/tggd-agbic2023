@@ -10,9 +10,23 @@
     Friend Const UnfiredPot = "UnfiredPot"
     Friend Const ClayPot = "ClayPot"
     Friend Const CrackedPot = "CrackedPot"
+    Friend Const WaterPot = "WaterPot"
     Private ReadOnly Descriptors As IReadOnlyDictionary(Of String, RecipeDescriptor) =
         New Dictionary(Of String, RecipeDescriptor) From
         {
+            {
+                WaterPot,
+                New RecipeDescriptor(
+                    "Water-Filled Pot",
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.ClayPot, 1}
+                    },
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.WaterPot, 1}
+                    })
+            },
             {
                 ClayPot,
                 New RecipeDescriptor(

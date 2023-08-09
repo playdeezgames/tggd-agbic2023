@@ -60,6 +60,10 @@ Module WildernessInitializer
                 InitializeCell(map, mazeColumn * WildernessCellColumns, mazeRow * WildernessCellRows, maze.GetCell(mazeColumn, mazeRow))
             Next
         Next
+        Dim riverEffect = map.CreateEffect.SetEffectType(EffectTypes.BumpRiver)
+        For Each cell In map.Cells.Where(Function(x) x.Descriptor.IsWaterSource)
+            cell.Effect = riverEffect
+        Next
     End Sub
 
     Private ReadOnly riverTable As IReadOnlyDictionary(Of Integer, String) =

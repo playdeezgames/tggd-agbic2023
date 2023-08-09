@@ -2,6 +2,7 @@
 
 Friend Module EffectTypes
     Friend Const BuildFire = "BuildFire"
+    Friend Const BumpRiver = "BumpRiver"
     Friend Const Buy = "Buy"
     Friend Const CompleteRatQuest = "CompleteRatQuest"
     Friend Const CookRatBody = "CookRatBody"
@@ -12,6 +13,7 @@ Friend Module EffectTypes
     Friend Const DruidTeachMenu = "DruidTeachMenu"
     Friend Const EnergyTrainerTalk = "EnergyTrainerTalk"
     Friend Const ExitDialog = "ExitDialog"
+    Friend Const FillClayPot = "FillClayPot"
     Friend Const GorachanTalk = "GorachanTalk"
     Friend Const Heal = "Heal"
     Friend Const HealerPrices = "NihilistPrices"

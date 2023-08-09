@@ -6,6 +6,7 @@ Friend Class TerrainTypeDescriptor
     Friend ReadOnly Property DepletedTerrainType As String
     Friend ReadOnly Property HasFire As Boolean
     Friend ReadOnly Property Peril As Integer
+    Friend ReadOnly Property IsWaterSource As Boolean
     Private ReadOnly Property CreatureTypeGenerator As IReadOnlyDictionary(Of String, Integer)
     Private ReadOnly Property Effects As IReadOnlyDictionary(Of String, EffectData)
     Friend ReadOnly Property Tenable As Boolean
@@ -35,8 +36,10 @@ Friend Class TerrainTypeDescriptor
            Optional foragables As IReadOnlyDictionary(Of String, Integer) = Nothing,
            Optional effects As IReadOnlyDictionary(Of String, EffectData) = Nothing,
            Optional hasFire As Boolean = False,
-           Optional creatureTypeGenerator As IReadOnlyDictionary(Of String, Integer) = Nothing)
+           Optional creatureTypeGenerator As IReadOnlyDictionary(Of String, Integer) = Nothing,
+           Optional isWaterSource As Boolean = False)
         MyBase.New(name, glyph, hue)
+        Me.IsWaterSource = isWaterSource
         Me.HasFire = hasFire
         Me.Tenable = tenable
         Me.DepletedTerrainType = depletedTerrainType

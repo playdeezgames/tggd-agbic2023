@@ -7,9 +7,52 @@
     Friend Const CookedRatBody = "CookedRatBody"
     Friend Const CookedRatCorpse = "CookedRatCorpse"
     Friend Const Hatchet = "Hatchet"
+    Friend Const UnfiredPot = "UnfiredPot"
+    Friend Const ClayPot = "ClayPot"
+    Friend Const CrackedPot = "CrackedPot"
     Private ReadOnly Descriptors As IReadOnlyDictionary(Of String, RecipeDescriptor) =
         New Dictionary(Of String, RecipeDescriptor) From
         {
+            {
+                ClayPot,
+                New RecipeDescriptor(
+                    "Clay Pot",
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.UnfiredPot, 1}
+                    },
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.ClayPot, 1}
+                    })
+            },
+            {
+                CrackedPot,
+                New RecipeDescriptor(
+                    "Cracked Pot",
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.UnfiredPot, 1}
+                    },
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.CrackedPot, 1}
+                    })
+            },
+            {
+                UnfiredPot,
+                New RecipeDescriptor(
+                    "Unfired Pot",
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.PlantFiber, 5},
+                        {ItemTypes.Clay, 5}
+                    },
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.UnfiredPot, 1}
+                    })
+            },
             {
                 Hatchet,
                 New RecipeDescriptor(

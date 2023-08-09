@@ -16,7 +16,7 @@
         Dim msg = character.World.CreateMessage().
             AddLine(LightGray, $"{character.Name} sleeps.").
             AddLine(LightGray, $"{character.Name} now has {character.Energy}/{character.MaximumEnergy} energy.")
-        character.SetPeril(character.MaximumEnergy \ 2)
+        character.AddPeril(character.MaximumEnergy \ 2)
         character.Move((0, 0))
         If character.Cell.HasOtherCharacters(character) Then
             msg.AddLine(Red, $"{character.Name} awakens to a surprise attack!")

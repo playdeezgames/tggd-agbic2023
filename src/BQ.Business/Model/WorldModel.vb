@@ -1,4 +1,6 @@
-﻿Public Class WorldModel
+﻿Imports System.IO
+
+Public Class WorldModel
     Implements IWorldModel
     Public ReadOnly Property Map As IMapModel Implements IWorldModel.Map
         Get
@@ -47,6 +49,6 @@
         World = BQ.Persistence.World.Load(filename)
     End Sub
     Public Sub Save(filename As String) Implements IWorldModel.Save
-        World.Save(filename)
+        File.WriteAllText(filename, World.SerializedData)
     End Sub
 End Class

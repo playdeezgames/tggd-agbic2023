@@ -94,9 +94,11 @@ Public Class World
         End Set
     End Property
 
-    Public Sub Save(filename As String) Implements IWorld.Save
-        File.WriteAllText(filename, JsonSerializer.Serialize(WorldData))
-    End Sub
+    Public ReadOnly Property SerializedData As String Implements IWorld.SerializedData
+        Get
+            Return JsonSerializer.Serialize(WorldData)
+        End Get
+    End Property
 
     Public Sub DismissMessage() Implements IWorld.DismissMessage
         If HasMessages Then

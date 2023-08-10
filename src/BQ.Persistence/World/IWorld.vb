@@ -2,7 +2,7 @@ Public Interface IWorld
     Inherits IStatisticsHolder
     Inherits IFlagHolder
     Inherits IMetadataHolder
-    Sub Save(filename As String)
+    ReadOnly Property SerializedData As String
     Function CreateMap(mapType As String, size As (Integer, Integer), terrainType As String) As IMap
     Function CreateCharacter(characterType As String, cell As ICell) As ICharacter
     Sub DismissMessage()

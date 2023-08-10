@@ -7,6 +7,7 @@
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
     <OptionStrict>On</OptionStrict>
+    <ImportedNamespaces>Shouldly=False,Xunit=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,BQ.Persistence.Tests=True</ImportedNamespaces>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -33,6 +34,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BQ.Persistence\BQ.Persistence.vbproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Import Include="Shouldly" />
+    <Import Include="Xunit" />
   </ItemGroup>
 
 </Project>

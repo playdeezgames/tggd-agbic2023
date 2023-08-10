@@ -33,6 +33,16 @@ Public Class World_should
         subject.HasMetadata(metadataIdentifier).ShouldBeFalse
     End Sub
     <Fact>
+    Sub hold_flags()
+        Const flagType = "FlagType"
+        Dim subject As IWorld = New World(New Data.WorldData)
+        subject.Flag(flagType).ShouldBeFalse
+        subject.Flag(flagType) = True
+        subject.Flag(flagType).ShouldBeTrue
+        subject.Flag(flagType) = False
+        subject.Flag(flagType).ShouldBeFalse
+    End Sub
+    <Fact>
     Sub create_map()
         Const mapType = "MapType"
         Const columns = 3

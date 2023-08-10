@@ -18,7 +18,8 @@
             {
                 {String.Empty, 1},
                 {ItemTypes.PlantFiber, 1},
-                {ItemTypes.Pepper, 1}
+                {ItemTypes.Pepper, 1},
+                {ItemTypes.Wheat, 1}
             },
             creatureTypeGenerator:=New Dictionary(Of String, Integer) From
             {

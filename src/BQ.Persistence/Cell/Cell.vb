@@ -26,7 +26,7 @@ Friend Class Cell
 
     Public ReadOnly Property Row As Integer Implements ICell.Row
         Get
-            Return CellIndex \ Map.Rows
+            Return CellIndex \ Map.Columns
         End Get
     End Property
 

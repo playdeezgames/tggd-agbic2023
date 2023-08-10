@@ -8,8 +8,29 @@ Public Class World_should
         Const statisticType = "StatisticType"
         Const statisticValue = 10
         Dim subject As IWorld = New World(New Data.WorldData)
+        subject.HasStatistic(statisticType).ShouldBeFalse
+        subject.TryGetStatistic(statisticType).ShouldBe(0)
+
         subject.SetStatistic(statisticType, statisticValue)
+        subject.HasStatistic(statisticType).ShouldBeTrue
         subject.Statistic(statisticType).ShouldBe(statisticValue)
+        subject.TryGetStatistic(statisticType).ShouldBe(statisticValue)
+
+        subject.RemoveStatistic(statisticType)
+        subject.HasStatistic(statisticType).ShouldBeFalse
+        subject.TryGetStatistic(statisticType).ShouldBe(0)
+    End Sub
+    <Fact>
+    Sub hold_metadata()
+        Const metadataIdentifier = "MetadataIdentifier"
+        Const metadataValue = "MetadataValue"
+        Dim subject As IWorld = New World(New Data.WorldData)
+        subject.HasMetadata(metadataIdentifier).ShouldBeFalse
+        subject.SetMetadata(metadataIdentifier, metadataValue)
+        subject.HasMetadata(metadataIdentifier).ShouldBeTrue
+        subject.Metadata(metadataIdentifier).ShouldBe(metadataValue)
+        subject.RemoveMetadata(metadataIdentifier)
+        subject.HasMetadata(metadataIdentifier).ShouldBeFalse
     End Sub
     <Fact>
     Sub create_map()

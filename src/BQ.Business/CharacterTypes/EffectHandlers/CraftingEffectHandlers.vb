@@ -141,4 +141,8 @@
     Friend Sub DoSmokePepper(character As ICharacter, effect As IEffect)
         CookRecipe(character, RecipeTypes.SmokedPepper, "smoke a pepper", "smokes a pepper")
     End Sub
+
+    Friend Sub DoMakePaprika(character As ICharacter, effect As IEffect)
+        DoRecipe(character, 1, RecipeTypes.Paprika, "make paprika", "makes paprika")
+    End Sub
 End Module

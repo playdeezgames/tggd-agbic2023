@@ -49,8 +49,10 @@ Friend Module LoxyEffectHandlers
                         {EffectTypes.PotterFlavorText, AddressOf DoPotterFlavorText},
                         {EffectTypes.PotterMakePot, AddressOf DoPotterMakePot},
                         {EffectTypes.BumpRiver, AddressOf DoBumpRiver},
-                        {EffectTypes.FillClayPot, AddressOf DoFillClayPot}
+                        {EffectTypes.FillClayPot, AddressOf DoFillClayPot},
+                        {EffectTypes.MillWheat, AddressOf DoMillWheat}
                     }
+
 
     Friend Function ConsumeEnergy(character As ICharacter, energyCost As Integer, actionName As String) As Boolean
         If character.Energy < energyCost Then

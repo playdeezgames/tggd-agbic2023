@@ -30,7 +30,7 @@ Friend Module ItemTypes
         New Dictionary(Of String, ItemTypeDescriptor) From
         {
             {PlantFiber, New ItemTypeDescriptor("Plant Fiber", ChrW(&H21), LightGreen)},
-            {Wheat, New ItemTypeDescriptor("Wheat", ChrW(&H42), Yellow)},
+            {Wheat, New WheatDescriptor()},
             {Flour, New ItemTypeDescriptor("Flour", ChrW(&H43), White)},
             {Dough, New ItemTypeDescriptor("Dough", ChrW(&H44), Tan)},
             {RatBody, New RatBodyDescriptor()},

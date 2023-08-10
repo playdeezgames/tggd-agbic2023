@@ -115,4 +115,10 @@
         character.World.CreateMessage().
                 AddLine(LightGray, $"{character.Name} {resultName}.")
     End Sub
+    Friend Sub DoMillWheat(character As ICharacter, effect As IEffect)
+        If Not ConsumeEnergy(character, 1, "make flour") Then
+            Return
+        End If
+        DoRecipe(character, RecipeTypes.Flour, "make flour", "makes flour")
+    End Sub
 End Module

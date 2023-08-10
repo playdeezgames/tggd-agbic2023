@@ -87,10 +87,10 @@ Public Class World
 
     Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
         Get
-            Return WorldData.Metadata(identifier)
+            Return WorldData.Metadatas(identifier)
         End Get
         Set(value As String)
-            WorldData.Metadata(identifier) = value
+            WorldData.Metadatas(identifier) = value
         End Set
     End Property
 
@@ -111,7 +111,7 @@ Public Class World
     End Sub
 
     Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
-        WorldData.Metadata.Remove(identifier)
+        WorldData.Metadatas.Remove(identifier)
     End Sub
 
     Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
@@ -191,7 +191,7 @@ Public Class World
     End Function
 
     Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
-        Return WorldData.Metadata.ContainsKey(identifier)
+        Return WorldData.Metadatas.ContainsKey(identifier)
     End Function
 
     Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic

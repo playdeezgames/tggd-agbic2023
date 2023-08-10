@@ -134,10 +134,10 @@ Friend Class Cell
 
     Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
         Get
-            Return CellData.Metadata(identifier)
+            Return CellData.Metadatas(identifier)
         End Get
         Set(value As String)
-            CellData.Metadata(identifier) = value
+            CellData.Metadatas(identifier) = value
         End Set
     End Property
 
@@ -162,7 +162,7 @@ Friend Class Cell
     End Sub
 
     Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
-        CellData.Metadata.Remove(identifier)
+        CellData.Metadatas.Remove(identifier)
     End Sub
 
     Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
@@ -170,7 +170,7 @@ Friend Class Cell
     End Sub
 
     Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
-        Return CellData.Metadata.ContainsKey(identifier)
+        Return CellData.Metadatas.ContainsKey(identifier)
     End Function
 
     Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic

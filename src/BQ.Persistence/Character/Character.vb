@@ -83,17 +83,17 @@
 
     Public Property Metadata(identifier As String) As String Implements ICharacter.Metadata
         Get
-            If CharacterData.Metadata.ContainsKey(identifier) Then
-                Return CharacterData.Metadata(identifier)
+            If CharacterData.Metadatas.ContainsKey(identifier) Then
+                Return CharacterData.Metadatas(identifier)
             End If
             Return Nothing
         End Get
         Set(value As String)
             If value Is Nothing Then
-                CharacterData.Metadata.Remove(identifier)
+                CharacterData.Metadatas.Remove(identifier)
                 Return
             End If
-            CharacterData.Metadata(identifier) = value
+            CharacterData.Metadatas(identifier) = value
         End Set
     End Property
 
@@ -155,7 +155,7 @@
     End Sub
 
     Public Sub RemoveMetadata(identifier As String) Implements ICharacter.RemoveMetadata
-        CharacterData.Metadata.Remove(identifier)
+        CharacterData.Metadatas.Remove(identifier)
     End Sub
 
     Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
@@ -171,7 +171,7 @@
     End Function
 
     Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
-        Return CharacterData.Metadata.ContainsKey(identifier)
+        Return CharacterData.Metadatas.ContainsKey(identifier)
     End Function
 
     Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic

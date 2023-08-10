@@ -56,7 +56,7 @@ Friend Class MessageChoice
     End Sub
 
     Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
-        MessageChoiceData.Metadata.Remove(identifier)
+        MessageChoiceData.Metadatas.Remove(identifier)
     End Sub
 
     Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
@@ -68,7 +68,7 @@ Friend Class MessageChoice
     End Function
 
     Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
-        Return MessageChoiceData.Metadata.ContainsKey(identifier)
+        Return MessageChoiceData.Metadatas.ContainsKey(identifier)
     End Function
 
     Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic

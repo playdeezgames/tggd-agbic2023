@@ -37,10 +37,10 @@
 
     Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
         Get
-            Return ItemData.Metadata(identifier)
+            Return ItemData.Metadatas(identifier)
         End Get
         Set(value As String)
-            ItemData.Metadata(identifier) = value
+            ItemData.Metadatas(identifier) = value
         End Set
     End Property
 
@@ -53,7 +53,7 @@
     End Sub
 
     Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
-        ItemData.Metadata.Remove(identifier)
+        ItemData.Metadatas.Remove(identifier)
     End Sub
 
     Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
@@ -65,7 +65,7 @@
     End Function
 
     Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
-        Return ItemData.Metadata.ContainsKey(identifier)
+        Return ItemData.Metadatas.ContainsKey(identifier)
     End Function
 
     Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic

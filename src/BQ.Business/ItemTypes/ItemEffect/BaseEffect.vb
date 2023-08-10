@@ -3,7 +3,7 @@
     Private ReadOnly data As New BaseData
     Sub New(effectType As String, effectData As BaseData)
         Me.data.Flags = New HashSet(Of String)(effectData.Flags)
-        Me.data.Metadata = New Dictionary(Of String, String)(effectData.Metadata)
+        Me.data.Metadatas = New Dictionary(Of String, String)(effectData.Metadatas)
         Me.data.Statistics = New Dictionary(Of String, Integer)(effectData.Statistics)
         Me.EffectType = effectType
     End Sub
@@ -29,10 +29,10 @@
 
     Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
         Get
-            Return Data.Metadata(identifier)
+            Return data.Metadatas(identifier)
         End Get
         Set(value As String)
-            Data.Metadata(identifier) = identifier
+            data.Metadatas(identifier) = identifier
         End Set
     End Property
 
@@ -43,7 +43,7 @@
     End Sub
 
     Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
-        Data.Metadata.Remove(identifier)
+        data.Metadatas.Remove(identifier)
     End Sub
 
     Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
@@ -55,7 +55,7 @@
     End Function
 
     Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
-        Return Data.Metadata.ContainsKey(identifier)
+        Return data.Metadatas.ContainsKey(identifier)
     End Function
 
     Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic

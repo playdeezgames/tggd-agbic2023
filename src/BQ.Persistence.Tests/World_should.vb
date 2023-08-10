@@ -82,7 +82,7 @@ Public Class World_should
     Sub serialize_data()
         Dim subject As IWorld = New World(New Data.WorldData)
         Dim actual = subject.SerializedData
-        actual.ShouldBe("{""Maps"":[],""Characters"":[],""AvatarCharacterId"":null,""Messages"":[],""Items"":[],""Statistics"":{},""Flags"":[],""Metadata"":{}}")
+        actual.ShouldBe("{""Maps"":[],""Characters"":[],""AvatarCharacterId"":null,""Messages"":[],""Items"":[],""Statistics"":{},""Flags"":[],""Metadatas"":{}}")
     End Sub
 End Class
 

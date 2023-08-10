@@ -29,10 +29,10 @@ Friend Class MapEffect
 
     Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
         Get
-            Return EffectData.Metadata(identifier)
+            Return EffectData.Metadatas(identifier)
         End Get
         Set(value As String)
-            EffectData.Metadata(identifier) = value
+            EffectData.Metadatas(identifier) = value
         End Set
     End Property
 
@@ -54,7 +54,7 @@ Friend Class MapEffect
     End Sub
 
     Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
-        EffectData.Metadata.Remove(identifier)
+        EffectData.Metadatas.Remove(identifier)
     End Sub
 
     Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
@@ -66,7 +66,7 @@ Friend Class MapEffect
     End Function
 
     Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
-        Return EffectData.Metadata.ContainsKey(identifier)
+        Return EffectData.Metadatas.ContainsKey(identifier)
     End Function
 
     Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic

@@ -68,10 +68,10 @@ Friend Class Message
 
     Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
         Get
-            Return MessageData.Metadata(identifier)
+            Return MessageData.Metadatas(identifier)
         End Get
         Set(value As String)
-            MessageData.Metadata(identifier) = value
+            MessageData.Metadatas(identifier) = value
         End Set
     End Property
 
@@ -116,11 +116,11 @@ Friend Class Message
     End Function
 
     Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
-        Return MessageData.Metadata.ContainsKey(identifier)
+        Return MessageData.Metadatas.ContainsKey(identifier)
     End Function
 
     Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
-        MessageData.Metadata.Remove(identifier)
+        MessageData.Metadatas.Remove(identifier)
     End Sub
 
     Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic

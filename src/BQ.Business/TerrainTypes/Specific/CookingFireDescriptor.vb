@@ -14,7 +14,7 @@
                     EffectTypes.PutOutFire,
                     New EffectData With
                     {
-                        .Metadata = New Dictionary(Of String, String) From
+                        .Metadatas = New Dictionary(Of String, String) From
                         {
                             {Metadatas.TerrainType, TerrainTypes.Empty},
                             {Metadatas.ItemType, ItemTypes.Charcoal}

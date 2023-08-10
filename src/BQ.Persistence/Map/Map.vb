@@ -57,10 +57,10 @@
 
     Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
         Get
-            Return MapData.Metadata(identifier)
+            Return MapData.Metadatas(identifier)
         End Get
         Set(value As String)
-            MapData.Metadata(identifier) = value
+            MapData.Metadatas(identifier) = value
         End Set
     End Property
 
@@ -69,7 +69,7 @@
     End Sub
 
     Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
-        MapData.Metadata.Remove(identifier)
+        MapData.Metadatas.Remove(identifier)
     End Sub
 
     Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
@@ -93,7 +93,7 @@
     End Function
 
     Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
-        Return MapData.Metadata.ContainsKey(identifier)
+        Return MapData.Metadatas.ContainsKey(identifier)
     End Function
 
     Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic

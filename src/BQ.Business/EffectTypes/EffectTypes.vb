@@ -42,6 +42,7 @@ Friend Module EffectTypes
     Friend Const PotterMakePot = "PotterMakePot"
     Friend Const PotterTalk = "PotterTalk"
     Friend Const PutOutFire = "PutOutFire"
+    Friend Const SeasonRat = "SeasonRat"
     Friend Const SleepAtInn = "SleepAtInn"
     Friend Const SmokePepper = "SmokePepper"
     Friend Const Teleport = "Teleport"
@@ -80,6 +81,7 @@ Friend Module EffectTypes
             {TrainEnergy, New EffectTypeDescriptor("Train Energy")},
             {TrainHealth, New EffectTypeDescriptor("Train Health")},
             {StartRatQuest, New EffectTypeDescriptor("Start Rat Quest")},
+            {EffectTypes.SeasonRat, New EffectTypeDescriptor("Season")},
             {AcceptRatQuest, New EffectTypeDescriptor("Accept Rat Quest")},
             {EnterCellar, New EffectTypeDescriptor("Enter Cellar")},
             {Forage, New EffectTypeDescriptor("Forage")},

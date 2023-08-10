@@ -15,9 +15,24 @@
     Friend Const Dough = "Dough"
     Friend Const SmokedPepper = "SmokedPepper"
     Friend Const Paprika = "Paprika"
+    Friend Const SeasonedRat = "SeasonedRat"
     Private ReadOnly Descriptors As IReadOnlyDictionary(Of String, RecipeDescriptor) =
         New Dictionary(Of String, RecipeDescriptor) From
         {
+            {
+                SeasonedRat,
+                New RecipeDescriptor(
+                    "Seasoned Rat",
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.CookedRat, 1},
+                        {ItemTypes.Paprika, 1}
+                    },
+                    New Dictionary(Of String, Integer) From
+                    {
+                        {ItemTypes.SeasonedRat, 1}
+                    })
+            },
             {
                 Paprika,
                 New RecipeDescriptor(

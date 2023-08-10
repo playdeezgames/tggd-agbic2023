@@ -145,4 +145,7 @@
     Friend Sub DoMakePaprika(character As ICharacter, effect As IEffect)
         DoRecipe(character, 1, RecipeTypes.Paprika, "make paprika", "makes paprika")
     End Sub
+    Friend Sub DoSeasonRat(character As ICharacter, effect As IEffect)
+        DoRecipe(character, 0, RecipeTypes.SeasonedRat, "season a rat", "seasons a rat")
+    End Sub
 End Module

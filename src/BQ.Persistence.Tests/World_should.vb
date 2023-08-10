@@ -12,11 +12,6 @@ Public Class World_should
         subject.Statistic(statisticType).ShouldBe(statisticValue)
     End Sub
     <Fact>
-    Sub have_avatar()
-        Dim subject As IWorld = New World(New Data.WorldData)
-        subject.Avatar.ShouldBeNull
-    End Sub
-    <Fact>
     Sub create_map()
         Const mapType = "MapType"
         Const columns = 3
@@ -30,6 +25,7 @@ Public Class World_should
         actual.Cells.Count.ShouldBe(columns * rows)
         actual.Cells.ShouldAllBe(Function(x) x.TerrainType = terrainType)
         subject.Maps.ShouldHaveSingleItem
+        subject.Map(0).Id.ShouldBe(actual.Id)
     End Sub
     <Fact>
     Sub create_character()
@@ -40,6 +36,41 @@ Public Class World_should
         actual.Cell.Column.ShouldBe(2)
         actual.Cell.Row.ShouldBe(1)
         subject.Characters.ShouldHaveSingleItem
+        subject.Character(0).Id.ShouldBe(actual.Id)
+    End Sub
+    <Fact>
+    Sub begin_blank()
+        Dim subject As IWorld = New World(New Data.WorldData)
+        subject.Avatar.ShouldBeNull
+        subject.Maps.ShouldBeEmpty
+        subject.Characters.ShouldBeEmpty
+        subject.CurrentMessage.ShouldBeNull
+        subject.HasMessages.ShouldBeFalse
+    End Sub
+    <Fact>
+    Sub create_message()
+        Dim subject As IWorld = New World(New Data.WorldData)
+        Dim actual = subject.CreateMessage
+        actual.ShouldNotBeNull
+        subject.CurrentMessage.ShouldNotBeNull
+        subject.HasMessages.ShouldBeTrue
+    End Sub
+    <Fact>
+    Sub create_item()
+        Dim subject As IWorld = New World(New Data.WorldData)
+        Dim actual = subject.CreateItem("ItemType")
+        actual.ShouldNotBeNull
+        subject.Item(0).Id.ShouldBe(actual.Id)
+    End Sub
+    <Fact>
+    Sub dismiss_message()
+        Dim subject As IWorld = New World(New Data.WorldData)
+        subject.CreateMessage()
+        subject.CurrentMessage.ShouldNotBeNull
+        subject.HasMessages.ShouldBeTrue
+        subject.DismissMessage()
+        subject.CurrentMessage.ShouldBeNull
+        subject.HasMessages.ShouldBeFalse
     End Sub
 End Class
 

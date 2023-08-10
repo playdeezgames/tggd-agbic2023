@@ -31,7 +31,7 @@ Friend Module ItemTypes
         {
             {PlantFiber, New ItemTypeDescriptor("Plant Fiber", ChrW(&H21), LightGreen)},
             {Wheat, New WheatDescriptor()},
-            {Flour, New ItemTypeDescriptor("Flour", ChrW(&H43), White)},
+            {Flour, New FlourDescriptor()},
             {Dough, New ItemTypeDescriptor("Dough", ChrW(&H44), Tan)},
             {RatBody, New RatBodyDescriptor()},
             {RatTail, New ItemTypeDescriptor("Rat Tail", ChrW(&H2E), DarkGray)},

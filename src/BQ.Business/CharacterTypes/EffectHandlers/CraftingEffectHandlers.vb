@@ -64,7 +64,7 @@
                 AddLine(LightGray, $"{character.Name} needs a fire to {taskName}.")
             Return
         End If
-        DoRecipe(character, recipeType, taskName, resultName)
+        DoRecipe(character, 0, recipeType, taskName, resultName)
     End Sub
 
     Friend Sub DoCookRatCorpse(character As ICharacter, effect As IEffect)
@@ -76,7 +76,7 @@
                 AddLine(LightGray, $"{character.Name} needs a fire to {taskName}.")
             Return
         End If
-        DoRecipe(character, recipeType, taskName, resultName)
+        DoRecipe(character, 0, recipeType, taskName, resultName)
     End Sub
 
     Friend Sub DoMakeHatchet(character As ICharacter, effect As IEffect)
@@ -101,7 +101,7 @@
         Next
     End Sub
 
-    Private Sub DoRecipe(character As ICharacter, recipeType As String, taskName As String, resultName As String)
+    Private Function CanDoRecipe(character As ICharacter, recipeType As String, taskName As String) As Boolean
         If Not RecipeTypes.CanCraft(recipeType, character) Then
             Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"To {taskName},").
@@ -109,16 +109,27 @@
             For Each input In RecipeTypes.Inputs(recipeType)
                 msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next
-            Return
+            Return False
         End If
-        RecipeTypes.Craft(recipeType, character)
-        character.World.CreateMessage().
+        Return True
+    End Function
+
+    Private Sub DoRecipe(character As ICharacter, energyCost As Integer, recipeType As String, taskName As String, resultName As String)
+        If CanDoRecipe(character, recipeType, taskName) Then
+            If Not ConsumeEnergy(character, energyCost, taskName) Then
+                Return
+            End If
+            RecipeTypes.Craft(recipeType, character)
+            character.World.CreateMessage().
                 AddLine(LightGray, $"{character.Name} {resultName}.")
-    End Sub
-    Friend Sub DoMillWheat(character As ICharacter, effect As IEffect)
-        If Not ConsumeEnergy(character, 1, "make flour") Then
-            Return
         End If
-        DoRecipe(character, RecipeTypes.Flour, "make flour", "makes flour")
+    End Sub
+
+    Friend Sub DoMillWheat(character As ICharacter, effect As IEffect)
+        DoRecipe(character, 1, RecipeTypes.Flour, "make flour", "makes flour")
+    End Sub
+
+    Friend Sub DoMakeDough(character As ICharacter, effect As IEffect)
+        DoRecipe(character, 2, RecipeTypes.Dough, "make dough", "makes dough")
     End Sub
 End Module

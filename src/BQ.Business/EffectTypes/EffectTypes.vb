@@ -25,6 +25,7 @@ Friend Module EffectTypes
     Friend Const LearnKnapping = "LearnKnapping"
     Friend Const LearnTorchMaking = "LearnTorchMaking"
     Friend Const LearnTwineMaking = "LearnTwineMaking"
+    Friend Const MakeDough = "MakeDough"
     Friend Const Message = "Message"
     Friend Const MillWheat = "MillWheat"
     Friend Const PayInnkeeper = "PayInnkeeper"
@@ -66,6 +67,7 @@ Friend Module EffectTypes
             {LearnForaging, New EffectTypeDescriptor("Learn Foraging")},
             {LearnKnapping, New EffectTypeDescriptor("Learn Knapping")},
             {LearnTwineMaking, New EffectTypeDescriptor("Learn Twine Making")},
+            {MakeDough, New EffectTypeDescriptor("Make Dough")},
             {MillWheat, New EffectTypeDescriptor("Mill")},
             {Message, New EffectTypeDescriptor("Message")},
             {PayInnkeeper, New EffectTypeDescriptor("Pay Innkeeper")},

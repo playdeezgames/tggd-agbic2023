@@ -35,6 +35,7 @@ Friend Module EffectTypes
     Friend Const PotterTalk = "PotterTalk"
     Friend Const PutOutFire = "PutOutFire"
     Friend Const SleepAtInn = "SleepAtInn"
+    Friend Const SmokePepper = "SmokePepper"
     Friend Const Teleport = "Teleport"
     Friend Const TrainEnergy = "TrainEnergy"
     Friend Const TrainHealth = "TrainHealth"
@@ -88,7 +89,8 @@ Friend Module EffectTypes
             {MakeTorch, New EffectTypeDescriptor("Make Torch")},
             {PutOutFire, New EffectTypeDescriptor("Put Out Fire")},
             {CookRatBody, New EffectTypeDescriptor("Cook")},
-            {CookRatCorpse, New EffectTypeDescriptor("Cook")}
+            {CookRatCorpse, New EffectTypeDescriptor("Cook")},
+            {EffectTypes.SmokePepper, New EffectTypeDescriptor("Smoke")}
         }
     <Extension>
     Friend Function ToEffectTypeDescriptor(verbType As String) As EffectTypeDescriptor

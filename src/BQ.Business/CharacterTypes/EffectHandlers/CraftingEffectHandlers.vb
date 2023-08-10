@@ -55,28 +55,33 @@
         character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.RatTail))
     End Sub
 
+    Private Function CheckForFire(character As ICharacter, taskName As String) As Boolean
+        If Not character.Cell.Descriptor.HasFire Then
+            character.World.CreateMessage().
+                AddLine(LightGray, $"{character.Name} needs a fire to {taskName}.")
+            Return False
+        End If
+        Return True
+    End Function
+
     Friend Sub DoCookRatBody(character As ICharacter, effect As IEffect)
         Dim recipeType = RecipeTypes.CookedRatBody
         Dim taskName = "cook a rat body"
         Dim resultName = "cooks a rat body"
-        If Not character.Cell.Descriptor.HasFire Then
-            character.World.CreateMessage().
-                AddLine(LightGray, $"{character.Name} needs a fire to {taskName}.")
-            Return
-        End If
-        DoRecipe(character, 0, recipeType, taskName, resultName)
+        CookRecipe(character, recipeType, taskName, resultName)
     End Sub
 
     Friend Sub DoCookRatCorpse(character As ICharacter, effect As IEffect)
         Dim recipeType = RecipeTypes.CookedRatCorpse
         Dim taskName = "cook a rat corpse"
         Dim resultName = "cooks a rat corpse"
-        If Not character.Cell.Descriptor.HasFire Then
-            character.World.CreateMessage().
-                AddLine(LightGray, $"{character.Name} needs a fire to {taskName}.")
-            Return
+        CookRecipe(character, recipeType, taskName, resultName)
+    End Sub
+
+    Private Sub CookRecipe(character As ICharacter, recipeType As String, taskName As String, resultName As String)
+        If CheckForFire(character, taskName) Then
+            DoRecipe(character, 0, recipeType, taskName, resultName)
         End If
-        DoRecipe(character, 0, recipeType, taskName, resultName)
     End Sub
 
     Friend Sub DoMakeHatchet(character As ICharacter, effect As IEffect)
@@ -131,5 +136,9 @@
 
     Friend Sub DoMakeDough(character As ICharacter, effect As IEffect)
         DoRecipe(character, 2, RecipeTypes.Dough, "make dough", "makes dough")
+    End Sub
+
+    Friend Sub DoSmokePepper(character As ICharacter, effect As IEffect)
+        CookRecipe(character, RecipeTypes.SmokedPepper, "smoke a pepper", "smokes a pepper")
     End Sub
 End Module

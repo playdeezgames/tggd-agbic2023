@@ -72,6 +72,7 @@ Public Class BagelQuestContext
     Private ReadOnly SlotFilename As IReadOnlyDictionary(Of Integer, String) =
         New Dictionary(Of Integer, String) From
         {
+            {0, "scum.json"},
             {1, "slot1.json"},
             {2, "slot2.json"},
             {3, "slot3.json"},

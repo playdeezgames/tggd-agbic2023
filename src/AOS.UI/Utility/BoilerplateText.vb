@@ -8,6 +8,8 @@
     Friend Const OptionsText = "Options..."
     Friend Const QuitText = "Quit"
     Friend Const SaveGameText = "Save..."
+    Friend Const ScumLoadText = "Scum Load"
+    Friend Const ScumSaveText = "Scum Save"
     Friend Const SetSfxVolumeText = "Sfx Volume..."
     Friend Const SetMuxVolumeText = "Mux Volume..."
     Friend Const SetWindowSizeText = "Window Size..."

@@ -16,6 +16,8 @@
                 SetState(BoilerplateState.Embark)
             Case LoadText
                 SetState(BoilerplateState.Load)
+            Case ScumLoadText
+                SetState(BoilerplateState.ScumLoad)
             Case Else
                 Throw New NotImplementedException()
         End Select
@@ -25,6 +27,7 @@
         Return New List(Of (String, String)) From
             {
                 (EmbarkText, EmbarkText),
+                (ScumLoadText, ScumLoadText),
                 (LoadText, LoadText),
                 (OptionsText, OptionsText),
                 (AboutText, AboutText),

@@ -7,6 +7,8 @@
         Select Case value.Item2
             Case ContinueGameText
                 SetState(BoilerplateState.Neutral)
+            Case ScumSaveText
+                SetState(BoilerplateState.ScumSave)
             Case SaveGameText
                 SetState(BoilerplateState.Save)
             Case OptionsText
@@ -19,6 +21,7 @@
         Return New List(Of (String, String)) From
             {
                 (ContinueGameText, ContinueGameText),
+                (ScumSaveText, ScumSaveText),
                 (SaveGameText, SaveGameText),
                 (OptionsText, OptionsText),
                 (AbandonGameText, AbandonGameText)

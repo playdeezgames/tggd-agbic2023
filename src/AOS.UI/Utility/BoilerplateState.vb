@@ -9,6 +9,8 @@
     Public Const Neutral = "Neutral"
     Public Const Options = "Options"
     Public Const Save = "Save"
+    Public Const ScumSave = "ScumSave"
+    Public Const ScumLoad = "ScumLoad"
     Public Const Splash = "Splash"
     Public Const SfxVolume = "SfxVolume"
     Public Const MuxVolume = "MuxVolume"

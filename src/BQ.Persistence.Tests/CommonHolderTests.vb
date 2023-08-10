@@ -13,6 +13,10 @@ Friend Module CommonHolderTests
         subject.Statistic(statisticType).ShouldBe(statisticValue)
         subject.TryGetStatistic(statisticType).ShouldBe(statisticValue)
 
+        subject.AddStatistic(statisticType, statisticValue)
+        subject.Statistic(statisticType).ShouldBe(statisticValue * 2)
+        subject.TryGetStatistic(statisticType).ShouldBe(statisticValue * 2)
+
         subject.RemoveStatistic(statisticType)
         subject.HasStatistic(statisticType).ShouldBeFalse
         subject.TryGetStatistic(statisticType).ShouldBe(0)

@@ -46,6 +46,8 @@ Public Class Message_should
         subject.HasChoices.ShouldBeTrue
         subject.Choices.ShouldNotBeEmpty
         subject.ChoiceCount.ShouldBe(1)
+        subject.Choice(0).Text.ShouldBe(Text)
+        subject.Choice(0).EffectType.ShouldBe(EffectType)
     End Sub
     <Fact>
     Sub add_line()

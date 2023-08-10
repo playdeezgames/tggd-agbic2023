@@ -35,6 +35,13 @@
         DoHealing(character, item, 2)
     End Sub
 
+    Friend Sub DoEatSeasonedRat(character As ICharacter, effect As IEffect)
+        DoEatCookedRat(character, effect)
+        If RNG.GenerateBoolean(5, 5) Then
+            character.AwardXP(character.World.CreateMessage.AddLine(Orange, "That was a spicy one!"), 1)
+        End If
+    End Sub
+
     Friend Sub DoUseEnergyHerb(character As ICharacter, effect As IEffect)
         Dim item As IItem = ConsumedItem(character, effect)
         Const energyBenefit = 10

@@ -54,9 +54,9 @@ Friend Module LoxyEffectHandlers
                         {EffectTypes.MakeDough, AddressOf DoMakeDough},
                         {EffectTypes.SmokePepper, AddressOf DoSmokePepper},
                         {EffectTypes.MakePaprika, AddressOf DoMakePaprika},
-                        {EffectTypes.SeasonRat, AddressOf DoSeasonRat}
+                        {EffectTypes.SeasonRat, AddressOf DoSeasonRat},
+                        {EffectTypes.EatSeasonedRat, AddressOf DoEatSeasonedRat}
                     }
-
 
     Friend Function ConsumeEnergy(character As ICharacter, energyCost As Integer, actionName As String) As Boolean
         If character.Energy < energyCost Then

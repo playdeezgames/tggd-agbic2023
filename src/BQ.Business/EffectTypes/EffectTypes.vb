@@ -15,6 +15,7 @@ Friend Module EffectTypes
     Friend Const DruidTeachMenu = "DruidTeachMenu"
     Friend Const EatCookedRat = "EatCookedRat"
     Friend Const EatRatCorpse = "EatRatCorpse"
+    Friend Const EatSeasonedRat = "EatSeasonedRat"
     Friend Const EnergyTrainerTalk = "EnergyTrainerTalk"
     Friend Const EnterCellar = "EnterCellar"
     Friend Const ExitDialog = "ExitDialog"
@@ -88,6 +89,7 @@ Friend Module EffectTypes
             {UseEnergyHerb, New EffectTypeDescriptor("Use")},
             {CutOffTail, New EffectTypeDescriptor("Cut Off Tail")},
             {EatRatCorpse, New EffectTypeDescriptor("Eat")},
+            {EatSeasonedRat, New EffectTypeDescriptor("Eat")},
             {EatCookedRat, New EffectTypeDescriptor("Eat")},
             {BuildFire, New EffectTypeDescriptor("Build Fire")},
             {MakeTorch, New EffectTypeDescriptor("Make Torch")},

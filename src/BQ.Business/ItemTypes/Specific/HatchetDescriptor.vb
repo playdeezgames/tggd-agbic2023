@@ -10,7 +10,9 @@
             statistics:=New Dictionary(Of String, Integer) From
             {
                 {StatisticTypes.AttackDice, 3},
-                {StatisticTypes.MaximumAttack, 1}
+                {StatisticTypes.MaximumAttack, 1},
+                {StatisticTypes.Durability, 20},
+                {StatisticTypes.MaximumDurability, 20}
             },
             flags:=New List(Of String) From
             {

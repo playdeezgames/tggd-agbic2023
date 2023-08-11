@@ -47,4 +47,12 @@ Friend Module ItemExtensions
     Friend Function MaximumDefend(item As IItem) As Integer
         Return item.TryGetStatistic(StatisticTypes.MaximumDefend)
     End Function
+    <Extension>
+    Friend Function Durability(item As IItem) As Integer
+        Return item.TryGetStatistic(StatisticTypes.Durability)
+    End Function
+    <Extension>
+    Friend Function MaximumDurability(item As IItem) As Integer
+        Return item.TryGetStatistic(StatisticTypes.MaximumDurability)
+    End Function
 End Module

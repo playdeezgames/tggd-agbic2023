@@ -1,8 +1,10 @@
 ﻿Friend Class ScumLoadState(Of TModel)
     Inherits BaseGameState(Of TModel)
+    Private ReadOnly Property ReturnState As String
 
-    Public Sub New(parent As IGameController, setState As Action(Of String, Boolean), context As IUIContext(Of TModel))
+    Public Sub New(parent As IGameController, setState As Action(Of String, Boolean), context As IUIContext(Of TModel), returnState As String)
         MyBase.New(parent, setState, context)
+        Me.ReturnState = returnState
     End Sub
 
     Public Overrides Sub HandleCommand(cmd As String)
@@ -20,7 +22,7 @@
             SetState(Neutral)
             Return
         End If
-        SetState(MainMenu)
+        SetState(ReturnState)
     End Sub
 
 End Class

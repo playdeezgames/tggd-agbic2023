@@ -17,7 +17,7 @@
             Case LoadText
                 SetState(BoilerplateState.Load)
             Case ScumLoadText
-                SetState(BoilerplateState.ScumLoad)
+                SetState(BoilerplateState.ScumLoadMainMenu)
             Case Else
                 Throw New NotImplementedException()
         End Select

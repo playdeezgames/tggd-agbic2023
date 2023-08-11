@@ -8,7 +8,8 @@
             Red,
             effects:=New Dictionary(Of String, EffectData) From
             {
-                {EffectTypes.SmokePepper, New EffectData() With {.EffectType = EffectTypes.SmokePepper}}
+                {EffectTypes.SmokePepper, New EffectData() With {.EffectType = EffectTypes.SmokePepper}},
+                {EffectTypes.EatPepper, New EffectData() With {.EffectType = EffectTypes.EatPepper}}
             })
     End Sub
 End Class

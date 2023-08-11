@@ -100,7 +100,8 @@
         SetState(BoilerplateState.Abandon, New ConfirmAbandonState(Of TModel)(Me, AddressOf SetCurrentState, context))
         SetState(BoilerplateState.GameMenu, New GameMenuState(Of TModel)(Me, AddressOf SetCurrentState, context))
         SetState(BoilerplateState.ScumSave, New ScumSaveState(Of TModel)(Me, AddressOf SetCurrentState, context))
-        SetState(BoilerplateState.ScumLoad, New ScumLoadState(Of TModel)(Me, AddressOf SetCurrentState, context))
+        SetState(BoilerplateState.ScumLoadMainMenu, New ScumLoadState(Of TModel)(Me, AddressOf SetCurrentState, context, BoilerplateState.MainMenu))
+        SetState(BoilerplateState.ScumLoadGameMenu, New ScumLoadState(Of TModel)(Me, AddressOf SetCurrentState, context, BoilerplateState.GameMenu))
     End Sub
     Private OnSfx As Action(Of String)
     Private OnMux As Action(Of String)

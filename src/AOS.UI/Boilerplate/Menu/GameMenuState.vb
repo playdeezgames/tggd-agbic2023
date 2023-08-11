@@ -9,6 +9,8 @@
                 SetState(BoilerplateState.Neutral)
             Case ScumSaveText
                 SetState(BoilerplateState.ScumSave)
+            Case ScumLoadText
+                SetState(BoilerplateState.ScumLoadGameMenu)
             Case SaveGameText
                 SetState(BoilerplateState.Save)
             Case OptionsText
@@ -23,6 +25,7 @@
                 (ContinueGameText, ContinueGameText),
                 (ScumSaveText, ScumSaveText),
                 (SaveGameText, SaveGameText),
+                (ScumLoadText, ScumLoadText),
                 (OptionsText, OptionsText),
                 (AbandonGameText, AbandonGameText)
             }

@@ -1,4 +1,20 @@
 ﻿Friend Module ConsumableEffectHandlers
+    Friend Sub DoEatPepper(character As ICharacter, effect As IEffect)
+        Dim item As IItem = ConsumedItem(character, effect)
+        Dim msg = character.World.CreateMessage.AddLine(LightGray, $"{character.Name} eats the pepper.")
+        If RNG.GenerateBoolean(5, 5) Then
+            character.AwardXP(msg.AddLine(Orange, "That was a spicy one!"), 1)
+        End If
+    End Sub
+
+    Friend Sub DoEatSmokedPepper(character As ICharacter, effect As IEffect)
+        Dim item As IItem = ConsumedItem(character, effect)
+        Dim msg = character.World.CreateMessage.AddLine(LightGray, $"{character.Name} eats the smoked pepper.")
+        If RNG.GenerateBoolean(5, 5) Then
+            character.AwardXP(msg.AddLine(Orange, "That was a spicy one!"), 1)
+        End If
+    End Sub
+
     Friend Sub DoEatRatCorpse(character As ICharacter, effect As IEffect)
         Dim item As IItem = ConsumedItem(character, effect)
         If RNG.GenerateBoolean(0, 50) Then

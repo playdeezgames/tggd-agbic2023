@@ -14,8 +14,10 @@ Friend Module EffectTypes
     Friend Const DruidTalk = "DruidTalk"
     Friend Const DruidTeachMenu = "DruidTeachMenu"
     Friend Const EatCookedRat = "EatCookedRat"
+    Friend Const EatPepper = "EatPepper"
     Friend Const EatRatCorpse = "EatRatCorpse"
     Friend Const EatSeasonedRat = "EatSeasonedRat"
+    Friend Const EatSmokedPepper = "EatSmokedPepper"
     Friend Const EnergyTrainerTalk = "EnergyTrainerTalk"
     Friend Const EnterCellar = "EnterCellar"
     Friend Const ExitDialog = "ExitDialog"
@@ -96,11 +98,13 @@ Friend Module EffectTypes
             {PutOutFire, New EffectTypeDescriptor("Put Out Fire")},
             {CookRatBody, New EffectTypeDescriptor("Cook")},
             {CookRatCorpse, New EffectTypeDescriptor("Cook")},
-            {EffectTypes.SmokePepper, New EffectTypeDescriptor("Smoke")}
+            {EffectTypes.SmokePepper, New EffectTypeDescriptor("Smoke")},
+            {EffectTypes.EatPepper, New EffectTypeDescriptor("Eat")},
+            {EffectTypes.EatSmokedPepper, New EffectTypeDescriptor("Eat")}
         }
     <Extension>
-    Friend Function ToEffectTypeDescriptor(verbType As String) As EffectTypeDescriptor
-        Return descriptors(verbType)
+    Friend Function ToEffectTypeDescriptor(effectType As String) As EffectTypeDescriptor
+        Return descriptors(effectType)
     End Function
     Friend ReadOnly Property All As IEnumerable(Of String)
         Get

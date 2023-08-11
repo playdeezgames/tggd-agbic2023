@@ -50,7 +50,7 @@ Friend Module ItemTypes
             {Twine, New ItemTypeDescriptor("Twine", ChrW(&H21), Tan)},
             {Torch, New ItemTypeDescriptor("Torch", ChrW(&H34), Red)},
             {Charcoal, New ItemTypeDescriptor("Charcoal", ChrW(&H36), DarkGray)},
-            {StrawHat, New ItemTypeDescriptor("Straw Hat", ChrW(&H3B), Yellow)},
+            {StrawHat, New StrawHatDescriptor()},
             {UnfiredPot, New ItemTypeDescriptor("Unfired Pot", ChrW(&H3F), Tan)},
             {ClayPot, New ItemTypeDescriptor("Clay Pot", ChrW(&H3F), Brown)},
             {CrackedPot, New ItemTypeDescriptor("Cracked Pot", ChrW(&H40), Brown)},

@@ -34,7 +34,8 @@ Friend Module CharacterTypes
                         {StatisticTypes.Energy, 10},
                         {StatisticTypes.MaximumEnergy, 10}
                     },
-                    effectHandlers:=LoxyEffectHandlers.All)
+                    effectHandlers:=LoxyEffectHandlers.All,
+                    initializer:=AddressOf LoxyInitializer)
             },
             {
                 OliveGlop,
@@ -121,6 +122,10 @@ Friend Module CharacterTypes
                     initializer:=AddressOf CherryGlopInitializer)
             }
         }
+
+    Private Sub LoxyInitializer(character As ICharacter)
+        character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.StrawHat))
+    End Sub
 
     Private Sub ScarecrowInitializer(character As ICharacter)
         If RNG.RollDice("1d5/5") > 0 Then

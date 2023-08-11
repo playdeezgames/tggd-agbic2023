@@ -1,0 +1,20 @@
+﻿Friend Class StrawHatDescriptor
+    Inherits ItemTypeDescriptor
+
+    Friend Sub New()
+        MyBase.New(
+            "Straw Hat",
+            ChrW(&H3B),
+            Yellow,
+            equipSlotType:=EquipSlotTypes.Head,
+            statistics:=New Dictionary(Of String, Integer) From
+            {
+                {StatisticTypes.DefendDice, 1},
+                {StatisticTypes.MaximumAttack, 0}
+            },
+            flags:=New List(Of String) From
+            {
+                FlagTypes.IsArmor
+            })
+    End Sub
+End Class

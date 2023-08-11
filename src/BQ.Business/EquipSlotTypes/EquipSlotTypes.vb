@@ -2,10 +2,12 @@
 
 Friend Module EquipSlotTypes
     Friend Const Weapon = "Weapon"
+    Friend Const Head = "Head"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, EquipSlotTypeDescriptor) =
         New Dictionary(Of String, EquipSlotTypeDescriptor) From
         {
-            {Weapon, New EquipSlotTypeDescriptor("Weapon")}
+            {Weapon, New EquipSlotTypeDescriptor("Weapon")},
+            {Head, New EquipSlotTypeDescriptor("Head")}
         }
     <Extension>
     Friend Function ToEquipSlotTypeDescriptor(equipSlotType As String) As EquipSlotTypeDescriptor

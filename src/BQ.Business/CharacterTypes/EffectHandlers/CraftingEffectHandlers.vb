@@ -45,6 +45,24 @@
                 AddLine(LightGray, $"{character.Name} builds a small fire.")
         character.Cell.TerrainType = TerrainTypes.CookingFire
     End Sub
+    Friend Sub DoBuildFurnace(character As ICharacter, effect As IEffect)
+        If Not ConsumeEnergy(character, 1, "build a furnace") Then
+            Return
+        End If
+        If Not RecipeTypes.CanCraft(RecipeTypes.Furnace, character) Then
+            Dim msg = character.World.CreateMessage().
+                AddLine(LightGray, $"To build a furnace,").
+                AddLine(LightGray, $"{character.Name} needs:")
+            For Each input In RecipeTypes.Inputs(RecipeTypes.Furnace)
+                msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+            Next
+            Return
+        End If
+        RecipeTypes.Craft(RecipeTypes.Furnace, character)
+        character.World.CreateMessage().
+                AddLine(LightGray, $"{character.Name} builds a furnace.")
+        character.Cell.TerrainType = TerrainTypes.Furnace
+    End Sub
     Friend Sub DoCutOffTail(character As ICharacter, effect As IEffect)
         If Not character.HasCuttingTool Then
             character.World.CreateMessage().AddLine(LightGray, $"{character.Name} needs a cutting tool for that!")

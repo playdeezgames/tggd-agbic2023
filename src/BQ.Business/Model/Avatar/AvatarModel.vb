@@ -158,6 +158,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property CanBuildFurnace As Boolean Implements IAvatarModel.CanBuildFurnace
+        Get
+            Return avatar.CanBuildFurnace AndAlso avatar.Cell.CanBuildFurnace
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub
@@ -202,6 +208,10 @@
 
     Public Sub MakeHatchet() Implements IAvatarModel.MakeHatchet
         avatar.DoMakeHatchet()
+    End Sub
+
+    Public Sub BuildFurnace() Implements IAvatarModel.BuildFurnace
+        avatar.DoBuildFurnace()
     End Sub
 
     Public Sub Knap() Implements IAvatarModel.Knap

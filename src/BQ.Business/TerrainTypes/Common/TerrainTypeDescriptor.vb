@@ -3,6 +3,7 @@ Imports SPLORR.Game
 
 Friend Class TerrainTypeDescriptor
     Inherits VisibleEntityDescriptor
+    Friend ReadOnly Property CanBuildFurnace As Boolean
     Friend ReadOnly Property DepletedTerrainType As String
     Friend ReadOnly Property HasFire As Boolean
     Friend ReadOnly Property Peril As Integer
@@ -37,8 +38,10 @@ Friend Class TerrainTypeDescriptor
            Optional effects As IReadOnlyDictionary(Of String, EffectData) = Nothing,
            Optional hasFire As Boolean = False,
            Optional creatureTypeGenerator As IReadOnlyDictionary(Of String, Integer) = Nothing,
-           Optional isWaterSource As Boolean = False)
+           Optional isWaterSource As Boolean = False,
+           Optional canBuildFurnace As Boolean = False)
         MyBase.New(name, glyph, hue)
+        Me.CanBuildFurnace = canBuildFurnace
         Me.IsWaterSource = isWaterSource
         Me.HasFire = hasFire
         Me.Tenable = tenable

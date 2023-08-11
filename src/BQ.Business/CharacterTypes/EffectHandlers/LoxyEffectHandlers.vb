@@ -37,6 +37,7 @@ Friend Module LoxyEffectHandlers
                         {EffectTypes.EatRatCorpse, AddressOf DoEatRatCorpse},
                         {EffectTypes.Forage, AddressOf DoForage},
                         {EffectTypes.BuildFire, AddressOf DoCraftFire},
+                        {EffectTypes.BuildFurnace, AddressOf CraftingEffectHandlers.DoBuildFurnace},
                         {EffectTypes.LearnFireMaking, AddressOf DoLearnSkill},
                         {EffectTypes.LearnTorchMaking, AddressOf DoLearnSkill},
                         {EffectTypes.LearnHatchedMaking, AddressOf DoLearnSkill},

@@ -9,6 +9,7 @@
     Sub PutOutFire()
     Sub MakeTorch()
     Sub MakeHatchet()
+    Sub BuildFurnace()
     Sub Knap()
     ReadOnly Property IsDead As Boolean
     ReadOnly Property Character As (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)
@@ -33,6 +34,7 @@
     ReadOnly Property CanBuildFire As Boolean
     ReadOnly Property CanPutOutFire As Boolean
     ReadOnly Property CanMakeTorch As Boolean
+    ReadOnly Property CanBuildFurnace As Boolean
     ReadOnly Property CanMakeHatchet As Boolean
     ReadOnly Property CanKnap As Boolean
 End Interface

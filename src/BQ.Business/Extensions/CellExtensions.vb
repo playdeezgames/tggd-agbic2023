@@ -1,5 +1,9 @@
 ﻿Friend Module CellExtensions
     <Extension>
+    Friend Function CanBuildFurnace(cell As ICell) As Boolean
+        Return cell.Descriptor.CanBuildFurnace
+    End Function
+    <Extension>
     Friend Function HasFire(cell As ICell) As Boolean
         Return cell.Descriptor.HasFire
     End Function

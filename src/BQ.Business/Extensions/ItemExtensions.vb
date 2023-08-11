@@ -39,4 +39,12 @@ Friend Module ItemExtensions
     Friend Function MaximumAttack(item As IItem) As Integer
         Return item.TryGetStatistic(StatisticTypes.MaximumAttack)
     End Function
+    <Extension>
+    Friend Function DefendDice(item As IItem) As Integer
+        Return item.TryGetStatistic(StatisticTypes.DefendDice)
+    End Function
+    <Extension>
+    Friend Function MaximumDefend(item As IItem) As Integer
+        Return item.TryGetStatistic(StatisticTypes.MaximumDefend)
+    End Function
 End Module

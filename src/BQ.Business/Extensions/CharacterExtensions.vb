@@ -191,11 +191,11 @@
     End Function
     <Extension>
     Friend Function DefendDice(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.DefendDice)
+        Return character.TryGetStatistic(StatisticTypes.DefendDice) + character.EquippedItems.Sum(Function(x) x.DefendDice)
     End Function
     <Extension>
     Friend Function MaximumDefend(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.MaximumDefend)
+        Return character.TryGetStatistic(StatisticTypes.MaximumDefend) + character.EquippedItems.Sum(Function(x) x.MaximumDefend)
     End Function
     <Extension>
     Private Function RollAttack(character As ICharacter) As Integer

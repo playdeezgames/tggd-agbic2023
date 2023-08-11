@@ -295,10 +295,49 @@
         End If
     End Sub
     <Extension>
+    Private Function ScuffWeapons(character As ICharacter, scuffAmount As Integer, msg As IMessage) As Boolean
+        Dim items = character.EquippedItems.Where(Function(x) x.IsWeapon AndAlso x.Durability > 0)
+        Dim result = False
+        While scuffAmount > 0 AndAlso items.Any
+            Dim item = RNG.FromEnumerable(items)
+            item.AddDurability(-1)
+            If item.IsBroken Then
+                msg.AddLine(Red, $"{character.Name}' {item.Name} breaks!")
+                character.UnequipItem(item)
+                character.RemoveItem(item)
+                item.Recycle()
+                result = True
+            End If
+            scuffAmount -= 1
+            items = character.EquippedItems.Where(Function(x) x.IsWeapon AndAlso x.Durability > 0)
+        End While
+        Return result
+    End Function
+    <Extension>
+    Private Function ScuffArmors(character As ICharacter, scuffAmount As Integer, msg As IMessage) As Boolean
+        Dim items = character.EquippedItems.Where(Function(x) x.IsArmor AndAlso x.Durability > 0)
+        Dim result = False
+        While scuffAmount > 0 AndAlso items.Any
+            Dim item = RNG.FromEnumerable(items)
+            item.AddDurability(-1)
+            If item.IsBroken Then
+                msg.AddLine(Red, $"{character.Name}' {item.Name} breaks!")
+                character.UnequipItem(item)
+                character.RemoveItem(item)
+                item.Recycle()
+                result = True
+            End If
+            scuffAmount -= 1
+            items = character.EquippedItems.Where(Function(x) x.IsArmor AndAlso x.Durability > 0)
+        End While
+        Return result
+    End Function
+    <Extension>
     Friend Function Attack(attacker As ICharacter, defender As ICharacter, Optional message As String = Nothing) As Boolean
         If defender.IsDead Then
             Return False
         End If
+        Dim result = False
         Dim msg = attacker.World.CreateMessage
         If Not String.IsNullOrEmpty(message) Then
             msg.AddLine(LightGray, message)
@@ -306,14 +345,17 @@
         msg.AddLine(LightGray, $"{attacker.Name} attacks {defender.Name}")
         Dim attackRoll = attacker.RollAttack()
         msg.AddLine(LightGray, $"{attacker.Name} rolls an attack of {attackRoll}")
+        result = attacker.ScuffWeapons(attackRoll, msg) OrElse result
         Dim defendRoll = defender.RollDefend()
         msg.AddLine(LightGray, $"{defender.Name} rolls a defend of {defendRoll}")
         Dim damage = Math.Max(0, attackRoll - defendRoll)
+        result = attacker.ScuffArmors(defendRoll, msg) OrElse result
         If damage <= 0 Then
             msg.AddLine(LightGray, $"{attacker.Name} misses.")
             msg.SetSfx(If(attacker.IsAvatar, Sfx.PlayerMiss, Sfx.EnemyMiss))
-            Return False
+            Return result
         End If
+        result = True
         msg.AddLine(LightGray, $"{defender.Name} takes {damage} damage")
         defender.SetHealth(defender.Health - damage)
         If defender.IsDead Then
@@ -322,11 +364,11 @@
             attacker.AwardJools(msg, defender.Jools)
             attacker.AwardXP(msg, defender.XP)
             defender.Die()
-            Return True
+            Return result
         End If
         msg.SetSfx(If(defender.IsAvatar, Sfx.PlayerHit, Sfx.EnemyHit))
         msg.AddLine(LightGray, $"{defender.Name} has {defender.Health}/{defender.MaximumHealth} health.")
-        Return True
+        Return result
     End Function
     <Extension>
     Function XP(character As ICharacter) As Integer

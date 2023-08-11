@@ -52,7 +52,19 @@ Friend Module ItemExtensions
         Return item.TryGetStatistic(StatisticTypes.Durability)
     End Function
     <Extension>
+    Friend Sub SetDurability(item As IItem, durability As Integer)
+        item.SetStatistic(StatisticTypes.Durability, Math.Clamp(durability, 0, item.MaximumDurability))
+    End Sub
+    <Extension>
+    Friend Sub AddDurability(item As IItem, delta As Integer)
+        item.SetDurability(item.Durability + delta)
+    End Sub
+    <Extension>
     Friend Function MaximumDurability(item As IItem) As Integer
         Return item.TryGetStatistic(StatisticTypes.MaximumDurability)
+    End Function
+    <Extension>
+    Friend Function IsBroken(item As IItem) As Boolean
+        Return item.Durability <= 0
     End Function
 End Module

@@ -349,7 +349,7 @@
         Dim defendRoll = defender.RollDefend()
         msg.AddLine(LightGray, $"{defender.Name} rolls a defend of {defendRoll}")
         Dim damage = Math.Max(0, attackRoll - defendRoll)
-        result = attacker.ScuffArmors(defendRoll, msg) OrElse result
+        result = defender.ScuffArmors(Math.Max(defendRoll, damage), msg) OrElse result
         If damage <= 0 Then
             msg.AddLine(LightGray, $"{attacker.Name} misses.")
             msg.SetSfx(If(attacker.IsAvatar, Sfx.PlayerMiss, Sfx.EnemyMiss))

@@ -4,8 +4,16 @@
         Return cell.Descriptor.CanBuildFurnace
     End Function
     <Extension>
+    Friend Function CanCookBagel(cell As ICell) As Boolean
+        Return cell.Descriptor.HasEffect(EffectTypes.CookBagel)
+    End Function
+    <Extension>
     Friend Function HasFire(cell As ICell) As Boolean
         Return cell.Descriptor.HasFire
+    End Function
+    <Extension>
+    Friend Function CanSleep(cell As ICell) As Boolean
+        Return cell.Descriptor.CanSleep
     End Function
     <Extension>
     Friend Function CanMakeTorch(cell As ICell) As Boolean

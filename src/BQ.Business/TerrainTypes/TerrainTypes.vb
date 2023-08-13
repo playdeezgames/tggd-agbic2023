@@ -64,7 +64,7 @@ Friend Module TerrainTypes
             {Gravel, New TerrainTypeDescriptor("Gravel", ChrW(6), Hue.DarkGray, True)},
             {Fence, New TerrainTypeDescriptor("Fence", ChrW(5), Hue.Brown, False)},
             {House, New TerrainTypeDescriptor("House", ChrW(7), Hue.Red, False)},
-            {Town, New TerrainTypeDescriptor("Town", ChrW(7), Hue.Red, True)},
+            {Town, New TownTerrainDescriptor()},
             {Sign, New TerrainTypeDescriptor("Sign", ChrW(8), Hue.Brown, False)},
             {RiverN, New TerrainTypeDescriptor("River", ChrW(&H17), Hue.Blue, False, isWaterSource:=True)},
             {RiverE, New TerrainTypeDescriptor("River", ChrW(&H18), Hue.Blue, False, isWaterSource:=True)},

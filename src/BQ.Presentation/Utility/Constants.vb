@@ -8,6 +8,7 @@
     Friend Const AttackText = "Attack!"
     Friend Const BuildFireText = "Build Fire"
     Friend Const BuildFurnaceText = "Build Furnace"
+    Friend Const CookBagelText = "Cook Bagel"
     Friend Const DropAllText = "Drop All"
     Friend Const DropHalfText = "Drop Half"
     Friend Const DropOneText = "Drop One"

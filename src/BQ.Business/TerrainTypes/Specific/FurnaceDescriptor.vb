@@ -5,6 +5,9 @@
         MyBase.New("Furnace",
             ChrW(&H45),
             Business.Hue.LightGray,
-            True)
+            True, effects:=New Dictionary(Of String, EffectData) From
+            {
+                {EffectTypes.CookBagel, New EffectData}
+            })
     End Sub
 End Class

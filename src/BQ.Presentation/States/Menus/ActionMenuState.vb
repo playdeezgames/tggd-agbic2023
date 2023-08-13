@@ -33,6 +33,8 @@
                 SetState(GameState.Knap)
             Case Constants.BuildFurnaceText
                 SetState(GameState.BuildFurnace)
+            Case Constants.CookBagelText
+                SetState(GameState.CookBagel)
         End Select
     End Sub
 
@@ -49,6 +51,7 @@
             (PutOutFireText, Function(m) m.Avatar.CanPutOutFire),
             (MakeTorchText, Function(m) m.Avatar.CanMakeTorch),
             (BuildFurnaceText, Function(m) m.Avatar.CanBuildFurnace),
+            (CookBagelText, Function(m) m.Avatar.CanCookBagel),
             (KnapText, Function(m) m.Avatar.CanKnap),
             (MakeHatchetText, Function(m) m.Avatar.CanMakeHatchet),
             (StatisticsText, Function(m) True)

@@ -3,6 +3,7 @@
     Friend Const BuildFire = "BuildFire"
     Friend Const BuildFurnace = "BuildFurnace"
     Friend Const Combat = "Combat"
+    Friend Const CookBagel = "CookBagel"
     Friend Const Dead = "Dead"
     Friend Const Drop = "Drop"
     Friend Const Equip = "Equip"

@@ -164,6 +164,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property CanCookBagel As Boolean Implements IAvatarModel.CanCookBagel
+        Get
+            Return avatar.CanCookBagel AndAlso avatar.Cell.CanCookBagel
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub
@@ -216,5 +222,9 @@
 
     Public Sub Knap() Implements IAvatarModel.Knap
         avatar.DoKnap()
+    End Sub
+
+    Public Sub CookBagel() Implements IAvatarModel.CookBagel
+        avatar.DoCookBagel()
     End Sub
 End Class

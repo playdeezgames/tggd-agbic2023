@@ -1,5 +1,9 @@
 ﻿Friend Module CharacterExtensions
     <Extension>
+    Friend Function CanCookBagel(character As ICharacter) As Boolean
+        Return RecipeTypes.CanCraft(RecipeTypes.Bagel, character)
+    End Function
+    <Extension>
     Friend Function CanBuildFurnace(character As ICharacter) As Boolean
         Return RecipeTypes.CanCraft(RecipeTypes.Furnace, character)
     End Function
@@ -12,7 +16,7 @@
         If Not character.IsAvatar Then
             Return
         End If
-        If Not character.Map.CampingAllowed Then
+        If Not character.Map.CampingAllowed OrElse Not character.Cell.CanSleep Then
             character.World.CreateMessage().AddLine(LightGray, $"{character.Name} cannot sleep here!")
             Return
         End If
@@ -33,6 +37,10 @@
     <Extension>
     Friend Sub DoBuildFurnace(character As ICharacter)
         character.Cell.Descriptor.DoEffect(character, EffectTypes.BuildFurnace, character.Cell)
+    End Sub
+    <Extension>
+    Friend Sub DoCookBagel(character As ICharacter)
+        character.Cell.Descriptor.DoEffect(character, EffectTypes.CookBagel, character.Cell)
     End Sub
     <Extension>
     Friend Sub DoMakeTorch(character As ICharacter)

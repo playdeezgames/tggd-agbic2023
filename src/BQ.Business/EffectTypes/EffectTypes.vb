@@ -5,6 +5,7 @@
     Friend Const BumpRiver = "BumpRiver"
     Friend Const Buy = "Buy"
     Friend Const CompleteRatQuest = "CompleteRatQuest"
+    Friend Const CookBagel = "CookBagel"
     Friend Const CookRatBody = "CookRatBody"
     Friend Const CookRatCorpse = "CookRatCorpse"
     Friend Const CutOffTail = "CutOffTail"
@@ -97,6 +98,7 @@
             {PutOutFire, New EffectTypeDescriptor("Put Out Fire")},
             {CookRatBody, New EffectTypeDescriptor("Cook")},
             {CookRatCorpse, New EffectTypeDescriptor("Cook")},
+            {EffectTypes.CookBagel, New EffectTypeDescriptor("Cook")},
             {EffectTypes.SmokePepper, New EffectTypeDescriptor("Smoke")},
             {EffectTypes.EatPepper, New EffectTypeDescriptor("Eat")},
             {EffectTypes.EatSmokedPepper, New EffectTypeDescriptor("Eat")}

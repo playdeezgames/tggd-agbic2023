@@ -19,6 +19,7 @@ Public Class GameController
         SetState(GameState.Equip, New EquipState(Me, AddressOf SetCurrentState, context))
         SetState(GameState.Equipment, New EquipmentState(Me, AddressOf SetCurrentState, context))
         SetState(GameState.Forage, New ForageState(Me, AddressOf SetCurrentState, context))
+        SetState(GameState.Winner, New WinnerState(Me, AddressOf SetCurrentState, context))
         SetCurrentState(BoilerplateState.Splash, True)
     End Sub
 

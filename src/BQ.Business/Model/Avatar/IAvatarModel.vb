@@ -12,6 +12,7 @@
     Sub BuildFurnace()
     Sub CookBagel()
     Sub Knap()
+    ReadOnly Property HasWon As Boolean
     ReadOnly Property IsDead As Boolean
     ReadOnly Property Character As (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)
     ReadOnly Property Name As String

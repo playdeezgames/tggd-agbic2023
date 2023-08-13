@@ -1,5 +1,9 @@
 ﻿Friend Module CharacterExtensions
     <Extension>
+    Friend Function HasWon(character As ICharacter) As Boolean
+        Return character.IsAvatar AndAlso character.ItemTypeCount(ItemTypes.Bagel) > 0
+    End Function
+    <Extension>
     Friend Function CanCookBagel(character As ICharacter) As Boolean
         Return RecipeTypes.CanCraft(RecipeTypes.Bagel, character)
     End Function

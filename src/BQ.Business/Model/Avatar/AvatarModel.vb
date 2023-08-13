@@ -170,6 +170,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property HasWon As Boolean Implements IAvatarModel.HasWon
+        Get
+            Return avatar.HasWon
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub

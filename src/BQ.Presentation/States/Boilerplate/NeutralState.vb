@@ -26,6 +26,10 @@
             SetState(GameState.Combat)
             Return
         End If
+        If Model.Avatar.HasWon Then
+            SetState(GameState.Winner)
+            Return
+        End If
         SetState(GameState.Navigation)
     End Sub
 End Class

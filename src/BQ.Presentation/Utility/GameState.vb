@@ -28,4 +28,5 @@
     Friend Const Sleep = "Sleep"
     Friend Const Statistics = "Statistics"
     Friend Const Take = "Take"
+    Friend Const Winner = "Winner"
 End Module

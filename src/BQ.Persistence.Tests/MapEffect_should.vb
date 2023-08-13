@@ -19,5 +19,9 @@
         Dim subject As IMapEffect = CreateSubject()
         DoFlagHolderTests(subject)
     End Sub
-
+    <Fact>
+    Sub have_properties()
+        Dim subject As IMapEffect = CreateSubject()
+        subject.Id.ShouldBe(0)
+    End Sub
 End Class

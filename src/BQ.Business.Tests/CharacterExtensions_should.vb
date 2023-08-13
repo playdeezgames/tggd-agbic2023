@@ -100,7 +100,6 @@ Public Class CharacterExtensions_should
         character.SetupGet(Function(x) x.World).Returns(world.Object)
         world.Setup(Function(x) x.CreateMessage()).Returns(message.Object)
         map.SetupGet(Function(x) x.Flag(FlagTypes.CampingAllowed)).Returns(True)
-        'message.Setup(Function(x) x.AddLine(It.IsAny(Of Integer)(), It.IsAny(Of String)())).Returns(message.Object)
 
         CharacterExtensions.Sleep(character.Object)
 

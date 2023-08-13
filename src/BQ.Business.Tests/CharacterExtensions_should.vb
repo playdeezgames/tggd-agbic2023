@@ -48,6 +48,7 @@ Public Class CharacterExtensions_should
         Dim message As New Mock(Of IMessage)
         Dim cell As New Mock(Of ICell)
 
+        cell.SetupGet(Function(x) x.TerrainType).Returns(TerrainTypes.Empty)
         character.SetupGet(Function(x) x.Cell).Returns(cell.Object)
         character.Setup(Function(x) x.TryGetStatistic(StatisticTypes.MaximumEnergy)).Returns(10)
         cell.SetupGet(Function(x) x.Map).Returns(map.Object)
@@ -61,6 +62,7 @@ Public Class CharacterExtensions_should
 
         CharacterExtensions.Sleep(character.Object)
 
+        cell.VerifyGet(Function(x) x.TerrainType)
         character.VerifyGet(Function(x) x.IsAvatar)
         character.VerifyGet(Function(x) x.CharacterType)
         character.Verify(Function(x) x.TryGetStatistic(StatisticTypes.MaximumEnergy))
@@ -81,6 +83,39 @@ Public Class CharacterExtensions_should
         character.VerifyNoOtherCalls()
     End Sub
     <Fact>
+    Public Sub disallows_sleep_for_avatars_in_wilderness_on_town()
+        Dim character As New Mock(Of ICharacter)
+        Dim map As New Mock(Of IMap)
+        Dim world As New Mock(Of IWorld)
+        Dim message As New Mock(Of IMessage)
+        Dim cell As New Mock(Of ICell)
+
+        cell.SetupGet(Function(x) x.TerrainType).Returns(TerrainTypes.Town)
+        character.SetupGet(Function(x) x.Cell).Returns(cell.Object)
+        character.Setup(Function(x) x.TryGetStatistic(StatisticTypes.MaximumEnergy)).Returns(10)
+        cell.SetupGet(Function(x) x.Map).Returns(map.Object)
+        character.SetupGet(Function(x) x.CharacterType).Returns(CharacterTypes.Loxy)
+        character.SetupGet(Function(x) x.IsAvatar).Returns(True)
+        character.SetupGet(Function(x) x.Map).Returns(map.Object)
+        character.SetupGet(Function(x) x.World).Returns(world.Object)
+        world.Setup(Function(x) x.CreateMessage()).Returns(message.Object)
+        map.SetupGet(Function(x) x.Flag(FlagTypes.CampingAllowed)).Returns(True)
+        'message.Setup(Function(x) x.AddLine(It.IsAny(Of Integer)(), It.IsAny(Of String)())).Returns(message.Object)
+
+        CharacterExtensions.Sleep(character.Object)
+
+        cell.VerifyGet(Function(x) x.TerrainType)
+        character.VerifyGet(Function(x) x.IsAvatar)
+        character.VerifyGet(Function(x) x.CharacterType)
+        map.VerifyGet(Function(x) x.Flag(FlagTypes.CampingAllowed))
+        message.Verify(Function(x) x.AddLine(It.IsAny(Of Integer)(), It.IsAny(Of String)()))
+
+        message.VerifyNoOtherCalls()
+        world.VerifyNoOtherCalls()
+        map.VerifyNoOtherCalls()
+        character.VerifyNoOtherCalls()
+    End Sub
+    <Fact>
     Public Sub attempts_to_build_fire()
         Dim character As New Mock(Of ICharacter)
         Dim stickItem As New Mock(Of IItem)
@@ -89,7 +124,7 @@ Public Class CharacterExtensions_should
 
         stickItem.SetupGet(Function(x) x.ItemType).Returns(ItemTypes.Stick)
         rockItem.SetupGet(Function(x) x.ItemType).Returns(ItemTypes.Rock)
-        character.Setup(Function(x) x.World.CreateMessage()).Returns(Message.Object)
+        character.Setup(Function(x) x.World.CreateMessage()).Returns(message.Object)
         character.SetupGet(Function(x) x.CharacterType).Returns(CharacterTypes.Loxy)
         character.SetupGet(Function(x) x.Items).Returns({stickItem.Object, stickItem.Object, stickItem.Object, stickItem.Object, stickItem.Object, rockItem.Object, rockItem.Object, rockItem.Object, rockItem.Object, rockItem.Object})
         character.Setup(Function(x) x.TryGetStatistic(StatisticTypes.Energy)).Returns(1)

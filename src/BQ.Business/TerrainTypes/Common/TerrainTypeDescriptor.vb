@@ -5,6 +5,7 @@ Friend Class TerrainTypeDescriptor
     Inherits VisibleEntityDescriptor
     Friend ReadOnly Property CanBuildFurnace As Boolean
     Friend ReadOnly Property CanSleep As Boolean
+    Friend ReadOnly Property IsFurnace As Boolean
     Friend ReadOnly Property DepletedTerrainType As String
     Friend ReadOnly Property HasFire As Boolean
     Friend ReadOnly Property Peril As Integer
@@ -41,8 +42,10 @@ Friend Class TerrainTypeDescriptor
            Optional creatureTypeGenerator As IReadOnlyDictionary(Of String, Integer) = Nothing,
            Optional isWaterSource As Boolean = False,
            Optional canBuildFurnace As Boolean = False,
-           Optional canSleep As Boolean = True)
+           Optional canSleep As Boolean = True,
+           Optional isFurnace As Boolean = False)
         MyBase.New(name, glyph, hue)
+        Me.IsFurnace = isFurnace
         Me.CanBuildFurnace = canBuildFurnace
         Me.IsWaterSource = isWaterSource
         Me.HasFire = hasFire

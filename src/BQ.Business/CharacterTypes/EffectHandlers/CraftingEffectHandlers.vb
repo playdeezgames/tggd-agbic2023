@@ -1,4 +1,10 @@
 ﻿Friend Module CraftingEffectHandlers
+    Friend Sub DoCookBagel(character As ICharacter, effect As IEffect)
+        Dim recipeType = RecipeTypes.Bagel
+        Dim taskName = "cook a bagel"
+        Dim resultName = "cooks a bagel"
+        CookFurnaceRecipe(character, recipeType, taskName, resultName)
+    End Sub
     Friend Sub DoMakeTorch(character As ICharacter, effect As IEffect)
         If Not ConsumeEnergy(character, 1, "make a torch") Then
             Return
@@ -73,6 +79,15 @@
         character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.RatTail))
     End Sub
 
+    Private Function CheckForFurnace(character As ICharacter, taskName As String) As Boolean
+        If Not character.Cell.Descriptor.IsFurnace Then
+            character.World.CreateMessage().
+                AddLine(LightGray, $"{character.Name} needs a furnace to {taskName}.")
+            Return False
+        End If
+        Return True
+    End Function
+
     Private Function CheckForFire(character As ICharacter, taskName As String) As Boolean
         If Not character.Cell.Descriptor.HasFire Then
             character.World.CreateMessage().
@@ -98,6 +113,12 @@
 
     Private Sub CookRecipe(character As ICharacter, recipeType As String, taskName As String, resultName As String)
         If CheckForFire(character, taskName) Then
+            DoRecipe(character, 0, recipeType, taskName, resultName)
+        End If
+    End Sub
+
+    Private Sub CookFurnaceRecipe(character As ICharacter, recipeType As String, taskName As String, resultName As String)
+        If CheckForFurnace(character, taskName) Then
             DoRecipe(character, 0, recipeType, taskName, resultName)
         End If
     End Sub

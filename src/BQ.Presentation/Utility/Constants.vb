@@ -37,6 +37,7 @@ Public Module Constants
     Friend Const TakeAllText = "Take All"
     Friend Const TakeHalfText = "Take Half"
     Friend Const TakeOneText = "Take One"
+    Friend Const UnequipText = "Unequip"
 
     Friend Const CellHeight = 16
     Friend Const CellWidth = 16

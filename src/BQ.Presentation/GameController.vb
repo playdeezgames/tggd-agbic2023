@@ -23,11 +23,18 @@ Public Class GameController
         SetCurrentState(BoilerplateState.Splash, True)
     End Sub
 
+    Private ReadOnly movementStates As IReadOnlyDictionary(Of String, (Integer, Integer)) =
+        New Dictionary(Of String, (Integer, Integer)) From
+        {
+            {GameState.MoveUp, (0, -1)},
+            {GameState.MoveDown, (0, 1)},
+            {GameState.MoveLeft, (-1, 0)},
+            {GameState.MoveRight, (1, 0)}
+        }
     Private Sub SetActionsStates(context As IUIContext(Of IWorldModel))
-        SetState(GameState.MoveUp, New MoveState(Me, AddressOf SetCurrentState, context, (0, -1)))
-        SetState(GameState.MoveDown, New MoveState(Me, AddressOf SetCurrentState, context, (0, 1)))
-        SetState(GameState.MoveLeft, New MoveState(Me, AddressOf SetCurrentState, context, (-1, 0)))
-        SetState(GameState.MoveRight, New MoveState(Me, AddressOf SetCurrentState, context, (1, 0)))
+        For Each movementState In movementStates
+            SetState(movementState.Key, New MoveState(Me, AddressOf SetCurrentState, context, movementState.Value))
+        Next
         SetState(GameState.Run, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Combat.Run(), BoilerplateState.Neutral))
         SetState(GameState.Drop, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Item.Drop(), GameState.Inventory))
         SetState(GameState.Take, New BaseActionState(Me, AddressOf SetCurrentState, context, Sub(m) m.Item.Take(), GameState.Ground))

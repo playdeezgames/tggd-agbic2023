@@ -5,28 +5,26 @@
         MyBase.New(parent, setState, context)
     End Sub
 
+    Private ReadOnly commandTable As IReadOnlyDictionary(Of String, String) =
+        New Dictionary(Of String, String) From
+        {
+            {Command.A, ActionMenu},
+            {Command.B, GameMenu},
+            {Command.Up, MoveUp},
+            {Command.Down, MoveDown},
+            {Command.Left, MoveLeft},
+            {Command.Right, MoveRight}
+        }
+
     Public Overrides Sub HandleCommand(cmd As String)
-        Select Case cmd
-            Case Command.A
-                SetState(GameState.ActionMenu)
-            Case Command.B
-                SetState(GameMenu)
-            Case Command.Up
-                SetState(GameState.MoveUp)
-            Case Command.Down
-                SetState(GameState.MoveDown)
-            Case Command.Left
-                SetState(GameState.MoveLeft)
-            Case Command.Right
-                SetState(GameState.MoveRight)
-        End Select
+        SetState(commandTable(cmd))
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
         displayBuffer.Fill(DarkGray)
         RenderMap(displayBuffer)
         RenderStatistics(displayBuffer)
-        Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText("Actions", "Game Menu"), Black, LightGray)
+        Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText(ActionsText, GameMenuText), Black, LightGray)
     End Sub
 
 

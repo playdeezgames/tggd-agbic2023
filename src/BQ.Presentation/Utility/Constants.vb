@@ -5,6 +5,7 @@
     Public Const ViewHeight = 216
     Public Const ViewWidth = 384
 
+    Friend Const ActionsText = "Actions"
     Friend Const AttackText = "Attack!"
     Friend Const BuildFireText = "Build Fire"
     Friend Const BuildFurnaceText = "Build Furnace"
@@ -16,6 +17,7 @@
     Friend Const EquipText = "Equip"
     Friend Const EquipmentText = "Equipment"
     Friend Const ForageText = "Forage..."
+    Friend Const GameMenuText = "Game Menu"
     Friend Const GroundText = "Ground..."
     Friend Const InventoryText = "Inventory"
     Friend Const KnapText = "Knap"

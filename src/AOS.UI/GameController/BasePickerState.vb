@@ -31,13 +31,13 @@
     End Sub
     Protected MustOverride Sub OnActivateMenuItem(value As (String, TItem))
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill((0, 0), Context.ViewSize, BoilerplateHue.Black)
+        displayBuffer.Fill(BoilerplateHue.Black)
         Dim font = Context.Font(UIFont)
-        displayBuffer.Fill((0, Context.ViewSize.Item2 \ 2 - font.Height \ 2), (Context.ViewSize.Item1, font.Height), BoilerplateHue.Blue)
+        displayBuffer.Fill((0, Context.ViewSize.Height \ 2 - font.Height \ 2), (Context.ViewSize.Width, font.Height), BoilerplateHue.Blue)
         Dim y = Context.ViewSize.Item2 \ 2 - font.Height \ 2 - MenuItemIndex * font.Height
         Dim index = 0
         For Each menuItem In _menuItems
-            Dim x = Context.ViewSize.Item1 \ 2 - font.TextWidth(menuItem.Item1) \ 2
+            Dim x = Context.ViewSize.Width \ 2 - font.TextWidth(menuItem.Item1) \ 2
             Dim h = If(index = MenuItemIndex, BoilerplateHue.Black, BoilerplateHue.Blue)
             font.WriteText(displayBuffer, (x, y), menuItem.Item1, h)
             index += 1

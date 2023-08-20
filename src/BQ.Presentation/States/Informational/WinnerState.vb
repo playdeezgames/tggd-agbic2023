@@ -18,7 +18,7 @@
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill((0, 0), Context.ViewSize, Black)
+        displayBuffer.Fill(Black)
         Dim font = Context.Font(UIFont)
         Dim text = "You Win!"
         font.WriteText(displayBuffer, (Context.ViewSize.Width \ 2 - font.TextWidth(text) \ 2, Context.ViewSize.Height \ 2 - font.Height \ 2), text, LightGreen)

@@ -36,7 +36,7 @@
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill((0, 0), Context.ViewSize, Black)
+        displayBuffer.Fill(Black)
         Dim bqFont = Context.Font(BagelQuestFont)
         Dim offsetY = Context.ViewSize.Height \ 2 - gridSize.rows * CellHeight \ 2
         Dim energy = Model.Avatar.Energy

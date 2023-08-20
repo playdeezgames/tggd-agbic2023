@@ -26,4 +26,8 @@
         Next
         Return buffer
     End Function
+
+    Public Overrides Sub Fill(hue As Integer)
+        Fill((0, 0), _size, hue)
+    End Sub
 End Class

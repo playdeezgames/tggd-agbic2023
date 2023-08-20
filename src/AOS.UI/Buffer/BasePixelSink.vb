@@ -43,4 +43,6 @@
             SetPixel(location.Item1 + size.Item1 - 1, y, hue)
         Next
     End Sub
+
+    Public MustOverride Sub Fill(hue As Integer) Implements IPixelSink.Fill
 End Class

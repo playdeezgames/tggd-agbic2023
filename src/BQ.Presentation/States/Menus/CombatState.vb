@@ -50,7 +50,7 @@
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill((0, 0), Context.ViewSize, Black)
+        displayBuffer.Fill(Black)
         DrawAvatar(displayBuffer)
         DrawAvatarStats(displayBuffer)
         DrawEnemies(displayBuffer)

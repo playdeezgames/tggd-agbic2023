@@ -7,7 +7,7 @@
         SetState(BoilerplateState.MainMenu)
     End Sub
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill((0, 0), Context.ViewSize, BoilerplateHue.Black)
+        displayBuffer.Fill(BoilerplateHue.Black)
         Context.ShowAboutContent(displayBuffer, Context.Font(UIFont))
     End Sub
 End Class

@@ -16,7 +16,7 @@
             startedMusic = True
             PlayMux(MainTheme)
         End If
-        displayBuffer.Fill((0, 0), Context.ViewSize, BoilerplateHue.Black)
+        displayBuffer.Fill(BoilerplateHue.Black)
         Context.ShowSplashContent(displayBuffer, Context.Font(UIFont))
     End Sub
 End Class

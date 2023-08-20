@@ -13,7 +13,7 @@
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill((0, 0), Context.ViewSize, Black)
+        displayBuffer.Fill(Black)
         Dim font = Context.Font(UIFont)
         Dim y = Context.ViewSize.Height \ 2 - font.Height * 8 \ 2
         Dim health = Model.Avatar.Health

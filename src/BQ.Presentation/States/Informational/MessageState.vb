@@ -28,7 +28,7 @@ Friend Class MessageState
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill((0, 0), Context.ViewSize, Black)
+        displayBuffer.Fill(Black)
         Dim message = Model.Message.Current
         Dim font = Context.Font(UIFont)
         ShowLines(displayBuffer, message, font)

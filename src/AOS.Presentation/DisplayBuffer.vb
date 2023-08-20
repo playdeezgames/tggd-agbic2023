@@ -19,4 +19,8 @@
         End If
         _buffer(x + y * _texture.Width) = _hueTable(hue)
     End Sub
+
+    Public Overrides Sub Fill(hue As Integer)
+        Fill((0, 0), (_texture.Width, _texture.Height), hue)
+    End Sub
 End Class

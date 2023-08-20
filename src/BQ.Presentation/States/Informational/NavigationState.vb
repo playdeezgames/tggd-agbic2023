@@ -23,7 +23,7 @@
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill((0, 0), Context.ViewSize, DarkGray)
+        displayBuffer.Fill(DarkGray)
         RenderMap(displayBuffer)
         RenderStatistics(displayBuffer)
         Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText("Actions", "Game Menu"), Black, LightGray)

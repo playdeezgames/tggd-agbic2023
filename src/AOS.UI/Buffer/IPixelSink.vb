@@ -14,5 +14,6 @@
                 size As (Integer, Integer),
                 xform As Func(Of Integer, Integer?))
     Sub Fill(location As (Integer, Integer), size As (Integer, Integer), hue As Integer)
+    Sub Fill(hue As Integer)
     Sub Frame(location As (Integer, Integer), size As (Integer, Integer), hue As Integer)
 End Interface

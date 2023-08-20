@@ -1,8 +1,17 @@
 ﻿Friend Class EquipState
     Inherits BasePickerState(Of IWorldModel, Integer)
 
-    Public Sub New(parent As IGameController, setState As Action(Of String, Boolean), context As IUIContext(Of IWorldModel))
-        MyBase.New(parent, setState, context, "<placeholder>", context.ControlsText("Select", "Cancel"), GameState.InventoryDetail)
+    Public Sub New(
+                  parent As IGameController,
+                  setState As Action(Of String, Boolean),
+                  context As IUIContext(Of IWorldModel))
+        MyBase.New(
+            parent,
+            setState,
+            context,
+            PlaceholderText,
+            context.ControlsText(SelectText, CancelText),
+            GameState.InventoryDetail)
     End Sub
 
     Protected Overrides Sub OnActivateMenuItem(value As (String, Integer))

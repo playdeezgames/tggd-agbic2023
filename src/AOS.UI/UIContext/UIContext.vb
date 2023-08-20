@@ -8,6 +8,12 @@ Public MustInherit Class UIContext(Of TModel)
 
     Public ReadOnly Property Model As TModel Implements IUIContext(Of TModel).Model
 
+    Public ReadOnly Property ViewCenter As (X As Integer, Y As Integer) Implements IUIContext(Of TModel).ViewCenter
+        Get
+            Return (ViewSize.Item1 \ 2, ViewSize.Item2 \ 2)
+        End Get
+    End Property
+
     Sub New(game As TModel, fontFilenames As IReadOnlyDictionary(Of String, String), viewSize As (Integer, Integer))
         Me.Model = game
         Me.ViewSize = viewSize

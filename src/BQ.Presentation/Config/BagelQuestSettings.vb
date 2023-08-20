@@ -1,6 +1,5 @@
 ﻿Imports System.IO
 Imports System.Text.Json
-Imports AOS.UI
 
 Public Class BagelQuestSettings
     Implements ISettings

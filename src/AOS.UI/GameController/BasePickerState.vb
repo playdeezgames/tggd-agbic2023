@@ -31,7 +31,7 @@
     End Sub
     Protected MustOverride Sub OnActivateMenuItem(value As (String, TItem))
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill((0, 0), (Context.ViewSize.Item1, Context.ViewSize.Item2), BoilerplateHue.Black)
+        displayBuffer.Fill((0, 0), Context.ViewSize, BoilerplateHue.Black)
         Dim font = Context.Font(UIFont)
         displayBuffer.Fill((0, Context.ViewSize.Item2 \ 2 - font.Height \ 2), (Context.ViewSize.Item1, font.Height), BoilerplateHue.Blue)
         Dim y = Context.ViewSize.Item2 \ 2 - font.Height \ 2 - MenuItemIndex * font.Height

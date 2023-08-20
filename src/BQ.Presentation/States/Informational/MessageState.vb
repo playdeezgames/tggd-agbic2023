@@ -31,26 +31,38 @@ Friend Class MessageState
         displayBuffer.Fill((0, 0), Context.ViewSize, Black)
         Dim message = Model.Message.Current
         Dim font = Context.Font(UIFont)
-        Dim y = If(message.HasChoices, Context.ViewSize.Item2 \ 3, Context.ViewSize.Item2 \ 2) - font.Height * message.LineCount \ 2
-        For Each line In message.Lines
-            font.WriteText(displayBuffer, (Context.ViewSize.Item1 \ 2 - font.TextWidth(line.Text) \ 2, y), line.Text, line.Hue)
-            y += font.Height
-        Next
-        Dim aButtonText = "Continue"
+        ShowLines(displayBuffer, message, font)
+        Dim aButtonText = ShowChoices(displayBuffer, message, font)
+        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(aButtonText, Nothing), Black, LightGray)
+    End Sub
+
+    Private Function ShowChoices(displayBuffer As IPixelSink, message As IMessage, font As Font) As String
         If message.HasChoices Then
-            y = Context.ViewSize.Height * 2 \ 3 - font.Height \ 2
+            Dim y = Context.ViewSize.Height * 2 \ 3 - font.Height \ 2
             displayBuffer.Fill((0, y), (Context.ViewSize.Width, font.Height), Blue)
             y -= ChoiceIndex * font.Height
             Dim index = 0
             For Each choice In message.Choices
-                font.WriteText(displayBuffer, (Context.ViewSize.Width \ 2 - font.TextWidth(choice.Text) \ 2, y), choice.Text, If(index = ChoiceIndex, Black, Blue))
+                font.WriteText(
+                    displayBuffer,
+                    (Context.ViewSize.Width \ 2 - font.TextWidth(choice.Text) \ 2, y),
+                    choice.Text,
+                    If(index = ChoiceIndex, Black, Blue))
                 index += 1
                 y += font.Height
             Next
-            aButtonText = "Select"
         End If
-        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(aButtonText, Nothing), Black, LightGray)
+        Return If(message.HasChoices, SelectText, ContinueText)
+    End Function
+
+    Private Sub ShowLines(displayBuffer As IPixelSink, message As IMessage, font As Font)
+        Dim y = If(message.HasChoices, Context.ViewSize.Height \ 3, Context.ViewSize.Height \ 2) - font.Height * message.LineCount \ 2
+        For Each line In message.Lines
+            font.WriteText(displayBuffer, (Context.ViewSize.Width \ 2 - font.TextWidth(line.Text) \ 2, y), line.Text, line.Hue)
+            y += font.Height
+        Next
     End Sub
+
     Public Overrides Sub OnStart()
         MyBase.OnStart()
         If Not Model.Message.Exists Then

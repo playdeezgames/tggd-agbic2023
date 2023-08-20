@@ -10,11 +10,10 @@ Public Class BagelQuestSettings
         SfxVolume = cfg.SfxVolume
         MuxVolume = cfg.MuxVolume
     End Sub
-    Public Property WindowSize As (Integer, Integer) Implements ISettings.WindowSize
+    Public Property WindowSize As (width As Integer, height As Integer) Implements ISettings.WindowSize
     Public Property FullScreen As Boolean Implements ISettings.FullScreen
     Public Property SfxVolume As Single Implements ISettings.SfxVolume
     Public Property MuxVolume As Single Implements ISettings.MuxVolume
-    Private Const ConfigFileName = "config.json"
     Private Shared Function ReadConfig() As BagelQuestConfig
         Try
             Return JsonSerializer.Deserialize(Of BagelQuestConfig)(File.ReadAllText(ConfigFileName))
@@ -30,6 +29,16 @@ Public Class BagelQuestSettings
         End Try
     End Function
     Public Sub Save() Implements ISettings.Save
-        File.WriteAllText(ConfigFileName, JsonSerializer.Serialize(New BagelQuestConfig With {.SfxVolume = SfxVolume, .MuxVolume = MuxVolume, .WindowHeight = WindowSize.Item2, .WindowWidth = WindowSize.Item1, .FullScreen = FullScreen}))
+        File.WriteAllText(
+            ConfigFileName,
+            JsonSerializer.Serialize(
+            New BagelQuestConfig With
+            {
+                .SfxVolume = SfxVolume,
+                .MuxVolume = MuxVolume,
+                .WindowHeight = WindowSize.height,
+                .WindowWidth = WindowSize.width,
+                .FullScreen = FullScreen
+            }))
     End Sub
 End Class

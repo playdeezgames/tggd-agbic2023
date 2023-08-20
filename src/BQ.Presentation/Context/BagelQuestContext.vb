@@ -14,10 +14,10 @@ Public Class BagelQuestContext
 
     Public Overrides ReadOnly Property AvailableWindowSizes As IEnumerable(Of (Integer, Integer))
         Get
-            Return multipliers.Select(Function(x) (ViewWidth * x, ViewHeight * x))
+            Return multipliers.Select(Function(multiplier) (ViewWidth * multiplier, ViewHeight * multiplier))
         End Get
     End Property
-    Private ReadOnly DeltasAndColor As IReadOnlyList(Of (Integer, Integer, Integer)) =
+    Private ReadOnly DeltasAndColor As IReadOnlyList(Of (deltaX As Integer, deltaY As Integer, hue As Integer)) =
         New List(Of (Integer, Integer, Integer)) From
         {
             (-1, -1, Tan),
@@ -31,25 +31,37 @@ Public Class BagelQuestContext
             (0, 0, Brown)
         }
     Public Overrides Sub ShowSplashContent(displayBuffer As IPixelSink, font As Font)
-        Dim text = "Bagel Quest"
+        Dim text = GameTitle
         Dim x = ViewWidth \ 2 - font.TextWidth(text) \ 2
         Dim y = ViewHeight \ 2 - font.Height \ 2
         With font
             For Each deltaAndColor In DeltasAndColor
-                .WriteText(displayBuffer, (x + deltaAndColor.Item1, y + deltaAndColor.Item2), text, deltaAndColor.Item3)
+                .WriteText(
+                    displayBuffer,
+                    (x + deltaAndColor.deltaX, y + deltaAndColor.deltaY),
+                    text,
+                    deltaAndColor.hue)
             Next
         End With
-        ShowStatusBar(displayBuffer, font, "Space/(A) - Continue", Hue.Black, Hue.LightGray)
+        ShowStatusBar(displayBuffer, font, ControlsText(ContinueText, Nothing), Hue.Black, Hue.LightGray)
     End Sub
+
+    Private ReadOnly aboutLines As IDictionary(Of Integer, (String, Integer)) =
+        New Dictionary(Of Integer, (String, Integer)) From
+        {
+            {0, ("About Bagel Quest", Orange)},
+            {2, ("Art:", White)},
+            {3, ("https://kenney.nl/assets/1-bit-pack", White)},
+            {5, ("A Production of TheGrumpyGameDev", White)},
+            {7, ("For A Game By Its Cover 2023", White)},
+            {9, ("See 'aboot.txt'", White)}
+        }
 
     Public Overrides Sub ShowAboutContent(displayBuffer As IPixelSink, font As Font)
         With font
-            .WriteText(displayBuffer, (0, 0), "About Bagel Quest", Hue.Orange)
-            .WriteText(displayBuffer, (0, font.Height * 2), "Art:", Hue.White)
-            .WriteText(displayBuffer, (0, font.Height * 3), "https://kenney.nl/assets/1-bit-pack", Hue.White)
-            .WriteText(displayBuffer, (0, font.Height * 5), "A Production of TheGrumpyGameDev", Hue.White)
-            .WriteText(displayBuffer, (0, font.Height * 7), "For A Game By Its Cover 2023", Hue.White)
-            .WriteText(displayBuffer, (0, font.Height * 9), "See 'aboot.txt'", Hue.White)
+            For Each aboutLine In aboutLines
+                .WriteText(displayBuffer, (0, font.Height * aboutLine.Key), aboutLine.Value.Item1, aboutLine.Value.Item2)
+            Next
         End With
     End Sub
 

@@ -1,12 +1,12 @@
-﻿Imports System.ComponentModel
-
-Public Module Constants
+﻿Public Module Constants
     Public Const DefaultScreenWidth = ViewWidth * 3
     Public Const DefaultScreenHeight = ViewHeight * 3
     Public Const BagelQuestFont = "BagelQuestFont"
     Public Const ViewHeight = 216
     Public Const ViewWidth = 384
+    Public Const GameTitle = "Bagel Quest"
 
+    Friend Const ConfigFileName = "config.json"
     Friend Const ActionsText = "Actions"
     Friend Const AttackText = "Attack!"
     Friend Const BuildFireText = "Build Fire"

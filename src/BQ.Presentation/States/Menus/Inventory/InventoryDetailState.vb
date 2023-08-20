@@ -1,8 +1,17 @@
 ﻿Friend Class InventoryDetailState
     Inherits BasePickerState(Of IWorldModel, String)
 
-    Public Sub New(parent As IGameController, setState As Action(Of String, Boolean), context As IUIContext(Of IWorldModel))
-        MyBase.New(parent, setState, context, "<placeholder>", context.ControlsText("Select", "Cancel"), GameState.Inventory)
+    Public Sub New(
+                  parent As IGameController,
+                  setState As Action(Of String, Boolean),
+                  context As IUIContext(Of IWorldModel))
+        MyBase.New(
+            parent,
+            setState,
+            context,
+            PlaceholderText,
+            context.ControlsText(SelectText, CancelText),
+            GameState.Inventory)
     End Sub
 
     Protected Overrides Sub OnActivateMenuItem(value As (String, String))
@@ -27,7 +36,8 @@
     Protected Overrides Function InitializeMenuItems() As List(Of (String, String))
         Dim result As New List(Of (String, String))
         Dim itemCount = Model.Avatar.ItemCount(Model.Item.Name)
-        HeaderText = $"{Model.Item.Name}(x{itemCount})"
+        HeaderText = FormatItem(itemCount)
+
         If itemCount > 1 Then
             result.Add((DropAllText, DropAllText))
         End If
@@ -40,6 +50,10 @@
         End If
         result.AddRange(Model.Item.EffectTypes)
         Return result
+    End Function
+
+    Private Function FormatItem(itemCount As Integer) As String
+        Return $"{Model.Item.Name}(x{itemCount})"
     End Function
 
     Public Overrides Sub OnStart()

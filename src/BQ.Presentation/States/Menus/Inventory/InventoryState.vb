@@ -1,8 +1,17 @@
 ﻿Friend Class InventoryState
     Inherits BasePickerState(Of IWorldModel, String)
 
-    Public Sub New(parent As IGameController, setState As Action(Of String, Boolean), context As IUIContext(Of IWorldModel))
-        MyBase.New(parent, setState, context, "Inventory", context.ControlsText("Select", "Cancel"), GameState.ActionMenu)
+    Public Sub New(
+                  parent As IGameController,
+                  setState As Action(Of String, Boolean),
+                  context As IUIContext(Of IWorldModel))
+        MyBase.New(
+            parent,
+            setState,
+            context,
+            InventoryText,
+            context.ControlsText(SelectText, CancelText),
+            GameState.ActionMenu)
     End Sub
 
     Protected Overrides Sub OnActivateMenuItem(value As (String, String))

@@ -27,6 +27,7 @@ Public Module Constants
     Friend Const MakeHatchetText = "Make Hatchet"
     Friend Const MakeTorchText = "Make Torch"
     Friend Const MakeTwineText = "Make Twine"
+    Friend Const OnTheGroundText = "On the Ground"
     Friend Const PlaceholderText = "<placeholder>"
     Friend Const PutOutFireText = "Put Out Fire"
     Friend Const RunText = "Run!"

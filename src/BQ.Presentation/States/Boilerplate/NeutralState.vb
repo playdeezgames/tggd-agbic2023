@@ -12,24 +12,19 @@
     Public Overrides Sub Render(displayBuffer As IPixelSink)
         Throw New NotImplementedException()
     End Sub
+
+    Private ReadOnly stateTable As IReadOnlyList(Of (state As String, condition As Func(Of IWorldModel, Boolean))) =
+        New List(Of (String, Func(Of IWorldModel, Boolean))) From
+        {
+            (GameState.Message, Function(m) m.Message.Exists),
+            (GameState.Dead, Function(m) m.Avatar.IsDead),
+            (GameState.Combat, Function(m) m.Combat.Exists),
+            (GameState.Winner, Function(m) m.Avatar.HasWon),
+            (GameState.Navigation, Function(m) True)
+        }
+
     Public Overrides Sub OnStart()
         MyBase.OnStart()
-        If Model.Message.Exists Then
-            SetState(GameState.Message)
-            Return
-        End If
-        If Model.Avatar.IsDead Then
-            SetState(GameState.Dead)
-            Return
-        End If
-        If Model.Combat.Exists Then
-            SetState(GameState.Combat)
-            Return
-        End If
-        If Model.Avatar.HasWon Then
-            SetState(GameState.Winner)
-            Return
-        End If
-        SetState(GameState.Navigation)
+        SetState(stateTable.First(Function(item) item.condition(Model)).state)
     End Sub
 End Class

@@ -36,6 +36,7 @@ Friend Class MessageState
             font.WriteText(displayBuffer, (Context.ViewSize.Item1 \ 2 - font.TextWidth(line.Text) \ 2, y), line.Text, line.Hue)
             y += font.Height
         Next
+        Dim aButtonText = "Continue"
         If message.HasChoices Then
             y = Context.ViewSize.Height * 2 \ 3 - font.Height \ 2
             displayBuffer.Fill((0, y), (Context.ViewSize.Width, font.Height), Blue)
@@ -46,10 +47,9 @@ Friend Class MessageState
                 index += 1
                 y += font.Height
             Next
-            Context.ShowStatusBar(displayBuffer, font, Context.ControlsText("Select", Nothing), Black, LightGray)
-        Else
-            Context.ShowStatusBar(displayBuffer, font, Context.ControlsText("Continue", Nothing), Black, LightGray)
+            aButtonText = "Select"
         End If
+        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(aButtonText, Nothing), Black, LightGray)
     End Sub
     Public Overrides Sub OnStart()
         MyBase.OnStart()

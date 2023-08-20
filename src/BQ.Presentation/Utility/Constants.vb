@@ -1,4 +1,6 @@
-﻿Public Module Constants
+﻿Imports System.ComponentModel
+
+Public Module Constants
     Public Const DefaultScreenWidth = ViewWidth * 3
     Public Const DefaultScreenHeight = ViewHeight * 3
     Public Const BagelQuestFont = "BagelQuestFont"
@@ -9,6 +11,7 @@
     Friend Const AttackText = "Attack!"
     Friend Const BuildFireText = "Build Fire"
     Friend Const BuildFurnaceText = "Build Furnace"
+    Friend Const CancelText = "Cancel"
     Friend Const CookBagelText = "Cook Bagel"
     Friend Const ContinueText = "Continue"
     Friend Const DropAllText = "Drop All"
@@ -24,6 +27,7 @@
     Friend Const MakeHatchetText = "Make Hatchet"
     Friend Const MakeTorchText = "Make Torch"
     Friend Const MakeTwineText = "Make Twine"
+    Friend Const PlaceholderText = "<placeholder>"
     Friend Const PutOutFireText = "Put Out Fire"
     Friend Const RunText = "Run!"
     Friend Const SelectText = "Select"

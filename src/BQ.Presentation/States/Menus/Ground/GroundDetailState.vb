@@ -1,8 +1,17 @@
 ﻿Friend Class GroundDetailState
     Inherits BasePickerState(Of IWorldModel, Integer)
 
-    Public Sub New(parent As IGameController, setState As Action(Of String, Boolean), context As IUIContext(Of IWorldModel))
-        MyBase.New(parent, setState, context, "<placeholder>", context.ControlsText("Select", "Cancel"), GameState.Ground)
+    Public Sub New(
+                  parent As IGameController,
+                  setState As Action(Of String, Boolean),
+                  context As IUIContext(Of IWorldModel))
+        MyBase.New(
+            parent,
+            setState,
+            context,
+            PlaceholderText,
+            context.ControlsText(SelectText, CancelText),
+            GameState.Ground)
     End Sub
 
     Protected Overrides Sub OnActivateMenuItem(value As (String, Integer))
@@ -12,7 +21,7 @@
 
     Protected Overrides Function InitializeMenuItems() As List(Of (String, Integer))
         Dim itemCount = Model.Map.ItemCount((0, 0), Model.Item.Name)
-        HeaderText = $"{Model.Item.Name}(x{itemCount})"
+        HeaderText = FormatItem(itemCount)
         Dim result As New List(Of (String, Integer))
         If itemCount > 1 Then
             result.Add((TakeAllText, itemCount))
@@ -22,6 +31,10 @@
         End If
         result.Add((TakeOneText, 1))
         Return result
+    End Function
+
+    Private Function FormatItem(itemCount As Integer) As String
+        Return $"{Model.Item.Name}(x{itemCount})"
     End Function
 
     Public Overrides Sub OnStart()

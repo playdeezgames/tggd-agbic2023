@@ -8,6 +8,26 @@
         Return RecipeTypes.CanCraft(RecipeTypes.Bagel, character)
     End Function
     <Extension>
+    Friend Function HealthDisplay(character As ICharacter) As String
+        Return $"HP {character.Health}/{character.MaximumHealth}"
+    End Function
+    <Extension>
+    Friend Function EnergyDisplay(character As ICharacter) As String
+        Return $"EN {character.Energy}/{character.MaximumEnergy}"
+    End Function
+    <Extension>
+    Friend Function XPLevelDisplay(character As ICharacter) As String
+        Return $"LV {character.XPLevel}"
+    End Function
+    <Extension>
+    Friend Function XPDisplay(character As ICharacter) As String
+        Return $"XP {character.XP}/{character.XPGoal}"
+    End Function
+    <Extension>
+    Friend Function JoolsDisplay(character As ICharacter) As String
+        Return $" $ {character.Jools}"
+    End Function
+    <Extension>
     Friend Function CanBuildFurnace(character As ICharacter) As Boolean
         Return RecipeTypes.CanCraft(RecipeTypes.Furnace, character)
     End Function

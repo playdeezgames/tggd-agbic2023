@@ -178,31 +178,31 @@
 
     Public ReadOnly Property HealthDisplay As String Implements IAvatarModel.HealthDisplay
         Get
-            Return $"HP {Health.current}/{Health.maximum}"
+            Return avatar.HealthDisplay
         End Get
     End Property
 
     Public ReadOnly Property EnergyDisplay As String Implements IAvatarModel.EnergyDisplay
         Get
-            Return $"EN {Energy.current}/{Energy.maximum}"
+            Return avatar.EnergyDisplay
         End Get
     End Property
 
     Public ReadOnly Property XPLevelDisplay As String Implements IAvatarModel.XPLevelDisplay
         Get
-            Return $"LV: {XPLevel}"
+            Return avatar.XPLevelDisplay
         End Get
     End Property
 
     Public ReadOnly Property XPDisplay As String Implements IAvatarModel.XPDisplay
         Get
-            Return $"XP: {XP}/{XPGoal}"
+            Return avatar.XPDisplay
         End Get
     End Property
 
     Public ReadOnly Property JoolsDisplay As String Implements IAvatarModel.JoolsDisplay
         Get
-            Return $" $: {Jools}"
+            Return avatar.JoolsDisplay
         End Get
     End Property
 

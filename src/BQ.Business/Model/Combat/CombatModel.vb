@@ -27,7 +27,7 @@ Friend Class CombatModel
         Get
             Dim character = world.Avatar.Cell.
                 OtherCharacters(world.Avatar).ElementAt(index)
-            Return (character.Name, character.Health, character.MaximumHealth, $"HP {character.Health}/{character.MaximumHealth}")
+            Return (character.Name, character.Health, character.MaximumHealth, character.HealthDisplay)
         End Get
     End Property
 

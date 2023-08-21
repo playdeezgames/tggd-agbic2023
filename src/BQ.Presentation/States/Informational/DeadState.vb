@@ -1,9 +1,13 @@
 ﻿Friend Class DeadState
     Inherits BaseGameState(Of IWorldModel)
 
+    Private Const DelayInSeconds As Integer = 1
     Private showUntil As DateTimeOffset
 
-    Public Sub New(parent As IGameController, setState As Action(Of String, Boolean), context As IUIContext(Of IWorldModel))
+    Public Sub New(
+                  parent As IGameController,
+                  setState As Action(Of String, Boolean),
+                  context As IUIContext(Of IWorldModel))
         MyBase.New(parent, setState, context)
     End Sub
 
@@ -20,16 +24,16 @@
     Public Overrides Sub Render(displayBuffer As IPixelSink)
         displayBuffer.Fill(Black)
         Dim font = Context.Font(UIFont)
-        Dim text = "Yer dead!"
-        font.WriteText(displayBuffer, (Context.ViewSize.Width \ 2 - font.TextWidth(text) \ 2, Context.ViewSize.Height \ 2 - font.Height \ 2), text, Red)
+        Dim text = YerDeadText
+        font.WriteText(displayBuffer, (Context.ViewCenter.X - font.HalfTextWidth(text), Context.ViewCenter.Y - font.HalfHeight), text, Red)
         If DateTimeOffset.Now >= showUntil Then
-            Context.ShowStatusBar(displayBuffer, font, Context.ControlsText("Continue", Nothing), Black, LightGray)
+            Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(ContinueText, Nothing), Black, LightGray)
         End If
     End Sub
 
     Public Overrides Sub OnStart()
         MyBase.OnStart()
         PlayMux(Mux.DeathTheme)
-        showUntil = DateTimeOffset.Now.AddSeconds(1)
+        showUntil = DateTimeOffset.Now.AddSeconds(DelayInSeconds)
     End Sub
 End Class

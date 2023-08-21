@@ -1,6 +1,11 @@
 ﻿Public Class Font
     Private ReadOnly _glyphs As New Dictionary(Of Char, GlyphBuffer)
     Public ReadOnly Height As Integer
+    Public ReadOnly Property HalfHeight As Integer
+        Get
+            Return Height \ 2
+        End Get
+    End Property
     Public Sub New(fontData As FontData)
         Height = fontData.Height
         For Each glyph In fontData.Glyphs.Keys
@@ -21,5 +26,8 @@
             result += _glyphs(character).Width
         Next
         Return result
+    End Function
+    Public Function HalfTextWidth(text As String) As Integer
+        Return TextWidth(text) \ 2
     End Function
 End Class

@@ -38,6 +38,7 @@
     Friend Const TakeHalfText = "Take Half"
     Friend Const TakeOneText = "Take One"
     Friend Const UnequipText = "Unequip"
+    Friend Const YerDeadText = "Yer dead!"
 
     Friend Const CellHeight = 16
     Friend Const CellWidth = 16

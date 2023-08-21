@@ -33,12 +33,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BQ.Persistence\BQ.Persistence.vbproj" />
+    <Import Include="Shouldly" />
+    <Import Include="Xunit" />
   </ItemGroup>
 
   <ItemGroup>
-    <Import Include="Shouldly" />
-    <Import Include="Xunit" />
+    <ProjectReference Include="..\BQ.Persistence.Implementation\BQ.Persistence.Implementation.vbproj" />
   </ItemGroup>
 
 </Project>

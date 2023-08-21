@@ -188,6 +188,24 @@
         End Get
     End Property
 
+    Public ReadOnly Property XPLevelDisplay As String Implements IAvatarModel.XPLevelDisplay
+        Get
+            Return $"LV: {XPLevel}"
+        End Get
+    End Property
+
+    Public ReadOnly Property XPDisplay As String Implements IAvatarModel.XPDisplay
+        Get
+            Return $"XP: {XP}/{XPGoal}"
+        End Get
+    End Property
+
+    Public ReadOnly Property JoolsDisplay As String Implements IAvatarModel.JoolsDisplay
+        Get
+            Return $" $: {Jools}"
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub

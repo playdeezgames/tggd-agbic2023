@@ -30,27 +30,18 @@
 
     Private Sub RenderStatistics(displayBuffer As IPixelSink)
         Dim font = Context.Font(UIFont)
-        RenderHealth(displayBuffer, font)
-        RenderEnergy(displayBuffer, font)
-        RenderStatistic(displayBuffer, font, (0, font.Height * 2), $"LV: {Model.Avatar.XPLevel}", Purple)
-        RenderStatistic(displayBuffer, font, (0, font.Height * 3), $"XP: {Model.Avatar.XP}/{Model.Avatar.XPGoal}", Hue.Cyan)
-        RenderStatistic(displayBuffer, font, (0, font.Height * 4), $" $: {Model.Avatar.Jools}", Hue.LightGreen)
+        Dim position = RenderStatistic(displayBuffer, font, (0, 0), Model.Avatar.HealthDisplay, Pink)
+        position = RenderStatistic(displayBuffer, font, position, Model.Avatar.EnergyDisplay, Blue)
+        position = RenderStatistic(displayBuffer, font, position, Model.Avatar.XPLevelDisplay, Purple)
+        position = RenderStatistic(displayBuffer, font, position, Model.Avatar.XPDisplay, Cyan)
+        position = RenderStatistic(displayBuffer, font, position, Model.Avatar.JoolsDisplay, LightGreen)
     End Sub
 
-    Private Sub RenderEnergy(displayBuffer As IPixelSink, font As Font)
-        Dim energy = Model.Avatar.Energy
-        RenderStatistic(displayBuffer, font, (0, font.Height), $"EN: {energy.current}/{energy.maximum}", Blue)
-    End Sub
-
-    Private Sub RenderHealth(displayBuffer As IPixelSink, font As Font)
-        Dim health = Model.Avatar.Health
-        RenderStatistic(displayBuffer, font, (0, 0), $"HP: {health.current}/{health.maximum}", Pink)
-    End Sub
-
-    Private Shared Sub RenderStatistic(displayBuffer As IPixelSink, font As Font, position As (x As Integer, y As Integer), text As String, hue As Integer)
+    Private Shared Function RenderStatistic(displayBuffer As IPixelSink, font As Font, position As (x As Integer, y As Integer), text As String, hue As Integer) As (Integer, Integer)
         font.WriteText(displayBuffer, (position.x + 1, position.y + 1), text, Black)
         font.WriteText(displayBuffer, (position.x, position.y), text, hue)
-    End Sub
+        Return (position.x, position.y + font.Height)
+    End Function
 
     Private Function Plot(column As Integer, row As Integer) As (Integer, Integer)
         Return (column * CellWidth + CenterCellX, row * CellHeight + CenterCellY)
@@ -69,10 +60,17 @@
             Return
         End If
         RenderTerrain(font, displayBuffer, cellXY, pixelXY)
-        For Each item In Model.Map.Items(cellXY)
+        RenderItems(font, displayBuffer, pixelXY, Model.Map.Items(cellXY))
+        RenderCharacter(font, displayBuffer, pixelXY, Model.Map.Character(cellXY))
+    End Sub
+
+    Private Shared Sub RenderItems(font As Font, displayBuffer As IPixelSink, pixelXY As (Integer, Integer), items As IEnumerable(Of (Glyph As Char, Hue As Integer)))
+        For Each item In items
             font.WriteText(displayBuffer, pixelXY, item.Glyph, item.Hue)
         Next
-        Dim character = Model.Map.Character(cellXY)
+    End Sub
+
+    Private Shared Sub RenderCharacter(font As Font, displayBuffer As IPixelSink, pixelXY As (Integer, Integer), character As (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)?)
         If character.HasValue Then
             font.WriteText(displayBuffer, pixelXY, character.Value.MaskGlyph, character.Value.MaskHue)
             font.WriteText(displayBuffer, pixelXY, character.Value.Glyph, character.Value.Hue)

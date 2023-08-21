@@ -21,8 +21,10 @@
     ReadOnly Property Energy As (current As Integer, maximum As Integer)
     ReadOnly Property EnergyDisplay As String
     ReadOnly Property XP As Integer
+    ReadOnly Property XPDisplay As String
     ReadOnly Property XPGoal As Integer
     ReadOnly Property XPLevel As Integer
+    ReadOnly Property XPLevelDisplay As String
     ReadOnly Property AdvancementPoints As Integer
     ReadOnly Property Attack As (average As Double, maximum As Integer)
     ReadOnly Property Defend As (average As Double, maximum As Integer)
@@ -31,6 +33,7 @@
     ReadOnly Property ItemCount(itemName As String) As Integer
     Function FormatItemCount(itemName As String) As String
     ReadOnly Property Jools As Integer
+    ReadOnly Property JoolsDisplay As String
     ReadOnly Property CanForage As Boolean
     ReadOnly Property CanMakeTwine As Boolean
     ReadOnly Property HasEquipment As Boolean

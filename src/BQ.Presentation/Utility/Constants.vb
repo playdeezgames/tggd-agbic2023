@@ -24,6 +24,7 @@
     Friend Const GroundText = "Ground..."
     Friend Const InventoryText = "Inventory"
     Friend Const KnapText = "Knap"
+    Friend Const MainMenuText = "Main Menu"
     Friend Const MakeHatchetText = "Make Hatchet"
     Friend Const MakeTorchText = "Make Torch"
     Friend Const MakeTwineText = "Make Twine"
@@ -39,6 +40,7 @@
     Friend Const TakeOneText = "Take One"
     Friend Const UnequipText = "Unequip"
     Friend Const YerDeadText = "Yer dead!"
+    Friend Const YouWinText = "You Win!"
 
     Friend Const CellHeight = 16
     Friend Const CellWidth = 16

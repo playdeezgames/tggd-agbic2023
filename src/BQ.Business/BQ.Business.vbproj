@@ -16,8 +16,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BQ.Persistence.Implementation\BQ.Persistence.Implementation.vbproj" />
     <ProjectReference Include="..\SPLORR.Game\SPLORR.Game.vbproj" />
-    <ProjectReference Include="..\BQ.Persistence\BQ.Persistence.vbproj" />
   </ItemGroup>
 
   <ItemGroup>

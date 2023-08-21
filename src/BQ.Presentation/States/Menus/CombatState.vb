@@ -1,26 +1,30 @@
 ﻿Friend Class CombatState
     Inherits BaseGameState(Of IWorldModel)
     Private CharacterIndex As Integer
-    Private MenuItems As New List(Of (DisplayText As String, CommandText As String))
+    Private ReadOnly MenuItems As New List(Of (DisplayText As String, CommandText As String))
     Private MenuItemIndex As Integer
 
-    Public Sub New(parent As IGameController, setState As Action(Of String, Boolean), context As IUIContext(Of IWorldModel))
+    Public Sub New(
+                  parent As IGameController,
+                  setState As Action(Of String, Boolean),
+                  context As IUIContext(Of IWorldModel))
         MyBase.New(parent, setState, context)
     End Sub
 
+    Private ReadOnly commandTable As IReadOnlyDictionary(Of String, Action) =
+        New Dictionary(Of String, Action) From
+        {
+            {Command.Up, AddressOf PreviousMenuItem},
+            {Command.Down, AddressOf NextMenuItem},
+            {Command.Left, AddressOf PreviousEnemy},
+            {Command.Right, AddressOf NextEnemy},
+            {Command.A, AddressOf ExecuteMenuItem},
+            {Command.B, Sub()
+                        End Sub}
+        }
+
     Public Overrides Sub HandleCommand(cmd As String)
-        Select Case cmd
-            Case Command.Up
-                PreviousMenuItem()
-            Case Command.Down
-                NextMenuItem()
-            Case Command.Left
-                PreviousEnemy()
-            Case Command.Right
-                NextEnemy()
-            Case Command.A
-                ExecuteMenuItem()
-        End Select
+        commandTable(cmd).Invoke()
     End Sub
 
     Private Sub ExecuteMenuItem()
@@ -60,66 +64,97 @@
 
     Private Sub DrawAvatarStats(displayBuffer As IPixelSink)
         Dim font = Context.Font(UIFont)
-        Dim centerX = Context.ViewSize.Width * 1 \ 3
-        Dim y = Context.ViewSize.Height \ 6 - font.Height * 3 \ 2
-        font.WriteText(displayBuffer, (centerX - font.TextWidth(Model.Avatar.Name) \ 2, y), Model.Avatar.Name, LightGray)
-        y += font.Height
-        Dim health = Model.Avatar.Health
-        Dim text = $"HP {health.current}/{health.maximum}"
-        font.WriteText(displayBuffer, (centerX - font.TextWidth(text) \ 2, y), text, Pink)
-        y += font.Height
-        Dim energy = Model.Avatar.Energy
-        text = $"EN {energy.current}/{energy.maximum}"
-        font.WriteText(displayBuffer, (centerX - font.TextWidth(text) \ 2, y), text, Blue)
+        Dim centerX = OneThirdWidth()
+        Dim y = CenterText(displayBuffer, font, centerX, OneSixthHeight() - font.HalfHeight * 3, Model.Avatar.Name, LightGray)
+        y = CenterText(displayBuffer, font, centerX, y, Model.Avatar.HealthDisplay, Pink)
+        CenterText(displayBuffer, font, centerX, y, Model.Avatar.EnergyDisplay, Blue)
     End Sub
+
+    Private Function OneThirdWidth() As Integer
+        Return Context.ViewSize.Width * 1 \ 3
+    End Function
+
+    Private Shared Function CenterText(displayBuffer As IPixelSink, font As Font, centerX As Integer, y As Integer, text As String, hue As Integer) As Integer
+        font.WriteText(displayBuffer, (centerX - font.HalfTextWidth(text), y), text, hue)
+        Return y + font.Height
+    End Function
 
     Private Sub DrawAvatar(displayBuffer As IPixelSink)
         Dim font = Context.Font(BagelQuestFont)
-        Dim character = Model.Avatar.Character
-        Dim centerX = Context.ViewSize.Width * 1 \ 3
-        Dim x = centerX - font.TextWidth(ChrW(0)) \ 2
-        Dim y = Context.ViewSize.Height \ 3 - font.Height \ 2
-        Dim glyphWidth = font.TextWidth(ChrW(0))
-        font.WriteText(displayBuffer, (x, y), character.MaskGlyph, character.MaskHue)
-        font.WriteText(displayBuffer, (x, y), character.Glyph, character.Hue)
+        DrawCharacter(
+            displayBuffer,
+            font,
+            OneThirdWidth() - font.HalfTextWidth(ChrW(0)),
+            OneThirdHeight() - font.HalfHeight,
+            font.TextWidth(ChrW(0)),
+            Model.Avatar.Character)
     End Sub
 
     Private Sub DrawMenuItems(displayBuffer As IPixelSink)
         Dim font = Context.Font(UIFont)
-        Dim y = Context.ViewSize.Height * 3 \ 4 - font.Height * 2 \ 2
-        displayBuffer.Fill((0, y), (Context.ViewSize.Width, font.Height), Blue)
-        y -= MenuItemIndex * font.Height
+        Dim y As Integer = DrawItemHilite(displayBuffer, font)
         For Each index In Enumerable.Range(0, MenuItems.Count)
-            font.WriteText(displayBuffer, (Context.ViewSize.Width \ 2 - font.TextWidth(MenuItems(index).DisplayText) \ 2, y), MenuItems(index).DisplayText, If(index = MenuItemIndex, Black, Blue))
-            y += font.Height
+            y = CenterText(
+                displayBuffer,
+                font,
+                Context.ViewCenter.X,
+                y,
+                MenuItems(index).DisplayText,
+                If(index = MenuItemIndex, Black, Blue))
         Next
     End Sub
 
+    Private Function DrawItemHilite(displayBuffer As IPixelSink, font As Font) As Integer
+        Dim y = Context.ViewSize.Height * 3 \ 4 - font.HalfHeight * 2
+        displayBuffer.Fill((0, y), (Context.ViewSize.Width, font.Height), Blue)
+        y -= MenuItemIndex * font.Height
+        Return y
+    End Function
+
     Private Sub DrawEnemyStats(displayBuffer As IPixelSink)
         Dim font = Context.Font(UIFont)
-        Dim centerX = Context.ViewSize.Width * 2 \ 3
-        Dim y = Context.ViewSize.Height \ 6 - font.Height * 2 \ 2
+        Dim centerX = TwoThirdsWidth()
+        Dim y = OneSixthHeight() - font.HalfHeight * 2
         Dim enemy = Model.Combat.Enemy(CharacterIndex)
-        font.WriteText(displayBuffer, (centerX - font.TextWidth(enemy.Name) \ 2, y), enemy.Name, LightGray)
-        y += font.Height
-        Dim text = $"HP {enemy.Health}/{enemy.MaximumHealth}"
-        font.WriteText(displayBuffer, (centerX - font.TextWidth(text) \ 2, y), text, Pink)
+        y = CenterText(displayBuffer, font, centerX, y, enemy.Name, LightGray)
+        CenterText(displayBuffer, font, centerX, y, enemy.HealthDisplay, Pink)
     End Sub
+
+    Private Function OneSixthHeight() As Integer
+        Return Context.ViewSize.Height \ 6
+    End Function
 
     Private Sub DrawEnemies(displayBuffer As IPixelSink)
         Dim font = Context.Font(BagelQuestFont)
         Dim enemies = Model.Combat.Enemies
-        Dim centerX = Context.ViewSize.Width * 2 \ 3
-        Dim x = centerX - font.TextWidth(ChrW(0)) * enemies.Count \ 2
-        Dim y = Context.ViewSize.Height \ 3 - font.Height * 2 \ 2
+        Dim centerX = TwoThirdsWidth()
+        Dim x = centerX - font.HalfTextWidth(ChrW(0)) * enemies.Count
+        Dim y = OneThirdHeight() - font.HalfHeight * 2
         Dim glyphWidth = font.TextWidth(ChrW(0))
-        font.WriteText(displayBuffer, (x + glyphWidth * CharacterIndex, y + font.Height), ChrW(&H1C), White)
+        DrawEnemyPointer(displayBuffer, font, x, y, glyphWidth)
         For Each enemy In enemies
-            font.WriteText(displayBuffer, (x, y), enemy.MaskGlyph, enemy.MaskHue)
-            font.WriteText(displayBuffer, (x, y), enemy.Glyph, enemy.Hue)
-            x += glyphWidth
+            x = DrawCharacter(displayBuffer, font, x, y, glyphWidth, enemy)
         Next
     End Sub
+
+    Private Function OneThirdHeight() As Integer
+        Return Context.ViewSize.Height \ 3
+    End Function
+
+    Private Sub DrawEnemyPointer(displayBuffer As IPixelSink, font As Font, x As Integer, y As Integer, glyphWidth As Integer)
+        font.WriteText(displayBuffer, (x + glyphWidth * CharacterIndex, y + font.Height), ChrW(&H1C), White)
+    End Sub
+
+    Private Shared Function DrawCharacter(displayBuffer As IPixelSink, font As Font, x As Integer, y As Integer, glyphWidth As Integer, character As (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)) As Integer
+        font.WriteText(displayBuffer, (x, y), character.MaskGlyph, character.MaskHue)
+        font.WriteText(displayBuffer, (x, y), character.Glyph, character.Hue)
+        Return x + glyphWidth
+    End Function
+
+    Private Function TwoThirdsWidth() As Integer
+        Return Context.ViewSize.Width * 2 \ 3
+    End Function
+
     Public Overrides Sub OnStart()
         MyBase.OnStart()
         If Not Model.Combat.Exists Then

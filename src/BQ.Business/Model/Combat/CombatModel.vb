@@ -23,11 +23,11 @@ Friend Class CombatModel
         End Get
     End Property
 
-    Public ReadOnly Property Enemy(index As Integer) As (Name As String, Health As Integer, MaximumHealth As Integer) Implements ICombatModel.Enemy
+    Public ReadOnly Property Enemy(index As Integer) As (Name As String, Health As Integer, MaximumHealth As Integer, HealthDisplay As String) Implements ICombatModel.Enemy
         Get
             Dim character = world.Avatar.Cell.
                 OtherCharacters(world.Avatar).ElementAt(index)
-            Return (character.Name, character.Health, character.MaximumHealth)
+            Return (character.Name, character.Health, character.MaximumHealth, $"HP {character.Health}/{character.MaximumHealth}")
         End Get
     End Property
 

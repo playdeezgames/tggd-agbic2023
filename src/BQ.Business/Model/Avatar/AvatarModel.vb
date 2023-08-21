@@ -176,6 +176,18 @@
         End Get
     End Property
 
+    Public ReadOnly Property HealthDisplay As String Implements IAvatarModel.HealthDisplay
+        Get
+            Return $"HP {Health.current}/{Health.maximum}"
+        End Get
+    End Property
+
+    Public ReadOnly Property EnergyDisplay As String Implements IAvatarModel.EnergyDisplay
+        Get
+            Return $"EN {Energy.current}/{Energy.maximum}"
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub

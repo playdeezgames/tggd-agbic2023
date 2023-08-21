@@ -6,4 +6,5 @@
     ReadOnly Property HasItems(cellXY As (column As Integer, row As Integer)) As Boolean
     ReadOnly Property GroundItems(cellXY As (column As Integer, row As Integer)) As List(Of (String, String))
     ReadOnly Property ItemCount(cellXY As (column As Integer, row As Integer), itemName As String) As Integer
+    Function FormatItemCount(cellXY As (column As Integer, row As Integer), itemName As String) As String
 End Interface

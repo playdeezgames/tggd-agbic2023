@@ -233,4 +233,8 @@
     Public Sub CookBagel() Implements IAvatarModel.CookBagel
         avatar.DoCookBagel()
     End Sub
+
+    Public Function FormatItemCount(itemName As String) As String Implements IAvatarModel.FormatItemCount
+        Return $"{itemName}(x{ItemCount(itemName)})"
+    End Function
 End Class

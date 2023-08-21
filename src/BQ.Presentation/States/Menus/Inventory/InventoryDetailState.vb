@@ -36,7 +36,7 @@
     Protected Overrides Function InitializeMenuItems() As List(Of (String, String))
         Dim result As New List(Of (String, String))
         Dim itemCount = Model.Avatar.ItemCount(Model.Item.Name)
-        HeaderText = FormatItem(itemCount)
+        HeaderText = Model.Avatar.FormatItemCount(Model.Item.Name)
 
         If itemCount > 1 Then
             result.Add((DropAllText, DropAllText))
@@ -51,11 +51,6 @@
         result.AddRange(Model.Item.EffectTypes)
         Return result
     End Function
-
-    Private Function FormatItem(itemCount As Integer) As String
-        Return $"{Model.Item.Name}(x{itemCount})"
-    End Function
-
     Public Overrides Sub OnStart()
         MyBase.OnStart()
         Select Case Model.Avatar.ItemCount(Model.Item.Name)

@@ -27,6 +27,7 @@
     ReadOnly Property HasItems As Boolean
     ReadOnly Property Items As IEnumerable(Of (String, String))
     ReadOnly Property ItemCount(itemName As String) As Integer
+    Function FormatItemCount(itemName As String) As String
     ReadOnly Property Jools As Integer
     ReadOnly Property CanForage As Boolean
     ReadOnly Property CanMakeTwine As Boolean

@@ -21,7 +21,7 @@
 
     Protected Overrides Function InitializeMenuItems() As List(Of (String, Integer))
         Dim itemCount = Model.Map.ItemCount((0, 0), Model.Item.Name)
-        HeaderText = FormatItem(itemCount)
+        HeaderText = Model.Map.FormatItemCount((0, 0), Model.Item.Name)
         Dim result As New List(Of (String, Integer))
         If itemCount > 1 Then
             result.Add((TakeAllText, itemCount))
@@ -31,10 +31,6 @@
         End If
         result.Add((TakeOneText, 1))
         Return result
-    End Function
-
-    Private Function FormatItem(itemCount As Integer) As String
-        Return $"{Model.Item.Name}(x{itemCount})"
     End Function
 
     Public Overrides Sub OnStart()

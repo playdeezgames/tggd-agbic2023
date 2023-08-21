@@ -74,4 +74,8 @@ Friend Class MapModel
         cellXY = Translate(cellXY)
         Return cellXY.column >= 0 AndAlso cellXY.row >= 0 AndAlso cellXY.column < map.Columns AndAlso cellXY.row < map.Rows
     End Function
+
+    Public Function FormatItemCount(cellXY As (column As Integer, row As Integer), itemName As String) As String Implements IMapModel.FormatItemCount
+        Return $"{itemName}(x{ItemCount(cellXY, itemName)})"
+    End Function
 End Class

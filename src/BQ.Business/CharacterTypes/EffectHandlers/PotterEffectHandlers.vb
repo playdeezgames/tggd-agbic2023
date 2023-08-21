@@ -32,7 +32,7 @@
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "Greetings! I am Harold, the Potter.").
                         AddLine(LightGray, "I make pots! For jools!").
-                        AddChoice(CoolStoryBro, EffectTypes.PotterTalk).
+                        AddChoice(CoolStoryBro, EffectTypes.ExitDialog).
                         AddChoice("I loved yer movies!", EffectTypes.PotterFlavorText).
                         AddChoice("Make me a pot!", EffectTypes.PotterMakePot)
     End Sub

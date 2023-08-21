@@ -10,7 +10,7 @@ Friend Class MessageState
     Public Overrides Sub HandleCommand(cmd As String)
         Dim message = Model.Message.Current
         If Not message.HasChoices Then
-            If cmd = Command.A Then
+            If cmd = Command.A OrElse cmd = Command.B Then
                 Model.Message.Dismiss()
                 OnStart()
             End If
@@ -22,6 +22,13 @@ Friend Class MessageState
             Case Command.Down
                 ChoiceIndex = (ChoiceIndex + 1) Mod message.ChoiceCount
             Case Command.A
+                Model.Avatar.DoChoiceTrigger(ChoiceIndex)
+                OnStart()
+            Case Command.B
+                If Not ChoiceIndex = message.CancelChoice Then
+                    ChoiceIndex = message.CancelChoice
+                    Return
+                End If
                 Model.Avatar.DoChoiceTrigger(ChoiceIndex)
                 OnStart()
         End Select

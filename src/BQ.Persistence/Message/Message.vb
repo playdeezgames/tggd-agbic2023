@@ -75,6 +75,15 @@ Friend Class Message
         End Set
     End Property
 
+    Public Property CancelChoice As Integer Implements IMessage.CancelChoice
+        Get
+            Return MessageData.CancelChoice
+        End Get
+        Set(value As Integer)
+            MessageData.CancelChoice = value
+        End Set
+    End Property
+
     Public Function AddLine(hue As Integer, text As String) As IMessage Implements IMessage.AddLine
         MessageData.Lines.Add(New Data.MessageLineData With
                               {

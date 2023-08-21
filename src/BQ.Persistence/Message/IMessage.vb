@@ -2,6 +2,7 @@
     Inherits IStatisticsHolder
     Inherits IFlagHolder
     Inherits IMetadataHolder
+    Property CancelChoice As Integer
     ReadOnly Property LineCount As Integer
     ReadOnly Property Lines As IEnumerable(Of IMessageLine)
     ReadOnly Property Choices As IEnumerable(Of IMessageChoice)

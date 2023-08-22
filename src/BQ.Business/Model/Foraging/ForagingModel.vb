@@ -20,6 +20,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property CanForage As Boolean Implements IForagingModel.CanForage
+        Get
+            Return Remaining > 0 AndAlso world.Avatar.Energy > 0
+        End Get
+    End Property
+
     Public Sub FinalReport(items As IEnumerable(Of IItem)) Implements IForagingModel.FinalReport
         If items.Any Then
             Dim table = items.GroupBy(Function(x) x.Name).ToDictionary(Function(x) x.Key, Function(x) x.Count)
@@ -32,7 +38,14 @@
     End Sub
 
     Public Function Forage() As IItem Implements IForagingModel.Forage
+        If Not CanForage Then
+            Return Nothing
+        End If
         Dim itemType = world.Avatar.Cell.GenerateForageItemType()
+        world.Avatar.AddEnergy(-1)
+        If String.IsNullOrEmpty(itemType) Then
+            Return Nothing
+        End If
         Dim item = ItemInitializer.CreateItem(world, itemType)
         world.Avatar.AddItem(item)
         Return item

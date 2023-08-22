@@ -1,7 +1,7 @@
 ﻿Imports System.Runtime.CompilerServices
 Imports BQ.Persistence
 
-Friend Module ItemExtensions
+Public Module ItemExtensions
     <Extension>
     Friend Function Descriptor(item As IItem) As ItemTypeDescriptor
         Return item.ItemType.ToItemTypeDescriptor
@@ -66,5 +66,13 @@ Friend Module ItemExtensions
     <Extension>
     Friend Function IsBroken(item As IItem) As Boolean
         Return item.Durability <= 0
+    End Function
+    <Extension>
+    Public Function Glyph(item As IItem) As String
+        Return item.Descriptor.Glyph
+    End Function
+    <Extension>
+    Public Function Hue(item As IItem) As Integer
+        Return item.Descriptor.Hue
     End Function
 End Module

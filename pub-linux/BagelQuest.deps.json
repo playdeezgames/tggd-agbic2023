@@ -776,7 +776,7 @@
       },
       "BQ.Business/1.0.0": {
         "dependencies": {
-          "BQ.Persistence": "1.0.0",
+          "BQ.Persistence.Implementation": "1.0.0",
           "SPLORR.Game": "1.0.0"
         },
         "runtime": {
@@ -790,11 +790,19 @@
       },
       "BQ.Persistence/1.0.0": {
         "dependencies": {
-          "BQ.Data": "1.0.0",
           "System.Text.Json": "7.0.3"
         },
         "runtime": {
           "BQ.Persistence.dll": {}
+        }
+      },
+      "BQ.Persistence.Implementation/1.0.0": {
+        "dependencies": {
+          "BQ.Data": "1.0.0",
+          "BQ.Persistence": "1.0.0"
+        },
+        "runtime": {
+          "BQ.Persistence.Implementation.dll": {}
         }
       },
       "BQ.Presentation/1.0.0": {
@@ -873,6 +881,11 @@
       "sha512": ""
     },
     "BQ.Persistence/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BQ.Persistence.Implementation/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

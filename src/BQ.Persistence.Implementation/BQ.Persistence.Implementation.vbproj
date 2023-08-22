@@ -15,6 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BQ.Data\BQ.Data.vbproj" />
     <ProjectReference Include="..\BQ.Persistence\BQ.Persistence.vbproj" />
   </ItemGroup>
 

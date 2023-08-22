@@ -18,8 +18,4 @@
     <PackageReference Include="System.Text.Json" Version="7.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BQ.Data\BQ.Data.vbproj" />
-  </ItemGroup>
-
 </Project>

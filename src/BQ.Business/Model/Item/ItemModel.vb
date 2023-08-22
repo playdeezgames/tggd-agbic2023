@@ -68,7 +68,9 @@
     End Sub
 
     Public Sub Equip(itemId As Integer) Implements IItemModel.Equip
-        world.Avatar.EquipItem(world.Item(itemId))
+        Dim item = world.Item(itemId)
+        world.Avatar.EquipItem(item)
+        world.CreateMessage().AddLine(LightGray, $"{world.Avatar.Name} equips {item.Name}")
     End Sub
 
     Public Sub DoEffect(effectType As String) Implements IItemModel.DoEffect

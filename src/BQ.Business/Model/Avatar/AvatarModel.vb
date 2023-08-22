@@ -230,6 +230,10 @@
 
     Public Sub Unequip(equipSlotType As String) Implements IAvatarModel.Unequip
         avatar.Unequip(equipSlotType)
+        avatar.
+            World.
+            CreateMessage().
+            AddLine(LightGray, $"{avatar.Name} unequips {equipSlotType.ToEquipSlotTypeDescriptor.Name}")
     End Sub
 
     Public Sub Sleep() Implements IAvatarModel.Sleep

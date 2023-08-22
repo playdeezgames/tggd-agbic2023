@@ -1,4 +1,5 @@
-﻿Imports SPLORR.Game
+﻿Imports System.Data.Common
+Imports SPLORR.Game
 
 Friend Class ForageState
     Inherits BaseGameState(Of IWorldModel)
@@ -16,6 +17,7 @@ Friend Class ForageState
     Public Overrides Sub HandleCommand(cmd As String)
         Select Case cmd
             Case Command.B
+                Model.Foraging.FinalReport(loot)
                 SetState(Neutral)
             Case Command.Up
                 currentRow = (currentRow + gridSize.rows - 1) Mod gridSize.rows
@@ -35,20 +37,31 @@ Friend Class ForageState
             hiddenCells(currentColumn, currentRow) = False
             Dim item = Model.Foraging.Forage
             items(currentColumn, currentRow) = item
-            loot.Add(item)
+            If item IsNot Nothing Then
+                loot.Add(item)
+            End If
         End If
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
         displayBuffer.Fill(Black)
         Dim energy As (current As Integer, maximum As Integer) = RenderGrid(displayBuffer)
-        'offsetY = Context.ViewCenter.Y - font.HalfHeight * legacyLoot.Count
-        'For Each item In legacyLoot
-        '    font.WriteText(displayBuffer, (0, offsetY), $"{item.Key}(x{item.Value})", White)
-        '    offsetY += font.Height
-        'Next
+        RenderLoot(displayBuffer)
         Context.ShowHeader(displayBuffer, Context.Font(UIFont), $"Energy {energy.current}/{energy.maximum}", Orange, Black)
         Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText("Forage", "Exit"), Black, LightGray)
+    End Sub
+
+    Private Sub RenderLoot(displayBuffer As IPixelSink)
+        Dim bqFont = Context.Font(BagelQuestFont)
+        Dim font = Context.Font(UIFont)
+        Dim table = loot.GroupBy(Function(x) x.ItemType)
+        Dim offsetY = Context.ViewCenter.Y - bqFont.HalfHeight * table.Count
+        For Each entry In table
+            Dim item = entry.First
+            bqFont.WriteText(displayBuffer, (0, offsetY), item.Glyph, item.Hue)
+            font.WriteText(displayBuffer, (bqFont.TextWidth(ChrW(0)), offsetY + bqFont.HalfHeight - font.HalfHeight), $"x{entry.Count}", LightGray)
+            offsetY += bqFont.Height
+        Next
     End Sub
 
     Private Function RenderGrid(displayBuffer As IPixelSink) As (current As Integer, maximum As Integer)

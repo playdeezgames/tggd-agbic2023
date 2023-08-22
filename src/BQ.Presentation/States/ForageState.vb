@@ -2,7 +2,7 @@
     Inherits BaseGameState(Of IWorldModel)
     Private forageCells(,) As (glyph As Char, hue As Integer, itemType As String)
     Private revealedCells(,) As Boolean
-    Private loot As New Dictionary(Of String, Integer)
+    Private ReadOnly loot As New Dictionary(Of String, Integer)
     Private gridSize As (columns As Integer, rows As Integer)
     Private currentColumn As Integer
     Private currentRow As Integer
@@ -31,7 +31,7 @@
     Private Sub RevealCell()
         Dim itemType = forageCells(currentColumn, currentRow).itemType
         If Not revealedCells(currentColumn, currentRow) AndAlso itemType IsNot Nothing Then
-            If Model.Foraging.ForageItemType(itemType) Then
+            If Model.Foraging.LegacyForageItemType(itemType) Then
                 If Not String.IsNullOrEmpty(itemType) Then
                     If loot.ContainsKey(itemType) Then
                         loot(itemType) += 1
@@ -81,7 +81,7 @@
         MyBase.OnStart()
         loot.Clear()
         gridSize = Model.Foraging.GridSize
-        forageCells = Model.Foraging.GenerateGrid()
+        forageCells = Model.Foraging.LegacyGenerateGrid()
         ReDim revealedCells(gridSize.columns, gridSize.rows)
         currentColumn = gridSize.columns \ 2
         currentRow = gridSize.rows \ 2

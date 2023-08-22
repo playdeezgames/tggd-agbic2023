@@ -1,7 +1,5 @@
-﻿Imports SPLORR.Game
-
-Friend Class ForagingModel
-    Implements IForagingModel
+﻿Friend Class LegacyForagingModel
+    Implements ILegacyForagingModel
 
     Private ReadOnly world As IWorld
 
@@ -9,7 +7,7 @@ Friend Class ForagingModel
         Me.world = world
     End Sub
 
-    Public ReadOnly Property GridSize As (columns As Integer, rows As Integer) Implements IForagingModel.GridSize
+    Public ReadOnly Property GridSize As (columns As Integer, rows As Integer) Implements ILegacyForagingModel.GridSize
         Get
             Dim forageRemaining = world.Avatar.Cell.Statistic(StatisticTypes.ForageRemaining)
             Dim rows = CInt(Math.Sqrt(forageRemaining))
@@ -17,7 +15,7 @@ Friend Class ForagingModel
         End Get
     End Property
 
-    Public Function ForageItemType(itemType As String) As Boolean Implements IForagingModel.ForageItemType
+    Public Function LegacyForageItemType(itemType As String) As Boolean Implements ILegacyForagingModel.LegacyForageItemType
         If world.Avatar.Energy > 0 AndAlso world.Avatar.Cell.Statistic(StatisticTypes.ForageRemaining) > 0 Then
             If Not String.IsNullOrEmpty(itemType) Then
                 world.Avatar.AddItem(ItemInitializer.CreateItem(world, itemType))
@@ -32,7 +30,7 @@ Friend Class ForagingModel
         Return False
     End Function
 
-    Public Function GenerateGrid() As (glyph As Char, hue As Integer, itemType As String)(,) Implements IForagingModel.GenerateGrid
+    Public Function LegacyGenerateGrid() As (glyph As Char, hue As Integer, itemType As String)(,) Implements ILegacyForagingModel.LegacyGenerateGrid
         Dim mapCell = world.Avatar.Cell
         Dim forageRemaining = mapCell.Statistic(StatisticTypes.ForageRemaining)
         Dim size = GridSize

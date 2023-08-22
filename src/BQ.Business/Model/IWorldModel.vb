@@ -9,4 +9,5 @@
     ReadOnly Property Combat As ICombatModel
     ReadOnly Property Item As IItemModel
     ReadOnly Property LegacyForaging As ILegacyForagingModel
+    ReadOnly Property Foraging As IForagingModel
 End Interface

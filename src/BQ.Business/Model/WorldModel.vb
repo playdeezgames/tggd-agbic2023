@@ -37,6 +37,12 @@ Public Class WorldModel
         End Get
     End Property
 
+    Public ReadOnly Property Foraging As IForagingModel Implements IWorldModel.Foraging
+        Get
+            Return New ForagingModel(World)
+        End Get
+    End Property
+
     Private Property World As IWorld
     Public Sub Embark() Implements IWorldModel.Embark
         World = New World(New WorldData)

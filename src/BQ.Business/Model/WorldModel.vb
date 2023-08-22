@@ -31,7 +31,7 @@ Public Class WorldModel
         End Get
     End Property
 
-    Public ReadOnly Property Foraging As ILegacyForagingModel Implements IWorldModel.Foraging
+    Public ReadOnly Property LegacyForaging As ILegacyForagingModel Implements IWorldModel.LegacyForaging
         Get
             Return New LegacyForagingModel(World)
         End Get

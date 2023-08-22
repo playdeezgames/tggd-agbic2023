@@ -31,7 +31,7 @@
     Private Sub RevealCell()
         Dim itemType = forageCells(currentColumn, currentRow).itemType
         If Not revealedCells(currentColumn, currentRow) AndAlso itemType IsNot Nothing Then
-            If Model.Foraging.LegacyForageItemType(itemType) Then
+            If Model.LegacyForaging.LegacyForageItemType(itemType) Then
                 If Not String.IsNullOrEmpty(itemType) Then
                     If loot.ContainsKey(itemType) Then
                         loot(itemType) += 1
@@ -80,8 +80,8 @@
     Public Overrides Sub OnStart()
         MyBase.OnStart()
         loot.Clear()
-        gridSize = Model.Foraging.GridSize
-        forageCells = Model.Foraging.LegacyGenerateGrid()
+        gridSize = Model.LegacyForaging.GridSize
+        forageCells = Model.LegacyForaging.LegacyGenerateGrid()
         ReDim revealedCells(gridSize.columns, gridSize.rows)
         currentColumn = gridSize.columns \ 2
         currentRow = gridSize.rows \ 2

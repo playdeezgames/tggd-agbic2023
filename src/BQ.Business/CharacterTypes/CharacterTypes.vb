@@ -30,7 +30,7 @@ Friend Module CharacterTypes
                         {StatisticTypes.XPGoal, 10},
                         {StatisticTypes.XPLevel, 1},
                         {StatisticTypes.AdvancementPointsPerLevel, 10},
-                        {StatisticTypes.AdvancementPoints, 10},'TODO: zero me
+                        {StatisticTypes.AdvancementPoints, 0},
                         {StatisticTypes.Energy, 10},
                         {StatisticTypes.MaximumEnergy, 10}
                     },
@@ -124,7 +124,6 @@ Friend Module CharacterTypes
         }
 
     Private Sub LoxyInitializer(character As ICharacter)
-        character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.StrawHat))
     End Sub
 
     Private Sub ScarecrowInitializer(character As ICharacter)

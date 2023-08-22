@@ -1,4 +1,4 @@
-﻿Friend Class ActionMenuState
+﻿Friend Class CraftState
     Inherits BasePickerState(Of IWorldModel, String)
 
     Public Sub New(
@@ -9,9 +9,9 @@
             parent,
             setState,
             context,
-            ActionsText,
+            CraftText,
             context.ControlsText(SelectText, CancelText),
-            Neutral)
+            GameState.ActionMenu)
     End Sub
 
     Protected Overrides Sub OnActivateMenuItem(value As (String, String))
@@ -22,15 +22,15 @@
         Of (text As String, condition As Func(Of IWorldModel, Boolean), state As String)) =
         New List(Of (String, Func(Of IWorldModel, Boolean), String)) From
         {
-            (GroundText, Function(m) m.Map.HasItems((0, 0)), GameState.Ground),
-            (InventoryText, Function(m) m.Avatar.HasItems, GameState.Inventory),
-            (EquipmentText, Function(m) m.Avatar.HasEquipment, GameState.Equipment),
-            (SleepText, Function(m) m.Avatar.CanSleep, GameState.Sleep),
-            (ForageText, Function(m) m.Avatar.CanForage, GameState.Forage),
-            (CraftText, Function(m) m.Avatar.CanCraft, GameState.Craft),
-            (PutOutFireText, Function(m) m.Avatar.CanPutOutFire, GameState.PutOutFire),
-            (StatisticsText, Function(m) True, GameState.Statistics)
+            (MakeTwineText, Function(m) m.Avatar.CanMakeTwine, GameState.MakeTwine),
+            (BuildFireText, Function(m) m.Avatar.CanBuildFire, GameState.BuildFire),
+            (MakeTorchText, Function(m) m.Avatar.CanMakeTorch, GameState.MakeTorch),
+            (BuildFurnaceText, Function(m) m.Avatar.CanBuildFurnace, GameState.BuildFurnace),
+            (CookBagelText, Function(m) m.Avatar.CanCookBagel, GameState.CookBagel),
+            (KnapText, Function(m) m.Avatar.CanKnap, GameState.Knap),
+            (MakeHatchetText, Function(m) m.Avatar.CanMakeHatchet, GameState.MakeHatchet)
         }
+
     Private ReadOnly actionTable As IReadOnlyDictionary(Of String, String) =
         actionConditions.ToDictionary(Function(x) x.text, Function(x) x.state)
 

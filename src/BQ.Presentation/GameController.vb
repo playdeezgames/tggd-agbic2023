@@ -24,6 +24,7 @@ Public Class GameController
         SetState(GameState.Navigation, New NavigationState(Me, AddressOf SetCurrentState, context))
         SetState(GameState.Statistics, New StatisticsState(Me, AddressOf SetCurrentState, context))
         SetState(GameState.Winner, New WinnerState(Me, AddressOf SetCurrentState, context))
+        SetState(GameState.Craft, New CraftState(Me, AddressOf SetCurrentState, context))
     End Sub
 
     Private ReadOnly movementStates As IReadOnlyDictionary(Of String, (Integer, Integer)) =

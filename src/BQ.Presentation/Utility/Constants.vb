@@ -14,6 +14,7 @@
     Friend Const CancelText = "Cancel"
     Friend Const CookBagelText = "Cook Bagel"
     Friend Const ContinueText = "Continue"
+    Friend Const CraftText = "Craft..."
     Friend Const DropAllText = "Drop All"
     Friend Const DropHalfText = "Drop Half"
     Friend Const DropOneText = "Drop One"

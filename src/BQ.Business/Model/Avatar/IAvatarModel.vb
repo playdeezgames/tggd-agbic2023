@@ -46,4 +46,5 @@
     ReadOnly Property CanMakeHatchet As Boolean
     ReadOnly Property CanKnap As Boolean
     ReadOnly Property CanCookBagel As Boolean
+    ReadOnly Property CanCraft As Boolean
 End Interface

@@ -206,6 +206,18 @@
         End Get
     End Property
 
+    Public ReadOnly Property CanCraft As Boolean Implements IAvatarModel.CanCraft
+        Get
+            Return CanBuildFire OrElse
+                CanBuildFurnace OrElse
+                CanCookBagel OrElse
+                CanKnap OrElse
+                CanMakeHatchet OrElse
+                CanMakeTorch OrElse
+                CanMakeTwine
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub

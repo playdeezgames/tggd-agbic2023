@@ -42,6 +42,7 @@
             Return Nothing
         End If
         Dim itemType = world.Avatar.Cell.GenerateForageItemType()
+        world.Avatar.Cell.AddStatistic(StatisticTypes.ForageRemaining, -1)
         world.Avatar.AddEnergy(-1)
         If String.IsNullOrEmpty(itemType) Then
             Return Nothing

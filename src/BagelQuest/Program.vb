@@ -1,3 +1,6 @@
+Imports System.IO
+Imports System.Text.Json
+Imports System.Text.Json.Serialization
 Imports AOS.Presentation
 Imports AOS.UI
 Imports BQ.Presentation
@@ -14,11 +17,14 @@ Module Program
             hueTable,
             commandTable,
             sfxFileNames,
-            muxFileNameas)
+            LoadMux)
             host.Run()
         End Using
     End Sub
-    Private ReadOnly muxFileNameas As IReadOnlyDictionary(Of String, String) =
+    Private Function LoadMux() As IReadOnlyDictionary(Of String, String)
+        Return JsonSerializer.Deserialize(Of Dictionary(Of String, String))(File.ReadAllText("Content/mux.json"))
+    End Function
+    Private ReadOnly muxFileNames As IReadOnlyDictionary(Of String, String) =
         New Dictionary(Of String, String) From
         {
             {BoilerplateMux.MainTheme, "Content/Audio/Mux/MainTheme.ogg"},

@@ -2,6 +2,10 @@
     Friend Sub DoEatPepper(character As ICharacter, effect As IEffect)
         Dim item As IItem = ConsumedItem(character, effect)
         Dim msg = character.World.CreateMessage.AddLine(LightGray, $"{character.Name} eats the pepper.")
+        DetermineSpiciness(character, msg)
+    End Sub
+
+    Private Sub DetermineSpiciness(character As ICharacter, msg As IMessage)
         If RNG.GenerateBoolean(5, 5) Then
             character.AwardXP(msg.AddLine(Orange, "That was a spicy one!"), 1)
         End If
@@ -10,14 +14,12 @@
     Friend Sub DoEatSmokedPepper(character As ICharacter, effect As IEffect)
         Dim item As IItem = ConsumedItem(character, effect)
         Dim msg = character.World.CreateMessage.AddLine(LightGray, $"{character.Name} eats the smoked pepper.")
-        If RNG.GenerateBoolean(5, 5) Then
-            character.AwardXP(msg.AddLine(Orange, "That was a spicy one!"), 1)
-        End If
+        DetermineSpiciness(character, msg)
     End Sub
 
     Friend Sub DoEatRatCorpse(character As ICharacter, effect As IEffect)
         Dim item As IItem = ConsumedItem(character, effect)
-        If RNG.GenerateBoolean(0, 50) Then
+        If RNG.GenerateBoolean(50, 50) Then
             DoHealing(character, item, 1)
         Else
             character.SetHealth(character.Health - 1)
@@ -53,9 +55,7 @@
 
     Friend Sub DoEatSeasonedRat(character As ICharacter, effect As IEffect)
         DoEatCookedRat(character, effect)
-        If RNG.GenerateBoolean(5, 5) Then
-            character.AwardXP(character.World.CreateMessage.AddLine(Orange, "That was a spicy one!"), 1)
-        End If
+        DetermineSpiciness(character, character.World.CreateMessage.AddLine(Orange, "That was a spicy one!"))
     End Sub
 
     Friend Sub DoUseEnergyHerb(character As ICharacter, effect As IEffect)

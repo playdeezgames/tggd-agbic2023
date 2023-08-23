@@ -1,32 +1,22 @@
 ﻿Friend Class InventoryState
-    Inherits BasePickerState(Of IWorldModel, String)
+    Inherits BaseGameState(Of IWorldModel)
 
-    Public Sub New(
-                  parent As IGameController,
-                  setState As Action(Of String, Boolean),
-                  context As IUIContext(Of IWorldModel))
-        MyBase.New(
-            parent,
-            setState,
-            context,
-            InventoryText,
-            context.ControlsText(SelectText, CancelText),
-            GameState.ActionMenu)
+    Public Sub New(parent As IGameController, setState As Action(Of String, Boolean), context As IUIContext(Of IWorldModel))
+        MyBase.New(parent, setState, context)
     End Sub
 
-    Protected Overrides Sub OnActivateMenuItem(value As (String, String))
-        Model.Item.Name = value.Item2
-        SetState(GameState.InventoryDetail)
+    Public Overrides Sub HandleCommand(cmd As String)
+        Select Case cmd
+            Case Command.B
+                SetState(ActionMenu)
+        End Select
     End Sub
 
-    Protected Overrides Function InitializeMenuItems() As List(Of (String, String))
-        Return Model.Avatar.Items.ToList
-    End Function
+    Public Overrides Sub Render(displayBuffer As IPixelSink)
+        displayBuffer.Fill(Black)
+    End Sub
 
     Public Overrides Sub OnStart()
         MyBase.OnStart()
-        If Not Model.Avatar.HasItems Then
-            SetState(ActionMenu)
-        End If
     End Sub
 End Class

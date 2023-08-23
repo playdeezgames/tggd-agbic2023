@@ -56,13 +56,13 @@
         End Get
     End Property
 
-    Public ReadOnly Property Items As IEnumerable(Of (String, String)) Implements IAvatarModel.Items
+    Public ReadOnly Property LegacyItems As IEnumerable(Of (String, String)) Implements IAvatarModel.LegacyItems
         Get
             Return avatar.Items.GroupBy(Function(x) x.Name).Select(Function(x) ($"{x.Key}(x{x.Count})", x.Key))
         End Get
     End Property
 
-    Public ReadOnly Property ItemCount(itemName As String) As Integer Implements IAvatarModel.ItemCount
+    Public ReadOnly Property LegacyItemCount(itemName As String) As Integer Implements IAvatarModel.LegacyItemCount
         Get
             Return avatar.Items.Count(Function(x) x.Name = itemName)
         End Get
@@ -280,7 +280,7 @@
         avatar.DoCookBagel()
     End Sub
 
-    Public Function FormatItemCount(itemName As String) As String Implements IAvatarModel.FormatItemCount
-        Return $"{itemName}(x{ItemCount(itemName)})"
+    Public Function LegacyFormatItemCount(itemName As String) As String Implements IAvatarModel.LegacyFormatItemCount
+        Return $"{itemName}(x{LegacyItemCount(itemName)})"
     End Function
 End Class

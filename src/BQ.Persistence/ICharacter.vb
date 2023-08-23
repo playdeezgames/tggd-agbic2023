@@ -10,6 +10,7 @@
     Sub Recycle()
     ReadOnly Property Items As IEnumerable(Of IItem)
     ReadOnly Property HasItems As Boolean
+    ReadOnly Property ItemCount As Integer
     Sub RemoveItem(item As IItem)
     Sub AddItem(item As IItem)
     ReadOnly Property IsAvatar As Boolean

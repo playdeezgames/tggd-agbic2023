@@ -110,6 +110,12 @@
         End Set
     End Property
 
+    Public ReadOnly Property ItemCount As Integer Implements ICharacter.ItemCount
+        Get
+            Return CharacterData.ItemIds.Count
+        End Get
+    End Property
+
     Public Sub Recycle() Implements ICharacter.Recycle
         If Not IsAvatar Then
             For Each equippedItem In EquippedItems

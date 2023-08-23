@@ -29,6 +29,7 @@
     ReadOnly Property Attack As (average As Double, maximum As Integer)
     ReadOnly Property Defend As (average As Double, maximum As Integer)
     ReadOnly Property HasItems As Boolean
+    ReadOnly Property Inventory As IAvatarInventoryModel
     ReadOnly Property LegacyItems As IEnumerable(Of (String, String))
     ReadOnly Property LegacyItemCount(itemName As String) As Integer
     Function LegacyFormatItemCount(itemName As String) As String

@@ -218,6 +218,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property Inventory As IAvatarInventoryModel Implements IAvatarModel.Inventory
+        Get
+            Return New AvatarInventoryModel(avatar)
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub

@@ -1,0 +1,6 @@
+{
+  "MainTheme": "Content/Audio/Mux/MainTheme.ogg",
+  "CombatTheme": "Content/Audio/Mux/CombatTheme.ogg",
+  "VictoryTheme": "Content/Audio/Mux/CombatTheme.ogg",
+  "DeathTheme": "Content/Audio/Mux/MainTheme.ogg"
+}

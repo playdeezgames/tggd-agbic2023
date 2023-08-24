@@ -12,42 +12,31 @@ Module Program
                 New BagelQuestSettings(),
                 New BagelQuestContext(LoadFonts(), (ViewWidth, ViewHeight))),
             (ViewWidth, ViewHeight),
-            hueTable,
+            LoadHues(),
             commandTable,
             LoadSfx(),
             LoadMux)
             host.Run()
         End Using
     End Sub
+
+    Private Const HueFilename As String = "Content/hue.json"
+    Private Const SfxFilename As String = "Content/sfx.json"
+    Private Const FontFilename As String = "Content/font.json"
+    Private Const MuxFilename As String = "Content/mux.json"
+
+    Private Function LoadHues() As IReadOnlyDictionary(Of Integer, Color)
+        Return JsonSerializer.Deserialize(Of Dictionary(Of Integer, Color))(File.ReadAllText(HueFilename))
+    End Function
     Private Function LoadSfx() As IReadOnlyDictionary(Of String, String)
-        Return JsonSerializer.Deserialize(Of Dictionary(Of String, String))(File.ReadAllText("Content/sfx.json"))
+        Return JsonSerializer.Deserialize(Of Dictionary(Of String, String))(File.ReadAllText(SfxFilename))
     End Function
     Private Function LoadFonts() As IReadOnlyDictionary(Of String, String)
-        Return JsonSerializer.Deserialize(Of Dictionary(Of String, String))(File.ReadAllText("Content/font.json"))
+        Return JsonSerializer.Deserialize(Of Dictionary(Of String, String))(File.ReadAllText(FontFilename))
     End Function
     Private Function LoadMux() As IReadOnlyDictionary(Of String, String)
-        Return JsonSerializer.Deserialize(Of Dictionary(Of String, String))(File.ReadAllText("Content/mux.json"))
+        Return JsonSerializer.Deserialize(Of Dictionary(Of String, String))(File.ReadAllText(MuxFilename))
     End Function
-    Private ReadOnly hueTable As IReadOnlyDictionary(Of Integer, Color) =
-        New Dictionary(Of Integer, Color) From
-{
-            {Hue.Black, New Color(0, 0, 0)},
-            {Hue.Cyan, New Color(41, 208, 208)},
-            {Hue.Purple, New Color(129, 38, 192)},
-            {Hue.White, New Color(255, 255, 255)},
-            {Hue.Orange, New Color(255, 146, 51)},
-            {Hue.Brown, New Color(129, 74, 25)},
-            {Hue.Red, New Color(173, 35, 35)},
-            {Hue.Blue, New Color(42, 75, 215)},
-            {Hue.DarkGray, New Color(87, 87, 87)},
-            {Hue.LightGray, New Color(160, 160, 160)},
-            {Hue.LightGreen, New Color(129, 197, 122)},
-            {Hue.LightBlue, New Color(157, 175, 255)},
-            {Hue.Yellow, New Color(255, 238, 51)},
-            {Hue.Tan, New Color(233, 222, 187)},
-            {Hue.Pink, New Color(255, 205, 243)},
-            {Hue.Green, New Color(29, 105, 20)}
-        }
     Private ReadOnly commandTable As IReadOnlyDictionary(Of String, Func(Of KeyboardState, GamePadState, Boolean)) =
     New Dictionary(Of String, Func(Of KeyboardState, GamePadState, Boolean)) From
     {

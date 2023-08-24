@@ -32,12 +32,6 @@
         End Get
     End Property
 
-    Public ReadOnly Property LegacyItemCount(itemName As String) As Integer Implements IAvatarModel.LegacyItemCount
-        Get
-            Return avatar.Items.Count(Function(x) x.Name = itemName)
-        End Get
-    End Property
-
     Public ReadOnly Property Jools As Integer Implements IAvatarModel.Jools
         Get
             Return avatar.TryGetStatistic(StatisticTypes.Jools)
@@ -247,6 +241,6 @@
     End Sub
 
     Public Function LegacyFormatItemCount(itemName As String) As String Implements IAvatarModel.LegacyFormatItemCount
-        Return $"{itemName}(x{LegacyItemCount(itemName)})"
+        Return $"{itemName}(x{Inventory.ItemCount(itemName)})"
     End Function
 End Class

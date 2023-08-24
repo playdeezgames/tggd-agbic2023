@@ -24,4 +24,10 @@
             Return avatar.ItemCountsByName.Select(Function(x) (x.Value.First.Descriptor.Glyph, x.Value.First.Descriptor.Hue, x.Key, x.Value.Count))
         End Get
     End Property
+
+    Public ReadOnly Property ItemCount(name As String) As Integer Implements IAvatarInventoryModel.ItemCount
+        Get
+            Return avatar.Items.Count(Function(x) x.Name = ItemName)
+        End Get
+    End Property
 End Class

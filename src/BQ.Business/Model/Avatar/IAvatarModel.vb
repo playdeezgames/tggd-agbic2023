@@ -25,7 +25,6 @@
     ReadOnly Property Defend As (average As Double, maximum As Integer)
     ReadOnly Property HasItems As Boolean
     ReadOnly Property Inventory As IAvatarInventoryModel
-    ReadOnly Property LegacyItemCount(itemName As String) As Integer
     Function LegacyFormatItemCount(itemName As String) As String
     ReadOnly Property Jools As Integer
     ReadOnly Property JoolsDisplay As String

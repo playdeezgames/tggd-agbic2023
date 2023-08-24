@@ -17,13 +17,13 @@
     Protected Overrides Sub OnActivateMenuItem(value As (String, String))
         Select Case value.Item2
             Case DropAllText
-                Model.Item.Count = Model.Avatar.LegacyItemCount(Model.Item.Name)
+                Model.Item.Count = Model.Avatar.Inventory.ItemCount(Model.Item.Name)
                 SetState(GameState.Drop)
             Case DropOneText
                 Model.Item.Count = 1
                 SetState(GameState.Drop)
             Case DropHalfText
-                Model.Item.Count = Model.Avatar.LegacyItemCount(Model.Item.Name) \ 2
+                Model.Item.Count = Model.Avatar.Inventory.ItemCount(Model.Item.Name) \ 2
                 SetState(GameState.Drop)
             Case EquipText
                 SetState(GameState.Equip)
@@ -35,7 +35,7 @@
 
     Protected Overrides Function InitializeMenuItems() As List(Of (String, String))
         Dim result As New List(Of (String, String))
-        Dim itemCount = Model.Avatar.LegacyItemCount(Model.Item.Name)
+        Dim itemCount = Model.Avatar.Inventory.ItemCount(Model.Item.Name)
         HeaderText = Model.Avatar.LegacyFormatItemCount(Model.Item.Name)
 
         If itemCount > 1 Then
@@ -53,7 +53,7 @@
     End Function
     Public Overrides Sub OnStart()
         MyBase.OnStart()
-        Select Case Model.Avatar.LegacyItemCount(Model.Item.Name)
+        Select Case Model.Avatar.Inventory.ItemCount(Model.Item.Name)
             Case 0
                 SetState(GameState.Inventory)
         End Select

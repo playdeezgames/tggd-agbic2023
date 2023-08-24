@@ -1,7 +1,6 @@
 ﻿Public Interface IAvatarModel
     Sub Move(delta As (x As Integer, y As Integer))
     Sub DoChoiceTrigger(index As Integer)
-
     Sub MakeTwine()
     Sub BuildFire()
     Sub Unequip(equipSlotType As String)
@@ -12,6 +11,7 @@
     Sub BuildFurnace()
     Sub CookBagel()
     Sub Knap()
+
     ReadOnly Property HasWon As Boolean
     ReadOnly Property IsDead As Boolean
     ReadOnly Property Character As (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)

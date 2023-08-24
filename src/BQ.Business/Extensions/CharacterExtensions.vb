@@ -25,7 +25,7 @@
     End Function
     <Extension>
     Friend Function JoolsDisplay(character As ICharacter) As String
-        Return $" $ {character.Jools}"
+        Return $"$ {character.Jools}"
     End Function
     <Extension>
     Friend Function CanBuildFurnace(character As ICharacter) As Boolean

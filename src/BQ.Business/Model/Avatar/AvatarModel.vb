@@ -38,7 +38,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property Equipment As IEnumerable(Of (String, String)) Implements IAvatarModel.Equipment
+    Public ReadOnly Property EquipmentDisplay As IEnumerable(Of (String, String)) Implements IAvatarModel.EquipmentDisplay
         Get
             Return avatar.Equipment.Select(Function(x) ($"{x.Key.ToEquipSlotTypeDescriptor.Name}: {x.Value.FullName}", x.Key))
         End Get
@@ -161,6 +161,12 @@
     Public ReadOnly Property DEFDisplay As String Implements IAvatarModel.DEFDisplay
         Get
             Return avatar.DEFDisplay
+        End Get
+    End Property
+
+    Public ReadOnly Property Equipment As IAvatarEquipmentModel Implements IAvatarModel.Equipment
+        Get
+            Return New AvatarEquipmentModel(avatar)
         End Get
     End Property
 

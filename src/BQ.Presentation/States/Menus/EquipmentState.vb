@@ -20,6 +20,6 @@
     End Sub
 
     Protected Overrides Function InitializeMenuItems() As List(Of (String, String))
-        Return Model.Avatar.Equipment.ToList
+        Return Model.Avatar.EquipmentDisplay.ToList
     End Function
 End Class

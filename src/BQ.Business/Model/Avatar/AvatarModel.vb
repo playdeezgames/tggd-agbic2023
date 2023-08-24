@@ -238,10 +238,6 @@
         avatar.World.DismissMessage()
     End Sub
 
-    Public Sub Forage() Implements IAvatarModel.Forage
-        avatar.Cell.DoEffect(EffectTypes.Forage, avatar)
-    End Sub
-
     Public Sub MakeTwine() Implements IAvatarModel.MakeTwine
         avatar.DoMakeTwine()
     End Sub

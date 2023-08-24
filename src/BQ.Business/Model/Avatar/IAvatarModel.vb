@@ -1,7 +1,7 @@
 ﻿Public Interface IAvatarModel
     Sub Move(delta As (x As Integer, y As Integer))
     Sub DoChoiceTrigger(index As Integer)
-    Sub Forage()
+
     Sub MakeTwine()
     Sub BuildFire()
     Sub Unequip(equipSlotType As String)

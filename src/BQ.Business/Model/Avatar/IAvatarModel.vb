@@ -26,7 +26,6 @@
     ReadOnly Property HasItems As Boolean
     ReadOnly Property Inventory As IAvatarInventoryModel
     Function LegacyFormatItemCount(itemName As String) As String
-    ReadOnly Property Jools As Integer
     ReadOnly Property JoolsDisplay As String
     ReadOnly Property CanForage As Boolean
     ReadOnly Property CanMakeTwine As Boolean

@@ -32,12 +32,6 @@
         End Get
     End Property
 
-    Public ReadOnly Property Jools As Integer Implements IAvatarModel.Jools
-        Get
-            Return avatar.TryGetStatistic(StatisticTypes.Jools)
-        End Get
-    End Property
-
     Public ReadOnly Property CanForage As Boolean Implements IAvatarModel.CanForage
         Get
             Return avatar.Flag(FlagTypes.KnowsForaging) AndAlso avatar.Cell.CanForage

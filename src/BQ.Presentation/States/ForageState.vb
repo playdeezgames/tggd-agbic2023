@@ -45,9 +45,9 @@ Friend Class ForageState
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
         displayBuffer.Fill(Black)
-        Dim energy As (current As Integer, maximum As Integer) = RenderGrid(displayBuffer)
+        RenderGrid(displayBuffer)
         RenderLoot(displayBuffer)
-        Context.ShowHeader(displayBuffer, Context.Font(UIFont), $"Energy {energy.current}/{energy.maximum}", Orange, Black)
+        Context.ShowHeader(displayBuffer, Context.Font(UIFont), Model.Avatar.EnergyDisplay, Orange, Black)
         Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText("Forage", "Exit"), Black, LightGray)
     End Sub
 
@@ -64,11 +64,10 @@ Friend Class ForageState
         Next
     End Sub
 
-    Private Function RenderGrid(displayBuffer As IPixelSink) As (current As Integer, maximum As Integer)
+    Private Sub RenderGrid(displayBuffer As IPixelSink)
         Dim bqFont = Context.Font(BagelQuestFont)
         Dim font = Context.Font(UIFont)
         Dim offsetY = Context.ViewCenter.Y - gridSize.rows * CellHeight \ 2
-        Dim energy = Model.Avatar.Energy
         For Each row In Enumerable.Range(0, gridSize.rows)
             Dim offsetX = Context.ViewSize.Width \ 2 - gridSize.columns * CellWidth \ 2
             For Each column In Enumerable.Range(0, gridSize.columns)
@@ -85,9 +84,7 @@ Friend Class ForageState
             Next
             offsetY += CellHeight
         Next
-
-        Return energy
-    End Function
+    End Sub
 
     Public Overrides Sub OnStart()
         MyBase.OnStart()

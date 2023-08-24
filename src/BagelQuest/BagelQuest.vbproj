@@ -29,6 +29,7 @@
     <None Remove="Content\EnemyDeath.wav" />
     <None Remove="Content\EnemyHit.wav" />
     <None Remove="Content\EnemyMiss.wav" />
+    <None Remove="Content\font.json" />
     <None Remove="Content\keys.json" />
     <None Remove="Content\MainTheme.ogg" />
     <None Remove="Content\Miss.wav" />
@@ -36,6 +37,7 @@
     <None Remove="Content\PlayerDeath.wav" />
     <None Remove="Content\PlayerHit.wav" />
     <None Remove="Content\PlayerMiss.wav" />
+    <None Remove="Content\sfx.json" />
     <None Remove="Content\Shucks.wav" />
     <None Remove="Content\Take.wav" />
     <None Remove="Content\Tasty.wav" />
@@ -46,6 +48,9 @@
 
   <ItemGroup>
     <Content Include="aboot.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\font.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Fonts\BagelQuest.json">
@@ -112,6 +117,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\mux.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sfx.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

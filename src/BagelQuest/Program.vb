@@ -1,8 +1,6 @@
 Imports System.IO
 Imports System.Text.Json
-Imports System.Text.Json.Serialization
 Imports AOS.Presentation
-Imports AOS.UI
 Imports BQ.Presentation
 Imports Microsoft.Xna.Framework
 Imports Microsoft.Xna.Framework.Input
@@ -12,49 +10,24 @@ Module Program
             GameTitle,
             New GameController(
                 New BagelQuestSettings(),
-                New BagelQuestContext(fontFileNames, (ViewWidth, ViewHeight))),
+                New BagelQuestContext(LoadFonts(), (ViewWidth, ViewHeight))),
             (ViewWidth, ViewHeight),
             hueTable,
             commandTable,
-            sfxFileNames,
+            LoadSfx(),
             LoadMux)
             host.Run()
         End Using
     End Sub
+    Private Function LoadSfx() As IReadOnlyDictionary(Of String, String)
+        Return JsonSerializer.Deserialize(Of Dictionary(Of String, String))(File.ReadAllText("Content/sfx.json"))
+    End Function
+    Private Function LoadFonts() As IReadOnlyDictionary(Of String, String)
+        Return JsonSerializer.Deserialize(Of Dictionary(Of String, String))(File.ReadAllText("Content/font.json"))
+    End Function
     Private Function LoadMux() As IReadOnlyDictionary(Of String, String)
         Return JsonSerializer.Deserialize(Of Dictionary(Of String, String))(File.ReadAllText("Content/mux.json"))
     End Function
-    Private ReadOnly muxFileNames As IReadOnlyDictionary(Of String, String) =
-        New Dictionary(Of String, String) From
-        {
-            {BoilerplateMux.MainTheme, "Content/Audio/Mux/MainTheme.ogg"},
-            {Mux.CombatTheme, "Content/Audio/Mux/CombatTheme.ogg"},
-            {Mux.VictoryTheme, "Content/Audio/Mux/CombatTheme.ogg"},
-            {Mux.DeathTheme, "Content/Audio/Mux/MainTheme.ogg"}
-        }
-    Private ReadOnly fontFileNames As IReadOnlyDictionary(Of String, String) =
-        New Dictionary(Of String, String) From
-        {
-            {UIFont, "Content/Fonts/CyFont8x8.json"},
-            {BagelQuestFont, "Content/Fonts/BagelQuest.json"}
-        }
-    Private ReadOnly sfxFileNames As IReadOnlyDictionary(Of String, String) =
-        New Dictionary(Of String, String) From
-        {
-            {Sfx.PlayerHit, "Content/Audio/Sfx/PlayerHit.wav"},
-            {Sfx.PlayerDeath, "Content/Audio/Sfx/PlayerDeath.wav"},
-            {Sfx.EnemyHit, "Content/Audio/Sfx/EnemyHit.wav"},
-            {Sfx.EnemyDeath, "Content/Audio/Sfx/EnemyDeath.wav"},
-            {Sfx.EnemyMiss, "Content/Audio/Sfx/EnemyMiss.wav"},
-            {Sfx.PlayerMiss, "Content/Audio/Sfx/PlayerMiss.wav"},
-            {Sfx.Shucks, "Content/Audio/Sfx/Shucks.wav"},
-            {Sfx.Craft, "Content/Audio/Sfx/Craft.wav"},
-            {Sfx.Eat, "Content/Audio/Sfx/Eat.wav"},
-            {Sfx.Take, "Content/Audio/Sfx/Take.wav"},
-            {Sfx.Tasty, "Content/Audio/Sfx/Tasty.wav"},
-            {Sfx.WooHoo, "Content/Audio/Sfx/WooHoo.wav"},
-            {Sfx.Yoink, "Content/Audio/Sfx/Yoink.wav"}
-        }
     Private ReadOnly hueTable As IReadOnlyDictionary(Of Integer, Color) =
         New Dictionary(Of Integer, Color) From
 {

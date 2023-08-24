@@ -110,12 +110,6 @@
         End Get
     End Property
 
-    Public ReadOnly Property Energy As (current As Integer, maximum As Integer) Implements IAvatarModel.Energy
-        Get
-            Return (avatar.Energy, avatar.MaximumEnergy)
-        End Get
-    End Property
-
     Public ReadOnly Property CanSleep As Boolean Implements IAvatarModel.CanSleep
         Get
             Return avatar.Energy < avatar.MaximumEnergy

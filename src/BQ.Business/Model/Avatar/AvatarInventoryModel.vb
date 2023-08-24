@@ -31,6 +31,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property HasItems As Boolean Implements IAvatarInventoryModel.HasItems
+        Get
+            Return avatar.HasItems
+        End Get
+    End Property
+
     Public Function FormatItemCount(name As String) As String Implements IAvatarInventoryModel.FormatItemCount
         Return $"{ItemName}(x{ItemCount(ItemName)})"
     End Function

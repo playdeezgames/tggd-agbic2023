@@ -28,6 +28,18 @@
         Return $"$ {character.Jools}"
     End Function
     <Extension>
+    Friend Function APDisplay(character As ICharacter) As String
+        Return $"AP {character.AdvancementPoints}"
+    End Function
+    <Extension>
+    Friend Function ATKDisplay(character As ICharacter) As String
+        Return $"ATK: Max {character.MaximumAttack} avg {character.AttackDice / 6:f2}"
+    End Function
+    <Extension>
+    Friend Function DEFDisplay(character As ICharacter) As String
+        Return $"DEF: Max {character.MaximumDefend} avg {character.DefendDice / 6:f2}"
+    End Function
+    <Extension>
     Friend Function CanBuildFurnace(character As ICharacter) As Boolean
         Return RecipeTypes.CanCraft(RecipeTypes.Furnace, character)
     End Function

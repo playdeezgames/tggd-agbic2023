@@ -18,13 +18,11 @@
         Dim y = Context.ViewSize.Height \ 2 - font.Height * 8 \ 2
         y = WriteLine(displayBuffer, font, y, Model.Avatar.HealthDisplay, Pink)
         y = WriteLine(displayBuffer, font, y, Model.Avatar.EnergyDisplay, Blue)
-        Dim attack = Model.Avatar.Attack
-        y = WriteLine(displayBuffer, font, y, $"ATK: Max {attack.maximum} avg {attack.average:f2}", Red)
-        Dim defend = Model.Avatar.Defend
-        y = WriteLine(displayBuffer, font, y, $"DEF: Max {defend.maximum} avg {defend.average:f2}", Green)
+        y = WriteLine(displayBuffer, font, y, Model.Avatar.ATKDisplay, Red)
+        y = WriteLine(displayBuffer, font, y, Model.Avatar.DEFDisplay, Green)
         y = WriteLine(displayBuffer, font, y, Model.Avatar.XPDisplay, Cyan)
         y = WriteLine(displayBuffer, font, y, Model.Avatar.XPLevelDisplay, Purple)
-        y = WriteLine(displayBuffer, font, y, $"AP: {Model.Avatar.AdvancementPoints}", Yellow)
+        y = WriteLine(displayBuffer, font, y, Model.Avatar.APDisplay, Yellow)
         WriteLine(displayBuffer, font, y, Model.Avatar.JoolsDisplay, Hue.LightGreen)
         Context.ShowHeader(displayBuffer, font, "Statistics", Black, Orange)
         Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(Nothing, "Go Back"), Black, LightGray)

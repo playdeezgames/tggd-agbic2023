@@ -26,27 +26,9 @@
         End Get
     End Property
 
-    Public ReadOnly Property HasItems As Boolean Implements IAvatarModel.HasItems
-        Get
-            Return avatar.HasItems
-        End Get
-    End Property
-
-    Public ReadOnly Property CanForage As Boolean Implements IAvatarModel.CanForage
-        Get
-            Return avatar.Flag(FlagTypes.KnowsForaging) AndAlso avatar.Cell.CanForage
-        End Get
-    End Property
-
     Public ReadOnly Property CanMakeTwine As Boolean Implements IAvatarModel.CanMakeTwine
         Get
             Return avatar.Flag(FlagTypes.KnowsTwineMaking)
-        End Get
-    End Property
-
-    Public ReadOnly Property AdvancementPoints As Integer Implements IAvatarModel.AdvancementPoints
-        Get
-            Return avatar.AdvancementPoints
         End Get
     End Property
 
@@ -59,18 +41,6 @@
     Public ReadOnly Property Equipment As IEnumerable(Of (String, String)) Implements IAvatarModel.Equipment
         Get
             Return avatar.Equipment.Select(Function(x) ($"{x.Key.ToEquipSlotTypeDescriptor.Name}: {x.Value.FullName}", x.Key))
-        End Get
-    End Property
-
-    Public ReadOnly Property Attack As (average As Double, maximum As Integer) Implements IAvatarModel.Attack
-        Get
-            Return (avatar.AttackDice / 6, avatar.MaximumAttack)
-        End Get
-    End Property
-
-    Public ReadOnly Property Defend As (average As Double, maximum As Integer) Implements IAvatarModel.Defend
-        Get
-            Return (avatar.DefendDice / 6, avatar.MaximumDefend)
         End Get
     End Property
 
@@ -173,6 +143,24 @@
     Public ReadOnly Property Inventory As IAvatarInventoryModel Implements IAvatarModel.Inventory
         Get
             Return New AvatarInventoryModel(avatar)
+        End Get
+    End Property
+
+    Public ReadOnly Property APDisplay As String Implements IAvatarModel.APDisplay
+        Get
+            Return avatar.APDisplay
+        End Get
+    End Property
+
+    Public ReadOnly Property ATKDisplay As String Implements IAvatarModel.ATKDisplay
+        Get
+            Return avatar.ATKDisplay
+        End Get
+    End Property
+
+    Public ReadOnly Property DEFDisplay As String Implements IAvatarModel.DEFDisplay
+        Get
+            Return avatar.DEFDisplay
         End Get
     End Property
 

@@ -23,10 +23,10 @@
         New List(Of (String, Func(Of IWorldModel, Boolean), String)) From
         {
             (GroundText, Function(m) m.Map.HasItems((0, 0)), GameState.Ground),
-            (InventoryText, Function(m) m.Avatar.HasItems, GameState.Inventory),
+            (InventoryText, Function(m) m.Avatar.Inventory.HasItems, GameState.Inventory),
             (EquipmentText, Function(m) m.Avatar.HasEquipment, GameState.Equipment),
             (SleepText, Function(m) m.Avatar.CanSleep, GameState.Sleep),
-            (ForageText, Function(m) m.Avatar.CanForage, GameState.Forage),
+            (ForageText, Function(m) m.Foraging.CanForage, GameState.Forage),
             (CraftText, Function(m) m.Avatar.CanCraft, GameState.Craft),
             (PutOutFireText, Function(m) m.Avatar.CanPutOutFire, GameState.PutOutFire),
             (StatisticsText, Function(m) True, GameState.Statistics)

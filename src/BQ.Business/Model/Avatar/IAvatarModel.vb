@@ -18,10 +18,7 @@
     ReadOnly Property Name As String
     ReadOnly Property HealthDisplay As String
     ReadOnly Property EnergyDisplay As String
-    ReadOnly Property XP As Integer
     ReadOnly Property XPDisplay As String
-    ReadOnly Property XPGoal As Integer
-    ReadOnly Property XPLevel As Integer
     ReadOnly Property XPLevelDisplay As String
     ReadOnly Property AdvancementPoints As Integer
     ReadOnly Property Attack As (average As Double, maximum As Integer)

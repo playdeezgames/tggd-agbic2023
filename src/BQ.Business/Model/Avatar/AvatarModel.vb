@@ -26,24 +26,6 @@
         End Get
     End Property
 
-    Public ReadOnly Property XP As Integer Implements IAvatarModel.XP
-        Get
-            Return avatar.XP
-        End Get
-    End Property
-
-    Public ReadOnly Property XPGoal As Integer Implements IAvatarModel.XPGoal
-        Get
-            Return avatar.XPGoal
-        End Get
-    End Property
-
-    Public ReadOnly Property XPLevel As Integer Implements IAvatarModel.XPLevel
-        Get
-            Return avatar.XPLevel
-        End Get
-    End Property
-
     Public ReadOnly Property HasItems As Boolean Implements IAvatarModel.HasItems
         Get
             Return avatar.HasItems

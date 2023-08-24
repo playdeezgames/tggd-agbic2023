@@ -21,6 +21,7 @@ Module Program
         End Using
     End Sub
     Private Function LoadCommands() As IReadOnlyDictionary(Of String, Func(Of KeyboardState, GamePadState, Boolean))
+        Dim keysTable = JsonSerializer.Deserialize(Of Dictionary(Of Keys, String))(File.ReadAllText(KeysFilename))
         Dim keysForCommands = keysTable.
             GroupBy(Function(x) x.Value).
             ToDictionary(
@@ -28,7 +29,7 @@ Module Program
                 Function(x) x.Select(Function(y) y.Key).ToList())
         Dim result = New Dictionary(Of String, Func(Of KeyboardState, GamePadState, Boolean))
         For Each cmd In gamePadCommandTable.Keys
-            result.Add(cmd, MakeCommandHandler(keysForCommands(cmd), gamePadCommandTable(cmd)))
+            result.Add(cmd, MakeCommandHandler(If(keysForCommands.ContainsKey(cmd), keysForCommands(cmd), Array.Empty(Of Keys)().ToList), gamePadCommandTable(cmd)))
         Next
         Return result
     End Function
@@ -39,6 +40,7 @@ Module Program
                End Function
     End Function
 
+    Private Const KeysFilename As String = "Content/keys.json"
     Private Const HueFilename As String = "Content/hue.json"
     Private Const SfxFilename As String = "Content/sfx.json"
     Private Const FontFilename As String = "Content/font.json"
@@ -65,26 +67,26 @@ Module Program
         {AOS.UI.Command.Left, Function(gamePad) gamePad.DPad.Left = ButtonState.Pressed},
         {AOS.UI.Command.Right, Function(gamePad) gamePad.DPad.Right = ButtonState.Pressed}
     }
-    Private ReadOnly keysTable As IReadOnlyDictionary(Of Keys, String) =
-        New Dictionary(Of Keys, String) From
-        {
-            {Keys.Space, AOS.UI.Command.A},
-            {Keys.Enter, AOS.UI.Command.A},
-            {Keys.Escape, AOS.UI.Command.B},
-            {Keys.NumPad0, AOS.UI.Command.B},
-            {Keys.Up, AOS.UI.Command.Up},
-            {Keys.W, AOS.UI.Command.Up},
-            {Keys.Z, AOS.UI.Command.Up},
-            {Keys.NumPad8, AOS.UI.Command.Up},
-            {Keys.Down, AOS.UI.Command.Down},
-            {Keys.S, AOS.UI.Command.Down},
-            {Keys.NumPad2, AOS.UI.Command.Down},
-            {Keys.Left, AOS.UI.Command.Left},
-            {Keys.A, AOS.UI.Command.Left},
-            {Keys.Q, AOS.UI.Command.Left},
-            {Keys.NumPad4, AOS.UI.Command.Left},
-            {Keys.Right, AOS.UI.Command.Right},
-            {Keys.D, AOS.UI.Command.Right},
-            {Keys.NumPad6, AOS.UI.Command.Right}
-        }
+    'Private ReadOnly keysTable As IReadOnlyDictionary(Of Keys, String) =
+    '    New Dictionary(Of Keys, String) From
+    '    {
+    '        {Keys.Space, AOS.UI.Command.A},
+    '        {Keys.Enter, AOS.UI.Command.A},
+    '        {Keys.Escape, AOS.UI.Command.B},
+    '        {Keys.NumPad0, AOS.UI.Command.B},
+    '        {Keys.Up, AOS.UI.Command.Up},
+    '        {Keys.W, AOS.UI.Command.Up},
+    '        {Keys.Z, AOS.UI.Command.Up},
+    '        {Keys.NumPad8, AOS.UI.Command.Up},
+    '        {Keys.Down, AOS.UI.Command.Down},
+    '        {Keys.S, AOS.UI.Command.Down},
+    '        {Keys.NumPad2, AOS.UI.Command.Down},
+    '        {Keys.Left, AOS.UI.Command.Left},
+    '        {Keys.A, AOS.UI.Command.Left},
+    '        {Keys.Q, AOS.UI.Command.Left},
+    '        {Keys.NumPad4, AOS.UI.Command.Left},
+    '        {Keys.Right, AOS.UI.Command.Right},
+    '        {Keys.D, AOS.UI.Command.Right},
+    '        {Keys.NumPad6, AOS.UI.Command.Right}
+    '    }
 End Module

@@ -1,15 +1,13 @@
 ﻿Public Interface IAvatarModel
     ReadOnly Property Inventory As IAvatarInventoryModel
     ReadOnly Property Equipment As IAvatarEquipmentModel
+    ReadOnly Property Statistics As IAvatarStatisticsModel
 
 
     Sub Move(delta As (x As Integer, y As Integer))
 
     Sub DoChoiceTrigger(index As Integer)
 
-    ReadOnly Property HasEquipment As Boolean
-    ReadOnly Property EquipmentDisplay As IEnumerable(Of (String, String))
-    Sub Unequip(equipSlotType As String)
 
 
     ReadOnly Property HealthDisplay As String

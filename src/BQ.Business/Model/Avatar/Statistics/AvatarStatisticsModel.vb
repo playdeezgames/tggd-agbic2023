@@ -1,5 +1,5 @@
-﻿Friend Class AvatarEquipmentModel
-    Implements IAvatarEquipmentModel
+﻿Friend Class AvatarStatisticsModel
+    Implements IAvatarStatisticsModel
 
     Private avatar As ICharacter
 

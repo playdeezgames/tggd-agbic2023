@@ -15,11 +15,11 @@
     End Sub
 
     Protected Overrides Sub OnActivateMenuItem(value As (String, String))
-        Model.Avatar.Unequip(value.Item2)
+        Model.Avatar.Equipment.Unequip(value.Item2)
         SetState(Neutral)
     End Sub
 
     Protected Overrides Function InitializeMenuItems() As List(Of (String, String))
-        Return Model.Avatar.EquipmentDisplay.ToList
+        Return Model.Avatar.Equipment.Display.ToList
     End Function
 End Class

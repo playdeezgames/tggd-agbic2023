@@ -67,7 +67,7 @@ Friend Class InventoryState
     Public Overrides Sub OnStart()
         MyBase.OnStart()
         gridSize = Model.Avatar.Inventory.GridSize
-        items = Model.Avatar.Inventory.Items.ToList
+        items = Model.Avatar.Inventory.Display.ToList
         currentIndex = items.Count \ 2
     End Sub
 End Class

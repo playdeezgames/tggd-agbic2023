@@ -32,18 +32,6 @@
         End Get
     End Property
 
-    Public ReadOnly Property HasEquipment As Boolean Implements IAvatarModel.HasEquipment
-        Get
-            Return avatar.HasEquipment
-        End Get
-    End Property
-
-    Public ReadOnly Property EquipmentDisplay As IEnumerable(Of (String, String)) Implements IAvatarModel.EquipmentDisplay
-        Get
-            Return avatar.Equipment.Select(Function(x) ($"{x.Key.ToEquipSlotTypeDescriptor.Name}: {x.Value.FullName}", x.Key))
-        End Get
-    End Property
-
     Public ReadOnly Property CanSleep As Boolean Implements IAvatarModel.CanSleep
         Get
             Return avatar.Energy < avatar.MaximumEnergy
@@ -170,6 +158,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property Statistics As IAvatarStatisticsModel Implements IAvatarModel.Statistics
+        Get
+            Return New AvatarStatisticsModel(avatar)
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub
@@ -186,14 +180,6 @@
 
     Public Sub MakeTwine() Implements IAvatarModel.MakeTwine
         avatar.DoMakeTwine()
-    End Sub
-
-    Public Sub Unequip(equipSlotType As String) Implements IAvatarModel.Unequip
-        avatar.Unequip(equipSlotType)
-        avatar.
-            World.
-            CreateMessage().
-            AddLine(LightGray, $"{avatar.Name} unequips {equipSlotType.ToEquipSlotTypeDescriptor.Name}")
     End Sub
 
     Public Sub Sleep() Implements IAvatarModel.Sleep

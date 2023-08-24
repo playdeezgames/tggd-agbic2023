@@ -30,4 +30,8 @@
             Return avatar.Items.Count(Function(x) x.Name = ItemName)
         End Get
     End Property
+
+    Public Function FormatItemCount(name As String) As String Implements IAvatarInventoryModel.FormatItemCount
+        Return $"{ItemName}(x{ItemCount(ItemName)})"
+    End Function
 End Class

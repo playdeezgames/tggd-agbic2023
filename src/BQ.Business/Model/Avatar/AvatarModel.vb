@@ -233,8 +233,4 @@
     Public Sub CookBagel() Implements IAvatarModel.CookBagel
         avatar.DoCookBagel()
     End Sub
-
-    Public Function LegacyFormatItemCount(itemName As String) As String Implements IAvatarModel.LegacyFormatItemCount
-        Return $"{itemName}(x{Inventory.ItemCount(itemName)})"
-    End Function
 End Class

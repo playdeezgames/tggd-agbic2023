@@ -36,7 +36,7 @@
     Protected Overrides Function InitializeMenuItems() As List(Of (String, String))
         Dim result As New List(Of (String, String))
         Dim itemCount = Model.Avatar.Inventory.ItemCount(Model.Item.Name)
-        HeaderText = Model.Avatar.LegacyFormatItemCount(Model.Item.Name)
+        HeaderText = Model.Avatar.Inventory.FormatItemCount(Model.Item.Name)
 
         If itemCount > 1 Then
             result.Add((DropAllText, DropAllText))

@@ -16,7 +16,6 @@
     ReadOnly Property IsDead As Boolean
     ReadOnly Property Character As (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)
     ReadOnly Property Name As String
-    ReadOnly Property Health As (current As Integer, maximum As Integer)
     ReadOnly Property HealthDisplay As String
     ReadOnly Property Energy As (current As Integer, maximum As Integer)
     ReadOnly Property EnergyDisplay As String

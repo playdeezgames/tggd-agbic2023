@@ -9,13 +9,13 @@
 
     Public ReadOnly Property CanMakeTwine As Boolean Implements IAvatarCraftingModel.CanMakeTwine
         Get
-            Return avatar.Flag(FlagTypes.KnowsTwineMaking)
+            Return avatar.GetFlag(FlagTypes.KnowsTwineMaking)
         End Get
     End Property
 
     Public ReadOnly Property CanBuildFire As Boolean Implements IAvatarCraftingModel.CanBuildFire
         Get
-            Return avatar.Flag(FlagTypes.KnowsFireMaking) AndAlso avatar.Cell.CanBuildFire
+            Return avatar.GetFlag(FlagTypes.KnowsFireMaking) AndAlso avatar.Cell.CanBuildFire
         End Get
     End Property
 
@@ -27,19 +27,19 @@
 
     Public ReadOnly Property CanMakeTorch As Boolean Implements IAvatarCraftingModel.CanMakeTorch
         Get
-            Return avatar.Flag(FlagTypes.KnowsTorchMaking) AndAlso avatar.Cell.CanMakeTorch
+            Return avatar.GetFlag(FlagTypes.KnowsTorchMaking) AndAlso avatar.Cell.CanMakeTorch
         End Get
     End Property
 
     Public ReadOnly Property CanMakeHatchet As Boolean Implements IAvatarCraftingModel.CanMakeHatchet
         Get
-            Return avatar.Flag(FlagTypes.KnowsHatchetMaking)
+            Return avatar.GetFlag(FlagTypes.KnowsHatchetMaking)
         End Get
     End Property
 
     Public ReadOnly Property CanKnap As Boolean Implements IAvatarCraftingModel.CanKnap
         Get
-            Return avatar.Flag(FlagTypes.KnowsKnapping)
+            Return avatar.GetFlag(FlagTypes.KnowsKnapping)
         End Get
     End Property
 

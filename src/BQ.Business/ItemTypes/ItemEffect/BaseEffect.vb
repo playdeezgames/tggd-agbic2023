@@ -14,12 +14,6 @@
         End Get
     End Property
 
-    Public ReadOnly Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
-        Get
-            Return data.Flags.Contains(flagType)
-        End Get
-    End Property
-
     Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
         Get
             Return data.Metadatas(identifier)

@@ -22,19 +22,6 @@
         End Get
     End Property
 
-    Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
-        Get
-            Return ItemData.Flags.Contains(flagType)
-        End Get
-        Set(value As Boolean)
-            If value Then
-                ItemData.Flags.Add(flagType)
-            Else
-                ItemData.Flags.Remove(flagType)
-            End If
-        End Set
-    End Property
-
     Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
         Get
             Return ItemData.Metadatas(identifier)

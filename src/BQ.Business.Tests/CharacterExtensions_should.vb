@@ -32,7 +32,7 @@ Public Class CharacterExtensions_should
 
         character.VerifyGet(Function(x) x.IsAvatar)
         character.VerifyGet(Function(x) x.CharacterType)
-        map.VerifyGet(Function(x) x.Flag(FlagTypes.CampingAllowed))
+        map.VerifyGet(Function(x) x.GetFlag(FlagTypes.CampingAllowed))
         message.Verify(Function(x) x.AddLine(It.IsAny(Of Integer)(), It.IsAny(Of String)()))
 
         message.VerifyNoOtherCalls()
@@ -57,7 +57,7 @@ Public Class CharacterExtensions_should
         character.SetupGet(Function(x) x.Map).Returns(map.Object)
         character.SetupGet(Function(x) x.World).Returns(world.Object)
         world.Setup(Function(x) x.CreateMessage()).Returns(message.Object)
-        map.SetupGet(Function(x) x.Flag(FlagTypes.CampingAllowed)).Returns(True)
+        map.SetupGet(Function(x) x.GetFlag(FlagTypes.CampingAllowed)).Returns(True)
         message.Setup(Function(x) x.AddLine(It.IsAny(Of Integer)(), It.IsAny(Of String)())).Returns(message.Object)
 
         CharacterExtensions.Sleep(character.Object)
@@ -70,7 +70,7 @@ Public Class CharacterExtensions_should
         character.Verify(Function(x) x.TryGetStatistic(StatisticTypes.Peril))
         character.Verify(Sub(x) x.SetStatistic(StatisticTypes.Energy, 5))
         character.Verify(Sub(x) x.SetStatistic(StatisticTypes.Peril, 5))
-        map.VerifyGet(Function(x) x.Flag(FlagTypes.CampingAllowed))
+        map.VerifyGet(Function(x) x.GetFlag(FlagTypes.CampingAllowed))
         message.Verify(Function(x) x.AddLine(It.IsAny(Of Integer)(), It.IsAny(Of String)()))
         map.Verify(Sub(x) x.GetCell(0, 0))
         cell.VerifyGet(Function(x) x.Column)
@@ -99,14 +99,14 @@ Public Class CharacterExtensions_should
         character.SetupGet(Function(x) x.Map).Returns(map.Object)
         character.SetupGet(Function(x) x.World).Returns(world.Object)
         world.Setup(Function(x) x.CreateMessage()).Returns(message.Object)
-        map.SetupGet(Function(x) x.Flag(FlagTypes.CampingAllowed)).Returns(True)
+        map.SetupGet(Function(x) x.GetFlag(FlagTypes.CampingAllowed)).Returns(True)
 
         CharacterExtensions.Sleep(character.Object)
 
         cell.VerifyGet(Function(x) x.TerrainType)
         character.VerifyGet(Function(x) x.IsAvatar)
         character.VerifyGet(Function(x) x.CharacterType)
-        map.VerifyGet(Function(x) x.Flag(FlagTypes.CampingAllowed))
+        map.VerifyGet(Function(x) x.GetFlag(FlagTypes.CampingAllowed))
         message.Verify(Function(x) x.AddLine(It.IsAny(Of Integer)(), It.IsAny(Of String)()))
 
         message.VerifyNoOtherCalls()

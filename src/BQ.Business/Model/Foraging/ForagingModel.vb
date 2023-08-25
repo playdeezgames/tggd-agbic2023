@@ -22,7 +22,7 @@
 
     Public ReadOnly Property CanForage As Boolean Implements IForagingModel.CanForage
         Get
-            Return world.Avatar.Flag(FlagTypes.KnowsForaging) AndAlso Remaining > 0 AndAlso world.Avatar.Energy > 0
+            Return world.Avatar.GetFlag(FlagTypes.KnowsForaging) AndAlso Remaining > 0 AndAlso world.Avatar.Energy > 0
         End Get
     End Property
 

@@ -1,7 +1,7 @@
 ﻿Friend Module InnTriggerHandlers
 
     Friend Sub DoSleepAtInn(character As ICharacter, trigger As IEffect)
-        If Not character.Flag(FlagTypes.PaidInnkeeper) Then
+        If Not character.GetFlag(FlagTypes.PaidInnkeeper) Then
             character.World.CreateMessage.
                         AddLine(LightGray, $"{character.Name} needs to pay Gorachan first!")
             Return
@@ -14,7 +14,7 @@
     End Sub
 
     Friend Sub DoPayInnkeeper(character As ICharacter, trigger As IEffect)
-        If character.Flag(FlagTypes.PaidInnkeeper) Then
+        If character.GetFlag(FlagTypes.PaidInnkeeper) Then
             character.World.CreateMessage.
                         AddLine(LightGray, "You've already paid!")
             Return
@@ -59,7 +59,7 @@
                         AddChoice(CoolStoryBro, EffectTypes.ExitDialog).
                         AddChoice("Yer a pervert!", EffectTypes.PervertInnkeeper).
                         AddChoice("I'll take a bed.", EffectTypes.PayInnkeeper)
-        If character.Flag(FlagTypes.RatQuest) Then
+        If character.GetFlag(FlagTypes.RatQuest) Then
             If character.HasItemTypeInInventory(ItemTypes.RatTail) Then
                 msg.AddChoice("Here's some rat tails!", EffectTypes.CompleteRatQuest)
             End If
@@ -83,7 +83,7 @@
     End Sub
 
     Friend Sub DoEnterCellar(character As ICharacter, trigger As IEffect)
-        If Not character.Flag(FlagTypes.RatQuest) Then
+        If Not character.GetFlag(FlagTypes.RatQuest) Then
             character.World.CreateMessage().AddLine(LightGray, $"{character.Name} has no business in the cellar.")
             Return
         End If

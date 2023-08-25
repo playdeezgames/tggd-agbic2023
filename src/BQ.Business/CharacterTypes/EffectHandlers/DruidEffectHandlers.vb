@@ -30,7 +30,7 @@
     End Sub
 
     Private Function AlreadyKnows(character As ICharacter, effect As IEffect, msg As IMessage, text As String) As Boolean
-        If character.Flag(effect.Metadata(Metadatas.FlagType)) Then
+        If character.GetFlag(effect.Metadata(Metadatas.FlagType)) Then
             msg.AddLine(LightGray, $"{character.Name} already know how to {text}!")
             Return True
         End If
@@ -65,7 +65,7 @@
             Return
         End If
         If Not LearnSkill(character, effect, msg, taskName) Then Return
-        If effect.Flag(FlagTypes.LearnByDoing) Then
+        If effect.GetFlag(FlagTypes.LearnByDoing) Then
             RecipeTypes.Craft(recipeType, character)
         End If
         msg.
@@ -78,12 +78,12 @@
     End Sub
 
     Friend Sub DoDruidTeachMenu(character As ICharacter, effect As IEffect)
-        Dim canLearnForaging = Not character.Flag(FlagTypes.KnowsForaging)
-        Dim canLearnTwineMaking = Not character.Flag(FlagTypes.KnowsTwineMaking)
-        Dim canLearnKnapping = Not character.Flag(FlagTypes.KnowsKnapping)
-        Dim canLearnFireMaking = Not character.Flag(FlagTypes.KnowsFireMaking)
-        Dim canLearnTorchMaking = Not character.Flag(FlagTypes.KnowsTorchMaking)
-        Dim canLearnHatchetMaking = Not character.Flag(FlagTypes.KnowsHatchetMaking)
+        Dim canLearnForaging = Not character.GetFlag(FlagTypes.KnowsForaging)
+        Dim canLearnTwineMaking = Not character.GetFlag(FlagTypes.KnowsTwineMaking)
+        Dim canLearnKnapping = Not character.GetFlag(FlagTypes.KnowsKnapping)
+        Dim canLearnFireMaking = Not character.GetFlag(FlagTypes.KnowsFireMaking)
+        Dim canLearnTorchMaking = Not character.GetFlag(FlagTypes.KnowsTorchMaking)
+        Dim canLearnHatchetMaking = Not character.GetFlag(FlagTypes.KnowsHatchetMaking)
         Dim canLearn = canLearnForaging OrElse canLearnTwineMaking OrElse canLearnKnapping OrElse canLearnFireMaking OrElse canLearnTorchMaking OrElse canLearnHatchetMaking
         Dim msg = character.World.CreateMessage()
         If Not canLearn Then

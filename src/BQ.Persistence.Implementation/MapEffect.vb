@@ -36,19 +36,6 @@ Friend Class MapEffect
         End Set
     End Property
 
-    Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
-        Get
-            Return EffectData.Flags.Contains(flagType)
-        End Get
-        Set(value As Boolean)
-            If value Then
-                EffectData.Flags.Add(flagType)
-            Else
-                EffectData.Flags.Remove(flagType)
-            End If
-        End Set
-    End Property
-
     Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
         EffectData.Statistics.Remove(statisticType)
     End Sub

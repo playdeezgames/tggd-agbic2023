@@ -53,19 +53,6 @@ Friend Class Message
         End Get
     End Property
 
-    Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
-        Get
-            Return MessageData.Flags.Contains(flagType)
-        End Get
-        Set(value As Boolean)
-            If value Then
-                MessageData.Flags.Add(flagType)
-            Else
-                MessageData.Flags.Remove(flagType)
-            End If
-        End Set
-    End Property
-
     Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
         Get
             Return MessageData.Metadatas(identifier)

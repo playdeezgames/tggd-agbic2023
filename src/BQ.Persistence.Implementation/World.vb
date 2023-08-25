@@ -7,6 +7,7 @@ Public Class World
     Implements IWorld
     Public Sub New(worldData As WorldData)
         MyBase.New(worldData)
+        LuaState("world") = Me
     End Sub
 
     Public Property Avatar As ICharacter Implements IWorld.Avatar

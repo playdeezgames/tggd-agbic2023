@@ -31,7 +31,8 @@
                         {StatisticTypes.Energy, 10},
                         {StatisticTypes.MaximumEnergy, 10}
                     },
-                    effectHandlers:=LoxyEffectHandlers.All)
+                    effectHandlers:=LoxyEffectHandlers.All,
+                    effectScripts:=New Dictionary(Of String, String))
             },
             {
                 OliveGlop,

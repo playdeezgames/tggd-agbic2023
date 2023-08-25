@@ -1,7 +1,6 @@
 ﻿Imports SPLORR.Game
 
 Friend Module LoxyEffectHandlers
-
     Friend All As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect)) =
         New Dictionary(Of String, Action(Of ICharacter, IEffect)) From
                     {
@@ -107,10 +106,10 @@ Friend Module LoxyEffectHandlers
         trigger.Metadata(Metadatas.MessageType).ToMessageTypeDescriptor.CreateMessage(character.World)
     End Sub
 
-    Friend Sub DefaultTeleport(character As ICharacter, trigger As IEffect)
+    Friend Sub DefaultTeleport(character As ICharacter, effect As IEffect)
         Dim nextCell = character.World.
-            Map(trigger.Statistic(StatisticTypes.MapId)).
-            GetCell(trigger.Statistic(StatisticTypes.CellColumn), trigger.Statistic(StatisticTypes.CellRow))
+            Map(effect.Statistic(StatisticTypes.MapId)).
+            GetCell(effect.Statistic(StatisticTypes.CellColumn), effect.Statistic(StatisticTypes.CellRow))
         nextCell.AddCharacter(character)
         character.Cell.RemoveCharacter(character)
         character.Cell = nextCell

@@ -36,9 +36,9 @@ Friend Module CommonHolderTests
     Friend Sub DoFlagHolderTests(subject As IFlagHolder)
         Const flagType = "FlagType"
         subject.Flag(flagType).ShouldBeFalse
-        subject.Flag(flagType) = True
+        subject.SetFlag(flagType, True)
         subject.Flag(flagType).ShouldBeTrue
-        subject.Flag(flagType) = False
+        subject.SetFlag(flagType, False)
         subject.Flag(flagType).ShouldBeFalse
     End Sub
 End Module

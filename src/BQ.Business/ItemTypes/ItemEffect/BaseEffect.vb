@@ -14,17 +14,10 @@
         End Get
     End Property
 
-    Public Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
+    Public ReadOnly Property Flag(flagType As String) As Boolean Implements IFlagHolder.Flag
         Get
-            Return Data.Flags.Contains(flagType)
+            Return data.Flags.Contains(flagType)
         End Get
-        Set(value As Boolean)
-            If value Then
-                Data.Flags.Add(flagType)
-            Else
-                Data.Flags.Remove(flagType)
-            End If
-        End Set
     End Property
 
     Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
@@ -48,6 +41,14 @@
 
     Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
         data.Statistics(statisticType) = value
+    End Sub
+
+    Public Sub SetFlag(flagType As String, value As Boolean) Implements IFlagHolder.SetFlag
+        If value Then
+            data.Flags.Add(flagType)
+        Else
+            data.Flags.Remove(flagType)
+        End If
     End Sub
 
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic

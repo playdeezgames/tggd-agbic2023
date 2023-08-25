@@ -144,4 +144,12 @@ Friend Class Message
         SetStatistic(statisticType, Statistic(statisticType) + delta)
         Return Statistic(statisticType)
     End Function
+
+    Public Sub SetFlag(flagType As String, value As Boolean) Implements IFlagHolder.SetFlag
+        If value Then
+            MessageData.Flags.Add(flagType)
+        Else
+            MessageData.Flags.Remove(flagType)
+        End If
+    End Sub
 End Class

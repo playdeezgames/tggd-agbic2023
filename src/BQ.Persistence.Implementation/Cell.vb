@@ -169,6 +169,14 @@ Friend Class Cell
         CellData.Statistics(statisticType) = value
     End Sub
 
+    Public Sub SetFlag(flagType As String, value As Boolean) Implements IFlagHolder.SetFlag
+        If value Then
+            CellData.Flags.Add(flagType)
+        Else
+            CellData.Flags.Remove(flagType)
+        End If
+    End Sub
+
     Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
         Return CellData.Metadatas.ContainsKey(identifier)
     End Function

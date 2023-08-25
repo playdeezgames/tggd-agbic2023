@@ -118,6 +118,14 @@ Public Class World
         WorldData.Statistics(statisticType) = value
     End Sub
 
+    Public Sub SetFlag(flagType As String, value As Boolean) Implements IFlagHolder.SetFlag
+        If value Then
+            WorldData.Flags.Add(flagType)
+        Else
+            WorldData.Flags.Remove(flagType)
+        End If
+    End Sub
+
     Public Shared Function Load(filename As String) As IWorld
         Try
             Return New World(JsonSerializer.Deserialize(Of WorldData)(File.ReadAllText(filename)))

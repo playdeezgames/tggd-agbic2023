@@ -76,6 +76,14 @@
         MapData.Statistics(statisticType) = value
     End Sub
 
+    Public Sub SetFlag(flagType As String, value As Boolean) Implements IFlagHolder.SetFlag
+        If value Then
+            MapData.Flags.Add(flagType)
+        Else
+            MapData.Flags.Remove(flagType)
+        End If
+    End Sub
+
     Public Function GetCell(column As Integer, row As Integer) As ICell Implements IMap.GetCell
         If column < 0 OrElse row < 0 OrElse column >= Columns OrElse row >= Rows Then
             Return Nothing

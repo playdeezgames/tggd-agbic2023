@@ -13,7 +13,7 @@ Public Module FluentHolderExtensions
     End Function
     <Extension>
     Public Function ChangeFlagTo(Of THolder As IFlagHolder)(holder As THolder, flagType As String, value As Boolean) As THolder
-        holder.Flag(flagType) = value
+        holder.SetFlag(flagType, value)
         Return holder
     End Function
 End Module

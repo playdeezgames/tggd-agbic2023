@@ -61,6 +61,14 @@ Friend Class MapEffect
         EffectData.Statistics(statisticType) = value
     End Sub
 
+    Public Sub SetFlag(flagType As String, value As Boolean) Implements IFlagHolder.SetFlag
+        If value Then
+            EffectData.Flags.Add(flagType)
+        Else
+            EffectData.Flags.Remove(flagType)
+        End If
+    End Sub
+
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return EffectData.Statistics.ContainsKey(statisticType)
     End Function

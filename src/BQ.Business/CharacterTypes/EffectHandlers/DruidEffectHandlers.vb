@@ -47,7 +47,7 @@
             Return False
         End If
         character.AddAdvancementPoints(-learnCost)
-        character.Flag(effect.Metadata(Metadatas.FlagType)) = True
+        character.SetFlag(effect.Metadata(Metadatas.FlagType), True)
         Return True
     End Function
     Friend Sub DoLearnSkill(character As ICharacter, effect As IEffect)

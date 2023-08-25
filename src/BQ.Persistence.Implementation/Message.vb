@@ -152,4 +152,8 @@ Friend Class Message
             MessageData.Flags.Remove(flagType)
         End If
     End Sub
+
+    Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag
+        Return MessageData.Flags.Contains(flagType)
+    End Function
 End Class

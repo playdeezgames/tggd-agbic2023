@@ -210,4 +210,8 @@ Public Class World
         SetStatistic(statisticType, Statistic(statisticType) + delta)
         Return Statistic(statisticType)
     End Function
+
+    Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag
+        Return WorldData.Flags.Contains(flagType)
+    End Function
 End Class

@@ -190,6 +190,10 @@ Friend Class Cell
         Return Statistic(statisticType)
     End Function
 
+    Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag
+        Return CellData.Flags.Contains(flagType)
+    End Function
+
     Private Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return CellData.Statistics.ContainsKey(statisticType)
     End Function

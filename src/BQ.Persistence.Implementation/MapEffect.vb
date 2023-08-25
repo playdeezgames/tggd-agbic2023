@@ -85,4 +85,8 @@ Friend Class MapEffect
         SetStatistic(statisticType, Statistic(statisticType) + delta)
         Return Statistic(statisticType)
     End Function
+
+    Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag
+        Return EffectData.Flags.Contains(flagType)
+    End Function
 End Class

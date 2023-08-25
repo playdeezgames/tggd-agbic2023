@@ -42,10 +42,11 @@ Public Class WorldModel
     Friend Shared LuaState As Lua = MakeLuaState()
 
     Private Shared Function MakeLuaState() As Lua
-        Dim lua As New Lua
+        Dim lua As New Lua()
         lua.LoadCLRPackage()
         lua.DoString("import('SPLORR.Game','SPLORR.Game')
-import('BQ.Business','BQ.Business')")
+import('BQ.Business','BQ.Business')
+import = function() end")
         Return lua
     End Function
 

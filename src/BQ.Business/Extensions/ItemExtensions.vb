@@ -13,7 +13,7 @@ Public Module ItemExtensions
     <Extension>
     Friend Sub DoEffect(item As IItem, effectType As String, character As ICharacter)
         Dim effect = item.Descriptor.ToItemEffect(effectType, item)
-        character.Descriptor.EffectHandlers(effectType).Invoke(character, effect)
+        character.Descriptor.RunEffectScript(WorldModel.LuaState, effectType, character, effect)
     End Sub
     <Extension>
     Friend Function IsWeapon(item As IItem) As Boolean

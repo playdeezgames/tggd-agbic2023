@@ -151,7 +151,7 @@
     Friend Sub DoMapEffect(character As ICharacter, cell As ICell)
         If cell IsNot Nothing AndAlso cell.HasEffect Then
             Dim effect = cell.Effect
-            character.Descriptor.EffectHandlers(effect.EffectType).Invoke(character, effect)
+            character.Descriptor.RunEffectScript(WorldModel.LuaState, effect.EffectType, character, effect)
         End If
     End Sub
     <Extension>
@@ -161,7 +161,7 @@
     <Extension>
     Friend Sub DoItemEffect(character As ICharacter, effectType As String, item As IItem)
         Dim effect = item.ItemType.ToItemTypeDescriptor.ToItemEffect(effectType, item)
-        character.Descriptor.EffectHandlers(effect.EffectType).Invoke(character, effect)
+        character.Descriptor.RunEffectScript(WorldModel.LuaState, effect.EffectType, character, effect)
     End Sub
     <Extension>
     Friend Function Move(character As ICharacter, delta As (x As Integer, y As Integer)) As Boolean

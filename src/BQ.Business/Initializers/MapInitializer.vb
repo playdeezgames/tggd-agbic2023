@@ -70,7 +70,6 @@ Friend Module MapInitializer
                 .SetStatistic(entry.Key, entry.Value)
             Next
         End With
-        descriptor.Initializer.Invoke(character)
         descriptor.RunInitializeScript(WorldModel.LuaState, character)
         Return character
     End Function

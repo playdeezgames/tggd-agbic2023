@@ -116,6 +116,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property Crafting As IAvatarCraftingModel Implements IAvatarModel.Crafting
+        Get
+            Return New AvatarCraftingModel(avatar)
+        End Get
+    End Property
+
     Public Sub Move(delta As (x As Integer, y As Integer)) Implements IAvatarModel.Move
         avatar.Move(delta)
     End Sub

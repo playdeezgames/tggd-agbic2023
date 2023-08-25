@@ -36,15 +36,26 @@ Public Class WorldModel
             Return New ForagingModel(World)
         End Get
     End Property
+
+    Private Const WorldIdentifier As String = "world"
     Private _world As IWorld
-    Friend Shared LuaState As New Lua
+    Friend Shared LuaState As Lua = MakeLuaState()
+
+    Private Shared Function MakeLuaState() As Lua
+        Dim lua As New Lua
+        lua.LoadCLRPackage()
+        lua.DoString("import('SPLORR.Game','SPLORR.Game')
+import('BQ.Business','BQ.Business')")
+        Return lua
+    End Function
+
     Private Property World As IWorld
         Get
             Return _world
         End Get
         Set(value As IWorld)
             _world = value
-            LuaState("world") = value
+            LuaState(WorldIdentifier) = value
         End Set
     End Property
     Public Sub Embark() Implements IWorldModel.Embark

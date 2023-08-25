@@ -71,6 +71,7 @@ Friend Module MapInitializer
             Next
         End With
         descriptor.Initializer.Invoke(character)
+        descriptor.RunInitializeScript(WorldModel.LuaState, character)
         Return character
     End Function
 End Module

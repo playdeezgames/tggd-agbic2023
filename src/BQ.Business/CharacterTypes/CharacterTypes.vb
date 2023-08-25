@@ -1,7 +1,4 @@
-﻿Imports System.Runtime.CompilerServices
-Imports SPLORR.Game
-
-Friend Module CharacterTypes
+﻿Friend Module CharacterTypes
     Friend Const Loxy = "Loxy"
     Friend Const OliveGlop = "OliveGlop"
     Friend Const CherryGlop = "CherryGlop"
@@ -34,8 +31,7 @@ Friend Module CharacterTypes
                         {StatisticTypes.Energy, 10},
                         {StatisticTypes.MaximumEnergy, 10}
                     },
-                    effectHandlers:=LoxyEffectHandlers.All,
-                    initializer:=AddressOf LoxyInitializer)
+                    effectHandlers:=LoxyEffectHandlers.All)
             },
             {
                 OliveGlop,
@@ -56,7 +52,7 @@ Friend Module CharacterTypes
                         {StatisticTypes.Peril, 5},
                         {StatisticTypes.XP, 1}
                     },
-                    initializer:=AddressOf OliveGlopInitializer)
+                    initializeScript:="character:SetStatistic('Jools', RNG.RollDice('3d6/6'))")
             },
             {
                 Rat,
@@ -77,7 +73,7 @@ Friend Module CharacterTypes
                         {StatisticTypes.Peril, 3},
                         {StatisticTypes.XP, 0}
                     },
-                    initializer:=AddressOf RatInitializer)
+                    initializeScript:="character:AddItem(ItemInitializer.CreateItem(character.World, 'RatCorpse'))")
             },
             {
                 Scarecrow,
@@ -98,7 +94,9 @@ Friend Module CharacterTypes
                         {StatisticTypes.Peril, 7},
                         {StatisticTypes.XP, 3}
                     },
-                    initializer:=AddressOf ScarecrowInitializer)
+initializeScript:="if RNG.RollDice('1d5/5') > 0 then
+    character:AddItem(ItemInitializer.CreateItem(character.World, 'StrawHat'))
+end")
             },
             {
                 CherryGlop,
@@ -119,31 +117,9 @@ Friend Module CharacterTypes
                         {StatisticTypes.Peril, 10},
                         {StatisticTypes.XP, 2}
                     },
-                    initializer:=AddressOf CherryGlopInitializer)
+                    initializeScript:="character:SetStatistic('Jools', RNG.RollDice('6d6/6'))")
             }
         }
-
-    Private Sub LoxyInitializer(character As ICharacter)
-    End Sub
-
-    Private Sub ScarecrowInitializer(character As ICharacter)
-        If RNG.RollDice("1d5/5") > 0 Then
-            character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.StrawHat))
-        End If
-    End Sub
-
-    Private Sub RatInitializer(character As ICharacter)
-        character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.RatCorpse))
-    End Sub
-
-    Private Sub CherryGlopInitializer(character As ICharacter)
-        character.SetJools(RNG.RollDice("6d6/6"))
-    End Sub
-
-    Private Sub OliveGlopInitializer(character As ICharacter)
-        character.SetJools(RNG.RollDice("3d6/6"))
-    End Sub
-
 
     <Extension>
     Friend Function ToCharacterTypeDescriptor(characterType As String) As CharacterTypeDescriptor

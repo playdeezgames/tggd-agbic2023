@@ -69,10 +69,8 @@
     Public Sub MakeChoice(index As Integer) Implements IAvatarModel.MakeChoice
         Dim choice = avatar.World.CurrentMessage.Choice(index)
         avatar.
-            CharacterType.
-            ToCharacterTypeDescriptor.
-            EffectHandlers(choice.EffectType).
-            Invoke(avatar, choice)
+            Descriptor.
+            RunEffectScript(WorldModel.LuaState, choice.EffectType, avatar, choice)
         avatar.World.DismissMessage()
     End Sub
 

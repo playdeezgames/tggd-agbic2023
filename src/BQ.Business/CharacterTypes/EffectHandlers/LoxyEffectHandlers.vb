@@ -1,6 +1,7 @@
 ﻿Imports SPLORR.Game
 
 Friend Module LoxyEffectHandlers
+    '{EffectTypes.PotterFlavorText, AddressOf DoPotterFlavorText},
     Friend All As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect)) =
         New Dictionary(Of String, Action(Of ICharacter, IEffect)) From
                     {
@@ -46,7 +47,6 @@ Friend Module LoxyEffectHandlers
                         {EffectTypes.CookRatCorpse, AddressOf DoCookRatCorpse},
                         {EffectTypes.EatCookedRat, AddressOf DoEatCookedRat},
                         {EffectTypes.PotterTalk, AddressOf DoPotterTalk},
-                        {EffectTypes.PotterFlavorText, AddressOf DoPotterFlavorText},
                         {EffectTypes.PotterMakePot, AddressOf DoPotterMakePot},
                         {EffectTypes.BumpRiver, AddressOf DoBumpRiver},
                         {EffectTypes.FillClayPot, AddressOf DoFillClayPot},

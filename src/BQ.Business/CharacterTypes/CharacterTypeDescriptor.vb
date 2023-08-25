@@ -58,6 +58,7 @@
             luaState.DoString(EffectScripts(effectType))
             luaState(EffectIdentifier) = Nothing
             luaState(CharacterIdentifier) = Nothing
+            Return
         End If
         Throw New NotImplementedException($"No effect type '{effectType}' for '{character.Name}'(id: {character.Id})")
     End Sub

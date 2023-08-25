@@ -32,7 +32,10 @@
                         {StatisticTypes.MaximumEnergy, 10}
                     },
                     effectHandlers:=LoxyEffectHandlers.All,
-                    effectScripts:=New Dictionary(Of String, String))
+                    effectScripts:=New Dictionary(Of String, String) From
+                    {
+                        {EffectTypes.PotterFlavorText, "world:CreateMessage():AddLine(7, ""Um. Thanks!""):AddLine(7, ""...""):AddLine(7, ""What's a 'Movie'?""):AddChoice(""Nevermind!"", ""ExitDialog"")"}
+                    })
             },
             {
                 OliveGlop,

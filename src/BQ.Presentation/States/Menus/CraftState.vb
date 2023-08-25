@@ -22,13 +22,13 @@
         Of (text As String, condition As Func(Of IWorldModel, Boolean), state As String)) =
         New List(Of (String, Func(Of IWorldModel, Boolean), String)) From
         {
-            (MakeTwineText, Function(m) m.Avatar.CanMakeTwine, GameState.MakeTwine),
-            (BuildFireText, Function(m) m.Avatar.CanBuildFire, GameState.BuildFire),
-            (MakeTorchText, Function(m) m.Avatar.CanMakeTorch, GameState.MakeTorch),
-            (BuildFurnaceText, Function(m) m.Avatar.CanBuildFurnace, GameState.BuildFurnace),
-            (CookBagelText, Function(m) m.Avatar.CanCookBagel, GameState.CookBagel),
-            (KnapText, Function(m) m.Avatar.CanKnap, GameState.Knap),
-            (MakeHatchetText, Function(m) m.Avatar.CanMakeHatchet, GameState.MakeHatchet)
+            (MakeTwineText, Function(m) m.Avatar.Crafting.CanMakeTwine, GameState.MakeTwine),
+            (BuildFireText, Function(m) m.Avatar.Crafting.CanBuildFire, GameState.BuildFire),
+            (MakeTorchText, Function(m) m.Avatar.Crafting.CanMakeTorch, GameState.MakeTorch),
+            (BuildFurnaceText, Function(m) m.Avatar.Crafting.CanBuildFurnace, GameState.BuildFurnace),
+            (CookBagelText, Function(m) m.Avatar.Crafting.CanCookBagel, GameState.CookBagel),
+            (KnapText, Function(m) m.Avatar.Crafting.CanKnap, GameState.Knap),
+            (MakeHatchetText, Function(m) m.Avatar.Crafting.CanMakeHatchet, GameState.MakeHatchet)
         }
 
     Private ReadOnly actionTable As IReadOnlyDictionary(Of String, String) =

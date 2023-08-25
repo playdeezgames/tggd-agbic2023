@@ -27,8 +27,8 @@
             (EquipmentText, Function(m) m.Avatar.Equipment.Exists, GameState.Equipment),
             (SleepText, Function(m) m.Avatar.CanSleep, GameState.Sleep),
             (ForageText, Function(m) m.Foraging.CanForage, GameState.Forage),
-            (CraftText, Function(m) m.Avatar.CanCraft, GameState.Craft),
-            (PutOutFireText, Function(m) m.Avatar.CanPutOutFire, GameState.PutOutFire),
+            (CraftText, Function(m) m.Avatar.Crafting.CanCraft, GameState.Craft),
+            (PutOutFireText, Function(m) m.Avatar.Crafting.CanPutOutFire, GameState.PutOutFire),
             (StatisticsText, Function(m) True, GameState.Statistics)
         }
     Private ReadOnly actionTable As IReadOnlyDictionary(Of String, String) =

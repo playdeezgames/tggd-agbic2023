@@ -30,11 +30,11 @@
 
     Private Sub RenderStatistics(displayBuffer As IPixelSink)
         Dim font = Context.Font(UIFont)
-        Dim position = RenderStatistic(displayBuffer, font, (0, 0), Model.Avatar.HealthDisplay, Pink)
-        position = RenderStatistic(displayBuffer, font, position, Model.Avatar.EnergyDisplay, Blue)
-        position = RenderStatistic(displayBuffer, font, position, Model.Avatar.XPLevelDisplay, Purple)
-        position = RenderStatistic(displayBuffer, font, position, Model.Avatar.XPDisplay, Cyan)
-        position = RenderStatistic(displayBuffer, font, position, $" {Model.Avatar.JoolsDisplay}", LightGreen)
+        Dim position = RenderStatistic(displayBuffer, font, (0, 0), Model.Avatar.Statistics.Health, Pink)
+        position = RenderStatistic(displayBuffer, font, position, Model.Avatar.Statistics.Energy, Blue)
+        position = RenderStatistic(displayBuffer, font, position, Model.Avatar.Statistics.XPLevel, Purple)
+        position = RenderStatistic(displayBuffer, font, position, Model.Avatar.Statistics.XP, Cyan)
+        position = RenderStatistic(displayBuffer, font, position, $" {Model.Avatar.Statistics.Jools}", LightGreen)
     End Sub
 
     Private Shared Function RenderStatistic(displayBuffer As IPixelSink, font As Font, position As (x As Integer, y As Integer), text As String, hue As Integer) As (Integer, Integer)

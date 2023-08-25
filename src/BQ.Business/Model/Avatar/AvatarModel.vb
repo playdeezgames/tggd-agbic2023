@@ -86,36 +86,6 @@
         End Get
     End Property
 
-    Public ReadOnly Property HealthDisplay As String Implements IAvatarModel.HealthDisplay
-        Get
-            Return avatar.HealthDisplay
-        End Get
-    End Property
-
-    Public ReadOnly Property EnergyDisplay As String Implements IAvatarModel.EnergyDisplay
-        Get
-            Return avatar.EnergyDisplay
-        End Get
-    End Property
-
-    Public ReadOnly Property XPLevelDisplay As String Implements IAvatarModel.XPLevelDisplay
-        Get
-            Return avatar.XPLevelDisplay
-        End Get
-    End Property
-
-    Public ReadOnly Property XPDisplay As String Implements IAvatarModel.XPDisplay
-        Get
-            Return avatar.XPDisplay
-        End Get
-    End Property
-
-    Public ReadOnly Property JoolsDisplay As String Implements IAvatarModel.JoolsDisplay
-        Get
-            Return avatar.JoolsDisplay
-        End Get
-    End Property
-
     Public ReadOnly Property CanCraft As Boolean Implements IAvatarModel.CanCraft
         Get
             Return CanBuildFire OrElse
@@ -131,24 +101,6 @@
     Public ReadOnly Property Inventory As IAvatarInventoryModel Implements IAvatarModel.Inventory
         Get
             Return New AvatarInventoryModel(avatar)
-        End Get
-    End Property
-
-    Public ReadOnly Property APDisplay As String Implements IAvatarModel.APDisplay
-        Get
-            Return avatar.APDisplay
-        End Get
-    End Property
-
-    Public ReadOnly Property ATKDisplay As String Implements IAvatarModel.ATKDisplay
-        Get
-            Return avatar.ATKDisplay
-        End Get
-    End Property
-
-    Public ReadOnly Property DEFDisplay As String Implements IAvatarModel.DEFDisplay
-        Get
-            Return avatar.DEFDisplay
         End Get
     End Property
 

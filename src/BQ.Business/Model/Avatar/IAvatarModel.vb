@@ -10,14 +10,6 @@
 
 
 
-    ReadOnly Property HealthDisplay As String
-    ReadOnly Property EnergyDisplay As String
-    ReadOnly Property XPDisplay As String
-    ReadOnly Property XPLevelDisplay As String
-    ReadOnly Property JoolsDisplay As String
-    ReadOnly Property APDisplay As String
-    ReadOnly Property ATKDisplay As String
-    ReadOnly Property DEFDisplay As String
 
     ReadOnly Property HasWon As Boolean
     ReadOnly Property IsDead As Boolean

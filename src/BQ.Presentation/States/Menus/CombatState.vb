@@ -66,8 +66,8 @@
         Dim font = Context.Font(UIFont)
         Dim centerX = OneThirdWidth()
         Dim y = CenterText(displayBuffer, font, centerX, OneSixthHeight() - font.HalfHeight * 3, Model.Avatar.Name, LightGray)
-        y = CenterText(displayBuffer, font, centerX, y, Model.Avatar.HealthDisplay, Pink)
-        CenterText(displayBuffer, font, centerX, y, Model.Avatar.EnergyDisplay, Blue)
+        y = CenterText(displayBuffer, font, centerX, y, Model.Avatar.Statistics.Health, Pink)
+        CenterText(displayBuffer, font, centerX, y, Model.Avatar.Statistics.Energy, Blue)
     End Sub
 
     Private Function OneThirdWidth() As Integer

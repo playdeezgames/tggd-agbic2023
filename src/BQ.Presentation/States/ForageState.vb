@@ -47,7 +47,7 @@ Friend Class ForageState
         displayBuffer.Fill(Black)
         RenderGrid(displayBuffer)
         RenderLoot(displayBuffer)
-        Context.ShowHeader(displayBuffer, Context.Font(UIFont), Model.Avatar.EnergyDisplay, Orange, Black)
+        Context.ShowHeader(displayBuffer, Context.Font(UIFont), Model.Avatar.Statistics.Energy, Orange, Black)
         Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText("Forage", "Exit"), Black, LightGray)
     End Sub
 

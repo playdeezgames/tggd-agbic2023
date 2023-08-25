@@ -116,7 +116,7 @@
                         SetMetadata(Metadatas.TaskName, "make twine").
                         SetMetadata(Metadatas.ActionName, "Make Twine").
                         SetMetadata(Metadatas.RecipeType, RecipeTypes.Twine).
-                        SetFlag(FlagTypes.LearnByDoing, True)
+                        ChangeFlagTo(FlagTypes.LearnByDoing, True)
                 End Sub)
         End If
         If canLearnKnapping Then
@@ -130,7 +130,7 @@
                         SetMetadata(Metadatas.TaskName, "knap").
                         SetMetadata(Metadatas.ActionName, "Knap").
                         SetMetadata(Metadatas.RecipeType, RecipeTypes.SharpRock).
-                        SetFlag(FlagTypes.LearnByDoing, True)
+                        ChangeFlagTo(FlagTypes.LearnByDoing, True)
                 End Sub)
         End If
         If canLearnFireMaking Then
@@ -145,7 +145,7 @@
                         SetMetadata(Metadatas.ActionName, "Build Fire").
                         SetMetadata(Metadatas.RecipeType, RecipeTypes.CookingFire).
                         SetMetadata(Metadatas.Caveat, "(only works in clear areas in the wilderness)").
-                        SetFlag(FlagTypes.LearnByDoing, False)
+                        ChangeFlagTo(FlagTypes.LearnByDoing, False)
                 End Sub)
         End If
         If canLearnTorchMaking Then
@@ -160,7 +160,7 @@
                         SetMetadata(Metadatas.ActionName, "Make Torch").
                         SetMetadata(Metadatas.RecipeType, RecipeTypes.Torch).
                         SetMetadata(Metadatas.Caveat, "(only works with a source of flames)").
-                        SetFlag(FlagTypes.LearnByDoing, False)
+                        ChangeFlagTo(FlagTypes.LearnByDoing, False)
                 End Sub)
         End If
         If canLearnHatchetMaking Then
@@ -174,7 +174,7 @@
                         SetMetadata(Metadatas.TaskName, "make a hatchet").
                         SetMetadata(Metadatas.ActionName, "Make Hatchet").
                         SetMetadata(Metadatas.RecipeType, RecipeTypes.Hatchet).
-                        SetFlag(FlagTypes.LearnByDoing, True)
+                        ChangeFlagTo(FlagTypes.LearnByDoing, True)
                 End Sub)
         End If
     End Sub

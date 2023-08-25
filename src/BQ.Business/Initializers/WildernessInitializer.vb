@@ -27,8 +27,8 @@ Module WildernessInitializer
             {TerrainTypes.RockQuarry, 5}
         }
     Friend Sub Initialize(map As IMap)
-        map.SetFlag(FlagTypes.CampingAllowed, True)
-        map.SetFlag(FlagTypes.AllowFireBuilding, True)
+        map.ChangeFlagTo(FlagTypes.CampingAllowed, True)
+        map.ChangeFlagTo(FlagTypes.AllowFireBuilding, True)
         PaintTerrain(map)
         DrawRivers(map)
         PlaceTown(map)

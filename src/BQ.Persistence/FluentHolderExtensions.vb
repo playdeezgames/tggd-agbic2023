@@ -12,7 +12,7 @@ Public Module FluentHolderExtensions
         Return holder
     End Function
     <Extension>
-    Public Function SetFlag(Of THolder As IFlagHolder)(holder As THolder, flagType As String, value As Boolean) As THolder
+    Public Function ChangeFlagTo(Of THolder As IFlagHolder)(holder As THolder, flagType As String, value As Boolean) As THolder
         holder.Flag(flagType) = value
         Return holder
     End Function

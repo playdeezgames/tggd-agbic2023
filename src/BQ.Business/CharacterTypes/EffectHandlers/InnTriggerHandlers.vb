@@ -6,7 +6,7 @@
                         AddLine(LightGray, $"{character.Name} needs to pay Gorachan first!")
             Return
         End If
-        character.SetFlag(FlagTypes.PaidInnkeeper, False)
+        character.ChangeFlagTo(FlagTypes.PaidInnkeeper, False)
         character.AddEnergy(character.MaximumEnergy - character.Energy)
         character.World.CreateMessage.
                         AddLine(LightGray, $"{character.Name} rests and feels refreshed!").
@@ -26,7 +26,7 @@
             Return
         End If
         character.AddJools(-bedCost)
-        character.SetFlag(FlagTypes.PaidInnkeeper, True)
+        character.ChangeFlagTo(FlagTypes.PaidInnkeeper, True)
         character.World.CreateMessage.
                         AddLine(LightGray, "Thanks for yer business.").
                         AddLine(LightGray, "Choose any bed you like.")
@@ -79,7 +79,7 @@
     End Sub
 
     Friend Sub DoAcceptRatQuest(character As ICharacter, trigger As IEffect)
-        character.SetFlag(FlagTypes.RatQuest, True)
+        character.ChangeFlagTo(FlagTypes.RatQuest, True)
     End Sub
 
     Friend Sub DoEnterCellar(character As ICharacter, trigger As IEffect)

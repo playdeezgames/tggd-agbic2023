@@ -22,14 +22,14 @@ Friend Class MessageState
             Case Command.Down
                 ChoiceIndex = (ChoiceIndex + 1) Mod message.ChoiceCount
             Case Command.A
-                Model.Avatar.DoChoiceTrigger(ChoiceIndex)
+                Model.Avatar.MakeChoice(ChoiceIndex)
                 OnStart()
             Case Command.B
                 If Not ChoiceIndex = message.CancelChoice Then
                     ChoiceIndex = message.CancelChoice
                     Return
                 End If
-                Model.Avatar.DoChoiceTrigger(ChoiceIndex)
+                Model.Avatar.MakeChoice(ChoiceIndex)
                 OnStart()
         End Select
     End Sub

@@ -66,7 +66,7 @@
         avatar.Move(delta)
     End Sub
 
-    Public Sub DoChoiceTrigger(index As Integer) Implements IAvatarModel.DoChoiceTrigger
+    Public Sub MakeChoice(index As Integer) Implements IAvatarModel.MakeChoice
         Dim choice = avatar.World.CurrentMessage.Choice(index)
         avatar.
             CharacterType.

@@ -26,7 +26,7 @@ Friend Module CommonHolderTests
         Const metadataIdentifier = "MetadataIdentifier"
         Const metadataValue = "MetadataValue"
         subject.HasMetadata(metadataIdentifier).ShouldBeFalse
-        subject.ChangeMetadataTo(metadataIdentifier, metadataValue)
+        subject.SetMetadata(metadataIdentifier, metadataValue)
         subject.HasMetadata(metadataIdentifier).ShouldBeTrue
         subject.GetMetadata(metadataIdentifier).ShouldBe(metadataValue)
         subject.RemoveMetadata(metadataIdentifier)

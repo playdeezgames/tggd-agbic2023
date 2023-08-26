@@ -48,45 +48,46 @@ Friend Module TownInitializer
         InitializeHealer(map)
         map.GetCell(2, 3).Effect =
             map.CreateEffect().
-            SetEffectType(EffectTypes.Message).
-            ChangeMetadataTo(MessageType, MessageTypes.InnSign)
+            SetEffectType(EffectTypes.Message)
+        map.GetCell(2, 3).Effect.SetMetadata(MessageType, MessageTypes.InnSign)
         map.GetCell(14, 3).Effect =
             map.CreateEffect().
-            SetEffectType(EffectTypes.Message).
-            ChangeMetadataTo(MessageType, MessageTypes.TownSign2)
+            SetEffectType(EffectTypes.Message)
+        map.GetCell(14, 3).Effect.SetMetadata(MessageType, MessageTypes.TownSign2)
         map.GetCell(7, 4).Effect =
             map.CreateEffect().
-            SetEffectType(EffectTypes.Message).
-            ChangeMetadataTo(MessageType, MessageTypes.HealthTrainerSign)
+            SetEffectType(EffectTypes.Message)
+        map.GetCell(7, 4).Effect.SetMetadata(MessageType, MessageTypes.HealthTrainerSign)
         map.GetCell(5, 6).Effect =
             map.CreateEffect().
-            SetEffectType(EffectTypes.Message).
-            ChangeMetadataTo(MessageType, MessageTypes.EnergyTrainerSign)
+            SetEffectType(EffectTypes.Message)
+        map.GetCell(5, 6).Effect.SetMetadata(MessageType, MessageTypes.EnergyTrainerSign)
         map.GetCell(11, 6).Effect =
             map.CreateEffect().
-            SetEffectType(EffectTypes.Message).
-            ChangeMetadataTo(MessageType, MessageTypes.TownSign5)
+            SetEffectType(EffectTypes.Message)
+        map.GetCell(11, 6).Effect.SetMetadata(MessageType, MessageTypes.TownSign5)
         map.GetCell(5, 10).Effect =
             map.CreateEffect().
-            SetEffectType(EffectTypes.Message).
-            ChangeMetadataTo(MessageType, MessageTypes.TownSign6)
+            SetEffectType(EffectTypes.Message)
+        map.GetCell(5, 10).Effect.SetMetadata(MessageType, MessageTypes.TownSign6)
         map.GetCell(11, 10).Effect =
             map.CreateEffect().
-            SetEffectType(EffectTypes.Message).
-            ChangeMetadataTo(MessageType, MessageTypes.DruidSign)
+            SetEffectType(EffectTypes.Message)
+        map.GetCell(11, 10).Effect.SetMetadata(MessageType, MessageTypes.DruidSign)
         map.GetCell(9, 12).Effect =
             map.CreateEffect().
-            SetEffectType(EffectTypes.Message).
-            ChangeMetadataTo(MessageType, MessageTypes.TownSign8)
+            SetEffectType(EffectTypes.Message)
+        map.GetCell(9, 12).Effect.SetMetadata(MessageType, MessageTypes.TownSign8)
         map.GetCell(14, 13).Effect =
             map.CreateEffect().
-            SetEffectType(EffectTypes.Message).
-            ChangeMetadataTo(MessageType, MessageTypes.PotterSign)
+            SetEffectType(EffectTypes.Message)
+        map.GetCell(14, 13).Effect.SetMetadata(MessageType, MessageTypes.PotterSign)
     End Sub
 
     Private Sub InitializeHealer(townMap As IMap)
         townMap.GetCell(2, 13).Effect =
             townMap.CreateEffect().
-            SetEffectType(EffectTypes.Message).ChangeMetadataTo(MessageType, MessageTypes.HealerSign)
+            SetEffectType(EffectTypes.Message)
+        townMap.GetCell(2, 13).Effect.SetMetadata(MessageType, MessageTypes.HealerSign)
     End Sub
 End Module

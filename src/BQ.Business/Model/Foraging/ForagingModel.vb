@@ -16,7 +16,7 @@
 
     Public ReadOnly Property Remaining As Integer Implements IForagingModel.Remaining
         Get
-            Return world.Avatar.Cell.TryGetStatistic(StatisticTypes.ForageRemaining)
+            Return world.Avatar.Cell.GetStatistic(StatisticTypes.ForageRemaining)
         End Get
     End Property
 

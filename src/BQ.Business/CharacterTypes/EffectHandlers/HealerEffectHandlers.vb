@@ -16,8 +16,8 @@
             AddLine(LightGray, "I don't sell anything.").
             AddLine(LightGray, "I'm a nihilist, remember?")
     End Sub
-    Friend Sub NihilisticHealing(character As ICharacter, trigger As IEffect)
-        Dim maximumHealth = Math.Min(character.MaximumHealth, trigger.Statistic(StatisticTypes.MaximumHealth))
+    Friend Sub NihilisticHealing(character As ICharacter, effect As IEffect)
+        Dim maximumHealth = Math.Min(character.MaximumHealth, effect.GetStatistic(StatisticTypes.MaximumHealth))
         If character.Health >= maximumHealth Then
             character.World.CreateMessage().AddLine(LightGray, "Nothing happens!")
             Return

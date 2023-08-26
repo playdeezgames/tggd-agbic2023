@@ -66,12 +66,6 @@ Public Class World
         End Get
     End Property
 
-    Public ReadOnly Property Statistic(statisticType As String) As Integer Implements IStatisticsHolder.Statistic
-        Get
-            Return WorldData.Statistics(statisticType)
-        End Get
-    End Property
-
     Public ReadOnly Property SerializedData As String Implements IWorld.SerializedData
         Get
             Return JsonSerializer.Serialize(WorldData)
@@ -184,13 +178,13 @@ Public Class World
         Return WorldData.Metadatas.ContainsKey(identifier)
     End Function
 
-    Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic
-        Return If(HasStatistic(statisticType), Statistic(statisticType), defaultValue)
+    Public Function GetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.GetStatistic
+        Return If(HasStatistic(statisticType), WorldData.Statistics(statisticType), defaultValue)
     End Function
 
     Public Function AddStatistic(statisticType As String, delta As Integer) As Integer Implements IStatisticsHolder.AddStatistic
-        SetStatistic(statisticType, Statistic(statisticType) + delta)
-        Return Statistic(statisticType)
+        SetStatistic(statisticType, GetStatistic(statisticType) + delta)
+        Return GetStatistic(statisticType)
     End Function
 
     Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag

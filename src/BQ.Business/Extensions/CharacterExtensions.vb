@@ -207,11 +207,11 @@
     End Sub
     <Extension>
     Private Function Peril(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.Peril)
+        Return character.GetStatistic(StatisticTypes.Peril)
     End Function
     <Extension>
     Friend Function Energy(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.Energy)
+        Return character.GetStatistic(StatisticTypes.Energy)
     End Function
     <Extension>
     Friend Sub AddEnergy(character As ICharacter, delta As Integer)
@@ -219,7 +219,7 @@
     End Sub
     <Extension>
     Friend Function MaximumEnergy(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.MaximumEnergy)
+        Return character.GetStatistic(StatisticTypes.MaximumEnergy)
     End Function
     <Extension>
     Friend Sub SetMaximumEnergy(character As ICharacter, maximumEnergy As Integer)
@@ -227,27 +227,27 @@
     End Sub
     <Extension>
     Friend Function Health(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.Health)
+        Return character.GetStatistic(StatisticTypes.Health)
     End Function
     <Extension>
     Friend Function MaximumHealth(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.MaximumHealth)
+        Return character.GetStatistic(StatisticTypes.MaximumHealth)
     End Function
     <Extension>
     Friend Function AttackDice(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.AttackDice) + character.EquippedItems.Sum(Function(x) x.AttackDice)
+        Return character.GetStatistic(StatisticTypes.AttackDice) + character.EquippedItems.Sum(Function(x) x.AttackDice)
     End Function
     <Extension>
     Friend Function MaximumAttack(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.MaximumAttack) + character.EquippedItems.Sum(Function(x) x.MaximumAttack)
+        Return character.GetStatistic(StatisticTypes.MaximumAttack) + character.EquippedItems.Sum(Function(x) x.MaximumAttack)
     End Function
     <Extension>
     Friend Function DefendDice(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.DefendDice) + character.EquippedItems.Sum(Function(x) x.DefendDice)
+        Return character.GetStatistic(StatisticTypes.DefendDice) + character.EquippedItems.Sum(Function(x) x.DefendDice)
     End Function
     <Extension>
     Friend Function MaximumDefend(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.MaximumDefend) + character.EquippedItems.Sum(Function(x) x.MaximumDefend)
+        Return character.GetStatistic(StatisticTypes.MaximumDefend) + character.EquippedItems.Sum(Function(x) x.MaximumDefend)
     End Function
     <Extension>
     Private Function RollAttack(character As ICharacter) As Integer
@@ -288,11 +288,11 @@
     End Sub
     <Extension>
     Private Function AdvancementPointsPerLevel(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.AdvancementPointsPerLevel)
+        Return character.GetStatistic(StatisticTypes.AdvancementPointsPerLevel)
     End Function
     <Extension>
     Friend Sub AddAdvancementPoints(character As ICharacter, advancementPoints As Integer)
-        character.SetStatistic(StatisticTypes.AdvancementPoints, Math.Max(0, character.TryGetStatistic(StatisticTypes.AdvancementPoints) + advancementPoints))
+        character.SetStatistic(StatisticTypes.AdvancementPoints, Math.Max(0, character.GetStatistic(StatisticTypes.AdvancementPoints) + advancementPoints))
     End Sub
     <Extension>
     Private Function AddXP(character As ICharacter, xp As Integer) As Boolean
@@ -301,7 +301,7 @@
             character.AddAdvancementPoints(character.AdvancementPointsPerLevel)
             character.AddStatistic(StatisticTypes.XPLevel, 1)
             Dim currentGoal = character.XPGoal
-            character.AddStatistic(StatisticTypes.XPGoal, character.Statistic(StatisticTypes.XPGoal))
+            character.AddStatistic(StatisticTypes.XPGoal, character.GetStatistic(StatisticTypes.XPGoal))
             character.AddXP(-currentGoal)
             Return True
         End If
@@ -313,7 +313,7 @@
     End Sub
     <Extension>
     Friend Function Jools(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.Jools)
+        Return character.GetStatistic(StatisticTypes.Jools)
     End Function
     <Extension>
     Friend Sub SetJools(character As ICharacter, jools As Integer)
@@ -331,7 +331,7 @@
     End Sub
     <Extension>
     Friend Function AdvancementPoints(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.AdvancementPoints)
+        Return character.GetStatistic(StatisticTypes.AdvancementPoints)
     End Function
     <Extension>
     Friend Sub AwardXP(character As ICharacter, msg As IMessage, xp As Integer)
@@ -424,15 +424,15 @@
     End Function
     <Extension>
     Function XP(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.XP)
+        Return character.GetStatistic(StatisticTypes.XP)
     End Function
     <Extension>
     Function XPGoal(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.XPGoal)
+        Return character.GetStatistic(StatisticTypes.XPGoal)
     End Function
     <Extension>
     Function XPLevel(character As ICharacter) As Integer
-        Return character.TryGetStatistic(StatisticTypes.XPLevel)
+        Return character.GetStatistic(StatisticTypes.XPLevel)
     End Function
     <Extension>
     Sub EquipItem(character As ICharacter, item As IItem)

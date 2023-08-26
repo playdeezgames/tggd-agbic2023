@@ -86,7 +86,7 @@ Friend Module LoxyEffectHandlers
 
     Private Sub DoBuy(character As ICharacter, trigger As IEffect)
         Dim itemType = trigger.GetMetadata(Metadatas.ItemType)
-        Dim price = trigger.Statistic(StatisticTypes.Price)
+        Dim price = trigger.GetStatistic(StatisticTypes.Price)
         If character.Jools < price Then
             character.World.
                 CreateMessage().
@@ -108,8 +108,8 @@ Friend Module LoxyEffectHandlers
 
     Friend Sub DefaultTeleport(character As ICharacter, effect As IEffect)
         Dim nextCell = character.World.
-            Map(effect.Statistic(StatisticTypes.MapId)).
-            GetCell(effect.Statistic(StatisticTypes.CellColumn), effect.Statistic(StatisticTypes.CellRow))
+            Map(effect.GetStatistic(StatisticTypes.MapId)).
+            GetCell(effect.GetStatistic(StatisticTypes.CellColumn), effect.GetStatistic(StatisticTypes.CellRow))
         nextCell.AddCharacter(character)
         character.Cell.RemoveCharacter(character)
         character.Cell = nextCell

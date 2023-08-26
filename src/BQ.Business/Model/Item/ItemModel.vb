@@ -18,7 +18,7 @@
 
     Public Property Count As Integer Implements IItemModel.Count
         Get
-            Return world.Avatar.TryGetStatistic(StatisticTypes.ItemCount)
+            Return world.Avatar.GetStatistic(StatisticTypes.ItemCount)
         End Get
         Set(value As Integer)
             world.Avatar.SetStatistic(StatisticTypes.ItemCount, value)

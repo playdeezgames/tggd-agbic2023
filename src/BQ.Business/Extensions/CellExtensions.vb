@@ -30,7 +30,7 @@
     End Function
     <Extension>
     Friend Function CanForage(cell As ICell) As Boolean
-        Return cell.Descriptor.HasEffect(EffectTypes.Forage) AndAlso cell.TryGetStatistic(StatisticTypes.ForageRemaining) > 0
+        Return cell.Descriptor.HasEffect(EffectTypes.Forage) AndAlso cell.GetStatistic(StatisticTypes.ForageRemaining) > 0
     End Function
     <Extension>
     Friend Function IsTenable(cell As ICell) As Boolean

@@ -39,7 +39,7 @@
     End Function
 
     Private Function LearnSkill(character As ICharacter, effect As IEffect, msg As IMessage, text As String) As Boolean
-        Dim learnCost = effect.Statistic(StatisticTypes.AdvancementPoints)
+        Dim learnCost = effect.GetStatistic(StatisticTypes.AdvancementPoints)
         If character.AdvancementPoints < learnCost Then
             msg.
                 AddLine(LightGray, $"To learn to {text},").

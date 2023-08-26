@@ -33,23 +33,23 @@ Public Module ItemExtensions
     End Function
     <Extension>
     Friend Function AttackDice(item As IItem) As Integer
-        Return item.TryGetStatistic(StatisticTypes.AttackDice)
+        Return item.GetStatistic(StatisticTypes.AttackDice)
     End Function
     <Extension>
     Friend Function MaximumAttack(item As IItem) As Integer
-        Return item.TryGetStatistic(StatisticTypes.MaximumAttack)
+        Return item.GetStatistic(StatisticTypes.MaximumAttack)
     End Function
     <Extension>
     Friend Function DefendDice(item As IItem) As Integer
-        Return item.TryGetStatistic(StatisticTypes.DefendDice)
+        Return item.GetStatistic(StatisticTypes.DefendDice)
     End Function
     <Extension>
     Friend Function MaximumDefend(item As IItem) As Integer
-        Return item.TryGetStatistic(StatisticTypes.MaximumDefend)
+        Return item.GetStatistic(StatisticTypes.MaximumDefend)
     End Function
     <Extension>
     Friend Function Durability(item As IItem) As Integer
-        Return item.TryGetStatistic(StatisticTypes.Durability)
+        Return item.GetStatistic(StatisticTypes.Durability)
     End Function
     <Extension>
     Friend Sub SetDurability(item As IItem, durability As Integer)
@@ -61,7 +61,7 @@ Public Module ItemExtensions
     End Sub
     <Extension>
     Friend Function MaximumDurability(item As IItem) As Integer
-        Return item.TryGetStatistic(StatisticTypes.MaximumDurability)
+        Return item.GetStatistic(StatisticTypes.MaximumDurability)
     End Function
     <Extension>
     Friend Function IsBroken(item As IItem) As Boolean

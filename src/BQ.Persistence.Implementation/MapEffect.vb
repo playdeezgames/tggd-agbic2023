@@ -21,12 +21,6 @@ Friend Class MapEffect
         End Set
     End Property
 
-    Public ReadOnly Property Statistic(statisticType As String) As Integer Implements IEffect.Statistic
-        Get
-            Return EffectData.Statistics(statisticType)
-        End Get
-    End Property
-
     Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
         EffectData.Statistics.Remove(statisticType)
     End Sub
@@ -59,13 +53,13 @@ Friend Class MapEffect
         Return EffectData.Metadatas.ContainsKey(identifier)
     End Function
 
-    Public Function TryGetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.TryGetStatistic
-        Return If(HasStatistic(statisticType), Statistic(statisticType), defaultValue)
+    Public Function GetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.GetStatistic
+        Return If(HasStatistic(statisticType), EffectData.Statistics(statisticType), defaultValue)
     End Function
 
     Public Function AddStatistic(statisticType As String, delta As Integer) As Integer Implements IStatisticsHolder.AddStatistic
-        SetStatistic(statisticType, Statistic(statisticType) + delta)
-        Return Statistic(statisticType)
+        SetStatistic(statisticType, GetStatistic(statisticType) + delta)
+        Return GetStatistic(statisticType)
     End Function
 
     Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag

@@ -6,20 +6,18 @@ Friend Module CommonHolderTests
         Const statisticType = "StatisticType"
         Const statisticValue = 10
         subject.HasStatistic(statisticType).ShouldBeFalse
-        subject.TryGetStatistic(statisticType).ShouldBe(0)
+        subject.GetStatistic(statisticType).ShouldBe(0)
 
         subject.SetStatistic(statisticType, statisticValue)
         subject.HasStatistic(statisticType).ShouldBeTrue
-        subject.Statistic(statisticType).ShouldBe(statisticValue)
-        subject.TryGetStatistic(statisticType).ShouldBe(statisticValue)
+        subject.GetStatistic(statisticType).ShouldBe(statisticValue)
 
         subject.AddStatistic(statisticType, statisticValue)
-        subject.Statistic(statisticType).ShouldBe(statisticValue * 2)
-        subject.TryGetStatistic(statisticType).ShouldBe(statisticValue * 2)
+        subject.GetStatistic(statisticType).ShouldBe(statisticValue * 2)
 
         subject.RemoveStatistic(statisticType)
         subject.HasStatistic(statisticType).ShouldBeFalse
-        subject.TryGetStatistic(statisticType).ShouldBe(0)
+        subject.GetStatistic(statisticType).ShouldBe(0)
     End Sub
 
     Friend Sub DoMetadataHolderTests(subject As IMetadataHolder)

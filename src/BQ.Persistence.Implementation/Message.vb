@@ -53,15 +53,6 @@ Friend Class Message
         End Get
     End Property
 
-    Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
-        Get
-            Return MessageData.Metadatas(identifier)
-        End Get
-        Set(value As String)
-            MessageData.Metadatas(identifier) = value
-        End Set
-    End Property
-
     Public Property CancelChoice As Integer Implements IMessage.CancelChoice
         Get
             Return MessageData.CancelChoice

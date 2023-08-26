@@ -85,13 +85,13 @@ Friend Module LoxyEffectHandlers
     End Sub
 
     Private Sub DoBuy(character As ICharacter, trigger As IEffect)
-        Dim itemType = trigger.Metadata(Metadatas.ItemType)
+        Dim itemType = trigger.GetMetadata(Metadatas.ItemType)
         Dim price = trigger.Statistic(StatisticTypes.Price)
         If character.Jools < price Then
             character.World.
                 CreateMessage().
                 AddLine(LightGray, "You don't have enough!").
-                AddChoice("Shucks!", trigger.Metadata(Metadatas.EffectType))
+                AddChoice("Shucks!", trigger.GetMetadata(Metadatas.EffectType))
             Return
         End If
         character.AddJools(-price)
@@ -99,11 +99,11 @@ Friend Module LoxyEffectHandlers
         character.World.
             CreateMessage().
             AddLine(LightGray, "Thank you for yer purchase!").
-            AddChoice("No worries!", trigger.Metadata(Metadatas.EffectType))
+            AddChoice("No worries!", trigger.GetMetadata(Metadatas.EffectType))
     End Sub
 
     Private Sub DefaultMessage(character As ICharacter, trigger As IEffect)
-        trigger.Metadata(Metadatas.MessageType).ToMessageTypeDescriptor.CreateMessage(character.World)
+        trigger.GetMetadata(Metadatas.MessageType).ToMessageTypeDescriptor.CreateMessage(character.World)
     End Sub
 
     Friend Sub DefaultTeleport(character As ICharacter, effect As IEffect)

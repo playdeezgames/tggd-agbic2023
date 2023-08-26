@@ -28,7 +28,7 @@ Friend Module CommonHolderTests
         subject.HasMetadata(metadataIdentifier).ShouldBeFalse
         subject.ChangeMetadataTo(metadataIdentifier, metadataValue)
         subject.HasMetadata(metadataIdentifier).ShouldBeTrue
-        subject.Metadata(metadataIdentifier).ShouldBe(metadataValue)
+        subject.GetMetadata(metadataIdentifier).ShouldBe(metadataValue)
         subject.RemoveMetadata(metadataIdentifier)
         subject.HasMetadata(metadataIdentifier).ShouldBeFalse
     End Sub

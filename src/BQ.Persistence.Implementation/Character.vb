@@ -81,22 +81,6 @@
         End Get
     End Property
 
-    Public Property Metadata(identifier As String) As String Implements ICharacter.Metadata
-        Get
-            If CharacterData.Metadatas.ContainsKey(identifier) Then
-                Return CharacterData.Metadatas(identifier)
-            End If
-            Return Nothing
-        End Get
-        Set(value As String)
-            If value Is Nothing Then
-                CharacterData.Metadatas.Remove(identifier)
-                Return
-            End If
-            CharacterData.Metadatas(identifier) = value
-        End Set
-    End Property
-
     Public ReadOnly Property ItemCount As Integer Implements ICharacter.ItemCount
         Get
             Return CharacterData.ItemIds.Count

@@ -29,9 +29,9 @@
         character.World.CreateMessage().
                 AddLine(LightGray, $"{character.Name} extinguishes the fire.")
         If effect.HasMetadata(Metadatas.ItemType) Then
-            character.Cell.AddItem(ItemInitializer.CreateItem(character.World, effect.Metadata(Metadatas.ItemType)))
+            character.Cell.AddItem(ItemInitializer.CreateItem(character.World, effect.GetMetadata(Metadatas.ItemType)))
         End If
-        character.Cell.TerrainType = effect.Metadata(Metadatas.TerrainType)
+        character.Cell.TerrainType = effect.GetMetadata(Metadatas.TerrainType)
     End Sub
     Friend Sub DoCraftFire(character As ICharacter, effect As IEffect)
         If Not ConsumeEnergy(character, 1, "build a fire") Then

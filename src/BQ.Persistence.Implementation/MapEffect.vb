@@ -27,15 +27,6 @@ Friend Class MapEffect
         End Get
     End Property
 
-    Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
-        Get
-            Return EffectData.Metadatas(identifier)
-        End Get
-        Set(value As String)
-            EffectData.Metadatas(identifier) = value
-        End Set
-    End Property
-
     Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
         EffectData.Statistics.Remove(statisticType)
     End Sub

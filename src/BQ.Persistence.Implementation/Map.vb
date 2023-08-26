@@ -42,15 +42,6 @@
         End Get
     End Property
 
-    Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
-        Get
-            Return MapData.Metadatas(identifier)
-        End Get
-        Set(value As String)
-            MapData.Metadatas(identifier) = value
-        End Set
-    End Property
-
     Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
         MapData.Statistics.Remove(statisticType)
     End Sub

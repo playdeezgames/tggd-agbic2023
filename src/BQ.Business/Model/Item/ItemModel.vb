@@ -9,10 +9,10 @@
 
     Public Property Name As String Implements IItemModel.Name
         Get
-            Return world.Avatar.Metadata(Metadatas.ItemName)
+            Return world.Avatar.GetMetadata(Metadatas.ItemName)
         End Get
         Set(value As String)
-            world.Avatar.Metadata(Metadatas.ItemName) = value
+            world.Avatar.SetMetadata(Metadatas.ItemName, value)
         End Set
     End Property
 

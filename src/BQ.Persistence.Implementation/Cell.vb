@@ -118,15 +118,6 @@ Friend Class Cell
         End Get
     End Property
 
-    Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
-        Get
-            Return CellData.Metadatas(identifier)
-        End Get
-        Set(value As String)
-            CellData.Metadatas(identifier) = value
-        End Set
-    End Property
-
     Public Sub AddItem(item As IItem) Implements ICell.AddItem
         CellData.ItemIds.Add(item.Id)
     End Sub

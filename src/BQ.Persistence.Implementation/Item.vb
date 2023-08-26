@@ -22,15 +22,6 @@
         End Get
     End Property
 
-    Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
-        Get
-            Return ItemData.Metadatas(identifier)
-        End Get
-        Set(value As String)
-            ItemData.Metadatas(identifier) = value
-        End Set
-    End Property
-
     Public Sub Recycle() Implements IItem.Recycle
         ItemData.Recycled = True
     End Sub

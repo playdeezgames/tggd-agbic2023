@@ -30,7 +30,7 @@
     End Sub
 
     Private Function AlreadyKnows(character As ICharacter, effect As IEffect, msg As IMessage, text As String) As Boolean
-        If character.GetFlag(effect.Metadata(Metadatas.FlagType)) Then
+        If character.GetFlag(effect.GetMetadata(Metadatas.FlagType)) Then
             msg.AddLine(LightGray, $"{character.Name} already know how to {text}!")
             Return True
         End If
@@ -47,14 +47,14 @@
             Return False
         End If
         character.AddAdvancementPoints(-learnCost)
-        character.SetFlag(effect.Metadata(Metadatas.FlagType), True)
+        character.SetFlag(effect.GetMetadata(Metadatas.FlagType), True)
         Return True
     End Function
     Friend Sub DoLearnSkill(character As ICharacter, effect As IEffect)
         Dim msg = character.World.CreateMessage
-        Dim taskName = effect.Metadata(Metadatas.TaskName)
+        Dim taskName = effect.GetMetadata(Metadatas.TaskName)
         If AlreadyKnows(character, effect, msg, taskName) Then Return
-        Dim recipeType = effect.Metadata(Metadatas.RecipeType)
+        Dim recipeType = effect.GetMetadata(Metadatas.RecipeType)
         If Not RecipeTypes.CanCraft(recipeType, character) Then
             msg.
             AddLine(LightGray, $"To learn to {taskName},").
@@ -70,10 +70,10 @@
         End If
         msg.
             AddLine(LightGray, $"You now know how to {taskName}!").
-            AddLine(LightGray, $"To do so, simply select '{effect.Metadata(Metadatas.ActionName)}'").
+            AddLine(LightGray, $"To do so, simply select '{effect.GetMetadata(Metadatas.ActionName)}'").
             AddLine(LightGray, "from the Actions menu.")
         If effect.HasMetadata(Metadatas.Caveat) Then
-            msg.AddLine(LightGray, effect.Metadata(Metadatas.Caveat))
+            msg.AddLine(LightGray, effect.GetMetadata(Metadatas.Caveat))
         End If
     End Sub
 

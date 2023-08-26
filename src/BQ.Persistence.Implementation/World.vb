@@ -72,15 +72,6 @@ Public Class World
         End Get
     End Property
 
-    Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
-        Get
-            Return WorldData.Metadatas(identifier)
-        End Get
-        Set(value As String)
-            WorldData.Metadatas(identifier) = value
-        End Set
-    End Property
-
     Public ReadOnly Property SerializedData As String Implements IWorld.SerializedData
         Get
             Return JsonSerializer.Serialize(WorldData)

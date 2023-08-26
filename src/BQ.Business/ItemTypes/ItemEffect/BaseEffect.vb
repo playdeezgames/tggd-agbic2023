@@ -14,15 +14,6 @@
         End Get
     End Property
 
-    Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
-        Get
-            Return data.Metadatas(identifier)
-        End Get
-        Set(value As String)
-            data.Metadatas(identifier) = identifier
-        End Set
-    End Property
-
     Public Property EffectType As String Implements IEffect.EffectType
 
     Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic

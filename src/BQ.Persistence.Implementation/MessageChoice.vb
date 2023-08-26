@@ -23,15 +23,6 @@ Friend Class MessageChoice
         End Set
     End Property
 
-    Public Property Metadata(identifier As String) As String Implements IMetadataHolder.Metadata
-        Get
-            Return MessageChoiceData.Metadatas(identifier)
-        End Get
-        Set(value As String)
-            MessageChoiceData.Metadatas(identifier) = value
-        End Set
-    End Property
-
     Public ReadOnly Property Statistic(statisticType As String) As Integer Implements IStatisticsHolder.Statistic
         Get
             Return MessageChoiceData.Statistics(statisticType)

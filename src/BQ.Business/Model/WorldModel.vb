@@ -1,4 +1,6 @@
-﻿Imports System.IO
+﻿Imports System.Diagnostics.Tracing
+Imports System.IO
+Imports NLua.Event
 
 Public Class WorldModel
     Implements IWorldModel
@@ -43,12 +45,17 @@ Public Class WorldModel
 
     Private Shared Function MakeLuaState() As Lua
         Dim lua As New Lua()
+        AddHandler lua.DebugHook, AddressOf LuaDebugHook
+        lua.SetDebugHook(KeraLua.LuaHookMask.Line, 0)
         lua.LoadCLRPackage()
         lua.DoString("import('SPLORR.Game')
 import('BQ.Business')
 import = function() end")
         Return lua
     End Function
+
+    Private Shared Sub LuaDebugHook(sender As Object, e As DebugHookEventArgs)
+    End Sub
 
     Private Property World As IWorld
         Get

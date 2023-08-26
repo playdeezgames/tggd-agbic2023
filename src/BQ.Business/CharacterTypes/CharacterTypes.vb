@@ -34,7 +34,21 @@
                     effectHandlers:=LoxyEffectHandlers.All,
                     effectScripts:=New Dictionary(Of String, String) From
                     {
-                        {EffectTypes.PotterFlavorText, "world:CreateMessage():AddLine(7, ""Um. Thanks!""):AddLine(7, ""...""):AddLine(7, ""What's a 'Movie'?""):AddChoice(""Nevermind!"", ""ExitDialog"")"}
+                        {
+                            EffectTypes.PotterFlavorText,
+                            "world:CreateMessage():AddLine(7, ""Um. Thanks!""):AddLine(7, ""...""):AddLine(7, ""What's a 'Movie'?""):AddChoice(""Nevermind!"", ""ExitDialog"")"
+                        },
+                        {EffectTypes.Teleport,
+                            "
+local mapId = effect:GetStatistic(""MapId"")
+local cellColumn = effect:GetStatistic(""CellColumn"")
+local cellRow = effect:GetStatistic(""CellRow"")
+local map = world:GetMap(mapId)
+local nextCell = map:GetCell(cellColumn, cellRow)
+nextCell:AddCharacter(character)
+character.Cell:RemoveCharacter(character)
+character.Cell = nextCell"
+                        }
                     })
             },
             {

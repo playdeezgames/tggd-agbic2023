@@ -194,4 +194,8 @@ Public Class World
     Public Function GetMetadata(identifier As String) As String Implements IMetadataHolder.GetMetadata
         Return WorldData.Metadatas(identifier)
     End Function
+
+    Public Function GetMap(id As Integer) As IMap Implements IWorld.GetMap
+        Return New Map(WorldData, id)
+    End Function
 End Class

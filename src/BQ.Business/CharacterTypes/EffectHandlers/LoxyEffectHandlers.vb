@@ -2,10 +2,10 @@
 
 Friend Module LoxyEffectHandlers
     '{EffectTypes.PotterFlavorText, AddressOf DoPotterFlavorText},
+    '{EffectTypes.Teleport, AddressOf DefaultTeleport},
     Friend All As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect)) =
         New Dictionary(Of String, Action(Of ICharacter, IEffect)) From
                     {
-                        {EffectTypes.Teleport, AddressOf DefaultTeleport},
                         {EffectTypes.PutOutFire, AddressOf DoPutOutFlames},
                         {EffectTypes.Message, AddressOf DefaultMessage},
                         {EffectTypes.Heal, AddressOf NihilisticHealing},

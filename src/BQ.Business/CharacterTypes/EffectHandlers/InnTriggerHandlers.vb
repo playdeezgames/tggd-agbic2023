@@ -82,11 +82,11 @@
         character.SetFlag(FlagTypes.RatQuest, True)
     End Sub
 
-    Friend Sub DoEnterCellar(character As ICharacter, trigger As IEffect)
+    Friend Sub DoEnterCellar(character As ICharacter, effect As IEffect)
         If Not character.GetFlag(FlagTypes.RatQuest) Then
             character.World.CreateMessage().AddLine(LightGray, $"{character.Name} has no business in the cellar.")
             Return
         End If
-        DefaultTeleport(character, trigger)
+        DefaultTeleport(character, effect)
     End Sub
 End Module

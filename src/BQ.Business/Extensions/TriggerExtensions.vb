@@ -1,12 +1,9 @@
-﻿Imports System.Runtime.CompilerServices
-
-Friend Module TriggerExtensions
+﻿Friend Module TriggerExtensions
     <Extension>
     Friend Function SetDestination(Of THolder As IStatisticsHolder)(effect As THolder, cell As ICell) As THolder
-        effect.
-            ChangeStatisticTo(StatisticTypes.MapId, cell.Map.Id).
-            ChangeStatisticTo(StatisticTypes.CellColumn, cell.Column).
-            ChangeStatisticTo(StatisticTypes.CellRow, cell.Row)
+        effect.SetStatistic(StatisticTypes.MapId, cell.Map.Id)
+        effect.SetStatistic(StatisticTypes.CellColumn, cell.Column)
+        effect.SetStatistic(StatisticTypes.CellRow, cell.Row)
         Return effect
     End Function
     <Extension>

@@ -6,9 +6,4 @@ Public Module FluentHolderExtensions
         holder.SetMetadata(identifier, value)
         Return holder
     End Function
-    <Extension>
-    Public Function ChangeStatisticTo(Of THolder As IStatisticsHolder)(holder As THolder, statisticType As String, value As Integer) As THolder
-        holder.SetStatistic(statisticType, value)
-        Return holder
-    End Function
 End Module

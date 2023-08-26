@@ -12,11 +12,11 @@ Public Class CellExtensions_should
         Dim subject = New Mock(Of ICell)
         subject.SetupGet(Function(x) x.TerrainType).Returns(givenTerrainType)
         Dim map = New Mock(Of IMap)
-        map.SetupGet(Function(x) x.GetFlag(FlagTypes.AllowFireBuilding)).Returns(True)
+        map.Setup(Function(x) x.GetFlag(FlagTypes.AllowFireBuilding)).Returns(True)
         subject.SetupGet(Function(x) x.Map).Returns(map.Object)
         CellExtensions.CanBuildFire(subject.Object).ShouldBe(expectedResult)
         subject.VerifyGet(Function(x) x.TerrainType)
-        map.VerifyGet(Function(x) x.GetFlag(FlagTypes.AllowFireBuilding))
+        map.Verify(Function(x) x.GetFlag(FlagTypes.AllowFireBuilding))
         subject.VerifyNoOtherCalls()
         map.VerifyNoOtherCalls()
     End Sub

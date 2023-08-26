@@ -44,8 +44,8 @@ Public Class WorldModel
     Private Shared Function MakeLuaState() As Lua
         Dim lua As New Lua()
         lua.LoadCLRPackage()
-        lua.DoString("import('SPLORR.Game','SPLORR.Game')
-import('BQ.Business','BQ.Business')
+        lua.DoString("import('SPLORR.Game')
+import('BQ.Business')
 import = function() end")
         Return lua
     End Function

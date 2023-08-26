@@ -35,31 +35,35 @@
                     effectScripts:=New Dictionary(Of String, String) From
                     {
                         {
+                            EffectTypes.SleepAtInn,
+                            "
+if character:GetFlag(""PaidInnkeeper"") then
+    character:SetFlag(""PaidInnkeeper"", false)
+    CharacterExtensions.AddEnergy(character, CharacterExtensions.MaximumEnergy(character) - CharacterExtensions.Energy(character))
+    character.World:CreateMessage():
+                AddLine(7, CharacterExtensions.Name(character) .. "" rests and feels refreshed!""):
+                AddLine(7, CharacterExtensions.Name(character) .. "" has "" .. CharacterExtensions.Energy(character) .. ""/"" .. CharacterExtensions.MaximumEnergy(character) .. "" energy."")
+else
+    character.World:CreateMessage():
+                AddLine(7, CharacterExtensions.Name(character) .. "" needs to pay Gorachan first!"")
+end"
+                        },
+                        {
                             EffectTypes.PotterFlavorText,
                             "world:CreateMessage():AddLine(7, ""Um. Thanks!""):AddLine(7, ""...""):AddLine(7, ""What's a 'Movie'?""):AddChoice(""Nevermind!"", ""ExitDialog"")"
                         },
                         {
                             EffectTypes.Teleport,
-"local mapId = effect:GetStatistic(""MapId"")
-local cellColumn = effect:GetStatistic(""CellColumn"")
-local cellRow = effect:GetStatistic(""CellRow"")
-local map = world:GetMap(mapId)
-local nextCell = map:GetCell(cellColumn, cellRow)
-nextCell:AddCharacter(character)
-character.Cell:RemoveCharacter(character)
-character.Cell = nextCell"
+"
+require('teleport')
+doTeleport(character,effect)"
                         },
                         {
                             EffectTypes.EnterCellar,
-"if character:GetFlag(""RatQuest"") then
-    local mapId = effect:GetStatistic(""MapId"")
-    local cellColumn = effect:GetStatistic(""CellColumn"")
-    local cellRow = effect:GetStatistic(""CellRow"")
-    local map = world:GetMap(mapId)
-    local nextCell = map:GetCell(cellColumn, cellRow)
-    nextCell:AddCharacter(character)
-    character.Cell:RemoveCharacter(character)
-    character.Cell = nextCell
+"
+require('teleport')
+if character:GetFlag(""RatQuest"") then
+    doTeleport(character,effect)
 else
     character.World:CreateMessage():AddLine(7, CharacterExtensions.Name(character) .. "" has no business in the cellar."")
 end"

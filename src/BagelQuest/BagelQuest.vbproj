@@ -45,6 +45,7 @@
     <None Remove="Content\WooHoo.wav" />
     <None Remove="Content\Yoink.wav" />
     <None Remove="Icon.bmp" />
+    <None Remove="teleport.lua" />
   </ItemGroup>
 
   <ItemGroup>
@@ -127,6 +128,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\sfx.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="teleport.lua">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

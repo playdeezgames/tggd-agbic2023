@@ -1,33 +1,19 @@
 ﻿Friend Module InnTriggerHandlers
-
-    Friend Sub DoSleepAtInn(character As ICharacter, trigger As IEffect)
-        If Not character.GetFlag(FlagTypes.PaidInnkeeper) Then
-            character.World.CreateMessage.
-                        AddLine(LightGray, $"{character.Name} needs to pay Gorachan first!")
-            Return
-        End If
-        character.SetFlag(FlagTypes.PaidInnkeeper, False)
-        character.AddEnergy(character.MaximumEnergy - character.Energy)
-        character.World.CreateMessage.
-                        AddLine(LightGray, $"{character.Name} rests and feels refreshed!").
-                        AddLine(LightGray, $"{character.Name} has {character.Energy}/{character.MaximumEnergy} energy.")
-    End Sub
-
-    Friend Sub DoPayInnkeeper(character As ICharacter, trigger As IEffect)
+    Friend Sub DoPayInnkeeper(character As ICharacter, effect As IEffect)
         If character.GetFlag(FlagTypes.PaidInnkeeper) Then
-            character.World.CreateMessage.
+            character.World.CreateMessage().
                         AddLine(LightGray, "You've already paid!")
             Return
         End If
         Const bedCost = 1
         If character.Jools < bedCost Then
-            character.World.CreateMessage.
+            character.World.CreateMessage().
                         AddLine(LightGray, "Sorry! No jools, no bed!")
             Return
         End If
         character.AddJools(-bedCost)
         character.SetFlag(FlagTypes.PaidInnkeeper, True)
-        character.World.CreateMessage.
+        character.World.CreateMessage().
                         AddLine(LightGray, "Thanks for yer business.").
                         AddLine(LightGray, "Choose any bed you like.")
     End Sub
@@ -44,13 +30,13 @@
     End Sub
 
     Friend Sub DoPerventInnkeeper(character As ICharacter, trigger As IEffect)
-        Dim msg = character.World.CreateMessage.
+        Dim msg = character.World.CreateMessage().
                         AddLine(LightGray, "I'm not a pervert!").
                         AddLine(LightGray, "I'm just Australian!")
     End Sub
 
     Friend Sub DoGorachanTalk(character As ICharacter, trigger As IEffect)
-        Dim msg = character.World.CreateMessage.
+        Dim msg = character.World.CreateMessage().
                         AddLine(LightGray, "Welcome to Jusdatip Inn!").
                         AddLine(LightGray, "I'm Gorachan.").
                         AddLine(LightGray, "You can rest in a bed for 1 jools.").
@@ -69,7 +55,7 @@
     End Sub
 
     Friend Sub DoStartRatQuest(character As ICharacter, trigger As IEffect)
-        Dim msg = character.World.CreateMessage.
+        Dim msg = character.World.CreateMessage().
                         AddLine(LightGray, "Well, there are a bunch of rats in the cellar.").
                         AddLine(LightGray, "I'll pay you 1 jools for each rat tail.").
                         AddLine(LightGray, "I only accept the tails, no corpses.").

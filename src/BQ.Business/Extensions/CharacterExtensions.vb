@@ -210,15 +210,15 @@
         Return character.GetStatistic(StatisticTypes.Peril)
     End Function
     <Extension>
-    Friend Function Energy(character As ICharacter) As Integer
+    Public Function Energy(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.Energy)
     End Function
     <Extension>
-    Friend Sub AddEnergy(character As ICharacter, delta As Integer)
+    Public Sub AddEnergy(character As ICharacter, delta As Integer)
         character.SetStatistic(StatisticTypes.Energy, Math.Clamp(character.Energy + delta, 0, character.MaximumEnergy))
     End Sub
     <Extension>
-    Friend Function MaximumEnergy(character As ICharacter) As Integer
+    Public Function MaximumEnergy(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.MaximumEnergy)
     End Function
     <Extension>

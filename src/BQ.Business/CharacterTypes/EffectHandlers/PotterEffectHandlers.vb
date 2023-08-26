@@ -5,7 +5,7 @@
         If character.Jools < price Then
             character.World.CreateMessage.
                         AddLine(LightGray, $"The price is {price} jools.").
-                        AddLine(LightGray, $"({character.Name} has {character.Jools} jools)")
+                        AddLine(LightGray, $"({CharacterExtensions.Name(character)} has {character.Jools} jools)")
             Return
         End If
         If Not RecipeTypes.CanCraft(RecipeType, character) Then
@@ -17,7 +17,7 @@
         RecipeTypes.Craft(RecipeType, character)
         RecipeTypes.Craft(RecipeTypes.ClayPot, character)
         character.World.CreateMessage.
-            AddLine(Red, $"{character.Name} loses {price} jools").AddLine(LightGreen, $"{character.Name} gains 1 {ItemTypes.ClayPot.ToItemTypeDescriptor.Name}")
+            AddLine(Red, $"{CharacterExtensions.Name(character)} loses {price} jools").AddLine(LightGreen, $"{CharacterExtensions.Name(character)} gains 1 {ItemTypes.ClayPot.ToItemTypeDescriptor.Name}")
     End Sub
 
     Friend Sub DoPotterFlavorText(character As ICharacter, effect As IEffect)

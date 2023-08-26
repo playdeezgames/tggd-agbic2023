@@ -8,7 +8,7 @@
             Return
         End If
         Const Multiplier = 2
-        Dim TrainingCost = Multiplier * character.MaximumEnergy
+        Dim TrainingCost = Multiplier * CharacterExtensions.MaximumEnergy(character)
         If character.Jools < TrainingCost Then
             msg.
                 AddLine(LightGray, $"The price is {TrainingCost} jools.").
@@ -17,17 +17,17 @@
         End If
         character.AddAdvancementPoints(-1)
         character.AddJools(-TrainingCost)
-        character.SetMaximumEnergy(character.MaximumEnergy + 1)
-        character.AddEnergy(1)
-        msg.AddLine(Red, $"{character.Name} loses 1 AP")
-        msg.AddLine(Red, $"{character.Name} loses {TrainingCost} jools")
-        msg.AddLine(Green, $"{character.Name} adds 1 Maximum Energy")
-        msg.AddLine(LightGray, $"Yer now at {character.MaximumEnergy} Maximum Energy.")
+        CharacterExtensions.SetMaximumEnergy(character, CharacterExtensions.MaximumEnergy(character) + 1)
+        CharacterExtensions.AddEnergy(character, 1)
+        msg.AddLine(Red, $"{CharacterExtensions.Name(character)} loses 1 AP")
+        msg.AddLine(Red, $"{CharacterExtensions.Name(character)} loses {TrainingCost} jools")
+        msg.AddLine(Green, $"{CharacterExtensions.Name(character)} adds 1 Maximum Energy")
+        msg.AddLine(LightGray, $"Yer now at {CharacterExtensions.MaximumEnergy(character)} Maximum Energy.")
         msg.AddLine(LightGray, "Persistence is futile!")
     End Sub
 
     Friend Sub DoEnergyTrainerTalk(character As ICharacter, trigger As IEffect)
-        Dim trainCost = character.MaximumEnergy() * 2
+        Dim trainCost = CharacterExtensions.MaximumEnergy(character) * 2
         character.World.CreateMessage.
             AddLine(LightGray, "I am the endurance trainer.").
             AddLine(LightGray, "I can increase yer energy").

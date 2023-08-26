@@ -1,7 +1,7 @@
 ﻿Friend Module ConsumableEffectHandlers
     Friend Sub DoEatPepper(character As ICharacter, effect As IEffect)
         Dim item As IItem = ConsumedItem(character, effect)
-        Dim msg = character.World.CreateMessage.AddLine(LightGray, $"{character.Name} eats the pepper.")
+        Dim msg = character.World.CreateMessage.AddLine(LightGray, $"{CharacterExtensions.Name(character)} eats the pepper.")
         DetermineSpiciness(character, msg)
     End Sub
 
@@ -13,7 +13,7 @@
 
     Friend Sub DoEatSmokedPepper(character As ICharacter, effect As IEffect)
         Dim item As IItem = ConsumedItem(character, effect)
-        Dim msg = character.World.CreateMessage.AddLine(LightGray, $"{character.Name} eats the smoked pepper.")
+        Dim msg = character.World.CreateMessage.AddLine(LightGray, $"{CharacterExtensions.Name(character)} eats the smoked pepper.")
         DetermineSpiciness(character, msg)
     End Sub
 
@@ -25,11 +25,11 @@
             character.SetHealth(character.Health - 1)
             Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"{item.Name} is tainted!").
-                AddLine(LightGray, $"{character.Name} loses 1 health!")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} loses 1 health!")
             If character.IsDead Then
-                msg.AddLine(Red, $"{character.Name} dies.")
+                msg.AddLine(Red, $"{CharacterExtensions.Name(character)} dies.")
             Else
-                msg.AddLine(LightGray, $"{character.Name} now has {character.Health}/{character.MaximumHealth} health")
+                msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {character.Health}/{character.MaximumHealth} health")
             End If
         End If
     End Sub
@@ -45,7 +45,7 @@
         character.SetHealth(character.Health + amount)
         character.World.CreateMessage().
             AddLine(LightGray, $"{item.Name} restores {amount} health!").
-            AddLine(LightGray, $"{character.Name} now has {character.Health}/{character.MaximumHealth} health")
+            AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {character.Health}/{character.MaximumHealth} health")
     End Sub
 
     Friend Sub DoEatCookedRat(character As ICharacter, effect As IEffect)
@@ -61,12 +61,12 @@
     Friend Sub DoUseEnergyHerb(character As ICharacter, effect As IEffect)
         Dim item As IItem = ConsumedItem(character, effect)
         Const energyBenefit = 10
-        character.AddEnergy(energyBenefit)
+        CharacterExtensions.AddEnergy(character, energyBenefit)
         character.World.
             CreateMessage().
-            AddLine(LightGray, $"{character.Name} eats the {item.Name}.").
-            AddLine(LightGray, $"{character.Name} regains energy!").
-        AddLine(LightGray, $"{character.Name} now has {character.Energy}/{character.MaximumEnergy} energy.")
+            AddLine(LightGray, $"{CharacterExtensions.Name(character)} eats the {item.Name}.").
+            AddLine(LightGray, $"{CharacterExtensions.Name(character)} regains energy!").
+        AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Energy(character)}/{CharacterExtensions.MaximumEnergy(character)} energy.")
     End Sub
 
 End Module

@@ -18,7 +18,7 @@
     Friend Sub DoDruidPrices(character As ICharacter, effect As IEffect)
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "I sell a variety of herbs.").
-                        AddLine(LightGray, $"({character.Name} has {character.Jools} jools)").
+                        AddLine(LightGray, $"({CharacterExtensions.Name(character)} has {character.Jools} jools)").
                         AddChoice(GoodToKnow, EffectTypes.ExitDialog).
                         AddChoice(
                             "Buy Energy Herb(5 jools)",
@@ -32,7 +32,7 @@
 
     Private Function AlreadyKnows(character As ICharacter, effect As IEffect, msg As IMessage, text As String) As Boolean
         If character.GetFlag(effect.GetMetadata(Metadatas.FlagType)) Then
-            msg.AddLine(LightGray, $"{character.Name} already know how to {text}!")
+            msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} already know how to {text}!")
             Return True
         End If
         Return False
@@ -43,7 +43,7 @@
         If character.AdvancementPoints < learnCost Then
             msg.
                 AddLine(LightGray, $"To learn to {text},").
-                AddLine(LightGray, $"{character.Name} needs {learnCost} AP,").
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs {learnCost} AP,").
                 AddLine(LightGray, $"but has {character.AdvancementPoints}!")
             Return False
         End If
@@ -59,7 +59,7 @@
         If Not RecipeTypes.CanCraft(recipeType, character) Then
             msg.
             AddLine(LightGray, $"To learn to {taskName},").
-            AddLine(LightGray, $"{character.Name} needs:")
+            AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs(recipeType)
                 msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next

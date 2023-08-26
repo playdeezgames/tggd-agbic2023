@@ -26,7 +26,7 @@
             item.Recycle()
         Next
         character.AddJools(jools)
-        character.World.CreateMessage().AddLine(LightGray, $"{character.Name} receives {jools} jools.")
+        character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} receives {jools} jools.")
     End Sub
 
     Friend Sub DoPerventInnkeeper(character As ICharacter, trigger As IEffect)
@@ -46,7 +46,7 @@
                         AddChoice("Yer a pervert!", EffectTypes.PervertInnkeeper).
                         AddChoice("I'll take a bed.", EffectTypes.PayInnkeeper)
         If character.GetFlag(FlagTypes.RatQuest) Then
-            If character.HasItemTypeInInventory(ItemTypes.RatTail) Then
+            If CharacterExtensions.HasItemTypeInInventory(character, ItemTypes.RatTail) Then
                 msg.AddChoice("Here's some rat tails!", EffectTypes.CompleteRatQuest)
             End If
         Else

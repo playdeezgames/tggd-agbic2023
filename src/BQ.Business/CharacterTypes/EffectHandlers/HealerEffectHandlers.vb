@@ -26,12 +26,12 @@
         Dim msg =
             character.World.
                 CreateMessage().
-                AddLine(LightGray, $"{character.Name} is healed!").
-                AddLine(LightGray, $"{character.Name} now has {character.Health} health.")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} is healed!").
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {character.Health} health.")
         Dim jools = character.Jools \ 2
         character.AddJools(-jools)
         If jools > 0 Then
-            msg.AddLine(Red, $"{character.Name} loses {jools} jools!")
+            msg.AddLine(Red, $"{CharacterExtensions.Name(character)} loses {jools} jools!")
         End If
     End Sub
 

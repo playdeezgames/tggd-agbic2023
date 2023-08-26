@@ -45,13 +45,13 @@
 
     Public ReadOnly Property CanBuildFurnace As Boolean Implements IAvatarCraftingModel.CanBuildFurnace
         Get
-            Return avatar.CanBuildFurnace AndAlso CellExtensions.CanBuildFurnace(avatar.Cell)
+            Return CharacterExtensions.CanBuildFurnace(avatar) AndAlso CellExtensions.CanBuildFurnace(avatar.Cell)
         End Get
     End Property
 
     Public ReadOnly Property CanCookBagel As Boolean Implements IAvatarCraftingModel.CanCookBagel
         Get
-            Return avatar.CanCookBagel AndAlso CellExtensions.CanCookBagel(avatar.Cell)
+            Return CharacterExtensions.CanCookBagel(avatar) AndAlso CellExtensions.CanCookBagel(avatar.Cell)
         End Get
     End Property
 
@@ -68,34 +68,34 @@
     End Property
 
     Public Sub MakeTwine() Implements IAvatarCraftingModel.MakeTwine
-        avatar.DoMakeTwine()
+        CharacterExtensions.DoMakeTwine(avatar)
     End Sub
 
     Public Sub BuildFire() Implements IAvatarCraftingModel.BuildFire
-        avatar.DoBuildFire()
+        CharacterExtensions.DoBuildFire(avatar)
     End Sub
 
     Public Sub PutOutFire() Implements IAvatarCraftingModel.PutOutFire
-        avatar.DoPutOutFire()
+        CharacterExtensions.DoPutOutFire(avatar)
     End Sub
 
     Public Sub MakeTorch() Implements IAvatarCraftingModel.MakeTorch
-        avatar.DoMakeTorch()
+        CharacterExtensions.DoMakeTorch(avatar)
     End Sub
 
     Public Sub MakeHatchet() Implements IAvatarCraftingModel.MakeHatchet
-        avatar.DoMakeHatchet()
+        CharacterExtensions.DoMakeHatchet(avatar)
     End Sub
 
     Public Sub BuildFurnace() Implements IAvatarCraftingModel.BuildFurnace
-        avatar.DoBuildFurnace()
+        CharacterExtensions.DoBuildFurnace(avatar)
     End Sub
 
     Public Sub Knap() Implements IAvatarCraftingModel.Knap
-        avatar.DoKnap()
+        CharacterExtensions.DoKnap(avatar)
     End Sub
 
     Public Sub CookBagel() Implements IAvatarCraftingModel.CookBagel
-        avatar.DoCookBagel()
+        CharacterExtensions.DoCookBagel(avatar)
     End Sub
 End Class

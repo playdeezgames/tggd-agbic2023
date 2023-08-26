@@ -24,6 +24,6 @@
         avatar.
             World.
             CreateMessage().
-            AddLine(LightGray, $"{avatar.Name} unequips {equipSlotType.ToEquipSlotTypeDescriptor.Name}")
+            AddLine(LightGray, $"{CharacterExtensions.Name(avatar)} unequips {equipSlotType.ToEquipSlotTypeDescriptor.Name}")
     End Sub
 End Class

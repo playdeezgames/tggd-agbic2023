@@ -12,7 +12,7 @@
         If Not RecipeTypes.CanCraft(RecipeTypes.Torch, character) Then
             Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"To make a torch,").
-                AddLine(LightGray, $"{character.Name} needs:")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs(RecipeTypes.Torch)
                 msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next
@@ -20,14 +20,14 @@
         End If
         RecipeTypes.Craft(RecipeTypes.Torch, character)
         character.World.CreateMessage().
-                AddLine(LightGray, $"{character.Name} makes a torch.")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} makes a torch.")
     End Sub
     Friend Sub DoPutOutFlames(character As ICharacter, effect As IEffect)
         If Not ConsumeEnergy(character, 1, "put out a fire") Then
             Return
         End If
         character.World.CreateMessage().
-                AddLine(LightGray, $"{character.Name} extinguishes the fire.")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} extinguishes the fire.")
         If effect.HasMetadata(Metadatas.ItemType) Then
             character.Cell.AddItem(ItemInitializer.CreateItem(character.World, effect.GetMetadata(Metadatas.ItemType)))
         End If
@@ -40,7 +40,7 @@
         If Not RecipeTypes.CanCraft(RecipeTypes.CookingFire, character) Then
             Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"To build a fire,").
-                AddLine(LightGray, $"{character.Name} needs:")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs(RecipeTypes.CookingFire)
                 msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next
@@ -48,7 +48,7 @@
         End If
         RecipeTypes.Craft(RecipeTypes.CookingFire, character)
         character.World.CreateMessage().
-                AddLine(LightGray, $"{character.Name} builds a small fire.")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} builds a small fire.")
         character.Cell.TerrainType = TerrainTypes.CookingFire
     End Sub
     Friend Sub DoBuildFurnace(character As ICharacter, effect As IEffect)
@@ -58,7 +58,7 @@
         If Not RecipeTypes.CanCraft(RecipeTypes.Furnace, character) Then
             Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"To build a furnace,").
-                AddLine(LightGray, $"{character.Name} needs:")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs(RecipeTypes.Furnace)
                 msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next
@@ -66,12 +66,12 @@
         End If
         RecipeTypes.Craft(RecipeTypes.Furnace, character)
         character.World.CreateMessage().
-                AddLine(LightGray, $"{character.Name} builds a furnace.")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} builds a furnace.")
         character.Cell.TerrainType = TerrainTypes.Furnace
     End Sub
     Friend Sub DoCutOffTail(character As ICharacter, effect As IEffect)
         If Not character.HasCuttingTool Then
-            character.World.CreateMessage().AddLine(LightGray, $"{character.Name} needs a cutting tool for that!")
+            character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs a cutting tool for that!")
             Return
         End If
         character.RemoveItem(CType(effect, IItemEffect).Item)
@@ -82,7 +82,7 @@
     Private Function CheckForFurnace(character As ICharacter, taskName As String) As Boolean
         If Not character.Cell.Descriptor.IsFurnace Then
             character.World.CreateMessage().
-                AddLine(LightGray, $"{character.Name} needs a furnace to {taskName}.")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs a furnace to {taskName}.")
             Return False
         End If
         Return True
@@ -91,7 +91,7 @@
     Private Function CheckForFire(character As ICharacter, taskName As String) As Boolean
         If Not character.Cell.Descriptor.HasFire Then
             character.World.CreateMessage().
-                AddLine(LightGray, $"{character.Name} needs a fire to {taskName}.")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs a fire to {taskName}.")
             Return False
         End If
         Return True
@@ -130,13 +130,13 @@
         If Not RecipeTypes.CanCraft(RecipeTypes.Hatchet, character) Then
             Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"To make a hatchet,").
-                AddLine(LightGray, $"{character.Name} needs:")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             AddRecipeInputs(character, msg, RecipeTypes.Hatchet)
             Return
         End If
         RecipeTypes.Craft(RecipeTypes.Hatchet, character)
         character.World.CreateMessage().
-                AddLine(LightGray, $"{character.Name} makes a hatchet.")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} makes a hatchet.")
     End Sub
 
     Friend Sub AddRecipeInputs(character As ICharacter, msg As IMessage, recipeType As String)
@@ -149,7 +149,7 @@
         If Not RecipeTypes.CanCraft(recipeType, character) Then
             Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"To {taskName},").
-                AddLine(LightGray, $"{character.Name} needs:")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs(recipeType)
                 msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next
@@ -165,7 +165,7 @@
             End If
             RecipeTypes.Craft(recipeType, character)
             character.World.CreateMessage().
-                AddLine(LightGray, $"{character.Name} {resultName}.")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} {resultName}.")
         End If
     End Sub
 

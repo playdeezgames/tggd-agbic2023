@@ -19,7 +19,7 @@ Friend Class CombatModel
         Get
             Return world.Avatar.Cell.
                 OtherCharacters(world.Avatar).
-                Select(Function(x) (x.Descriptor.Glyph, x.Descriptor.Hue, x.Descriptor.MaskGlyph, x.Descriptor.MaskHue))
+                Select(Function(x) (CharacterExtensions.Descriptor(x).Glyph, CharacterExtensions.Descriptor(x).Hue, CharacterExtensions.Descriptor(x).MaskGlyph, CharacterExtensions.Descriptor(x).MaskHue))
         End Get
     End Property
 
@@ -27,7 +27,7 @@ Friend Class CombatModel
         Get
             Dim character = world.Avatar.Cell.
                 OtherCharacters(world.Avatar).ElementAt(index)
-            Return (character.Name, character.Health, character.MaximumHealth, character.HealthDisplay)
+            Return (CharacterExtensions.Name(character), character.Health, character.MaximumHealth, CharacterExtensions.HealthDisplay(character))
         End Get
     End Property
 
@@ -53,24 +53,25 @@ Friend Class CombatModel
             Return
         End If
         Dim delta = RNG.FromEnumerable(runDeltas)
-        If world.Avatar.Move(delta) Then
-            Dim msg = world.CreateMessage().AddLine(LightGray, $"{world.Avatar.Name} runs away!")
+        Dim avatar = world.Avatar
+        If CharacterExtensions.Move(avatar, delta) Then
+            Dim msg = world.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(avatar)} runs away!")
             If Exists Then
                 msg.AddLine(Red, "An ambush awaits!")
             End If
             Return
         End If
-        world.CreateMessage().AddLine(LightGray, $"{world.Avatar.Name} cannot run away!")
+        world.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(avatar)} cannot run away!")
     End Sub
 
     Public Sub Attack(enemyIndex As Integer) Implements ICombatModel.Attack
         Const EnergyCost = 1
         Dim avatar = world.Avatar
-        If avatar.Energy < EnergyCost Then
-            world.CreateMessage.AddLine(Red, $"{avatar.Name} doesn't have the energy to fight!")
+        If CharacterExtensions.Energy(avatar) < EnergyCost Then
+            world.CreateMessage.AddLine(Red, $"{CharacterExtensions.Name(avatar)} doesn't have the energy to fight!")
             Return
         End If
-        avatar.AddEnergy(-EnergyCost)
+        CharacterExtensions.AddEnergy(avatar, -EnergyCost)
         Dim target = avatar.Cell.
                 OtherCharacters(world.Avatar).ElementAt(enemyIndex)
         Dim damageDone = False

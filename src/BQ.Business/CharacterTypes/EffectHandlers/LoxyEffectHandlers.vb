@@ -56,11 +56,11 @@
                     }
 
     Friend Function ConsumeEnergy(character As ICharacter, energyCost As Integer, actionName As String) As Boolean
-        If character.Energy < energyCost Then
-            character.World.CreateMessage().AddLine(LightGray, $"{character.Name} doesn't have the energy to {actionName}.")
+        If CharacterExtensions.Energy(character) < energyCost Then
+            character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} doesn't have the energy to {actionName}.")
             Return False
         End If
-        character.AddEnergy(-energyCost)
+        CharacterExtensions.AddEnergy(character, -energyCost)
         Return True
     End Function
     Private Sub DoForage(character As ICharacter, effect As IEffect)
@@ -70,12 +70,12 @@
         End If
         Dim itemType = CellExtensions.GenerateForageItemType(cell)
         If String.IsNullOrEmpty(itemType) Then
-            character.World.CreateMessage().AddLine(LightGray, $"{character.Name} finds nothing.")
+            character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} finds nothing.")
             Return
         End If
         Dim item = ItemInitializer.CreateItem(character.World, itemType)
         character.AddItem(item)
-        character.World.CreateMessage().AddLine(LightGray, $"{character.Name} finds {item.Name}")
+        character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} finds {item.Name}")
     End Sub
 
     Private Sub DoBuy(character As ICharacter, trigger As IEffect)

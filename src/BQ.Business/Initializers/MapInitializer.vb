@@ -64,7 +64,7 @@ Friend Module MapInitializer
 
     Friend Function CreateCharacter(characterType As String, cell As ICell) As ICharacter
         Dim character = cell.Map.World.CreateCharacter(characterType, cell)
-        Dim descriptor = character.Descriptor
+        Dim descriptor = CharacterExtensions.Descriptor(character)
         With character
             For Each entry In descriptor.Statistics
                 .SetStatistic(entry.Key, entry.Value)

@@ -70,12 +70,12 @@
     Public Sub Equip(itemId As Integer) Implements IItemModel.Equip
         Dim item = world.GetItem(itemId)
         world.Avatar.EquipItem(item)
-        world.CreateMessage().AddLine(LightGray, $"{world.Avatar.Name} equips {item.Name}")
+        world.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(world.Avatar)} equips {item.Name}")
     End Sub
 
     Public Sub DoEffect(effectType As String) Implements IItemModel.DoEffect
         Dim item = world.Avatar.Items.First(Function(x) x.Name = Name)
         Dim effect = item.Descriptor.ToItemEffect(effectType, item)
-        world.Avatar.Descriptor.EffectHandlers(effectType).Invoke(world.Avatar, effect)
+        CharacterExtensions.Descriptor(world.Avatar).EffectHandlers(effectType).Invoke(world.Avatar, effect)
     End Sub
 End Class

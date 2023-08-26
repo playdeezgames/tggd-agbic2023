@@ -22,7 +22,7 @@
 
     Public ReadOnly Property CanForage As Boolean Implements IForagingModel.CanForage
         Get
-            Return world.Avatar.GetFlag(FlagTypes.KnowsForaging) AndAlso Remaining > 0 AndAlso world.Avatar.Energy > 0
+            Return world.Avatar.GetFlag(FlagTypes.KnowsForaging) AndAlso Remaining > 0 AndAlso CharacterExtensions.Energy(world.Avatar) > 0
         End Get
     End Property
 
@@ -30,7 +30,7 @@
         If items.Any Then
             Dim table = items.GroupBy(Function(x) x.Name).ToDictionary(Function(x) x.Key, Function(x) x.Count)
             Dim msg = world.CreateMessage().
-                AddLine(LightGray, $"{world.Avatar.Name} forages:")
+                AddLine(LightGray, $"{CharacterExtensions.Name(world.Avatar)} forages:")
             For Each entry In table
                 msg.AddLine(LightGray, $"{entry.Key}(x{entry.Value})")
             Next
@@ -43,7 +43,7 @@
         End If
         Dim itemType = CellExtensions.GenerateForageItemType(world.Avatar.Cell)
         world.Avatar.Cell.AddStatistic(StatisticTypes.ForageRemaining, -1)
-        world.Avatar.AddEnergy(-1)
+        CharacterExtensions.AddEnergy(world.Avatar, -1)
         If String.IsNullOrEmpty(itemType) Then
             Return Nothing
         End If

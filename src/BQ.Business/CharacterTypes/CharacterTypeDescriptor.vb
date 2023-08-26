@@ -1,4 +1,4 @@
-﻿Friend Class CharacterTypeDescriptor
+﻿Public Class CharacterTypeDescriptor
     Inherits VisibleEntityDescriptor
     Friend ReadOnly Property MaskGlyph As Char
     Friend ReadOnly Property MaskHue As Integer
@@ -60,6 +60,6 @@
             luaState(CharacterIdentifier) = Nothing
             Return
         End If
-        Throw New NotImplementedException($"No effect type '{effectType}' for '{character.Name}'(id: {character.Id})")
+        Throw New NotImplementedException($"No effect type '{effectType}' for '{CharacterExtensions.Name(character)}'(id: {character.Id})")
     End Sub
 End Class

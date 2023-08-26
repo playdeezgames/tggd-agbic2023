@@ -1,4 +1,4 @@
-﻿Friend Module CharacterExtensions
+﻿Public Module CharacterExtensions
     <Extension>
     Friend Function HasWon(character As ICharacter) As Boolean
         Return character.IsAvatar AndAlso character.ItemTypeCount(ItemTypes.Bagel) > 0
@@ -122,7 +122,7 @@
         RecipeTypes.Craft(RecipeTypes.SharpRock, character)
     End Sub
     <Extension>
-    Friend Function Name(character As ICharacter) As String
+    Public Function Name(character As ICharacter) As String
         Return character.Descriptor.Name
     End Function
     <Extension>

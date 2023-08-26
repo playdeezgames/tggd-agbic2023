@@ -1,8 +1,6 @@
 ﻿Imports SPLORR.Game
 
 Friend Module LoxyEffectHandlers
-    '{EffectTypes.PotterFlavorText, AddressOf DoPotterFlavorText},
-    '{EffectTypes.Teleport, AddressOf DefaultTeleport},
     Friend All As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect)) =
         New Dictionary(Of String, Action(Of ICharacter, IEffect)) From
                     {
@@ -30,7 +28,6 @@ Friend Module LoxyEffectHandlers
                         {EffectTypes.TrainEnergy, AddressOf DoTrainEnergy},
                         {EffectTypes.StartRatQuest, AddressOf DoStartRatQuest},
                         {EffectTypes.AcceptRatQuest, AddressOf DoAcceptRatQuest},
-                        {EffectTypes.EnterCellar, AddressOf DoEnterCellar},
                         {EffectTypes.CompleteRatQuest, AddressOf DoCompleteRatQuest},
                         {EffectTypes.CutOffTail, AddressOf DoCutOffTail},
                         {EffectTypes.UseEnergyHerb, AddressOf DoUseEnergyHerb},
@@ -104,15 +101,6 @@ Friend Module LoxyEffectHandlers
 
     Private Sub DefaultMessage(character As ICharacter, trigger As IEffect)
         trigger.GetMetadata(Metadatas.MessageType).ToMessageTypeDescriptor.CreateMessage(character.World)
-    End Sub
-
-    Friend Sub DefaultTeleport(character As ICharacter, effect As IEffect)
-        Dim nextCell = character.World.
-            Map(effect.GetStatistic(StatisticTypes.MapId)).
-            GetCell(effect.GetStatistic(StatisticTypes.CellColumn), effect.GetStatistic(StatisticTypes.CellRow))
-        nextCell.AddCharacter(character)
-        character.Cell.RemoveCharacter(character)
-        character.Cell = nextCell
     End Sub
 
     Private Sub DoExitDialog(character As ICharacter, trigger As IEffect)

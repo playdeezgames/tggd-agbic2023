@@ -31,7 +31,7 @@ Public Class World_should
         actual.Cells.Count.ShouldBe(columns * rows)
         actual.Cells.ShouldAllBe(Function(x) x.TerrainType = terrainType)
         subject.Maps.ShouldHaveSingleItem
-        subject.Map(0).Id.ShouldBe(actual.Id)
+        subject.GetMap(0).Id.ShouldBe(actual.Id)
     End Sub
     <Fact>
     Sub create_character()

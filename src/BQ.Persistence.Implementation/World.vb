@@ -113,6 +113,10 @@ Public Class World
         End If
     End Sub
 
+    Public Sub SetMetadata(identifier As String, value As String) Implements IMetadataHolder.SetMetadata
+        WorldData.Metadatas(identifier) = value
+    End Sub
+
     Public Shared Function Load(filename As String) As IWorld
         Try
             Return New World(JsonSerializer.Deserialize(Of WorldData)(File.ReadAllText(filename)))
@@ -200,5 +204,9 @@ Public Class World
 
     Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag
         Return WorldData.Flags.Contains(flagType)
+    End Function
+
+    Public Function GetMetadata(identifier As String) As String Implements IMetadataHolder.GetMetadata
+        Return WorldData.Metadatas(identifier)
     End Function
 End Class

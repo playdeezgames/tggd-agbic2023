@@ -143,4 +143,12 @@ Friend Class Message
     Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag
         Return MessageData.Flags.Contains(flagType)
     End Function
+
+    Public Sub SetMetadata(identifier As String, value As String) Implements IMetadataHolder.SetMetadata
+        MessageData.Metadatas(identifier) = value
+    End Sub
+
+    Public Function GetMetadata(identifier As String) As String Implements IMetadataHolder.GetMetadata
+        Return MessageData.Metadatas(identifier)
+    End Function
 End Class

@@ -56,6 +56,10 @@ Friend Class MapEffect
         End If
     End Sub
 
+    Public Sub SetMetadata(identifier As String, value As String) Implements IMetadataHolder.SetMetadata
+        EffectData.Metadatas(identifier) = value
+    End Sub
+
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return EffectData.Statistics.ContainsKey(statisticType)
     End Function
@@ -75,5 +79,9 @@ Friend Class MapEffect
 
     Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag
         Return EffectData.Flags.Contains(flagType)
+    End Function
+
+    Public Function GetMetadata(identifier As String) As String Implements IMetadataHolder.GetMetadata
+        Return EffectData.Metadatas(identifier)
     End Function
 End Class

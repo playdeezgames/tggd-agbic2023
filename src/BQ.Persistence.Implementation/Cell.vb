@@ -163,6 +163,10 @@ Friend Class Cell
         End If
     End Sub
 
+    Public Sub SetMetadata(identifier As String, value As String) Implements IMetadataHolder.SetMetadata
+        CellData.Metadatas(identifier) = value
+    End Sub
+
     Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
         Return CellData.Metadatas.ContainsKey(identifier)
     End Function
@@ -178,6 +182,10 @@ Friend Class Cell
 
     Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag
         Return CellData.Flags.Contains(flagType)
+    End Function
+
+    Public Function GetMetadata(identifier As String) As String Implements IMetadataHolder.GetMetadata
+        Return CellData.Metadatas(identifier)
     End Function
 
     Private Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic

@@ -45,6 +45,10 @@
         End If
     End Sub
 
+    Public Sub SetMetadata(identifier As String, value As String) Implements IMetadataHolder.SetMetadata
+        data.Metadatas(identifier) = value
+    End Sub
+
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return data.Statistics.ContainsKey(statisticType)
     End Function
@@ -64,5 +68,9 @@
 
     Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag
         Return data.Flags.Contains(flagType)
+    End Function
+
+    Public Function GetMetadata(identifier As String) As String Implements IMetadataHolder.GetMetadata
+        Return data.Metadatas(identifier)
     End Function
 End Class

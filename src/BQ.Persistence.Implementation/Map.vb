@@ -71,6 +71,10 @@
         End If
     End Sub
 
+    Public Sub SetMetadata(identifier As String, value As String) Implements IMetadataHolder.SetMetadata
+        MapData.Metadatas(identifier) = value
+    End Sub
+
     Public Function GetCell(column As Integer, row As Integer) As ICell Implements IMap.GetCell
         If column < 0 OrElse row < 0 OrElse column >= Columns OrElse row >= Rows Then
             Return Nothing
@@ -102,5 +106,9 @@
 
     Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag
         Return MapData.Flags.Contains(flagType)
+    End Function
+
+    Public Function GetMetadata(identifier As String) As String Implements IMetadataHolder.GetMetadata
+        Return MapData.Metadatas(identifier)
     End Function
 End Class

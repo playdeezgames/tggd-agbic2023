@@ -58,6 +58,10 @@ Friend Class MessageChoice
         End If
     End Sub
 
+    Public Sub SetMetadata(identifier As String, value As String) Implements IMetadataHolder.SetMetadata
+        MessageChoiceData.Metadatas(identifier) = value
+    End Sub
+
     Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
         Return MessageChoiceData.Statistics.ContainsKey(statisticType)
     End Function
@@ -77,5 +81,9 @@ Friend Class MessageChoice
 
     Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag
         Return MessageChoiceData.Flags.Contains(flagType)
+    End Function
+
+    Public Function GetMetadata(identifier As String) As String Implements IMetadataHolder.GetMetadata
+        Return MessageChoiceData.Metadatas(identifier)
     End Function
 End Class

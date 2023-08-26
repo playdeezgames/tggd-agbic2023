@@ -1,6 +1,4 @@
-﻿Imports SPLORR.Game
-
-Friend Module LoxyEffectHandlers
+﻿Friend Module LoxyEffectHandlers
     Friend All As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect)) =
         New Dictionary(Of String, Action(Of ICharacter, IEffect)) From
                     {

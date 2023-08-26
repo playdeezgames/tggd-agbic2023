@@ -42,18 +42,6 @@ Public Class World
         End Get
     End Property
 
-    Public ReadOnly Property Character(id As Integer) As ICharacter Implements IWorld.Character
-        Get
-            Return New Character(WorldData, id)
-        End Get
-    End Property
-
-    Public ReadOnly Property Item(id As Integer) As IItem Implements IWorld.Item
-        Get
-            Return New Item(WorldData, id)
-        End Get
-    End Property
-
     Public ReadOnly Property Maps As IEnumerable(Of IMap) Implements IWorld.Maps
         Get
             Return Enumerable.Range(0, WorldData.Maps.Count).Select(Function(x) New Map(WorldData, x))

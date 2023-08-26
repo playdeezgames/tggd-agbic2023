@@ -68,7 +68,7 @@
     End Sub
 
     Public Sub Equip(itemId As Integer) Implements IItemModel.Equip
-        Dim item = world.Item(itemId)
+        Dim item = world.GetItem(itemId)
         world.Avatar.EquipItem(item)
         world.CreateMessage().AddLine(LightGray, $"{world.Avatar.Name} equips {item.Name}")
     End Sub

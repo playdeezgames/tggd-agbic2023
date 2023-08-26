@@ -42,7 +42,7 @@ Public Class World_should
         actual.Cell.Column.ShouldBe(2)
         actual.Cell.Row.ShouldBe(1)
         subject.Characters.ShouldHaveSingleItem
-        subject.Character(0).Id.ShouldBe(actual.Id)
+        subject.GetCharacter(0).Id.ShouldBe(actual.Id)
     End Sub
     <Fact>
     Sub begin_blank()
@@ -66,7 +66,7 @@ Public Class World_should
         Dim subject As IWorld = New World(New Data.WorldData)
         Dim actual = subject.CreateItem("ItemType")
         actual.ShouldNotBeNull
-        subject.Item(0).Id.ShouldBe(actual.Id)
+        subject.GetItem(0).Id.ShouldBe(actual.Id)
     End Sub
     <Fact>
     Sub dismiss_message()

@@ -52,7 +52,7 @@ Friend Module MapInitializer
     End Sub
 
     Private Sub PopulateCharacter(map As IMap, characterType As String)
-        Dim candidate = RNG.FromEnumerable(map.Cells.Where(Function(x) x.IsTenable AndAlso Not x.HasCharacters))
+        Dim candidate = RNG.FromEnumerable(map.Cells.Where(Function(x) CellExtensions.IsTenable(x) AndAlso Not x.HasCharacters))
         CreateCharacterInCell(characterType, candidate)
     End Sub
 

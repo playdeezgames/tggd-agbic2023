@@ -15,19 +15,19 @@
 
     Public ReadOnly Property CanBuildFire As Boolean Implements IAvatarCraftingModel.CanBuildFire
         Get
-            Return avatar.GetFlag(FlagTypes.KnowsFireMaking) AndAlso avatar.Cell.CanBuildFire
+            Return avatar.GetFlag(FlagTypes.KnowsFireMaking) AndAlso CellExtensions.CanBuildFire(avatar.Cell)
         End Get
     End Property
 
     Public ReadOnly Property CanPutOutFire As Boolean Implements IAvatarCraftingModel.CanPutOutFire
         Get
-            Return avatar.Cell.HasFire
+            Return CellExtensions.HasFire(avatar.Cell)
         End Get
     End Property
 
     Public ReadOnly Property CanMakeTorch As Boolean Implements IAvatarCraftingModel.CanMakeTorch
         Get
-            Return avatar.GetFlag(FlagTypes.KnowsTorchMaking) AndAlso avatar.Cell.CanMakeTorch
+            Return avatar.GetFlag(FlagTypes.KnowsTorchMaking) AndAlso CellExtensions.CanMakeTorch(avatar.Cell)
         End Get
     End Property
 
@@ -45,13 +45,13 @@
 
     Public ReadOnly Property CanBuildFurnace As Boolean Implements IAvatarCraftingModel.CanBuildFurnace
         Get
-            Return avatar.CanBuildFurnace AndAlso avatar.Cell.CanBuildFurnace
+            Return avatar.CanBuildFurnace AndAlso CellExtensions.CanBuildFurnace(avatar.Cell)
         End Get
     End Property
 
     Public ReadOnly Property CanCookBagel As Boolean Implements IAvatarCraftingModel.CanCookBagel
         Get
-            Return avatar.CanCookBagel AndAlso avatar.Cell.CanCookBagel
+            Return avatar.CanCookBagel AndAlso CellExtensions.CanCookBagel(avatar.Cell)
         End Get
     End Property
 

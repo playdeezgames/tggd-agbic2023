@@ -52,7 +52,7 @@
         If Not character.IsAvatar Then
             Return
         End If
-        If Not character.Map.CampingAllowed OrElse Not character.Cell.CanSleep Then
+        If Not character.Map.CampingAllowed OrElse Not CellExtensions.CanSleep(character.Cell) Then
             character.World.CreateMessage().AddLine(LightGray, $"{character.Name} cannot sleep here!")
             Return
         End If
@@ -145,7 +145,7 @@
     End Sub
     <Extension>
     Private Function CanEnter(character As ICharacter, cell As ICell) As Boolean
-        Return cell IsNot Nothing AndAlso cell.IsTenable
+        Return cell IsNot Nothing AndAlso CellExtensions.IsTenable(cell)
     End Function
     <Extension>
     Friend Sub DoMapEffect(character As ICharacter, cell As ICell)
@@ -188,8 +188,8 @@
     End Sub
     <Extension>
     Private Sub EnterCell(character As ICharacter)
-        If character.Cell.Peril > 0 Then
-            character.AddPeril(character.Cell.Peril)
+        If CellExtensions.Peril(character.Cell) > 0 Then
+            character.AddPeril(CellExtensions.Peril(character.Cell))
             If character.Peril > 0 Then
                 Dim roll = RNG.RollDice("1d20")
                 If roll <= character.Peril Then

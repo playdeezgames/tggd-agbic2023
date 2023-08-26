@@ -41,7 +41,7 @@
         If Not CanForage Then
             Return Nothing
         End If
-        Dim itemType = world.Avatar.Cell.GenerateForageItemType()
+        Dim itemType = CellExtensions.GenerateForageItemType(world.Avatar.Cell)
         world.Avatar.Cell.AddStatistic(StatisticTypes.ForageRemaining, -1)
         world.Avatar.AddEnergy(-1)
         If String.IsNullOrEmpty(itemType) Then

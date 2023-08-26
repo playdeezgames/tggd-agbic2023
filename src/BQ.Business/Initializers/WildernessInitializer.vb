@@ -40,7 +40,7 @@ Module WildernessInitializer
         Do
             x = RNG.FromRange(0, WildernessColumns - 1)
             y = RNG.FromRange(0, WildernessRows - 1)
-        Loop Until map.GetCell(x, y).IsTenable
+        Loop Until CellExtensions.IsTenable(map.GetCell(x, y))
         map.GetCell(x, y).TerrainType = TerrainTypes.Town
     End Sub
 

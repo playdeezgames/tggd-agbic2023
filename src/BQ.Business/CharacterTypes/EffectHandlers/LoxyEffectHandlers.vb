@@ -68,7 +68,7 @@
         If Not ConsumeEnergy(character, 1, "forage") Then
             Return
         End If
-        Dim itemType = cell.GenerateForageItemType()
+        Dim itemType = CellExtensions.GenerateForageItemType(cell)
         If String.IsNullOrEmpty(itemType) Then
             character.World.CreateMessage().AddLine(LightGray, $"{character.Name} finds nothing.")
             Return

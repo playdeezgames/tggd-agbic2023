@@ -6,7 +6,7 @@
         Return RecipeTypes.CanCraft(RecipeTypes.Bagel, character)
     End Function
     Public Function HealthDisplay(character As ICharacter) As String
-        Return $"HP {character.Health}/{character.MaximumHealth}"
+        Return $"HP {CharacterExtensions.Health(character)}/{character.MaximumHealth}"
     End Function
     Public Function EnergyDisplay(character As ICharacter) As String
         Return $"EN {CharacterExtensions.Energy(character)}/{CharacterExtensions.MaximumEnergy(character)}"
@@ -181,7 +181,6 @@
     Public Sub SetMaximumEnergy(character As ICharacter, maximumEnergy As Integer)
         character.SetStatistic(StatisticTypes.MaximumEnergy, maximumEnergy)
     End Sub
-    <Extension>
     Public Function Health(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.Health)
     End Function
@@ -220,11 +219,11 @@
     <Extension>
     Public Sub SetMaximumHealth(character As ICharacter, maximumHealth As Integer)
         character.SetStatistic(StatisticTypes.MaximumHealth, Math.Max(1, maximumHealth))
-        character.SetHealth(character.Health)
+        character.SetHealth(CharacterExtensions.Health(character))
     End Sub
     <Extension>
     Public Function IsDead(character As ICharacter) As Boolean
-        Return character.Health <= 0
+        Return CharacterExtensions.Health(character) <= 0
     End Function
     <Extension>
     Private Sub Die(character As ICharacter)
@@ -365,7 +364,7 @@
         End If
         result = True
         msg.AddLine(LightGray, $"{CharacterExtensions.Name(defender)} takes {damage} damage")
-        defender.SetHealth(defender.Health - damage)
+        defender.SetHealth(CharacterExtensions.Health(defender) - damage)
         If defender.IsDead Then
             msg.SetSfx(If(defender.IsAvatar, Sfx.PlayerDeath, Sfx.EnemyDeath))
             msg.AddLine(LightGray, $"{CharacterExtensions.Name(attacker)} kills {CharacterExtensions.Name(defender)}")
@@ -375,7 +374,7 @@
             Return result
         End If
         msg.SetSfx(If(defender.IsAvatar, Sfx.PlayerHit, Sfx.EnemyHit))
-        msg.AddLine(LightGray, $"{CharacterExtensions.Name(defender)} has {defender.Health}/{defender.MaximumHealth} health.")
+        msg.AddLine(LightGray, $"{CharacterExtensions.Name(defender)} has {CharacterExtensions.Health(defender)}/{defender.MaximumHealth} health.")
         Return result
     End Function
     <Extension>

@@ -21,7 +21,7 @@
         End If
         character.AddAdvancementPoints(-TrainingCost)
         character.SetMaximumHealth(character.MaximumHealth + 1)
-        character.SetHealth(character.Health + 1)
+        character.SetHealth(CharacterExtensions.Health(character) + 1)
         msg.AddLine(Red, $"{CharacterExtensions.Name(character)} loses {TrainingCost} AP")
         msg.AddLine(Green, $"{CharacterExtensions.Name(character)} adds 1 Maximum Health")
         msg.AddLine(LightGray, $"Yer now at {character.MaximumHealth} Maximum Health.")

@@ -18,7 +18,7 @@
     End Sub
     Friend Sub NihilisticHealing(character As ICharacter, effect As IEffect)
         Dim maximumHealth = Math.Min(character.MaximumHealth, effect.GetStatistic(StatisticTypes.MaximumHealth))
-        If character.Health >= maximumHealth Then
+        If CharacterExtensions.Health(character) >= maximumHealth Then
             character.World.CreateMessage().AddLine(LightGray, "Nothing happens!")
             Return
         End If
@@ -27,7 +27,7 @@
             character.World.
                 CreateMessage().
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} is healed!").
-                AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {character.Health} health.")
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Health(character)} health.")
         Dim jools = character.Jools \ 2
         character.AddJools(-jools)
         If jools > 0 Then

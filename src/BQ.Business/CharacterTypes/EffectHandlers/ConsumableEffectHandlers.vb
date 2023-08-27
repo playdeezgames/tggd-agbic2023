@@ -22,14 +22,14 @@
         If RNG.GenerateBoolean(50, 50) Then
             DoHealing(character, item, 1)
         Else
-            character.SetHealth(character.Health - 1)
+            character.SetHealth(CharacterExtensions.Health(character) - 1)
             Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"{item.Name} is tainted!").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} loses 1 health!")
             If character.IsDead Then
                 msg.AddLine(Red, $"{CharacterExtensions.Name(character)} dies.")
             Else
-                msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {character.Health}/{character.MaximumHealth} health")
+                msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Health(character)}/{character.MaximumHealth} health")
             End If
         End If
     End Sub
@@ -42,10 +42,10 @@
     End Function
 
     Private Sub DoHealing(character As ICharacter, item As IItem, amount As Integer)
-        character.SetHealth(character.Health + amount)
+        character.SetHealth(CharacterExtensions.Health(character) + amount)
         character.World.CreateMessage().
             AddLine(LightGray, $"{item.Name} restores {amount} health!").
-            AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {character.Health}/{character.MaximumHealth} health")
+            AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Health(character)}/{character.MaximumHealth} health")
     End Sub
 
     Friend Sub DoEatCookedRat(character As ICharacter, effect As IEffect)

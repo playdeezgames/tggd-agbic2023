@@ -2,10 +2,10 @@
     Friend Sub DoPotterMakePot(character As ICharacter, effect As IEffect)
         Const price = 20
         Const RecipeType = RecipeTypes.UnfiredPot
-        If character.Jools < price Then
+        If CharacterExtensions.Jools(character) < price Then
             character.World.CreateMessage.
                         AddLine(LightGray, $"The price is {price} jools.").
-                        AddLine(LightGray, $"({CharacterExtensions.Name(character)} has {character.Jools} jools)")
+                        AddLine(LightGray, $"({CharacterExtensions.Name(character)} has {CharacterExtensions.Jools(character)} jools)")
             Return
         End If
         If Not RecipeTypes.CanCraft(RecipeType, character) Then
@@ -13,7 +13,7 @@
             AddRecipeInputs(character, msg, RecipeType)
             Return
         End If
-        character.AddJools(-price)
+        CharacterExtensions.AddJools(character, -price)
         RecipeTypes.Craft(RecipeType, character)
         RecipeTypes.Craft(RecipeTypes.ClayPot, character)
         character.World.CreateMessage.

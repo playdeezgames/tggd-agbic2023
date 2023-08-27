@@ -18,7 +18,7 @@
         Return $"XP {CharacterExtensions.XP(character)}/{CharacterExtensions.XPGoal(character)}"
     End Function
     Public Function JoolsDisplay(character As ICharacter) As String
-        Return $"$ {character.Jools}"
+        Return $"$ {CharacterExtensions.Jools(character)}"
     End Function
     Public Function APDisplay(character As ICharacter) As String
         Return $"AP {CharacterExtensions.AdvancementPoints(character)}"
@@ -248,26 +248,22 @@
         End If
         Return False
     End Function
-    <Extension>
     Public Sub AddJools(character As ICharacter, jools As Integer)
-        character.SetJools(character.Jools + jools)
+        CharacterExtensions.SetJools(character, CharacterExtensions.Jools(character) + jools)
     End Sub
-    <Extension>
     Public Function Jools(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.Jools)
     End Function
-    <Extension>
     Public Sub SetJools(character As ICharacter, jools As Integer)
         character.SetStatistic(StatisticTypes.Jools, Math.Max(0, jools))
     End Sub
-    <Extension>
     Public Sub AwardJools(character As ICharacter, msg As IMessage, jools As Integer)
         If Not character.IsAvatar Then
             Return
         End If
         If jools > 0 Then
             msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} gets {jools} jools!")
-            character.AddJools(jools)
+            CharacterExtensions.AddJools(character, jools)
         End If
     End Sub
     Public Function AdvancementPoints(character As ICharacter) As Integer
@@ -352,7 +348,7 @@
         If CharacterExtensions.IsDead(defender) Then
             msg.SetSfx(If(defender.IsAvatar, Sfx.PlayerDeath, Sfx.EnemyDeath))
             msg.AddLine(LightGray, $"{CharacterExtensions.Name(attacker)} kills {CharacterExtensions.Name(defender)}")
-            attacker.AwardJools(msg, defender.Jools)
+            CharacterExtensions.AwardJools(attacker, msg, CharacterExtensions.Jools(defender))
             CharacterExtensions.AwardXP(attacker, msg, CharacterExtensions.XP(defender))
             CharacterExtensions.Die(defender)
             Return result

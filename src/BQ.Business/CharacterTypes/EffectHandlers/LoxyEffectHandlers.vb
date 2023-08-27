@@ -81,14 +81,14 @@
     Private Sub DoBuy(character As ICharacter, trigger As IEffect)
         Dim itemType = trigger.GetMetadata(Metadatas.ItemType)
         Dim price = trigger.GetStatistic(StatisticTypes.Price)
-        If character.Jools < price Then
+        If CharacterExtensions.Jools(character) < price Then
             character.World.
                 CreateMessage().
                 AddLine(LightGray, "You don't have enough!").
                 AddChoice("Shucks!", trigger.GetMetadata(Metadatas.EffectType))
             Return
         End If
-        character.AddJools(-price)
+        CharacterExtensions.AddJools(character, -price)
         character.AddItem(ItemInitializer.CreateItem(character.World, itemType))
         character.World.
             CreateMessage().

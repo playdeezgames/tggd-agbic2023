@@ -6,12 +6,12 @@
             Return
         End If
         Const bedCost = 1
-        If character.Jools < bedCost Then
+        If CharacterExtensions.Jools(character) < bedCost Then
             character.World.CreateMessage().
                         AddLine(LightGray, "Sorry! No jools, no bed!")
             Return
         End If
-        character.AddJools(-bedCost)
+        CharacterExtensions.AddJools(character, -bedCost)
         character.SetFlag(FlagTypes.PaidInnkeeper, True)
         character.World.CreateMessage().
                         AddLine(LightGray, "Thanks for yer business.").
@@ -25,7 +25,7 @@
             character.RemoveItem(item)
             item.Recycle()
         Next
-        character.AddJools(jools)
+        CharacterExtensions.AddJools(character, jools)
         character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} receives {jools} jools.")
     End Sub
 

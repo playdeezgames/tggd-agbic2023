@@ -28,8 +28,8 @@
                 CreateMessage().
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} is healed!").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Health(character)} health.")
-        Dim jools = character.Jools \ 2
-        character.AddJools(-jools)
+        Dim jools = CharacterExtensions.Jools(character) \ 2
+        CharacterExtensions.AddJools(character, -jools)
         If jools > 0 Then
             msg.AddLine(Red, $"{CharacterExtensions.Name(character)} loses {jools} jools!")
         End If

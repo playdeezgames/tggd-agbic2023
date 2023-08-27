@@ -18,7 +18,7 @@
     Friend Sub DoDruidPrices(character As ICharacter, effect As IEffect)
         Dim msg = character.World.CreateMessage.
                         AddLine(LightGray, "I sell a variety of herbs.").
-                        AddLine(LightGray, $"({CharacterExtensions.Name(character)} has {character.Jools} jools)").
+                        AddLine(LightGray, $"({CharacterExtensions.Name(character)} has {CharacterExtensions.Jools(character)} jools)").
                         AddChoice(GoodToKnow, EffectTypes.ExitDialog).
                         AddChoice(
                             "Buy Energy Herb(5 jools)",

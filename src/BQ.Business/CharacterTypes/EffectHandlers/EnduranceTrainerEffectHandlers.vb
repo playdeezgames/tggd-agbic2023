@@ -9,14 +9,14 @@
         End If
         Const Multiplier = 2
         Dim TrainingCost = Multiplier * CharacterExtensions.MaximumEnergy(character)
-        If character.Jools < TrainingCost Then
+        If CharacterExtensions.Jools(character) < TrainingCost Then
             msg.
                 AddLine(LightGray, $"The price is {TrainingCost} jools.").
                 AddLine(LightGray, "I have overhead, you know.")
             Return
         End If
         CharacterExtensions.AddAdvancementPoints(character, -1)
-        character.AddJools(-TrainingCost)
+        CharacterExtensions.AddJools(character, -TrainingCost)
         CharacterExtensions.SetMaximumEnergy(character, CharacterExtensions.MaximumEnergy(character) + 1)
         CharacterExtensions.AddEnergy(character, 1)
         msg.AddLine(Red, $"{CharacterExtensions.Name(character)} loses 1 AP")

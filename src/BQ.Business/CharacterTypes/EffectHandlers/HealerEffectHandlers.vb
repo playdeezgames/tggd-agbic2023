@@ -22,7 +22,7 @@
             character.World.CreateMessage().AddLine(LightGray, "Nothing happens!")
             Return
         End If
-        character.SetHealth(maximumHealth)
+        CharacterExtensions.SetHealth(character, maximumHealth)
         Dim msg =
             character.World.
                 CreateMessage().

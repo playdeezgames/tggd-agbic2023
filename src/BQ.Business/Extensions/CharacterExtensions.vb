@@ -68,7 +68,7 @@
     Public Sub DoMakeHatchet(character As ICharacter)
         DoMakeItem(character, RecipeTypes.Hatchet, "a hatchet", AddressOf MakeHatchet)
     End Sub
-    Private Sub DoMakeItem(character As ICharacter, recipeType As String, noun As String, makeAction As Action(Of ICharacter))
+    Public Sub DoMakeItem(character As ICharacter, recipeType As String, noun As String, makeAction As Action(Of ICharacter))
         If Not RecipeTypes.CanCraft(recipeType, character) Then
             Dim msg = character.World.CreateMessage.AddLine(LightGray, $"To make {noun},").AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             CraftingEffectHandlers.AddRecipeInputs(character, msg, recipeType)
@@ -98,10 +98,10 @@
     Public Function Name(character As ICharacter) As String
         Return CharacterExtensions.Descriptor(character).Name
     End Function
-    Private Function Weapons(character As ICharacter) As IEnumerable(Of IItem)
+    Public Function Weapons(character As ICharacter) As IEnumerable(Of IItem)
         Return character.EquippedItems.Where(Function(x) x.IsWeapon)
     End Function
-    Private Function Armors(character As ICharacter) As IEnumerable(Of IItem)
+    Public Function Armors(character As ICharacter) As IEnumerable(Of IItem)
         Return character.EquippedItems.Where(Function(x) x.IsArmor)
     End Function
     Public Sub TakeItem(character As ICharacter, item As IItem)
@@ -112,7 +112,7 @@
         character.Cell.AddItem(item)
         character.RemoveItem(item)
     End Sub
-    Private Function CanEnter(character As ICharacter, cell As ICell) As Boolean
+    Public Function CanEnter(character As ICharacter, cell As ICell) As Boolean
         Return cell IsNot Nothing AndAlso CellExtensions.IsTenable(cell)
     End Function
     Public Sub DoMapEffect(character As ICharacter, cell As ICell)
@@ -146,10 +146,10 @@
         CharacterExtensions.EnterCell(character)
         Return True
     End Function
-    Private Sub AddPeril(character As ICharacter, delta As Integer)
+    Public Sub AddPeril(character As ICharacter, delta As Integer)
         CharacterExtensions.SetPeril(character, CharacterExtensions.Peril(character) + delta)
     End Sub
-    Private Sub EnterCell(character As ICharacter)
+    Public Sub EnterCell(character As ICharacter)
         If CellExtensions.Peril(character.Cell) > 0 Then
             CharacterExtensions.AddPeril(character, CellExtensions.Peril(character.Cell))
             If CharacterExtensions.Peril(character) > 0 Then
@@ -163,10 +163,10 @@
             End If
         End If
     End Sub
-    Private Sub SetPeril(character As ICharacter, peril As Integer)
+    Public Sub SetPeril(character As ICharacter, peril As Integer)
         character.SetStatistic(StatisticTypes.Peril, Math.Max(0, peril))
     End Sub
-    Private Function Peril(character As ICharacter) As Integer
+    Public Function Peril(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.Peril)
     End Function
     Public Function Energy(character As ICharacter) As Integer
@@ -199,29 +199,23 @@
     Public Function MaximumDefend(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.MaximumDefend) + character.EquippedItems.Sum(Function(x) x.MaximumDefend)
     End Function
-    <Extension>
-    Private Function RollAttack(character As ICharacter) As Integer
+    Public Function RollAttack(character As ICharacter) As Integer
         Return Math.Min(CharacterExtensions.MaximumAttack(character), Enumerable.Range(0, CharacterExtensions.AttackDice(character)).Sum(Function(x) RNG.RollDice("1d6/6")))
     End Function
-    <Extension>
-    Private Function RollDefend(character As ICharacter) As Integer
+    Public Function RollDefend(character As ICharacter) As Integer
         Return Math.Min(CharacterExtensions.MaximumDefend(character), Enumerable.Range(0, CharacterExtensions.DefendDice(character)).Sum(Function(x) RNG.RollDice("1d6/6")))
     End Function
-    <Extension>
     Public Sub SetHealth(character As ICharacter, health As Integer)
         character.SetStatistic(StatisticTypes.Health, Math.Clamp(health, 0, CharacterExtensions.MaximumHealth(character)))
     End Sub
-    <Extension>
     Public Sub SetMaximumHealth(character As ICharacter, maximumHealth As Integer)
         character.SetStatistic(StatisticTypes.MaximumHealth, Math.Max(1, maximumHealth))
-        character.SetHealth(CharacterExtensions.Health(character))
+        CharacterExtensions.SetHealth(character, CharacterExtensions.Health(character))
     End Sub
-    <Extension>
     Public Function IsDead(character As ICharacter) As Boolean
         Return CharacterExtensions.Health(character) <= 0
     End Function
-    <Extension>
-    Private Sub Die(character As ICharacter)
+    Public Sub Die(character As ICharacter)
         If Not character.IsAvatar Then
             Dim cell = character.Cell
             cell.RemoveCharacter(character)
@@ -237,7 +231,7 @@
         End If
     End Sub
     <Extension>
-    Private Function AdvancementPointsPerLevel(character As ICharacter) As Integer
+    Public Function AdvancementPointsPerLevel(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.AdvancementPointsPerLevel)
     End Function
     <Extension>
@@ -245,7 +239,7 @@
         character.SetStatistic(StatisticTypes.AdvancementPoints, Math.Max(0, character.GetStatistic(StatisticTypes.AdvancementPoints) + advancementPoints))
     End Sub
     <Extension>
-    Private Function AddXP(character As ICharacter, xp As Integer) As Boolean
+    Public Function AddXP(character As ICharacter, xp As Integer) As Boolean
         character.AddStatistic(StatisticTypes.XP, xp)
         If character.XP >= character.XPGoal Then
             character.AddAdvancementPoints(character.AdvancementPointsPerLevel)
@@ -270,7 +264,7 @@
         character.SetStatistic(StatisticTypes.Jools, Math.Max(0, jools))
     End Sub
     <Extension>
-    Private Sub AwardJools(character As ICharacter, msg As IMessage, jools As Integer)
+    Public Sub AwardJools(character As ICharacter, msg As IMessage, jools As Integer)
         If Not character.IsAvatar Then
             Return
         End If
@@ -297,7 +291,7 @@
         End If
     End Sub
     <Extension>
-    Private Function ScuffWeapons(character As ICharacter, scuffAmount As Integer, msg As IMessage) As Boolean
+    Public Function ScuffWeapons(character As ICharacter, scuffAmount As Integer, msg As IMessage) As Boolean
         Dim items = character.EquippedItems.Where(Function(x) x.IsWeapon AndAlso x.Durability > 0)
         Dim result = False
         While scuffAmount > 0 AndAlso items.Any
@@ -316,7 +310,7 @@
         Return result
     End Function
     <Extension>
-    Private Function ScuffArmors(character As ICharacter, scuffAmount As Integer, msg As IMessage) As Boolean
+    Public Function ScuffArmors(character As ICharacter, scuffAmount As Integer, msg As IMessage) As Boolean
         Dim items = character.EquippedItems.Where(Function(x) x.IsArmor AndAlso x.Durability > 0)
         Dim result = False
         While scuffAmount > 0 AndAlso items.Any
@@ -336,7 +330,7 @@
     End Function
     <Extension>
     Public Function Attack(attacker As ICharacter, defender As ICharacter, Optional message As String = Nothing) As Boolean
-        If defender.IsDead Then
+        If CharacterExtensions.IsDead(defender) Then
             Return False
         End If
         Dim result = False
@@ -345,10 +339,10 @@
             msg.AddLine(LightGray, message)
         End If
         msg.AddLine(LightGray, $"{CharacterExtensions.Name(attacker)} attacks {CharacterExtensions.Name(defender)}")
-        Dim attackRoll = attacker.RollAttack()
+        Dim attackRoll = CharacterExtensions.RollAttack(attacker)
         msg.AddLine(LightGray, $"{CharacterExtensions.Name(attacker)} rolls an attack of {attackRoll}")
         result = attacker.ScuffWeapons(attackRoll, msg) OrElse result
-        Dim defendRoll = defender.RollDefend()
+        Dim defendRoll = CharacterExtensions.RollDefend(defender)
         msg.AddLine(LightGray, $"{CharacterExtensions.Name(defender)} rolls a defend of {defendRoll}")
         Dim damage = Math.Max(0, attackRoll - defendRoll)
         result = defender.ScuffArmors(Math.Max(defendRoll, damage), msg) OrElse result
@@ -359,13 +353,13 @@
         End If
         result = True
         msg.AddLine(LightGray, $"{CharacterExtensions.Name(defender)} takes {damage} damage")
-        defender.SetHealth(CharacterExtensions.Health(defender) - damage)
-        If defender.IsDead Then
+        CharacterExtensions.SetHealth(defender, CharacterExtensions.Health(defender) - damage)
+        If CharacterExtensions.IsDead(defender) Then
             msg.SetSfx(If(defender.IsAvatar, Sfx.PlayerDeath, Sfx.EnemyDeath))
             msg.AddLine(LightGray, $"{CharacterExtensions.Name(attacker)} kills {CharacterExtensions.Name(defender)}")
             attacker.AwardJools(msg, defender.Jools)
             attacker.AwardXP(msg, defender.XP)
-            defender.Die()
+            CharacterExtensions.Die(defender)
             Return result
         End If
         msg.SetSfx(If(defender.IsAvatar, Sfx.PlayerHit, Sfx.EnemyHit))

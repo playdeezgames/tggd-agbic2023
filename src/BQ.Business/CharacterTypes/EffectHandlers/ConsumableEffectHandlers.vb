@@ -22,11 +22,11 @@
         If RNG.GenerateBoolean(50, 50) Then
             DoHealing(character, item, 1)
         Else
-            character.SetHealth(CharacterExtensions.Health(character) - 1)
+            CharacterExtensions.SetHealth(character, CharacterExtensions.Health(character) - 1)
             Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"{item.Name} is tainted!").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} loses 1 health!")
-            If character.IsDead Then
+            If CharacterExtensions.IsDead(character) Then
                 msg.AddLine(Red, $"{CharacterExtensions.Name(character)} dies.")
             Else
                 msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Health(character)}/{CharacterExtensions.MaximumHealth(character)} health")
@@ -42,7 +42,7 @@
     End Function
 
     Private Sub DoHealing(character As ICharacter, item As IItem, amount As Integer)
-        character.SetHealth(CharacterExtensions.Health(character) + amount)
+        CharacterExtensions.SetHealth(character, CharacterExtensions.Health(character) + amount)
         character.World.CreateMessage().
             AddLine(LightGray, $"{item.Name} restores {amount} health!").
             AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Health(character)}/{CharacterExtensions.MaximumHealth(character)} health")

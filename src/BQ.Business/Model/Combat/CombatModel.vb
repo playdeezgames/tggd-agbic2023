@@ -49,7 +49,7 @@ Friend Class CombatModel
         }
     Public Sub Run() Implements ICombatModel.Run
         Retaliation("Opportunity Attack")
-        If world.Avatar.IsDead Then
+        If CharacterExtensions.IsDead(world.Avatar) Then
             Return
         End If
         Dim delta = RNG.FromEnumerable(runDeltas)

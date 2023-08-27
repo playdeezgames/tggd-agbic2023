@@ -9,7 +9,7 @@
 
     Public ReadOnly Property IsDead As Boolean Implements IAvatarModel.IsDead
         Get
-            Return avatar.IsDead
+            Return CharacterExtensions.IsDead(avatar)
         End Get
     End Property
 

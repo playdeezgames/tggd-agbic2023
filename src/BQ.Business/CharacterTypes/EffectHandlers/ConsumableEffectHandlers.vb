@@ -29,7 +29,7 @@
             If character.IsDead Then
                 msg.AddLine(Red, $"{CharacterExtensions.Name(character)} dies.")
             Else
-                msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Health(character)}/{character.MaximumHealth} health")
+                msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Health(character)}/{CharacterExtensions.MaximumHealth(character)} health")
             End If
         End If
     End Sub
@@ -45,7 +45,7 @@
         character.SetHealth(CharacterExtensions.Health(character) + amount)
         character.World.CreateMessage().
             AddLine(LightGray, $"{item.Name} restores {amount} health!").
-            AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Health(character)}/{character.MaximumHealth} health")
+            AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Health(character)}/{CharacterExtensions.MaximumHealth(character)} health")
     End Sub
 
     Friend Sub DoEatCookedRat(character As ICharacter, effect As IEffect)

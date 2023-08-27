@@ -6,7 +6,7 @@
         Return RecipeTypes.CanCraft(RecipeTypes.Bagel, character)
     End Function
     Public Function HealthDisplay(character As ICharacter) As String
-        Return $"HP {CharacterExtensions.Health(character)}/{character.MaximumHealth}"
+        Return $"HP {CharacterExtensions.Health(character)}/{CharacterExtensions.MaximumHealth(character)}"
     End Function
     Public Function EnergyDisplay(character As ICharacter) As String
         Return $"EN {CharacterExtensions.Energy(character)}/{CharacterExtensions.MaximumEnergy(character)}"
@@ -184,7 +184,6 @@
     Public Function Health(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.Health)
     End Function
-    <Extension>
     Public Function MaximumHealth(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.MaximumHealth)
     End Function
@@ -214,7 +213,7 @@
     End Function
     <Extension>
     Public Sub SetHealth(character As ICharacter, health As Integer)
-        character.SetStatistic(StatisticTypes.Health, Math.Clamp(health, 0, character.MaximumHealth))
+        character.SetStatistic(StatisticTypes.Health, Math.Clamp(health, 0, CharacterExtensions.MaximumHealth(character)))
     End Sub
     <Extension>
     Public Sub SetMaximumHealth(character As ICharacter, maximumHealth As Integer)
@@ -374,7 +373,7 @@
             Return result
         End If
         msg.SetSfx(If(defender.IsAvatar, Sfx.PlayerHit, Sfx.EnemyHit))
-        msg.AddLine(LightGray, $"{CharacterExtensions.Name(defender)} has {CharacterExtensions.Health(defender)}/{defender.MaximumHealth} health.")
+        msg.AddLine(LightGray, $"{CharacterExtensions.Name(defender)} has {CharacterExtensions.Health(defender)}/{CharacterExtensions.MaximumHealth(defender)} health.")
         Return result
     End Function
     <Extension>

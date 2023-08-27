@@ -79,7 +79,7 @@ Friend Class CombatModel
             While world.HasMessages
                 world.DismissMessage()
             End While
-            damageDone = damageDone Or world.Avatar.Attack(target)
+            damageDone = damageDone Or CharacterExtensions.Attack(world.Avatar, target)
             damageDone = Retaliation("Counter Attack", damageDone)
         Loop Until damageDone
     End Sub
@@ -88,7 +88,7 @@ Friend Class CombatModel
         Dim index = 1
         Dim counterAttackers = world.Avatar.Cell.OtherCharacters(world.Avatar)
         For Each counterAttacker In counterAttackers
-            damageDone = damageDone Or counterAttacker.Attack(world.Avatar, $"{text} {index}/{counterAttackers.Count}")
+            damageDone = damageDone Or CharacterExtensions.Attack(counterAttacker, world.Avatar, $"{text} {index}/{counterAttackers.Count}")
             index += 1
         Next
         Return damageDone

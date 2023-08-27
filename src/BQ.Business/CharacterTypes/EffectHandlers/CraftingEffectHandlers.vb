@@ -70,7 +70,7 @@
         character.Cell.TerrainType = TerrainTypes.Furnace
     End Sub
     Friend Sub DoCutOffTail(character As ICharacter, effect As IEffect)
-        If Not character.HasCuttingTool Then
+        If Not CharacterExtensions.HasCuttingTool(character) Then
             character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs a cutting tool for that!")
             Return
         End If

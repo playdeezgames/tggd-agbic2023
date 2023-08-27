@@ -281,7 +281,6 @@
             msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs {CharacterExtensions.XPGoal(character) - CharacterExtensions.XP(character)} for the next level.")
         End If
     End Sub
-    <Extension>
     Public Function ScuffWeapons(character As ICharacter, scuffAmount As Integer, msg As IMessage) As Boolean
         Dim items = character.EquippedItems.Where(Function(x) x.IsWeapon AndAlso x.Durability > 0)
         Dim result = False
@@ -300,7 +299,6 @@
         End While
         Return result
     End Function
-    <Extension>
     Public Function ScuffArmors(character As ICharacter, scuffAmount As Integer, msg As IMessage) As Boolean
         Dim items = character.EquippedItems.Where(Function(x) x.IsArmor AndAlso x.Durability > 0)
         Dim result = False
@@ -319,7 +317,6 @@
         End While
         Return result
     End Function
-    <Extension>
     Public Function Attack(attacker As ICharacter, defender As ICharacter, Optional message As String = Nothing) As Boolean
         If CharacterExtensions.IsDead(defender) Then
             Return False
@@ -332,11 +329,11 @@
         msg.AddLine(LightGray, $"{CharacterExtensions.Name(attacker)} attacks {CharacterExtensions.Name(defender)}")
         Dim attackRoll = CharacterExtensions.RollAttack(attacker)
         msg.AddLine(LightGray, $"{CharacterExtensions.Name(attacker)} rolls an attack of {attackRoll}")
-        result = attacker.ScuffWeapons(attackRoll, msg) OrElse result
+        result = CharacterExtensions.ScuffWeapons(attacker, attackRoll, msg) OrElse result
         Dim defendRoll = CharacterExtensions.RollDefend(defender)
         msg.AddLine(LightGray, $"{CharacterExtensions.Name(defender)} rolls a defend of {defendRoll}")
         Dim damage = Math.Max(0, attackRoll - defendRoll)
-        result = defender.ScuffArmors(Math.Max(defendRoll, damage), msg) OrElse result
+        result = CharacterExtensions.ScuffArmors(defender, Math.Max(defendRoll, damage), msg) OrElse result
         If damage <= 0 Then
             msg.AddLine(LightGray, $"{CharacterExtensions.Name(attacker)} misses.")
             msg.SetSfx(If(attacker.IsAvatar, Sfx.PlayerMiss, Sfx.EnemyMiss))
@@ -370,11 +367,9 @@
         Dim equipSlotType = item.ItemType.ToItemTypeDescriptor.EquipSlotType
         character.Equip(equipSlotType, item)
     End Sub
-    <Extension>
     Function HasCuttingTool(character As ICharacter) As Boolean
         Return character.Items.Any(Function(x) x.ItemType.ToItemTypeDescriptor.IsCuttingTool) OrElse character.EquippedItems.Any(Function(x) x.ItemType.ToItemTypeDescriptor.IsCuttingTool)
     End Function
-    <Extension>
     Function ItemCountsByName(character As ICharacter) As IReadOnlyDictionary(Of String, IEnumerable(Of IItem))
         Return character.Items.GroupBy(Function(x) x.Name).ToDictionary(Function(x) x.Key, Function(x) x.AsEnumerable)
     End Function

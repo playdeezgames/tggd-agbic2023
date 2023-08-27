@@ -1,7 +1,4 @@
-﻿Imports System.Runtime.CompilerServices
-Imports BQ.Persistence
-
-Public Module ItemExtensions
+﻿Public Module ItemExtensions
     <Extension>
     Friend Function Descriptor(item As IItem) As ItemTypeDescriptor
         Return item.ItemType.ToItemTypeDescriptor

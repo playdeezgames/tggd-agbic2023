@@ -1,7 +1,7 @@
 ﻿Friend Class AvatarEquipmentModel
     Implements IAvatarEquipmentModel
 
-    Private avatar As ICharacter
+    Private ReadOnly avatar As ICharacter
 
     Public Sub New(avatar As ICharacter)
         Me.avatar = avatar

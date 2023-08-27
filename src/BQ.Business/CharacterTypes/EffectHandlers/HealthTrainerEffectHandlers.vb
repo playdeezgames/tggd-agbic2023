@@ -13,13 +13,13 @@
         Dim msg = character.World.CreateMessage
         Const Multiplier = 5
         Dim TrainingCost = Multiplier * CharacterExtensions.MaximumHealth(character)
-        If character.AdvancementPoints < TrainingCost Then
+        If CharacterExtensions.AdvancementPoints(character) < TrainingCost Then
             msg.AddLine(LightGray, $"To go from {CharacterExtensions.MaximumHealth(character)} to {CharacterExtensions.MaximumHealth(character) + 1} Maximum Health,")
-            msg.AddLine(LightGray, $"you need {TrainingCost} AP, but you have {character.AdvancementPoints}.")
+            msg.AddLine(LightGray, $"you need {TrainingCost} AP, but you have {CharacterExtensions.AdvancementPoints(character)}.")
             msg.AddLine(LightGray, "Come back when yer more experienced!")
             Return
         End If
-        character.AddAdvancementPoints(-TrainingCost)
+        CharacterExtensions.AddAdvancementPoints(character, -TrainingCost)
         CharacterExtensions.SetMaximumHealth(character, CharacterExtensions.MaximumHealth(character) + 1)
         CharacterExtensions.SetHealth(character, CharacterExtensions.Health(character) + 1)
         msg.AddLine(Red, $"{CharacterExtensions.Name(character)} loses {TrainingCost} AP")

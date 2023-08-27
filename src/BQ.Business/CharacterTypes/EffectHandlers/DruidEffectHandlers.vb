@@ -40,14 +40,14 @@
 
     Private Function LearnSkill(character As ICharacter, effect As IEffect, msg As IMessage, text As String) As Boolean
         Dim learnCost = effect.GetStatistic(StatisticTypes.AdvancementPoints)
-        If character.AdvancementPoints < learnCost Then
+        If CharacterExtensions.AdvancementPoints(character) < learnCost Then
             msg.
                 AddLine(LightGray, $"To learn to {text},").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs {learnCost} AP,").
-                AddLine(LightGray, $"but has {character.AdvancementPoints}!")
+                AddLine(LightGray, $"but has {CharacterExtensions.AdvancementPoints(character)}!")
             Return False
         End If
-        character.AddAdvancementPoints(-learnCost)
+        CharacterExtensions.AddAdvancementPoints(character, -learnCost)
         character.SetFlag(effect.GetMetadata(Metadatas.FlagType), True)
         Return True
     End Function

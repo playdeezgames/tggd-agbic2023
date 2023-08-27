@@ -69,7 +69,7 @@
 
     Public Sub Equip(itemId As Integer) Implements IItemModel.Equip
         Dim item = world.GetItem(itemId)
-        world.Avatar.EquipItem(item)
+        CharacterExtensions.EquipItem(world.Avatar, item)
         world.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(world.Avatar)} equips {item.Name}")
     End Sub
 

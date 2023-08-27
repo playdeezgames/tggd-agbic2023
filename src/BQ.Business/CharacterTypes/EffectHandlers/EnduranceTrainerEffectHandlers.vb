@@ -2,7 +2,7 @@
 
     Friend Sub DoTrainEnergy(character As ICharacter, trigger As IEffect)
         Dim msg = character.World.CreateMessage
-        If character.AdvancementPoints < 1 Then
+        If CharacterExtensions.AdvancementPoints(character) < 1 Then
             msg.AddLine(LightGray, "You need at least 1 AP.")
             msg.AddLine(LightGray, "Come back when yer more experienced!")
             Return
@@ -15,7 +15,7 @@
                 AddLine(LightGray, "I have overhead, you know.")
             Return
         End If
-        character.AddAdvancementPoints(-1)
+        CharacterExtensions.AddAdvancementPoints(character, -1)
         character.AddJools(-TrainingCost)
         CharacterExtensions.SetMaximumEnergy(character, CharacterExtensions.MaximumEnergy(character) + 1)
         CharacterExtensions.AddEnergy(character, 1)

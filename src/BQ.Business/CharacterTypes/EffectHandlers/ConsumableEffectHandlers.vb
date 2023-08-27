@@ -7,7 +7,7 @@
 
     Private Sub DetermineSpiciness(character As ICharacter, msg As IMessage)
         If RNG.GenerateBoolean(5, 5) Then
-            character.AwardXP(msg.AddLine(Orange, "That was a spicy one!"), 1)
+            CharacterExtensions.AwardXP(character, msg.AddLine(Orange, "That was a spicy one!"), 1)
         End If
     End Sub
 

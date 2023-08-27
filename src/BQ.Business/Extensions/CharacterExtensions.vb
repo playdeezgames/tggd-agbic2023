@@ -12,16 +12,16 @@
         Return $"EN {CharacterExtensions.Energy(character)}/{CharacterExtensions.MaximumEnergy(character)}"
     End Function
     Public Function XPLevelDisplay(character As ICharacter) As String
-        Return $"LV {character.XPLevel}"
+        Return $"LV {CharacterExtensions.XPLevel(character)}"
     End Function
     Public Function XPDisplay(character As ICharacter) As String
-        Return $"XP {character.XP}/{character.XPGoal}"
+        Return $"XP {CharacterExtensions.XP(character)}/{CharacterExtensions.XPGoal(character)}"
     End Function
     Public Function JoolsDisplay(character As ICharacter) As String
         Return $"$ {character.Jools}"
     End Function
     Public Function APDisplay(character As ICharacter) As String
-        Return $"AP {character.AdvancementPoints}"
+        Return $"AP {CharacterExtensions.AdvancementPoints(character)}"
     End Function
     Public Function ATKDisplay(character As ICharacter) As String
         Return $"ATK: Max {CharacterExtensions.MaximumAttack(character)} avg {CharacterExtensions.AttackDice(character) / 6:f2}"
@@ -230,23 +230,20 @@
             character.Recycle()
         End If
     End Sub
-    <Extension>
     Public Function AdvancementPointsPerLevel(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.AdvancementPointsPerLevel)
     End Function
-    <Extension>
     Public Sub AddAdvancementPoints(character As ICharacter, advancementPoints As Integer)
         character.SetStatistic(StatisticTypes.AdvancementPoints, Math.Max(0, character.GetStatistic(StatisticTypes.AdvancementPoints) + advancementPoints))
     End Sub
-    <Extension>
     Public Function AddXP(character As ICharacter, xp As Integer) As Boolean
         character.AddStatistic(StatisticTypes.XP, xp)
-        If character.XP >= character.XPGoal Then
-            character.AddAdvancementPoints(character.AdvancementPointsPerLevel)
+        If CharacterExtensions.XP(character) >= CharacterExtensions.XPGoal(character) Then
+            CharacterExtensions.AddAdvancementPoints(character, CharacterExtensions.AdvancementPointsPerLevel(character))
             character.AddStatistic(StatisticTypes.XPLevel, 1)
-            Dim currentGoal = character.XPGoal
+            Dim currentGoal = CharacterExtensions.XPGoal(character)
             character.AddStatistic(StatisticTypes.XPGoal, character.GetStatistic(StatisticTypes.XPGoal))
-            character.AddXP(-currentGoal)
+            CharacterExtensions.AddXP(character, -currentGoal)
             Return True
         End If
         Return False
@@ -273,21 +270,19 @@
             character.AddJools(jools)
         End If
     End Sub
-    <Extension>
     Public Function AdvancementPoints(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.AdvancementPoints)
     End Function
-    <Extension>
     Public Sub AwardXP(character As ICharacter, msg As IMessage, xp As Integer)
         If Not character.IsAvatar OrElse xp = 0 Then
             Return
         End If
         msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} gains {xp} XP!")
-        If character.AddXP(xp) Then
-            msg.AddLine(LightGreen, $"{CharacterExtensions.Name(character)} is now level {character.XPLevel}!")
-            msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {character.AdvancementPoints} AP!")
+        If CharacterExtensions.AddXP(character, xp) Then
+            msg.AddLine(LightGreen, $"{CharacterExtensions.Name(character)} is now level {CharacterExtensions.XPLevel(character)}!")
+            msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.AdvancementPoints(character)} AP!")
         Else
-            msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs {character.XPGoal - character.XP} for the next level.")
+            msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs {CharacterExtensions.XPGoal(character) - CharacterExtensions.XP(character)} for the next level.")
         End If
     End Sub
     <Extension>
@@ -358,7 +353,7 @@
             msg.SetSfx(If(defender.IsAvatar, Sfx.PlayerDeath, Sfx.EnemyDeath))
             msg.AddLine(LightGray, $"{CharacterExtensions.Name(attacker)} kills {CharacterExtensions.Name(defender)}")
             attacker.AwardJools(msg, defender.Jools)
-            attacker.AwardXP(msg, defender.XP)
+            CharacterExtensions.AwardXP(attacker, msg, CharacterExtensions.XP(defender))
             CharacterExtensions.Die(defender)
             Return result
         End If
@@ -366,19 +361,15 @@
         msg.AddLine(LightGray, $"{CharacterExtensions.Name(defender)} has {CharacterExtensions.Health(defender)}/{CharacterExtensions.MaximumHealth(defender)} health.")
         Return result
     End Function
-    <Extension>
     Function XP(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.XP)
     End Function
-    <Extension>
     Function XPGoal(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.XPGoal)
     End Function
-    <Extension>
     Function XPLevel(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.XPLevel)
     End Function
-    <Extension>
     Sub EquipItem(character As ICharacter, item As IItem)
         Dim equipSlotType = item.ItemType.ToItemTypeDescriptor.EquipSlotType
         character.Equip(equipSlotType, item)

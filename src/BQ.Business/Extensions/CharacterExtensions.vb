@@ -188,16 +188,16 @@
         Return character.GetStatistic(StatisticTypes.MaximumHealth)
     End Function
     Public Function AttackDice(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.AttackDice) + character.EquippedItems.Sum(Function(x) x.AttackDice)
+        Return character.GetStatistic(StatisticTypes.AttackDice) + character.EquippedItems.Sum(Function(x) ItemExtensions.AttackDice(x))
     End Function
     Public Function MaximumAttack(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.MaximumAttack) + character.EquippedItems.Sum(Function(x) x.MaximumAttack)
+        Return character.GetStatistic(StatisticTypes.MaximumAttack) + character.EquippedItems.Sum(Function(x) ItemExtensions.MaximumAttack(x))
     End Function
     Public Function DefendDice(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.DefendDice) + character.EquippedItems.Sum(Function(x) x.DefendDice)
+        Return character.GetStatistic(StatisticTypes.DefendDice) + character.EquippedItems.Sum(Function(x) ItemExtensions.DefendDice(x))
     End Function
     Public Function MaximumDefend(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.MaximumDefend) + character.EquippedItems.Sum(Function(x) x.MaximumDefend)
+        Return character.GetStatistic(StatisticTypes.MaximumDefend) + character.EquippedItems.Sum(Function(x) ItemExtensions.MaximumDefend(x))
     End Function
     Public Function RollAttack(character As ICharacter) As Integer
         Return Math.Min(CharacterExtensions.MaximumAttack(character), Enumerable.Range(0, CharacterExtensions.AttackDice(character)).Sum(Function(x) RNG.RollDice("1d6/6")))

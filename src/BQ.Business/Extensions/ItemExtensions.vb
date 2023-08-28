@@ -14,23 +14,18 @@
     Public Function FullName(item As IItem) As String
         Return ItemExtensions.Descriptor(item).FullName(item)
     End Function
-    <Extension>
     Public Function CanEquip(item As IItem) As Boolean
         Return ItemExtensions.Descriptor(item).CanEquip
     End Function
-    <Extension>
     Public Function AttackDice(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.AttackDice)
     End Function
-    <Extension>
     Public Function MaximumAttack(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.MaximumAttack)
     End Function
-    <Extension>
     Public Function DefendDice(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.DefendDice)
     End Function
-    <Extension>
     Public Function MaximumDefend(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.MaximumDefend)
     End Function

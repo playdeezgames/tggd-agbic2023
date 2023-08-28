@@ -27,7 +27,7 @@
 
     Public ReadOnly Property CanEquip As Boolean Implements IItemModel.CanEquip
         Get
-            Return world.Avatar.Items.Where(Function(x) ItemExtensions.Name(x) = Name).Any(Function(x) x.CanEquip)
+            Return world.Avatar.Items.Where(Function(x) ItemExtensions.Name(x) = Name).Any(AddressOf ItemExtensions.CanEquip)
         End Get
     End Property
 

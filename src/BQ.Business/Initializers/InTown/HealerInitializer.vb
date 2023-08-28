@@ -14,13 +14,13 @@
         Dim basinCell = map.GetCell(map.Columns \ 2, 1)
         basinCell.TerrainType = TerrainTypes.Basin
         basinCell.Effect =
-            map.CreateEffect.
-            SetEffectType(EffectTypes.Heal)
+            map.CreateEffect
+        SetEffectType(basinCell.Effect, EffectTypes.Heal)
         basinCell.Effect.SetStatistic(StatisticTypes.MaximumHealth, 5)
         Dim healerCell = map.GetCell(map.Columns - 2, map.Rows - 2)
         healerCell.TerrainType = TerrainTypes.OldMan
         healerCell.Effect =
-            map.CreateEffect.
-            SetEffectType(EffectTypes.HealerTalk)
+            map.CreateEffect
+        SetEffectType(healerCell.Effect, EffectTypes.HealerTalk)
     End Sub
 End Module

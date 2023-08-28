@@ -39,7 +39,7 @@
         If Not character.IsAvatar Then
             Return
         End If
-        If Not character.Map.CampingAllowed OrElse Not CellExtensions.CanSleep(character.Cell) Then
+        If Not character.Map.GetFlag(FlagTypes.CampingAllowed) OrElse Not CellExtensions.CanSleep(character.Cell) Then
             character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} cannot sleep here!")
             Return
         End If

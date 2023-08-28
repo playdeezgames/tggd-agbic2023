@@ -60,7 +60,8 @@ Module WildernessInitializer
                 InitializeCell(map, mazeColumn * WildernessCellColumns, mazeRow * WildernessCellRows, maze.GetCell(mazeColumn, mazeRow))
             Next
         Next
-        Dim riverEffect = map.CreateEffect.SetEffectType(EffectTypes.BumpRiver)
+        Dim riverEffect = map.CreateEffect
+        SetEffectType(riverEffect, EffectTypes.BumpRiver)
         For Each cell In map.Cells.Where(Function(x) x.Descriptor.IsWaterSource)
             cell.Effect = riverEffect
         Next

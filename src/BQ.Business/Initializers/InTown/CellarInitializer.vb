@@ -12,6 +12,7 @@
         Next
         Dim stairsCell = map.GetCell(1, map.Rows - 2)
         stairsCell.TerrainType = TerrainTypes.StairsUp
-        stairsCell.Effect = map.CreateEffect().SetEffectType(EffectTypes.Teleport)
+        stairsCell.Effect = map.CreateEffect()
+        SetEffectType(stairsCell.Effect, EffectTypes.Teleport)
     End Sub
 End Module

@@ -14,7 +14,7 @@
         Dim trainerCell = map.GetCell(map.Columns \ 2, 1)
         trainerCell.TerrainType = TerrainTypes.Potter
         trainerCell.Effect =
-            map.CreateEffect.
-            SetEffectType(EffectTypes.PotterTalk)
+            map.CreateEffect
+        SetEffectType(trainerCell.Effect, EffectTypes.PotterTalk)
     End Sub
 End Module

@@ -1,6 +1,6 @@
 ﻿Friend Module CraftingEffectHandlers
     Friend Sub DoCookBagel(character As ICharacter, effect As IEffect)
-        Dim recipeType = RecipeTypes.Bagel
+        Dim recipeType = "Bagel"
         Dim taskName = "cook a bagel"
         Dim resultName = "cooks a bagel"
         CookFurnaceRecipe(character, recipeType, taskName, resultName)
@@ -9,16 +9,16 @@
         If Not ConsumeEnergy(character, 1, "make a torch") Then
             Return
         End If
-        If Not RecipeTypes.CanCraft(RecipeTypes.Torch, character) Then
+        If Not RecipeTypes.CanCraft("Torch", character) Then
             Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"To make a torch,").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
-            For Each input In RecipeTypes.Inputs(RecipeTypes.Torch)
+            For Each input In RecipeTypes.Inputs("Torch")
                 msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next
             Return
         End If
-        RecipeTypes.Craft(RecipeTypes.Torch, character)
+        RecipeTypes.Craft("Torch", character)
         character.World.CreateMessage().
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} makes a torch.")
     End Sub
@@ -37,16 +37,16 @@
         If Not ConsumeEnergy(character, 1, "build a fire") Then
             Return
         End If
-        If Not RecipeTypes.CanCraft(RecipeTypes.CookingFire, character) Then
+        If Not RecipeTypes.CanCraft("CookingFire", character) Then
             Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"To build a fire,").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
-            For Each input In RecipeTypes.Inputs(RecipeTypes.CookingFire)
+            For Each input In RecipeTypes.Inputs("CookingFire")
                 msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next
             Return
         End If
-        RecipeTypes.Craft(RecipeTypes.CookingFire, character)
+        RecipeTypes.Craft("CookingFire", character)
         character.World.CreateMessage().
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} builds a small fire.")
         character.Cell.TerrainType = TerrainTypes.CookingFire
@@ -55,16 +55,16 @@
         If Not ConsumeEnergy(character, 1, "build a furnace") Then
             Return
         End If
-        If Not RecipeTypes.CanCraft(RecipeTypes.Furnace, character) Then
+        If Not RecipeTypes.CanCraft("Furnace", character) Then
             Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"To build a furnace,").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
-            For Each input In RecipeTypes.Inputs(RecipeTypes.Furnace)
+            For Each input In RecipeTypes.Inputs("Furnace")
                 msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next
             Return
         End If
-        RecipeTypes.Craft(RecipeTypes.Furnace, character)
+        RecipeTypes.Craft("Furnace", character)
         character.World.CreateMessage().
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} builds a furnace.")
         character.Cell.TerrainType = TerrainTypes.Furnace
@@ -98,14 +98,14 @@
     End Function
 
     Friend Sub DoCookRatBody(character As ICharacter, effect As IEffect)
-        Dim recipeType = RecipeTypes.CookedRatBody
+        Dim recipeType = "CookedRatBody"
         Dim taskName = "cook a rat body"
         Dim resultName = "cooks a rat body"
         CookRecipe(character, recipeType, taskName, resultName)
     End Sub
 
     Friend Sub DoCookRatCorpse(character As ICharacter, effect As IEffect)
-        Dim recipeType = RecipeTypes.CookedRatCorpse
+        Dim recipeType = "CookedRatCorpse"
         Dim taskName = "cook a rat corpse"
         Dim resultName = "cooks a rat corpse"
         CookRecipe(character, recipeType, taskName, resultName)
@@ -127,14 +127,14 @@
         If Not ConsumeEnergy(character, 1, "make a hatchet") Then
             Return
         End If
-        If Not RecipeTypes.CanCraft(RecipeTypes.Hatchet, character) Then
+        If Not RecipeTypes.CanCraft("Hatchet", character) Then
             Dim msg = character.World.CreateMessage().
                 AddLine(LightGray, $"To make a hatchet,").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
-            AddRecipeInputs(character, msg, RecipeTypes.Hatchet)
+            AddRecipeInputs(character, msg, "Hatchet")
             Return
         End If
-        RecipeTypes.Craft(RecipeTypes.Hatchet, character)
+        RecipeTypes.Craft("Hatchet", character)
         character.World.CreateMessage().
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} makes a hatchet.")
     End Sub
@@ -170,21 +170,21 @@
     End Sub
 
     Friend Sub DoMillWheat(character As ICharacter, effect As IEffect)
-        DoRecipe(character, 1, RecipeTypes.Flour, "make flour", "makes flour")
+        DoRecipe(character, 1, "Flour", "make flour", "makes flour")
     End Sub
 
     Friend Sub DoMakeDough(character As ICharacter, effect As IEffect)
-        DoRecipe(character, 2, RecipeTypes.Dough, "make dough", "makes dough")
+        DoRecipe(character, 2, "Dough", "make dough", "makes dough")
     End Sub
 
     Friend Sub DoSmokePepper(character As ICharacter, effect As IEffect)
-        CookRecipe(character, RecipeTypes.SmokedPepper, "smoke a pepper", "smokes a pepper")
+        CookRecipe(character, "SmokedPepper", "smoke a pepper", "smokes a pepper")
     End Sub
 
     Friend Sub DoMakePaprika(character As ICharacter, effect As IEffect)
-        DoRecipe(character, 1, RecipeTypes.Paprika, "make paprika", "makes paprika")
+        DoRecipe(character, 1, "Paprika", "make paprika", "makes paprika")
     End Sub
     Friend Sub DoSeasonRat(character As ICharacter, effect As IEffect)
-        DoRecipe(character, 0, RecipeTypes.SeasonedRat, "season a rat", "seasons a rat")
+        DoRecipe(character, 0, "SeasonedRat", "season a rat", "seasons a rat")
     End Sub
 End Module

@@ -1,6 +1,6 @@
 ﻿Friend Module RiverEffectHandlers
     Friend Sub DoFillClayPot(character As ICharacter, effect As IEffect)
-        RecipeTypes.Craft(RecipeTypes.WaterPot, character)
+        RecipeTypes.Craft("WaterPot", character)
         character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} fills a {ItemTypes.ClayPot.ToItemTypeDescriptor.Name} with water.")
     End Sub
 

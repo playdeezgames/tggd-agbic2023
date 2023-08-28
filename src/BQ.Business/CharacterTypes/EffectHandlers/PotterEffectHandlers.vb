@@ -1,7 +1,7 @@
 ﻿Module PotterEffectHandlers
     Friend Sub DoPotterMakePot(character As ICharacter, effect As IEffect)
         Const price = 20
-        Const RecipeType = RecipeTypes.UnfiredPot
+        Const RecipeType = "UnfiredPot"
         If CharacterExtensions.Jools(character) < price Then
             character.World.CreateMessage.
                         AddLine(LightGray, $"The price is {price} jools.").
@@ -15,7 +15,7 @@
         End If
         CharacterExtensions.AddJools(character, -price)
         RecipeTypes.Craft(RecipeType, character)
-        RecipeTypes.Craft(RecipeTypes.ClayPot, character)
+        RecipeTypes.Craft("ClayPot", character)
         character.World.CreateMessage.
             AddLine(Red, $"{CharacterExtensions.Name(character)} loses {price} jools").AddLine(LightGreen, $"{CharacterExtensions.Name(character)} gains 1 {ItemTypes.ClayPot.ToItemTypeDescriptor.Name}")
     End Sub

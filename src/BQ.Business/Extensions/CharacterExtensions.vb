@@ -3,7 +3,7 @@
         Return character.IsAvatar AndAlso character.ItemTypeCount(ItemTypes.Bagel) > 0
     End Function
     Public Function CanCookBagel(character As ICharacter) As Boolean
-        Return RecipeTypes.CanCraft(RecipeTypes.Bagel, character)
+        Return RecipeTypes.CanCraft("Bagel", character)
     End Function
     Public Function HealthDisplay(character As ICharacter) As String
         Return $"HP {CharacterExtensions.Health(character)}/{CharacterExtensions.MaximumHealth(character)}"
@@ -30,7 +30,7 @@
         Return $"DEF: Max {CharacterExtensions.MaximumDefend(character)} avg {CharacterExtensions.DefendDice(character) / 6:f2}"
     End Function
     Public Function CanBuildFurnace(character As ICharacter) As Boolean
-        Return RecipeTypes.CanCraft(RecipeTypes.Furnace, character)
+        Return RecipeTypes.CanCraft("Furnace", character)
     End Function
     Public Function HasItemTypeInInventory(character As ICharacter, itemType As String) As Boolean
         Return character.Items.Any(Function(x) x.ItemType = itemType)
@@ -66,7 +66,7 @@
         character.Cell.Descriptor.DoEffect(character, EffectTypes.MakeTorch, character.Cell)
     End Sub
     Public Sub DoMakeHatchet(character As ICharacter)
-        DoMakeItem(character, RecipeTypes.Hatchet, "a hatchet", AddressOf MakeHatchet)
+        DoMakeItem(character, "Hatchet", "a hatchet", AddressOf MakeHatchet)
     End Sub
     Public Sub DoMakeItem(character As ICharacter, recipeType As String, noun As String, makeAction As Action(Of ICharacter))
         If Not RecipeTypes.CanCraft(recipeType, character) Then
@@ -81,19 +81,19 @@
         character.Cell.Descriptor.DoEffect(character, EffectTypes.PutOutFire, character.Cell)
     End Sub
     Public Sub DoKnap(character As ICharacter)
-        DoMakeItem(character, RecipeTypes.SharpRock, "a sharp rock", AddressOf Knap)
+        DoMakeItem(character, "SharpRock", "a sharp rock", AddressOf Knap)
     End Sub
     Public Sub DoMakeTwine(character As ICharacter)
-        DoMakeItem(character, RecipeTypes.Twine, "twine", AddressOf MakeTwine)
+        DoMakeItem(character, "Twine", "twine", AddressOf MakeTwine)
     End Sub
     Public Sub MakeTwine(character As ICharacter)
-        RecipeTypes.Craft(RecipeTypes.Twine, character)
+        RecipeTypes.Craft("Twine", character)
     End Sub
     Public Sub MakeHatchet(character As ICharacter)
-        RecipeTypes.Craft(RecipeTypes.Hatchet, character)
+        RecipeTypes.Craft("Hatchet", character)
     End Sub
     Public Sub Knap(character As ICharacter)
-        RecipeTypes.Craft(RecipeTypes.SharpRock, character)
+        RecipeTypes.Craft("SharpRock", character)
     End Sub
     Public Function Name(character As ICharacter) As String
         Return CharacterExtensions.Descriptor(character).Name

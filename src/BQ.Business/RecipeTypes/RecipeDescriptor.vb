@@ -1,7 +1,7 @@
-﻿Friend Class RecipeDescriptor
-    Friend ReadOnly Property Name As String
-    Friend ReadOnly Property Inputs As IReadOnlyDictionary(Of String, Integer)
-    Friend ReadOnly Property Outputs As IReadOnlyDictionary(Of String, Integer)
+﻿Public Class RecipeDescriptor
+    Public ReadOnly Property Name As String
+    Public ReadOnly Property Inputs As IReadOnlyDictionary(Of String, Integer)
+    Public ReadOnly Property Outputs As IReadOnlyDictionary(Of String, Integer)
     Sub New(name As String, inputs As IReadOnlyDictionary(Of String, Integer), Optional outputs As IReadOnlyDictionary(Of String, Integer) = Nothing)
         Me.Name = name
         Me.Inputs = inputs

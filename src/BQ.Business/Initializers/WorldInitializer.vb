@@ -1,7 +1,10 @@
+Imports System.Text.Json
 Imports BQ.Persistence
 
 Friend Module WorldInitializer
+    Const recipesFilename = "Content/recipes.json"
     Friend Sub Initialize(world As IWorld)
+        RecipeTypes.Descriptors = JsonSerializer.Deserialize(Of Dictionary(Of String, RecipeDescriptor))(System.IO.File.ReadAllText(recipesFilename))
         MapInitializer.Initialize(world)
         StitchMaps(world)
         AvatarInitializer.Initialize(world)

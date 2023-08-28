@@ -38,6 +38,7 @@
     <None Remove="Content\PlayerDeath.wav" />
     <None Remove="Content\PlayerHit.wav" />
     <None Remove="Content\PlayerMiss.wav" />
+    <None Remove="Content\recipes.json" />
     <None Remove="Content\sfx.json" />
     <None Remove="Content\Shucks.wav" />
     <None Remove="Content\Take.wav" />
@@ -125,6 +126,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\mux.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\recipes.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\sfx.json">

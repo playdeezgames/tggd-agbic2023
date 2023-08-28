@@ -282,12 +282,12 @@
         End If
     End Sub
     Public Function ScuffWeapons(character As ICharacter, scuffAmount As Integer, msg As IMessage) As Boolean
-        Dim items = character.EquippedItems.Where(Function(x) ItemExtensions.IsWeapon(x) AndAlso x.Durability > 0)
+        Dim items = character.EquippedItems.Where(Function(x) ItemExtensions.IsWeapon(x) AndAlso ItemExtensions.Durability(x) > 0)
         Dim result = False
         While scuffAmount > 0 AndAlso items.Any
             Dim item = RNG.FromEnumerable(items)
-            item.AddDurability(-1)
-            If item.IsBroken Then
+            ItemExtensions.AddDurability(item, -1)
+            If ItemExtensions.IsBroken(item) Then
                 msg.AddLine(Red, $"{CharacterExtensions.Name(character)}' {ItemExtensions.Name(item)} breaks!")
                 character.UnequipItem(item)
                 character.RemoveItem(item)
@@ -295,17 +295,17 @@
                 result = True
             End If
             scuffAmount -= 1
-            items = character.EquippedItems.Where(Function(x) ItemExtensions.IsWeapon(x) AndAlso x.Durability > 0)
+            items = character.EquippedItems.Where(Function(x) ItemExtensions.IsWeapon(x) AndAlso ItemExtensions.Durability(x) > 0)
         End While
         Return result
     End Function
     Public Function ScuffArmors(character As ICharacter, scuffAmount As Integer, msg As IMessage) As Boolean
-        Dim items = character.EquippedItems.Where(Function(x) ItemExtensions.IsArmor(x) AndAlso x.Durability > 0)
+        Dim items = character.EquippedItems.Where(Function(x) ItemExtensions.IsArmor(x) AndAlso ItemExtensions.Durability(x) > 0)
         Dim result = False
         While scuffAmount > 0 AndAlso items.Any
             Dim item = RNG.FromEnumerable(items)
-            item.AddDurability(-1)
-            If item.IsBroken Then
+            ItemExtensions.AddDurability(item, -1)
+            If ItemExtensions.IsBroken(item) Then
                 msg.AddLine(Red, $"{CharacterExtensions.Name(character)}' {ItemExtensions.Name(item)} breaks!")
                 character.UnequipItem(item)
                 character.RemoveItem(item)
@@ -313,7 +313,7 @@
                 result = True
             End If
             scuffAmount -= 1
-            items = character.EquippedItems.Where(Function(x) ItemExtensions.IsArmor(x) AndAlso x.Durability > 0)
+            items = character.EquippedItems.Where(Function(x) ItemExtensions.IsArmor(x) AndAlso ItemExtensions.Durability(x) > 0)
         End While
         Return result
     End Function

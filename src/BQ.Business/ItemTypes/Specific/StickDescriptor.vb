@@ -7,7 +7,7 @@
             ChrW(&H25),
             Brown,
             equipSlotType:=EquipSlotTypes.Weapon,
-            fullName:=Function(x) $"{ItemExtensions.Name(x)}({x.Durability}/{x.MaximumDurability})",
+            fullName:=Function(x) $"{ItemExtensions.Name(x)}({ItemExtensions.Durability(x)}/{ItemExtensions.MaximumDurability(x)})",
             statistics:=New Dictionary(Of String, Integer) From
             {
                 {StatisticTypes.AttackDice, 2},

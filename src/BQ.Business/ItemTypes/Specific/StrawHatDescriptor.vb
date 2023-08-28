@@ -7,7 +7,7 @@
             ChrW(&H3B),
             Yellow,
             equipSlotType:=EquipSlotTypes.Head,
-            fullName:=Function(x) $"{ItemExtensions.Name(x)}({x.Durability}/{x.MaximumDurability})",
+            fullName:=Function(x) $"{ItemExtensions.Name(x)}({ItemExtensions.Durability(x)}/{ItemExtensions.MaximumDurability(x)})",
             statistics:=New Dictionary(Of String, Integer) From
             {
                 {StatisticTypes.DefendDice, 1},

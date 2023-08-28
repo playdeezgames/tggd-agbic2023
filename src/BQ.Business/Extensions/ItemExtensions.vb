@@ -34,25 +34,20 @@
     Public Function MaximumDefend(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.MaximumDefend)
     End Function
-    <Extension>
     Public Function Durability(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.Durability)
     End Function
-    <Extension>
     Public Sub SetDurability(item As IItem, durability As Integer)
-        item.SetStatistic(StatisticTypes.Durability, Math.Clamp(durability, 0, item.MaximumDurability))
+        item.SetStatistic(StatisticTypes.Durability, Math.Clamp(durability, 0, ItemExtensions.MaximumDurability(item)))
     End Sub
-    <Extension>
     Public Sub AddDurability(item As IItem, delta As Integer)
-        item.SetDurability(item.Durability + delta)
+        ItemExtensions.SetDurability(item, ItemExtensions.Durability(item) + delta)
     End Sub
-    <Extension>
     Public Function MaximumDurability(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.MaximumDurability)
     End Function
-    <Extension>
     Public Function IsBroken(item As IItem) As Boolean
-        Return item.Durability <= 0
+        Return ItemExtensions.Durability(item) <= 0
     End Function
     Public Function Glyph(item As IItem) As String
         Return ItemExtensions.Descriptor(item).Glyph

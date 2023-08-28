@@ -11,6 +11,8 @@
             Dim result = luaState.DoString(FullNameScript)
             luaState("item") = Nothing
             Return result.ToString()
+            'Else
+            '   Return DefaultFullName(item)
         End If
         Return LegacyFullName(item)
     End Function

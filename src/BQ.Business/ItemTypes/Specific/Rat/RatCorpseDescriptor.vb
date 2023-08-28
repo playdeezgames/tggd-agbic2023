@@ -11,6 +11,7 @@
                 {EffectTypes.CutOffTail, New EffectData() With {.EffectType = EffectTypes.CutOffTail}},
                 {EffectTypes.EatRatCorpse, New EffectData() With {.EffectType = EffectTypes.EatRatCorpse}},
                 {EffectTypes.CookRatCorpse, New EffectData() With {.EffectType = EffectTypes.CookRatCorpse}}
-            })
+            },
+            fullNameScript:="return ""test""")
     End Sub
 End Class

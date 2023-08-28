@@ -1,75 +1,74 @@
 ﻿Public Module ItemExtensions
-    <Extension>
-    Friend Function Descriptor(item As IItem) As ItemTypeDescriptor
+    Public Function Descriptor(item As IItem) As ItemTypeDescriptor
         Return item.ItemType.ToItemTypeDescriptor
     End Function
     <Extension>
-    Friend Function Name(item As IItem) As String
-        Return item.Descriptor.Name
+    Public Function Name(item As IItem) As String
+        Return ItemExtensions.Descriptor(item).Name
     End Function
     <Extension>
-    Friend Sub DoEffect(item As IItem, effectType As String, character As ICharacter)
-        Dim effect = item.Descriptor.ToItemEffect(effectType, item)
+    Public Sub DoEffect(item As IItem, effectType As String, character As ICharacter)
+        Dim effect = ItemExtensions.Descriptor(item).ToItemEffect(effectType, item)
         CharacterExtensions.Descriptor(character).RunEffectScript(WorldModel.LuaState, effectType, character, effect)
     End Sub
     <Extension>
-    Friend Function IsWeapon(item As IItem) As Boolean
-        Return item.Descriptor.Flags.Contains(FlagTypes.IsWeapon)
+    Public Function IsWeapon(item As IItem) As Boolean
+        Return ItemExtensions.Descriptor(item).Flags.Contains(FlagTypes.IsWeapon)
     End Function
     <Extension>
-    Friend Function IsArmor(item As IItem) As Boolean
-        Return item.Descriptor.Flags.Contains(FlagTypes.IsArmor)
+    Public Function IsArmor(item As IItem) As Boolean
+        Return ItemExtensions.Descriptor(item).Flags.Contains(FlagTypes.IsArmor)
     End Function
     <Extension>
-    Friend Function FullName(item As IItem) As String
-        Return item.Descriptor.FullName(item)
+    Public Function FullName(item As IItem) As String
+        Return ItemExtensions.Descriptor(item).FullName(item)
     End Function
     <Extension>
-    Friend Function CanEquip(item As IItem) As Boolean
-        Return item.Descriptor.CanEquip
+    Public Function CanEquip(item As IItem) As Boolean
+        Return ItemExtensions.Descriptor(item).CanEquip
     End Function
     <Extension>
-    Friend Function AttackDice(item As IItem) As Integer
+    Public Function AttackDice(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.AttackDice)
     End Function
     <Extension>
-    Friend Function MaximumAttack(item As IItem) As Integer
+    Public Function MaximumAttack(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.MaximumAttack)
     End Function
     <Extension>
-    Friend Function DefendDice(item As IItem) As Integer
+    Public Function DefendDice(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.DefendDice)
     End Function
     <Extension>
-    Friend Function MaximumDefend(item As IItem) As Integer
+    Public Function MaximumDefend(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.MaximumDefend)
     End Function
     <Extension>
-    Friend Function Durability(item As IItem) As Integer
+    Public Function Durability(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.Durability)
     End Function
     <Extension>
-    Friend Sub SetDurability(item As IItem, durability As Integer)
+    Public Sub SetDurability(item As IItem, durability As Integer)
         item.SetStatistic(StatisticTypes.Durability, Math.Clamp(durability, 0, item.MaximumDurability))
     End Sub
     <Extension>
-    Friend Sub AddDurability(item As IItem, delta As Integer)
+    Public Sub AddDurability(item As IItem, delta As Integer)
         item.SetDurability(item.Durability + delta)
     End Sub
     <Extension>
-    Friend Function MaximumDurability(item As IItem) As Integer
+    Public Function MaximumDurability(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.MaximumDurability)
     End Function
     <Extension>
-    Friend Function IsBroken(item As IItem) As Boolean
+    Public Function IsBroken(item As IItem) As Boolean
         Return item.Durability <= 0
     End Function
     <Extension>
     Public Function Glyph(item As IItem) As String
-        Return item.Descriptor.Glyph
+        Return ItemExtensions.Descriptor(item).Glyph
     End Function
     <Extension>
     Public Function Hue(item As IItem) As Integer
-        Return item.Descriptor.Hue
+        Return ItemExtensions.Descriptor(item).Hue
     End Function
 End Module

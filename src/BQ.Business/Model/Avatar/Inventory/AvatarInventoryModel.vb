@@ -21,7 +21,7 @@
 
     Public ReadOnly Property Display As IEnumerable(Of (glyph As Char, hue As Integer, name As String, count As Integer)) Implements IAvatarInventoryModel.Display
         Get
-            Return CharacterExtensions.ItemCountsByName(avatar).Select(Function(x) (x.Value.First.Descriptor.Glyph, x.Value.First.Descriptor.Hue, x.Key, x.Value.Count))
+            Return CharacterExtensions.ItemCountsByName(avatar).Select(Function(x) (ItemExtensions.Descriptor(x.Value.First).Glyph, ItemExtensions.Descriptor(x.Value.First).Hue, x.Key, x.Value.Count))
         End Get
     End Property
 

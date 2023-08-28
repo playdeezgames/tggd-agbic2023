@@ -1,7 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports BQ.Persistence
 
-Friend Class ItemTypeDescriptor
+Public Class ItemTypeDescriptor
     Inherits VisibleEntityDescriptor
     Private ReadOnly Property Effects As IReadOnlyDictionary(Of String, EffectData)
     Friend ReadOnly Property Statistics As IReadOnlyDictionary(Of String, Integer)

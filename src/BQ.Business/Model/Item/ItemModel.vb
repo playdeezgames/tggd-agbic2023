@@ -39,7 +39,8 @@
 
     Public ReadOnly Property EffectTypes As IEnumerable(Of (text As String, VerbTypes As String)) Implements IItemModel.EffectTypes
         Get
-            Return world.Avatar.Items.First(Function(x) x.Name = Name).Descriptor.AllEffectTypes.Select(Function(x) (x.ToEffectTypeDescriptor.Name, x))
+            Dim item = world.Avatar.Items.First(Function(x) x.Name = Name)
+            Return ItemExtensions.Descriptor(item).AllEffectTypes.Select(Function(x) (x.ToEffectTypeDescriptor.Name, x))
         End Get
     End Property
 
@@ -75,7 +76,7 @@
 
     Public Sub DoEffect(effectType As String) Implements IItemModel.DoEffect
         Dim item = world.Avatar.Items.First(Function(x) x.Name = Name)
-        Dim effect = item.Descriptor.ToItemEffect(effectType, item)
+        Dim effect = ItemExtensions.Descriptor(item).ToItemEffect(effectType, item)
         CharacterExtensions.Descriptor(world.Avatar).EffectHandlers(effectType).Invoke(world.Avatar, effect)
     End Sub
 End Class

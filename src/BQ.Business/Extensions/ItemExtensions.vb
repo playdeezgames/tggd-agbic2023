@@ -2,15 +2,9 @@
     Public Function Descriptor(item As IItem) As ItemTypeDescriptor
         Return item.ItemType.ToItemTypeDescriptor
     End Function
-    <Extension>
     Public Function Name(item As IItem) As String
         Return ItemExtensions.Descriptor(item).Name
     End Function
-    <Extension>
-    Public Sub DoEffect(item As IItem, effectType As String, character As ICharacter)
-        Dim effect = ItemExtensions.Descriptor(item).ToItemEffect(effectType, item)
-        CharacterExtensions.Descriptor(character).RunEffectScript(WorldModel.LuaState, effectType, character, effect)
-    End Sub
     <Extension>
     Public Function IsWeapon(item As IItem) As Boolean
         Return ItemExtensions.Descriptor(item).Flags.Contains(FlagTypes.IsWeapon)

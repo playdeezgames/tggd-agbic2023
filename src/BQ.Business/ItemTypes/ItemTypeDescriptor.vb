@@ -32,7 +32,7 @@ Public Class ItemTypeDescriptor
     End Sub
 
     Private Function DefaultFullName(item As IItem) As String
-        Return item.Name
+        Return ItemExtensions.Name(item)
     End Function
     Friend ReadOnly Property AllEffectTypes As IEnumerable(Of String)
         Get

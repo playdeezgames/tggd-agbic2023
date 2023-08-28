@@ -54,7 +54,7 @@ Friend Class MapModel
             cellXY = Translate(cellXY)
             Return map.
                 GetCell(cellXY.column, cellXY.row).Items.
-                GroupBy(Function(x) x.Name).
+                GroupBy(Function(x) ItemExtensions.Name(x)).
                 Select(Function(x) ($"{x.Key}(x{x.Count})", x.Key)).
                 ToList
         End Get
@@ -66,7 +66,7 @@ Friend Class MapModel
             Return map.
                 GetCell(cellXY.column, cellXY.row).
                 Items.
-                Count(Function(x) x.Name = itemName)
+                Count(Function(x) ItemExtensions.Name(x) = itemName)
         End Get
     End Property
 

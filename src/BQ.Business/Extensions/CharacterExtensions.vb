@@ -288,7 +288,7 @@
             Dim item = RNG.FromEnumerable(items)
             item.AddDurability(-1)
             If item.IsBroken Then
-                msg.AddLine(Red, $"{CharacterExtensions.Name(character)}' {item.Name} breaks!")
+                msg.AddLine(Red, $"{CharacterExtensions.Name(character)}' {ItemExtensions.Name(item)} breaks!")
                 character.UnequipItem(item)
                 character.RemoveItem(item)
                 item.Recycle()
@@ -306,7 +306,7 @@
             Dim item = RNG.FromEnumerable(items)
             item.AddDurability(-1)
             If item.IsBroken Then
-                msg.AddLine(Red, $"{CharacterExtensions.Name(character)}' {item.Name} breaks!")
+                msg.AddLine(Red, $"{CharacterExtensions.Name(character)}' {ItemExtensions.Name(item)} breaks!")
                 character.UnequipItem(item)
                 character.RemoveItem(item)
                 item.Recycle()
@@ -371,6 +371,6 @@
         Return character.Items.Any(Function(x) x.ItemType.ToItemTypeDescriptor.IsCuttingTool) OrElse character.EquippedItems.Any(Function(x) x.ItemType.ToItemTypeDescriptor.IsCuttingTool)
     End Function
     Function ItemCountsByName(character As ICharacter) As IReadOnlyDictionary(Of String, IEnumerable(Of IItem))
-        Return character.Items.GroupBy(Function(x) x.Name).ToDictionary(Function(x) x.Key, Function(x) x.AsEnumerable)
+        Return character.Items.GroupBy(Function(x) ItemExtensions.Name(x)).ToDictionary(Function(x) x.Key, Function(x) x.AsEnumerable)
     End Function
 End Module

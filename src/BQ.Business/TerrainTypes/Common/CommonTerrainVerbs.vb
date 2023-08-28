@@ -16,6 +16,6 @@ Friend Module CommonTerrainVerbs
         End If
         Dim item = ItemInitializer.CreateItem(character.World, itemType)
         character.AddItem(item)
-        character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} finds {item.Name}")
+        character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} finds {ItemExtensions.Name(item)}")
     End Sub
 End Module

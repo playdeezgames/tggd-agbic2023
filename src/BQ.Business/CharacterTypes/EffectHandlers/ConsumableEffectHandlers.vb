@@ -24,7 +24,7 @@
         Else
             CharacterExtensions.SetHealth(character, CharacterExtensions.Health(character) - 1)
             Dim msg = character.World.CreateMessage().
-                AddLine(LightGray, $"{item.Name} is tainted!").
+                AddLine(LightGray, $"{ItemExtensions.Name(item)} is tainted!").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} loses 1 health!")
             If CharacterExtensions.IsDead(character) Then
                 msg.AddLine(Red, $"{CharacterExtensions.Name(character)} dies.")
@@ -44,7 +44,7 @@
     Private Sub DoHealing(character As ICharacter, item As IItem, amount As Integer)
         CharacterExtensions.SetHealth(character, CharacterExtensions.Health(character) + amount)
         character.World.CreateMessage().
-            AddLine(LightGray, $"{item.Name} restores {amount} health!").
+            AddLine(LightGray, $"{ItemExtensions.Name(item)} restores {amount} health!").
             AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Health(character)}/{CharacterExtensions.MaximumHealth(character)} health")
     End Sub
 
@@ -64,7 +64,7 @@
         CharacterExtensions.AddEnergy(character, energyBenefit)
         character.World.
             CreateMessage().
-            AddLine(LightGray, $"{CharacterExtensions.Name(character)} eats the {item.Name}.").
+            AddLine(LightGray, $"{CharacterExtensions.Name(character)} eats the {ItemExtensions.Name(item)}.").
             AddLine(LightGray, $"{CharacterExtensions.Name(character)} regains energy!").
         AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Energy(character)}/{CharacterExtensions.MaximumEnergy(character)} energy.")
     End Sub

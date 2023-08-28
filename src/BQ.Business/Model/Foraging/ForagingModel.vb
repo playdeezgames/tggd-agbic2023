@@ -28,7 +28,7 @@
 
     Public Sub FinalReport(items As IEnumerable(Of IItem)) Implements IForagingModel.FinalReport
         If items.Any Then
-            Dim table = items.GroupBy(Function(x) x.Name).ToDictionary(Function(x) x.Key, Function(x) x.Count)
+            Dim table = items.GroupBy(Function(x) ItemExtensions.Name(x)).ToDictionary(Function(x) x.Key, Function(x) x.Count)
             Dim msg = world.CreateMessage().
                 AddLine(LightGray, $"{CharacterExtensions.Name(world.Avatar)} forages:")
             For Each entry In table

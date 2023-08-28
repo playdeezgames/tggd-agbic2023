@@ -27,19 +27,19 @@
 
     Public ReadOnly Property CanEquip As Boolean Implements IItemModel.CanEquip
         Get
-            Return world.Avatar.Items.Where(Function(x) x.Name = Name).Any(Function(x) x.CanEquip)
+            Return world.Avatar.Items.Where(Function(x) ItemExtensions.Name(x) = Name).Any(Function(x) x.CanEquip)
         End Get
     End Property
 
     Public ReadOnly Property Equippables As IEnumerable(Of (fullName As String, itemId As Integer)) Implements IItemModel.Equippables
         Get
-            Return world.Avatar.Items.Where(Function(x) x.Name = Name).Select(Function(x) (x.FullName, x.Id))
+            Return world.Avatar.Items.Where(Function(x) ItemExtensions.Name(x) = Name).Select(Function(x) (x.FullName, x.Id))
         End Get
     End Property
 
     Public ReadOnly Property EffectTypes As IEnumerable(Of (text As String, VerbTypes As String)) Implements IItemModel.EffectTypes
         Get
-            Dim item = world.Avatar.Items.First(Function(x) x.Name = Name)
+            Dim item = world.Avatar.Items.First(Function(x) ItemExtensions.Name(x) = Name)
             Return ItemExtensions.Descriptor(item).AllEffectTypes.Select(Function(x) (x.ToEffectTypeDescriptor.Name, x))
         End Get
     End Property
@@ -49,7 +49,7 @@
         Dim itemName = Name
         world.Avatar.RemoveStatistic(StatisticTypes.ItemCount)
         world.Avatar.RemoveMetadata(Metadatas.ItemName)
-        Dim items = world.Avatar.Cell.Items.Where(Function(x) x.Name = itemName).Take(itemCount)
+        Dim items = world.Avatar.Cell.Items.Where(Function(x) ItemExtensions.Name(x) = itemName).Take(itemCount)
         For Each item In items
             world.Avatar.Cell.RemoveItem(item)
             world.Avatar.AddItem(item)
@@ -61,7 +61,7 @@
         Dim itemName = Name
         world.Avatar.RemoveStatistic(StatisticTypes.ItemCount)
         world.Avatar.RemoveMetadata(Metadatas.ItemName)
-        Dim items = world.Avatar.Items.Where(Function(x) x.Name = itemName).Take(itemCount)
+        Dim items = world.Avatar.Items.Where(Function(x) ItemExtensions.Name(x) = itemName).Take(itemCount)
         For Each item In items
             world.Avatar.Cell.AddItem(item)
             world.Avatar.RemoveItem(item)
@@ -71,11 +71,11 @@
     Public Sub Equip(itemId As Integer) Implements IItemModel.Equip
         Dim item = world.GetItem(itemId)
         CharacterExtensions.EquipItem(world.Avatar, item)
-        world.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(world.Avatar)} equips {item.Name}")
+        world.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(world.Avatar)} equips {ItemExtensions.Name(item)}")
     End Sub
 
     Public Sub DoEffect(effectType As String) Implements IItemModel.DoEffect
-        Dim item = world.Avatar.Items.First(Function(x) x.Name = Name)
+        Dim item = world.Avatar.Items.First(Function(x) ItemExtensions.Name(x) = Name)
         Dim effect = ItemExtensions.Descriptor(item).ToItemEffect(effectType, item)
         CharacterExtensions.Descriptor(world.Avatar).EffectHandlers(effectType).Invoke(world.Avatar, effect)
     End Sub

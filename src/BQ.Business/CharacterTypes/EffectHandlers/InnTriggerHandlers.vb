@@ -30,9 +30,9 @@
     End Sub
 
     Friend Sub DoPerventInnkeeper(character As ICharacter, trigger As IEffect)
-        Dim msg = character.World.CreateMessage().
-                        AddLine(LightGray, "I'm not a pervert!").
-                        AddLine(LightGray, "I'm just Australian!")
+        character.World.CreateMessage().
+            AddLine(LightGray, "I'm not a pervert!").
+            AddLine(LightGray, "I'm just Australian!")
     End Sub
 
     Friend Sub DoGorachanTalk(character As ICharacter, trigger As IEffect)
@@ -55,16 +55,12 @@
     End Sub
 
     Friend Sub DoStartRatQuest(character As ICharacter, trigger As IEffect)
-        Dim msg = character.World.CreateMessage().
-                        AddLine(LightGray, "Well, there are a bunch of rats in the cellar.").
-                        AddLine(LightGray, "I'll pay you 1 jools for each rat tail.").
-                        AddLine(LightGray, "I only accept the tails, no corpses.").
-                        AddLine(LightGray, "So you'll need to cut them off first.").
-                        AddChoice("I'm on it!", EffectTypes.AcceptRatQuest).
-                        AddChoice("Mebbe later?", EffectTypes.ExitDialog)
-    End Sub
-
-    Friend Sub DoAcceptRatQuest(character As ICharacter, trigger As IEffect)
-        character.SetFlag(FlagTypes.RatQuest, True)
+        character.World.CreateMessage().
+            AddLine(LightGray, "Well, there are a bunch of rats in the cellar.").
+            AddLine(LightGray, "I'll pay you 1 jools for each rat tail.").
+            AddLine(LightGray, "I only accept the tails, no corpses.").
+            AddLine(LightGray, "So you'll need to cut them off first.").
+            AddChoice("I'm on it!", EffectTypes.AcceptRatQuest).
+            AddChoice("Mebbe later?", EffectTypes.ExitDialog)
     End Sub
 End Module

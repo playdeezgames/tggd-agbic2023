@@ -24,7 +24,6 @@
                         {EffectTypes.EnergyTrainerTalk, AddressOf DoEnergyTrainerTalk},
                         {EffectTypes.TrainEnergy, AddressOf DoTrainEnergy},
                         {EffectTypes.StartRatQuest, AddressOf DoStartRatQuest},
-                        {EffectTypes.AcceptRatQuest, AddressOf DoAcceptRatQuest},
                         {EffectTypes.CompleteRatQuest, AddressOf DoCompleteRatQuest},
                         {EffectTypes.CutOffTail, AddressOf DoCutOffTail},
                         {EffectTypes.UseEnergyHerb, AddressOf DoUseEnergyHerb},

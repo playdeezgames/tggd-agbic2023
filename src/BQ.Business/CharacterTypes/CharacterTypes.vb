@@ -77,6 +77,10 @@ world:CreateMessage():
     AddChoice(""Cool story, bro!"", ""ExitDialog""):
     AddChoice(""I loved yer movies!"", ""PotterFlavorText""):
     AddChoice(""Make me a pot!"", ""PotterMakePot"")"
+                        },
+                        {
+                            EffectTypes.AcceptRatQuest,
+                            "character:SetFlag(""RatQuest"", true)"
                         }
                     })
             },

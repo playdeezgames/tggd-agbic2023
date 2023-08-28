@@ -48,16 +48,16 @@
     End Sub
 
     Friend Sub RunEffectScript(luaState As Lua, effectType As String, character As ICharacter, effect As IEffect)
-        If EffectHandlers.ContainsKey(effectType) Then
-            EffectHandlers(effectType).Invoke(character, effect)
-            Return
-        End If
         If EffectScripts.ContainsKey(effectType) Then
             luaState(CharacterIdentifier) = character
             luaState(EffectIdentifier) = effect
             luaState.DoString(EffectScripts(effectType))
             luaState(EffectIdentifier) = Nothing
             luaState(CharacterIdentifier) = Nothing
+            Return
+        End If
+        If EffectHandlers.ContainsKey(effectType) Then
+            EffectHandlers(effectType).Invoke(character, effect)
             Return
         End If
         Throw New NotImplementedException($"No effect type '{effectType}' for '{CharacterExtensions.Name(character)}'(id: {character.Id})")

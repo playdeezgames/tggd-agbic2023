@@ -5,15 +5,12 @@
     Public Function Name(item As IItem) As String
         Return ItemExtensions.Descriptor(item).Name
     End Function
-    <Extension>
     Public Function IsWeapon(item As IItem) As Boolean
         Return ItemExtensions.Descriptor(item).Flags.Contains(FlagTypes.IsWeapon)
     End Function
-    <Extension>
     Public Function IsArmor(item As IItem) As Boolean
         Return ItemExtensions.Descriptor(item).Flags.Contains(FlagTypes.IsArmor)
     End Function
-    <Extension>
     Public Function FullName(item As IItem) As String
         Return ItemExtensions.Descriptor(item).FullName(item)
     End Function

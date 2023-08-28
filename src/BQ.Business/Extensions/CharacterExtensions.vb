@@ -99,10 +99,10 @@
         Return CharacterExtensions.Descriptor(character).Name
     End Function
     Public Function Weapons(character As ICharacter) As IEnumerable(Of IItem)
-        Return character.EquippedItems.Where(Function(x) x.IsWeapon)
+        Return character.EquippedItems.Where(Function(x) ItemExtensions.IsWeapon(x))
     End Function
     Public Function Armors(character As ICharacter) As IEnumerable(Of IItem)
-        Return character.EquippedItems.Where(Function(x) x.IsArmor)
+        Return character.EquippedItems.Where(Function(x) ItemExtensions.IsArmor(x))
     End Function
     Public Sub TakeItem(character As ICharacter, item As IItem)
         character.Cell.RemoveItem(item)
@@ -282,7 +282,7 @@
         End If
     End Sub
     Public Function ScuffWeapons(character As ICharacter, scuffAmount As Integer, msg As IMessage) As Boolean
-        Dim items = character.EquippedItems.Where(Function(x) x.IsWeapon AndAlso x.Durability > 0)
+        Dim items = character.EquippedItems.Where(Function(x) ItemExtensions.IsWeapon(x) AndAlso x.Durability > 0)
         Dim result = False
         While scuffAmount > 0 AndAlso items.Any
             Dim item = RNG.FromEnumerable(items)
@@ -295,12 +295,12 @@
                 result = True
             End If
             scuffAmount -= 1
-            items = character.EquippedItems.Where(Function(x) x.IsWeapon AndAlso x.Durability > 0)
+            items = character.EquippedItems.Where(Function(x) ItemExtensions.IsWeapon(x) AndAlso x.Durability > 0)
         End While
         Return result
     End Function
     Public Function ScuffArmors(character As ICharacter, scuffAmount As Integer, msg As IMessage) As Boolean
-        Dim items = character.EquippedItems.Where(Function(x) x.IsArmor AndAlso x.Durability > 0)
+        Dim items = character.EquippedItems.Where(Function(x) ItemExtensions.IsArmor(x) AndAlso x.Durability > 0)
         Dim result = False
         While scuffAmount > 0 AndAlso items.Any
             Dim item = RNG.FromEnumerable(items)
@@ -313,7 +313,7 @@
                 result = True
             End If
             scuffAmount -= 1
-            items = character.EquippedItems.Where(Function(x) x.IsArmor AndAlso x.Durability > 0)
+            items = character.EquippedItems.Where(Function(x) ItemExtensions.IsArmor(x) AndAlso x.Durability > 0)
         End While
         Return result
     End Function

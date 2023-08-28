@@ -15,7 +15,7 @@
 
     Public ReadOnly Property Display As IEnumerable(Of (String, String)) Implements IAvatarEquipmentModel.Display
         Get
-            Return avatar.Equipment.Select(Function(x) ($"{x.Key.ToEquipSlotTypeDescriptor.Name}: {ItemExtensions.FullName(x.Value)}", x.Key))
+            Return avatar.Equipment.Select(Function(x) ($"{x.Key.ToEquipSlotTypeDescriptor.Name}: {ItemExtensions.FullName(WorldModel.LuaState, x.Value)}", x.Key))
         End Get
     End Property
 

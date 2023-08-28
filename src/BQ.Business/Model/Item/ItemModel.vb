@@ -33,7 +33,7 @@
 
     Public ReadOnly Property Equippables As IEnumerable(Of (fullName As String, itemId As Integer)) Implements IItemModel.Equippables
         Get
-            Return world.Avatar.Items.Where(Function(x) ItemExtensions.Name(x) = Name).Select(Function(x) (ItemExtensions.FullName(x), x.Id))
+            Return world.Avatar.Items.Where(Function(x) ItemExtensions.Name(x) = Name).Select(Function(x) (ItemExtensions.FullName(WorldModel.LuaState, x), x.Id))
         End Get
     End Property
 

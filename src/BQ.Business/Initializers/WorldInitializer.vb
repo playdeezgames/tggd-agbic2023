@@ -3,8 +3,10 @@ Imports BQ.Persistence
 
 Friend Module WorldInitializer
     Const recipesFilename = "Content/recipes.json"
+    'Const itemTypesFilename = "Content/itemTypes.json"
     Friend Sub Initialize(world As IWorld)
         RecipeTypes.Load(recipesFilename)
+        'ItemTypes.Save(itemTypesFilename)
         MapInitializer.Initialize(world)
         StitchMaps(world)
         AvatarInitializer.Initialize(world)

@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel
 Imports System.Runtime.CompilerServices
+Imports System.Text.Json
 Imports BQ.Persistence
 
 Friend Module ItemTypes
@@ -30,6 +31,9 @@ Friend Module ItemTypes
     Friend Const Paprika = "Paprika"
     Friend Const SeasonedRat = "SeasonedRat"
     Friend Const Bagel = "Bagel"
+    Friend Sub Save(filename As String)
+        System.IO.File.WriteAllText(filename, JsonSerializer.Serialize(descriptors))
+    End Sub
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, ItemTypeDescriptor) =
         New Dictionary(Of String, ItemTypeDescriptor) From
         {

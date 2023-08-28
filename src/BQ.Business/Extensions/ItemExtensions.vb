@@ -54,11 +54,9 @@
     Public Function IsBroken(item As IItem) As Boolean
         Return item.Durability <= 0
     End Function
-    <Extension>
     Public Function Glyph(item As IItem) As String
         Return ItemExtensions.Descriptor(item).Glyph
     End Function
-    <Extension>
     Public Function Hue(item As IItem) As Integer
         Return ItemExtensions.Descriptor(item).Hue
     End Function

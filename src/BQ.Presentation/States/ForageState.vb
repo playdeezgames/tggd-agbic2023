@@ -58,7 +58,7 @@ Friend Class ForageState
         Dim offsetY = Context.ViewCenter.Y - bqFont.HalfHeight * table.Count
         For Each entry In table
             Dim item = entry.First
-            bqFont.WriteText(displayBuffer, (0, offsetY), item.Glyph, item.Hue)
+            bqFont.WriteText(displayBuffer, (0, offsetY), ItemExtensions.Glyph(item), ItemExtensions.Hue(item))
             font.WriteText(displayBuffer, (bqFont.TextWidth(ChrW(0)), offsetY + bqFont.HalfHeight - font.HalfHeight), $"x{entry.Count}", LightGray)
             offsetY += bqFont.Height
         Next
@@ -75,7 +75,7 @@ Friend Class ForageState
                     bqFont.WriteText(displayBuffer, (offsetX, offsetY), ChrW(254), Yellow)
                 ElseIf items(column, row) IsNot Nothing Then
                     Dim item = items(column, row)
-                    bqFont.WriteText(displayBuffer, (offsetX, offsetY), item.Glyph, item.Hue)
+                    bqFont.WriteText(displayBuffer, (offsetX, offsetY), ItemExtensions.Glyph(item), ItemExtensions.Hue(item))
                 End If
                 If column = currentColumn AndAlso row = currentRow Then
                     bqFont.WriteText(displayBuffer, (offsetX, offsetY), ChrW(255), If(hiddenCells(column, row) AndAlso Model.Foraging.CanForage, Green, Red))

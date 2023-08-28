@@ -19,21 +19,4 @@
         character.World.CreateMessage.
             AddLine(Red, $"{CharacterExtensions.Name(character)} loses {price} jools").AddLine(LightGreen, $"{CharacterExtensions.Name(character)} gains 1 {ItemTypes.ClayPot.ToItemTypeDescriptor.Name}")
     End Sub
-
-    Friend Sub DoPotterFlavorText(character As ICharacter, effect As IEffect)
-        Dim msg = character.World.CreateMessage.
-                        AddLine(LightGray, "Um. Thanks!").
-                        AddLine(LightGray, "...").
-                        AddLine(LightGray, "What's a 'Movie'?").
-                        AddChoice("Nevermind!", EffectTypes.ExitDialog)
-    End Sub
-
-    Friend Sub DoPotterTalk(character As ICharacter, effect As IEffect)
-        Dim msg = character.World.CreateMessage.
-                        AddLine(LightGray, "Greetings! I am Harold, the Potter.").
-                        AddLine(LightGray, "I make pots! For jools!").
-                        AddChoice(CoolStoryBro, EffectTypes.ExitDialog).
-                        AddChoice("I loved yer movies!", EffectTypes.PotterFlavorText).
-                        AddChoice("Make me a pot!", EffectTypes.PotterMakePot)
-    End Sub
 End Module

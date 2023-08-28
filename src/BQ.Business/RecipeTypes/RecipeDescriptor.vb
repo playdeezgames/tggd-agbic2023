@@ -44,12 +44,4 @@
             End Select
         Next
     End Sub
-
-    Friend ReadOnly Property Description As String
-        Get
-            Dim inputText = String.Join("+", Inputs.Select(Function(x) $"{If(x.Value > 1, $"{x.Value} ", "")}{x.Key.ToItemTypeDescriptor.Name}").ToArray)
-            Dim outputText = String.Join("+", Outputs.Select(Function(x) $"{If(x.Value > 1, $"{x.Value} ", "")}{x.Key.ToItemTypeDescriptor.Name}").ToArray)
-            Return $"{inputText}->{outputText}"
-        End Get
-    End Property
 End Class

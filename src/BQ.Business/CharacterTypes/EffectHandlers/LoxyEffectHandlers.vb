@@ -40,7 +40,6 @@
                         {EffectTypes.CookRatBody, AddressOf DoCookRatBody},
                         {EffectTypes.CookRatCorpse, AddressOf DoCookRatCorpse},
                         {EffectTypes.EatCookedRat, AddressOf DoEatCookedRat},
-                        {EffectTypes.PotterTalk, AddressOf DoPotterTalk},
                         {EffectTypes.PotterMakePot, AddressOf DoPotterMakePot},
                         {EffectTypes.BumpRiver, AddressOf DoBumpRiver},
                         {EffectTypes.FillClayPot, AddressOf DoFillClayPot},

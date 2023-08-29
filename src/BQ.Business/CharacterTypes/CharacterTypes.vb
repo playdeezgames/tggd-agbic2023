@@ -55,13 +55,13 @@ end"
                         {
                             EffectTypes.Teleport,
 "
-require('teleport')
+require('Content.Scripts.teleport')
 doTeleport(character,effect)"
                         },
                         {
                             EffectTypes.EnterCellar,
 "
-require('teleport')
+require('Content.Scripts.teleport')
 if character:GetFlag(""RatQuest"") then
     doTeleport(character,effect)
 else

@@ -26,6 +26,7 @@
     <None Remove="Content\CyFont5x7.json" />
     <None Remove="Content\CyFont8x8.json" />
     <None Remove="Content\Eat.wav" />
+    <None Remove="Content\effectTypes.json" />
     <None Remove="Content\EnemyDeath.wav" />
     <None Remove="Content\EnemyHit.wav" />
     <None Remove="Content\EnemyMiss.wav" />
@@ -52,6 +53,9 @@
 
   <ItemGroup>
     <Content Include="aboot.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\effectTypes.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\font.json">
@@ -138,7 +142,7 @@
     <Content Include="Content\sfx.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="teleport.lua">
+    <Content Include="Content\Scripts\teleport.lua">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -1,0 +1,137 @@
+{
+  "Buy": {
+    "Name": "Buy"
+  },
+  "CompleteRatQuest": {
+    "Name": "Complete Rat Quest"
+  },
+  "DruidAllergies": {
+    "Name": "Druid Allergies"
+  },
+  "DruidPrices": {
+    "Name": "Druid Prices"
+  },
+  "DruidTalk": {
+    "Name": "Druid Talk"
+  },
+  "DruidTeachMenu": {
+    "Name": "Druid Teach Menu"
+  },
+  "EnergyTrainerTalk": {
+    "Name": "Energy Trainer Talk"
+  },
+  "ExitDialog": {
+    "Name": "Exit Dialog"
+  },
+  "GorachanTalk": {
+    "Name": "Gorachan Talk"
+  },
+  "Heal": {
+    "Name": "Heal"
+  },
+  "NihilistPrices": {
+    "Name": "Healer Prices"
+  },
+  "HealerTalk": {
+    "Name": "Healer Talk"
+  },
+  "HealthTrainerTalk": {
+    "Name": "Health Trainer Talk"
+  },
+  "LearnForaging": {
+    "Name": "Learn Foraging"
+  },
+  "LearnKnapping": {
+    "Name": "Learn Knapping"
+  },
+  "LearnTwineMaking": {
+    "Name": "Learn Twine Making"
+  },
+  "MakeDough": {
+    "Name": "Make Dough"
+  },
+  "MakePaprika": {
+    "Name": "Make Paprika"
+  },
+  "MillWheat": {
+    "Name": "Mill"
+  },
+  "Message": {
+    "Name": "Message"
+  },
+  "PayInnkeeper": {
+    "Name": "Pay Innkeeper"
+  },
+  "PervertInnkeeper": {
+    "Name": "Pervert Innkeeper"
+  },
+  "SleepAtInn": {
+    "Name": "Sleep At Inn"
+  },
+  "Teleport": {
+    "Name": "Teleport"
+  },
+  "TrainEnergy": {
+    "Name": "Train Energy"
+  },
+  "TrainHealth": {
+    "Name": "Train Health"
+  },
+  "StartRatQuest": {
+    "Name": "Start Rat Quest"
+  },
+  "SeasonRat": {
+    "Name": "Season"
+  },
+  "AcceptRatQuest": {
+    "Name": "Accept Rat Quest"
+  },
+  "EnterCellar": {
+    "Name": "Enter Cellar"
+  },
+  "Forage": {
+    "Name": "Forage"
+  },
+  "UseEnergyHerb": {
+    "Name": "Use"
+  },
+  "CutOffTail": {
+    "Name": "Cut Off Tail"
+  },
+  "EatRatCorpse": {
+    "Name": "Eat"
+  },
+  "EatSeasonedRat": {
+    "Name": "Eat"
+  },
+  "EatCookedRat": {
+    "Name": "Eat"
+  },
+  "BuildFire": {
+    "Name": "Build Fire"
+  },
+  "MakeTorch": {
+    "Name": "Make Torch"
+  },
+  "PutOutFire": {
+    "Name": "Put Out Fire"
+  },
+  "CookRatBody": {
+    "Name": "Cook"
+  },
+  "CookRatCorpse": {
+    "Name": "Cook"
+  },
+  "CookBagel": {
+    "Name": "Cook"
+  },
+  "SmokePepper": {
+    "Name": "Smoke"
+  },
+  "EatPepper": {
+    "Name": "Eat"
+  },
+  "EatSmokedPepper": {
+    "Name": "Eat"
+  }
+}

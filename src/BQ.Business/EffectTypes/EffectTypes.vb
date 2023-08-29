@@ -54,59 +54,16 @@
     Friend Const StartRatQuest = "StartRatQuest"
     Friend Const Forage = "Forage"
     Friend Const UseEnergyHerb = "UseEnergyHerb"
-    Private ReadOnly descriptors As IReadOnlyDictionary(Of String, EffectTypeDescriptor) =
-        New Dictionary(Of String, EffectTypeDescriptor) From
-        {
-            {Buy, New EffectTypeDescriptor("Buy")},
-            {CompleteRatQuest, New EffectTypeDescriptor("Complete Rat Quest")},
-            {DruidAllergies, New EffectTypeDescriptor("Druid Allergies")},
-            {DruidPrices, New EffectTypeDescriptor("Druid Prices")},
-            {DruidTalk, New EffectTypeDescriptor("Druid Talk")},
-            {DruidTeachMenu, New EffectTypeDescriptor("Druid Teach Menu")},
-            {EnergyTrainerTalk, New EffectTypeDescriptor("Energy Trainer Talk")},
-            {ExitDialog, New EffectTypeDescriptor("Exit Dialog")},
-            {GorachanTalk, New EffectTypeDescriptor("Gorachan Talk")},
-            {Heal, New EffectTypeDescriptor("Heal")},
-            {HealerPrices, New EffectTypeDescriptor("Healer Prices")},
-            {HealerTalk, New EffectTypeDescriptor("Healer Talk")},
-            {HealthTrainerTalk, New EffectTypeDescriptor("Health Trainer Talk")},
-            {LearnForaging, New EffectTypeDescriptor("Learn Foraging")},
-            {LearnKnapping, New EffectTypeDescriptor("Learn Knapping")},
-            {LearnTwineMaking, New EffectTypeDescriptor("Learn Twine Making")},
-            {MakeDough, New EffectTypeDescriptor("Make Dough")},
-            {MakePaprika, New EffectTypeDescriptor("Make Paprika")},
-            {MillWheat, New EffectTypeDescriptor("Mill")},
-            {Message, New EffectTypeDescriptor("Message")},
-            {PayInnkeeper, New EffectTypeDescriptor("Pay Innkeeper")},
-            {PervertInnkeeper, New EffectTypeDescriptor("Pervert Innkeeper")},
-            {SleepAtInn, New EffectTypeDescriptor("Sleep At Inn")},
-            {Teleport, New EffectTypeDescriptor("Teleport")},
-            {TrainEnergy, New EffectTypeDescriptor("Train Energy")},
-            {TrainHealth, New EffectTypeDescriptor("Train Health")},
-            {StartRatQuest, New EffectTypeDescriptor("Start Rat Quest")},
-            {EffectTypes.SeasonRat, New EffectTypeDescriptor("Season")},
-            {AcceptRatQuest, New EffectTypeDescriptor("Accept Rat Quest")},
-            {EnterCellar, New EffectTypeDescriptor("Enter Cellar")},
-            {Forage, New EffectTypeDescriptor("Forage")},
-            {UseEnergyHerb, New EffectTypeDescriptor("Use")},
-            {CutOffTail, New EffectTypeDescriptor("Cut Off Tail")},
-            {EatRatCorpse, New EffectTypeDescriptor("Eat")},
-            {EatSeasonedRat, New EffectTypeDescriptor("Eat")},
-            {EatCookedRat, New EffectTypeDescriptor("Eat")},
-            {BuildFire, New EffectTypeDescriptor("Build Fire")},
-            {MakeTorch, New EffectTypeDescriptor("Make Torch")},
-            {PutOutFire, New EffectTypeDescriptor("Put Out Fire")},
-            {CookRatBody, New EffectTypeDescriptor("Cook")},
-            {CookRatCorpse, New EffectTypeDescriptor("Cook")},
-            {EffectTypes.CookBagel, New EffectTypeDescriptor("Cook")},
-            {EffectTypes.SmokePepper, New EffectTypeDescriptor("Smoke")},
-            {EffectTypes.EatPepper, New EffectTypeDescriptor("Eat")},
-            {EffectTypes.EatSmokedPepper, New EffectTypeDescriptor("Eat")}
-        }
+    Private descriptors As IReadOnlyDictionary(Of String, EffectTypeDescriptor)
     <Extension>
     Friend Function ToEffectTypeDescriptor(effectType As String) As EffectTypeDescriptor
         Return descriptors(effectType)
     End Function
+
+    Friend Sub Load(filename As String)
+        descriptors = JsonSerializer.Deserialize(Of Dictionary(Of String, EffectTypeDescriptor))(File.ReadAllText(filename))
+    End Sub
+
     Friend ReadOnly Property All As IEnumerable(Of String)
         Get
             Return descriptors.Keys

@@ -1,5 +1,4 @@
 ﻿Imports System.Data
-Imports System.Runtime.CompilerServices
 
 Friend Module MessageTypes
     Friend Const InnSign = "InnSign"
@@ -13,65 +12,17 @@ Friend Module MessageTypes
     Friend Const HealerSign = "HealerSign"
     Friend Const PotterSign = "PotterSign"
     Friend Const NothingHappens = "NothingHappens"
-    Private Function MakeLines(ParamArray lines() As (hue As Integer, text As String)) As IEnumerable(Of MessageLineData)
-        Return lines.Select(Function(x) New MessageLineData With {.Hue = x.hue, .Text = x.text})
-    End Function
-    Private Function MakeChoices(ParamArray choices() As (text As String, command As String)) As IEnumerable(Of (text As String, command As String))
-        Return choices
-    End Function
-    Private ReadOnly descriptors As IReadOnlyDictionary(Of String, MessageTypeDescriptor) =
-        New Dictionary(Of String, MessageTypeDescriptor) From
-        {
-            {NothingHappens, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Nothing happens.")))},
-            {InnSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Jusdatip Inn")))},
-            {TownSign2, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #2")))},
-            {HealthTrainerSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Health Training")))},
-            {EnergyTrainerSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Endurance Training")))},
-            {TownSign5, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #5")))},
-            {TownSign6, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #6")))},
-            {DruidSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Hippy Druid Lives Here")))},
-            {TownSign8, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "This is sign #8")))},
-            {HealerSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "House of Nihilistic Healing")))},
-            {PotterSign, New MessageTypeDescriptor(Nothing, MakeLines((LightGray, "Harold, the Potter"), (LightGray, "(no relation)")))},
-            {
-                HealerTalk,
-                New MessageTypeDescriptor(
-                    lines:=MakeLines(
-                        (LightGray, "Welcome to the Nihilistic House of Healing."),
-                        (LightGray, "If you go to the basin And wash,"),
-                        (LightGray, "you will be healed,"),
-                        (LightGray, "but it will cost you half of yer jools."),
-                        (LightGray, "Not that I care or anything,"),
-                        (LightGray, "because I'm a nihilist.")),
-                    choices:=MakeChoices(
-                        (CoolStoryBro, EffectTypes.ExitDialog),
-                        ("What's for sale?", EffectTypes.HealerPrices)))
-            },
-            {
-                HealthTrainerTalk,
-                New MessageTypeDescriptor(
-                    lines:=MakeLines(
-                        (LightGray, "I am the health trainer!"),
-                        (LightGray, "I can help you increase yer health."),
-                        (LightGray, "The cost is 5 AP times yer current health.")),
-                    choices:=MakeChoices(
-                        (CoolStoryBro, EffectTypes.ExitDialog),
-                        (TrainMe, EffectTypes.TrainHealth)))
-            },
-            {
-                DruidTalk,
-                New MessageTypeDescriptor(
-                    lines:=MakeLines(
-                        (LightGray, "Greetings! I am a druid."),
-                        (LightGray, "I can help you learn nature's way.")),
-                    choices:=MakeChoices(
-                        (CoolStoryBro, EffectTypes.ExitDialog),
-                        ("Don't druids live in the woods?", EffectTypes.DruidAllergies),
-                        ("Teach me!", EffectTypes.DruidTeachMenu)))
-            }
-        }
+    Private descriptors As IReadOnlyDictionary(Of String, MessageTypeDescriptor)
     <Extension>
     Friend Function ToMessageTypeDescriptor(messageType As String) As MessageTypeDescriptor
         Return descriptors(messageType)
     End Function
+
+    Friend Sub Save(filename As String)
+        File.WriteAllText(filename, JsonSerializer.Serialize(descriptors))
+    End Sub
+
+    Friend Sub Load(filename As String)
+        descriptors = JsonSerializer.Deserialize(Of Dictionary(Of String, MessageTypeDescriptor))(File.ReadAllText(filename))
+    End Sub
 End Module

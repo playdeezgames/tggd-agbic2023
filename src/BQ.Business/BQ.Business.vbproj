@@ -4,7 +4,7 @@
     <RootNamespace>BQ.Business</RootNamespace>
     <TargetFramework>netstandard2.1</TargetFramework>
     <OptionStrict>On</OptionStrict>
-    <ImportedNamespaces>BQ.Data=False,BQ.Persistence=False,NLua=False,SPLORR.Game=False,System.Runtime.CompilerServices=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,BQ.Business=True</ImportedNamespaces>
+    <ImportedNamespaces>BQ.Data=False,BQ.Persistence=False,NLua=False,SPLORR.Game=False,System.IO=False,System.Runtime.CompilerServices=False,System.Text.Json=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,BQ.Business=True</ImportedNamespaces>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -25,7 +25,9 @@
     <Import Include="BQ.Persistence" />
     <Import Include="NLua" />
     <Import Include="SPLORR.Game" />
+    <Import Include="System.IO" />
     <Import Include="System.Runtime.CompilerServices" />
+    <Import Include="System.Text.Json" />
   </ItemGroup>
 
   <ItemGroup>

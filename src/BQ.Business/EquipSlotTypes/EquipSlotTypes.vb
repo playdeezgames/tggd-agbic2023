@@ -1,18 +1,16 @@
-﻿Imports System.Runtime.CompilerServices
-
-Friend Module EquipSlotTypes
+﻿Friend Module EquipSlotTypes
     Friend Const Weapon = "Weapon"
     Friend Const Head = "Head"
-    Private ReadOnly descriptors As IReadOnlyDictionary(Of String, EquipSlotTypeDescriptor) =
-        New Dictionary(Of String, EquipSlotTypeDescriptor) From
-        {
-            {Weapon, New EquipSlotTypeDescriptor("Weapon")},
-            {Head, New EquipSlotTypeDescriptor("Head")}
-        }
+    Private descriptors As IReadOnlyDictionary(Of String, EquipSlotTypeDescriptor)
     <Extension>
     Friend Function ToEquipSlotTypeDescriptor(equipSlotType As String) As EquipSlotTypeDescriptor
         Return descriptors(equipSlotType)
     End Function
+
+    Friend Sub Load(filename As String)
+        descriptors = JsonSerializer.Deserialize(Of Dictionary(Of String, EquipSlotTypeDescriptor))(File.ReadAllText(filename))
+    End Sub
+
     Friend ReadOnly Property All As IEnumerable(Of String)
         Get
             Return descriptors.Keys

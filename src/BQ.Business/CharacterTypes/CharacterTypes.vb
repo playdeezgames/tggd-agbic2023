@@ -96,7 +96,7 @@ else
     if CharacterExtensions.IsDead(character) then
         msg:AddLine(4, CharacterExtensions.Name(character) .. "" dies."")
     else
-        msg:AddLine(7, CharacterExtensions.Name(character) .. "" now has "" .. CharacterExtensions.Health(character)}/{CharacterExtensions.MaximumHealth(character) .. "" health"")
+        msg:AddLine(7, CharacterExtensions.Name(character) .. "" now has "" .. CharacterExtensions.Health(character) .. ""/"" .. CharacterExtensions.MaximumHealth(character) .. "" health"")
     end
 end"
                         }

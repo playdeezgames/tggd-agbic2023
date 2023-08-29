@@ -27,7 +27,7 @@
 
     Public ReadOnly Property ItemCount(name As String) As Integer Implements IAvatarInventoryModel.ItemCount
         Get
-            Return avatar.Items.Count(Function(x) ItemExtensions.Name(x) = ItemName)
+            Return avatar.Items.Count(Function(x) ItemExtensions.Name(x) = name)
         End Get
     End Property
 

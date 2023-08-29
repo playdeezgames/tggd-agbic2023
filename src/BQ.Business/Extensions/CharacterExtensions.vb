@@ -1,4 +1,11 @@
 ﻿Public Module CharacterExtensions
+
+    Public Sub DoHealing(character As ICharacter, item As IItem, amount As Integer)
+        CharacterExtensions.SetHealth(character, CharacterExtensions.Health(character) + amount)
+        character.World.CreateMessage().
+            AddLine(LightGray, $"{ItemExtensions.Name(item)} restores {amount} health!").
+            AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Health(character)}/{CharacterExtensions.MaximumHealth(character)} health")
+    End Sub
     Public Function ConsumedItem(character As ICharacter, effect As IEffect) As IItem
         Dim item = EffectExtensions.ToItemEffect(effect).Item
         character.RemoveItem(item)

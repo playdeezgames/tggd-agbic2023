@@ -77,6 +77,6 @@
     Public Sub DoEffect(effectType As String) Implements IItemModel.DoEffect
         Dim item = world.Avatar.Items.First(Function(x) ItemExtensions.Name(x) = Name)
         Dim effect = ItemExtensions.Descriptor(item).ToItemEffect(effectType, item)
-        CharacterExtensions.Descriptor(world.Avatar).EffectHandlers(effectType).Invoke(world.Avatar, effect)
+        CharacterExtensions.Descriptor(world.Avatar).RunEffectScript(WorldModel.LuaState, effectType, world.Avatar, effect)
     End Sub
 End Class

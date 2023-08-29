@@ -40,8 +40,18 @@ Public Class WorldModel
     Private Const WorldIdentifier As String = "world"
     Private _world As IWorld
     Friend Shared LuaState As Lua = MakeLuaState()
+    Const recipesFilename = "Content/recipes.json"
+    'Const itemTypesFilename = "Content/itemTypes.json"
+    Const messagesFilename = "Content/messages.json"
+    Const effectTypesFilename = "Content/effectTypes.json"
+    Const equipSlotFilename = "Content/equipSlots.json"
 
     Private Shared Function MakeLuaState() As Lua
+        RecipeTypes.Load(recipesFilename)
+        MessageTypes.Load(messagesFilename)
+        EffectTypes.Load(effectTypesFilename)
+        EquipSlotTypes.Load(equipSlotFilename)
+        'ItemTypes.Save(itemTypesFilename)
         Dim lua As New Lua()
         lua.LoadCLRPackage()
         lua.DoString("import('SPLORR.Game')

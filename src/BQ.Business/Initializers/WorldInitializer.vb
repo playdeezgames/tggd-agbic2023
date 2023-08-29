@@ -1,15 +1,5 @@
 Friend Module WorldInitializer
-    Const recipesFilename = "Content/recipes.json"
-    'Const itemTypesFilename = "Content/itemTypes.json"
-    Const messagesFilename = "Content/messages.json"
-    Const effectTypesFilename = "Content/effectTypes.json"
-    Const equipSlotFilename = "Content/equipSlots.json"
     Friend Sub Initialize(world As IWorld)
-        RecipeTypes.Load(recipesFilename)
-        MessageTypes.Load(messagesFilename)
-        EffectTypes.Load(effectTypesFilename)
-        EquipSlotTypes.Load(equipSlotFilename)
-        'ItemTypes.Save(itemTypesFilename)
         MapInitializer.Initialize(world)
         StitchMaps(world)
         AvatarInitializer.Initialize(world)

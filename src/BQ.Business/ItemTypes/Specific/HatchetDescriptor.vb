@@ -6,7 +6,7 @@
             "Hatchet",
             ChrW(&H3D),
             DarkGray,
-            equipSlotType:=EquipSlotTypes.Weapon,
+            equipSlotType:="Weapon",
             fullName:=Function(x) $"{ItemExtensions.Name(x)}({ItemExtensions.Durability(x)}/{ItemExtensions.MaximumDurability(x)})",
             statistics:=New Dictionary(Of String, Integer) From
             {

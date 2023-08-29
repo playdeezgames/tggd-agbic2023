@@ -6,7 +6,7 @@
             "Straw Hat",
             ChrW(&H3B),
             Yellow,
-            equipSlotType:=EquipSlotTypes.Head,
+            equipSlotType:="Head",
             fullName:=Function(x) $"{ItemExtensions.Name(x)}({ItemExtensions.Durability(x)}/{ItemExtensions.MaximumDurability(x)})",
             statistics:=New Dictionary(Of String, Integer) From
             {

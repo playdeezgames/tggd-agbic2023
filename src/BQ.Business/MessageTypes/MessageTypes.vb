@@ -13,8 +13,8 @@ Friend Module MessageTypes
     Friend Const HealerSign = "HealerSign"
     Friend Const PotterSign = "PotterSign"
     Friend Const NothingHappens = "NothingHappens"
-    Private Function MakeLines(ParamArray lines() As (hue As Integer, text As String)) As IEnumerable(Of (hue As Integer, text As String))
-        Return lines
+    Private Function MakeLines(ParamArray lines() As (hue As Integer, text As String)) As IEnumerable(Of MessageLineData)
+        Return lines.Select(Function(x) New MessageLineData With {.Hue = x.hue, .Text = x.text})
     End Function
     Private Function MakeChoices(ParamArray choices() As (text As String, command As String)) As IEnumerable(Of (text As String, command As String))
         Return choices

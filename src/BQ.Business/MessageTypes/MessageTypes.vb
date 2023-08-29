@@ -1,17 +1,4 @@
-﻿Imports System.Data
-
-Friend Module MessageTypes
-    Friend Const InnSign = "InnSign"
-    Friend Const TownSign2 = "TownSign2"
-    Friend Const HealthTrainerSign = "HealthTrainerSign"
-    Friend Const EnergyTrainerSign = "TownSign4"
-    Friend Const TownSign5 = "TownSign5"
-    Friend Const TownSign6 = "TownSign6"
-    Friend Const DruidSign = "DruidSign"
-    Friend Const TownSign8 = "TownSign8"
-    Friend Const HealerSign = "HealerSign"
-    Friend Const PotterSign = "PotterSign"
-    Friend Const NothingHappens = "NothingHappens"
+﻿Friend Module MessageTypes
     Private descriptors As IReadOnlyDictionary(Of String, MessageTypeDescriptor)
     <Extension>
     Friend Function ToMessageTypeDescriptor(messageType As String) As MessageTypeDescriptor

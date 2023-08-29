@@ -33,7 +33,7 @@
     Public Sub DoEffect(cell As ICell, effectType As String, character As ICharacter)
         Dim descriptor = cell.Descriptor
         If Not descriptor.HasEffect(effectType) Then
-            MessageTypes.NothingHappens.ToMessageTypeDescriptor.CreateMessage(character.World)
+            ToMessageTypeDescriptor("NothingHappens").CreateMessage(character.World)
             Return
         End If
         descriptor.DoEffect(character, effectType, cell)

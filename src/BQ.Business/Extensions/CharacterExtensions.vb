@@ -1,4 +1,17 @@
 ﻿Public Module CharacterExtensions
+    Public Function ConsumedItem(character As ICharacter, effect As IEffect) As IItem
+        Dim item = EffectExtensions.ToItemEffect(effect).Item
+        character.RemoveItem(item)
+        item.Recycle()
+        Return item
+    End Function
+
+    Public Sub DetermineSpiciness(character As ICharacter, msg As IMessage)
+        If RNG.GenerateBoolean(5, 5) Then
+            CharacterExtensions.AwardXP(character, msg.AddLine(Orange, "That was a spicy one!"), 1)
+        End If
+    End Sub
+
     Public Function HasWon(character As ICharacter) As Boolean
         Return character.IsAvatar AndAlso character.ItemTypeCount(ItemTypes.Bagel) > 0
     End Function
@@ -70,12 +83,12 @@
     End Sub
     Public Sub DoMakeItem(character As ICharacter, recipeType As String, noun As String, makeAction As Action(Of ICharacter))
         If Not RecipeTypes.CanCraft(recipeType, character) Then
-            Dim msg = character.World.CreateMessage.AddLine(LightGray, $"To make {noun},").AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
+            Dim msg = character.World.CreateMessage().AddLine(LightGray, $"To make {noun},").AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             CraftingEffectHandlers.AddRecipeInputs(character, msg, recipeType)
             Return
         End If
         makeAction.Invoke(character)
-        character.World.CreateMessage.AddLine(LightGray, $"{CharacterExtensions.Name(character)} makes {noun}.")
+        character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} makes {noun}.")
     End Sub
     Public Sub DoPutOutFire(character As ICharacter)
         character.Cell.Descriptor.DoEffect(character, EffectTypes.PutOutFire, character.Cell)

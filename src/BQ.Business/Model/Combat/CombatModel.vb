@@ -68,7 +68,7 @@ Friend Class CombatModel
         Const EnergyCost = 1
         Dim avatar = world.Avatar
         If CharacterExtensions.Energy(avatar) < EnergyCost Then
-            world.CreateMessage.AddLine(Red, $"{CharacterExtensions.Name(avatar)} doesn't have the energy to fight!")
+            world.CreateMessage().AddLine(Red, $"{CharacterExtensions.Name(avatar)} doesn't have the energy to fight!")
             Return
         End If
         CharacterExtensions.AddEnergy(avatar, -EnergyCost)

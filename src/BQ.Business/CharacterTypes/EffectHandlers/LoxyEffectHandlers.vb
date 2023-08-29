@@ -27,7 +27,6 @@
                         {EffectTypes.CompleteRatQuest, AddressOf DoCompleteRatQuest},
                         {EffectTypes.CutOffTail, AddressOf DoCutOffTail},
                         {EffectTypes.UseEnergyHerb, AddressOf DoUseEnergyHerb},
-                        {EffectTypes.EatRatCorpse, AddressOf DoEatRatCorpse},
                         {EffectTypes.Forage, AddressOf DoForage},
                         {EffectTypes.BuildFire, AddressOf DoCraftFire},
                         {EffectTypes.BuildFurnace, AddressOf CraftingEffectHandlers.DoBuildFurnace},

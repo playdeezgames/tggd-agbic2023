@@ -1,6 +1,6 @@
 ﻿Friend Module HealerEffectHandlers
     Friend Sub DoHealerTalk(character As ICharacter, trigger As IEffect)
-        Dim msg = character.World.CreateMessage.
+        Dim msg = character.World.CreateMessage().
                         AddLine(LightGray, "Welcome to the Nihilistic House of Healing.").
                         AddLine(LightGray, "If you go to the basin And wash,").
                         AddLine(LightGray, "you will be healed,").

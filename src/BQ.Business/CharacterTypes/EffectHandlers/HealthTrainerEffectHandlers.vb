@@ -1,7 +1,7 @@
 ﻿Friend Module HealthTrainerEffectHandlers
 
     Friend Sub DoHealthTrainerTalk(character As ICharacter, trigger As IEffect)
-        Dim msg = character.World.CreateMessage.
+        Dim msg = character.World.CreateMessage().
                         AddLine(LightGray, "I am the health trainer!").
                         AddLine(LightGray, "I can help you increase yer health.").
                         AddLine(LightGray, $"The cost is {CharacterExtensions.MaximumHealth(character) * 5} AP.").

@@ -28,7 +28,7 @@
 
     Friend Sub DoEnergyTrainerTalk(character As ICharacter, trigger As IEffect)
         Dim trainCost = CharacterExtensions.MaximumEnergy(character) * 2
-        character.World.CreateMessage.
+        character.World.CreateMessage().
             AddLine(LightGray, "I am the endurance trainer.").
             AddLine(LightGray, "I can increase yer energy").
             AddLine(LightGray, $"for the cost of 1AP and {trainCost} jools.").

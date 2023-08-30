@@ -15,7 +15,7 @@
         Return cell.Descriptor.HasEffect(EffectTypes.MakeTorch)
     End Function
     Public Function CanBuildFire(cell As ICell) As Boolean
-        Return cell.Map.GetFlag(FlagTypes.AllowFireBuilding) AndAlso cell.Descriptor.HasEffect(EffectTypes.BuildFire)
+        Return cell.Map.GetFlag("AllowFireBuilding") AndAlso cell.Descriptor.HasEffect(EffectTypes.BuildFire)
     End Function
     Public Function GenerateForageItemType(cell As ICell, Optional r As Random = Nothing) As String
         Dim descriptor = cell.Descriptor

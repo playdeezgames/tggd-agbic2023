@@ -9,7 +9,7 @@
         Return ItemExtensions.Descriptor(item).Flags.Contains(FlagTypes.IsWeapon)
     End Function
     Public Function IsArmor(item As IItem) As Boolean
-        Return ItemExtensions.Descriptor(item).Flags.Contains(FlagTypes.IsArmor)
+        Return ItemExtensions.Descriptor(item).Flags.Contains("IsArmor")
     End Function
     Public Function FullName(item As IItem) As String
         Return ItemExtensions.Descriptor(item).FullName(WorldModel.LuaState, item)

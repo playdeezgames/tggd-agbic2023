@@ -1,8 +1,4 @@
 ﻿Friend Module FlagTypes
-    Friend Const AllowFireBuilding = "AllowFireBuilding"
-    Friend Const CampingAllowed = "CampingAllowed"
-    Friend Const CanCraftTorch = "CanCraftTorch"
-    Friend Const IsArmor = "IsArmor"
     Friend Const IsCuttingTool = "IsCuttingTool"
     Friend Const IsWeapon = "IsWeapon"
     Friend Const KnowsFireMaking = "KnowsFireMaking"

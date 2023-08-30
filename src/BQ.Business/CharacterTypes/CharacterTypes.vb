@@ -109,7 +109,7 @@ world:CreateMessage():
     AddChoice(""Make me a pot!"", ""PotterMakePot"")"
                         },
                         {
-                            EffectTypes.AcceptRatQuest,
+                            "AcceptRatQuest",
                             "character:SetFlag(""RatQuest"", true)"
                         },
                         {

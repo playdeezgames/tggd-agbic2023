@@ -60,7 +60,7 @@
             AddLine(LightGray, "I'll pay you 1 jools for each rat tail.").
             AddLine(LightGray, "I only accept the tails, no corpses.").
             AddLine(LightGray, "So you'll need to cut them off first.").
-            AddChoice("I'm on it!", EffectTypes.AcceptRatQuest).
+            AddChoice("I'm on it!", "AcceptRatQuest").
             AddChoice("Mebbe later?", EffectTypes.ExitDialog)
     End Sub
 End Module

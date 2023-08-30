@@ -1,13 +1,13 @@
 ﻿Friend Module DruidEffectHandlers
 
     Friend Sub DoDruidTalk(character As ICharacter, effect As IEffect)
-        Dim msg = character.World.CreateMessage().
-                        AddLine(LightGray, "Greetings! I am Marcus, the hippy druid.").
-                        AddLine(LightGray, "I can help you learn nature's way.").
-                        AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
-                        AddChoice("Don't druids live in the woods?", EffectTypes.DruidAllergies).
-                        AddChoice("Teach me!", EffectTypes.DruidTeachMenu).
-                        AddChoice("What's for sale?", EffectTypes.DruidPrices)
+        character.World.CreateMessage().
+            AddLine(LightGray, "Greetings! I am Marcus, the hippy druid.").
+            AddLine(LightGray, "I can help you learn nature's way.").
+            AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
+            AddChoice("Don't druids live in the woods?", EffectTypes.DruidAllergies).
+            AddChoice("Teach me!", EffectTypes.DruidTeachMenu).
+            AddChoice("What's for sale?", EffectTypes.DruidPrices)
     End Sub
 
     Friend Sub DoDruidAllergies(character As ICharacter, effect As IEffect)

@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const CookBagel = "CookBagel"
     Friend Const CookRatBody = "CookRatBody"
     Friend Const CookRatCorpse = "CookRatCorpse"
     Friend Const CutOffTail = "CutOffTail"

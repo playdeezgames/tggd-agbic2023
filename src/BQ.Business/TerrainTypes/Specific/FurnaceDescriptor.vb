@@ -8,7 +8,7 @@
             True,
             effects:=New Dictionary(Of String, EffectData) From
             {
-                {EffectTypes.CookBagel, New EffectData}
+                {"CookBagel", New EffectData}
             },
             isFurnace:=True)
     End Sub

@@ -44,7 +44,7 @@
                         {EffectTypes.SmokePepper, AddressOf DoSmokePepper},
                         {EffectTypes.MakePaprika, AddressOf DoMakePaprika},
                         {EffectTypes.SeasonRat, AddressOf DoSeasonRat},
-                        {CookBagel, AddressOf CraftingEffectHandlers.DoCookBagel}
+                        {"CookBagel", AddressOf CraftingEffectHandlers.DoCookBagel}
                     }
 
     Friend Function ConsumeEnergy(character As ICharacter, energyCost As Integer, actionName As String) As Boolean

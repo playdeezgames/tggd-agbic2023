@@ -80,7 +80,7 @@
         character.Cell.Descriptor.DoEffect(character, "BuildFurnace", character.Cell)
     End Sub
     Public Sub DoCookBagel(character As ICharacter)
-        character.Cell.Descriptor.DoEffect(character, EffectTypes.CookBagel, character.Cell)
+        character.Cell.Descriptor.DoEffect(character, "CookBagel", character.Cell)
     End Sub
     Public Sub DoMakeTorch(character As ICharacter)
         character.Cell.Descriptor.DoEffect(character, EffectTypes.MakeTorch, character.Cell)

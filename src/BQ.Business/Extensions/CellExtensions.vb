@@ -3,7 +3,7 @@
         Return cell.Descriptor.CanBuildFurnace
     End Function
     Public Function CanCookBagel(cell As ICell) As Boolean
-        Return cell.Descriptor.HasEffect(EffectTypes.CookBagel)
+        Return cell.Descriptor.HasEffect("CookBagel")
     End Function
     Public Function HasFire(cell As ICell) As Boolean
         Return cell.Descriptor.HasFire

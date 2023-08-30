@@ -51,7 +51,7 @@
         If canLearnKnapping Then
             msg.AddChoice(
                 "Knapping(-1AP,-2 Rock)",
-                EffectTypes.LearnKnapping)
+                "LearnKnapping")
             msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
             msg.LastChoice.SetMetadata(Metadatas.FlagType, "KnowsRockSharpening")
             msg.LastChoice.SetMetadata(Metadatas.TaskName, "knap")

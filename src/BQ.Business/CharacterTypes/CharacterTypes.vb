@@ -38,7 +38,7 @@ character:AddItem(ItemInitializer.CreateItem(character.World,""CookedRat""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
                         {"LearnForaging", "CharacterExtensions.DoLearnSkill(character,effect)"},
-                        {EffectTypes.LearnKnapping, "CharacterExtensions.DoLearnSkill(character,effect)"},
+                        {"LearnKnapping", "CharacterExtensions.DoLearnSkill(character,effect)"},
                         {EffectTypes.LearnTwineMaking, "CharacterExtensions.DoLearnSkill(character,effect)"},
                         {"LearnFireMaking", "CharacterExtensions.DoLearnSkill(character,effect)"},
                         {EffectTypes.LearnTorchMaking, "CharacterExtensions.DoLearnSkill(character,effect)"},

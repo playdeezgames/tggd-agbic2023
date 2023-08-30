@@ -121,7 +121,7 @@ else
 end"
                         },
                         {
-                            EffectTypes.PotterTalk,
+                            "PotterTalk",
 "
 world:CreateMessage():
     AddLine(7, ""Greetings! I am Harold, the Potter.""):

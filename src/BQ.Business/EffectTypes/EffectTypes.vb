@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const PotterTalk = "PotterTalk"
     Friend Const PutOutFire = "PutOutFire"
     Friend Const SeasonRat = "SeasonRat"
     Friend Const SleepAtInn = "SleepAtInn"

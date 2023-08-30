@@ -15,6 +15,6 @@
         trainerCell.TerrainType = TerrainTypes.Potter
         trainerCell.Effect =
             map.CreateEffect
-        SetEffectType(trainerCell.Effect, EffectTypes.PotterTalk)
+        SetEffectType(trainerCell.Effect, "PotterTalk")
     End Sub
 End Module

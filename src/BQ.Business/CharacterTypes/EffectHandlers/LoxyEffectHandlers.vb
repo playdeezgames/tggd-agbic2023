@@ -34,7 +34,7 @@
                         {EffectTypes.LearnHatchedMaking, AddressOf DoLearnSkill},
                         {EffectTypes.MakeTorch, AddressOf CraftingEffectHandlers.DoMakeTorch},
                         {EffectTypes.MakeHatchet, AddressOf CraftingEffectHandlers.DoMakeHatchet},
-                        {EffectTypes.CookRatBody, AddressOf DoCookRatBody},
+                        {"CookRatBody", AddressOf DoCookRatBody},
                         {EffectTypes.CookRatCorpse, AddressOf DoCookRatCorpse},
                         {EffectTypes.PotterMakePot, AddressOf DoPotterMakePot},
                         {"BumpRiver", AddressOf DoBumpRiver},

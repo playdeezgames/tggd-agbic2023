@@ -17,7 +17,7 @@
             foragables:=New Dictionary(Of String, Integer) From
             {
                 {String.Empty, 1},
-                {ItemTypes.PlantFiber, 1},
+                {"PlantFiber", 1},
                 {ItemTypes.Pepper, 1},
                 {ItemTypes.Wheat, 1}
             },

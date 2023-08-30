@@ -7,7 +7,7 @@
                         AddChoice(
                             "Buy Energy Herb(5 jools)",
                             "Buy")
-        msg.LastChoice.SetMetadata(Metadatas.ItemType, ItemTypes.EnergyHerb)
+        msg.LastChoice.SetMetadata(Metadatas.ItemType, "EnergyHerb")
         msg.LastChoice.SetStatistic(StatisticTypes.Price, 5)
         msg.LastChoice.SetMetadata(Metadatas.EffectType, "DruidPrices")
     End Sub

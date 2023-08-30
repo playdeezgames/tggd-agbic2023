@@ -1,13 +1,4 @@
-﻿Imports System.ComponentModel
-Imports System.Runtime.CompilerServices
-Imports System.Text.Json
-Imports BQ.Persistence
-
-Friend Module ItemTypes
-    Friend Const PlantFiber = "PlantFiber"
-    Friend Const Twine = "Twine"
-    Friend Const Stick = "Stick"
-    Friend Const EnergyHerb = "EnergyHerb"
+﻿Friend Module ItemTypes
     Friend Const RatCorpse = "RatCorpse"
     Friend Const Rock = "Rock"
     Friend Const SharpRock = "Sharp Rock"
@@ -37,7 +28,7 @@ Friend Module ItemTypes
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, ItemTypeDescriptor) =
         New Dictionary(Of String, ItemTypeDescriptor) From
         {
-            {PlantFiber, New ItemTypeDescriptor("Plant Fiber", ChrW(&H21), LightGreen)},
+            {"PlantFiber", New ItemTypeDescriptor("Plant Fiber", ChrW(&H21), LightGreen)},
             {Wheat, New WheatDescriptor()},
             {Flour, New FlourDescriptor()},
             {Dough, New ItemTypeDescriptor("Dough", ChrW(&H44), Tan)},
@@ -53,7 +44,7 @@ Friend Module ItemTypes
             {Clay, New ItemTypeDescriptor("Clay", ChrW(&H30), Tan)},
             {Pepper, New PepperDescriptor()},
             {SharpRock, New SharpRockDescriptor()},
-            {Twine, New ItemTypeDescriptor("Twine", ChrW(&H21), Tan)},
+            {"Twine", New ItemTypeDescriptor("Twine", ChrW(&H21), Tan)},
             {Torch, New ItemTypeDescriptor("Torch", ChrW(&H34), Red)},
             {Charcoal, New ItemTypeDescriptor("Charcoal", ChrW(&H36), DarkGray)},
             {StrawHat, New StrawHatDescriptor()},
@@ -62,8 +53,8 @@ Friend Module ItemTypes
             {CrackedPot, New ItemTypeDescriptor("Cracked Pot", ChrW(&H40), Brown)},
             {WaterPot, New ItemTypeDescriptor("Water-Filled Pot", ChrW(&H40), Brown)},
             {Hatchet, New HatchetDescriptor()},
-            {Stick, New StickDescriptor()},
-            {EnergyHerb, New EnergyHerbDescriptor()}
+            {"Stick", New StickDescriptor()},
+            {"EnergyHerb", New EnergyHerbDescriptor()}
         }
 
     <Extension>

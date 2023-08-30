@@ -18,7 +18,7 @@ Friend Class TreeDescriptor
                     foragables:=New Dictionary(Of String, Integer) From
                     {
                         {String.Empty, 75},
-                        {ItemTypes.Stick, 100},
+                        {"Stick", 100},
                         {ItemTypes.Rock, 25}
                     },
                     peril:=1,

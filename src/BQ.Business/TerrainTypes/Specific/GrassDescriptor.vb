@@ -18,7 +18,7 @@ Friend Class GrassDescriptor
                     foragables:=New Dictionary(Of String, Integer) From
                     {
                         {String.Empty, 1},
-                        {ItemTypes.PlantFiber, 1}
+                        {"PlantFiber", 1}
                     })
     End Sub
 

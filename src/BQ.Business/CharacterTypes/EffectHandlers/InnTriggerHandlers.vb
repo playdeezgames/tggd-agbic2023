@@ -47,7 +47,7 @@
                         AddChoice("I'll take a bed.", EffectTypes.PayInnkeeper)
         If character.GetFlag("RatQuest") Then
             If CharacterExtensions.HasItemTypeInInventory(character, ItemTypes.RatTail) Then
-                msg.AddChoice("Here's some rat tails!", EffectTypes.CompleteRatQuest)
+                msg.AddChoice("Here's some rat tails!", "CompleteRatQuest")
             End If
         Else
             msg.AddChoice("I need a job!", EffectTypes.StartRatQuest)

@@ -24,7 +24,7 @@
                         {EffectTypes.EnergyTrainerTalk, AddressOf DoEnergyTrainerTalk},
                         {EffectTypes.TrainEnergy, AddressOf DoTrainEnergy},
                         {EffectTypes.StartRatQuest, AddressOf DoStartRatQuest},
-                        {EffectTypes.CompleteRatQuest, AddressOf DoCompleteRatQuest},
+                        {"CompleteRatQuest", AddressOf DoCompleteRatQuest},
                         {EffectTypes.CutOffTail, AddressOf DoCutOffTail},
                         {EffectTypes.Forage, AddressOf DoForage},
                         {"BuildFire", AddressOf DoCraftFire},

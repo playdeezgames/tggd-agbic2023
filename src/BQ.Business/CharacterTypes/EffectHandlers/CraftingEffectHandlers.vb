@@ -76,7 +76,7 @@
         End If
         character.RemoveItem(CType(effect, IItemEffect).Item)
         character.AddItem(ItemInitializer.CreateItem(character.World, "RatBody"))
-        character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.RatTail))
+        character.AddItem(ItemInitializer.CreateItem(character.World, "RatTail"))
     End Sub
 
     Private Function CheckForFurnace(character As ICharacter, taskName As String) As Boolean

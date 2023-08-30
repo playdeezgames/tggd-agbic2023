@@ -20,7 +20,7 @@
 
     Friend Sub DoCompleteRatQuest(character As ICharacter, trigger As IEffect)
         Dim jools = 0
-        For Each item In character.Items.Where(Function(x) x.ItemType = ItemTypes.RatTail)
+        For Each item In character.Items.Where(Function(x) x.ItemType = "RatTail")
             jools += 1
             character.RemoveItem(item)
             item.Recycle()
@@ -46,7 +46,7 @@
                         AddChoice("Yer a pervert!", "PervertInnkeeper").
                         AddChoice("I'll take a bed.", "PayInnkeeper")
         If character.GetFlag("RatQuest") Then
-            If CharacterExtensions.HasItemTypeInInventory(character, ItemTypes.RatTail) Then
+            If CharacterExtensions.HasItemTypeInInventory(character, "RatTail") Then
                 msg.AddChoice("Here's some rat tails!", "CompleteRatQuest")
             End If
         Else

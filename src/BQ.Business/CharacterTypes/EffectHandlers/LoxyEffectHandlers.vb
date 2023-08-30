@@ -33,7 +33,7 @@
                         {"FillClayPot", AddressOf DoFillClayPot},
                         {"MillWheat", AddressOf DoMillWheat},
                         {"MakeDough", AddressOf DoMakeDough},
-                        {EffectTypes.SmokePepper, AddressOf DoSmokePepper},
+                        {"SmokePepper", AddressOf DoSmokePepper},
                         {"MakePaprika", AddressOf DoMakePaprika},
                         {"SeasonRat", AddressOf DoSeasonRat},
                         {"CookBagel", AddressOf CraftingEffectHandlers.DoCookBagel}

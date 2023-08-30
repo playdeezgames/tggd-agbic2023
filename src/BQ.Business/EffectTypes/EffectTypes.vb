@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const SmokePepper = "SmokePepper"
     Friend Const Teleport = "Teleport"
     Friend Const TrainEnergy = "TrainEnergy"
     Friend Const TrainHealth = "TrainHealth"

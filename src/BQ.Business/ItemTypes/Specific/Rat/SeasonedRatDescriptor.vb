@@ -8,7 +8,7 @@
             Orange,
             effects:=New Dictionary(Of String, EffectData) From
             {
-                {EffectTypes.EatSeasonedRat, New EffectData}
+                {"EatSeasonedRat", New EffectData}
             })
     End Sub
 End Class

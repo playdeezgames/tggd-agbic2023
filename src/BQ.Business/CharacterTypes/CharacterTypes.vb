@@ -38,7 +38,7 @@ character:AddItem(ItemInitializer.CreateItem(character.World,""CookedRat""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
                         {
-                            EffectTypes.EatSeasonedRat,
+                            "EatSeasonedRat",
                             "
 local item = CharacterExtensions.ConsumedItem(character, effect)
 CharacterExtensions.DoHealing(character, item, 2)

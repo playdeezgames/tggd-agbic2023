@@ -27,7 +27,7 @@
                         {StatisticTypes.XPGoal, 10},
                         {StatisticTypes.XPLevel, 1},
                         {StatisticTypes.AdvancementPointsPerLevel, 10},
-                        {StatisticTypes.AdvancementPoints, 0},
+                        {StatisticTypes.AdvancementPoints, 1},
                         {StatisticTypes.Energy, 10},
                         {StatisticTypes.MaximumEnergy, 10}
                     },
@@ -37,6 +37,12 @@ character:AddItem(ItemInitializer.CreateItem(character.World,""SeasonedRat""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""CookedRat""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
+                        {EffectTypes.LearnForaging, "CharacterExtensions.DoLearnSkill(character,effect)"},
+                        {EffectTypes.LearnKnapping, "CharacterExtensions.DoLearnSkill(character,effect)"},
+                        {EffectTypes.LearnTwineMaking, "CharacterExtensions.DoLearnSkill(character,effect)"},
+                        {EffectTypes.LearnFireMaking, "CharacterExtensions.DoLearnSkill(character,effect)"},
+                        {EffectTypes.LearnTorchMaking, "CharacterExtensions.DoLearnSkill(character,effect)"},
+                        {EffectTypes.LearnHatchedMaking, "CharacterExtensions.DoLearnSkill(character,effect)"},
                         {
                             "DruidAllergies",
                             "        

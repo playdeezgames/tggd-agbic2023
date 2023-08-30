@@ -75,7 +75,7 @@
             Return
         End If
         character.RemoveItem(CType(effect, IItemEffect).Item)
-        character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.RatBody))
+        character.AddItem(ItemInitializer.CreateItem(character.World, "RatBody"))
         character.AddItem(ItemInitializer.CreateItem(character.World, ItemTypes.RatTail))
     End Sub
 

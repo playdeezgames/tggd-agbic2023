@@ -9,7 +9,7 @@
                         {EffectTypes.HealerPrices, AddressOf DoNihilistPrices},
                         {EffectTypes.TrainHealth, AddressOf DoTrainHealth},
                         {"DruidAllergies", AddressOf DoDruidAllergies},
-                        {EffectTypes.DruidTeachMenu, AddressOf DoDruidTeachMenu},
+                        {"DruidTeachMenu", AddressOf DoDruidTeachMenu},
                         {EffectTypes.LearnForaging, AddressOf DoLearnSkill},
                         {EffectTypes.LearnKnapping, AddressOf DoLearnSkill},
                         {EffectTypes.LearnTwineMaking, AddressOf DoLearnSkill},

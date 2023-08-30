@@ -27,7 +27,7 @@
 
     Public ReadOnly Property CanMakeTorch As Boolean Implements IAvatarCraftingModel.CanMakeTorch
         Get
-            Return avatar.GetFlag(FlagTypes.KnowsTorchMaking) AndAlso CellExtensions.CanMakeTorch(avatar.Cell)
+            Return avatar.GetFlag("KnowsTorchMaking") AndAlso CellExtensions.CanMakeTorch(avatar.Cell)
         End Get
     End Property
 

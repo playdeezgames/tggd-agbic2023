@@ -25,7 +25,7 @@
                         {"BuildFire", AddressOf DoCraftFire},
                         {"BuildFurnace", AddressOf CraftingEffectHandlers.DoBuildFurnace},
                         {EffectTypes.MakeTorch, AddressOf CraftingEffectHandlers.DoMakeTorch},
-                        {EffectTypes.MakeHatchet, AddressOf CraftingEffectHandlers.DoMakeHatchet},
+                        {"MakeHatchet", AddressOf CraftingEffectHandlers.DoMakeHatchet},
                         {"CookRatBody", AddressOf DoCookRatBody},
                         {"CookRatCorpse", AddressOf DoCookRatCorpse},
                         {EffectTypes.PotterMakePot, AddressOf DoPotterMakePot},
@@ -34,7 +34,7 @@
                         {EffectTypes.MillWheat, AddressOf DoMillWheat},
                         {"MakeDough", AddressOf DoMakeDough},
                         {EffectTypes.SmokePepper, AddressOf DoSmokePepper},
-                        {EffectTypes.MakePaprika, AddressOf DoMakePaprika},
+                        {"MakePaprika", AddressOf DoMakePaprika},
                         {EffectTypes.SeasonRat, AddressOf DoSeasonRat},
                         {"CookBagel", AddressOf CraftingEffectHandlers.DoCookBagel}
                     }

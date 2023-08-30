@@ -8,7 +8,7 @@
             Orange,
             effects:=New Dictionary(Of String, EffectData) From
             {
-                {EffectTypes.MakePaprika, New EffectData() With {.EffectType = EffectTypes.MakePaprika}},
+                {"MakePaprika", New EffectData() With {.EffectType = "MakePaprika"}},
                 {"EatSmokedPepper", New EffectData() With {.EffectType = "EatSmokedPepper"}}
             })
     End Sub

@@ -33,9 +33,15 @@
                     },
                     effectHandlers:=LoxyEffectHandlers.All,
                     initializeScript:="
-character:AddItem(ItemInitializer.CreateItem(character.World,""SmokedPepper""))",
+character:AddItem(ItemInitializer.CreateItem(character.World,""CookedRat""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
+                        {
+                            EffectTypes.EatCookedRat,
+                            "
+local item = CharacterExtensions.ConsumedItem(character, effect)
+CharacterExtensions.DoHealing(character, item, 2)"
+                        },
                         {
                             EffectTypes.EatPepper,
                             "        

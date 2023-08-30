@@ -36,7 +36,6 @@
                         {EffectTypes.MakeHatchet, AddressOf CraftingEffectHandlers.DoMakeHatchet},
                         {EffectTypes.CookRatBody, AddressOf DoCookRatBody},
                         {EffectTypes.CookRatCorpse, AddressOf DoCookRatCorpse},
-                        {EffectTypes.EatCookedRat, AddressOf DoEatCookedRat},
                         {EffectTypes.PotterMakePot, AddressOf DoPotterMakePot},
                         {EffectTypes.BumpRiver, AddressOf DoBumpRiver},
                         {EffectTypes.FillClayPot, AddressOf DoFillClayPot},

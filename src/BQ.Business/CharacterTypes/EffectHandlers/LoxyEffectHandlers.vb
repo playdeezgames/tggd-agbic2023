@@ -28,7 +28,7 @@
                         {"MakeHatchet", AddressOf CraftingEffectHandlers.DoMakeHatchet},
                         {"CookRatBody", AddressOf DoCookRatBody},
                         {"CookRatCorpse", AddressOf DoCookRatCorpse},
-                        {EffectTypes.PotterMakePot, AddressOf DoPotterMakePot},
+                        {"PotterMakePot", AddressOf DoPotterMakePot},
                         {"BumpRiver", AddressOf DoBumpRiver},
                         {"FillClayPot", AddressOf DoFillClayPot},
                         {"MillWheat", AddressOf DoMillWheat},

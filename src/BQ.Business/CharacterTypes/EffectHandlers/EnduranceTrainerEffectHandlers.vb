@@ -33,7 +33,7 @@
             AddLine(LightGray, "I can increase yer energy").
             AddLine(LightGray, $"for the cost of 1AP and {trainCost} jools.").
             AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
-            AddChoice(TrainMe, EffectTypes.TrainEnergy)
+            AddChoice("Train me!", EffectTypes.TrainEnergy)
     End Sub
 
 End Module

@@ -1,6 +1,4 @@
-﻿Imports SPLORR.Game
-
-Friend Class TreeDescriptor
+﻿Friend Class TreeDescriptor
     Inherits TerrainTypeDescriptor
 
     Public Sub New()
@@ -25,11 +23,11 @@ Friend Class TreeDescriptor
                     creatureTypeGenerator:=New Dictionary(Of String, Integer) From
                     {
                         {
-                            CharacterTypes.OliveGlop,
+                            "OliveGlop",
                             75
                         },
                         {
-                            CharacterTypes.CherryGlop,
+                            "CherryGlop",
                             25
                         }
                     })

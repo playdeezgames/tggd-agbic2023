@@ -1,6 +1,4 @@
 ﻿Friend Module CharacterTypes
-    Friend Const OliveGlop = "OliveGlop"
-    Friend Const CherryGlop = "CherryGlop"
     Friend Const Rat = "Rat"
     Friend Const Scarecrow = "Scarecrow"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, CharacterTypeDescriptor) =
@@ -166,7 +164,7 @@ character.World:
                     })
             },
             {
-                OliveGlop,
+                "OliveGlop",
                 New CharacterTypeDescriptor(
                     "Olive Glop",
                     ChrW(&H1B),
@@ -231,7 +229,7 @@ initializeScript:="if RNG.RollDice('1d5/5') > 0 then
 end")
             },
             {
-                CherryGlop,
+                "CherryGlop",
                 New CharacterTypeDescriptor(
                     "Cherry Glop",
                     ChrW(&H1B),

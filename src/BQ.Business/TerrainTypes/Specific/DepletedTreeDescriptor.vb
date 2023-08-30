@@ -11,11 +11,11 @@
             creatureTypeGenerator:=New Dictionary(Of String, Integer) From
             {
                 {
-                    CharacterTypes.OliveGlop,
+                    "OliveGlop",
                     75
                 },
                 {
-                    CharacterTypes.CherryGlop,
+                    "CherryGlop",
                     25
                 }
             })

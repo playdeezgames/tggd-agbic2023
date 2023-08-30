@@ -6,6 +6,6 @@
             "Sharp Rock",
             ChrW(&H31),
             LightGray,
-            flags:=New List(Of String) From {FlagTypes.IsCuttingTool})
+            flags:=New List(Of String) From {"IsCuttingTool"})
     End Sub
 End Class

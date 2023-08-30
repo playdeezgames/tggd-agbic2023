@@ -1,5 +1,4 @@
 ﻿Friend Module FlagTypes
-    Friend Const IsCuttingTool = "IsCuttingTool"
     Friend Const IsWeapon = "IsWeapon"
     Friend Const KnowsFireMaking = "KnowsFireMaking"
     Friend Const KnowsForaging = "KnowsForaging"

@@ -52,7 +52,7 @@
     End Property
     Friend ReadOnly Property IsCuttingTool As Boolean
         Get
-            Return Flags.Contains(FlagTypes.IsCuttingTool)
+            Return Flags.Contains("IsCuttingTool")
         End Get
     End Property
     Friend Function ToItemEffect(effectType As String, item As IItem) As IItemEffect

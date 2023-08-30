@@ -1,6 +1,6 @@
 ﻿Friend Module InnTriggerHandlers
     Friend Sub DoPayInnkeeper(character As ICharacter, effect As IEffect)
-        If character.GetFlag(FlagTypes.PaidInnkeeper) Then
+        If character.GetFlag("PaidInnkeeper") Then
             character.World.CreateMessage().
                         AddLine(LightGray, "You've already paid!")
             Return
@@ -12,7 +12,7 @@
             Return
         End If
         CharacterExtensions.AddJools(character, -bedCost)
-        character.SetFlag(FlagTypes.PaidInnkeeper, True)
+        character.SetFlag("PaidInnkeeper", True)
         character.World.CreateMessage().
                         AddLine(LightGray, "Thanks for yer business.").
                         AddLine(LightGray, "Choose any bed you like.")

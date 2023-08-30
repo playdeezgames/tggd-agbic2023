@@ -11,7 +11,7 @@
                         {"DruidTeachMenu", AddressOf DoDruidTeachMenu},
                         {EffectTypes.HealthTrainerTalk, AddressOf DoHealthTrainerTalk},
                         {EffectTypes.HealerTalk, AddressOf DoHealerTalk},
-                        {EffectTypes.GorachanTalk, AddressOf DoGorachanTalk},
+                        {"GorachanTalk", AddressOf DoGorachanTalk},
                         {EffectTypes.PervertInnkeeper, AddressOf DoPerventInnkeeper},
                         {EffectTypes.PayInnkeeper, AddressOf DoPayInnkeeper},
                         {"DruidPrices", AddressOf DoDruidPrices},

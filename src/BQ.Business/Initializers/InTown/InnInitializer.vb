@@ -54,6 +54,6 @@
     Private Sub InitializeGorachan(map As IMap)
         Dim gorachanCell = map.Cells.Single(Function(x) x.TerrainType = TerrainTypes.Gorachan)
         gorachanCell.Effect = map.CreateEffect()
-        SetEffectType(gorachanCell.Effect, EffectTypes.GorachanTalk)
+        SetEffectType(gorachanCell.Effect, "GorachanTalk")
     End Sub
 End Module

@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const GorachanTalk = "GorachanTalk"
     Friend Const Heal = "Heal"
     Friend Const HealerPrices = "NihilistPrices"
     Friend Const HealerTalk = "HealerTalk"

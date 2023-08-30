@@ -10,7 +10,7 @@
             effects:=New Dictionary(Of String, EffectData) From
             {
                 {"BuildFire", New EffectData},
-                {EffectTypes.BuildFurnace, New EffectData}
+                {"BuildFurnace", New EffectData}
             },
             canBuildFurnace:=True)
     End Sub

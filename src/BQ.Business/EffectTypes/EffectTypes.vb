@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const BuildFurnace = "BuildFurnace"
     Friend Const BumpRiver = "BumpRiver"
     Friend Const Buy = "Buy"
     Friend Const CompleteRatQuest = "CompleteRatQuest"

@@ -28,7 +28,7 @@
                         {EffectTypes.CutOffTail, AddressOf DoCutOffTail},
                         {EffectTypes.Forage, AddressOf DoForage},
                         {"BuildFire", AddressOf DoCraftFire},
-                        {EffectTypes.BuildFurnace, AddressOf CraftingEffectHandlers.DoBuildFurnace},
+                        {"BuildFurnace", AddressOf CraftingEffectHandlers.DoBuildFurnace},
                         {EffectTypes.LearnFireMaking, AddressOf DoLearnSkill},
                         {EffectTypes.LearnTorchMaking, AddressOf DoLearnSkill},
                         {EffectTypes.LearnHatchedMaking, AddressOf DoLearnSkill},

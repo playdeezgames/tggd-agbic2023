@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const EatSmokedPepper = "EatSmokedPepper"
     Friend Const EnergyTrainerTalk = "EnergyTrainerTalk"
     Friend Const EnterCellar = "EnterCellar"
     Friend Const ExitDialog = "ExitDialog"

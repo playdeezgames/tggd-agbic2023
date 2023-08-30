@@ -30,7 +30,7 @@
                         {"CookRatCorpse", AddressOf DoCookRatCorpse},
                         {EffectTypes.PotterMakePot, AddressOf DoPotterMakePot},
                         {"BumpRiver", AddressOf DoBumpRiver},
-                        {EffectTypes.FillClayPot, AddressOf DoFillClayPot},
+                        {"FillClayPot", AddressOf DoFillClayPot},
                         {EffectTypes.MillWheat, AddressOf DoMillWheat},
                         {EffectTypes.MakeDough, AddressOf DoMakeDough},
                         {EffectTypes.SmokePepper, AddressOf DoSmokePepper},

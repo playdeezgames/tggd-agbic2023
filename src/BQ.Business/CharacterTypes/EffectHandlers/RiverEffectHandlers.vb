@@ -9,7 +9,7 @@
             AddLine(LightGray, $"{CharacterExtensions.Name(character)} visits the river bank.").
             AddChoice("Cool story, bro!", "ExitDialog")
         If CharacterExtensions.HasItemTypeInInventory(character, ItemTypes.ClayPot) Then
-            msg.AddChoice("Fill Clay Pot with Water", EffectTypes.FillClayPot)
+            msg.AddChoice("Fill Clay Pot with Water", "FillClayPot")
         End If
     End Sub
 End Module

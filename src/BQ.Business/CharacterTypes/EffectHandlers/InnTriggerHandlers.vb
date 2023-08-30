@@ -45,7 +45,7 @@
                         AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
                         AddChoice("Yer a pervert!", EffectTypes.PervertInnkeeper).
                         AddChoice("I'll take a bed.", EffectTypes.PayInnkeeper)
-        If character.GetFlag(FlagTypes.RatQuest) Then
+        If character.GetFlag("RatQuest") Then
             If CharacterExtensions.HasItemTypeInInventory(character, ItemTypes.RatTail) Then
                 msg.AddChoice("Here's some rat tails!", EffectTypes.CompleteRatQuest)
             End If

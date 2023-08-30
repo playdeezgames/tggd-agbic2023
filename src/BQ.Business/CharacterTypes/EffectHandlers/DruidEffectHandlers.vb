@@ -30,7 +30,7 @@
         If canLearnForaging Then
             msg.AddChoice(
                 "Foraging(-1AP)",
-                EffectTypes.LearnForaging)
+                "LearnForaging")
             msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
             msg.LastChoice.SetMetadata(Metadatas.FlagType, "KnowsForaging")
             msg.LastChoice.SetMetadata(Metadatas.TaskName, "forage")
@@ -62,7 +62,7 @@
         If canLearnFireMaking Then
             msg.AddChoice(
                 "Fire Making(-1AP, -5 Rock, -5 Sticks)",
-                EffectTypes.LearnFireMaking)
+                "LearnFireMaking")
             msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
             msg.LastChoice.SetMetadata(Metadatas.FlagType, "KnowsFireMaking")
             msg.LastChoice.SetMetadata(Metadatas.TaskName, "make a fire")

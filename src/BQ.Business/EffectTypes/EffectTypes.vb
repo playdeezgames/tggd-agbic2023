@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const CutOffTail = "CutOffTail"
     Friend Const DruidAllergies = "DruidAllergies"
     Friend Const DruidPrices = "DruidPrices"
     Friend Const DruidTalk = "DruidTalk"

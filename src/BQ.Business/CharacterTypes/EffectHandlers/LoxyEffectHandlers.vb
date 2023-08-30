@@ -25,7 +25,7 @@
                         {EffectTypes.TrainEnergy, AddressOf DoTrainEnergy},
                         {EffectTypes.StartRatQuest, AddressOf DoStartRatQuest},
                         {"CompleteRatQuest", AddressOf DoCompleteRatQuest},
-                        {EffectTypes.CutOffTail, AddressOf DoCutOffTail},
+                        {"CutOffTail", AddressOf DoCutOffTail},
                         {EffectTypes.Forage, AddressOf DoForage},
                         {"BuildFire", AddressOf DoCraftFire},
                         {"BuildFurnace", AddressOf CraftingEffectHandlers.DoBuildFurnace},

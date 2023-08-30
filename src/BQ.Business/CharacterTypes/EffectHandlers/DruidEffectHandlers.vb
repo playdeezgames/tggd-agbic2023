@@ -7,7 +7,7 @@
             AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
             AddChoice("Don't druids live in the woods?", "DruidAllergies").
             AddChoice("Teach me!", EffectTypes.DruidTeachMenu).
-            AddChoice("What's for sale?", EffectTypes.DruidPrices)
+            AddChoice("What's for sale?", "DruidPrices")
     End Sub
 
     Friend Sub DoDruidAllergies(character As ICharacter, effect As IEffect)
@@ -26,7 +26,7 @@
                             Sub(c)
                                 c.SetMetadata(Metadatas.ItemType, ItemTypes.EnergyHerb)
                                 c.SetStatistic(StatisticTypes.Price, 5)
-                                c.SetMetadata(Metadatas.EffectType, EffectTypes.DruidPrices)
+                                c.SetMetadata(Metadatas.EffectType, "DruidPrices")
                             End Sub)
     End Sub
 

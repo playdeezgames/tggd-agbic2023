@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const DruidPrices = "DruidPrices"
     Friend Const DruidTalk = "DruidTalk"
     Friend Const DruidTeachMenu = "DruidTeachMenu"
     Friend Const EatCookedRat = "EatCookedRat"

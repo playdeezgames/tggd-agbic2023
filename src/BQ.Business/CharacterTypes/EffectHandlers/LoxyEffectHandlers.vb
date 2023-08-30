@@ -19,7 +19,7 @@
                         {EffectTypes.GorachanTalk, AddressOf DoGorachanTalk},
                         {EffectTypes.PervertInnkeeper, AddressOf DoPerventInnkeeper},
                         {EffectTypes.PayInnkeeper, AddressOf DoPayInnkeeper},
-                        {EffectTypes.DruidPrices, AddressOf DoDruidPrices},
+                        {"DruidPrices", AddressOf DoDruidPrices},
                         {"Buy", AddressOf DoBuy},
                         {EffectTypes.EnergyTrainerTalk, AddressOf DoEnergyTrainerTalk},
                         {EffectTypes.TrainEnergy, AddressOf DoTrainEnergy},

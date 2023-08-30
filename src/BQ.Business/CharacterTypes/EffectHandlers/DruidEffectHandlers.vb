@@ -66,7 +66,7 @@
             Return
         End If
         If Not LearnSkill(character, effect, msg, taskName) Then Return
-        If effect.GetFlag(FlagTypes.LearnByDoing) Then
+        If effect.GetFlag("LearnByDoing") Then
             RecipeTypes.Craft(recipeType, character)
         End If
         msg.
@@ -115,7 +115,7 @@
                     choice.SetMetadata(Metadatas.TaskName, "make twine")
                     choice.SetMetadata(Metadatas.ActionName, "Make Twine")
                     choice.SetMetadata(Metadatas.RecipeType, "Twine")
-                    choice.SetFlag(FlagTypes.LearnByDoing, True)
+                    choice.SetFlag("LearnByDoing", True)
                 End Sub)
         End If
         If canLearnKnapping Then
@@ -130,7 +130,7 @@
                     choice.SetMetadata(Metadatas.TaskName, "knap")
                     choice.SetMetadata(Metadatas.ActionName, "Knap")
                     choice.SetMetadata(Metadatas.RecipeType, "SharpRock")
-                    choice.SetFlag(FlagTypes.LearnByDoing, True)
+                    choice.SetFlag("LearnByDoing", True)
                 End Sub)
         End If
         If canLearnFireMaking Then
@@ -145,7 +145,7 @@
                     choice.SetMetadata(Metadatas.ActionName, "Build Fire")
                     choice.SetMetadata(Metadatas.RecipeType, "CookingFire")
                     choice.SetMetadata(Metadatas.Caveat, "(only works in clear areas in the wilderness)")
-                    choice.SetFlag(FlagTypes.LearnByDoing, False)
+                    choice.SetFlag("LearnByDoing", False)
                 End Sub)
         End If
         If canLearnTorchMaking Then
@@ -160,7 +160,7 @@
                     choice.SetMetadata(Metadatas.ActionName, "Make Torch")
                     choice.SetMetadata(Metadatas.RecipeType, "Torch")
                     choice.SetMetadata(Metadatas.Caveat, "(only works with a source of flames)")
-                    choice.SetFlag(FlagTypes.LearnByDoing, False)
+                    choice.SetFlag("LearnByDoing", False)
                 End Sub)
         End If
         If canLearnHatchetMaking Then
@@ -175,7 +175,7 @@
                     choice.SetMetadata(Metadatas.TaskName, "make a hatchet")
                     choice.SetMetadata(Metadatas.ActionName, "Make Hatchet")
                     choice.SetMetadata(Metadatas.RecipeType, "Hatchet")
-                    choice.SetFlag(FlagTypes.LearnByDoing, True)
+                    choice.SetFlag("LearnByDoing", True)
                 End Sub)
         End If
     End Sub

@@ -1,7 +1,4 @@
 ﻿Friend Module ItemTypes
-    Friend Const StrawHat = "StrawHat"
-    Friend Const Hatchet = "Hatchet"
-    Friend Const Clay = "Clay"
     Friend Const UnfiredPot = "UnfiredPot"
     Friend Const ClayPot = "ClayPot"
     Friend Const CrackedPot = "CrackedPot"
@@ -32,18 +29,18 @@
             {SeasonedRat, New SeasonedRatDescriptor()},
             {"RatCorpse", New RatCorpseDescriptor()},
             {"Rock", New ItemTypeDescriptor("Rock", ChrW(&H30), DarkGray)},
-            {Clay, New ItemTypeDescriptor("Clay", ChrW(&H30), Tan)},
+            {"Clay", New ItemTypeDescriptor("Clay", ChrW(&H30), Tan)},
             {"Pepper", New PepperDescriptor()},
             {"SharpRock", New SharpRockDescriptor()},
             {"Twine", New ItemTypeDescriptor("Twine", ChrW(&H21), Tan)},
             {"Torch", New ItemTypeDescriptor("Torch", ChrW(&H34), Red)},
             {"Charcoal", New ItemTypeDescriptor("Charcoal", ChrW(&H36), DarkGray)},
-            {StrawHat, New StrawHatDescriptor()},
+            {"StrawHat", New StrawHatDescriptor()},
             {UnfiredPot, New ItemTypeDescriptor("Unfired Pot", ChrW(&H3F), Tan)},
             {ClayPot, New ItemTypeDescriptor("Clay Pot", ChrW(&H3F), Brown)},
             {CrackedPot, New ItemTypeDescriptor("Cracked Pot", ChrW(&H40), Brown)},
             {WaterPot, New ItemTypeDescriptor("Water-Filled Pot", ChrW(&H40), Brown)},
-            {Hatchet, New HatchetDescriptor()},
+            {"Hatchet", New HatchetDescriptor()},
             {"Stick", New StickDescriptor()},
             {"EnergyHerb", New EnergyHerbDescriptor()}
         }

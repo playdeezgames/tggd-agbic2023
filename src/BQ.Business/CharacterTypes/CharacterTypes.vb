@@ -32,8 +32,17 @@
                         {StatisticTypes.MaximumEnergy, 10}
                     },
                     effectHandlers:=LoxyEffectHandlers.All,
+                    initializeScript:="
+character:AddItem(ItemInitializer.CreateItem(character.World,""Pepper""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
+                        {
+                            EffectTypes.EatPepper,
+                            "        
+local item = CharacterExtensions.ConsumedItem(character, effect)
+local msg = character.World:CreateMessage():AddLine(7, CharacterExtensions.Name(character) .. "" eats the pepper."")
+CharacterExtensions.DetermineSpiciness(character, msg)"
+                        },
                         {
                             EffectTypes.SleepAtInn,
                             "

@@ -47,7 +47,6 @@
                         {EffectTypes.SeasonRat, AddressOf DoSeasonRat},
                         {EffectTypes.EatSeasonedRat, AddressOf DoEatSeasonedRat},
                         {EffectTypes.EatPepper, AddressOf DoEatSmokedPepper},
-                        {EffectTypes.EatSmokedPepper, AddressOf DoEatPepper},
                         {CookBagel, AddressOf CraftingEffectHandlers.DoCookBagel}
                     }
 

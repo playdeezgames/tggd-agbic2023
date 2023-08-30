@@ -1,10 +1,4 @@
 ﻿Friend Module ConsumableEffectHandlers
-    Friend Sub DoEatPepper(character As ICharacter, effect As IEffect)
-        Dim item As IItem = CharacterExtensions.ConsumedItem(character, effect)
-        Dim msg = character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} eats the pepper.")
-        CharacterExtensions.DetermineSpiciness(character, msg)
-    End Sub
-
     Friend Sub DoEatSmokedPepper(character As ICharacter, effect As IEffect)
         Dim item As IItem = CharacterExtensions.ConsumedItem(character, effect)
         Dim msg = character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} eats the smoked pepper.")

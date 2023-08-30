@@ -79,7 +79,7 @@
     End Sub
 
     Friend Sub DoDruidTeachMenu(character As ICharacter, effect As IEffect)
-        Dim canLearnForaging = Not character.GetFlag(FlagTypes.KnowsForaging)
+        Dim canLearnForaging = Not character.GetFlag("KnowsForaging")
         Dim canLearnTwineMaking = Not character.GetFlag(FlagTypes.KnowsTwineMaking)
         Dim canLearnKnapping = Not character.GetFlag(FlagTypes.KnowsKnapping)
         Dim canLearnFireMaking = Not character.GetFlag("KnowsFireMaking")
@@ -99,7 +99,7 @@
                 EffectTypes.LearnForaging,
                 Sub(choice)
                     choice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
-                    choice.SetMetadata(Metadatas.FlagType, FlagTypes.KnowsForaging)
+                    choice.SetMetadata(Metadatas.FlagType, "KnowsForaging")
                     choice.SetMetadata(Metadatas.TaskName, "forage")
                     choice.SetMetadata(Metadatas.ActionName, "Forage...")
                     choice.SetMetadata(Metadatas.RecipeType, "Foraging")

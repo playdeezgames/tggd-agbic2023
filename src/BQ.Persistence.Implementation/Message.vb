@@ -81,15 +81,13 @@ Friend Class Message
 
     Public Function AddChoice(
                              text As String,
-                             effectType As String,
-                             Optional initializer As Action(Of IMessageChoice) = Nothing) As IMessage Implements IMessage.AddChoice
+                             effectType As String) As IMessage Implements IMessage.AddChoice
         Dim id = MessageData.Choices.Count
         MessageData.Choices.Add(New Data.MessageChoiceData With
             {
                 .Text = text,
                 .EffectType = effectType
             })
-        initializer?.Invoke(Choice(id))
         Return Me
     End Function
 

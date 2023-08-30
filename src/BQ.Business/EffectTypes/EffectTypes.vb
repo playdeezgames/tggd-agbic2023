@@ -1,6 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const BumpRiver = "BumpRiver"
-    Friend Const Buy = "Buy"
     Friend Const CompleteRatQuest = "CompleteRatQuest"
     Friend Const CookBagel = "CookBagel"
     Friend Const CookRatBody = "CookRatBody"

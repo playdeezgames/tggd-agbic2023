@@ -22,7 +22,7 @@
                         AddChoice("Good to know!", EffectTypes.ExitDialog).
                         AddChoice(
                             "Buy Energy Herb(5 jools)",
-                            EffectTypes.Buy,
+                            "Buy",
                             Sub(c)
                                 c.SetMetadata(Metadatas.ItemType, ItemTypes.EnergyHerb)
                                 c.SetStatistic(StatisticTypes.Price, 5)

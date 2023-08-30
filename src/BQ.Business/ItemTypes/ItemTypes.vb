@@ -1,5 +1,4 @@
 ﻿Friend Module ItemTypes
-    Friend Const Wheat = "Wheat"
     Friend Const Flour = "Flour"
     Friend Const Dough = "Dough"
     Friend Const SmokedPepper = "SmokedPepper"
@@ -13,7 +12,7 @@
         New Dictionary(Of String, ItemTypeDescriptor) From
         {
             {"PlantFiber", New ItemTypeDescriptor("Plant Fiber", ChrW(&H21), LightGreen)},
-            {Wheat, New WheatDescriptor()},
+            {"Wheat", New WheatDescriptor()},
             {Flour, New FlourDescriptor()},
             {Dough, New ItemTypeDescriptor("Dough", ChrW(&H44), Tan)},
             {Bagel, New ItemTypeDescriptor("Bagel", ChrW(&H44), Brown)},

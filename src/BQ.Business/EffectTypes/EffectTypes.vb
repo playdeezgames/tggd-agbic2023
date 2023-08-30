@@ -1,6 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const Forage = "Forage"
-    Friend Const UseEnergyHerb = "UseEnergyHerb"
     Private descriptors As IReadOnlyDictionary(Of String, EffectTypeDescriptor)
     <Extension>
     Friend Function ToEffectTypeDescriptor(effectType As String) As EffectTypeDescriptor

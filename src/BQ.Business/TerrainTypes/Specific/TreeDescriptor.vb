@@ -13,7 +13,7 @@ Friend Class TreeDescriptor
                     cellInitializer:=AddressOf InitializeTree,
                     effects:=New Dictionary(Of String, EffectData) From
                     {
-                        {EffectTypes.Forage, New EffectData}
+                        {"Forage", New EffectData}
                     },
                     foragables:=New Dictionary(Of String, Integer) From
                     {

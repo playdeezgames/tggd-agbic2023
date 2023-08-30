@@ -153,7 +153,7 @@ else
 end"
                         },
                         {
-                            EffectTypes.UseEnergyHerb,
+                            "UseEnergyHerb",
                             "
 local item = CharacterExtensions.ConsumedItem(character, effect)
 local energyBenefit = 10

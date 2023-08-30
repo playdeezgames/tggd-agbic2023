@@ -1,5 +1,4 @@
 ﻿Friend Module CharacterTypes
-    Friend Const Scarecrow = "Scarecrow"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, CharacterTypeDescriptor) =
         New Dictionary(Of String, CharacterTypeDescriptor) From
         {
@@ -205,7 +204,7 @@ character.World:
                     initializeScript:="character:AddItem(ItemInitializer.CreateItem(character.World, 'RatCorpse'))")
             },
             {
-                Scarecrow,
+                "Scarecrow",
                 New CharacterTypeDescriptor(
                     "Scarecrow",
                     ChrW(&H3A),

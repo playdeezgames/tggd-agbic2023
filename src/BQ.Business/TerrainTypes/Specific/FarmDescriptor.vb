@@ -23,7 +23,7 @@
             },
             creatureTypeGenerator:=New Dictionary(Of String, Integer) From
             {
-                {CharacterTypes.Scarecrow, 1}
+                {"Scarecrow", 1}
             })
     End Sub
 

@@ -32,7 +32,7 @@
                         {"BumpRiver", AddressOf DoBumpRiver},
                         {"FillClayPot", AddressOf DoFillClayPot},
                         {EffectTypes.MillWheat, AddressOf DoMillWheat},
-                        {EffectTypes.MakeDough, AddressOf DoMakeDough},
+                        {"MakeDough", AddressOf DoMakeDough},
                         {EffectTypes.SmokePepper, AddressOf DoSmokePepper},
                         {EffectTypes.MakePaprika, AddressOf DoMakePaprika},
                         {EffectTypes.SeasonRat, AddressOf DoSeasonRat},

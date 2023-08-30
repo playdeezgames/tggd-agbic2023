@@ -1,5 +1,4 @@
 ﻿Friend Module ItemTypes
-    Friend Const WaterPot = "WaterPot"
     Friend Const Wheat = "Wheat"
     Friend Const Flour = "Flour"
     Friend Const Dough = "Dough"
@@ -36,7 +35,7 @@
             {"UnfiredPot", New ItemTypeDescriptor("Unfired Pot", ChrW(&H3F), Tan)},
             {"ClayPot", New ItemTypeDescriptor("Clay Pot", ChrW(&H3F), Brown)},
             {"CrackedPot", New ItemTypeDescriptor("Cracked Pot", ChrW(&H40), Brown)},
-            {WaterPot, New ItemTypeDescriptor("Water-Filled Pot", ChrW(&H40), Brown)},
+            {"WaterPot", New ItemTypeDescriptor("Water-Filled Pot", ChrW(&H40), Brown)},
             {"Hatchet", New HatchetDescriptor()},
             {"Stick", New StickDescriptor()},
             {"EnergyHerb", New EnergyHerbDescriptor()}

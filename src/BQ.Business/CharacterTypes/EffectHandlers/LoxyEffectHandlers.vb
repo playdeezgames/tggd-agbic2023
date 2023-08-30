@@ -13,7 +13,7 @@
                         {EffectTypes.LearnForaging, AddressOf DoLearnSkill},
                         {EffectTypes.LearnKnapping, AddressOf DoLearnSkill},
                         {EffectTypes.LearnTwineMaking, AddressOf DoLearnSkill},
-                        {EffectTypes.DruidTalk, AddressOf DoDruidTalk},
+                        {"DruidTalk", AddressOf DoDruidTalk},
                         {EffectTypes.HealthTrainerTalk, AddressOf DoHealthTrainerTalk},
                         {EffectTypes.HealerTalk, AddressOf DoHealerTalk},
                         {EffectTypes.GorachanTalk, AddressOf DoGorachanTalk},

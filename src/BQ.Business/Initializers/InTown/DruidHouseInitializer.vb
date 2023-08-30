@@ -15,6 +15,6 @@
         druidCell.TerrainType = TerrainTypes.Druid
         druidCell.Effect =
             map.CreateEffect
-        SetEffectType(druidCell.Effect, EffectTypes.DruidTalk)
+        SetEffectType(druidCell.Effect, "DruidTalk")
     End Sub
 End Module

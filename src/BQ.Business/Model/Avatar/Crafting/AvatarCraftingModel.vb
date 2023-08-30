@@ -33,7 +33,7 @@
 
     Public ReadOnly Property CanMakeHatchet As Boolean Implements IAvatarCraftingModel.CanMakeHatchet
         Get
-            Return avatar.GetFlag(FlagTypes.KnowsHatchetMaking)
+            Return avatar.GetFlag("KnowsHatchetMaking")
         End Get
     End Property
 

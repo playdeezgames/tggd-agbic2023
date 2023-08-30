@@ -84,7 +84,7 @@
         Dim canLearnKnapping = Not character.GetFlag(FlagTypes.KnowsKnapping)
         Dim canLearnFireMaking = Not character.GetFlag("KnowsFireMaking")
         Dim canLearnTorchMaking = Not character.GetFlag(FlagTypes.KnowsTorchMaking)
-        Dim canLearnHatchetMaking = Not character.GetFlag(FlagTypes.KnowsHatchetMaking)
+        Dim canLearnHatchetMaking = Not character.GetFlag("KnowsHatchetMaking")
         Dim canLearn = canLearnForaging OrElse canLearnTwineMaking OrElse canLearnKnapping OrElse canLearnFireMaking OrElse canLearnTorchMaking OrElse canLearnHatchetMaking
         Dim msg = character.World.CreateMessage()
         If Not canLearn Then
@@ -171,7 +171,7 @@
                     choice.
                         SetStatistic(StatisticTypes.AdvancementPoints, 1)
 
-                    choice.SetMetadata(Metadatas.FlagType, FlagTypes.KnowsHatchetMaking)
+                    choice.SetMetadata(Metadatas.FlagType, "KnowsHatchetMaking")
                     choice.SetMetadata(Metadatas.TaskName, "make a hatchet")
                     choice.SetMetadata(Metadatas.ActionName, "Make Hatchet")
                     choice.SetMetadata(Metadatas.RecipeType, "Hatchet")

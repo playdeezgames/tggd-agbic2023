@@ -1,5 +1,4 @@
 ﻿Friend Module FlagTypes
-    Friend Const KnowsHatchetMaking = "KnowsHatchetMaking"
     Friend Const KnowsTwineMaking = "KnowsTwineMaking"
     Friend Const KnowsKnapping = "KnowsRockSharpening"
     Friend Const KnowsTorchMaking = "KnowsTorchMaking"

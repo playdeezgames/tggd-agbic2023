@@ -86,7 +86,7 @@
         If canLearnHatchetMaking Then
             msg.AddChoice(
                 "Hatchet Making(-1AP,-1Stick,-1S.Rock,-1Twine)",
-                EffectTypes.LearnHatchedMaking)
+                "LearnHatchedMaking")
             msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
             msg.LastChoice.SetMetadata(Metadatas.FlagType, "KnowsHatchetMaking")
             msg.LastChoice.SetMetadata(Metadatas.TaskName, "make a hatchet")

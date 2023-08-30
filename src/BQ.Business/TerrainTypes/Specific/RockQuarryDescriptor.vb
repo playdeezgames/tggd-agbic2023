@@ -16,7 +16,7 @@
             foragables:=New Dictionary(Of String, Integer) From
             {
                 {String.Empty, 50},
-                {ItemTypes.Rock, 50}
+                {"Rock", 50}
             },
             peril:=2,
             creatureTypeGenerator:=New Dictionary(Of String, Integer) From

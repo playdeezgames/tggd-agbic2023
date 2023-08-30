@@ -1,6 +1,6 @@
 ﻿Friend Module ItemTypes
     Friend Sub Save(filename As String)
-        System.IO.File.WriteAllText(filename, JsonSerializer.Serialize(descriptors))
+        File.WriteAllText(filename, JsonSerializer.Serialize(descriptors))
     End Sub
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, ItemTypeDescriptor) =
         New Dictionary(Of String, ItemTypeDescriptor) From

@@ -1,5 +1,4 @@
 ﻿Friend Module ItemTypes
-    Friend Const RatCorpse = "RatCorpse"
     Friend Const Rock = "Rock"
     Friend Const SharpRock = "Sharp Rock"
     Friend Const RatBody = "RatBody"
@@ -39,7 +38,7 @@
             {RatTail, New ItemTypeDescriptor("Rat Tail", ChrW(&H2E), DarkGray)},
             {CookedRat, New CookedRatDescriptor()},
             {SeasonedRat, New SeasonedRatDescriptor()},
-            {RatCorpse, New RatCorpseDescriptor()},
+            {"RatCorpse", New RatCorpseDescriptor()},
             {Rock, New ItemTypeDescriptor("Rock", ChrW(&H30), DarkGray)},
             {Clay, New ItemTypeDescriptor("Clay", ChrW(&H30), Tan)},
             {Pepper, New PepperDescriptor()},

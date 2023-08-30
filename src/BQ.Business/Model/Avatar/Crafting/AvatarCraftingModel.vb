@@ -9,7 +9,7 @@
 
     Public ReadOnly Property CanMakeTwine As Boolean Implements IAvatarCraftingModel.CanMakeTwine
         Get
-            Return avatar.GetFlag(FlagTypes.KnowsTwineMaking)
+            Return avatar.GetFlag("KnowsTwineMaking")
         End Get
     End Property
 
@@ -39,7 +39,7 @@
 
     Public ReadOnly Property CanKnap As Boolean Implements IAvatarCraftingModel.CanKnap
         Get
-            Return avatar.GetFlag(FlagTypes.KnowsKnapping)
+            Return avatar.GetFlag("KnowsRockSharpening")
         End Get
     End Property
 

@@ -80,8 +80,8 @@
 
     Friend Sub DoDruidTeachMenu(character As ICharacter, effect As IEffect)
         Dim canLearnForaging = Not character.GetFlag("KnowsForaging")
-        Dim canLearnTwineMaking = Not character.GetFlag(FlagTypes.KnowsTwineMaking)
-        Dim canLearnKnapping = Not character.GetFlag(FlagTypes.KnowsKnapping)
+        Dim canLearnTwineMaking = Not character.GetFlag("KnowsTwineMaking")
+        Dim canLearnKnapping = Not character.GetFlag("KnowsRockSharpening")
         Dim canLearnFireMaking = Not character.GetFlag("KnowsFireMaking")
         Dim canLearnTorchMaking = Not character.GetFlag(FlagTypes.KnowsTorchMaking)
         Dim canLearnHatchetMaking = Not character.GetFlag("KnowsHatchetMaking")
@@ -111,7 +111,7 @@
                 EffectTypes.LearnTwineMaking,
                 Sub(choice)
                     choice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
-                    choice.SetMetadata(Metadatas.FlagType, FlagTypes.KnowsTwineMaking)
+                    choice.SetMetadata(Metadatas.FlagType, "KnowsTwineMaking")
                     choice.SetMetadata(Metadatas.TaskName, "make twine")
                     choice.SetMetadata(Metadatas.ActionName, "Make Twine")
                     choice.SetMetadata(Metadatas.RecipeType, "Twine")
@@ -126,7 +126,7 @@
                     choice.
                         SetStatistic(StatisticTypes.AdvancementPoints, 1)
 
-                    choice.SetMetadata(Metadatas.FlagType, FlagTypes.KnowsKnapping)
+                    choice.SetMetadata(Metadatas.FlagType, "KnowsRockSharpening")
                     choice.SetMetadata(Metadatas.TaskName, "knap")
                     choice.SetMetadata(Metadatas.ActionName, "Knap")
                     choice.SetMetadata(Metadatas.RecipeType, "SharpRock")

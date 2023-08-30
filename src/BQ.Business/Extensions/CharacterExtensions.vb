@@ -68,7 +68,7 @@
     End Sub
 
     Public Function HasWon(character As ICharacter) As Boolean
-        Return character.IsAvatar AndAlso character.ItemTypeCount(ItemTypes.Bagel) > 0
+        Return character.IsAvatar AndAlso character.ItemTypeCount("Bagel") > 0
     End Function
     Public Function CanCookBagel(character As ICharacter) As Boolean
         Return RecipeTypes.CanCraft("Bagel", character)

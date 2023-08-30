@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const EnterCellar = "EnterCellar"
     Friend Const ExitDialog = "ExitDialog"
     Friend Const FillClayPot = "FillClayPot"
     Friend Const GorachanTalk = "GorachanTalk"

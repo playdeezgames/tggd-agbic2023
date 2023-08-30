@@ -39,7 +39,7 @@
 
     Private Sub InitializeStairs(map As IMap)
         map.GetCell(1, map.Rows - 2).Effect = map.CreateEffect()
-        SetEffectType(map.GetCell(1, map.Rows - 2).Effect, EffectTypes.EnterCellar)
+        SetEffectType(map.GetCell(1, map.Rows - 2).Effect, "EnterCellar")
     End Sub
 
     Private Sub InitializeBeds(map As IMap)

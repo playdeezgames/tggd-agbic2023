@@ -89,7 +89,7 @@ require('Content.Scripts.teleport')
 doTeleport(character,effect)"
                         },
                         {
-                            EffectTypes.EnterCellar,
+                            "EnterCellar",
 "
 require('Content.Scripts.teleport')
 if character:GetFlag(""RatQuest"") then

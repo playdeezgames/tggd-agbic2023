@@ -12,7 +12,7 @@
         Return cell.Descriptor.CanSleep
     End Function
     Public Function CanMakeTorch(cell As ICell) As Boolean
-        Return cell.Descriptor.HasEffect(EffectTypes.MakeTorch)
+        Return cell.Descriptor.HasEffect("MakeTorch")
     End Function
     Public Function CanBuildFire(cell As ICell) As Boolean
         Return cell.Map.GetFlag("AllowFireBuilding") AndAlso cell.Descriptor.HasEffect("BuildFire")

@@ -24,7 +24,7 @@
                         {EffectTypes.Forage, AddressOf DoForage},
                         {"BuildFire", AddressOf DoCraftFire},
                         {"BuildFurnace", AddressOf CraftingEffectHandlers.DoBuildFurnace},
-                        {EffectTypes.MakeTorch, AddressOf CraftingEffectHandlers.DoMakeTorch},
+                        {"MakeTorch", AddressOf CraftingEffectHandlers.DoMakeTorch},
                         {"MakeHatchet", AddressOf CraftingEffectHandlers.DoMakeHatchet},
                         {"CookRatBody", AddressOf DoCookRatBody},
                         {"CookRatCorpse", AddressOf DoCookRatCorpse},

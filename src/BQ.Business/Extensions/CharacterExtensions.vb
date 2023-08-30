@@ -131,7 +131,7 @@
         character.Cell.Descriptor.DoEffect(character, "CookBagel", character.Cell)
     End Sub
     Public Sub DoMakeTorch(character As ICharacter)
-        character.Cell.Descriptor.DoEffect(character, EffectTypes.MakeTorch, character.Cell)
+        character.Cell.Descriptor.DoEffect(character, "MakeTorch", character.Cell)
     End Sub
     Public Sub DoMakeHatchet(character As ICharacter)
         DoMakeItem(character, "Hatchet", "a hatchet", AddressOf MakeHatchet)

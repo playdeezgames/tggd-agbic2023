@@ -21,7 +21,7 @@
                         }
                     }
                 },
-                {EffectTypes.MakeTorch, New EffectData}
+                {"MakeTorch", New EffectData}
             })
     End Sub
 End Class

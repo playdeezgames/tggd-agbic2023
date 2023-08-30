@@ -17,7 +17,7 @@
                         {"DruidPrices", AddressOf DoDruidPrices},
                         {"Buy", AddressOf DoBuy},
                         {"EnergyTrainerTalk", AddressOf DoEnergyTrainerTalk},
-                        {EffectTypes.TrainEnergy, AddressOf DoTrainEnergy},
+                        {"TrainEnergy", AddressOf DoTrainEnergy},
                         {EffectTypes.StartRatQuest, AddressOf DoStartRatQuest},
                         {"CompleteRatQuest", AddressOf DoCompleteRatQuest},
                         {"CutOffTail", AddressOf DoCutOffTail},

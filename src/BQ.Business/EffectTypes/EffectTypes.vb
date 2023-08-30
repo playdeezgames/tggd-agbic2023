@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const TrainEnergy = "TrainEnergy"
     Friend Const TrainHealth = "TrainHealth"
     Friend Const StartRatQuest = "StartRatQuest"
     Friend Const Forage = "Forage"

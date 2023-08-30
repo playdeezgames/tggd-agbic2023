@@ -1,5 +1,4 @@
 ﻿Friend Module CharacterTypes
-    Friend Const Loxy = "Loxy"
     Friend Const OliveGlop = "OliveGlop"
     Friend Const CherryGlop = "CherryGlop"
     Friend Const Rat = "Rat"
@@ -8,7 +7,7 @@
         New Dictionary(Of String, CharacterTypeDescriptor) From
         {
             {
-                Loxy,
+                "Loxy",
                 New CharacterTypeDescriptor(
                     "Loxy",
                     ChrW(2),

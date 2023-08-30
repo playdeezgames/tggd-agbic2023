@@ -24,7 +24,7 @@ Friend Module MapTypes
                     customInitializer:=AddressOf TownInitializer.Initialize,
                     spawnCharacters:=New Dictionary(Of String, Integer) From
                     {
-                        {CharacterTypes.Loxy, 1}
+                        {"Loxy", 1}
                     })
             },
             {

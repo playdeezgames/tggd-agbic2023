@@ -6,7 +6,7 @@
         Return ItemExtensions.Descriptor(item).Name
     End Function
     Public Function IsWeapon(item As IItem) As Boolean
-        Return ItemExtensions.Descriptor(item).Flags.Contains(FlagTypes.IsWeapon)
+        Return ItemExtensions.Descriptor(item).Flags.Contains("IsWeapon")
     End Function
     Public Function IsArmor(item As IItem) As Boolean
         Return ItemExtensions.Descriptor(item).Flags.Contains("IsArmor")

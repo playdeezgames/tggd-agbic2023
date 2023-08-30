@@ -16,7 +16,7 @@
             },
             flags:=New List(Of String) From
             {
-                FlagTypes.IsWeapon
+                "IsWeapon"
             })
     End Sub
 End Class

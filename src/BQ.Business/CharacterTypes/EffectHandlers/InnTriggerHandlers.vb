@@ -50,7 +50,7 @@
                 msg.AddChoice("Here's some rat tails!", "CompleteRatQuest")
             End If
         Else
-            msg.AddChoice("I need a job!", EffectTypes.StartRatQuest)
+            msg.AddChoice("I need a job!", "StartRatQuest")
         End If
     End Sub
 

@@ -18,7 +18,7 @@
                         {"Buy", AddressOf DoBuy},
                         {"EnergyTrainerTalk", AddressOf DoEnergyTrainerTalk},
                         {"TrainEnergy", AddressOf DoTrainEnergy},
-                        {EffectTypes.StartRatQuest, AddressOf DoStartRatQuest},
+                        {"StartRatQuest", AddressOf DoStartRatQuest},
                         {"CompleteRatQuest", AddressOf DoCompleteRatQuest},
                         {"CutOffTail", AddressOf DoCutOffTail},
                         {EffectTypes.Forage, AddressOf DoForage},

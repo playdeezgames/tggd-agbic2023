@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const HealthTrainerTalk = "HealthTrainerTalk"
     Friend Const LearnFireMaking = "LearnFireMaking"
     Friend Const LearnForaging = "LearnForaging"
     Friend Const LearnHatchedMaking = "LearnHatchedMaking"

@@ -15,7 +15,7 @@
         trainerCell.TerrainType = TerrainTypes.StrongMan
         trainerCell.Effect =
             map.CreateEffect
-        SetEffectType(trainerCell.Effect, EffectTypes.HealthTrainerTalk)
+        SetEffectType(trainerCell.Effect, "HealthTrainerTalk")
     End Sub
 
 End Module

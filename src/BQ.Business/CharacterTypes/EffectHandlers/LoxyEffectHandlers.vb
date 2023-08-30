@@ -9,7 +9,7 @@
                         {"NihilistPrices", AddressOf DoNihilistPrices},
                         {EffectTypes.TrainHealth, AddressOf DoTrainHealth},
                         {"DruidTeachMenu", AddressOf DoDruidTeachMenu},
-                        {EffectTypes.HealthTrainerTalk, AddressOf DoHealthTrainerTalk},
+                        {"HealthTrainerTalk", AddressOf DoHealthTrainerTalk},
                         {"HealerTalk", AddressOf DoHealerTalk},
                         {"GorachanTalk", AddressOf DoGorachanTalk},
                         {EffectTypes.PervertInnkeeper, AddressOf DoPerventInnkeeper},

@@ -82,7 +82,7 @@
         Dim canLearnForaging = Not character.GetFlag(FlagTypes.KnowsForaging)
         Dim canLearnTwineMaking = Not character.GetFlag(FlagTypes.KnowsTwineMaking)
         Dim canLearnKnapping = Not character.GetFlag(FlagTypes.KnowsKnapping)
-        Dim canLearnFireMaking = Not character.GetFlag(FlagTypes.KnowsFireMaking)
+        Dim canLearnFireMaking = Not character.GetFlag("KnowsFireMaking")
         Dim canLearnTorchMaking = Not character.GetFlag(FlagTypes.KnowsTorchMaking)
         Dim canLearnHatchetMaking = Not character.GetFlag(FlagTypes.KnowsHatchetMaking)
         Dim canLearn = canLearnForaging OrElse canLearnTwineMaking OrElse canLearnKnapping OrElse canLearnFireMaking OrElse canLearnTorchMaking OrElse canLearnHatchetMaking
@@ -140,7 +140,7 @@
                 Sub(choice)
                     choice.
                         SetStatistic(StatisticTypes.AdvancementPoints, 1)
-                    choice.SetMetadata(Metadatas.FlagType, FlagTypes.KnowsFireMaking)
+                    choice.SetMetadata(Metadatas.FlagType, "KnowsFireMaking")
                     choice.SetMetadata(Metadatas.TaskName, "make a fire")
                     choice.SetMetadata(Metadatas.ActionName, "Build Fire")
                     choice.SetMetadata(Metadatas.RecipeType, "CookingFire")

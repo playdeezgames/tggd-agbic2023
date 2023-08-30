@@ -5,7 +5,7 @@
                         {EffectTypes.PutOutFire, AddressOf DoPutOutFlames},
                         {EffectTypes.Message, AddressOf DefaultMessage},
                         {EffectTypes.Heal, AddressOf NihilisticHealing},
-                        {EffectTypes.ExitDialog, AddressOf DoExitDialog},
+                        {"ExitDialog", AddressOf DoExitDialog},
                         {EffectTypes.HealerPrices, AddressOf DoNihilistPrices},
                         {EffectTypes.TrainHealth, AddressOf DoTrainHealth},
                         {"DruidAllergies", AddressOf DoDruidAllergies},

@@ -7,7 +7,7 @@
                         {"Heal", AddressOf NihilisticHealing},
                         {"ExitDialog", AddressOf DoExitDialog},
                         {"NihilistPrices", AddressOf DoNihilistPrices},
-                        {EffectTypes.TrainHealth, AddressOf DoTrainHealth},
+                        {"TrainHealth", AddressOf DoTrainHealth},
                         {"DruidTeachMenu", AddressOf DoDruidTeachMenu},
                         {"HealthTrainerTalk", AddressOf DoHealthTrainerTalk},
                         {"HealerTalk", AddressOf DoHealerTalk},

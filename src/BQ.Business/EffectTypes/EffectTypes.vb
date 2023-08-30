@@ -1,6 +1,5 @@
 ﻿Friend Module EffectTypes
     Private descriptors As IReadOnlyDictionary(Of String, EffectTypeDescriptor)
-    <Extension>
     Friend Function ToEffectTypeDescriptor(effectType As String) As EffectTypeDescriptor
         Return descriptors(effectType)
     End Function

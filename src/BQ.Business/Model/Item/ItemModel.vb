@@ -40,7 +40,7 @@
     Public ReadOnly Property EffectTypes As IEnumerable(Of (text As String, VerbTypes As String)) Implements IItemModel.EffectTypes
         Get
             Dim item = world.Avatar.Items.First(Function(x) ItemExtensions.Name(x) = Name)
-            Return ItemExtensions.Descriptor(item).AllEffectTypes.Select(Function(x) (x.ToEffectTypeDescriptor.Name, x))
+            Return ItemExtensions.Descriptor(item).AllEffectTypes.Select(Function(x) (ToEffectTypeDescriptor(x).Name, x))
         End Get
     End Property
 

@@ -4,7 +4,7 @@
         Dim msg = character.World.CreateMessage().
                         AddLine(LightGray, "Greetings! I am Marcus, the hippy druid.").
                         AddLine(LightGray, "I can help you learn nature's way.").
-                        AddChoice(CoolStoryBro, EffectTypes.ExitDialog).
+                        AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
                         AddChoice("Don't druids live in the woods?", EffectTypes.DruidAllergies).
                         AddChoice("Teach me!", EffectTypes.DruidTeachMenu).
                         AddChoice("What's for sale?", EffectTypes.DruidPrices)
@@ -19,7 +19,7 @@
         Dim msg = character.World.CreateMessage().
                         AddLine(LightGray, "I sell a variety of herbs.").
                         AddLine(LightGray, $"({CharacterExtensions.Name(character)} has {CharacterExtensions.Jools(character)} jools)").
-                        AddChoice(GoodToKnow, EffectTypes.ExitDialog).
+                        AddChoice("Good to know!", EffectTypes.ExitDialog).
                         AddChoice(
                             "Buy Energy Herb(5 jools)",
                             EffectTypes.Buy,
@@ -92,7 +92,7 @@
             Return
         End If
         msg.AddLine(LightGray, "I can teach you these things:")
-        msg.AddChoice(GoodToKnow, EffectTypes.ExitDialog)
+        msg.AddChoice("Good to know!", EffectTypes.ExitDialog)
         If canLearnForaging Then
             msg.AddChoice(
                 "Foraging(-1AP)",

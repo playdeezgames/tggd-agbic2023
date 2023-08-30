@@ -7,7 +7,7 @@
     Friend Sub DoBumpRiver(character As ICharacter, effect As IEffect)
         Dim msg = character.World.CreateMessage().
             AddLine(LightGray, $"{CharacterExtensions.Name(character)} visits the river bank.").
-            AddChoice(CoolStoryBro, EffectTypes.ExitDialog)
+            AddChoice("Cool story, bro!", EffectTypes.ExitDialog)
         If CharacterExtensions.HasItemTypeInInventory(character, ItemTypes.ClayPot) Then
             msg.AddChoice("Fill Clay Pot with Water", EffectTypes.FillClayPot)
         End If

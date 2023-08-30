@@ -7,7 +7,7 @@
                         AddLine(LightGray, "but it will cost you half of yer jools.").
                         AddLine(LightGray, "Not that I care or anything,").
                         AddLine(LightGray, "because I'm a nihilist.").
-                        AddChoice(CoolStoryBro, EffectTypes.ExitDialog).
+                        AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
                         AddChoice("What's for sale?", EffectTypes.HealerPrices)
     End Sub
 

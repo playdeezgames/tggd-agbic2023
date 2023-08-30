@@ -42,7 +42,7 @@
                         AddLine(LightGray, "You can rest in a bed for 1 jools.").
                         AddLine(LightGray, "I'd offer to join you,").
                         AddLine(LightGray, "but then you wouldn't get any rest!").
-                        AddChoice(CoolStoryBro, EffectTypes.ExitDialog).
+                        AddChoice("Cool story, bro!", EffectTypes.ExitDialog).
                         AddChoice("Yer a pervert!", EffectTypes.PervertInnkeeper).
                         AddChoice("I'll take a bed.", EffectTypes.PayInnkeeper)
         If character.GetFlag(FlagTypes.RatQuest) Then

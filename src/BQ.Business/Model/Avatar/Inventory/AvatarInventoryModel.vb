@@ -38,6 +38,6 @@
     End Property
 
     Public Function FormatItemCount(name As String) As String Implements IAvatarInventoryModel.FormatItemCount
-        Return $"{name}(x{ItemCount(ItemName)})"
+        Return $"{name}(x{ItemCount(name)})"
     End Function
 End Class

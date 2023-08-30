@@ -33,7 +33,8 @@
                     },
                     effectHandlers:=LoxyEffectHandlers.All,
                     initializeScript:="
-character:AddItem(ItemInitializer.CreateItem(character.World,""SeasonedRat""))",
+character:AddItem(ItemInitializer.CreateItem(character.World,""SeasonedRat""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""CookedRat""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
                         {

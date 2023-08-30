@@ -8,7 +8,7 @@
                         AddLine(LightGray, "Not that I care or anything,").
                         AddLine(LightGray, "because I'm a nihilist.").
                         AddChoice("Cool story, bro!", "ExitDialog").
-                        AddChoice("What's for sale?", EffectTypes.HealerPrices)
+                        AddChoice("What's for sale?", "NihilistPrices")
     End Sub
 
     Friend Sub DoNihilistPrices(character As ICharacter, trigger As IEffect)

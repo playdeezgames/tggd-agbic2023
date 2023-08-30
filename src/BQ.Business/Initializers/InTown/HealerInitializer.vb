@@ -21,6 +21,6 @@
         healerCell.TerrainType = TerrainTypes.OldMan
         healerCell.Effect =
             map.CreateEffect
-        SetEffectType(healerCell.Effect, EffectTypes.HealerTalk)
+        SetEffectType(healerCell.Effect, "HealerTalk")
     End Sub
 End Module

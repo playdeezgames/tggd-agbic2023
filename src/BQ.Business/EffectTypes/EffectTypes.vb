@@ -1,6 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const HealerPrices = "NihilistPrices"
-    Friend Const HealerTalk = "HealerTalk"
     Friend Const HealthTrainerTalk = "HealthTrainerTalk"
     Friend Const LearnFireMaking = "LearnFireMaking"
     Friend Const LearnForaging = "LearnForaging"

@@ -1,5 +1,4 @@
 ﻿Friend Module ItemTypes
-    Friend Const SeasonedRat = "SeasonedRat"
     Friend Const Bagel = "Bagel"
     Friend Sub Save(filename As String)
         System.IO.File.WriteAllText(filename, JsonSerializer.Serialize(descriptors))
@@ -17,7 +16,7 @@
             {"RatBody", New RatBodyDescriptor()},
             {"RatTail", New ItemTypeDescriptor("Rat Tail", ChrW(&H2E), DarkGray)},
             {"CookedRat", New CookedRatDescriptor()},
-            {SeasonedRat, New SeasonedRatDescriptor()},
+            {"SeasonedRat", New SeasonedRatDescriptor()},
             {"RatCorpse", New RatCorpseDescriptor()},
             {"Rock", New ItemTypeDescriptor("Rock", ChrW(&H30), DarkGray)},
             {"Clay", New ItemTypeDescriptor("Clay", ChrW(&H30), Tan)},

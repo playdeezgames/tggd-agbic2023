@@ -1,5 +1,4 @@
 ﻿Friend Module ItemTypes
-    Friend Const Flour = "Flour"
     Friend Const Dough = "Dough"
     Friend Const SmokedPepper = "SmokedPepper"
     Friend Const Paprika = "Paprika"
@@ -13,7 +12,7 @@
         {
             {"PlantFiber", New ItemTypeDescriptor("Plant Fiber", ChrW(&H21), LightGreen)},
             {"Wheat", New WheatDescriptor()},
-            {Flour, New FlourDescriptor()},
+            {"Flour", New FlourDescriptor()},
             {Dough, New ItemTypeDescriptor("Dough", ChrW(&H44), Tan)},
             {Bagel, New ItemTypeDescriptor("Bagel", ChrW(&H44), Brown)},
             {Paprika, New ItemTypeDescriptor("Paprika", ChrW(&H43), Orange)},

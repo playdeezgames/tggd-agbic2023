@@ -8,7 +8,7 @@
             Yellow,
             effects:=New Dictionary(Of String, EffectData) From
             {
-                {EffectTypes.MillWheat, New EffectData() With {.EffectType = EffectTypes.MillWheat}}
+                {"MillWheat", New EffectData() With {.EffectType = "MillWheat"}}
             })
     End Sub
 End Class

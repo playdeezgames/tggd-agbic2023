@@ -31,7 +31,7 @@
                         {EffectTypes.PotterMakePot, AddressOf DoPotterMakePot},
                         {"BumpRiver", AddressOf DoBumpRiver},
                         {"FillClayPot", AddressOf DoFillClayPot},
-                        {EffectTypes.MillWheat, AddressOf DoMillWheat},
+                        {"MillWheat", AddressOf DoMillWheat},
                         {"MakeDough", AddressOf DoMakeDough},
                         {EffectTypes.SmokePepper, AddressOf DoSmokePepper},
                         {"MakePaprika", AddressOf DoMakePaprika},

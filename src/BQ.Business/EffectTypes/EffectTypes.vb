@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const LearnTwineMaking = "LearnTwineMaking"
     Friend Const MakeDough = "MakeDough"
     Friend Const MakeHatchet = "MakeHatchet"
     Friend Const MakePaprika = "MakePaprika"

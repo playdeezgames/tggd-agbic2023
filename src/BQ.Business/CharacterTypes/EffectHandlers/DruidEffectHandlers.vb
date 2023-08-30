@@ -40,7 +40,7 @@
         If canLearnTwineMaking Then
             msg.AddChoice(
                 "Twine Making(-1AP,-2 Plant Fiber)",
-                EffectTypes.LearnTwineMaking)
+                "LearnTwineMaking")
             msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
             msg.LastChoice.SetMetadata(Metadatas.FlagType, "KnowsTwineMaking")
             msg.LastChoice.SetMetadata(Metadatas.TaskName, "make twine")

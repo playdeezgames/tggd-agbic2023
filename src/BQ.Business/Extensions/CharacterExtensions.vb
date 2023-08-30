@@ -9,7 +9,7 @@
             AddLine(LightGray, $"To learn to {taskName},").
             AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs(recipeType)
-                msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+                msg.AddLine(LightGray, $"{ItemTypes.ToItemTypeDescriptor(input.itemType).Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next
             Return
         End If
@@ -193,7 +193,7 @@
         Return character.CharacterType.ToCharacterTypeDescriptor
     End Function
     Public Sub DoItemEffect(character As ICharacter, effectType As String, item As IItem)
-        Dim effect = item.ItemType.ToItemTypeDescriptor.ToItemEffect(effectType, item)
+        Dim effect = ToItemTypeDescriptor(item.ItemType).ToItemEffect(effectType, item)
         CharacterExtensions.Descriptor(character).RunEffectScript(WorldModel.LuaState, effect.EffectType, character, effect)
     End Sub
     Public Function Move(character As ICharacter, delta As (x As Integer, y As Integer)) As Boolean
@@ -432,11 +432,11 @@
         Return character.GetStatistic(StatisticTypes.XPLevel)
     End Function
     Sub EquipItem(character As ICharacter, item As IItem)
-        Dim equipSlotType = item.ItemType.ToItemTypeDescriptor.EquipSlotType
+        Dim equipSlotType = ToItemTypeDescriptor(item.ItemType).EquipSlotType
         character.Equip(equipSlotType, item)
     End Sub
     Function HasCuttingTool(character As ICharacter) As Boolean
-        Return character.Items.Any(Function(x) x.ItemType.ToItemTypeDescriptor.IsCuttingTool) OrElse character.EquippedItems.Any(Function(x) x.ItemType.ToItemTypeDescriptor.IsCuttingTool)
+        Return character.Items.Any(Function(x) ToItemTypeDescriptor(x.ItemType).IsCuttingTool) OrElse character.EquippedItems.Any(Function(x) ToItemTypeDescriptor(x.ItemType).IsCuttingTool)
     End Function
     Function ItemCountsByName(character As ICharacter) As IReadOnlyDictionary(Of String, IEnumerable(Of IItem))
         Return character.Items.GroupBy(Function(x) ItemExtensions.Name(x)).ToDictionary(Function(x) x.Key, Function(x) x.AsEnumerable)

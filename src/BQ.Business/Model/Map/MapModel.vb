@@ -38,7 +38,7 @@ Friend Class MapModel
         Get
             cellXY = Translate(cellXY)
             Dim cell = map.GetCell(cellXY.column, cellXY.row)
-            Return cell.Items.Select(Function(x) x.ItemType).Distinct().Select(Function(x) (x.ToItemTypeDescriptor.Glyph, x.ToItemTypeDescriptor.Hue))
+            Return cell.Items.Select(Function(x) x.ItemType).Distinct().Select(Function(x) (ToItemTypeDescriptor(x).Glyph, ToItemTypeDescriptor(x).Hue))
         End Get
     End Property
 

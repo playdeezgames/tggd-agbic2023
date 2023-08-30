@@ -14,7 +14,7 @@
                 AddLine(LightGray, $"To make a torch,").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs("Torch")
-                msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.itemType).Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next
             Return
         End If
@@ -42,7 +42,7 @@
                 AddLine(LightGray, $"To build a fire,").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs("CookingFire")
-                msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.itemType).Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next
             Return
         End If
@@ -60,7 +60,7 @@
                 AddLine(LightGray, $"To build a furnace,").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs("Furnace")
-                msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.itemType).Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next
             Return
         End If
@@ -141,7 +141,7 @@
 
     Friend Sub AddRecipeInputs(character As ICharacter, msg As IMessage, recipeType As String)
         For Each input In RecipeTypes.Inputs(recipeType)
-            msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+            msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.itemType).Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
         Next
     End Sub
 
@@ -151,7 +151,7 @@
                 AddLine(LightGray, $"To {taskName},").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs(recipeType)
-                msg.AddLine(LightGray, $"{input.itemType.ToItemTypeDescriptor.Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.itemType).Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
             Next
             Return False
         End If

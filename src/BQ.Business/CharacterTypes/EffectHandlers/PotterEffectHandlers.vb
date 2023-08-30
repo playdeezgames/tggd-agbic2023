@@ -17,6 +17,6 @@
         RecipeTypes.Craft(RecipeType, character)
         RecipeTypes.Craft("ClayPot", character)
         character.World.CreateMessage().
-            AddLine(Red, $"{CharacterExtensions.Name(character)} loses {price} jools").AddLine(LightGreen, $"{CharacterExtensions.Name(character)} gains 1 {ItemTypes.ClayPot.ToItemTypeDescriptor.Name}")
+            AddLine(Red, $"{CharacterExtensions.Name(character)} loses {price} jools").AddLine(LightGreen, $"{CharacterExtensions.Name(character)} gains 1 {ToItemTypeDescriptor("ClayPot").Name}")
     End Sub
 End Module

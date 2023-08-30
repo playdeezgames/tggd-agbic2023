@@ -1,6 +1,6 @@
 ﻿Public Module ItemExtensions
     Public Function Descriptor(item As IItem) As ItemTypeDescriptor
-        Return item.ItemType.ToItemTypeDescriptor
+        Return ToItemTypeDescriptor(item.ItemType)
     End Function
     Public Function Name(item As IItem) As String
         Return ItemExtensions.Descriptor(item).Name

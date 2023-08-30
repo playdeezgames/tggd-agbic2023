@@ -27,7 +27,7 @@
                         {EffectTypes.CompleteRatQuest, AddressOf DoCompleteRatQuest},
                         {EffectTypes.CutOffTail, AddressOf DoCutOffTail},
                         {EffectTypes.Forage, AddressOf DoForage},
-                        {EffectTypes.BuildFire, AddressOf DoCraftFire},
+                        {"BuildFire", AddressOf DoCraftFire},
                         {EffectTypes.BuildFurnace, AddressOf CraftingEffectHandlers.DoBuildFurnace},
                         {EffectTypes.LearnFireMaking, AddressOf DoLearnSkill},
                         {EffectTypes.LearnTorchMaking, AddressOf DoLearnSkill},

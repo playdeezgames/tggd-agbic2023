@@ -74,7 +74,7 @@
         End If
     End Sub
     Public Sub DoBuildFire(character As ICharacter)
-        character.Cell.Descriptor.DoEffect(character, EffectTypes.BuildFire, character.Cell)
+        character.Cell.Descriptor.DoEffect(character, "BuildFire", character.Cell)
     End Sub
     Public Sub DoBuildFurnace(character As ICharacter)
         character.Cell.Descriptor.DoEffect(character, EffectTypes.BuildFurnace, character.Cell)

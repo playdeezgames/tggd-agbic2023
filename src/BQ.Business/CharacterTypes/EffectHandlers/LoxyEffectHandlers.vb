@@ -13,7 +13,7 @@
                         {"HealerTalk", AddressOf DoHealerTalk},
                         {"GorachanTalk", AddressOf DoGorachanTalk},
                         {EffectTypes.PervertInnkeeper, AddressOf DoPerventInnkeeper},
-                        {EffectTypes.PayInnkeeper, AddressOf DoPayInnkeeper},
+                        {"PayInnkeeper", AddressOf DoPayInnkeeper},
                         {"DruidPrices", AddressOf DoDruidPrices},
                         {"Buy", AddressOf DoBuy},
                         {"EnergyTrainerTalk", AddressOf DoEnergyTrainerTalk},

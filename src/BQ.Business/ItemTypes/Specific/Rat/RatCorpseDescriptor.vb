@@ -9,7 +9,7 @@
             effects:=New Dictionary(Of String, EffectData) From
             {
                 {"CutOffTail", New EffectData() With {.EffectType = "CutOffTail"}},
-                {EffectTypes.EatRatCorpse, New EffectData() With {.EffectType = EffectTypes.EatRatCorpse}},
+                {"EatRatCorpse", New EffectData() With {.EffectType = "EatRatCorpse"}},
                 {"CookRatCorpse", New EffectData() With {.EffectType = "CookRatCorpse"}}
             },
             fullNameScript:="return ""test""")

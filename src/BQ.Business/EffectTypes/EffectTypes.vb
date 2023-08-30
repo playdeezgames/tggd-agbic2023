@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const EatRatCorpse = "EatRatCorpse"
     Friend Const EatSeasonedRat = "EatSeasonedRat"
     Friend Const EatSmokedPepper = "EatSmokedPepper"
     Friend Const EnergyTrainerTalk = "EnergyTrainerTalk"

@@ -113,7 +113,7 @@ world:CreateMessage():
                             "character:SetFlag(""RatQuest"", true)"
                         },
                         {
-                            EffectTypes.EatRatCorpse,
+                            "EatRatCorpse",
                             "
 local item = CharacterExtensions.ConsumedItem(character, effect)
 if RNG.GenerateBoolean(50, 50) then

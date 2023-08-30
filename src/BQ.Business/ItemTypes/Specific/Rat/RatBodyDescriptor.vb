@@ -8,7 +8,7 @@
             DarkGray,
             effects:=New Dictionary(Of String, EffectData) From
             {
-                {EffectTypes.EatRatCorpse, New EffectData() With {.EffectType = EffectTypes.EatRatCorpse}},
+                {"EatRatCorpse", New EffectData() With {.EffectType = "EatRatCorpse"}},
                 {"CookRatBody", New EffectData() With {.EffectType = "CookRatBody"}}
             })
     End Sub

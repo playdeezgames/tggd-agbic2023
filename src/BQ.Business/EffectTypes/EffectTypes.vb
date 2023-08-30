@@ -1,6 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const SeasonRat = "SeasonRat"
-    Friend Const SleepAtInn = "SleepAtInn"
     Friend Const SmokePepper = "SmokePepper"
     Friend Const Teleport = "Teleport"
     Friend Const TrainEnergy = "TrainEnergy"

@@ -35,7 +35,7 @@
                         {"MakeDough", AddressOf DoMakeDough},
                         {EffectTypes.SmokePepper, AddressOf DoSmokePepper},
                         {"MakePaprika", AddressOf DoMakePaprika},
-                        {EffectTypes.SeasonRat, AddressOf DoSeasonRat},
+                        {"SeasonRat", AddressOf DoSeasonRat},
                         {"CookBagel", AddressOf CraftingEffectHandlers.DoCookBagel}
                     }
 

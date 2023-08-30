@@ -87,7 +87,7 @@ local msg = character.World:CreateMessage():AddLine(7, CharacterExtensions.Name(
 CharacterExtensions.DetermineSpiciness(character, msg)"
                         },
                         {
-                            EffectTypes.SleepAtInn,
+                            "SleepAtInn",
                             "
 if character:GetFlag(""PaidInnkeeper"") then
     character:SetFlag(""PaidInnkeeper"", false)

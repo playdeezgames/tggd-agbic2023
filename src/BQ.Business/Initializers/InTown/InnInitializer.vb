@@ -45,7 +45,7 @@
     Private Sub InitializeBeds(map As IMap)
         Dim bedCells = map.Cells.Where(Function(x) x.TerrainType = TerrainTypes.Bed)
         Dim trigger = map.CreateEffect()
-        SetEffectType(trigger, EffectTypes.SleepAtInn)
+        SetEffectType(trigger, "SleepAtInn")
         For Each bedCell In bedCells
             bedCell.Effect = trigger
         Next

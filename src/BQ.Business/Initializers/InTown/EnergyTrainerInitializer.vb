@@ -15,7 +15,7 @@
         trainerCell.TerrainType = TerrainTypes.EnergyTrainer
         trainerCell.Effect =
             map.CreateEffect
-        SetEffectType(trainerCell.Effect, EffectTypes.EnergyTrainerTalk)
+        SetEffectType(trainerCell.Effect, "EnergyTrainerTalk")
     End Sub
 
 End Module

@@ -21,7 +21,7 @@
                         {EffectTypes.PayInnkeeper, AddressOf DoPayInnkeeper},
                         {"DruidPrices", AddressOf DoDruidPrices},
                         {"Buy", AddressOf DoBuy},
-                        {EffectTypes.EnergyTrainerTalk, AddressOf DoEnergyTrainerTalk},
+                        {"EnergyTrainerTalk", AddressOf DoEnergyTrainerTalk},
                         {EffectTypes.TrainEnergy, AddressOf DoTrainEnergy},
                         {EffectTypes.StartRatQuest, AddressOf DoStartRatQuest},
                         {"CompleteRatQuest", AddressOf DoCompleteRatQuest},

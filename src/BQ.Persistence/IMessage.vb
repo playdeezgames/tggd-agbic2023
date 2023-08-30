@@ -8,6 +8,7 @@
     ReadOnly Property Choices As IEnumerable(Of IMessageChoice)
     Function AddLine(hue As Integer, text As String) As IMessage
     Function AddChoice(text As String, effectType As String, Optional initializer As Action(Of IMessageChoice) = Nothing) As IMessage
+    ReadOnly Property LastChoice As IMessageChoice
     Property Sfx As String
     Function SetSfx(sfx As String) As IMessage
     Function Choice(index As Integer) As IMessageChoice

@@ -56,6 +56,15 @@ Friend Class Message
         End Set
     End Property
 
+    Public ReadOnly Property LastChoice As IMessageChoice Implements IMessage.LastChoice
+        Get
+            If ChoiceCount > 0 Then
+                Return Choice(ChoiceCount - 1)
+            End If
+            Return Nothing
+        End Get
+    End Property
+
     Public Function AddLine(hue As Integer, text As String) As IMessage Implements IMessage.AddLine
         MessageData.Lines.Add(New Data.MessageLineData With
                               {

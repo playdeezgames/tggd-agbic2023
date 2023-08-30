@@ -1,5 +1,4 @@
 ﻿Friend Module CharacterTypes
-    Friend Const Rat = "Rat"
     Friend Const Scarecrow = "Scarecrow"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, CharacterTypeDescriptor) =
         New Dictionary(Of String, CharacterTypeDescriptor) From
@@ -185,7 +184,7 @@ character.World:
                     initializeScript:="character:SetStatistic('Jools', RNG.RollDice('3d6/6'))")
             },
             {
-                Rat,
+                "Rat",
                 New CharacterTypeDescriptor(
                     "Rat",
                     ChrW(&H2A),

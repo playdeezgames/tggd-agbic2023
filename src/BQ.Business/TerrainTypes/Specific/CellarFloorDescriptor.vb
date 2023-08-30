@@ -10,7 +10,7 @@
             peril:=1,
             creatureTypeGenerator:=New Dictionary(Of String, Integer) From
             {
-                {CharacterTypes.Rat, 1}
+                {"Rat", 1}
             })
     End Sub
 End Class

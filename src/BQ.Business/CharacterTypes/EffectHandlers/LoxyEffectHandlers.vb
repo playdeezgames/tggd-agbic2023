@@ -3,7 +3,7 @@
         New Dictionary(Of String, Action(Of ICharacter, IEffect)) From
                     {
                         {EffectTypes.PutOutFire, AddressOf DoPutOutFlames},
-                        {EffectTypes.Message, AddressOf DefaultMessage},
+                        {"Message", AddressOf DefaultMessage},
                         {"Heal", AddressOf NihilisticHealing},
                         {"ExitDialog", AddressOf DoExitDialog},
                         {"NihilistPrices", AddressOf DoNihilistPrices},

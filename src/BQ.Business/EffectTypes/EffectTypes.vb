@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const Message = "Message"
     Friend Const MillWheat = "MillWheat"
     Friend Const PayInnkeeper = "PayInnkeeper"
     Friend Const PervertInnkeeper = "PervertInnkeeper"

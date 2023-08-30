@@ -1,5 +1,4 @@
 ﻿Friend Module EffectTypes
-    Friend Const PervertInnkeeper = "PervertInnkeeper"
     Friend Const PotterFlavorText = "PotterFlavorText"
     Friend Const PotterMakePot = "PotterMakePot"
     Friend Const PotterTalk = "PotterTalk"

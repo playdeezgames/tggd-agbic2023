@@ -43,7 +43,7 @@
                         AddLine(LightGray, "I'd offer to join you,").
                         AddLine(LightGray, "but then you wouldn't get any rest!").
                         AddChoice("Cool story, bro!", "ExitDialog").
-                        AddChoice("Yer a pervert!", EffectTypes.PervertInnkeeper).
+                        AddChoice("Yer a pervert!", "PervertInnkeeper").
                         AddChoice("I'll take a bed.", "PayInnkeeper")
         If character.GetFlag("RatQuest") Then
             If CharacterExtensions.HasItemTypeInInventory(character, ItemTypes.RatTail) Then

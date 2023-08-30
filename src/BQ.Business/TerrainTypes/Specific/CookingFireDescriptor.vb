@@ -11,7 +11,7 @@
             effects:=New Dictionary(Of String, EffectData) From
             {
                 {
-                    EffectTypes.PutOutFire,
+                    "PutOutFire",
                     New EffectData With
                     {
                         .Metadatas = New Dictionary(Of String, String) From

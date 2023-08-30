@@ -2,7 +2,7 @@
     Friend All As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect)) =
         New Dictionary(Of String, Action(Of ICharacter, IEffect)) From
                     {
-                        {EffectTypes.PutOutFire, AddressOf DoPutOutFlames},
+                        {"PutOutFire", AddressOf DoPutOutFlames},
                         {"Message", AddressOf DefaultMessage},
                         {"Heal", AddressOf NihilisticHealing},
                         {"ExitDialog", AddressOf DoExitDialog},

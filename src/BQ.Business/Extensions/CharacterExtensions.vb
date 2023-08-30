@@ -146,7 +146,7 @@
         character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} makes {noun}.")
     End Sub
     Public Sub DoPutOutFire(character As ICharacter)
-        character.Cell.Descriptor.DoEffect(character, EffectTypes.PutOutFire, character.Cell)
+        character.Cell.Descriptor.DoEffect(character, "PutOutFire", character.Cell)
     End Sub
     Public Sub DoKnap(character As ICharacter)
         DoMakeItem(character, "SharpRock", "a sharp rock", AddressOf Knap)

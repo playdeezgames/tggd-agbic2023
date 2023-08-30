@@ -8,7 +8,7 @@
                         {EffectTypes.ExitDialog, AddressOf DoExitDialog},
                         {EffectTypes.HealerPrices, AddressOf DoNihilistPrices},
                         {EffectTypes.TrainHealth, AddressOf DoTrainHealth},
-                        {EffectTypes.DruidAllergies, AddressOf DoDruidAllergies},
+                        {"DruidAllergies", AddressOf DoDruidAllergies},
                         {EffectTypes.DruidTeachMenu, AddressOf DoDruidTeachMenu},
                         {EffectTypes.LearnForaging, AddressOf DoLearnSkill},
                         {EffectTypes.LearnKnapping, AddressOf DoLearnSkill},

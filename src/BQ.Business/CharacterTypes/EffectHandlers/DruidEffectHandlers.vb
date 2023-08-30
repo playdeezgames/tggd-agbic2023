@@ -74,7 +74,7 @@
         If canLearnTorchMaking Then
             msg.AddChoice(
                 "Torch Making(-1AP, -1 Stick, -1 Charcoal)",
-                EffectTypes.LearnTorchMaking)
+                "LearnTorchMaking")
             msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
             msg.LastChoice.SetMetadata(Metadatas.FlagType, "KnowsTorchMaking")
             msg.LastChoice.SetMetadata(Metadatas.TaskName, "make a torch")

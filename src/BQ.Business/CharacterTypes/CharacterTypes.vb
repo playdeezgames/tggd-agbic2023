@@ -41,7 +41,7 @@ character:AddItem(ItemInitializer.CreateItem(character.World,""CookedRat""))",
                         {"LearnKnapping", "CharacterExtensions.DoLearnSkill(character,effect)"},
                         {EffectTypes.LearnTwineMaking, "CharacterExtensions.DoLearnSkill(character,effect)"},
                         {"LearnFireMaking", "CharacterExtensions.DoLearnSkill(character,effect)"},
-                        {EffectTypes.LearnTorchMaking, "CharacterExtensions.DoLearnSkill(character,effect)"},
+                        {"LearnTorchMaking", "CharacterExtensions.DoLearnSkill(character,effect)"},
                         {"LearnHatchedMaking", "CharacterExtensions.DoLearnSkill(character,effect)"},
                         {
                             "DruidAllergies",

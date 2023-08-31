@@ -72,43 +72,43 @@ Module WildernessInitializer
         {
             {1, "RiverN"},
             {2, "RiverE"},
-            {3, RiverNE},
-            {4, RiverS},
-            {5, RiverNS},
-            {6, RiverSE},
-            {7, RiverNES},
-            {8, RiverW},
-            {9, RiverNW},
-            {10, RiverEW},
-            {11, RiverWNE},
-            {12, RiverSW},
-            {13, RiverSWN},
-            {14, RiverESW},
-            {15, RiverNESW}
+            {3, "RiverNE"},
+            {4, "RiverS"},
+            {5, "RiverNS"},
+            {6, "RiverSE"},
+            {7, "RiverNES"},
+            {8, "RiverW"},
+            {9, "RiverNW"},
+            {10, "RiverEW"},
+            {11, "RiverWNE"},
+            {12, "RiverSW"},
+            {13, "RiverSWN"},
+            {14, "RiverESW"},
+            {15, "RiverNESW"}
         }
     Private Sub InitializeCell(map As IMap, offsetX As Integer, offsetY As Integer, mazeCell As MazeCell(Of Direction))
         Dim flags = 0
         If If(mazeCell.GetDoor(Direction.North)?.Open, False) Then
             For Each y In Enumerable.Range(offsetY, WildernessCellRows \ 2)
-                map.GetCell(offsetX + WildernessCellColumns \ 2, y).TerrainType = TerrainTypes.RiverNS
+                map.GetCell(offsetX + WildernessCellColumns \ 2, y).TerrainType = "RiverNS"
             Next
             flags += 1
         End If
         If If(mazeCell.GetDoor(Direction.South)?.Open, False) Then
             For Each y In Enumerable.Range(offsetY + WildernessCellRows \ 2 + 1, WildernessCellRows \ 2)
-                map.GetCell(offsetX + WildernessCellColumns \ 2, y).TerrainType = TerrainTypes.RiverNS
+                map.GetCell(offsetX + WildernessCellColumns \ 2, y).TerrainType = "RiverNS"
             Next
             flags += 4
         End If
         If If(mazeCell.GetDoor(Direction.West)?.Open, False) Then
             For Each x In Enumerable.Range(offsetX, WildernessCellColumns \ 2)
-                map.GetCell(x, offsetY + WildernessCellRows \ 2).TerrainType = TerrainTypes.RiverEW
+                map.GetCell(x, offsetY + WildernessCellRows \ 2).TerrainType = "RiverEW"
             Next
             flags += 8
         End If
         If If(mazeCell.GetDoor(Direction.East)?.Open, False) Then
             For Each x In Enumerable.Range(offsetX + WildernessCellColumns \ 2 + 1, WildernessCellColumns \ 2)
-                map.GetCell(x, offsetY + WildernessCellRows \ 2).TerrainType = TerrainTypes.RiverEW
+                map.GetCell(x, offsetY + WildernessCellRows \ 2).TerrainType = "RiverEW"
             Next
             flags += 2
         End If

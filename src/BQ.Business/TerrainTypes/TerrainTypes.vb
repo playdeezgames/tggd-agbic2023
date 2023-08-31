@@ -1,17 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const RiverW = "RiverS"
-    Friend Const RiverS = "RiverW"
-    Friend Const RiverNS = "RiverNS"
-    Friend Const RiverEW = "RiverEW"
-    Friend Const RiverNE = "RiverNE"
-    Friend Const RiverSE = "RiverSE"
-    Friend Const RiverSW = "RiverSW"
-    Friend Const RiverNW = "RiverNW"
-    Friend Const RiverNES = "RiverNES"
-    Friend Const RiverESW = "RiverESW"
-    Friend Const RiverSWN = "RiverSWN"
-    Friend Const RiverWNE = "RiverWNE"
-    Friend Const RiverNESW = "RiverNESW"
     Friend Const Tree = "Tree"
     Friend Const DepletedTree = "DepletedTree"
     Friend Const Town = "Town"
@@ -55,19 +42,19 @@
             {"Sign", New TerrainTypeDescriptor("Sign", ChrW(8), Hue.Brown, False)},
             {"RiverN", New TerrainTypeDescriptor("River", ChrW(&H17), Hue.Blue, False, isWaterSource:=True)},
             {"RiverE", New TerrainTypeDescriptor("River", ChrW(&H18), Hue.Blue, False, isWaterSource:=True)},
-            {RiverS, New TerrainTypeDescriptor("River", ChrW(&H15), Hue.Blue, False, isWaterSource:=True)},
-            {RiverW, New TerrainTypeDescriptor("River", ChrW(&H16), Hue.Blue, False, isWaterSource:=True)},
-            {RiverNE, New TerrainTypeDescriptor("River", ChrW(&H10), Hue.Blue, False, isWaterSource:=True)},
-            {RiverSE, New TerrainTypeDescriptor("River", ChrW(&HD), Hue.Blue, False, isWaterSource:=True)},
-            {RiverSW, New TerrainTypeDescriptor("River", ChrW(&HE), Hue.Blue, False, isWaterSource:=True)},
-            {RiverNW, New TerrainTypeDescriptor("River", ChrW(&HF), Hue.Blue, False, isWaterSource:=True)},
-            {RiverNES, New TerrainTypeDescriptor("River", ChrW(&H11), Hue.Blue, False, isWaterSource:=True)},
-            {RiverESW, New TerrainTypeDescriptor("River", ChrW(&H12), Hue.Blue, False, isWaterSource:=True)},
-            {RiverSWN, New TerrainTypeDescriptor("River", ChrW(&H13), Hue.Blue, False, isWaterSource:=True)},
-            {RiverWNE, New TerrainTypeDescriptor("River", ChrW(&H14), Hue.Blue, False, isWaterSource:=True)},
-            {RiverNESW, New TerrainTypeDescriptor("River", ChrW(&H19), Hue.Blue, False, isWaterSource:=True)},
-            {RiverNS, New TerrainTypeDescriptor("River", ChrW(&HB), Hue.Blue, False, isWaterSource:=True)},
-            {RiverEW, New TerrainTypeDescriptor("River", ChrW(&HC), Hue.Blue, False, isWaterSource:=True)},
+            {"RiverS", New TerrainTypeDescriptor("River", ChrW(&H15), Hue.Blue, False, isWaterSource:=True)},
+            {"RiverW", New TerrainTypeDescriptor("River", ChrW(&H16), Hue.Blue, False, isWaterSource:=True)},
+            {"RiverNE", New TerrainTypeDescriptor("River", ChrW(&H10), Hue.Blue, False, isWaterSource:=True)},
+            {"RiverSE", New TerrainTypeDescriptor("River", ChrW(&HD), Hue.Blue, False, isWaterSource:=True)},
+            {"RiverSW", New TerrainTypeDescriptor("River", ChrW(&HE), Hue.Blue, False, isWaterSource:=True)},
+            {"RiverNW", New TerrainTypeDescriptor("River", ChrW(&HF), Hue.Blue, False, isWaterSource:=True)},
+            {"RiverNES", New TerrainTypeDescriptor("River", ChrW(&H11), Hue.Blue, False, isWaterSource:=True)},
+            {"RiverESW", New TerrainTypeDescriptor("River", ChrW(&H12), Hue.Blue, False, isWaterSource:=True)},
+            {"RiverSWN", New TerrainTypeDescriptor("River", ChrW(&H13), Hue.Blue, False, isWaterSource:=True)},
+            {"RiverWNE", New TerrainTypeDescriptor("River", ChrW(&H14), Hue.Blue, False, isWaterSource:=True)},
+            {"RiverNESW", New TerrainTypeDescriptor("River", ChrW(&H19), Hue.Blue, False, isWaterSource:=True)},
+            {"RiverNS", New TerrainTypeDescriptor("River", ChrW(&HB), Hue.Blue, False, isWaterSource:=True)},
+            {"RiverEW", New TerrainTypeDescriptor("River", ChrW(&HC), Hue.Blue, False, isWaterSource:=True)},
             {Door, New TerrainTypeDescriptor("Door", ChrW(&H1D), Hue.Orange, True)},
             {Basin, New TerrainTypeDescriptor("Basin", ChrW(&H1E), Hue.Blue, False)},
             {OldMan, New TerrainTypeDescriptor("Old Man", ChrW(&H1F), Hue.Purple, False)},

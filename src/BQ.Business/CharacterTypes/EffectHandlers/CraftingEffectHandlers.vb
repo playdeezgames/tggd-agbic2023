@@ -15,7 +15,7 @@
         RecipeTypes.Craft("Furnace", character)
         character.World.CreateMessage().
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} builds a furnace.")
-        character.Cell.TerrainType = TerrainTypes.Furnace
+        character.Cell.TerrainType = "Furnace"
     End Sub
     Friend Sub DoCutOffTail(character As ICharacter, effect As IEffect)
         If Not CharacterExtensions.HasCuttingTool(character) Then

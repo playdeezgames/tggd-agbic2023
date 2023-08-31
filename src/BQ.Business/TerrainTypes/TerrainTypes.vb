@@ -1,5 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const Furnace = "Furnace"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, TerrainTypeDescriptor) =
         New Dictionary(Of String, TerrainTypeDescriptor) From
         {
@@ -49,7 +48,7 @@
             {"StairsUp", New TerrainTypeDescriptor("Up Stairs", ChrW(&H2B), Hue.Orange, False)},
             {"StairsDown", New TerrainTypeDescriptor("Down Stairs", ChrW(&H2C), Hue.Orange, False)},
             {"CookingFire", New CookingFireDescriptor()},
-            {Furnace, New FurnaceDescriptor()}
+            {"Furnace", New FurnaceDescriptor()}
         }
     <Extension>
     Friend Function Descriptor(cell As ICell) As TerrainTypeDescriptor

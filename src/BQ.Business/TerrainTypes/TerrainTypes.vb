@@ -1,7 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const Basin = "Basin"
-    Friend Const OldMan = "OldMan"
-    Friend Const StrongMan = "StrongMan"
     Friend Const Druid = "Druid"
     Friend Const Bed = "Bed"
     Friend Const Gorachan = "Gorachan"
@@ -52,9 +49,9 @@
             {"RiverNS", New TerrainTypeDescriptor("River", ChrW(&HB), Hue.Blue, False, isWaterSource:=True)},
             {"RiverEW", New TerrainTypeDescriptor("River", ChrW(&HC), Hue.Blue, False, isWaterSource:=True)},
             {"Door", New TerrainTypeDescriptor("Door", ChrW(&H1D), Hue.Orange, True)},
-            {Basin, New TerrainTypeDescriptor("Basin", ChrW(&H1E), Hue.Blue, False)},
-            {OldMan, New TerrainTypeDescriptor("Old Man", ChrW(&H1F), Hue.Purple, False)},
-            {StrongMan, New TerrainTypeDescriptor("Strong Man", ChrW(&H23), Hue.Brown, False)},
+            {"Basin", New TerrainTypeDescriptor("Basin", ChrW(&H1E), Hue.Blue, False)},
+            {"OldMan", New TerrainTypeDescriptor("Old Man", ChrW(&H1F), Hue.Purple, False)},
+            {"StrongMan", New TerrainTypeDescriptor("Strong Man", ChrW(&H23), Hue.Brown, False)},
             {Potter, New TerrainTypeDescriptor("Potter", ChrW(&H41), Hue.Tan, False)},
             {Druid, New TerrainTypeDescriptor("Druid", ChrW(&H24), Hue.LightGreen, False)},
             {Bed, New TerrainTypeDescriptor("Bed", ChrW(&H26), Hue.Tan, False)},

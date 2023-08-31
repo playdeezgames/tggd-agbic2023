@@ -1,7 +1,7 @@
 ﻿Public Class Maze(Of TDirection)
     ReadOnly Property Columns As Long
     ReadOnly Property Rows As Long
-    Private _cells As New List(Of MazeCell(Of TDirection))
+    Private ReadOnly _cells As New List(Of MazeCell(Of TDirection))
     Const Zero = 0
     Sub New(columns As Long, rows As Long, directions As IReadOnlyDictionary(Of TDirection, MazeDirection(Of TDirection)))
         Me.Columns = columns

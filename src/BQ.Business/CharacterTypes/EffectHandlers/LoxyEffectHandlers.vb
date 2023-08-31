@@ -21,7 +21,6 @@
                         {"CompleteRatQuest", AddressOf DoCompleteRatQuest},
                         {"CutOffTail", AddressOf DoCutOffTail},
                         {"Forage", AddressOf DoForage},
-                        {"BuildFire", AddressOf DoCraftFire},
                         {"BuildFurnace", AddressOf CraftingEffectHandlers.DoBuildFurnace},
                         {"MakeHatchet", AddressOf CraftingEffectHandlers.DoMakeHatchet},
                         {"CookRatBody", AddressOf DoCookRatBody},

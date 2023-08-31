@@ -1,22 +1,4 @@
 ﻿Friend Module CraftingEffectHandlers
-    Friend Sub DoCraftFire(character As ICharacter, effect As IEffect)
-        If Not CharacterExtensions.ConsumeEnergy(character, 1, "build a fire") Then
-            Return
-        End If
-        If Not RecipeTypes.CanCraft("CookingFire", character) Then
-            Dim msg = character.World.CreateMessage().
-                AddLine(LightGray, $"To build a fire,").
-                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
-            For Each input In RecipeTypes.Inputs("CookingFire")
-                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
-            Next
-            Return
-        End If
-        RecipeTypes.Craft("CookingFire", character)
-        character.World.CreateMessage().
-                AddLine(LightGray, $"{CharacterExtensions.Name(character)} builds a small fire.")
-        character.Cell.TerrainType = TerrainTypes.CookingFire
-    End Sub
     Friend Sub DoBuildFurnace(character As ICharacter, effect As IEffect)
         If Not CharacterExtensions.ConsumeEnergy(character, 1, "build a furnace") Then
             Return
@@ -26,7 +8,7 @@
                 AddLine(LightGray, $"To build a furnace,").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs("Furnace")
-                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.itemType).Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
             Next
             Return
         End If

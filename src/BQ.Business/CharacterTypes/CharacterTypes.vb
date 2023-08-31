@@ -32,6 +32,7 @@ character:AddItem(ItemInitializer.CreateItem(character.World,""SeasonedRat""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""CookedRat""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
+                        {"CookBagel", "CharacterExtensions.CookFurnaceRecipe(character, ""Bagel"", ""cook a bagel"", ""cooks a bagel"")"},
                         {"LearnForaging", "CharacterExtensions.DoLearnSkill(character,effect)"},
                         {"LearnKnapping", "CharacterExtensions.DoLearnSkill(character,effect)"},
                         {"LearnTwineMaking", "CharacterExtensions.DoLearnSkill(character,effect)"},

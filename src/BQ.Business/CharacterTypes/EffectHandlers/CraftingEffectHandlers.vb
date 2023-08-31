@@ -1,10 +1,4 @@
 ﻿Friend Module CraftingEffectHandlers
-    Friend Sub DoCookBagel(character As ICharacter, effect As IEffect)
-        Dim recipeType = "Bagel"
-        Dim taskName = "cook a bagel"
-        Dim resultName = "cooks a bagel"
-        CharacterExtensions.CookFurnaceRecipe(character, recipeType, taskName, resultName)
-    End Sub
     Friend Sub DoMakeTorch(character As ICharacter, effect As IEffect)
         If Not ConsumeEnergy(character, 1, "make a torch") Then
             Return

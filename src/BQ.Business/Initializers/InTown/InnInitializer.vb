@@ -20,7 +20,7 @@
             {" "c, "Empty"},
             {"D"c, "Door"},
             {"!"c, "Gorachan"},
-            {"v"c, TerrainTypes.StairsDown}
+            {"v"c, "StairsDown"}
         }
     Friend Sub Initialize(map As IMap)
         Dim row As Integer = 0

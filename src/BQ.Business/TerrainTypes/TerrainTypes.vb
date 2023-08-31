@@ -1,5 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const StairsDown = "StairsDown"
     Friend Const CookingFire = "CookingFire"
     Friend Const Farm = "Farm"
     Friend Const ClayPit = "ClayPit"
@@ -53,7 +52,7 @@
             {"Gorachan", New TerrainTypeDescriptor("Gorachan", ChrW(&H27), Hue.Red, False)},
             {EnergyTrainer, New TerrainTypeDescriptor("Plucky Man", ChrW(&H29), Hue.Blue, False)},
             {"StairsUp", New TerrainTypeDescriptor("Up Stairs", ChrW(&H2B), Hue.Orange, False)},
-            {StairsDown, New TerrainTypeDescriptor("Down Stairs", ChrW(&H2C), Hue.Orange, False)},
+            {"StairsDown", New TerrainTypeDescriptor("Down Stairs", ChrW(&H2C), Hue.Orange, False)},
             {CookingFire, New CookingFireDescriptor()},
             {Furnace, New FurnaceDescriptor()}
         }

@@ -48,7 +48,7 @@ Friend Module WorldInitializer
         innMap.GetCell(InnColumns \ 2, InnRows - 1).Effect = innMap.CreateEffect()
         TriggerExtensions.SetEffectType(innMap.GetCell(InnColumns \ 2, InnRows - 1).Effect, "Teleport")
         TriggerExtensions.SetDestination(innMap.GetCell(InnColumns \ 2, InnRows - 1).Effect, townMap.GetCell(3, 2))
-        Dim downStairs = innMap.Cells.Single(Function(x) x.TerrainType = TerrainTypes.StairsDown)
+        Dim downStairs = innMap.Cells.Single(Function(x) x.TerrainType = "StairsDown")
         Dim upStairs = cellarMap.Cells.Single(Function(x) x.TerrainType = "StairsUp")
 
         TriggerExtensions.SetDestination(downStairs.Effect, upStairs)

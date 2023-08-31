@@ -22,26 +22,13 @@
                         {StatisticTypes.XPGoal, 10},
                         {StatisticTypes.XPLevel, 1},
                         {StatisticTypes.AdvancementPointsPerLevel, 10},
-                        {StatisticTypes.AdvancementPoints, 2},
+                        {StatisticTypes.AdvancementPoints, 0},
                         {StatisticTypes.Energy, 10},
                         {StatisticTypes.MaximumEnergy, 10}
                     },
                     effectHandlers:=LoxyEffectHandlers.All,
                     initializeScript:="
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Charcoal""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""SeasonedRat""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""CookedRat""))",
+--character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
                         {"BuildFire", "

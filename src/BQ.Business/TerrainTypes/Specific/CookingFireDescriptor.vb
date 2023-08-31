@@ -16,7 +16,7 @@
                     {
                         .Metadatas = New Dictionary(Of String, String) From
                         {
-                            {Metadatas.TerrainType, TerrainTypes.Empty},
+                            {Metadatas.TerrainType, "Empty"},
                             {Metadatas.ItemType, "Charcoal"}
                         }
                     }

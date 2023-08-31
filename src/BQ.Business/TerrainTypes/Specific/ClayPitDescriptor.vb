@@ -7,7 +7,7 @@
             ChrW(&H3E),
             Tan,
             True,
-            depletedTerrainType:=TerrainTypes.Empty,
+            depletedTerrainType:="Empty",
             cellInitializer:=AddressOf InitializePit,
             effects:=New Dictionary(Of String, EffectData) From
             {

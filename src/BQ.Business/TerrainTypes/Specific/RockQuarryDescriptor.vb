@@ -7,7 +7,7 @@
             ChrW(&H3E),
             DarkGray,
             True,
-            depletedTerrainType:=TerrainTypes.Empty,
+            depletedTerrainType:="Empty",
             cellInitializer:=AddressOf InitializeQuarry,
             effects:=New Dictionary(Of String, EffectData) From
             {

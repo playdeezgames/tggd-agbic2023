@@ -17,7 +17,7 @@
         {
             {"#"c, TerrainTypes.Wall},
             {"b"c, TerrainTypes.Bed},
-            {" "c, TerrainTypes.Empty},
+            {" "c, "Empty"},
             {"D"c, TerrainTypes.Door},
             {"!"c, TerrainTypes.Gorachan},
             {"v"c, TerrainTypes.StairsDown}

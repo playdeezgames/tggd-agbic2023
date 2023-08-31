@@ -8,7 +8,7 @@
             Business.Hue.Brown,
             True,
             peril:=1,
-            depletedTerrainType:=TerrainTypes.Empty,
+            depletedTerrainType:="Empty",
             cellInitializer:=AddressOf InitializeFarm,
             effects:=New Dictionary(Of String, EffectData) From
             {

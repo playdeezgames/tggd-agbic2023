@@ -20,7 +20,7 @@ Friend Module MapTypes
                 Town,
                 New MapTypeDescriptor(
                     (TownColumns, TownRows),
-                    TerrainTypes.Empty,
+                    "Empty",
                     customInitializer:=AddressOf TownInitializer.Initialize,
                     spawnCharacters:=New Dictionary(Of String, Integer) From
                     {
@@ -38,35 +38,35 @@ Friend Module MapTypes
                 Healer,
                 New MapTypeDescriptor(
                     (HealerColumns, HealerRows),
-                    TerrainTypes.Empty,
+                    "Empty",
                     customInitializer:=AddressOf HealerInitializer.Initialize)
             },
             {
                 HealthTrainer,
                 New MapTypeDescriptor(
                     (HealthTrainerColumns, HealthTrainerRows),
-                    TerrainTypes.Empty,
+                    "Empty",
                     customInitializer:=AddressOf HealthTrainerInitializer.Initialize)
             },
             {
                 Potter,
                 New MapTypeDescriptor(
                     (PotterColumns, PotterRows),
-                    TerrainTypes.Empty,
+                    "Empty",
                     customInitializer:=AddressOf PotterInitializer.Initialize)
             },
             {
                 DruidHouse,
                 New MapTypeDescriptor(
                     (DruidHouseColumns, DruidHouseRows),
-                    TerrainTypes.Empty,
+                    "Empty",
                     customInitializer:=AddressOf DruidHouseInitializer.Initialize)
             },
             {
                 Inn,
                 New MapTypeDescriptor(
                     (InnColumns, InnRows),
-                    TerrainTypes.Empty,
+                    "Empty",
                     customInitializer:=AddressOf InnInitializer.Initialize)
             },
             {
@@ -80,7 +80,7 @@ Friend Module MapTypes
                 EnergyTrainer,
                 New MapTypeDescriptor(
                     (EnergyTrainerColumns, EnergyTrainerRows),
-                    TerrainTypes.Empty,
+                    "Empty",
                     customInitializer:=AddressOf EnergyTrainerInitializer.Initialize)
             }
         }

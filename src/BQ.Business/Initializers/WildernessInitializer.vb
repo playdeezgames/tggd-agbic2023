@@ -19,7 +19,7 @@ Module WildernessInitializer
     Private ReadOnly terrainTable As IReadOnlyDictionary(Of String, Integer) =
         New Dictionary(Of String, Integer) From
         {
-            {TerrainTypes.Empty, 100},
+            {"Empty", 100},
             {TerrainTypes.Grass, 50},
             {TerrainTypes.Tree, 150},
             {TerrainTypes.Farm, 10},

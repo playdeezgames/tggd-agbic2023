@@ -1,7 +1,4 @@
-﻿Imports System.Runtime.CompilerServices
-
-Friend Module TerrainTypes
-    Friend Const Empty = "Empty"
+﻿Friend Module TerrainTypes
     Friend Const CellarFloor = "CellarFloor"
     Friend Const Wall = "Wall"
     Friend Const Grass = "Grass"
@@ -57,7 +54,7 @@ Friend Module TerrainTypes
                     True)},
             {Tree, New TreeDescriptor()},
             {DepletedTree, New DepletedTreeDescriptor()},
-            {Empty, New EmptyTerrainDescriptor()},
+            {"Empty", New EmptyTerrainDescriptor()},
             {CellarFloor, New CellarFloorDescriptor()},
             {Farm, New FarmDescriptor()},
             {Wall, New TerrainTypeDescriptor("Wall", ChrW(3), Hue.LightGray, False)},

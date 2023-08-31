@@ -1,5 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const ClayPit = "ClayPit"
     Friend Const RockQuarry = "RockQuarry"
     Friend Const Potter = "Potter"
     Friend Const Furnace = "Furnace"
@@ -7,7 +6,7 @@
         New Dictionary(Of String, TerrainTypeDescriptor) From
         {
             {"Grass", New GrassDescriptor()},
-            {ClayPit, New ClayPitDescriptor()},
+            {"ClayPit", New ClayPitDescriptor()},
             {RockQuarry, New RockQuarryDescriptor()},
             {"DepletedGrass", New TerrainTypeDescriptor(
                     "Grass",

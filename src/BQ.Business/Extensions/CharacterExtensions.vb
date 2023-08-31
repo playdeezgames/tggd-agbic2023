@@ -40,7 +40,7 @@
     End Sub
 
     Private Function CheckForFurnace(character As ICharacter, taskName As String) As Boolean
-        If Not character.Cell.Descriptor.IsFurnace Then
+        If Not TerrainTypes.Descriptor(character.Cell).IsFurnace Then
             character.World.CreateMessage().
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs a furnace to {taskName}.")
             Return False
@@ -49,7 +49,7 @@
     End Function
 
     Private Function CheckForFire(character As ICharacter, taskName As String) As Boolean
-        If Not character.Cell.Descriptor.HasFire Then
+        If Not TerrainTypes.Descriptor(character.Cell).HasFire Then
             character.World.CreateMessage().
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs a fire to {taskName}.")
             Return False
@@ -185,16 +185,16 @@
         End If
     End Sub
     Public Sub DoBuildFire(character As ICharacter)
-        character.Cell.Descriptor.DoEffect(character, "BuildFire", character.Cell)
+        TerrainTypes.Descriptor(character.Cell).DoEffect(character, "BuildFire", character.Cell)
     End Sub
     Public Sub DoBuildFurnace(character As ICharacter)
-        character.Cell.Descriptor.DoEffect(character, "BuildFurnace", character.Cell)
+        TerrainTypes.Descriptor(character.Cell).DoEffect(character, "BuildFurnace", character.Cell)
     End Sub
     Public Sub DoCookBagel(character As ICharacter)
-        character.Cell.Descriptor.DoEffect(character, "CookBagel", character.Cell)
+        TerrainTypes.Descriptor(character.Cell).DoEffect(character, "CookBagel", character.Cell)
     End Sub
     Public Sub DoMakeTorch(character As ICharacter)
-        character.Cell.Descriptor.DoEffect(character, "MakeTorch", character.Cell)
+        TerrainTypes.Descriptor(character.Cell).DoEffect(character, "MakeTorch", character.Cell)
     End Sub
     Public Sub DoMakeHatchet(character As ICharacter)
         DoMakeItem(character, "Hatchet", "a hatchet", AddressOf MakeHatchet)
@@ -209,7 +209,7 @@
         character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} makes {noun}.")
     End Sub
     Public Sub DoPutOutFire(character As ICharacter)
-        character.Cell.Descriptor.DoEffect(character, "PutOutFire", character.Cell)
+        TerrainTypes.Descriptor(character.Cell).DoEffect(character, "PutOutFire", character.Cell)
     End Sub
     Public Sub DoKnap(character As ICharacter)
         DoMakeItem(character, "SharpRock", "a sharp rock", AddressOf Knap)
@@ -286,7 +286,7 @@
             If CharacterExtensions.Peril(character) > 0 Then
                 Dim roll = RNG.RollDice("1d20")
                 If roll <= CharacterExtensions.Peril(character) Then
-                    Dim enemyType = character.Cell.Descriptor.GenerateCreatureType()
+                    Dim enemyType = TerrainTypes.Descriptor(character.Cell).GenerateCreatureType()
                     Dim enemy = CreateCharacter(enemyType, character.Cell)
                     CharacterExtensions.SetPeril(character, CharacterExtensions.Peril(character) - CharacterExtensions.Peril(enemy))
                     character.Cell.AddCharacter(enemy)

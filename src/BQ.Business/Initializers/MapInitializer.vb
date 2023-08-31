@@ -19,7 +19,7 @@ Friend Module MapInitializer
 
     Private Sub InitializeCells(map As IMap)
         For Each cell In map.Cells
-            cell.Descriptor.Initialize(WorldModel.LuaState, cell)
+            TerrainTypes.Descriptor(cell).Initialize(WorldModel.LuaState, cell)
         Next
     End Sub
 

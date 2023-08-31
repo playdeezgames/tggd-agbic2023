@@ -1,6 +1,6 @@
 ﻿Imports System.Threading
 
-Friend Class TerrainTypeDescriptor
+Public Class TerrainTypeDescriptor
     Inherits VisibleEntityDescriptor
     Public ReadOnly Property CanBuildFurnace As Boolean
     Public ReadOnly Property CanSleep As Boolean

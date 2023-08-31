@@ -48,7 +48,7 @@ Public Class WorldModel
     Const equipSlotFilename = "Content/equipSlots.json"
 
     Private Shared Function MakeLuaState() As Lua
-        TerrainTypes.Save(terrainTypesFileName)
+        TerrainTypes.Load(terrainTypesFileName)
         RecipeTypes.Load(recipesFilename)
         MessageTypes.Load(messagesFilename)
         EffectTypes.Load(effectTypesFilename)

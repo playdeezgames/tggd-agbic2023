@@ -1,5 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const DepletedGrass = "DepletedGrass"
     Friend Const Fence = "Fence"
     Friend Const Gravel = "Gravel"
     Friend Const House = "House"
@@ -44,7 +43,7 @@
             {"Grass", New GrassDescriptor()},
             {ClayPit, New ClayPitDescriptor()},
             {RockQuarry, New RockQuarryDescriptor()},
-            {DepletedGrass, New TerrainTypeDescriptor(
+            {"DepletedGrass", New TerrainTypeDescriptor(
                     "Grass",
                     ChrW(4),
                     Business.Hue.Brown,

@@ -9,7 +9,7 @@ Friend Class GrassDescriptor
                     ChrW(4),
                     Business.Hue.Green,
                     True,
-                    depletedTerrainType:=TerrainTypes.DepletedGrass,
+                    depletedTerrainType:="DepletedGrass",
                     cellInitializer:=AddressOf InitializeGrass,
                     effects:=New Dictionary(Of String, EffectData) From
                     {

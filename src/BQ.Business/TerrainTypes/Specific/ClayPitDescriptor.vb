@@ -8,7 +8,7 @@
             Tan,
             True,
             depletedTerrainType:="Empty",
-            cellInitializer:=AddressOf InitializePit,
+            initializerScript:="cell:SetStatistic(""ForageRemaining"", 30)",
             effects:=New Dictionary(Of String, EffectData) From
             {
                 {"Forage", New EffectData}
@@ -26,9 +26,5 @@
                     25
                 }
             })
-    End Sub
-
-    Private Shared Sub InitializePit(cell As ICell)
-        cell.SetStatistic(StatisticTypes.ForageRemaining, 30)
     End Sub
 End Class

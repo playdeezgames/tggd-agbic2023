@@ -1,5 +1,4 @@
-﻿Imports BQ.Persistence
-Imports SPLORR.Game
+﻿Imports System.Threading
 
 Friend Class TerrainTypeDescriptor
     Inherits VisibleEntityDescriptor
@@ -24,9 +23,15 @@ Friend Class TerrainTypeDescriptor
             Return Effects.Keys
         End Get
     End Property
-    Private ReadOnly Property CellInitializer As Action(Of ICell)
-    Friend Sub Initialize(cell As ICell)
-        CellInitializer.Invoke(cell)
+    Private ReadOnly Property InitializerScript As String
+    Friend Sub Initialize(luaState As Lua, cell As ICell)
+        If Not String.IsNullOrEmpty(InitializerScript) Then
+            Dim oldCell = luaState("cell")
+            luaState("cell") = cell
+            luaState.DoString(InitializerScript)
+            luaState("cell") = oldCell
+            Return
+        End If
     End Sub
     Sub New(
            name As String,
@@ -35,7 +40,6 @@ Friend Class TerrainTypeDescriptor
            Optional tenable As Boolean = True,
            Optional peril As Integer = 0,
            Optional depletedTerrainType As String = Nothing,
-           Optional cellInitializer As Action(Of ICell) = Nothing,
            Optional foragables As IReadOnlyDictionary(Of String, Integer) = Nothing,
            Optional effects As IReadOnlyDictionary(Of String, EffectData) = Nothing,
            Optional hasFire As Boolean = False,
@@ -43,7 +47,8 @@ Friend Class TerrainTypeDescriptor
            Optional isWaterSource As Boolean = False,
            Optional canBuildFurnace As Boolean = False,
            Optional canSleep As Boolean = True,
-           Optional isFurnace As Boolean = False)
+           Optional isFurnace As Boolean = False,
+           Optional initializerScript As String = Nothing)
         MyBase.New(name, glyph, hue)
         Me.IsFurnace = isFurnace
         Me.CanBuildFurnace = canBuildFurnace
@@ -51,7 +56,7 @@ Friend Class TerrainTypeDescriptor
         Me.HasFire = hasFire
         Me.Tenable = tenable
         Me.DepletedTerrainType = depletedTerrainType
-        Me.CellInitializer = If(cellInitializer, AddressOf DoNothing)
+        Me.InitializerScript = initializerScript
         Me.Foragables = If(foragables, New Dictionary(Of String, Integer) From {{"", 1}})
         Me.Effects = If(effects, New Dictionary(Of String, EffectData))
         Me.Peril = peril
@@ -68,7 +73,4 @@ Friend Class TerrainTypeDescriptor
     Friend Function GenerateCreatureType() As String
         Return RNG.FromGenerator(CreatureTypeGenerator)
     End Function
-    Private Sub DoNothing(cell As ICell)
-        'as ordered!
-    End Sub
 End Class

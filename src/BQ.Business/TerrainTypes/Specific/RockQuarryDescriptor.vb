@@ -8,7 +8,7 @@
             DarkGray,
             True,
             depletedTerrainType:="Empty",
-            cellInitializer:=AddressOf InitializeQuarry,
+            initializerScript:="cell:SetStatistic(""ForageRemaining"", 50)",
             effects:=New Dictionary(Of String, EffectData) From
             {
                 {"Forage", New EffectData}
@@ -26,9 +26,5 @@
                     25
                 }
             })
-    End Sub
-
-    Private Shared Sub InitializeQuarry(cell As ICell)
-        cell.SetStatistic(StatisticTypes.ForageRemaining, 50)
     End Sub
 End Class

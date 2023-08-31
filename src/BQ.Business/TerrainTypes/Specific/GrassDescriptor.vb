@@ -10,7 +10,7 @@ Friend Class GrassDescriptor
                     Business.Hue.Green,
                     True,
                     depletedTerrainType:="DepletedGrass",
-                    cellInitializer:=AddressOf InitializeGrass,
+                    initializerScript:="cell:SetStatistic(""ForageRemaining"", 20)",
                     effects:=New Dictionary(Of String, EffectData) From
                     {
                         {"Forage", New EffectData}
@@ -20,9 +20,5 @@ Friend Class GrassDescriptor
                         {String.Empty, 1},
                         {"PlantFiber", 1}
                     })
-    End Sub
-
-    Private Shared Sub InitializeGrass(cell As ICell)
-        cell.SetStatistic(StatisticTypes.ForageRemaining, 20)
     End Sub
 End Class

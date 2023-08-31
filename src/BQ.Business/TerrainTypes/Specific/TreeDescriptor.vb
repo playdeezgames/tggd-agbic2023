@@ -8,7 +8,7 @@
                     Business.Hue.Green,
                     True,
                     depletedTerrainType:="DepletedTree",
-                    cellInitializer:=AddressOf InitializeTree,
+                    initializerScript:="cell:SetStatistic(""ForageRemaining"", 50)",
                     effects:=New Dictionary(Of String, EffectData) From
                     {
                         {"Forage", New EffectData}
@@ -31,9 +31,5 @@
                             25
                         }
                     })
-    End Sub
-
-    Private Shared Sub InitializeTree(cell As ICell)
-        cell.SetStatistic(StatisticTypes.ForageRemaining, 50)
     End Sub
 End Class

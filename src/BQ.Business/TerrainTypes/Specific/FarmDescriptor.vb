@@ -9,7 +9,7 @@
             True,
             peril:=1,
             depletedTerrainType:="Empty",
-            cellInitializer:=AddressOf InitializeFarm,
+            initializerScript:="cell:SetStatistic(""ForageRemaining"", 30)",
             effects:=New Dictionary(Of String, EffectData) From
             {
                 {"Forage", New EffectData}
@@ -25,9 +25,5 @@
             {
                 {"Scarecrow", 1}
             })
-    End Sub
-
-    Private Shared Sub InitializeFarm(cell As ICell)
-        cell.SetStatistic(StatisticTypes.ForageRemaining, 30)
     End Sub
 End Class

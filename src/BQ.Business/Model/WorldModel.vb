@@ -40,6 +40,7 @@ Public Class WorldModel
     Private Const WorldIdentifier As String = "world"
     Private _world As IWorld
     Friend Shared LuaState As Lua = MakeLuaState()
+    Const terrainTypesFileName = "Content/terrainTypes.json"
     Const recipesFilename = "Content/recipes.json"
     'Const itemTypesFilename = "Content/itemTypes.json"
     Const messagesFilename = "Content/messages.json"
@@ -47,6 +48,7 @@ Public Class WorldModel
     Const equipSlotFilename = "Content/equipSlots.json"
 
     Private Shared Function MakeLuaState() As Lua
+        TerrainTypes.Save(terrainTypesFileName)
         RecipeTypes.Load(recipesFilename)
         MessageTypes.Load(messagesFilename)
         EffectTypes.Load(effectTypesFilename)

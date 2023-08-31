@@ -46,6 +46,7 @@
     <None Remove="Content\Shucks.wav" />
     <None Remove="Content\Take.wav" />
     <None Remove="Content\Tasty.wav" />
+    <None Remove="Content\terrainTypes.json" />
     <None Remove="Content\WooHoo.wav" />
     <None Remove="Content\Yoink.wav" />
     <None Remove="Icon.bmp" />
@@ -147,6 +148,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Scripts\teleport.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\terrainTypes.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

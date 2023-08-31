@@ -50,6 +50,11 @@
             {"CookingFire", New CookingFireDescriptor()},
             {"Furnace", New FurnaceDescriptor()}
         }
+
+    Friend Sub Save(filename As String)
+        File.WriteAllText(filename, JsonSerializer.Serialize(descriptors))
+    End Sub
+
     <Extension>
     Friend Function Descriptor(cell As ICell) As TerrainTypeDescriptor
         Return descriptors(cell.TerrainType)

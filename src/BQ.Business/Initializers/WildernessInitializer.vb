@@ -20,7 +20,7 @@ Module WildernessInitializer
         New Dictionary(Of String, Integer) From
         {
             {"Empty", 100},
-            {TerrainTypes.Grass, 50},
+            {"Grass", 50},
             {TerrainTypes.Tree, 150},
             {TerrainTypes.Farm, 10},
             {TerrainTypes.ClayPit, 1},

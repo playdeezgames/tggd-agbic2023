@@ -28,7 +28,7 @@ Friend Module TownInitializer
         New Dictionary(Of Char, String) From
         {
             {"!"c, TerrainTypes.Fence},
-            {"."c, TerrainTypes.Grass},
+            {"."c, "Grass"},
             {"*"c, TerrainTypes.Gravel},
             {"^"c, TerrainTypes.House},
             {"+"c, TerrainTypes.Sign}

@@ -31,7 +31,7 @@ Friend Module MapTypes
                 Wilderness,
                 New MapTypeDescriptor(
                     (WildernessColumns, WildernessRows),
-                    TerrainTypes.Grass,
+                    "Grass",
                     customInitializer:=AddressOf WildernessInitializer.Initialize)
             },
             {

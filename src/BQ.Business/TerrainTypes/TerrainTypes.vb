@@ -1,5 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const Grass = "Grass"
     Friend Const DepletedGrass = "DepletedGrass"
     Friend Const Fence = "Fence"
     Friend Const Gravel = "Gravel"
@@ -42,7 +41,7 @@
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, TerrainTypeDescriptor) =
         New Dictionary(Of String, TerrainTypeDescriptor) From
         {
-            {Grass, New GrassDescriptor()},
+            {"Grass", New GrassDescriptor()},
             {ClayPit, New ClayPitDescriptor()},
             {RockQuarry, New RockQuarryDescriptor()},
             {DepletedGrass, New TerrainTypeDescriptor(

@@ -7,7 +7,7 @@
                     ChrW(&HA),
                     Business.Hue.Green,
                     True,
-                    depletedTerrainType:=TerrainTypes.DepletedTree,
+                    depletedTerrainType:="DepletedTree",
                     cellInitializer:=AddressOf InitializeTree,
                     effects:=New Dictionary(Of String, EffectData) From
                     {

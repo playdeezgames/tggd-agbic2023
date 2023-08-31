@@ -97,7 +97,7 @@ Friend Module WorldInitializer
     Private Sub StitchTownToWilderness(world As IWorld)
         Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
         Dim wildernessMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Wilderness)
-        Dim townCell = wildernessMap.Cells.Single(Function(x) x.TerrainType = TerrainTypes.Town)
+        Dim townCell = wildernessMap.Cells.Single(Function(x) x.TerrainType = "Town")
         townMap.GetCell(townMap.Columns \ 2, townMap.Rows - 1).Effect =
             townMap.CreateEffect()
         TriggerExtensions.SetEffectType(townMap.GetCell(townMap.Columns \ 2, townMap.Rows - 1).Effect, "Teleport")

@@ -21,10 +21,10 @@ Module WildernessInitializer
         {
             {"Empty", 100},
             {"Grass", 50},
-            {TerrainTypes.Tree, 150},
-            {TerrainTypes.Farm, 10},
-            {TerrainTypes.ClayPit, 1},
-            {TerrainTypes.RockQuarry, 5}
+            {"Tree", 150},
+            {"Farm", 10},
+            {"ClayPit", 1},
+            {"RockQuarry", 5}
         }
     Friend Sub Initialize(map As IMap)
         map.SetFlag("CampingAllowed", True)
@@ -41,7 +41,7 @@ Module WildernessInitializer
             x = RNG.FromRange(0, WildernessColumns - 1)
             y = RNG.FromRange(0, WildernessRows - 1)
         Loop Until CellExtensions.IsTenable(map.GetCell(x, y))
-        map.GetCell(x, y).TerrainType = TerrainTypes.Town
+        map.GetCell(x, y).TerrainType = "Town"
     End Sub
 
     Private Sub PaintTerrain(map As IMap)

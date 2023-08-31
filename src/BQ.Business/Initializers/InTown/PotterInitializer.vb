@@ -10,7 +10,7 @@
             map.GetCell(0, row).TerrainType = "Wall"
             map.GetCell(map.Columns - 1, row).TerrainType = "Wall"
         Next
-        map.GetCell(map.Columns \ 2, map.Rows - 1).TerrainType = TerrainTypes.Door
+        map.GetCell(map.Columns \ 2, map.Rows - 1).TerrainType = "Door"
         Dim trainerCell = map.GetCell(map.Columns \ 2, 1)
         trainerCell.TerrainType = TerrainTypes.Potter
         trainerCell.Effect =

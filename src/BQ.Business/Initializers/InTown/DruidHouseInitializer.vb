@@ -10,7 +10,7 @@
             map.GetCell(0, row).TerrainType = "Wall"
             map.GetCell(map.Columns - 1, row).TerrainType = "Wall"
         Next
-        map.GetCell(0, map.Rows \ 2).TerrainType = TerrainTypes.Door
+        map.GetCell(0, map.Rows \ 2).TerrainType = "Door"
         Dim druidCell = map.GetCell(map.Columns - 2, map.Rows \ 2)
         druidCell.TerrainType = TerrainTypes.Druid
         druidCell.Effect =

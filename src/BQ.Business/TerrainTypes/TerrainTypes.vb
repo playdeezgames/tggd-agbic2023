@@ -1,8 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const Tree = "Tree"
-    Friend Const DepletedTree = "DepletedTree"
-    Friend Const Town = "Town"
-    Friend Const Door = "Door"
     Friend Const Basin = "Basin"
     Friend Const OldMan = "OldMan"
     Friend Const StrongMan = "StrongMan"
@@ -29,8 +25,8 @@
                     ChrW(4),
                     Business.Hue.Brown,
                     True)},
-            {Tree, New TreeDescriptor()},
-            {DepletedTree, New DepletedTreeDescriptor()},
+            {"Tree", New TreeDescriptor()},
+            {"DepletedTree", New DepletedTreeDescriptor()},
             {"Empty", New EmptyTerrainDescriptor()},
             {"CellarFloor", New CellarFloorDescriptor()},
             {Farm, New FarmDescriptor()},
@@ -55,7 +51,7 @@
             {"RiverNESW", New TerrainTypeDescriptor("River", ChrW(&H19), Hue.Blue, False, isWaterSource:=True)},
             {"RiverNS", New TerrainTypeDescriptor("River", ChrW(&HB), Hue.Blue, False, isWaterSource:=True)},
             {"RiverEW", New TerrainTypeDescriptor("River", ChrW(&HC), Hue.Blue, False, isWaterSource:=True)},
-            {Door, New TerrainTypeDescriptor("Door", ChrW(&H1D), Hue.Orange, True)},
+            {"Door", New TerrainTypeDescriptor("Door", ChrW(&H1D), Hue.Orange, True)},
             {Basin, New TerrainTypeDescriptor("Basin", ChrW(&H1E), Hue.Blue, False)},
             {OldMan, New TerrainTypeDescriptor("Old Man", ChrW(&H1F), Hue.Purple, False)},
             {StrongMan, New TerrainTypeDescriptor("Strong Man", ChrW(&H23), Hue.Brown, False)},

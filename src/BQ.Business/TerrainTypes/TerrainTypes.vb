@@ -1,5 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const Farm = "Farm"
     Friend Const ClayPit = "ClayPit"
     Friend Const RockQuarry = "RockQuarry"
     Friend Const Potter = "Potter"
@@ -19,7 +18,7 @@
             {"DepletedTree", New DepletedTreeDescriptor()},
             {"Empty", New EmptyTerrainDescriptor()},
             {"CellarFloor", New CellarFloorDescriptor()},
-            {Farm, New FarmDescriptor()},
+            {"Farm", New FarmDescriptor()},
             {"Wall", New TerrainTypeDescriptor("Wall", ChrW(3), Hue.LightGray, False)},
             {"Gravel", New TerrainTypeDescriptor("Gravel", ChrW(6), Hue.DarkGray, True)},
             {"Fence", New TerrainTypeDescriptor("Fence", ChrW(5), Hue.Brown, False)},

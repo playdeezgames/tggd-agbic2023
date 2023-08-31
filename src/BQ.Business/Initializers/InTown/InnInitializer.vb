@@ -15,7 +15,7 @@
     Private ReadOnly table As IReadOnlyDictionary(Of Char, String) =
         New Dictionary(Of Char, String) From
         {
-            {"#"c, TerrainTypes.Wall},
+            {"#"c, "Wall"},
             {"b"c, TerrainTypes.Bed},
             {" "c, "Empty"},
             {"D"c, TerrainTypes.Door},

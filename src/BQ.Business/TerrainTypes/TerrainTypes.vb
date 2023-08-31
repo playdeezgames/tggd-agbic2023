@@ -1,5 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const Wall = "Wall"
     Friend Const Grass = "Grass"
     Friend Const DepletedGrass = "DepletedGrass"
     Friend Const Fence = "Fence"
@@ -56,7 +55,7 @@
             {"Empty", New EmptyTerrainDescriptor()},
             {"CellarFloor", New CellarFloorDescriptor()},
             {Farm, New FarmDescriptor()},
-            {Wall, New TerrainTypeDescriptor("Wall", ChrW(3), Hue.LightGray, False)},
+            {"Wall", New TerrainTypeDescriptor("Wall", ChrW(3), Hue.LightGray, False)},
             {Gravel, New TerrainTypeDescriptor("Gravel", ChrW(6), Hue.DarkGray, True)},
             {Fence, New TerrainTypeDescriptor("Fence", ChrW(5), Hue.Brown, False)},
             {House, New TerrainTypeDescriptor("House", ChrW(7), Hue.Red, False)},

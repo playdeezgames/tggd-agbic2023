@@ -35,17 +35,8 @@
                         {"MakeDough", AddressOf DoMakeDough},
                         {"SmokePepper", AddressOf DoSmokePepper},
                         {"MakePaprika", AddressOf DoMakePaprika},
-                        {"SeasonRat", AddressOf DoSeasonRat},
+                        {"SeasonRat", AddressOf DoSeasonRat}
                     }
-
-    Friend Function ConsumeEnergy(character As ICharacter, energyCost As Integer, actionName As String) As Boolean
-        If CharacterExtensions.Energy(character) < energyCost Then
-            character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} doesn't have the energy to {actionName}.")
-            Return False
-        End If
-        CharacterExtensions.AddEnergy(character, -energyCost)
-        Return True
-    End Function
     Private Sub DoForage(character As ICharacter, effect As IEffect)
         Dim cell As ICell = CType(effect, ITerrainEffect).Cell
         If Not ConsumeEnergy(character, 1, "forage") Then

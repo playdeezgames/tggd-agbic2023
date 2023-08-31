@@ -1,6 +1,6 @@
 ﻿Friend Module CraftingEffectHandlers
     Friend Sub DoMakeTorch(character As ICharacter, effect As IEffect)
-        If Not ConsumeEnergy(character, 1, "make a torch") Then
+        If Not CharacterExtensions.ConsumeEnergy(character, 1, "make a torch") Then
             Return
         End If
         If Not RecipeTypes.CanCraft("Torch", character) Then
@@ -17,7 +17,7 @@
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} makes a torch.")
     End Sub
     Friend Sub DoPutOutFlames(character As ICharacter, effect As IEffect)
-        If Not ConsumeEnergy(character, 1, "put out a fire") Then
+        If Not CharacterExtensions.ConsumeEnergy(character, 1, "put out a fire") Then
             Return
         End If
         character.World.CreateMessage().
@@ -28,7 +28,7 @@
         character.Cell.TerrainType = effect.GetMetadata(Metadatas.TerrainType)
     End Sub
     Friend Sub DoCraftFire(character As ICharacter, effect As IEffect)
-        If Not ConsumeEnergy(character, 1, "build a fire") Then
+        If Not CharacterExtensions.ConsumeEnergy(character, 1, "build a fire") Then
             Return
         End If
         If Not RecipeTypes.CanCraft("CookingFire", character) Then
@@ -46,7 +46,7 @@
         character.Cell.TerrainType = TerrainTypes.CookingFire
     End Sub
     Friend Sub DoBuildFurnace(character As ICharacter, effect As IEffect)
-        If Not ConsumeEnergy(character, 1, "build a furnace") Then
+        If Not CharacterExtensions.ConsumeEnergy(character, 1, "build a furnace") Then
             Return
         End If
         If Not RecipeTypes.CanCraft("Furnace", character) Then
@@ -88,7 +88,7 @@
     End Sub
 
     Friend Sub DoMakeHatchet(character As ICharacter, effect As IEffect)
-        If Not ConsumeEnergy(character, 1, "make a hatchet") Then
+        If Not CharacterExtensions.ConsumeEnergy(character, 1, "make a hatchet") Then
             Return
         End If
         If Not RecipeTypes.CanCraft("Hatchet", character) Then

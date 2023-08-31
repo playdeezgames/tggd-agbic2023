@@ -10,6 +10,15 @@
         End If
     End Sub
 
+    Public Function ConsumeEnergy(character As ICharacter, energyCost As Integer, actionName As String) As Boolean
+        If CharacterExtensions.Energy(character) < energyCost Then
+            character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} doesn't have the energy to {actionName}.")
+            Return False
+        End If
+        CharacterExtensions.AddEnergy(character, -energyCost)
+        Return True
+    End Function
+
     Private Function CanDoRecipe(character As ICharacter, recipeType As String, taskName As String) As Boolean
         If Not RecipeTypes.CanCraft(recipeType, character) Then
             Dim msg = character.World.CreateMessage().

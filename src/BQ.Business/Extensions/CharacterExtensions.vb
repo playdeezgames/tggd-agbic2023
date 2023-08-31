@@ -1,4 +1,58 @@
 ﻿Public Module CharacterExtensions
+    Public Sub DoRecipe(character As ICharacter, energyCost As Integer, recipeType As String, taskName As String, resultName As String)
+        If CanDoRecipe(character, recipeType, taskName) Then
+            If Not ConsumeEnergy(character, energyCost, taskName) Then
+                Return
+            End If
+            RecipeTypes.Craft(recipeType, character)
+            character.World.CreateMessage().
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} {resultName}.")
+        End If
+    End Sub
+
+    Private Function CanDoRecipe(character As ICharacter, recipeType As String, taskName As String) As Boolean
+        If Not RecipeTypes.CanCraft(recipeType, character) Then
+            Dim msg = character.World.CreateMessage().
+                AddLine(LightGray, $"To {taskName},").
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
+            For Each input In RecipeTypes.Inputs(recipeType)
+                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.itemType).Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+            Next
+            Return False
+        End If
+        Return True
+    End Function
+
+
+    Public Sub CookRecipe(character As ICharacter, recipeType As String, taskName As String, resultName As String)
+        If CheckForFire(character, taskName) Then
+            DoRecipe(character, 0, recipeType, taskName, resultName)
+        End If
+    End Sub
+
+    Private Function CheckForFurnace(character As ICharacter, taskName As String) As Boolean
+        If Not character.Cell.Descriptor.IsFurnace Then
+            character.World.CreateMessage().
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs a furnace to {taskName}.")
+            Return False
+        End If
+        Return True
+    End Function
+
+    Private Function CheckForFire(character As ICharacter, taskName As String) As Boolean
+        If Not character.Cell.Descriptor.HasFire Then
+            character.World.CreateMessage().
+                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs a fire to {taskName}.")
+            Return False
+        End If
+        Return True
+    End Function
+
+    Public Sub CookFurnaceRecipe(character As ICharacter, recipeType As String, taskName As String, resultName As String)
+        If CheckForFurnace(character, taskName) Then
+            DoRecipe(character, 0, recipeType, taskName, resultName)
+        End If
+    End Sub
     Public Sub DoLearnSkill(character As ICharacter, effect As IEffect)
         Dim msg = character.World.CreateMessage
         Dim taskName = effect.GetMetadata(Metadatas.TaskName)

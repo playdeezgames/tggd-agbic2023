@@ -4,7 +4,7 @@
     Friend ReadOnly Property MaskHue As Integer
     Friend ReadOnly Property Statistics As IReadOnlyDictionary(Of String, Integer)
     Friend ReadOnly Property InitializeScript As String
-    Friend ReadOnly Property EffectHandlers As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect))
+    Friend ReadOnly Property LegacyEffectHandlers As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect))
     Friend ReadOnly Property EffectScripts As IReadOnlyDictionary(Of String, String)
     Private ReadOnly Flags As HashSet(Of String)
     Friend ReadOnly Property HasFlag(flagType As String) As Boolean
@@ -29,7 +29,7 @@
         Me.MaskHue = maskHue
         Me.Statistics = If(statistics, New Dictionary(Of String, Integer))
         Me.Flags = New HashSet(Of String)(If(flags, New List(Of String)))
-        Me.EffectHandlers = If(effectHandlers, New Dictionary(Of String, Action(Of ICharacter, IEffect)))
+        Me.LegacyEffectHandlers = If(effectHandlers, New Dictionary(Of String, Action(Of ICharacter, IEffect)))
         Me.EffectScripts = If(effectScripts, New Dictionary(Of String, String))
     End Sub
 
@@ -56,8 +56,8 @@
             luaState(CharacterIdentifier) = Nothing
             Return
         End If
-        If EffectHandlers.ContainsKey(effectType) Then
-            EffectHandlers(effectType).Invoke(character, effect)
+        If LegacyEffectHandlers.ContainsKey(effectType) Then
+            LegacyEffectHandlers(effectType).Invoke(character, effect)
             Return
         End If
         Throw New NotImplementedException($"No effect type '{effectType}' for '{CharacterExtensions.Name(character)}'(id: {character.Id})")

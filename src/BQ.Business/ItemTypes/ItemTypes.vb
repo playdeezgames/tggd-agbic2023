@@ -1,4 +1,4 @@
-﻿Friend Module ItemTypes
+﻿Public Module ItemTypes
     Friend Sub Save(filename As String)
         File.WriteAllText(filename, JsonSerializer.Serialize(descriptors))
     End Sub
@@ -34,7 +34,7 @@
             {"EnergyHerb", New EnergyHerbDescriptor()}
         }
 
-    Friend Function ToItemTypeDescriptor(itemType As String) As ItemTypeDescriptor
+    Public Function ToItemTypeDescriptor(itemType As String) As ItemTypeDescriptor
         Return If(descriptors.ContainsKey(itemType), descriptors(itemType), Nothing)
     End Function
     Friend ReadOnly Property All As IEnumerable(Of String)

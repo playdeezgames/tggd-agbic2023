@@ -1,21 +1,4 @@
 ﻿Friend Module CraftingEffectHandlers
-    Friend Sub DoMakeTorch(character As ICharacter, effect As IEffect)
-        If Not CharacterExtensions.ConsumeEnergy(character, 1, "make a torch") Then
-            Return
-        End If
-        If Not RecipeTypes.CanCraft("Torch", character) Then
-            Dim msg = character.World.CreateMessage().
-                AddLine(LightGray, $"To make a torch,").
-                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
-            For Each input In RecipeTypes.Inputs("Torch")
-                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.itemType).Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
-            Next
-            Return
-        End If
-        RecipeTypes.Craft("Torch", character)
-        character.World.CreateMessage().
-                AddLine(LightGray, $"{CharacterExtensions.Name(character)} makes a torch.")
-    End Sub
     Friend Sub DoPutOutFlames(character As ICharacter, effect As IEffect)
         If Not CharacterExtensions.ConsumeEnergy(character, 1, "put out a fire") Then
             Return

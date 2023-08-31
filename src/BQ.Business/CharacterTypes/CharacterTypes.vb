@@ -22,16 +22,46 @@
                         {StatisticTypes.XPGoal, 10},
                         {StatisticTypes.XPLevel, 1},
                         {StatisticTypes.AdvancementPointsPerLevel, 10},
-                        {StatisticTypes.AdvancementPoints, 1},
+                        {StatisticTypes.AdvancementPoints, 2},
                         {StatisticTypes.Energy, 10},
                         {StatisticTypes.MaximumEnergy, 10}
                     },
                     effectHandlers:=LoxyEffectHandlers.All,
                     initializeScript:="
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Charcoal""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""SeasonedRat""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""CookedRat""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
+                        {"MakeTorch", "
+if not CharacterExtensions.ConsumeEnergy(character, 1, ""make a torch"") then
+    return
+end
+if not RecipeTypes.CanCraft(""Torch"", character) then
+    local msg = character.World:CreateMessage():
+        AddLine(7, ""To make a torch,""):
+        AddLine(7, CharacterExtensions.Name(character) .. "" needs:"")
+    local inputs = RecipeTypes.Inputs(""Torch"")
+    for i = 0,inputs.Length-1 do
+        msg:AddLine(7, ItemTypes.ToItemTypeDescriptor(inputs[i].ItemType).Name .. "": "" .. character:ItemTypeCount(inputs[i].ItemType) .. ""/"" .. inputs[i].Count)
+    end
+    return
+end
+RecipeTypes.Craft(""Torch"", character)
+character.World:CreateMessage():
+        AddLine(7, CharacterExtensions.Name(character) .. "" makes a torch."")"
+                        },
                         {"CookBagel", "CharacterExtensions.CookFurnaceRecipe(character, ""Bagel"", ""cook a bagel"", ""cooks a bagel"")"},
                         {"LearnForaging", "CharacterExtensions.DoLearnSkill(character,effect)"},
                         {"LearnKnapping", "CharacterExtensions.DoLearnSkill(character,effect)"},

@@ -63,7 +63,7 @@ Friend Class TerrainTypeDescriptor
     End Function
     Friend Sub DoEffect(character As ICharacter, effectType As String, cell As ICell)
         Dim effect As IEffect = New TerrainEffect(effectType, Effects(effectType), cell)
-        CharacterExtensions.Descriptor(character).LegacyEffectHandlers(effect.EffectType).Invoke(character, effect)
+        CharacterExtensions.Descriptor(character).RunEffectScript(WorldModel.LuaState, effect.EffectType, character, effect)
     End Sub
     Friend Function GenerateCreatureType() As String
         Return RNG.FromGenerator(CreatureTypeGenerator)

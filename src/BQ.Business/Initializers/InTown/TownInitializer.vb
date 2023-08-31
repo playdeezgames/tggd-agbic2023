@@ -29,7 +29,7 @@ Friend Module TownInitializer
         {
             {"!"c, "Fence"},
             {"."c, "Grass"},
-            {"*"c, TerrainTypes.Gravel},
+            {"*"c, "Gravel"},
             {"^"c, TerrainTypes.House},
             {"+"c, TerrainTypes.Sign}
         }

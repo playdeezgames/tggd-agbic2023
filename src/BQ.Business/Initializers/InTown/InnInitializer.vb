@@ -19,7 +19,7 @@
             {"b"c, "Bed"},
             {" "c, "Empty"},
             {"D"c, "Door"},
-            {"!"c, TerrainTypes.Gorachan},
+            {"!"c, "Gorachan"},
             {"v"c, TerrainTypes.StairsDown}
         }
     Friend Sub Initialize(map As IMap)
@@ -52,7 +52,7 @@
     End Sub
 
     Private Sub InitializeGorachan(map As IMap)
-        Dim gorachanCell = map.Cells.Single(Function(x) x.TerrainType = TerrainTypes.Gorachan)
+        Dim gorachanCell = map.Cells.Single(Function(x) x.TerrainType = "Gorachan")
         gorachanCell.Effect = map.CreateEffect()
         SetEffectType(gorachanCell.Effect, "GorachanTalk")
     End Sub

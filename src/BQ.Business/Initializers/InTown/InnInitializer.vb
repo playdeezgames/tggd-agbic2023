@@ -16,7 +16,7 @@
         New Dictionary(Of Char, String) From
         {
             {"#"c, "Wall"},
-            {"b"c, TerrainTypes.Bed},
+            {"b"c, "Bed"},
             {" "c, "Empty"},
             {"D"c, "Door"},
             {"!"c, TerrainTypes.Gorachan},
@@ -43,7 +43,7 @@
     End Sub
 
     Private Sub InitializeBeds(map As IMap)
-        Dim bedCells = map.Cells.Where(Function(x) x.TerrainType = TerrainTypes.Bed)
+        Dim bedCells = map.Cells.Where(Function(x) x.TerrainType = "Bed")
         Dim trigger = map.CreateEffect()
         SetEffectType(trigger, "SleepAtInn")
         For Each bedCell In bedCells

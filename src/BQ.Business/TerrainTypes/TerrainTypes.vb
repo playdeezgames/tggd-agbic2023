@@ -1,5 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const EnergyTrainer = "EnergyTrainer"
     Friend Const StairsUp = "StairsUp"
     Friend Const StairsDown = "StairsDown"
     Friend Const CookingFire = "CookingFire"

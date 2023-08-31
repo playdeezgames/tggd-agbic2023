@@ -30,8 +30,8 @@ Friend Module TownInitializer
             {"!"c, "Fence"},
             {"."c, "Grass"},
             {"*"c, "Gravel"},
-            {"^"c, TerrainTypes.House},
-            {"+"c, TerrainTypes.Sign}
+            {"^"c, "House"},
+            {"+"c, "Sign"}
         }
 
     Friend Sub Initialize(map As IMap)

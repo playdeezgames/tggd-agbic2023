@@ -73,7 +73,7 @@ Friend Module MapTypes
                 Cellar,
                 New MapTypeDescriptor(
                     (CellarColumns, CellarRows),
-                    TerrainTypes.CellarFloor,
+                    "CellarFloor",
                     customInitializer:=AddressOf CellarInitializer.Initialize)
             },
             {

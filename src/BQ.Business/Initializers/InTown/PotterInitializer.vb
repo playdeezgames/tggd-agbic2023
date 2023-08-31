@@ -12,7 +12,7 @@
         Next
         map.GetCell(map.Columns \ 2, map.Rows - 1).TerrainType = "Door"
         Dim trainerCell = map.GetCell(map.Columns \ 2, 1)
-        trainerCell.TerrainType = TerrainTypes.Potter
+        trainerCell.TerrainType = "Potter"
         trainerCell.Effect =
             map.CreateEffect
         SetEffectType(trainerCell.Effect, "PotterTalk")

@@ -1,5 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const Potter = "Potter"
     Friend Const Furnace = "Furnace"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, TerrainTypeDescriptor) =
         New Dictionary(Of String, TerrainTypeDescriptor) From

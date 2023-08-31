@@ -1,5 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const RockQuarry = "RockQuarry"
     Friend Const Potter = "Potter"
     Friend Const Furnace = "Furnace"
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, TerrainTypeDescriptor) =
@@ -7,7 +6,7 @@
         {
             {"Grass", New GrassDescriptor()},
             {"ClayPit", New ClayPitDescriptor()},
-            {RockQuarry, New RockQuarryDescriptor()},
+            {"RockQuarry", New RockQuarryDescriptor()},
             {"DepletedGrass", New TerrainTypeDescriptor(
                     "Grass",
                     ChrW(4),

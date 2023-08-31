@@ -1,5 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const RiverN = "RiverN"
     Friend Const RiverE = "RiverE"
     Friend Const RiverW = "RiverS"
     Friend Const RiverS = "RiverW"
@@ -55,7 +54,7 @@
             {"House", New TerrainTypeDescriptor("House", ChrW(7), Hue.Red, False)},
             {Town, New TownTerrainDescriptor()},
             {"Sign", New TerrainTypeDescriptor("Sign", ChrW(8), Hue.Brown, False)},
-            {RiverN, New TerrainTypeDescriptor("River", ChrW(&H17), Hue.Blue, False, isWaterSource:=True)},
+            {"RiverN", New TerrainTypeDescriptor("River", ChrW(&H17), Hue.Blue, False, isWaterSource:=True)},
             {RiverE, New TerrainTypeDescriptor("River", ChrW(&H18), Hue.Blue, False, isWaterSource:=True)},
             {RiverS, New TerrainTypeDescriptor("River", ChrW(&H15), Hue.Blue, False, isWaterSource:=True)},
             {RiverW, New TerrainTypeDescriptor("River", ChrW(&H16), Hue.Blue, False, isWaterSource:=True)},

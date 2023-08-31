@@ -1,5 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const Druid = "Druid"
     Friend Const Bed = "Bed"
     Friend Const Gorachan = "Gorachan"
     Friend Const EnergyTrainer = "EnergyTrainer"
@@ -53,7 +52,7 @@
             {"OldMan", New TerrainTypeDescriptor("Old Man", ChrW(&H1F), Hue.Purple, False)},
             {"StrongMan", New TerrainTypeDescriptor("Strong Man", ChrW(&H23), Hue.Brown, False)},
             {Potter, New TerrainTypeDescriptor("Potter", ChrW(&H41), Hue.Tan, False)},
-            {Druid, New TerrainTypeDescriptor("Druid", ChrW(&H24), Hue.LightGreen, False)},
+            {"Druid", New TerrainTypeDescriptor("Druid", ChrW(&H24), Hue.LightGreen, False)},
             {Bed, New TerrainTypeDescriptor("Bed", ChrW(&H26), Hue.Tan, False)},
             {Gorachan, New TerrainTypeDescriptor("Gorachan", ChrW(&H27), Hue.Red, False)},
             {EnergyTrainer, New TerrainTypeDescriptor("Plucky Man", ChrW(&H29), Hue.Blue, False)},

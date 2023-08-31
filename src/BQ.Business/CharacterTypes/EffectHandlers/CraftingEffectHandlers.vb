@@ -1,15 +1,4 @@
 ﻿Friend Module CraftingEffectHandlers
-    Friend Sub DoPutOutFlames(character As ICharacter, effect As IEffect)
-        If Not CharacterExtensions.ConsumeEnergy(character, 1, "put out a fire") Then
-            Return
-        End If
-        character.World.CreateMessage().
-                AddLine(LightGray, $"{CharacterExtensions.Name(character)} extinguishes the fire.")
-        If effect.HasMetadata(Metadatas.ItemType) Then
-            character.Cell.AddItem(ItemInitializer.CreateItem(character.World, effect.GetMetadata(Metadatas.ItemType)))
-        End If
-        character.Cell.TerrainType = effect.GetMetadata(Metadatas.TerrainType)
-    End Sub
     Friend Sub DoCraftFire(character As ICharacter, effect As IEffect)
         If Not CharacterExtensions.ConsumeEnergy(character, 1, "build a fire") Then
             Return
@@ -19,7 +8,7 @@
                 AddLine(LightGray, $"To build a fire,").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs("CookingFire")
-                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.itemType).Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
             Next
             Return
         End If

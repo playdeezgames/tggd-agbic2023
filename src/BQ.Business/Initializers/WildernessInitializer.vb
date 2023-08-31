@@ -71,7 +71,7 @@ Module WildernessInitializer
         New Dictionary(Of Integer, String) From
         {
             {1, "RiverN"},
-            {2, RiverE},
+            {2, "RiverE"},
             {3, RiverNE},
             {4, RiverS},
             {5, RiverNS},

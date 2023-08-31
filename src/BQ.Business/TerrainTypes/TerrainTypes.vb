@@ -1,5 +1,4 @@
 ﻿Friend Module TerrainTypes
-    Friend Const Fence = "Fence"
     Friend Const Gravel = "Gravel"
     Friend Const House = "House"
     Friend Const Sign = "Sign"
@@ -55,7 +54,7 @@
             {Farm, New FarmDescriptor()},
             {"Wall", New TerrainTypeDescriptor("Wall", ChrW(3), Hue.LightGray, False)},
             {Gravel, New TerrainTypeDescriptor("Gravel", ChrW(6), Hue.DarkGray, True)},
-            {Fence, New TerrainTypeDescriptor("Fence", ChrW(5), Hue.Brown, False)},
+            {"Fence", New TerrainTypeDescriptor("Fence", ChrW(5), Hue.Brown, False)},
             {House, New TerrainTypeDescriptor("House", ChrW(7), Hue.Red, False)},
             {Town, New TownTerrainDescriptor()},
             {Sign, New TerrainTypeDescriptor("Sign", ChrW(8), Hue.Brown, False)},

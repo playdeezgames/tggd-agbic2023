@@ -27,7 +27,7 @@ Friend Module TownInitializer
     Private ReadOnly table As IReadOnlyDictionary(Of Char, String) =
         New Dictionary(Of Char, String) From
         {
-            {"!"c, TerrainTypes.Fence},
+            {"!"c, "Fence"},
             {"."c, "Grass"},
             {"*"c, TerrainTypes.Gravel},
             {"^"c, TerrainTypes.House},

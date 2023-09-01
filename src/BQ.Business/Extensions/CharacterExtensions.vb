@@ -1,4 +1,10 @@
 ﻿Public Module CharacterExtensions
+    Public Sub ReportNeededRecipeInputs(character As ICharacter, msg As IMessage, recipeName As String)
+        For Each input In RecipeTypes.Inputs(recipeName)
+            msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
+        Next
+    End Sub
+
     Public Sub DoRecipe(character As ICharacter, energyCost As Integer, recipeType As String, taskName As String, resultName As String)
         If CanDoRecipe(character, recipeType, taskName) Then
             If Not ConsumeEnergy(character, energyCost, taskName) Then
@@ -25,7 +31,7 @@
                 AddLine(LightGray, $"To {taskName},").
                 AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs(recipeType)
-                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.itemType).Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
             Next
             Return False
         End If
@@ -72,7 +78,7 @@
             AddLine(LightGray, $"To learn to {taskName},").
             AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs(recipeType)
-                msg.AddLine(LightGray, $"{ItemTypes.ToItemTypeDescriptor(input.itemType).Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
+                msg.AddLine(LightGray, $"{ItemTypes.ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
             Next
             Return
         End If

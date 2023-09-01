@@ -1,22 +1,4 @@
 ﻿Friend Module CraftingEffectHandlers
-    Friend Sub DoBuildFurnace(character As ICharacter, effect As IEffect)
-        If Not CharacterExtensions.ConsumeEnergy(character, 1, "build a furnace") Then
-            Return
-        End If
-        If Not RecipeTypes.CanCraft("Furnace", character) Then
-            Dim msg = character.World.CreateMessage().
-                AddLine(LightGray, $"To build a furnace,").
-                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
-            For Each input In RecipeTypes.Inputs("Furnace")
-                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
-            Next
-            Return
-        End If
-        RecipeTypes.Craft("Furnace", character)
-        character.World.CreateMessage().
-                AddLine(LightGray, $"{CharacterExtensions.Name(character)} builds a furnace.")
-        character.Cell.TerrainType = "Furnace"
-    End Sub
     Friend Sub DoCutOffTail(character As ICharacter, effect As IEffect)
         If Not CharacterExtensions.HasCuttingTool(character) Then
             character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs a cutting tool for that!")

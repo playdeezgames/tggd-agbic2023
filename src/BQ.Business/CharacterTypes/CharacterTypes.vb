@@ -28,9 +28,55 @@
                     },
                     effectHandlers:=LoxyEffectHandlers.All,
                     initializeScript:="
---character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))",
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Torch""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
+                        {"BuildFurnace", "
+        if not CharacterExtensions.ConsumeEnergy(character, 1, ""build a furnace"") then
+            return
+        end
+        if not RecipeTypes.CanCraft(""Furnace"", character) then
+            local msg = character.World:CreateMessage():
+                AddLine(7, ""To build a furnace,""):
+                AddLine(7, CharacterExtensions.Name(character) .. "" needs:"")
+            local recipeName = ""Furnace""
+            CharacterExtensions.ReportNeededRecipeInputs(character, msg, recipeName)
+            return
+        end
+        RecipeTypes.Craft(""Furnace"", character)
+        character.World:CreateMessage():
+                AddLine(7, CharacterExtensions.Name(character) .. "" builds a furnace."")
+        character.Cell.TerrainType = ""Furnace"""},
                         {"BuildFire", "
 if not CharacterExtensions.ConsumeEnergy(character, 1, ""build a fire"") then
     return

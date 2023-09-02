@@ -22,44 +22,13 @@
                         {StatisticTypes.XPGoal, 10},
                         {StatisticTypes.XPLevel, 1},
                         {StatisticTypes.AdvancementPointsPerLevel, 10},
-                        {StatisticTypes.AdvancementPoints, 2},
+                        {StatisticTypes.AdvancementPoints, 0},
                         {StatisticTypes.Energy, 10},
                         {StatisticTypes.MaximumEnergy, 10}
                     },
                     effectHandlers:=LoxyEffectHandlers.All,
                     initializeScript:="
-character:AddItem(ItemInitializer.CreateItem(character.World,""RatCorpse""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Twine""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""SharpRock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Twine""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""SharpRock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Pepper""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Wheat""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Wheat""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Wheat""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Wheat""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Wheat""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Flour""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""WaterPot""))",
+--character:AddItem(ItemInitializer.CreateItem(character.World,""RatCorpse""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
                         {

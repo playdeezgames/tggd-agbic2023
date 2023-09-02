@@ -117,7 +117,7 @@
     "Name": "Hatchet",
     "Inputs": {
       "Twine": 1,
-      "Sharp Rock": 1,
+      "SharpRock": 1,
       "Stick": 1
     },
     "Outputs": {
@@ -131,6 +131,18 @@
     },
     "Outputs": {
       "Twine": 1
+    }
+  },
+  "RatTail": {
+    "Name": "Rat Tail",
+    "Inputs": {
+      "RatCorpse": 1,
+      "SharpRock": 1
+    },
+    "Outputs": {
+      "RatBody": 1,
+      "RatTail": 1,
+      "SharpRock": 1
     }
   },
   "CookedRatBody": {
@@ -173,13 +185,13 @@
     }
   },
   "SharpRock": {
-    "Name": "Sharp Rock",
+    "Name": "SharpRock",
     "Inputs": {
       "Rock": 2
     },
     "Outputs": {
       "Rock": 1,
-      "Sharp Rock": 1
+      "SharpRock": 1
     }
   },
   "CookingFire": {

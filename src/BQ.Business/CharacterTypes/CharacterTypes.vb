@@ -62,6 +62,21 @@ character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Torch""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
+                        {
+                            "CookRatBody",
+                            "
+        CharacterExtensions.CookRecipe(character, ""CookedRatBody"", ""cook a rat body"", ""cooks a rat body"")"
+                        },
+                        {
+                            "CookRatCorpse",
+                            "
+CharacterExtensions.CookRecipe(character, ""CookedRatCorpse"", ""cook a rat corpse"", ""cooks a rat corpse"")"
+                        },
+                        {
+                            "CutOffTail",
+                            "
+CharacterExtensions.DoRecipe(character, 2, ""RatTail"", ""cut off a rat's tail"", ""cut off a rat's tail"")"
+                        },
                         {"BuildFurnace", "
         if not CharacterExtensions.ConsumeEnergy(character, 1, ""build a furnace"") then
             return

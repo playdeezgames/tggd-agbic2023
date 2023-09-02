@@ -40,15 +40,4 @@
     Friend Sub DoSeasonRat(character As ICharacter, effect As IEffect)
         CharacterExtensions.DoRecipe(character, 0, "SeasonedRat", "season a rat", "seasons a rat")
     End Sub
-    Friend Sub DoCutOffTail(character As ICharacter, effect As IEffect)
-        CharacterExtensions.DoRecipe(character, 2, "RatTail", "cut off a rat's tail", "cut off a rat's tail")
-    End Sub
-
-    Friend Sub DoCookRatBody(character As ICharacter, effect As IEffect)
-        CharacterExtensions.CookRecipe(character, "CookedRatBody", "cook a rat body", "cooks a rat body")
-    End Sub
-
-    Friend Sub DoCookRatCorpse(character As ICharacter, effect As IEffect)
-        CharacterExtensions.CookRecipe(character, "CookedRatCorpse", "cook a rat corpse", "cooks a rat corpse")
-    End Sub
 End Module

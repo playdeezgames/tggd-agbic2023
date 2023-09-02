@@ -58,10 +58,15 @@ character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Torch""))",
+character:AddItem(ItemInitializer.CreateItem(character.World,""Flour""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""WaterPot""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
+                        {
+                            "MakeDough",
+                            "
+CharacterExtensions.DoRecipe(character, 2, ""Dough"", ""make dough"", ""makes dough"")"
+                        },
                         {
                             "CookRatBody",
                             "

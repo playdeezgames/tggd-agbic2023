@@ -1,27 +1,4 @@
 ﻿Friend Module CraftingEffectHandlers
-    Friend Sub DoCutOffTail(character As ICharacter, effect As IEffect)
-        If Not CharacterExtensions.HasCuttingTool(character) Then
-            character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs a cutting tool for that!")
-            Return
-        End If
-        character.RemoveItem(CType(effect, IItemEffect).Item)
-        character.AddItem(ItemInitializer.CreateItem(character.World, "RatBody"))
-        character.AddItem(ItemInitializer.CreateItem(character.World, "RatTail"))
-    End Sub
-
-    Friend Sub DoCookRatBody(character As ICharacter, effect As IEffect)
-        Dim recipeType = "CookedRatBody"
-        Dim taskName = "cook a rat body"
-        Dim resultName = "cooks a rat body"
-        CharacterExtensions.CookRecipe(character, recipeType, taskName, resultName)
-    End Sub
-
-    Friend Sub DoCookRatCorpse(character As ICharacter, effect As IEffect)
-        Dim recipeType = "CookedRatCorpse"
-        Dim taskName = "cook a rat corpse"
-        Dim resultName = "cooks a rat corpse"
-        CharacterExtensions.CookRecipe(character, recipeType, taskName, resultName)
-    End Sub
 
     Friend Sub DoMakeHatchet(character As ICharacter, effect As IEffect)
         If Not CharacterExtensions.ConsumeEnergy(character, 1, "make a hatchet") Then
@@ -62,5 +39,16 @@
     End Sub
     Friend Sub DoSeasonRat(character As ICharacter, effect As IEffect)
         CharacterExtensions.DoRecipe(character, 0, "SeasonedRat", "season a rat", "seasons a rat")
+    End Sub
+    Friend Sub DoCutOffTail(character As ICharacter, effect As IEffect)
+        CharacterExtensions.DoRecipe(character, 2, "RatTail", "cut off a rat's tail", "cut off a rat's tail")
+    End Sub
+
+    Friend Sub DoCookRatBody(character As ICharacter, effect As IEffect)
+        CharacterExtensions.CookRecipe(character, "CookedRatBody", "cook a rat body", "cooks a rat body")
+    End Sub
+
+    Friend Sub DoCookRatCorpse(character As ICharacter, effect As IEffect)
+        CharacterExtensions.CookRecipe(character, "CookedRatCorpse", "cook a rat corpse", "cooks a rat corpse")
     End Sub
 End Module

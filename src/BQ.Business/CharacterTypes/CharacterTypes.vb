@@ -22,12 +22,13 @@
                         {StatisticTypes.XPGoal, 10},
                         {StatisticTypes.XPLevel, 1},
                         {StatisticTypes.AdvancementPointsPerLevel, 10},
-                        {StatisticTypes.AdvancementPoints, 0},
+                        {StatisticTypes.AdvancementPoints, 2},
                         {StatisticTypes.Energy, 10},
                         {StatisticTypes.MaximumEnergy, 10}
                     },
                     effectHandlers:=LoxyEffectHandlers.All,
                     initializeScript:="
+character:AddItem(ItemInitializer.CreateItem(character.World,""RatCorpse""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))

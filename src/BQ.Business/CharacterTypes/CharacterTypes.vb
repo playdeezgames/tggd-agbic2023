@@ -39,10 +39,10 @@ character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Rock""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Twine""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""SharpRock""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Twine""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""SharpRock""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
@@ -62,6 +62,16 @@ character:AddItem(ItemInitializer.CreateItem(character.World,""Flour""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""WaterPot""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
+                        {
+                            "MakeHatchet",
+                            "
+CharacterExtensions.DoRecipe(character, 1, ""Hatchet"", ""make a hatchet"", ""makes a hatchet"")"
+                        },
+                        {
+                            "SeasonRat",
+                            "
+CharacterExtensions.DoRecipe(character, 0, ""SeasonedRat"", ""season a rat"", ""seasons a rat"")"
+                        },
                         {
                             "MakePaprika",
                             "

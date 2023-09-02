@@ -20,11 +20,9 @@
                         {"StartRatQuest", AddressOf DoStartRatQuest},
                         {"CompleteRatQuest", AddressOf DoCompleteRatQuest},
                         {"Forage", AddressOf DoForage},
-                        {"MakeHatchet", AddressOf CraftingEffectHandlers.DoMakeHatchet},
                         {"PotterMakePot", AddressOf DoPotterMakePot},
                         {"BumpRiver", AddressOf DoBumpRiver},
-                        {"FillClayPot", AddressOf DoFillClayPot},
-                        {"SeasonRat", AddressOf DoSeasonRat}
+                        {"FillClayPot", AddressOf DoFillClayPot}
                     }
     Private Sub DoForage(character As ICharacter, effect As IEffect)
         Dim cell As ICell = CType(effect, ITerrainEffect).Cell

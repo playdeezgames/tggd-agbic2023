@@ -1,4 +1,10 @@
 ﻿Public Module CharacterExtensions
+    Public Sub AddRecipeInputs(character As ICharacter, msg As IMessage, recipeType As String)
+        For Each input In RecipeTypes.Inputs(recipeType)
+            msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
+        Next
+    End Sub
+
     Public Sub ReportNeededRecipeInputs(character As ICharacter, msg As IMessage, recipeName As String)
         For Each input In RecipeTypes.Inputs(recipeName)
             msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
@@ -208,7 +214,7 @@
     Public Sub DoMakeItem(character As ICharacter, recipeType As String, noun As String, makeAction As Action(Of ICharacter))
         If Not RecipeTypes.CanCraft(recipeType, character) Then
             Dim msg = character.World.CreateMessage().AddLine(LightGray, $"To make {noun},").AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
-            CraftingEffectHandlers.AddRecipeInputs(character, msg, recipeType)
+            AddRecipeInputs(character, msg, recipeType)
             Return
         End If
         makeAction.Invoke(character)

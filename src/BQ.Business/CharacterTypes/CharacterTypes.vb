@@ -44,11 +44,11 @@ character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Stick""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""Pepper""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Wheat""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Wheat""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""Wheat""))
@@ -62,6 +62,16 @@ character:AddItem(ItemInitializer.CreateItem(character.World,""Flour""))
 character:AddItem(ItemInitializer.CreateItem(character.World,""WaterPot""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
+                        {
+                            "MakePaprika",
+                            "
+CharacterExtensions.DoRecipe(character, 1, ""Paprika"", ""make paprika"", ""makes paprika"")"
+                        },
+                        {
+                            "SmokePepper",
+                            "
+CharacterExtensions.CookRecipe(character, ""SmokedPepper"", ""smoke a pepper"", ""smokes a pepper"")"
+                        },
                         {
                             "MillWheat",
                             "

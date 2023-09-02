@@ -24,8 +24,6 @@
                         {"PotterMakePot", AddressOf DoPotterMakePot},
                         {"BumpRiver", AddressOf DoBumpRiver},
                         {"FillClayPot", AddressOf DoFillClayPot},
-                        {"SmokePepper", AddressOf DoSmokePepper},
-                        {"MakePaprika", AddressOf DoMakePaprika},
                         {"SeasonRat", AddressOf DoSeasonRat}
                     }
     Private Sub DoForage(character As ICharacter, effect As IEffect)

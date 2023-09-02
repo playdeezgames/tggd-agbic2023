@@ -21,14 +21,6 @@
             msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.itemType).Name}: {character.ItemTypeCount(input.itemType)}/{input.count}")
         Next
     End Sub
-
-    Friend Sub DoSmokePepper(character As ICharacter, effect As IEffect)
-        CharacterExtensions.CookRecipe(character, "SmokedPepper", "smoke a pepper", "smokes a pepper")
-    End Sub
-
-    Friend Sub DoMakePaprika(character As ICharacter, effect As IEffect)
-        CharacterExtensions.DoRecipe(character, 1, "Paprika", "make paprika", "makes paprika")
-    End Sub
     Friend Sub DoSeasonRat(character As ICharacter, effect As IEffect)
         CharacterExtensions.DoRecipe(character, 0, "SeasonedRat", "season a rat", "seasons a rat")
     End Sub

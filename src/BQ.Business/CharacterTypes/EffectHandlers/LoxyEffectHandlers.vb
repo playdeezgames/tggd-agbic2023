@@ -24,7 +24,6 @@
                         {"PotterMakePot", AddressOf DoPotterMakePot},
                         {"BumpRiver", AddressOf DoBumpRiver},
                         {"FillClayPot", AddressOf DoFillClayPot},
-                        {"MillWheat", AddressOf DoMillWheat},
                         {"SmokePepper", AddressOf DoSmokePepper},
                         {"MakePaprika", AddressOf DoMakePaprika},
                         {"SeasonRat", AddressOf DoSeasonRat}

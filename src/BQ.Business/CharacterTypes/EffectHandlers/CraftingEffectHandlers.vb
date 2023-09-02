@@ -22,10 +22,6 @@
         Next
     End Sub
 
-    Friend Sub DoMillWheat(character As ICharacter, effect As IEffect)
-        CharacterExtensions.DoRecipe(character, 1, "Flour", "make flour", "makes flour")
-    End Sub
-
     Friend Sub DoSmokePepper(character As ICharacter, effect As IEffect)
         CharacterExtensions.CookRecipe(character, "SmokedPepper", "smoke a pepper", "smokes a pepper")
     End Sub

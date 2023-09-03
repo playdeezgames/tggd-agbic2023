@@ -6,7 +6,6 @@
                         {"NihilistPrices", AddressOf DoNihilistPrices},
                         {"TrainHealth", AddressOf DoTrainHealth},
                         {"HealthTrainerTalk", AddressOf DoHealthTrainerTalk},
-                        {"HealerTalk", AddressOf DoHealerTalk},
                         {"GorachanTalk", AddressOf DoGorachanTalk},
                         {"PervertInnkeeper", AddressOf DoPerventInnkeeper},
                         {"PayInnkeeper", AddressOf DoPayInnkeeper},

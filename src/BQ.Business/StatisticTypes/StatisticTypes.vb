@@ -1,5 +1,4 @@
 ﻿Friend Module StatisticTypes
-    Friend Const CellRow = "CellRow"
     Friend Const DefendDice = "DefendDice"
     Friend Const Energy = "Energy"
     Friend Const ForageRemaining = "ForageRemaining"

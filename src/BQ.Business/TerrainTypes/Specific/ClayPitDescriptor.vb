@@ -5,7 +5,7 @@
         MyBase.New(
             "Clay Pit",
             ChrW(&H3E),
-            Tan,
+            13,
             True,
             depletedTerrainType:="Empty",
             initializerScript:="cell:SetStatistic(""ForageRemaining"", 30)",

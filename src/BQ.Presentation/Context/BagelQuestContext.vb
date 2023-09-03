@@ -20,14 +20,14 @@ Public Class BagelQuestContext
     Private ReadOnly DeltasAndColor As IReadOnlyList(Of (deltaX As Integer, deltaY As Integer, hue As Integer)) =
         New List(Of (Integer, Integer, Integer)) From
         {
-            (-1, -1, Tan),
-            (0, -1, Tan),
-            (1, -1, Tan),
-            (-1, 0, Tan),
-            (1, 0, Tan),
-            (-1, 1, Tan),
-            (0, 1, Tan),
-            (1, 1, Tan),
+            (-1, -1, 13),
+            (0, -1, 13),
+            (1, -1, 13),
+            (-1, 0, 13),
+            (1, 0, 13),
+            (-1, 1, 13),
+            (0, 1, 13),
+            (1, 1, 13),
             (0, 0, Brown)
         }
     Public Overrides Sub ShowSplashContent(displayBuffer As IPixelSink, font As Font)

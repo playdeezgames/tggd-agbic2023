@@ -111,11 +111,11 @@
             Return False
         End If
         CharacterExtensions.AddAdvancementPoints(character, -learnCost)
-        character.SetFlag(effect.GetMetadata(Metadatas.FlagType), True)
+        character.SetFlag(effect.GetMetadata("FlagType"), True)
         Return True
     End Function
     Public Function AlreadyKnows(character As ICharacter, effect As IEffect, msg As IMessage, text As String) As Boolean
-        If character.GetFlag(effect.GetMetadata(Metadatas.FlagType)) Then
+        If character.GetFlag(effect.GetMetadata("FlagType")) Then
             msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} already know how to {text}!")
             Return True
         End If

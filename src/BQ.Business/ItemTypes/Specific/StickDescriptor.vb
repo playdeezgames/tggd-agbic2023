@@ -10,7 +10,7 @@
             fullName:=Function(x) $"{ItemExtensions.Name(x)}({ItemExtensions.Durability(x)}/{ItemExtensions.MaximumDurability(x)})",
             statistics:=New Dictionary(Of String, Integer) From
             {
-                {StatisticTypes.AttackDice, 2},
+                {"AttackDice", 2},
                 {StatisticTypes.Durability, 10},
                 {StatisticTypes.MaximumDurability, 10}
             },

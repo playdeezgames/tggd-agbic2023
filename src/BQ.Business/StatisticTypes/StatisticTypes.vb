@@ -1,5 +1,4 @@
 ﻿Friend Module StatisticTypes
-    Friend Const AttackDice = "AttackDice"
     Friend Const CellColumn = "CellColumn"
     Friend Const CellRow = "CellRow"
     Friend Const DefendDice = "DefendDice"

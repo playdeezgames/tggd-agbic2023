@@ -331,7 +331,7 @@
         Return character.GetStatistic(StatisticTypes.MaximumHealth)
     End Function
     Public Function AttackDice(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.AttackDice) + character.EquippedItems.Sum(Function(x) ItemExtensions.AttackDice(x))
+        Return character.GetStatistic("AttackDice") + character.EquippedItems.Sum(Function(x) ItemExtensions.AttackDice(x))
     End Function
     Public Function MaximumAttack(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.MaximumAttack) + character.EquippedItems.Sum(Function(x) ItemExtensions.MaximumAttack(x))

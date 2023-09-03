@@ -18,7 +18,7 @@
         Return ItemExtensions.Descriptor(item).CanEquip
     End Function
     Public Function AttackDice(item As IItem) As Integer
-        Return item.GetStatistic(StatisticTypes.AttackDice)
+        Return item.GetStatistic("AttackDice")
     End Function
     Public Function MaximumAttack(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.MaximumAttack)

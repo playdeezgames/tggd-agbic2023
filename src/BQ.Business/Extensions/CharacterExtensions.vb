@@ -78,7 +78,7 @@
         Dim msg = character.World.CreateMessage
         Dim taskName = effect.GetMetadata(Metadatas.TaskName)
         If CharacterExtensions.AlreadyKnows(character, effect, msg, taskName) Then Return
-        Dim recipeType = effect.GetMetadata(Metadatas.RecipeType)
+        Dim recipeType = effect.GetMetadata("RecipeType")
         If Not RecipeTypes.CanCraft(recipeType, character) Then
             msg.
             AddLine(LightGray, $"To learn to {taskName},").

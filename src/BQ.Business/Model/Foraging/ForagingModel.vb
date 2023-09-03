@@ -16,7 +16,7 @@
 
     Public ReadOnly Property Remaining As Integer Implements IForagingModel.Remaining
         Get
-            Return world.Avatar.Cell.GetStatistic(StatisticTypes.ForageRemaining)
+            Return world.Avatar.Cell.GetStatistic("ForageRemaining")
         End Get
     End Property
 
@@ -42,7 +42,7 @@
             Return Nothing
         End If
         Dim itemType = CellExtensions.GenerateForageItemType(world.Avatar.Cell)
-        world.Avatar.Cell.AddStatistic(StatisticTypes.ForageRemaining, -1)
+        world.Avatar.Cell.AddStatistic("ForageRemaining", -1)
         CharacterExtensions.AddEnergy(world.Avatar, -1)
         If String.IsNullOrEmpty(itemType) Then
             Return Nothing

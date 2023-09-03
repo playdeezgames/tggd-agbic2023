@@ -22,7 +22,7 @@
         Return RNG.FromGenerator(descriptor.Foragables, r)
     End Function
     Public Function CanForage(cell As ICell) As Boolean
-        Return TerrainTypes.Descriptor(cell).HasEffect("Forage") AndAlso cell.GetStatistic(StatisticTypes.ForageRemaining) > 0
+        Return TerrainTypes.Descriptor(cell).HasEffect("Forage") AndAlso cell.GetStatistic("ForageRemaining") > 0
     End Function
     Public Function IsTenable(cell As ICell) As Boolean
         Return TerrainTypes.Descriptor(cell).Tenable

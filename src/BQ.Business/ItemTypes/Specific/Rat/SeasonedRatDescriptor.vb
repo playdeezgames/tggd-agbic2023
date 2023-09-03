@@ -5,7 +5,7 @@
         MyBase.New(
             "Seasoned Rat",
             ChrW(&H2F),
-            Orange,
+            11,
             effects:=New Dictionary(Of String, EffectData) From
             {
                 {"EatSeasonedRat", New EffectData}

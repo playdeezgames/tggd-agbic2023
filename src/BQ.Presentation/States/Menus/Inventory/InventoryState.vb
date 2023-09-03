@@ -60,7 +60,7 @@ Friend Class InventoryState
             Next
             offsetY += rowStride
         Next
-        Context.ShowHeader(displayBuffer, font, items(currentIndex).name, Orange, Black)
+        Context.ShowHeader(displayBuffer, font, items(currentIndex).name, 11, Black)
         Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(Constants.SelectText, Constants.CancelText), Black, LightGray)
     End Sub
 

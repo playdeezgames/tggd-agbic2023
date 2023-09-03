@@ -49,7 +49,7 @@ Public Class BagelQuestContext
     Private ReadOnly aboutLines As IDictionary(Of Integer, (String, Integer)) =
         New Dictionary(Of Integer, (String, Integer)) From
         {
-            {0, ("About Bagel Quest", Orange)},
+            {0, ("About Bagel Quest", 11)},
             {2, ("Art:", 15)},
             {3, ("https://kenney.nl/assets/1-bit-pack", 15)},
             {5, ("A Production of TheGrumpyGameDev", 15)},

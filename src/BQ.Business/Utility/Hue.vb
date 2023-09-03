@@ -10,5 +10,4 @@
     Public Const DarkGray = 8
     Public Const LightBlue = 9
     Public Const LightGreen = 10
-    Public Const Orange = 11
 End Module

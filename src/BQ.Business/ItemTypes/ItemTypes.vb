@@ -10,7 +10,7 @@
             {"Flour", New FlourDescriptor()},
             {"Dough", New ItemTypeDescriptor("Dough", ChrW(&H44), 13)},
             {"Bagel", New ItemTypeDescriptor("Bagel", ChrW(&H44), Brown)},
-            {"Paprika", New ItemTypeDescriptor("Paprika", ChrW(&H43), Orange)},
+            {"Paprika", New ItemTypeDescriptor("Paprika", ChrW(&H43), 11)},
             {"SmokedPepper", New SmokedPepperDescriptor()},
             {"RatBody", New RatBodyDescriptor()},
             {"RatTail", New ItemTypeDescriptor("Rat Tail", ChrW(&H2E), DarkGray)},

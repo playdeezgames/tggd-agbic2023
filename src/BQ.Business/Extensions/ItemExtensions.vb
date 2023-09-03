@@ -24,7 +24,7 @@
         Return item.GetStatistic(StatisticTypes.MaximumAttack)
     End Function
     Public Function DefendDice(item As IItem) As Integer
-        Return item.GetStatistic(StatisticTypes.DefendDice)
+        Return item.GetStatistic("DefendDice")
     End Function
     Public Function MaximumDefend(item As IItem) As Integer
         Return item.GetStatistic(StatisticTypes.MaximumDefend)

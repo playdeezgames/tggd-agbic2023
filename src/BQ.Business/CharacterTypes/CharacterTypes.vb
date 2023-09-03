@@ -16,7 +16,7 @@
                         {StatisticTypes.MaximumHealth, 2},
                         {"AttackDice", 2},
                         {StatisticTypes.MaximumAttack, 1},
-                        {StatisticTypes.DefendDice, 4},
+                        {"DefendDice", 4},
                         {StatisticTypes.MaximumDefend, 2},
                         {StatisticTypes.XP, 0},
                         {StatisticTypes.XPGoal, 10},
@@ -297,7 +297,7 @@ character.World:
                         {StatisticTypes.MaximumHealth, 1},
                         {"AttackDice", 2},
                         {StatisticTypes.MaximumAttack, 1},
-                        {StatisticTypes.DefendDice, 1},
+                        {"DefendDice", 1},
                         {StatisticTypes.MaximumDefend, 1},
                         {StatisticTypes.Peril, 5},
                         {StatisticTypes.XP, 1}
@@ -318,7 +318,7 @@ character.World:
                         {StatisticTypes.MaximumHealth, 1},
                         {"AttackDice", 1},
                         {StatisticTypes.MaximumAttack, 1},
-                        {StatisticTypes.DefendDice, 1},
+                        {"DefendDice", 1},
                         {StatisticTypes.MaximumDefend, 1},
                         {StatisticTypes.Peril, 3},
                         {StatisticTypes.XP, 0}
@@ -339,7 +339,7 @@ character.World:
                         {StatisticTypes.MaximumHealth, 3},
                         {"AttackDice", 4},
                         {StatisticTypes.MaximumAttack, 2},
-                        {StatisticTypes.DefendDice, 3},
+                        {"DefendDice", 3},
                         {StatisticTypes.MaximumDefend, 3},
                         {StatisticTypes.Peril, 7},
                         {StatisticTypes.XP, 3}
@@ -362,7 +362,7 @@ end")
                         {StatisticTypes.MaximumHealth, 2},
                         {"AttackDice", 4},
                         {StatisticTypes.MaximumAttack, 2},
-                        {StatisticTypes.DefendDice, 1},
+                        {"DefendDice", 1},
                         {StatisticTypes.MaximumDefend, 1},
                         {StatisticTypes.Peril, 10},
                         {StatisticTypes.XP, 2}

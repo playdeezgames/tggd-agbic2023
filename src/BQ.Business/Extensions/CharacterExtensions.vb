@@ -374,7 +374,7 @@
         End If
     End Sub
     Public Function AdvancementPointsPerLevel(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.AdvancementPointsPerLevel)
+        Return character.GetStatistic("AdvancementPointsPerLevel")
     End Function
     Public Sub AddAdvancementPoints(character As ICharacter, advancementPoints As Integer)
         character.SetStatistic("AdvancementPoints", Math.Max(0, character.GetStatistic("AdvancementPoints") + advancementPoints))

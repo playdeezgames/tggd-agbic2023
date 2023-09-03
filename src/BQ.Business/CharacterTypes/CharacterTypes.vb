@@ -21,7 +21,7 @@
                         {"XP", 0},
                         {"XPGoal", 10},
                         {"XPLevel", 1},
-                        {StatisticTypes.AdvancementPointsPerLevel, 10},
+                        {"AdvancementPointsPerLevel", 10},
                         {"AdvancementPoints", 0},
                         {"Energy", 10},
                         {"MaximumEnergy", 10},

@@ -23,7 +23,7 @@
                         {StatisticTypes.XPLevel, 1},
                         {StatisticTypes.AdvancementPointsPerLevel, 10},
                         {StatisticTypes.AdvancementPoints, 0},
-                        {StatisticTypes.Energy, 10},
+                        {"Energy", 10},
                         {StatisticTypes.MaximumEnergy, 10},
                         {StatisticTypes.Jools, 10}
                     },

@@ -313,10 +313,10 @@
         Return character.GetStatistic(StatisticTypes.Peril)
     End Function
     Public Function Energy(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.Energy)
+        Return character.GetStatistic("Energy")
     End Function
     Public Sub AddEnergy(character As ICharacter, delta As Integer)
-        character.SetStatistic(StatisticTypes.Energy, Math.Clamp(CharacterExtensions.Energy(character) + delta, 0, CharacterExtensions.MaximumEnergy(character)))
+        character.SetStatistic("Energy", Math.Clamp(CharacterExtensions.Energy(character) + delta, 0, CharacterExtensions.MaximumEnergy(character)))
     End Sub
     Public Function MaximumEnergy(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.MaximumEnergy)

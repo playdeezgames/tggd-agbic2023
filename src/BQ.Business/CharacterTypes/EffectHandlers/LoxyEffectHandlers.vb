@@ -13,7 +13,6 @@
                         {"GorachanTalk", AddressOf DoGorachanTalk},
                         {"PervertInnkeeper", AddressOf DoPerventInnkeeper},
                         {"PayInnkeeper", AddressOf DoPayInnkeeper},
-                        {"DruidPrices", AddressOf DoDruidPrices},
                         {"Buy", AddressOf DoBuy},
                         {"EnergyTrainerTalk", AddressOf DoEnergyTrainerTalk},
                         {"TrainEnergy", AddressOf DoTrainEnergy},

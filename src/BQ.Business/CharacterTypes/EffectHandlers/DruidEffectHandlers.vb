@@ -1,17 +1,4 @@
 ﻿Friend Module DruidEffectHandlers
-    Friend Sub DoDruidPrices(character As ICharacter, effect As IEffect)
-        Dim msg = character.World.CreateMessage().
-                        AddLine(LightGray, "I sell a variety of herbs.").
-                        AddLine(LightGray, $"({CharacterExtensions.Name(character)} has {CharacterExtensions.Jools(character)} jools)").
-                        AddChoice("Good to know!", "ExitDialog").
-                        AddChoice(
-                            "Buy Energy Herb(5 jools)",
-                            "Buy")
-        msg.LastChoice.SetMetadata(Metadatas.ItemType, "EnergyHerb")
-        msg.LastChoice.SetStatistic(StatisticTypes.Price, 5)
-        msg.LastChoice.SetMetadata(Metadatas.EffectType, "DruidPrices")
-    End Sub
-
     Friend Sub DoDruidTeachMenu(character As ICharacter, effect As IEffect)
         Dim canLearnForaging = Not character.GetFlag("KnowsForaging")
         Dim canLearnTwineMaking = Not character.GetFlag("KnowsTwineMaking")

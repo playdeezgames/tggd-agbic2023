@@ -46,7 +46,7 @@ Friend Class MessageState
     Private Function ShowChoices(displayBuffer As IPixelSink, message As IMessage, font As Font) As String
         If message.HasChoices Then
             Dim y = Context.ViewSize.Height * 2 \ 3 - font.Height \ 2
-            displayBuffer.Fill((0, y), (Context.ViewSize.Width, font.Height), Blue)
+            displayBuffer.Fill((0, y), (Context.ViewSize.Width, font.Height), 1)
             y -= ChoiceIndex * font.Height
             Dim index = 0
             For Each choice In message.Choices
@@ -54,7 +54,7 @@ Friend Class MessageState
                     displayBuffer,
                     (Context.ViewSize.Width \ 2 - font.TextWidth(choice.Text) \ 2, y),
                     choice.Text,
-                    If(index = ChoiceIndex, Black, Blue))
+                    If(index = ChoiceIndex, Black, 1))
                 index += 1
                 y += font.Height
             Next

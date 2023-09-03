@@ -67,7 +67,7 @@
         Dim centerX = OneThirdWidth()
         Dim y = CenterText(displayBuffer, font, centerX, OneSixthHeight() - font.HalfHeight * 3, Model.Avatar.Name, 7)
         y = CenterText(displayBuffer, font, centerX, y, Model.Avatar.Statistics.Health, 12)
-        CenterText(displayBuffer, font, centerX, y, Model.Avatar.Statistics.Energy, Blue)
+        CenterText(displayBuffer, font, centerX, y, Model.Avatar.Statistics.Energy, 1)
     End Sub
 
     Private Function OneThirdWidth() As Integer
@@ -100,13 +100,13 @@
                 Context.ViewCenter.X,
                 y,
                 MenuItems(index).DisplayText,
-                If(index = MenuItemIndex, Black, Blue))
+                If(index = MenuItemIndex, Black, 1))
         Next
     End Sub
 
     Private Function DrawItemHilite(displayBuffer As IPixelSink, font As Font) As Integer
         Dim y = Context.ViewSize.Height * 3 \ 4 - font.HalfHeight * 2
-        displayBuffer.Fill((0, y), (Context.ViewSize.Width, font.Height), Blue)
+        displayBuffer.Fill((0, y), (Context.ViewSize.Width, font.Height), 1)
         y -= MenuItemIndex * font.Height
         Return y
     End Function

@@ -9,10 +9,10 @@
 
     Public Property Name As String Implements IItemModel.Name
         Get
-            Return world.Avatar.GetMetadata(Metadatas.ItemName)
+            Return world.Avatar.GetMetadata("ItemName")
         End Get
         Set(value As String)
-            world.Avatar.SetMetadata(Metadatas.ItemName, value)
+            world.Avatar.SetMetadata("ItemName", value)
         End Set
     End Property
 
@@ -48,7 +48,7 @@
         Dim itemCount = Count
         Dim itemName = Name
         world.Avatar.RemoveStatistic(StatisticTypes.ItemCount)
-        world.Avatar.RemoveMetadata(Metadatas.ItemName)
+        world.Avatar.RemoveMetadata("ItemName")
         Dim items = world.Avatar.Cell.Items.Where(Function(x) ItemExtensions.Name(x) = itemName).Take(itemCount)
         For Each item In items
             world.Avatar.Cell.RemoveItem(item)
@@ -60,7 +60,7 @@
         Dim itemCount = Count
         Dim itemName = Name
         world.Avatar.RemoveStatistic(StatisticTypes.ItemCount)
-        world.Avatar.RemoveMetadata(Metadatas.ItemName)
+        world.Avatar.RemoveMetadata("ItemName")
         Dim items = world.Avatar.Items.Where(Function(x) ItemExtensions.Name(x) = itemName).Take(itemCount)
         For Each item In items
             world.Avatar.Cell.AddItem(item)

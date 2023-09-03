@@ -1,6 +1,4 @@
 ﻿Friend Module Metadatas
-    Friend Const ForageTable = "ForageTable"
-    Friend Const ItemName = "ItemName"
     Friend Const ItemType = "ItemType"
     Friend Const MessageType = "MessageType"
     Friend Const RecipeType = "RecipeType"

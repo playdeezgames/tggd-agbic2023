@@ -36,7 +36,7 @@ Friend Class InventoryState
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill(Black)
+        displayBuffer.Fill(0)
         Dim bqFont = Context.Font(BagelQuestFont)
         Dim font = Context.Font(UIFont)
         Dim rowStride = bqFont.Height * 2
@@ -60,8 +60,8 @@ Friend Class InventoryState
             Next
             offsetY += rowStride
         Next
-        Context.ShowHeader(displayBuffer, font, items(currentIndex).name, 11, Black)
-        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(Constants.SelectText, Constants.CancelText), Black, 7)
+        Context.ShowHeader(displayBuffer, font, items(currentIndex).name, 11, 0)
+        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(Constants.SelectText, Constants.CancelText), 0, 7)
     End Sub
 
     Public Overrides Sub OnStart()

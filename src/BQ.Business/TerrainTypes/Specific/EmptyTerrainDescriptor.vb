@@ -5,7 +5,7 @@
         MyBase.New(
             "Empty",
             ChrW(0),
-            Black,
+            0,
             True,
             effects:=New Dictionary(Of String, EffectData) From
             {

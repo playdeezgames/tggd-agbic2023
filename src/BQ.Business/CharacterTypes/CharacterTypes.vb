@@ -9,7 +9,7 @@
                     ChrW(2),
                     12,
                     ChrW(1),
-                    Black,
+                    0,
                     statistics:=New Dictionary(Of String, Integer) From
                     {
                         {"Health", 2},
@@ -290,7 +290,7 @@ character.World:
                     ChrW(&H1B),
                     10,
                     ChrW(&H1A),
-                    Hue.Black,
+                    0,
                     statistics:=New Dictionary(Of String, Integer) From
                     {
                         {"Health", 1},
@@ -311,7 +311,7 @@ character.World:
                     ChrW(&H2A),
                     6,
                     ChrW(&H32),
-                    Hue.Black,
+                    0,
                     statistics:=New Dictionary(Of String, Integer) From
                     {
                         {"Health", 1},
@@ -332,7 +332,7 @@ character.World:
                     ChrW(&H3A),
                     14,
                     ChrW(&H3C),
-                    Hue.Black,
+                    0,
                     statistics:=New Dictionary(Of String, Integer) From
                     {
                         {"Health", 3},
@@ -355,7 +355,7 @@ end")
                     ChrW(&H1B),
                     4,
                     ChrW(&H1A),
-                    Hue.Black,
+                    0,
                     statistics:=New Dictionary(Of String, Integer) From
                     {
                         {"Health", 2},

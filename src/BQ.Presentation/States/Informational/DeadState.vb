@@ -22,12 +22,12 @@
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill(Black)
+        displayBuffer.Fill(0)
         Dim font = Context.Font(UIFont)
         Dim text = YerDeadText
         font.WriteText(displayBuffer, (Context.ViewCenter.X - font.HalfTextWidth(text), Context.ViewCenter.Y - font.HalfHeight), text, 4)
         If DateTimeOffset.Now >= showUntil Then
-            Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(ContinueText, Nothing), Black, 7)
+            Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(ContinueText, Nothing), 0, 7)
         End If
     End Sub
 

@@ -43,7 +43,7 @@ Public Class BagelQuestContext
                     deltaAndColor.hue)
             Next
         End With
-        ShowStatusBar(displayBuffer, font, ControlsText(ContinueText, Nothing), Hue.Black, 7)
+        ShowStatusBar(displayBuffer, font, ControlsText(ContinueText, Nothing), 0, 7)
     End Sub
 
     Private ReadOnly aboutLines As IDictionary(Of Integer, (String, Integer)) =

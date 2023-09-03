@@ -54,7 +54,7 @@
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill(Black)
+        displayBuffer.Fill(0)
         DrawAvatar(displayBuffer)
         DrawAvatarStats(displayBuffer)
         DrawEnemies(displayBuffer)
@@ -100,7 +100,7 @@
                 Context.ViewCenter.X,
                 y,
                 MenuItems(index).DisplayText,
-                If(index = MenuItemIndex, Black, 1))
+                If(index = MenuItemIndex, 0, 1))
         Next
     End Sub
 

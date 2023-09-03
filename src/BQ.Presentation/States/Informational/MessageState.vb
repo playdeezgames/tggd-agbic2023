@@ -35,12 +35,12 @@ Friend Class MessageState
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill(Black)
+        displayBuffer.Fill(0)
         Dim message = Model.Message.Current
         Dim font = Context.Font(UIFont)
         ShowLines(displayBuffer, message, font)
         Dim aButtonText = ShowChoices(displayBuffer, message, font)
-        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(aButtonText, Nothing), Black, 7)
+        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(aButtonText, Nothing), 0, 7)
     End Sub
 
     Private Function ShowChoices(displayBuffer As IPixelSink, message As IMessage, font As Font) As String
@@ -54,7 +54,7 @@ Friend Class MessageState
                     displayBuffer,
                     (Context.ViewSize.Width \ 2 - font.TextWidth(choice.Text) \ 2, y),
                     choice.Text,
-                    If(index = ChoiceIndex, Black, 1))
+                    If(index = ChoiceIndex, 0, 1))
                 index += 1
                 y += font.Height
             Next

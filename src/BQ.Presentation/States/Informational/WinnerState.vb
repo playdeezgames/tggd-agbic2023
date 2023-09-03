@@ -22,7 +22,7 @@
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill(Black)
+        displayBuffer.Fill(0)
         Dim font = Context.Font(UIFont)
         Dim text = YouWinText
         font.WriteText(
@@ -35,7 +35,7 @@
                 displayBuffer,
                 font,
                 Context.ControlsText(MainMenuText, Nothing),
-                Black,
+                0,
                 7)
         End If
     End Sub

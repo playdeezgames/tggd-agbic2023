@@ -17,7 +17,7 @@
                   glyph As Char,
                   hue As Integer,
                   Optional MaskGlyph As Char = ChrW(0),
-                  Optional maskHue As Integer = Black,
+                  Optional maskHue As Integer = 0,
                   Optional statistics As IReadOnlyDictionary(Of String, Integer) = Nothing,
                   Optional flags As IEnumerable(Of String) = Nothing,
                   Optional effectHandlers As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect)) = Nothing,

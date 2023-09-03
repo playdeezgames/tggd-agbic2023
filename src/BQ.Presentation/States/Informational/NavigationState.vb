@@ -24,7 +24,7 @@
         displayBuffer.Fill(8)
         RenderMap(displayBuffer)
         RenderStatistics(displayBuffer)
-        Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText(ActionsText, GameMenuText), Black, 7)
+        Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText(ActionsText, GameMenuText), 0, 7)
     End Sub
 
 
@@ -38,7 +38,7 @@
     End Sub
 
     Private Shared Function RenderStatistic(displayBuffer As IPixelSink, font As Font, position As (x As Integer, y As Integer), text As String, hue As Integer) As (Integer, Integer)
-        font.WriteText(displayBuffer, (position.x + 1, position.y + 1), text, Black)
+        font.WriteText(displayBuffer, (position.x + 1, position.y + 1), text, 0)
         font.WriteText(displayBuffer, (position.x, position.y), text, hue)
         Return (position.x, position.y + font.Height)
     End Function
@@ -78,7 +78,7 @@
     End Sub
 
     Private Sub RenderTerrain(font As Font, displayBuffer As IPixelSink, cellXY As (column As Integer, row As Integer), pixelXY As (Integer, Integer))
-        displayBuffer.Fill(pixelXY, (CellWidth, CellHeight), Black)
+        displayBuffer.Fill(pixelXY, (CellWidth, CellHeight), 0)
         Dim terrain = Model.Map.Terrain(cellXY)
         font.WriteText(displayBuffer, pixelXY, terrain.Glyph, terrain.Hue)
     End Sub

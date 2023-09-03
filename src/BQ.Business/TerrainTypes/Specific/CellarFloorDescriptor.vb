@@ -5,7 +5,7 @@
         MyBase.New(
             "Cellar Floor",
             ChrW(0),
-            Black,
+            0,
             True,
             peril:=1,
             creatureTypeGenerator:=New Dictionary(Of String, Integer) From

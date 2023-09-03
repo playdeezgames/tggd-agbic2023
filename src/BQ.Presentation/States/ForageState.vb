@@ -44,11 +44,11 @@ Friend Class ForageState
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill(Black)
+        displayBuffer.Fill(0)
         RenderGrid(displayBuffer)
         RenderLoot(displayBuffer)
-        Context.ShowHeader(displayBuffer, Context.Font(UIFont), Model.Avatar.Statistics.Energy, 11, Black)
-        Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText("Forage", "Exit"), Black, 7)
+        Context.ShowHeader(displayBuffer, Context.Font(UIFont), Model.Avatar.Statistics.Energy, 11, 0)
+        Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText("Forage", "Exit"), 0, 7)
     End Sub
 
     Private Sub RenderLoot(displayBuffer As IPixelSink)

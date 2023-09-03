@@ -13,7 +13,7 @@
     End Sub
 
     Public Overrides Sub Render(displayBuffer As IPixelSink)
-        displayBuffer.Fill(Black)
+        displayBuffer.Fill(0)
         Dim font = Context.Font(UIFont)
         Dim y = Context.ViewSize.Height \ 2 - font.Height * 8 \ 2
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Health, 12)
@@ -24,8 +24,8 @@
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.XPLevel, 5)
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.AdvancementPoints, 14)
         WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Jools, 10)
-        Context.ShowHeader(displayBuffer, font, "Statistics", Black, 11)
-        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(Nothing, "Go Back"), Black, 7)
+        Context.ShowHeader(displayBuffer, font, "Statistics", 0, 11)
+        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(Nothing, "Go Back"), 0, 7)
     End Sub
     Private Function WriteLine(displayBuffer As IPixelSink, font As Font, y As Integer, text As String, hue As Integer) As Integer
         font.WriteText(displayBuffer, (Context.ViewSize.Width \ 2 - font.TextWidth(text) \ 2, y), text, hue)

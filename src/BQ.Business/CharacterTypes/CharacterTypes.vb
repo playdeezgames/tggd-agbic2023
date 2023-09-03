@@ -12,7 +12,7 @@
                     Black,
                     statistics:=New Dictionary(Of String, Integer) From
                     {
-                        {StatisticTypes.Health, 2},
+                        {"Health", 2},
                         {StatisticTypes.MaximumHealth, 2},
                         {"AttackDice", 2},
                         {StatisticTypes.MaximumAttack, 1},
@@ -293,7 +293,7 @@ character.World:
                     Hue.Black,
                     statistics:=New Dictionary(Of String, Integer) From
                     {
-                        {StatisticTypes.Health, 1},
+                        {"Health", 1},
                         {StatisticTypes.MaximumHealth, 1},
                         {"AttackDice", 2},
                         {StatisticTypes.MaximumAttack, 1},
@@ -314,7 +314,7 @@ character.World:
                     Hue.Black,
                     statistics:=New Dictionary(Of String, Integer) From
                     {
-                        {StatisticTypes.Health, 1},
+                        {"Health", 1},
                         {StatisticTypes.MaximumHealth, 1},
                         {"AttackDice", 1},
                         {StatisticTypes.MaximumAttack, 1},
@@ -335,7 +335,7 @@ character.World:
                     Hue.Black,
                     statistics:=New Dictionary(Of String, Integer) From
                     {
-                        {StatisticTypes.Health, 3},
+                        {"Health", 3},
                         {StatisticTypes.MaximumHealth, 3},
                         {"AttackDice", 4},
                         {StatisticTypes.MaximumAttack, 2},
@@ -358,7 +358,7 @@ end")
                     Hue.Black,
                     statistics:=New Dictionary(Of String, Integer) From
                     {
-                        {StatisticTypes.Health, 2},
+                        {"Health", 2},
                         {StatisticTypes.MaximumHealth, 2},
                         {"AttackDice", 4},
                         {StatisticTypes.MaximumAttack, 2},

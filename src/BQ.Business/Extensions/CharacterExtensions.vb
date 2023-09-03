@@ -325,7 +325,7 @@
         character.SetStatistic(StatisticTypes.MaximumEnergy, maximumEnergy)
     End Sub
     Public Function Health(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.Health)
+        Return character.GetStatistic("Health")
     End Function
     Public Function MaximumHealth(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.MaximumHealth)
@@ -349,7 +349,7 @@
         Return Math.Min(CharacterExtensions.MaximumDefend(character), Enumerable.Range(0, CharacterExtensions.DefendDice(character)).Sum(Function(x) RNG.RollDice("1d6/6")))
     End Function
     Public Sub SetHealth(character As ICharacter, health As Integer)
-        character.SetStatistic(StatisticTypes.Health, Math.Clamp(health, 0, CharacterExtensions.MaximumHealth(character)))
+        character.SetStatistic("Health", Math.Clamp(health, 0, CharacterExtensions.MaximumHealth(character)))
     End Sub
     Public Sub SetMaximumHealth(character As ICharacter, maximumHealth As Integer)
         character.SetStatistic(StatisticTypes.MaximumHealth, Math.Max(1, maximumHealth))

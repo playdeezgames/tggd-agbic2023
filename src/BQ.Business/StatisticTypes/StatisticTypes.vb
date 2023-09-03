@@ -1,5 +1,4 @@
 ﻿Friend Module StatisticTypes
-    Friend Const Health = "Health"
     Friend Const ItemCount = "ItemCount"
     Friend Const MapId = "MapId"
     Friend Const MaximumAttack = "MaximumAttack"

@@ -19,7 +19,7 @@
                         {"DefendDice", 4},
                         {"MaximumDefend", 2},
                         {"XP", 0},
-                        {StatisticTypes.XPGoal, 10},
+                        {"XPGoal", 10},
                         {StatisticTypes.XPLevel, 1},
                         {StatisticTypes.AdvancementPointsPerLevel, 10},
                         {StatisticTypes.AdvancementPoints, 0},

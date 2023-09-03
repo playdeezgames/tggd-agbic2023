@@ -385,7 +385,7 @@
             CharacterExtensions.AddAdvancementPoints(character, CharacterExtensions.AdvancementPointsPerLevel(character))
             character.AddStatistic(StatisticTypes.XPLevel, 1)
             Dim currentGoal = CharacterExtensions.XPGoal(character)
-            character.AddStatistic(StatisticTypes.XPGoal, character.GetStatistic(StatisticTypes.XPGoal))
+            character.AddStatistic("XPGoal", character.GetStatistic("XPGoal"))
             CharacterExtensions.AddXP(character, -currentGoal)
             Return True
         End If
@@ -501,7 +501,7 @@
         Return character.GetStatistic("XP")
     End Function
     Function XPGoal(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.XPGoal)
+        Return character.GetStatistic("XPGoal")
     End Function
     Function XPLevel(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.XPLevel)

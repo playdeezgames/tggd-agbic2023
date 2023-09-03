@@ -30,16 +30,16 @@
         Return item.GetStatistic("MaximumDefend")
     End Function
     Public Function Durability(item As IItem) As Integer
-        Return item.GetStatistic(StatisticTypes.Durability)
+        Return item.GetStatistic("Durability")
     End Function
     Public Sub SetDurability(item As IItem, durability As Integer)
-        item.SetStatistic(StatisticTypes.Durability, Math.Clamp(durability, 0, ItemExtensions.MaximumDurability(item)))
+        item.SetStatistic("Durability", Math.Clamp(durability, 0, ItemExtensions.MaximumDurability(item)))
     End Sub
     Public Sub AddDurability(item As IItem, delta As Integer)
         ItemExtensions.SetDurability(item, ItemExtensions.Durability(item) + delta)
     End Sub
     Public Function MaximumDurability(item As IItem) As Integer
-        Return item.GetStatistic(StatisticTypes.MaximumDurability)
+        Return item.GetStatistic("MaximumDurability")
     End Function
     Public Function IsBroken(item As IItem) As Boolean
         Return ItemExtensions.Durability(item) <= 0

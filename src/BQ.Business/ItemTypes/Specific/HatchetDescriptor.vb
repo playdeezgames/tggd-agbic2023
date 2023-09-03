@@ -12,8 +12,8 @@
             {
                 {"AttackDice", 3},
                 {"MaximumAttack", 1},
-                {StatisticTypes.Durability, 20},
-                {StatisticTypes.MaximumDurability, 20}
+                {"Durability", 20},
+                {"MaximumDurability", 20}
             },
             flags:=New List(Of String) From
             {

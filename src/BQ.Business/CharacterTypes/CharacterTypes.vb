@@ -288,7 +288,7 @@ character.World:
                 New CharacterTypeDescriptor(
                     "Olive Glop",
                     ChrW(&H1B),
-                    Hue.LightGreen,
+                    10,
                     ChrW(&H1A),
                     Hue.Black,
                     statistics:=New Dictionary(Of String, Integer) From

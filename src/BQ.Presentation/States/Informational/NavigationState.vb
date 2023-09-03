@@ -34,7 +34,7 @@
         position = RenderStatistic(displayBuffer, font, position, Model.Avatar.Statistics.Energy, Blue)
         position = RenderStatistic(displayBuffer, font, position, Model.Avatar.Statistics.XPLevel, Purple)
         position = RenderStatistic(displayBuffer, font, position, Model.Avatar.Statistics.XP, Cyan)
-        position = RenderStatistic(displayBuffer, font, position, $" {Model.Avatar.Statistics.Jools}", LightGreen)
+        position = RenderStatistic(displayBuffer, font, position, $" {Model.Avatar.Statistics.Jools}", 10)
     End Sub
 
     Private Shared Function RenderStatistic(displayBuffer As IPixelSink, font As Font, position As (x As Integer, y As Integer), text As String, hue As Integer) As (Integer, Integer)

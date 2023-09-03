@@ -5,7 +5,7 @@
     Private ReadOnly descriptors As IReadOnlyDictionary(Of String, ItemTypeDescriptor) =
         New Dictionary(Of String, ItemTypeDescriptor) From
         {
-            {"PlantFiber", New ItemTypeDescriptor("Plant Fiber", ChrW(&H21), LightGreen)},
+            {"PlantFiber", New ItemTypeDescriptor("Plant Fiber", ChrW(&H21), 10)},
             {"Wheat", New WheatDescriptor()},
             {"Flour", New FlourDescriptor()},
             {"Dough", New ItemTypeDescriptor("Dough", ChrW(&H44), 13)},

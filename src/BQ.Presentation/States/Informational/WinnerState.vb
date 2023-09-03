@@ -29,7 +29,7 @@
             displayBuffer,
             (Context.ViewCenter.X - font.HalfTextWidth(text), Context.ViewCenter.Y - font.HalfHeight),
             text,
-            LightGreen)
+            10)
         If DateTimeOffset.Now >= showUntil Then
             Context.ShowStatusBar(
                 displayBuffer,

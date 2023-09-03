@@ -418,7 +418,7 @@
         End If
         msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} gains {xp} XP!")
         If CharacterExtensions.AddXP(character, xp) Then
-            msg.AddLine(LightGreen, $"{CharacterExtensions.Name(character)} is now level {CharacterExtensions.XPLevel(character)}!")
+            msg.AddLine(10, $"{CharacterExtensions.Name(character)} is now level {CharacterExtensions.XPLevel(character)}!")
             msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.AdvancementPoints(character)} AP!")
         Else
             msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs {CharacterExtensions.XPGoal(character) - CharacterExtensions.XP(character)} for the next level.")

@@ -330,7 +330,7 @@ character.World:
                 New CharacterTypeDescriptor(
                     "Scarecrow",
                     ChrW(&H3A),
-                    Hue.Yellow,
+                    14,
                     ChrW(&H3C),
                     Hue.Black,
                     statistics:=New Dictionary(Of String, Integer) From

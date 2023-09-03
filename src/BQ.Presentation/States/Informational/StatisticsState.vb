@@ -22,7 +22,7 @@
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Defend, Green)
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.XP, Cyan)
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.XPLevel, Purple)
-        y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.AdvancementPoints, Yellow)
+        y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.AdvancementPoints, 14)
         WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Jools, Hue.LightGreen)
         Context.ShowHeader(displayBuffer, font, "Statistics", Black, Orange)
         Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(Nothing, "Go Back"), Black, LightGray)

@@ -72,7 +72,7 @@ Friend Class ForageState
             Dim offsetX = Context.ViewSize.Width \ 2 - gridSize.columns * CellWidth \ 2
             For Each column In Enumerable.Range(0, gridSize.columns)
                 If hiddenCells(column, row) Then
-                    bqFont.WriteText(displayBuffer, (offsetX, offsetY), ChrW(254), Yellow)
+                    bqFont.WriteText(displayBuffer, (offsetX, offsetY), ChrW(254), 14)
                 ElseIf items(column, row) IsNot Nothing Then
                     Dim item = items(column, row)
                     bqFont.WriteText(displayBuffer, (offsetX, offsetY), ItemExtensions.Glyph(item), ItemExtensions.Hue(item))

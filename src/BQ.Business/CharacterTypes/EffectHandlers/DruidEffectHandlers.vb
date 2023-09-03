@@ -21,7 +21,7 @@
             msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
             msg.LastChoice.SetMetadata(Metadatas.FlagType, "KnowsForaging")
             msg.LastChoice.SetMetadata(Metadatas.TaskName, "forage")
-            msg.LastChoice.SetMetadata(Metadatas.ActionName, "Forage...")
+            msg.LastChoice.SetMetadata("ActionName", "Forage...")
             msg.LastChoice.SetMetadata(Metadatas.RecipeType, "Foraging")
         End If
         If canLearnTwineMaking Then
@@ -31,7 +31,7 @@
             msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
             msg.LastChoice.SetMetadata(Metadatas.FlagType, "KnowsTwineMaking")
             msg.LastChoice.SetMetadata(Metadatas.TaskName, "make twine")
-            msg.LastChoice.SetMetadata(Metadatas.ActionName, "Make Twine")
+            msg.LastChoice.SetMetadata("ActionName", "Make Twine")
             msg.LastChoice.SetMetadata(Metadatas.RecipeType, "Twine")
             msg.LastChoice.SetFlag("LearnByDoing", True)
         End If
@@ -42,7 +42,7 @@
             msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
             msg.LastChoice.SetMetadata(Metadatas.FlagType, "KnowsRockSharpening")
             msg.LastChoice.SetMetadata(Metadatas.TaskName, "knap")
-            msg.LastChoice.SetMetadata(Metadatas.ActionName, "Knap")
+            msg.LastChoice.SetMetadata("ActionName", "Knap")
             msg.LastChoice.SetMetadata(Metadatas.RecipeType, "SharpRock")
             msg.LastChoice.SetFlag("LearnByDoing", True)
         End If
@@ -53,7 +53,7 @@
             msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
             msg.LastChoice.SetMetadata(Metadatas.FlagType, "KnowsFireMaking")
             msg.LastChoice.SetMetadata(Metadatas.TaskName, "make a fire")
-            msg.LastChoice.SetMetadata(Metadatas.ActionName, "Build Fire")
+            msg.LastChoice.SetMetadata("ActionName", "Build Fire")
             msg.LastChoice.SetMetadata(Metadatas.RecipeType, "CookingFire")
             msg.LastChoice.SetMetadata(Metadatas.Caveat, "(only works in clear areas in the wilderness)")
             msg.LastChoice.SetFlag("LearnByDoing", False)
@@ -65,7 +65,7 @@
             msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
             msg.LastChoice.SetMetadata(Metadatas.FlagType, "KnowsTorchMaking")
             msg.LastChoice.SetMetadata(Metadatas.TaskName, "make a torch")
-            msg.LastChoice.SetMetadata(Metadatas.ActionName, "Make Torch")
+            msg.LastChoice.SetMetadata("ActionName", "Make Torch")
             msg.LastChoice.SetMetadata(Metadatas.RecipeType, "Torch")
             msg.LastChoice.SetMetadata(Metadatas.Caveat, "(only works with a source of flames)")
             msg.LastChoice.SetFlag("LearnByDoing", False)
@@ -77,7 +77,7 @@
             msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
             msg.LastChoice.SetMetadata(Metadatas.FlagType, "KnowsHatchetMaking")
             msg.LastChoice.SetMetadata(Metadatas.TaskName, "make a hatchet")
-            msg.LastChoice.SetMetadata(Metadatas.ActionName, "Make Hatchet")
+            msg.LastChoice.SetMetadata("ActionName", "Make Hatchet")
             msg.LastChoice.SetMetadata(Metadatas.RecipeType, "Hatchet")
             msg.LastChoice.SetFlag("LearnByDoing", True)
         End If

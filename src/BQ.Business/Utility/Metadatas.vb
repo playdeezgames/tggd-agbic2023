@@ -1,5 +1,4 @@
 ﻿Friend Module Metadatas
-    Friend Const ActionName = "ActionName"
     Friend Const Caveat = "Caveat"
     Friend Const EffectType = "EffectType"
     Friend Const FlagType = "FlagType"

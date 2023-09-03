@@ -94,7 +94,7 @@
         End If
         msg.
             AddLine(LightGray, $"You now know how to {taskName}!").
-            AddLine(LightGray, $"To do so, simply select '{effect.GetMetadata(Metadatas.ActionName)}'").
+            AddLine(LightGray, $"To do so, simply select '{effect.GetMetadata("ActionName")}'").
             AddLine(LightGray, "from the Actions menu.")
         If effect.HasMetadata(Metadatas.Caveat) Then
             msg.AddLine(LightGray, effect.GetMetadata(Metadatas.Caveat))

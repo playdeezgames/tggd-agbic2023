@@ -32,7 +32,7 @@
         Dim font = Context.Font(UIFont)
         Dim position = RenderStatistic(displayBuffer, font, (0, 0), Model.Avatar.Statistics.Health, 12)
         position = RenderStatistic(displayBuffer, font, position, Model.Avatar.Statistics.Energy, Blue)
-        position = RenderStatistic(displayBuffer, font, position, Model.Avatar.Statistics.XPLevel, Purple)
+        position = RenderStatistic(displayBuffer, font, position, Model.Avatar.Statistics.XPLevel, 5)
         position = RenderStatistic(displayBuffer, font, position, Model.Avatar.Statistics.XP, Cyan)
         position = RenderStatistic(displayBuffer, font, position, $" {Model.Avatar.Statistics.Jools}", 10)
     End Sub

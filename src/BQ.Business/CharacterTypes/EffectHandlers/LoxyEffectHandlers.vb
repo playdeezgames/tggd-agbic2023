@@ -2,12 +2,10 @@
     Friend All As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect)) =
         New Dictionary(Of String, Action(Of ICharacter, IEffect)) From
                     {
-                        {"Message", AddressOf DefaultMessage},
                         {"Heal", AddressOf NihilisticHealing},
                         {"ExitDialog", AddressOf DoExitDialog},
                         {"NihilistPrices", AddressOf DoNihilistPrices},
                         {"TrainHealth", AddressOf DoTrainHealth},
-                        {"DruidTeachMenu", AddressOf DoDruidTeachMenu},
                         {"HealthTrainerTalk", AddressOf DoHealthTrainerTalk},
                         {"HealerTalk", AddressOf DoHealerTalk},
                         {"GorachanTalk", AddressOf DoGorachanTalk},
@@ -56,11 +54,8 @@
             AddChoice("No worries!", trigger.GetMetadata("EffectType"))
     End Sub
 
-    Private Sub DefaultMessage(character As ICharacter, trigger As IEffect)
-        MessageTypes.ToMessageTypeDescriptor(trigger.GetMetadata("MessageType")).CreateMessage(character.World)
-    End Sub
 
-    Private Sub DoExitDialog(character As ICharacter, trigger As IEffect)
+    Private Sub DoExitDialog(character As ICharacter, effect As IEffect)
         'NOTHING!
     End Sub
 End Module

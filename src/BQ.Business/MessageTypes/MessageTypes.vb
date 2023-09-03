@@ -1,6 +1,6 @@
-﻿Friend Module MessageTypes
+﻿Public Module MessageTypes
     Private descriptors As IReadOnlyDictionary(Of String, MessageTypeDescriptor)
-    Friend Function ToMessageTypeDescriptor(messageType As String) As MessageTypeDescriptor
+    Public Function ToMessageTypeDescriptor(messageType As String) As MessageTypeDescriptor
         Return descriptors(messageType)
     End Function
 

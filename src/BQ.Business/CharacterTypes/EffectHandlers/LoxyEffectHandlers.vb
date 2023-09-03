@@ -3,7 +3,6 @@
         New Dictionary(Of String, Action(Of ICharacter, IEffect)) From
                     {
                         {"Heal", AddressOf NihilisticHealing},
-                        {"ExitDialog", AddressOf DoExitDialog},
                         {"NihilistPrices", AddressOf DoNihilistPrices},
                         {"TrainHealth", AddressOf DoTrainHealth},
                         {"HealthTrainerTalk", AddressOf DoHealthTrainerTalk},
@@ -52,10 +51,5 @@
             CreateMessage().
             AddLine(7, "Thank you for yer purchase!").
             AddChoice("No worries!", trigger.GetMetadata("EffectType"))
-    End Sub
-
-
-    Private Sub DoExitDialog(character As ICharacter, effect As IEffect)
-        'NOTHING!
     End Sub
 End Module

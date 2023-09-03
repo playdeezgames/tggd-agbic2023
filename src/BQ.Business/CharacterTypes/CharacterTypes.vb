@@ -33,6 +33,10 @@
                     effectScripts:=New Dictionary(Of String, String) From
                     {
                         {
+                            "ExitDialog",
+                            ""
+                        },
+                        {
                             "Message",
                             "
 MessageTypes.ToMessageTypeDescriptor(effect:GetMetadata(""MessageType"")):CreateMessage(character.World)"

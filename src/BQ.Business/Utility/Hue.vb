@@ -14,5 +14,4 @@
     Public Const Pink = 12
     Public Const Tan = 13
     Public Const Yellow = 14
-    Public Const White = 15
 End Module

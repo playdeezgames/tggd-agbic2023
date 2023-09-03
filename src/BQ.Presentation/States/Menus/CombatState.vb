@@ -142,7 +142,7 @@
     End Function
 
     Private Sub DrawEnemyPointer(displayBuffer As IPixelSink, font As Font, x As Integer, y As Integer, glyphWidth As Integer)
-        font.WriteText(displayBuffer, (x + glyphWidth * CharacterIndex, y + font.Height), ChrW(&H1C), White)
+        font.WriteText(displayBuffer, (x + glyphWidth * CharacterIndex, y + font.Height), ChrW(&H1C), 15)
     End Sub
 
     Private Shared Function DrawCharacter(displayBuffer As IPixelSink, font As Font, x As Integer, y As Integer, glyphWidth As Integer, character As (Glyph As Char, Hue As Integer, MaskGlyph As Char, MaskHue As Integer)) As Integer

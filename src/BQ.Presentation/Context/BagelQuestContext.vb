@@ -50,11 +50,11 @@ Public Class BagelQuestContext
         New Dictionary(Of Integer, (String, Integer)) From
         {
             {0, ("About Bagel Quest", Orange)},
-            {2, ("Art:", White)},
-            {3, ("https://kenney.nl/assets/1-bit-pack", White)},
-            {5, ("A Production of TheGrumpyGameDev", White)},
-            {7, ("For A Game By Its Cover 2023", White)},
-            {9, ("See 'aboot.txt'", White)}
+            {2, ("Art:", 15)},
+            {3, ("https://kenney.nl/assets/1-bit-pack", 15)},
+            {5, ("A Production of TheGrumpyGameDev", 15)},
+            {7, ("For A Game By Its Cover 2023", 15)},
+            {9, ("See 'aboot.txt'", 15)}
         }
 
     Public Overrides Sub ShowAboutContent(displayBuffer As IPixelSink, font As Font)

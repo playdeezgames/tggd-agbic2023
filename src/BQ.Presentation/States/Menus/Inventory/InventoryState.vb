@@ -53,7 +53,7 @@ Friend Class InventoryState
                     font.WriteText(displayBuffer, (offsetX + columnStride \ 2 - font.TextWidth(text) \ 2, offsetY + bqFont.Height + rowStride \ 4), text, LightGray)
                 End If
                 If index = currentIndex Then
-                    bqFont.WriteText(displayBuffer, (offsetX + columnStride \ 4, offsetY + rowStride \ 4), ChrW(255), White)
+                    bqFont.WriteText(displayBuffer, (offsetX + columnStride \ 4, offsetY + rowStride \ 4), ChrW(255), 15)
                 End If
                 index += 1
                 offsetX += columnStride

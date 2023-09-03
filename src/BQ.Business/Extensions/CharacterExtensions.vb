@@ -380,7 +380,7 @@
         character.SetStatistic(StatisticTypes.AdvancementPoints, Math.Max(0, character.GetStatistic(StatisticTypes.AdvancementPoints) + advancementPoints))
     End Sub
     Public Function AddXP(character As ICharacter, xp As Integer) As Boolean
-        character.AddStatistic(StatisticTypes.XP, xp)
+        character.AddStatistic("XP", xp)
         If CharacterExtensions.XP(character) >= CharacterExtensions.XPGoal(character) Then
             CharacterExtensions.AddAdvancementPoints(character, CharacterExtensions.AdvancementPointsPerLevel(character))
             character.AddStatistic(StatisticTypes.XPLevel, 1)
@@ -498,7 +498,7 @@
         Return result
     End Function
     Function XP(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.XP)
+        Return character.GetStatistic("XP")
     End Function
     Function XPGoal(character As ICharacter) As Integer
         Return character.GetStatistic(StatisticTypes.XPGoal)

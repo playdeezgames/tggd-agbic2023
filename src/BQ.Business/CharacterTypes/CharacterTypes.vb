@@ -18,7 +18,7 @@
                         {"MaximumAttack", 1},
                         {"DefendDice", 4},
                         {"MaximumDefend", 2},
-                        {StatisticTypes.XP, 0},
+                        {"XP", 0},
                         {StatisticTypes.XPGoal, 10},
                         {StatisticTypes.XPLevel, 1},
                         {StatisticTypes.AdvancementPointsPerLevel, 10},
@@ -300,7 +300,7 @@ character.World:
                         {"DefendDice", 1},
                         {"MaximumDefend", 1},
                         {"Peril", 5},
-                        {StatisticTypes.XP, 1}
+                        {"XP", 1}
                     },
                     initializeScript:="character:SetStatistic('Jools', RNG.RollDice('3d6/6'))")
             },
@@ -321,7 +321,7 @@ character.World:
                         {"DefendDice", 1},
                         {"MaximumDefend", 1},
                         {"Peril", 3},
-                        {StatisticTypes.XP, 0}
+                        {"XP", 0}
                     },
                     initializeScript:="character:AddItem(ItemInitializer.CreateItem(character.World, 'RatCorpse'))")
             },
@@ -342,7 +342,7 @@ character.World:
                         {"DefendDice", 3},
                         {"MaximumDefend", 3},
                         {"Peril", 7},
-                        {StatisticTypes.XP, 3}
+                        {"XP", 3}
                     },
 initializeScript:="if RNG.RollDice('1d5/5') > 0 then
     character:AddItem(ItemInitializer.CreateItem(character.World, 'StrawHat'))
@@ -365,7 +365,7 @@ end")
                         {"DefendDice", 1},
                         {"MaximumDefend", 1},
                         {"Peril", 10},
-                        {StatisticTypes.XP, 2}
+                        {"XP", 2}
                     },
                     initializeScript:="character:SetStatistic('Jools', RNG.RollDice('6d6/6'))")
             }

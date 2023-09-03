@@ -33,6 +33,50 @@
                     effectScripts:=New Dictionary(Of String, String) From
                     {
                         {
+                            "FillClayPot",
+                            "
+RecipeTypes.Craft(""WaterPot"", character)
+character.World.CreateMessage().AddLine(7, CharacterExtensions.Name(character) .. "" fills a "" .. ToItemTypeDescriptor(""ClayPot"").Name .. "" with water."")"
+                        },
+                        {
+                            "EnergyTrainerTalk",
+                            "
+local trainCost = CharacterExtensions.MaximumEnergy(character) * 2
+character.World:CreateMessage():
+    AddLine(7, ""I am the endurance trainer.""):
+    AddLine(7, ""I can increase yer energy""):
+    AddLine(7, ""for the cost of 1AP and "" .. trainCost .. "" jools.""):
+    AddChoice(""Cool story, bro!"", ""ExitDialog""):
+    AddChoice(""Train me!"", ""TrainEnergy"")"
+                        },
+                        {
+                            "TrainEnergy",
+                            "
+local msg = character.World:CreateMessage()
+if CharacterExtensions.AdvancementPoints(character) < 1 then
+    msg:AddLine(7, ""You need at least 1 AP."")
+    msg:AddLine(7, ""Come back when yer more experienced!"")
+    return
+end
+local Multiplier = 2
+local TrainingCost = Multiplier * CharacterExtensions.MaximumEnergy(character)
+if CharacterExtensions.Jools(character) < TrainingCost then
+    msg:
+        AddLine(7, $""The price is {TrainingCost} jools.""):
+        AddLine(7, ""I have overhead, you know."")
+    return
+end
+CharacterExtensions.AddAdvancementPoints(character, -1)
+CharacterExtensions.AddJools(character, -TrainingCost)
+CharacterExtensions.SetMaximumEnergy(character, CharacterExtensions.MaximumEnergy(character) + 1)
+CharacterExtensions.AddEnergy(character, 1)
+msg:AddLine(4, CharacterExtensions.Name(character) .. "" loses 1 AP"")
+msg:AddLine(4, CharacterExtensions.Name(character) .. "" loses "" .. TrainingCost .. "" jools"")
+msg:AddLine(2, CharacterExtensions.Name(character)} .. "" adds 1 Maximum Energy"")
+msg:AddLine(7, ""Yer now at "" .. CharacterExtensions.MaximumEnergy(character) .. "" Maximum Energy."")
+msg:AddLine(7, ""Persistence is futile!"")"
+                        },
+                        {
                             "HealerTalk",
                             "
 character.World:CreateMessage():

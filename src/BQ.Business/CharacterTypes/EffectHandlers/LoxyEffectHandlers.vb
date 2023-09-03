@@ -10,14 +10,11 @@
                         {"PervertInnkeeper", AddressOf DoPerventInnkeeper},
                         {"PayInnkeeper", AddressOf DoPayInnkeeper},
                         {"Buy", AddressOf DoBuy},
-                        {"EnergyTrainerTalk", AddressOf DoEnergyTrainerTalk},
-                        {"TrainEnergy", AddressOf DoTrainEnergy},
                         {"StartRatQuest", AddressOf DoStartRatQuest},
                         {"CompleteRatQuest", AddressOf DoCompleteRatQuest},
                         {"Forage", AddressOf DoForage},
                         {"PotterMakePot", AddressOf DoPotterMakePot},
-                        {"BumpRiver", AddressOf DoBumpRiver},
-                        {"FillClayPot", AddressOf DoFillClayPot}
+                        {"BumpRiver", AddressOf DoBumpRiver}
                     }
     Private Sub DoForage(character As ICharacter, effect As IEffect)
         Dim cell As ICell = CType(effect, ITerrainEffect).Cell

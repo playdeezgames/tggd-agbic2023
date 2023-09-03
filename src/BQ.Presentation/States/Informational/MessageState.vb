@@ -40,7 +40,7 @@ Friend Class MessageState
         Dim font = Context.Font(UIFont)
         ShowLines(displayBuffer, message, font)
         Dim aButtonText = ShowChoices(displayBuffer, message, font)
-        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(aButtonText, Nothing), Black, LightGray)
+        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(aButtonText, Nothing), Black, 7)
     End Sub
 
     Private Function ShowChoices(displayBuffer As IPixelSink, message As IMessage, font As Font) As String

@@ -65,7 +65,7 @@
     Private Sub DrawAvatarStats(displayBuffer As IPixelSink)
         Dim font = Context.Font(UIFont)
         Dim centerX = OneThirdWidth()
-        Dim y = CenterText(displayBuffer, font, centerX, OneSixthHeight() - font.HalfHeight * 3, Model.Avatar.Name, LightGray)
+        Dim y = CenterText(displayBuffer, font, centerX, OneSixthHeight() - font.HalfHeight * 3, Model.Avatar.Name, 7)
         y = CenterText(displayBuffer, font, centerX, y, Model.Avatar.Statistics.Health, 12)
         CenterText(displayBuffer, font, centerX, y, Model.Avatar.Statistics.Energy, Blue)
     End Sub
@@ -116,7 +116,7 @@
         Dim centerX = TwoThirdsWidth()
         Dim y = OneSixthHeight() - font.HalfHeight * 2
         Dim enemy = Model.Combat.Enemy(CharacterIndex)
-        y = CenterText(displayBuffer, font, centerX, y, enemy.Name, LightGray)
+        y = CenterText(displayBuffer, font, centerX, y, enemy.Name, 7)
         CenterText(displayBuffer, font, centerX, y, enemy.HealthDisplay, 12)
     End Sub
 

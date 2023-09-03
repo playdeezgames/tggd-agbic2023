@@ -30,12 +30,12 @@
         End If
         Dim itemType = CellExtensions.GenerateForageItemType(cell)
         If String.IsNullOrEmpty(itemType) Then
-            character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} finds nothing.")
+            character.World.CreateMessage().AddLine(7, $"{CharacterExtensions.Name(character)} finds nothing.")
             Return
         End If
         Dim item = ItemInitializer.CreateItem(character.World, itemType)
         character.AddItem(item)
-        character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} finds {ItemExtensions.Name(item)}")
+        character.World.CreateMessage().AddLine(7, $"{CharacterExtensions.Name(character)} finds {ItemExtensions.Name(item)}")
     End Sub
 
     Private Sub DoBuy(character As ICharacter, trigger As IEffect)
@@ -44,7 +44,7 @@
         If CharacterExtensions.Jools(character) < price Then
             character.World.
                 CreateMessage().
-                AddLine(LightGray, "You don't have enough!").
+                AddLine(7, "You don't have enough!").
                 AddChoice("Shucks!", trigger.GetMetadata("EffectType"))
             Return
         End If
@@ -52,7 +52,7 @@
         character.AddItem(ItemInitializer.CreateItem(character.World, itemType))
         character.World.
             CreateMessage().
-            AddLine(LightGray, "Thank you for yer purchase!").
+            AddLine(7, "Thank you for yer purchase!").
             AddChoice("No worries!", trigger.GetMetadata("EffectType"))
     End Sub
 

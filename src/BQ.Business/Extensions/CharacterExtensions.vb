@@ -1,13 +1,13 @@
 ﻿Public Module CharacterExtensions
     Public Sub AddRecipeInputs(character As ICharacter, msg As IMessage, recipeType As String)
         For Each input In RecipeTypes.Inputs(recipeType)
-            msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
+            msg.AddLine(7, $"{ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
         Next
     End Sub
 
     Public Sub ReportNeededRecipeInputs(character As ICharacter, msg As IMessage, recipeName As String)
         For Each input In RecipeTypes.Inputs(recipeName)
-            msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
+            msg.AddLine(7, $"{ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
         Next
     End Sub
 
@@ -18,13 +18,13 @@
             End If
             RecipeTypes.Craft(recipeType, character)
             character.World.CreateMessage().
-                AddLine(LightGray, $"{CharacterExtensions.Name(character)} {resultName}.")
+                AddLine(7, $"{CharacterExtensions.Name(character)} {resultName}.")
         End If
     End Sub
 
     Public Function ConsumeEnergy(character As ICharacter, energyCost As Integer, actionName As String) As Boolean
         If CharacterExtensions.Energy(character) < energyCost Then
-            character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} doesn't have the energy to {actionName}.")
+            character.World.CreateMessage().AddLine(7, $"{CharacterExtensions.Name(character)} doesn't have the energy to {actionName}.")
             Return False
         End If
         CharacterExtensions.AddEnergy(character, -energyCost)
@@ -34,10 +34,10 @@
     Private Function CanDoRecipe(character As ICharacter, recipeType As String, taskName As String) As Boolean
         If Not RecipeTypes.CanCraft(recipeType, character) Then
             Dim msg = character.World.CreateMessage().
-                AddLine(LightGray, $"To {taskName},").
-                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
+                AddLine(7, $"To {taskName},").
+                AddLine(7, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs(recipeType)
-                msg.AddLine(LightGray, $"{ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
+                msg.AddLine(7, $"{ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
             Next
             Return False
         End If
@@ -54,7 +54,7 @@
     Private Function CheckForFurnace(character As ICharacter, taskName As String) As Boolean
         If Not TerrainTypes.Descriptor(character.Cell).IsFurnace Then
             character.World.CreateMessage().
-                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs a furnace to {taskName}.")
+                AddLine(7, $"{CharacterExtensions.Name(character)} needs a furnace to {taskName}.")
             Return False
         End If
         Return True
@@ -63,7 +63,7 @@
     Private Function CheckForFire(character As ICharacter, taskName As String) As Boolean
         If Not TerrainTypes.Descriptor(character.Cell).HasFire Then
             character.World.CreateMessage().
-                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs a fire to {taskName}.")
+                AddLine(7, $"{CharacterExtensions.Name(character)} needs a fire to {taskName}.")
             Return False
         End If
         Return True
@@ -81,10 +81,10 @@
         Dim recipeType = effect.GetMetadata("RecipeType")
         If Not RecipeTypes.CanCraft(recipeType, character) Then
             msg.
-            AddLine(LightGray, $"To learn to {taskName},").
-            AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
+            AddLine(7, $"To learn to {taskName},").
+            AddLine(7, $"{CharacterExtensions.Name(character)} needs:")
             For Each input In RecipeTypes.Inputs(recipeType)
-                msg.AddLine(LightGray, $"{ItemTypes.ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
+                msg.AddLine(7, $"{ItemTypes.ToItemTypeDescriptor(input.ItemType).Name}: {character.ItemTypeCount(input.ItemType)}/{input.Count}")
             Next
             Return
         End If
@@ -93,11 +93,11 @@
             RecipeTypes.Craft(recipeType, character)
         End If
         msg.
-            AddLine(LightGray, $"You now know how to {taskName}!").
-            AddLine(LightGray, $"To do so, simply select '{effect.GetMetadata("ActionName")}'").
-            AddLine(LightGray, "from the Actions menu.")
+            AddLine(7, $"You now know how to {taskName}!").
+            AddLine(7, $"To do so, simply select '{effect.GetMetadata("ActionName")}'").
+            AddLine(7, "from the Actions menu.")
         If effect.HasMetadata("Caveat") Then
-            msg.AddLine(LightGray, effect.GetMetadata("Caveat"))
+            msg.AddLine(7, effect.GetMetadata("Caveat"))
         End If
     End Sub
 
@@ -105,9 +105,9 @@
         Dim learnCost = effect.GetStatistic("AdvancementPoints")
         If CharacterExtensions.AdvancementPoints(character) < learnCost Then
             msg.
-                AddLine(LightGray, $"To learn to {text},").
-                AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs {learnCost} AP,").
-                AddLine(LightGray, $"but has {CharacterExtensions.AdvancementPoints(character)}!")
+                AddLine(7, $"To learn to {text},").
+                AddLine(7, $"{CharacterExtensions.Name(character)} needs {learnCost} AP,").
+                AddLine(7, $"but has {CharacterExtensions.AdvancementPoints(character)}!")
             Return False
         End If
         CharacterExtensions.AddAdvancementPoints(character, -learnCost)
@@ -116,7 +116,7 @@
     End Function
     Public Function AlreadyKnows(character As ICharacter, effect As IEffect, msg As IMessage, text As String) As Boolean
         If character.GetFlag(effect.GetMetadata("FlagType")) Then
-            msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} already know how to {text}!")
+            msg.AddLine(7, $"{CharacterExtensions.Name(character)} already know how to {text}!")
             Return True
         End If
         Return False
@@ -126,8 +126,8 @@
     Public Sub DoHealing(character As ICharacter, item As IItem, amount As Integer)
         CharacterExtensions.SetHealth(character, CharacterExtensions.Health(character) + amount)
         character.World.CreateMessage().
-            AddLine(LightGray, $"{ItemExtensions.Name(item)} restores {amount} health!").
-            AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Health(character)}/{CharacterExtensions.MaximumHealth(character)} health")
+            AddLine(7, $"{ItemExtensions.Name(item)} restores {amount} health!").
+            AddLine(7, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Health(character)}/{CharacterExtensions.MaximumHealth(character)} health")
     End Sub
     Public Function ConsumedItem(character As ICharacter, effect As IEffect) As IItem
         Dim item = EffectExtensions.ToItemEffect(effect).Item
@@ -183,13 +183,13 @@
             Return
         End If
         If Not character.Map.GetFlag("CampingAllowed") OrElse Not CellExtensions.CanSleep(character.Cell) Then
-            character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} cannot sleep here!")
+            character.World.CreateMessage().AddLine(7, $"{CharacterExtensions.Name(character)} cannot sleep here!")
             Return
         End If
         CharacterExtensions.AddEnergy(character, CharacterExtensions.MaximumEnergy(character) \ 2)
         Dim msg = character.World.CreateMessage().
-            AddLine(LightGray, $"{CharacterExtensions.Name(character)} sleeps.").
-            AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Energy(character)}/{CharacterExtensions.MaximumEnergy(character)} energy.")
+            AddLine(7, $"{CharacterExtensions.Name(character)} sleeps.").
+            AddLine(7, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.Energy(character)}/{CharacterExtensions.MaximumEnergy(character)} energy.")
         CharacterExtensions.AddPeril(character, CharacterExtensions.MaximumEnergy(character) \ 2)
         CharacterExtensions.Move(character, (0, 0))
         If character.Cell.HasOtherCharacters(character) Then
@@ -213,12 +213,12 @@
     End Sub
     Public Sub DoMakeItem(character As ICharacter, recipeType As String, noun As String, makeAction As Action(Of ICharacter))
         If Not RecipeTypes.CanCraft(recipeType, character) Then
-            Dim msg = character.World.CreateMessage().AddLine(LightGray, $"To make {noun},").AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs:")
+            Dim msg = character.World.CreateMessage().AddLine(7, $"To make {noun},").AddLine(7, $"{CharacterExtensions.Name(character)} needs:")
             AddRecipeInputs(character, msg, recipeType)
             Return
         End If
         makeAction.Invoke(character)
-        character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} makes {noun}.")
+        character.World.CreateMessage().AddLine(7, $"{CharacterExtensions.Name(character)} makes {noun}.")
     End Sub
     Public Sub DoPutOutFire(character As ICharacter)
         TerrainTypes.Descriptor(character.Cell).DoEffect(character, "PutOutFire", character.Cell)
@@ -405,7 +405,7 @@
             Return
         End If
         If jools > 0 Then
-            msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} gets {jools} jools!")
+            msg.AddLine(7, $"{CharacterExtensions.Name(character)} gets {jools} jools!")
             CharacterExtensions.AddJools(character, jools)
         End If
     End Sub
@@ -416,12 +416,12 @@
         If Not character.IsAvatar OrElse xp = 0 Then
             Return
         End If
-        msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} gains {xp} XP!")
+        msg.AddLine(7, $"{CharacterExtensions.Name(character)} gains {xp} XP!")
         If CharacterExtensions.AddXP(character, xp) Then
             msg.AddLine(10, $"{CharacterExtensions.Name(character)} is now level {CharacterExtensions.XPLevel(character)}!")
-            msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.AdvancementPoints(character)} AP!")
+            msg.AddLine(7, $"{CharacterExtensions.Name(character)} now has {CharacterExtensions.AdvancementPoints(character)} AP!")
         Else
-            msg.AddLine(LightGray, $"{CharacterExtensions.Name(character)} needs {CharacterExtensions.XPGoal(character) - CharacterExtensions.XP(character)} for the next level.")
+            msg.AddLine(7, $"{CharacterExtensions.Name(character)} needs {CharacterExtensions.XPGoal(character) - CharacterExtensions.XP(character)} for the next level.")
         End If
     End Sub
     Public Function ScuffWeapons(character As ICharacter, scuffAmount As Integer, msg As IMessage) As Boolean
@@ -467,34 +467,34 @@
         Dim result = False
         Dim msg = attacker.World.CreateMessage
         If Not String.IsNullOrEmpty(message) Then
-            msg.AddLine(LightGray, message)
+            msg.AddLine(7, message)
         End If
-        msg.AddLine(LightGray, $"{CharacterExtensions.Name(attacker)} attacks {CharacterExtensions.Name(defender)}")
+        msg.AddLine(7, $"{CharacterExtensions.Name(attacker)} attacks {CharacterExtensions.Name(defender)}")
         Dim attackRoll = CharacterExtensions.RollAttack(attacker)
-        msg.AddLine(LightGray, $"{CharacterExtensions.Name(attacker)} rolls an attack of {attackRoll}")
+        msg.AddLine(7, $"{CharacterExtensions.Name(attacker)} rolls an attack of {attackRoll}")
         result = CharacterExtensions.ScuffWeapons(attacker, attackRoll, msg) OrElse result
         Dim defendRoll = CharacterExtensions.RollDefend(defender)
-        msg.AddLine(LightGray, $"{CharacterExtensions.Name(defender)} rolls a defend of {defendRoll}")
+        msg.AddLine(7, $"{CharacterExtensions.Name(defender)} rolls a defend of {defendRoll}")
         Dim damage = Math.Max(0, attackRoll - defendRoll)
         result = CharacterExtensions.ScuffArmors(defender, Math.Max(defendRoll, damage), msg) OrElse result
         If damage <= 0 Then
-            msg.AddLine(LightGray, $"{CharacterExtensions.Name(attacker)} misses.")
+            msg.AddLine(7, $"{CharacterExtensions.Name(attacker)} misses.")
             msg.SetSfx(If(attacker.IsAvatar, Sfx.PlayerMiss, Sfx.EnemyMiss))
             Return result
         End If
         result = True
-        msg.AddLine(LightGray, $"{CharacterExtensions.Name(defender)} takes {damage} damage")
+        msg.AddLine(7, $"{CharacterExtensions.Name(defender)} takes {damage} damage")
         CharacterExtensions.SetHealth(defender, CharacterExtensions.Health(defender) - damage)
         If CharacterExtensions.IsDead(defender) Then
             msg.SetSfx(If(defender.IsAvatar, Sfx.PlayerDeath, Sfx.EnemyDeath))
-            msg.AddLine(LightGray, $"{CharacterExtensions.Name(attacker)} kills {CharacterExtensions.Name(defender)}")
+            msg.AddLine(7, $"{CharacterExtensions.Name(attacker)} kills {CharacterExtensions.Name(defender)}")
             CharacterExtensions.AwardJools(attacker, msg, CharacterExtensions.Jools(defender))
             CharacterExtensions.AwardXP(attacker, msg, CharacterExtensions.XP(defender))
             CharacterExtensions.Die(defender)
             Return result
         End If
         msg.SetSfx(If(defender.IsAvatar, Sfx.PlayerHit, Sfx.EnemyHit))
-        msg.AddLine(LightGray, $"{CharacterExtensions.Name(defender)} has {CharacterExtensions.Health(defender)}/{CharacterExtensions.MaximumHealth(defender)} health.")
+        msg.AddLine(7, $"{CharacterExtensions.Name(defender)} has {CharacterExtensions.Health(defender)}/{CharacterExtensions.MaximumHealth(defender)} health.")
         Return result
     End Function
     Function XP(character As ICharacter) As Integer

@@ -4,7 +4,7 @@
     Public Sub New()
         MyBase.New("Furnace",
             ChrW(&H45),
-            Business.Hue.LightGray,
+            7,
             True,
             effects:=New Dictionary(Of String, EffectData) From
             {

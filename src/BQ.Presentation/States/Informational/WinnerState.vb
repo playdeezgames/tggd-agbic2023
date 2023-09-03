@@ -36,7 +36,7 @@
                 font,
                 Context.ControlsText(MainMenuText, Nothing),
                 Black,
-                LightGray)
+                7)
         End If
     End Sub
 

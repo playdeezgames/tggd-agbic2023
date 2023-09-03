@@ -30,9 +30,9 @@
         If items.Any Then
             Dim table = items.GroupBy(Function(x) ItemExtensions.Name(x)).ToDictionary(Function(x) x.Key, Function(x) x.Count)
             Dim msg = world.CreateMessage().
-                AddLine(LightGray, $"{CharacterExtensions.Name(world.Avatar)} forages:")
+                AddLine(7, $"{CharacterExtensions.Name(world.Avatar)} forages:")
             For Each entry In table
-                msg.AddLine(LightGray, $"{entry.Key}(x{entry.Value})")
+                msg.AddLine(7, $"{entry.Key}(x{entry.Value})")
             Next
         End If
     End Sub

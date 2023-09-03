@@ -25,7 +25,7 @@
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.AdvancementPoints, 14)
         WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Jools, 10)
         Context.ShowHeader(displayBuffer, font, "Statistics", Black, 11)
-        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(Nothing, "Go Back"), Black, LightGray)
+        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(Nothing, "Go Back"), Black, 7)
     End Sub
     Private Function WriteLine(displayBuffer As IPixelSink, font As Font, y As Integer, text As String, hue As Integer) As Integer
         font.WriteText(displayBuffer, (Context.ViewSize.Width \ 2 - font.TextWidth(text) \ 2, y), text, hue)

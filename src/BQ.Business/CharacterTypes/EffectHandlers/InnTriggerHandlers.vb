@@ -2,20 +2,20 @@
     Friend Sub DoPayInnkeeper(character As ICharacter, effect As IEffect)
         If character.GetFlag("PaidInnkeeper") Then
             character.World.CreateMessage().
-                        AddLine(LightGray, "You've already paid!")
+                        AddLine(7, "You've already paid!")
             Return
         End If
         Const bedCost = 1
         If CharacterExtensions.Jools(character) < bedCost Then
             character.World.CreateMessage().
-                        AddLine(LightGray, "Sorry! No jools, no bed!")
+                        AddLine(7, "Sorry! No jools, no bed!")
             Return
         End If
         CharacterExtensions.AddJools(character, -bedCost)
         character.SetFlag("PaidInnkeeper", True)
         character.World.CreateMessage().
-                        AddLine(LightGray, "Thanks for yer business.").
-                        AddLine(LightGray, "Choose any bed you like.")
+                        AddLine(7, "Thanks for yer business.").
+                        AddLine(7, "Choose any bed you like.")
     End Sub
 
     Friend Sub DoCompleteRatQuest(character As ICharacter, trigger As IEffect)
@@ -26,22 +26,22 @@
             item.Recycle()
         Next
         CharacterExtensions.AddJools(character, jools)
-        character.World.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(character)} receives {jools} jools.")
+        character.World.CreateMessage().AddLine(7, $"{CharacterExtensions.Name(character)} receives {jools} jools.")
     End Sub
 
     Friend Sub DoPerventInnkeeper(character As ICharacter, trigger As IEffect)
         character.World.CreateMessage().
-            AddLine(LightGray, "I'm not a pervert!").
-            AddLine(LightGray, "I'm just Australian!")
+            AddLine(7, "I'm not a pervert!").
+            AddLine(7, "I'm just Australian!")
     End Sub
 
     Friend Sub DoGorachanTalk(character As ICharacter, trigger As IEffect)
         Dim msg = character.World.CreateMessage().
-                        AddLine(LightGray, "Welcome to Jusdatip Inn!").
-                        AddLine(LightGray, "I'm Gorachan.").
-                        AddLine(LightGray, "You can rest in a bed for 1 jools.").
-                        AddLine(LightGray, "I'd offer to join you,").
-                        AddLine(LightGray, "but then you wouldn't get any rest!").
+                        AddLine(7, "Welcome to Jusdatip Inn!").
+                        AddLine(7, "I'm Gorachan.").
+                        AddLine(7, "You can rest in a bed for 1 jools.").
+                        AddLine(7, "I'd offer to join you,").
+                        AddLine(7, "but then you wouldn't get any rest!").
                         AddChoice("Cool story, bro!", "ExitDialog").
                         AddChoice("Yer a pervert!", "PervertInnkeeper").
                         AddChoice("I'll take a bed.", "PayInnkeeper")
@@ -56,10 +56,10 @@
 
     Friend Sub DoStartRatQuest(character As ICharacter, trigger As IEffect)
         character.World.CreateMessage().
-            AddLine(LightGray, "Well, there are a bunch of rats in the cellar.").
-            AddLine(LightGray, "I'll pay you 1 jools for each rat tail.").
-            AddLine(LightGray, "I only accept the tails, no corpses.").
-            AddLine(LightGray, "So you'll need to cut them off first.").
+            AddLine(7, "Well, there are a bunch of rats in the cellar.").
+            AddLine(7, "I'll pay you 1 jools for each rat tail.").
+            AddLine(7, "I only accept the tails, no corpses.").
+            AddLine(7, "So you'll need to cut them off first.").
             AddChoice("I'm on it!", "AcceptRatQuest").
             AddChoice("Mebbe later?", "ExitDialog")
     End Sub

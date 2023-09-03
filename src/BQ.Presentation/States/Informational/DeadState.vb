@@ -27,7 +27,7 @@
         Dim text = YerDeadText
         font.WriteText(displayBuffer, (Context.ViewCenter.X - font.HalfTextWidth(text), Context.ViewCenter.Y - font.HalfHeight), text, Red)
         If DateTimeOffset.Now >= showUntil Then
-            Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(ContinueText, Nothing), Black, LightGray)
+            Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(ContinueText, Nothing), Black, 7)
         End If
     End Sub
 

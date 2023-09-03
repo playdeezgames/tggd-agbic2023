@@ -71,7 +71,7 @@
     Public Sub Equip(itemId As Integer) Implements IItemModel.Equip
         Dim item = world.GetItem(itemId)
         CharacterExtensions.EquipItem(world.Avatar, item)
-        world.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(world.Avatar)} equips {ItemExtensions.Name(item)}")
+        world.CreateMessage().AddLine(7, $"{CharacterExtensions.Name(world.Avatar)} equips {ItemExtensions.Name(item)}")
     End Sub
 
     Public Sub DoEffect(effectType As String) Implements IItemModel.DoEffect

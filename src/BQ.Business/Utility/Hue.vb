@@ -6,5 +6,4 @@
     Public Const Red = 4
     Public Const Purple = 5
     Public Const Brown = 6
-    Public Const LightGray = 7
 End Module

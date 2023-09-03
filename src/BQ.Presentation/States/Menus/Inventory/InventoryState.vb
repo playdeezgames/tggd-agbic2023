@@ -50,7 +50,7 @@ Friend Class InventoryState
                     Dim item = items(index)
                     bqFont.WriteText(displayBuffer, (offsetX + columnStride \ 4, offsetY + rowStride \ 4), item.glyph, item.hue)
                     Dim text = $"x{item.count}"
-                    font.WriteText(displayBuffer, (offsetX + columnStride \ 2 - font.TextWidth(text) \ 2, offsetY + bqFont.Height + rowStride \ 4), text, LightGray)
+                    font.WriteText(displayBuffer, (offsetX + columnStride \ 2 - font.TextWidth(text) \ 2, offsetY + bqFont.Height + rowStride \ 4), text, 7)
                 End If
                 If index = currentIndex Then
                     bqFont.WriteText(displayBuffer, (offsetX + columnStride \ 4, offsetY + rowStride \ 4), ChrW(255), 15)
@@ -61,7 +61,7 @@ Friend Class InventoryState
             offsetY += rowStride
         Next
         Context.ShowHeader(displayBuffer, font, items(currentIndex).name, 11, Black)
-        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(Constants.SelectText, Constants.CancelText), Black, LightGray)
+        Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(Constants.SelectText, Constants.CancelText), Black, 7)
     End Sub
 
     Public Overrides Sub OnStart()

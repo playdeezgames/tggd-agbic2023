@@ -24,7 +24,7 @@
         displayBuffer.Fill(8)
         RenderMap(displayBuffer)
         RenderStatistics(displayBuffer)
-        Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText(ActionsText, GameMenuText), Black, LightGray)
+        Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText(ActionsText, GameMenuText), Black, 7)
     End Sub
 
 

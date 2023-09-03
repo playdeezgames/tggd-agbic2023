@@ -4,12 +4,12 @@
         Const RecipeType = "UnfiredPot"
         If CharacterExtensions.Jools(character) < price Then
             character.World.CreateMessage().
-                        AddLine(LightGray, $"The price is {price} jools.").
-                        AddLine(LightGray, $"({CharacterExtensions.Name(character)} has {CharacterExtensions.Jools(character)} jools)")
+                        AddLine(7, $"The price is {price} jools.").
+                        AddLine(7, $"({CharacterExtensions.Name(character)} has {CharacterExtensions.Jools(character)} jools)")
             Return
         End If
         If Not RecipeTypes.CanCraft(RecipeType, character) Then
-            Dim msg = character.World.CreateMessage().AddLine(LightGray, "To make a pot, I need:")
+            Dim msg = character.World.CreateMessage().AddLine(7, "To make a pot, I need:")
             AddRecipeInputs(character, msg, RecipeType)
             Return
         End If

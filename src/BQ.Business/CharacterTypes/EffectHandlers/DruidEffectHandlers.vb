@@ -9,10 +9,10 @@
         Dim canLearn = canLearnForaging OrElse canLearnTwineMaking OrElse canLearnKnapping OrElse canLearnFireMaking OrElse canLearnTorchMaking OrElse canLearnHatchetMaking
         Dim msg = character.World.CreateMessage()
         If Not canLearn Then
-            msg.AddLine(LightGray, "You have learned all I have to teach you.")
+            msg.AddLine(7, "You have learned all I have to teach you.")
             Return
         End If
-        msg.AddLine(LightGray, "I can teach you these things:")
+        msg.AddLine(7, "I can teach you these things:")
         msg.AddChoice("Good to know!", "ExitDialog")
         If canLearnForaging Then
             msg.AddChoice(

@@ -5,7 +5,7 @@
         MyBase.New(
             "Sharp Rock",
             ChrW(&H31),
-            LightGray,
+            7,
             flags:=New List(Of String) From {"IsCuttingTool"})
     End Sub
 End Class

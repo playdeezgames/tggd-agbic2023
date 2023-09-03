@@ -55,13 +55,13 @@ Friend Class CombatModel
         Dim delta = RNG.FromEnumerable(runDeltas)
         Dim avatar = world.Avatar
         If CharacterExtensions.Move(avatar, delta) Then
-            Dim msg = world.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(avatar)} runs away!")
+            Dim msg = world.CreateMessage().AddLine(7, $"{CharacterExtensions.Name(avatar)} runs away!")
             If Exists Then
                 msg.AddLine(Red, "An ambush awaits!")
             End If
             Return
         End If
-        world.CreateMessage().AddLine(LightGray, $"{CharacterExtensions.Name(avatar)} cannot run away!")
+        world.CreateMessage().AddLine(7, $"{CharacterExtensions.Name(avatar)} cannot run away!")
     End Sub
 
     Public Sub Attack(enemyIndex As Integer) Implements ICombatModel.Attack

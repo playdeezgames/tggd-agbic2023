@@ -48,7 +48,7 @@ Friend Class ForageState
         RenderGrid(displayBuffer)
         RenderLoot(displayBuffer)
         Context.ShowHeader(displayBuffer, Context.Font(UIFont), Model.Avatar.Statistics.Energy, 11, Black)
-        Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText("Forage", "Exit"), Black, LightGray)
+        Context.ShowStatusBar(displayBuffer, Context.Font(UIFont), Context.ControlsText("Forage", "Exit"), Black, 7)
     End Sub
 
     Private Sub RenderLoot(displayBuffer As IPixelSink)
@@ -59,7 +59,7 @@ Friend Class ForageState
         For Each entry In table
             Dim item = entry.First
             bqFont.WriteText(displayBuffer, (0, offsetY), ItemExtensions.Glyph(item), ItemExtensions.Hue(item))
-            font.WriteText(displayBuffer, (bqFont.TextWidth(ChrW(0)), offsetY + bqFont.HalfHeight - font.HalfHeight), $"x{entry.Count}", LightGray)
+            font.WriteText(displayBuffer, (bqFont.TextWidth(ChrW(0)), offsetY + bqFont.HalfHeight - font.HalfHeight), $"x{entry.Count}", 7)
             offsetY += bqFont.Height
         Next
     End Sub

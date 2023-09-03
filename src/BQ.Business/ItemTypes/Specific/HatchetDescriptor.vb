@@ -11,7 +11,7 @@
             statistics:=New Dictionary(Of String, Integer) From
             {
                 {"AttackDice", 3},
-                {StatisticTypes.MaximumAttack, 1},
+                {"MaximumAttack", 1},
                 {StatisticTypes.Durability, 20},
                 {StatisticTypes.MaximumDurability, 20}
             },

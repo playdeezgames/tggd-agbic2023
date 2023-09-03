@@ -1,5 +1,4 @@
 ﻿Friend Module StatisticTypes
-    Friend Const MaximumAttack = "MaximumAttack"
     Friend Const MaximumDefend = "MaximumDefend"
     Friend Const MaximumEnergy = "MaximumEnergy"
     Friend Const MaximumHealth = "MaximumHealth"

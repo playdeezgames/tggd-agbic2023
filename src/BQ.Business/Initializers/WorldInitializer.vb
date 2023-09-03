@@ -90,8 +90,8 @@ Friend Module WorldInitializer
         TriggerExtensions.SetDestination(townMap.GetCell(3, 13).Effect, healerMap.GetCell(HealerColumns \ 2, HealerRows - 2))
         healerMap.GetCell(HealerColumns \ 2, HealerRows - 1).Effect =
             healerMap.CreateEffect()
-        TriggerExtensions.SetEffectType(townMap.GetCell(3, 13).Effect, "Teleport")
-        TriggerExtensions.SetDestination(townMap.GetCell(3, 13).Effect, townMap.GetCell(4, 13))
+        TriggerExtensions.SetEffectType(healerMap.GetCell(HealerColumns \ 2, HealerRows - 1).Effect, "Teleport")
+        TriggerExtensions.SetDestination(healerMap.GetCell(HealerColumns \ 2, HealerRows - 1), townMap.GetCell(4, 13))
     End Sub
 
     Private Sub StitchTownToWilderness(world As IWorld)

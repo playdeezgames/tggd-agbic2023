@@ -65,6 +65,17 @@
     "Choices": [
     ]
   },
+  "EnergyTrainerSign": {
+    "Sfx": null,
+    "Lines": [
+      {
+        "Hue": 7,
+        "Text": "Energy Trainer"
+      }
+    ],
+    "Choices": [
+    ]
+  },
   "TownSign6": {
     "Sfx": null,
     "Lines": [

@@ -66,7 +66,7 @@
         Dim font = Context.Font(UIFont)
         Dim centerX = OneThirdWidth()
         Dim y = CenterText(displayBuffer, font, centerX, OneSixthHeight() - font.HalfHeight * 3, Model.Avatar.Name, LightGray)
-        y = CenterText(displayBuffer, font, centerX, y, Model.Avatar.Statistics.Health, Pink)
+        y = CenterText(displayBuffer, font, centerX, y, Model.Avatar.Statistics.Health, 12)
         CenterText(displayBuffer, font, centerX, y, Model.Avatar.Statistics.Energy, Blue)
     End Sub
 
@@ -117,7 +117,7 @@
         Dim y = OneSixthHeight() - font.HalfHeight * 2
         Dim enemy = Model.Combat.Enemy(CharacterIndex)
         y = CenterText(displayBuffer, font, centerX, y, enemy.Name, LightGray)
-        CenterText(displayBuffer, font, centerX, y, enemy.HealthDisplay, Pink)
+        CenterText(displayBuffer, font, centerX, y, enemy.HealthDisplay, 12)
     End Sub
 
     Private Function OneSixthHeight() As Integer

@@ -11,5 +11,4 @@
     Public Const LightBlue = 9
     Public Const LightGreen = 10
     Public Const Orange = 11
-    Public Const Pink = 12
 End Module

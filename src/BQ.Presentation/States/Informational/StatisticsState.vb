@@ -16,7 +16,7 @@
         displayBuffer.Fill(Black)
         Dim font = Context.Font(UIFont)
         Dim y = Context.ViewSize.Height \ 2 - font.Height * 8 \ 2
-        y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Health, Pink)
+        y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Health, 12)
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Energy, Blue)
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Attack, Red)
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Defend, Green)

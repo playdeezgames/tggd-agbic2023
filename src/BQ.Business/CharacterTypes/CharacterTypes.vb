@@ -7,7 +7,7 @@
                 New CharacterTypeDescriptor(
                     "Loxy",
                     ChrW(2),
-                    Pink,
+                    12,
                     ChrW(1),
                     Black,
                     statistics:=New Dictionary(Of String, Integer) From

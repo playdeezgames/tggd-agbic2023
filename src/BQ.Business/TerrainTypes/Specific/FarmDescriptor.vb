@@ -5,7 +5,7 @@
         MyBase.New(
             "Farm",
             ChrW(&H38),
-            Business.Hue.Brown,
+            6,
             True,
             peril:=1,
             depletedTerrainType:="Empty",

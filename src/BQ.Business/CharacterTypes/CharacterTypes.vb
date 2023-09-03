@@ -309,7 +309,7 @@ character.World:
                 New CharacterTypeDescriptor(
                     "Rat",
                     ChrW(&H2A),
-                    Hue.Brown,
+                    6,
                     ChrW(&H32),
                     Hue.Black,
                     statistics:=New Dictionary(Of String, Integer) From

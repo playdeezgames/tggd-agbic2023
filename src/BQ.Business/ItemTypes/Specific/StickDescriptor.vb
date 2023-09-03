@@ -5,7 +5,7 @@
         MyBase.New(
             "Stick",
             ChrW(&H25),
-            Brown,
+            6,
             equipSlotType:="Weapon",
             fullName:=Function(x) $"{ItemExtensions.Name(x)}({ItemExtensions.Durability(x)}/{ItemExtensions.MaximumDurability(x)})",
             statistics:=New Dictionary(Of String, Integer) From

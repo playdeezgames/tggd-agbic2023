@@ -5,7 +5,7 @@
         MyBase.New(
             "Tree",
             ChrW(&HA),
-            Business.Hue.Brown,
+            6,
             True,
             peril:=1,
             creatureTypeGenerator:=New Dictionary(Of String, Integer) From

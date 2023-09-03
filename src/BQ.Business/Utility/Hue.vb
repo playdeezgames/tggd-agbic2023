@@ -5,5 +5,4 @@
     Public Const Cyan = 3
     Public Const Red = 4
     Public Const Purple = 5
-    Public Const Brown = 6
 End Module

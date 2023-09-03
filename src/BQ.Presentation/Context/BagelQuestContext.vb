@@ -28,7 +28,7 @@ Public Class BagelQuestContext
             (-1, 1, 13),
             (0, 1, 13),
             (1, 1, 13),
-            (0, 0, Brown)
+            (0, 0, 6)
         }
     Public Overrides Sub ShowSplashContent(displayBuffer As IPixelSink, font As Font)
         Dim text = GameTitle

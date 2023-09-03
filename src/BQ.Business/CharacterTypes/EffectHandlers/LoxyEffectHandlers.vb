@@ -45,7 +45,7 @@
             character.World.
                 CreateMessage().
                 AddLine(LightGray, "You don't have enough!").
-                AddChoice("Shucks!", trigger.GetMetadata(Metadatas.EffectType))
+                AddChoice("Shucks!", trigger.GetMetadata("EffectType"))
             Return
         End If
         CharacterExtensions.AddJools(character, -price)
@@ -53,7 +53,7 @@
         character.World.
             CreateMessage().
             AddLine(LightGray, "Thank you for yer purchase!").
-            AddChoice("No worries!", trigger.GetMetadata(Metadatas.EffectType))
+            AddChoice("No worries!", trigger.GetMetadata("EffectType"))
     End Sub
 
     Private Sub DefaultMessage(character As ICharacter, trigger As IEffect)

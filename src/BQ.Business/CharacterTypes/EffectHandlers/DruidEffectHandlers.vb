@@ -55,7 +55,7 @@
             msg.LastChoice.SetMetadata(Metadatas.TaskName, "make a fire")
             msg.LastChoice.SetMetadata("ActionName", "Build Fire")
             msg.LastChoice.SetMetadata(Metadatas.RecipeType, "CookingFire")
-            msg.LastChoice.SetMetadata(Metadatas.Caveat, "(only works in clear areas in the wilderness)")
+            msg.LastChoice.SetMetadata("Caveat", "(only works in clear areas in the wilderness)")
             msg.LastChoice.SetFlag("LearnByDoing", False)
         End If
         If canLearnTorchMaking Then
@@ -67,7 +67,7 @@
             msg.LastChoice.SetMetadata(Metadatas.TaskName, "make a torch")
             msg.LastChoice.SetMetadata("ActionName", "Make Torch")
             msg.LastChoice.SetMetadata(Metadatas.RecipeType, "Torch")
-            msg.LastChoice.SetMetadata(Metadatas.Caveat, "(only works with a source of flames)")
+            msg.LastChoice.SetMetadata("Caveat", "(only works with a source of flames)")
             msg.LastChoice.SetFlag("LearnByDoing", False)
         End If
         If canLearnHatchetMaking Then

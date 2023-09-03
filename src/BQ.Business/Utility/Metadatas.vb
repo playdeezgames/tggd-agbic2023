@@ -1,6 +1,4 @@
 ﻿Friend Module Metadatas
-    Friend Const Caveat = "Caveat"
-    Friend Const EffectType = "EffectType"
     Friend Const FlagType = "FlagType"
     Friend Const ForageTable = "ForageTable"
     Friend Const ItemName = "ItemName"

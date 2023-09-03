@@ -1,6 +1,4 @@
 ﻿Friend Module StatisticTypes
-    Friend Const ItemCount = "ItemCount"
-    Friend Const MapId = "MapId"
     Friend Const MaximumAttack = "MaximumAttack"
     Friend Const MaximumDefend = "MaximumDefend"
     Friend Const MaximumEnergy = "MaximumEnergy"

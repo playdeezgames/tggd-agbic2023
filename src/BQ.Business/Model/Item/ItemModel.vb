@@ -18,10 +18,10 @@
 
     Public Property Count As Integer Implements IItemModel.Count
         Get
-            Return world.Avatar.GetStatistic(StatisticTypes.ItemCount)
+            Return world.Avatar.GetStatistic("ItemCount")
         End Get
         Set(value As Integer)
-            world.Avatar.SetStatistic(StatisticTypes.ItemCount, value)
+            world.Avatar.SetStatistic("ItemCount", value)
         End Set
     End Property
 
@@ -47,7 +47,7 @@
     Public Sub Take() Implements IItemModel.Take
         Dim itemCount = Count
         Dim itemName = Name
-        world.Avatar.RemoveStatistic(StatisticTypes.ItemCount)
+        world.Avatar.RemoveStatistic("ItemCount")
         world.Avatar.RemoveMetadata("ItemName")
         Dim items = world.Avatar.Cell.Items.Where(Function(x) ItemExtensions.Name(x) = itemName).Take(itemCount)
         For Each item In items
@@ -59,7 +59,7 @@
     Public Sub Drop() Implements IItemModel.Drop
         Dim itemCount = Count
         Dim itemName = Name
-        world.Avatar.RemoveStatistic(StatisticTypes.ItemCount)
+        world.Avatar.RemoveStatistic("ItemCount")
         world.Avatar.RemoveMetadata("ItemName")
         Dim items = world.Avatar.Items.Where(Function(x) ItemExtensions.Name(x) = itemName).Take(itemCount)
         For Each item In items

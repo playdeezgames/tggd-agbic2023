@@ -1,6 +1,6 @@
 ﻿Friend Module TriggerExtensions
     Friend Function SetDestination(Of THolder As IStatisticsHolder)(effect As THolder, cell As ICell) As THolder
-        effect.SetStatistic(StatisticTypes.MapId, cell.Map.Id)
+        effect.SetStatistic("MapId", cell.Map.Id)
         effect.SetStatistic("CellColumn", cell.Column)
         effect.SetStatistic("CellRow", cell.Row)
         Return effect

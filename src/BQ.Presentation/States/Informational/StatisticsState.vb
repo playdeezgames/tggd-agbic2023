@@ -19,7 +19,7 @@
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Health, 12)
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Energy, Blue)
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Attack, 4)
-        y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Defend, Green)
+        y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.Defend, 2)
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.XP, 3)
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.XPLevel, 5)
         y = WriteLine(displayBuffer, font, y, Model.Avatar.Statistics.AdvancementPoints, 14)

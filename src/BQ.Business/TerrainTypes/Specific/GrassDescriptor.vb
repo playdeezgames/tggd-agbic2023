@@ -7,7 +7,7 @@ Friend Class GrassDescriptor
         MyBase.New(
                     "Grass",
                     ChrW(4),
-                    Business.Hue.Green,
+                    2,
                     True,
                     depletedTerrainType:="DepletedGrass",
                     initializerScript:="cell:SetStatistic(""ForageRemaining"", 20)",

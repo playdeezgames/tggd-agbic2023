@@ -5,7 +5,7 @@
         MyBase.New(
                     "Tree",
                     ChrW(&HA),
-                    Business.Hue.Green,
+                    2,
                     True,
                     depletedTerrainType:="DepletedTree",
                     initializerScript:="cell:SetStatistic(""ForageRemaining"", 50)",

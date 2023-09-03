@@ -57,7 +57,7 @@
     End Sub
 
     Private Sub DefaultMessage(character As ICharacter, trigger As IEffect)
-        trigger.GetMetadata("MessageType").ToMessageTypeDescriptor.CreateMessage(character.World)
+        MessageTypes.ToMessageTypeDescriptor(trigger.GetMetadata("MessageType")).CreateMessage(character.World)
     End Sub
 
     Private Sub DoExitDialog(character As ICharacter, trigger As IEffect)

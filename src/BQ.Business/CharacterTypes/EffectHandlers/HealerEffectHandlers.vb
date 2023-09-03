@@ -31,7 +31,7 @@
         Dim jools = CharacterExtensions.Jools(character) \ 2
         CharacterExtensions.AddJools(character, -jools)
         If jools > 0 Then
-            msg.AddLine(Red, $"{CharacterExtensions.Name(character)} loses {jools} jools!")
+            msg.AddLine(4, $"{CharacterExtensions.Name(character)} loses {jools} jools!")
         End If
     End Sub
 

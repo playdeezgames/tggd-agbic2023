@@ -78,7 +78,7 @@ Friend Class ForageState
                     bqFont.WriteText(displayBuffer, (offsetX, offsetY), ItemExtensions.Glyph(item), ItemExtensions.Hue(item))
                 End If
                 If column = currentColumn AndAlso row = currentRow Then
-                    bqFont.WriteText(displayBuffer, (offsetX, offsetY), ChrW(255), If(hiddenCells(column, row) AndAlso Model.Foraging.CanForage, Green, Red))
+                    bqFont.WriteText(displayBuffer, (offsetX, offsetY), ChrW(255), If(hiddenCells(column, row) AndAlso Model.Foraging.CanForage, Green, 4))
                 End If
                 offsetX += CellWidth
             Next

@@ -22,7 +22,7 @@
             {"Pepper", New PepperDescriptor()},
             {"SharpRock", New SharpRockDescriptor()},
             {"Twine", New ItemTypeDescriptor("Twine", ChrW(&H21), 13)},
-            {"Torch", New ItemTypeDescriptor("Torch", ChrW(&H34), Red)},
+            {"Torch", New ItemTypeDescriptor("Torch", ChrW(&H34), 4)},
             {"Charcoal", New ItemTypeDescriptor("Charcoal", ChrW(&H36), 8)},
             {"StrawHat", New StrawHatDescriptor()},
             {"UnfiredPot", New ItemTypeDescriptor("Unfired Pot", ChrW(&H3F), 13)},

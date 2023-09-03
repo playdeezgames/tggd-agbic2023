@@ -193,7 +193,7 @@
         CharacterExtensions.AddPeril(character, CharacterExtensions.MaximumEnergy(character) \ 2)
         CharacterExtensions.Move(character, (0, 0))
         If character.Cell.HasOtherCharacters(character) Then
-            msg.AddLine(Red, $"{CharacterExtensions.Name(character)} awakens to a surprise attack!")
+            msg.AddLine(4, $"{CharacterExtensions.Name(character)} awakens to a surprise attack!")
         End If
     End Sub
     Public Sub DoBuildFire(character As ICharacter)
@@ -431,7 +431,7 @@
             Dim item = RNG.FromEnumerable(items)
             ItemExtensions.AddDurability(item, -1)
             If ItemExtensions.IsBroken(item) Then
-                msg.AddLine(Red, $"{CharacterExtensions.Name(character)}' {ItemExtensions.Name(item)} breaks!")
+                msg.AddLine(4, $"{CharacterExtensions.Name(character)}' {ItemExtensions.Name(item)} breaks!")
                 character.UnequipItem(item)
                 character.RemoveItem(item)
                 item.Recycle()
@@ -449,7 +449,7 @@
             Dim item = RNG.FromEnumerable(items)
             ItemExtensions.AddDurability(item, -1)
             If ItemExtensions.IsBroken(item) Then
-                msg.AddLine(Red, $"{CharacterExtensions.Name(character)}' {ItemExtensions.Name(item)} breaks!")
+                msg.AddLine(4, $"{CharacterExtensions.Name(character)}' {ItemExtensions.Name(item)} breaks!")
                 character.UnequipItem(item)
                 character.RemoveItem(item)
                 item.Recycle()

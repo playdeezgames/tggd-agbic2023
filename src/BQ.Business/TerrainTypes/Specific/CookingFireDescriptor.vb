@@ -5,7 +5,7 @@
         MyBase.New(
             "Cooking Fire",
             ChrW(&H33),
-            Business.Hue.Red,
+            4,
             True,
             hasFire:=True,
             effects:=New Dictionary(Of String, EffectData) From

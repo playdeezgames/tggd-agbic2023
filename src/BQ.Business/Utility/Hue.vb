@@ -3,5 +3,4 @@
     Public Const Blue = 1
     Public Const Green = 2
     Public Const Cyan = 3
-    Public Const Red = 4
 End Module

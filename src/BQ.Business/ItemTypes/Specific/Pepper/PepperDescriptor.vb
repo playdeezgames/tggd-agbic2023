@@ -5,7 +5,7 @@
         MyBase.New(
             "Pepper",
             ChrW(&H39),
-            Red,
+            4,
             effects:=New Dictionary(Of String, EffectData) From
             {
                 {"SmokePepper", New EffectData() With {.EffectType = "SmokePepper"}},

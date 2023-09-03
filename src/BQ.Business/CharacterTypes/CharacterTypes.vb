@@ -353,7 +353,7 @@ end")
                 New CharacterTypeDescriptor(
                     "Cherry Glop",
                     ChrW(&H1B),
-                    Hue.Red,
+                    4,
                     ChrW(&H1A),
                     Hue.Black,
                     statistics:=New Dictionary(Of String, Integer) From

@@ -25,7 +25,7 @@
         displayBuffer.Fill(Black)
         Dim font = Context.Font(UIFont)
         Dim text = YerDeadText
-        font.WriteText(displayBuffer, (Context.ViewCenter.X - font.HalfTextWidth(text), Context.ViewCenter.Y - font.HalfHeight), text, Red)
+        font.WriteText(displayBuffer, (Context.ViewCenter.X - font.HalfTextWidth(text), Context.ViewCenter.Y - font.HalfHeight), text, 4)
         If DateTimeOffset.Now >= showUntil Then
             Context.ShowStatusBar(displayBuffer, font, Context.ControlsText(ContinueText, Nothing), Black, 7)
         End If

@@ -13,18 +13,18 @@
                     statistics:=New Dictionary(Of String, Integer) From
                     {
                         {"Health", 2},
-                        {StatisticTypes.MaximumHealth, 2},
+                        {"MaximumHealth", 2},
                         {"AttackDice", 2},
                         {"MaximumAttack", 1},
                         {"DefendDice", 4},
-                        {StatisticTypes.MaximumDefend, 2},
+                        {"MaximumDefend", 2},
                         {StatisticTypes.XP, 0},
                         {StatisticTypes.XPGoal, 10},
                         {StatisticTypes.XPLevel, 1},
                         {StatisticTypes.AdvancementPointsPerLevel, 10},
                         {StatisticTypes.AdvancementPoints, 0},
                         {"Energy", 10},
-                        {StatisticTypes.MaximumEnergy, 10},
+                        {"MaximumEnergy", 10},
                         {StatisticTypes.Jools, 10}
                     },
                     effectHandlers:=LoxyEffectHandlers.All,
@@ -294,12 +294,12 @@ character.World:
                     statistics:=New Dictionary(Of String, Integer) From
                     {
                         {"Health", 1},
-                        {StatisticTypes.MaximumHealth, 1},
+                        {"MaximumHealth", 1},
                         {"AttackDice", 2},
                         {"MaximumAttack", 1},
                         {"DefendDice", 1},
-                        {StatisticTypes.MaximumDefend, 1},
-                        {StatisticTypes.Peril, 5},
+                        {"MaximumDefend", 1},
+                        {"Peril", 5},
                         {StatisticTypes.XP, 1}
                     },
                     initializeScript:="character:SetStatistic('Jools', RNG.RollDice('3d6/6'))")
@@ -315,12 +315,12 @@ character.World:
                     statistics:=New Dictionary(Of String, Integer) From
                     {
                         {"Health", 1},
-                        {StatisticTypes.MaximumHealth, 1},
+                        {"MaximumHealth", 1},
                         {"AttackDice", 1},
                         {"MaximumAttack", 1},
                         {"DefendDice", 1},
-                        {StatisticTypes.MaximumDefend, 1},
-                        {StatisticTypes.Peril, 3},
+                        {"MaximumDefend", 1},
+                        {"Peril", 3},
                         {StatisticTypes.XP, 0}
                     },
                     initializeScript:="character:AddItem(ItemInitializer.CreateItem(character.World, 'RatCorpse'))")
@@ -336,12 +336,12 @@ character.World:
                     statistics:=New Dictionary(Of String, Integer) From
                     {
                         {"Health", 3},
-                        {StatisticTypes.MaximumHealth, 3},
+                        {"MaximumHealth", 3},
                         {"AttackDice", 4},
                         {"MaximumAttack", 2},
                         {"DefendDice", 3},
-                        {StatisticTypes.MaximumDefend, 3},
-                        {StatisticTypes.Peril, 7},
+                        {"MaximumDefend", 3},
+                        {"Peril", 7},
                         {StatisticTypes.XP, 3}
                     },
 initializeScript:="if RNG.RollDice('1d5/5') > 0 then
@@ -359,12 +359,12 @@ end")
                     statistics:=New Dictionary(Of String, Integer) From
                     {
                         {"Health", 2},
-                        {StatisticTypes.MaximumHealth, 2},
+                        {"MaximumHealth", 2},
                         {"AttackDice", 4},
                         {"MaximumAttack", 2},
                         {"DefendDice", 1},
-                        {StatisticTypes.MaximumDefend, 1},
-                        {StatisticTypes.Peril, 10},
+                        {"MaximumDefend", 1},
+                        {"Peril", 10},
                         {StatisticTypes.XP, 2}
                     },
                     initializeScript:="character:SetStatistic('Jools', RNG.RollDice('6d6/6'))")

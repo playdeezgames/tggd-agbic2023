@@ -307,10 +307,10 @@
         End If
     End Sub
     Public Sub SetPeril(character As ICharacter, peril As Integer)
-        character.SetStatistic(StatisticTypes.Peril, Math.Max(0, peril))
+        character.SetStatistic("Peril", Math.Max(0, peril))
     End Sub
     Public Function Peril(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.Peril)
+        Return character.GetStatistic("Peril")
     End Function
     Public Function Energy(character As ICharacter) As Integer
         Return character.GetStatistic("Energy")
@@ -319,16 +319,16 @@
         character.SetStatistic("Energy", Math.Clamp(CharacterExtensions.Energy(character) + delta, 0, CharacterExtensions.MaximumEnergy(character)))
     End Sub
     Public Function MaximumEnergy(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.MaximumEnergy)
+        Return character.GetStatistic("MaximumEnergy")
     End Function
     Public Sub SetMaximumEnergy(character As ICharacter, maximumEnergy As Integer)
-        character.SetStatistic(StatisticTypes.MaximumEnergy, maximumEnergy)
+        character.SetStatistic("MaximumEnergy", maximumEnergy)
     End Sub
     Public Function Health(character As ICharacter) As Integer
         Return character.GetStatistic("Health")
     End Function
     Public Function MaximumHealth(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.MaximumHealth)
+        Return character.GetStatistic("MaximumHealth")
     End Function
     Public Function AttackDice(character As ICharacter) As Integer
         Return character.GetStatistic("AttackDice") + character.EquippedItems.Sum(Function(x) ItemExtensions.AttackDice(x))
@@ -340,7 +340,7 @@
         Return character.GetStatistic("DefendDice") + character.EquippedItems.Sum(Function(x) ItemExtensions.DefendDice(x))
     End Function
     Public Function MaximumDefend(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.MaximumDefend) + character.EquippedItems.Sum(Function(x) ItemExtensions.MaximumDefend(x))
+        Return character.GetStatistic("MaximumDefend") + character.EquippedItems.Sum(Function(x) ItemExtensions.MaximumDefend(x))
     End Function
     Public Function RollAttack(character As ICharacter) As Integer
         Return Math.Min(CharacterExtensions.MaximumAttack(character), Enumerable.Range(0, CharacterExtensions.AttackDice(character)).Sum(Function(x) RNG.RollDice("1d6/6")))
@@ -352,7 +352,7 @@
         character.SetStatistic("Health", Math.Clamp(health, 0, CharacterExtensions.MaximumHealth(character)))
     End Sub
     Public Sub SetMaximumHealth(character As ICharacter, maximumHealth As Integer)
-        character.SetStatistic(StatisticTypes.MaximumHealth, Math.Max(1, maximumHealth))
+        character.SetStatistic("MaximumHealth", Math.Max(1, maximumHealth))
         CharacterExtensions.SetHealth(character, CharacterExtensions.Health(character))
     End Sub
     Public Function IsDead(character As ICharacter) As Boolean

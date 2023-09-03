@@ -16,7 +16,7 @@
         basinCell.Effect =
             map.CreateEffect
         SetEffectType(basinCell.Effect, "Heal")
-        basinCell.Effect.SetStatistic(StatisticTypes.MaximumHealth, 5)
+        basinCell.Effect.SetStatistic("MaximumHealth", 5)
         Dim healerCell = map.GetCell(map.Columns - 2, map.Rows - 2)
         healerCell.TerrainType = "OldMan"
         healerCell.Effect =

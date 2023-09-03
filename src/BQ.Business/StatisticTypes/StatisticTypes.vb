@@ -1,5 +1,4 @@
 ﻿Friend Module StatisticTypes
-    Friend Const Price = "Price"
     Friend Const XP = "XP"
     Friend Const XPGoal = "XPGoal"
     Friend Const XPLevel = "XPLevel"

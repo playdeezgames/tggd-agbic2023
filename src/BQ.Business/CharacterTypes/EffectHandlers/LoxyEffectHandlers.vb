@@ -40,7 +40,7 @@
 
     Private Sub DoBuy(character As ICharacter, trigger As IEffect)
         Dim itemType = trigger.GetMetadata("ItemType")
-        Dim price = trigger.GetStatistic(StatisticTypes.Price)
+        Dim price = trigger.GetStatistic("Price")
         If CharacterExtensions.Jools(character) < price Then
             character.World.
                 CreateMessage().

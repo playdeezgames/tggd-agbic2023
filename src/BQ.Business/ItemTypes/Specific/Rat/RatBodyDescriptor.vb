@@ -5,7 +5,7 @@
         MyBase.New(
             "Rat Body",
             ChrW(&H2F),
-            DarkGray,
+            8,
             effects:=New Dictionary(Of String, EffectData) From
             {
                 {"EatRatCorpse", New EffectData() With {.EffectType = "EatRatCorpse"}},

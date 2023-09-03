@@ -5,7 +5,7 @@
         MyBase.New(
             "Rock Quarry",
             ChrW(&H3E),
-            DarkGray,
+            8,
             True,
             depletedTerrainType:="Empty",
             initializerScript:="cell:SetStatistic(""ForageRemaining"", 50)",

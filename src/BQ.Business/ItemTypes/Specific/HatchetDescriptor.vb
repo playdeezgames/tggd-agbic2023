@@ -5,7 +5,7 @@
         MyBase.New(
             "Hatchet",
             ChrW(&H3D),
-            DarkGray,
+            8,
             equipSlotType:="Weapon",
             fullName:=Function(x) $"{ItemExtensions.Name(x)}({ItemExtensions.Durability(x)}/{ItemExtensions.MaximumDurability(x)})",
             statistics:=New Dictionary(Of String, Integer) From

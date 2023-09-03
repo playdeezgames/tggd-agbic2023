@@ -20,12 +20,12 @@
                         {"MaximumDefend", 2},
                         {"XP", 0},
                         {"XPGoal", 10},
-                        {StatisticTypes.XPLevel, 1},
+                        {"XPLevel", 1},
                         {StatisticTypes.AdvancementPointsPerLevel, 10},
-                        {StatisticTypes.AdvancementPoints, 0},
+                        {"AdvancementPoints", 0},
                         {"Energy", 10},
                         {"MaximumEnergy", 10},
-                        {StatisticTypes.Jools, 10}
+                        {"Jools", 10}
                     },
                     effectHandlers:=LoxyEffectHandlers.All,
                     initializeScript:="

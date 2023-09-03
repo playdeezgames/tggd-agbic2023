@@ -18,7 +18,7 @@
             msg.AddChoice(
                 "Foraging(-1AP)",
                 "LearnForaging")
-            msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
+            msg.LastChoice.SetStatistic("AdvancementPoints", 1)
             msg.LastChoice.SetMetadata("FlagType", "KnowsForaging")
             msg.LastChoice.SetMetadata("TaskName", "forage")
             msg.LastChoice.SetMetadata("ActionName", "Forage...")
@@ -28,7 +28,7 @@
             msg.AddChoice(
                 "Twine Making(-1AP,-2 Plant Fiber)",
                 "LearnTwineMaking")
-            msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
+            msg.LastChoice.SetStatistic("AdvancementPoints", 1)
             msg.LastChoice.SetMetadata("FlagType", "KnowsTwineMaking")
             msg.LastChoice.SetMetadata("TaskName", "make twine")
             msg.LastChoice.SetMetadata("ActionName", "Make Twine")
@@ -39,7 +39,7 @@
             msg.AddChoice(
                 "Knapping(-1AP,-2 Rock)",
                 "LearnKnapping")
-            msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
+            msg.LastChoice.SetStatistic("AdvancementPoints", 1)
             msg.LastChoice.SetMetadata("FlagType", "KnowsRockSharpening")
             msg.LastChoice.SetMetadata("TaskName", "knap")
             msg.LastChoice.SetMetadata("ActionName", "Knap")
@@ -50,7 +50,7 @@
             msg.AddChoice(
                 "Fire Making(-1AP, -5 Rock, -5 Sticks)",
                 "LearnFireMaking")
-            msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
+            msg.LastChoice.SetStatistic("AdvancementPoints", 1)
             msg.LastChoice.SetMetadata("FlagType", "KnowsFireMaking")
             msg.LastChoice.SetMetadata("TaskName", "make a fire")
             msg.LastChoice.SetMetadata("ActionName", "Build Fire")
@@ -62,7 +62,7 @@
             msg.AddChoice(
                 "Torch Making(-1AP, -1 Stick, -1 Charcoal)",
                 "LearnTorchMaking")
-            msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
+            msg.LastChoice.SetStatistic("AdvancementPoints", 1)
             msg.LastChoice.SetMetadata("FlagType", "KnowsTorchMaking")
             msg.LastChoice.SetMetadata("TaskName", "make a torch")
             msg.LastChoice.SetMetadata("ActionName", "Make Torch")
@@ -74,7 +74,7 @@
             msg.AddChoice(
                 "Hatchet Making(-1AP,-1Stick,-1S.Rock,-1Twine)",
                 "LearnHatchedMaking")
-            msg.LastChoice.SetStatistic(StatisticTypes.AdvancementPoints, 1)
+            msg.LastChoice.SetStatistic("AdvancementPoints", 1)
             msg.LastChoice.SetMetadata("FlagType", "KnowsHatchetMaking")
             msg.LastChoice.SetMetadata("TaskName", "make a hatchet")
             msg.LastChoice.SetMetadata("ActionName", "Make Hatchet")

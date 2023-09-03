@@ -102,7 +102,7 @@
     End Sub
 
     Private Function LearnSkill(character As ICharacter, effect As IEffect, msg As IMessage, text As String) As Boolean
-        Dim learnCost = effect.GetStatistic(StatisticTypes.AdvancementPoints)
+        Dim learnCost = effect.GetStatistic("AdvancementPoints")
         If CharacterExtensions.AdvancementPoints(character) < learnCost Then
             msg.
                 AddLine(LightGray, $"To learn to {text},").
@@ -377,13 +377,13 @@
         Return character.GetStatistic(StatisticTypes.AdvancementPointsPerLevel)
     End Function
     Public Sub AddAdvancementPoints(character As ICharacter, advancementPoints As Integer)
-        character.SetStatistic(StatisticTypes.AdvancementPoints, Math.Max(0, character.GetStatistic(StatisticTypes.AdvancementPoints) + advancementPoints))
+        character.SetStatistic("AdvancementPoints", Math.Max(0, character.GetStatistic("AdvancementPoints") + advancementPoints))
     End Sub
     Public Function AddXP(character As ICharacter, xp As Integer) As Boolean
         character.AddStatistic("XP", xp)
         If CharacterExtensions.XP(character) >= CharacterExtensions.XPGoal(character) Then
             CharacterExtensions.AddAdvancementPoints(character, CharacterExtensions.AdvancementPointsPerLevel(character))
-            character.AddStatistic(StatisticTypes.XPLevel, 1)
+            character.AddStatistic("XPLevel", 1)
             Dim currentGoal = CharacterExtensions.XPGoal(character)
             character.AddStatistic("XPGoal", character.GetStatistic("XPGoal"))
             CharacterExtensions.AddXP(character, -currentGoal)
@@ -395,10 +395,10 @@
         CharacterExtensions.SetJools(character, CharacterExtensions.Jools(character) + jools)
     End Sub
     Public Function Jools(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.Jools)
+        Return character.GetStatistic("Jools")
     End Function
     Public Sub SetJools(character As ICharacter, jools As Integer)
-        character.SetStatistic(StatisticTypes.Jools, Math.Max(0, jools))
+        character.SetStatistic("Jools", Math.Max(0, jools))
     End Sub
     Public Sub AwardJools(character As ICharacter, msg As IMessage, jools As Integer)
         If Not character.IsAvatar Then
@@ -410,7 +410,7 @@
         End If
     End Sub
     Public Function AdvancementPoints(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.AdvancementPoints)
+        Return character.GetStatistic("AdvancementPoints")
     End Function
     Public Sub AwardXP(character As ICharacter, msg As IMessage, xp As Integer)
         If Not character.IsAvatar OrElse xp = 0 Then
@@ -504,7 +504,7 @@
         Return character.GetStatistic("XPGoal")
     End Function
     Function XPLevel(character As ICharacter) As Integer
-        Return character.GetStatistic(StatisticTypes.XPLevel)
+        Return character.GetStatistic("XPLevel")
     End Function
     Sub EquipItem(character As ICharacter, item As IItem)
         Dim equipSlotType = ToItemTypeDescriptor(item.ItemType).EquipSlotType

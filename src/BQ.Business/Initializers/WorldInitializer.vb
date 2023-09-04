@@ -84,14 +84,24 @@ Friend Module WorldInitializer
     Private Sub StitchHealerToTown(world As IWorld)
         Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
         Dim healerMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Healer)
+        FromTownToHealerHouse(townMap, healerMap)
+        FromHealerHouseToTown(townMap, healerMap)
+    End Sub
+
+    Private Sub FromHealerHouseToTown(townMap As IMap, healerMap As IMap)
+        Dim fromCell = healerMap.GetCell(HealerColumns \ 2, HealerRows - 1)
+        Dim toCell = townMap.GetCell(4, 13)
+        fromCell.Effect =
+                    healerMap.CreateEffect()
+        TriggerExtensions.SetEffectType(fromCell.Effect, "Teleport")
+        TriggerExtensions.SetDestination(fromCell.Effect, toCell)
+    End Sub
+
+    Private Sub FromTownToHealerHouse(townMap As IMap, healerMap As IMap)
         townMap.GetCell(3, 13).Effect =
             townMap.CreateEffect()
         TriggerExtensions.SetEffectType(townMap.GetCell(3, 13).Effect, "Teleport")
         TriggerExtensions.SetDestination(townMap.GetCell(3, 13).Effect, healerMap.GetCell(HealerColumns \ 2, HealerRows - 2))
-        healerMap.GetCell(HealerColumns \ 2, HealerRows - 1).Effect =
-            healerMap.CreateEffect()
-        TriggerExtensions.SetEffectType(healerMap.GetCell(HealerColumns \ 2, HealerRows - 1).Effect, "Teleport")
-        TriggerExtensions.SetDestination(healerMap.GetCell(HealerColumns \ 2, HealerRows - 1), townMap.GetCell(4, 13))
     End Sub
 
     Private Sub StitchTownToWilderness(world As IWorld)

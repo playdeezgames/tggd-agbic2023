@@ -35,25 +35,6 @@
             AddLine(7, "I'm just Australian!")
     End Sub
 
-    Friend Sub DoGorachanTalk(character As ICharacter, trigger As IEffect)
-        Dim msg = character.World.CreateMessage().
-                        AddLine(7, "Welcome to Jusdatip Inn!").
-                        AddLine(7, "I'm Gorachan.").
-                        AddLine(7, "You can rest in a bed for 1 jools.").
-                        AddLine(7, "I'd offer to join you,").
-                        AddLine(7, "but then you wouldn't get any rest!").
-                        AddChoice("Cool story, bro!", "ExitDialog").
-                        AddChoice("Yer a pervert!", "PervertInnkeeper").
-                        AddChoice("I'll take a bed.", "PayInnkeeper")
-        If character.GetFlag("RatQuest") Then
-            If CharacterExtensions.HasItemTypeInInventory(character, "RatTail") Then
-                msg.AddChoice("Here's some rat tails!", "CompleteRatQuest")
-            End If
-        Else
-            msg.AddChoice("I need a job!", "StartRatQuest")
-        End If
-    End Sub
-
     Friend Sub DoStartRatQuest(character As ICharacter, trigger As IEffect)
         character.World.CreateMessage().
             AddLine(7, "Well, there are a bunch of rats in the cellar.").

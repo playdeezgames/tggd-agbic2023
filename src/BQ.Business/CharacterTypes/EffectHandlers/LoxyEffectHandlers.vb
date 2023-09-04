@@ -5,7 +5,6 @@
                         {"PervertInnkeeper", AddressOf DoPerventInnkeeper},
                         {"PayInnkeeper", AddressOf DoPayInnkeeper},
                         {"Buy", AddressOf DoBuy},
-                        {"StartRatQuest", AddressOf DoStartRatQuest},
                         {"CompleteRatQuest", AddressOf DoCompleteRatQuest},
                         {"Forage", AddressOf DoForage},
                         {"PotterMakePot", AddressOf DoPotterMakePot},

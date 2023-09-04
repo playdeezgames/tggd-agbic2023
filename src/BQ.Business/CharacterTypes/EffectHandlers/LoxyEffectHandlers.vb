@@ -2,8 +2,6 @@
     Friend All As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect)) =
         New Dictionary(Of String, Action(Of ICharacter, IEffect)) From
                     {
-                        {"PervertInnkeeper", AddressOf DoPerventInnkeeper},
-                        {"PayInnkeeper", AddressOf DoPayInnkeeper},
                         {"Buy", AddressOf DoBuy},
                         {"CompleteRatQuest", AddressOf DoCompleteRatQuest},
                         {"Forage", AddressOf DoForage},

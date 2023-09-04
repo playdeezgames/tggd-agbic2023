@@ -29,18 +29,27 @@
                     },
                     effectHandlers:=LoxyEffectHandlers.All,
                     initializeScript:="
-character:AddItem(ItemInitializer.CreateItem(character.World,""PlantFiber""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""PlantFiber""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""PlantFiber""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""PlantFiber""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""PlantFiber""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""Clay""))",
+character:AddItem(ItemInitializer.CreateItem(character.World,""RatTail""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""RatTail""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""RatTail""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""RatTail""))
+character:AddItem(ItemInitializer.CreateItem(character.World,""RatTail""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
+                        {
+                            "CompleteRatQuest",
+                            "
+local jools = 0
+local items = CharacterExtensions.ItemsOfItemType(character, ""RatTail"")
+for i = 0,items.Length-1 do
+    local item = items[i]
+    jools = jools + 1
+    character:RemoveItem(item)
+    item:Recycle()
+end
+CharacterExtensions.AddJools(character, jools)
+character.World:CreateMessage():AddLine(7, CharacterExtensions.Name(character) .. "" receives "" .. jools .. "" jools."")"
+                        },
                         {
                             "PotterMakePot",
                             "

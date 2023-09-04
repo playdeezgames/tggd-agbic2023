@@ -1,2 +1,0 @@
-﻿Module PotterEffectHandlers
-End Module

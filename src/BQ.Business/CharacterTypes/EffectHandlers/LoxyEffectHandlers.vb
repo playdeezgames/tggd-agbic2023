@@ -3,7 +3,6 @@
         New Dictionary(Of String, Action(Of ICharacter, IEffect)) From
                     {
                         {"Buy", AddressOf DoBuy},
-                        {"CompleteRatQuest", AddressOf DoCompleteRatQuest},
                         {"Forage", AddressOf DoForage},
                         {"BumpRiver", AddressOf DoBumpRiver}
                     }

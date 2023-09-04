@@ -516,4 +516,9 @@
     Function ItemCountsByName(character As ICharacter) As IReadOnlyDictionary(Of String, IEnumerable(Of IItem))
         Return character.Items.GroupBy(Function(x) ItemExtensions.Name(x)).ToDictionary(Function(x) x.Key, Function(x) x.AsEnumerable)
     End Function
+
+    Public Function ItemsOfItemType(character As ICharacter, itemType As String) As IItem()
+        Dim result = character.Items.Where(Function(x) x.ItemType = itemType).ToArray
+        Return result
+    End Function
 End Module

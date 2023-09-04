@@ -5,7 +5,6 @@
                         {"Buy", AddressOf DoBuy},
                         {"CompleteRatQuest", AddressOf DoCompleteRatQuest},
                         {"Forage", AddressOf DoForage},
-                        {"PotterMakePot", AddressOf DoPotterMakePot},
                         {"BumpRiver", AddressOf DoBumpRiver}
                     }
     Private Sub DoForage(character As ICharacter, effect As IEffect)

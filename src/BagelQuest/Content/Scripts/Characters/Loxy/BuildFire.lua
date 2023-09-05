@@ -1,4 +1,3 @@
-
 if not CharacterExtensions.ConsumeEnergy(character, 1, "build a fire") then
     return
 end

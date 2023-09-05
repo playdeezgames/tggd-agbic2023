@@ -1,4 +1,3 @@
-
 local msg = character.World:CreateMessage():
                 AddLine(7, "Welcome to Jusdatip Inn!"):
                 AddLine(7, "I'm Gorachan."):

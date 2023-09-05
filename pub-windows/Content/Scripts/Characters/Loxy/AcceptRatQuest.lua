@@ -1,0 +1,1 @@
+character:SetFlag("RatQuest", true)

@@ -1,0 +1,1 @@
+CharacterExtensions.DoLearnSkill(character,effect)

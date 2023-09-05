@@ -22,16 +22,31 @@
                         {"XPGoal", 10},
                         {"XPLevel", 1},
                         {"AdvancementPointsPerLevel", 10},
-                        {"AdvancementPoints", 0},
+                        {"AdvancementPoints", 1},
                         {"Energy", 10},
                         {"MaximumEnergy", 10},
                         {"Jools", 20}
                     },
-                    effectHandlers:=LoxyEffectHandlers.All,
                     initializeScript:="
 character:AddItem(ItemInitializer.CreateItem(character.World,""ClayPot""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
+                        {
+                            "Forage",
+                            "
+local cell = EffectExtensions.ToTerrainEffect(effect).Cell
+if not CharacterExtensions.ConsumeEnergy(character, 1, ""forage"") then
+    return
+end
+local itemType = CellExtensions.GenerateForageItemType(cell)
+if System.String.IsNullOrEmpty(itemType) then
+    character.World:CreateMessage():AddLine(7, CharacterExtensions.Name(character) .. "" finds nothing."")
+    return
+end
+local item = ItemInitializer.CreateItem(character.World, itemType)
+character:AddItem(item)
+character.World:CreateMessage():AddLine(7, CharacterExtensions.Name(character) .. "" finds "" .. ItemExtensions.Name(item))"
+                        },
                         {
                             "Buy",
                             "

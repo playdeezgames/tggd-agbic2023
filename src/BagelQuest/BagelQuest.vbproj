@@ -43,6 +43,66 @@
     <None Remove="Content\PlayerHit.wav" />
     <None Remove="Content\PlayerMiss.wav" />
     <None Remove="Content\recipes.json" />
+    <None Remove="Content\Scripts\Characters\CherryGlop\Initialize.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\AcceptRatQuest.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\BuildFire.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\BuildFurnace.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\BumpRiver.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\Buy.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\CompleteRatQuest.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\CookBagel.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\CookRatBody.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\CookRatCorpse.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\CutOffTail.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\DruidAllergies.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\DruidPrices.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\DruidTalk.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\DruidTeachMenu.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\EatCookedRat.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\EatPepper.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\EatRatCorpse.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\EatSeasonedRat.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\EatSmokedPepper.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\EnergyTrainerTalk.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\EnterCellar.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\ExitDialog.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\FillClayPot.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\Forage.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\GorachanTalk.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\Heal.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\HealerTalk.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\HealthTrainerTalk.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\Initialize.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\LearnFireMaking.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\LearnForaging.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\LearnHatchedMaking.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\LearnKnapping.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\LearnTorchMaking.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\LearnTwineMaking.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\MakeDough.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\MakeHatchet.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\MakePaprika.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\MakeTorch.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\Message.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\MillWheat.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\NihilistPrices.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\PayInnkeeper.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\PervertInnkeeper.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\PotterFlavorText.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\PotterMakePot.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\PotterTalk.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\PutOutFire.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\SeasonRat.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\SleepAtInn.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\SmokePepper.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\StartRatQuest.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\Teleport.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\TrainEnergy.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\TrainHealth.lua" />
+    <None Remove="Content\Scripts\Characters\Loxy\UseEnergyHerb.lua" />
+    <None Remove="Content\Scripts\Characters\OliveGlop\Initialize.lua" />
+    <None Remove="Content\Scripts\Characters\Rat\Initialize.lua" />
+    <None Remove="Content\Scripts\Characters\Scarecrow\Initialize.lua" />
     <None Remove="Content\Scripts\maze.lua" />
     <None Remove="Content\sfx.json" />
     <None Remove="Content\Shucks.wav" />
@@ -147,6 +207,186 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\recipes.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\CherryGlop\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\AcceptRatQuest.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\BuildFire.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\BuildFurnace.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\BumpRiver.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\Buy.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\CompleteRatQuest.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\CookBagel.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\CookRatBody.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\CookRatCorpse.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\CutOffTail.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\DruidAllergies.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\DruidPrices.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\DruidTalk.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\DruidTeachMenu.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\EatCookedRat.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\EatPepper.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\EatRatCorpse.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\EatSeasonedRat.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\EatSmokedPepper.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\EnergyTrainerTalk.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\EnterCellar.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\ExitDialog.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\FillClayPot.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\Forage.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\GorachanTalk.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\Heal.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\HealerTalk.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\HealthTrainerTalk.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\LearnFireMaking.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\LearnForaging.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\LearnHatchedMaking.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\LearnKnapping.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\LearnTorchMaking.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\LearnTwineMaking.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\MakeDough.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\MakeHatchet.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\MakePaprika.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\MakeTorch.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\Message.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\MillWheat.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\NihilistPrices.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\PayInnkeeper.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\PervertInnkeeper.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\PotterFlavorText.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\PotterMakePot.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\PotterTalk.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\PutOutFire.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\SeasonRat.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\SleepAtInn.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\SmokePepper.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\StartRatQuest.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\Teleport.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\TrainEnergy.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\TrainHealth.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Loxy\UseEnergyHerb.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\OliveGlop\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Rat\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Characters\Scarecrow\Initialize.lua">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Scripts\maze.lua">

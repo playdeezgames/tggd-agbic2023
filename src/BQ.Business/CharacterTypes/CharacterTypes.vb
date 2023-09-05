@@ -29,13 +29,19 @@
                     },
                     effectHandlers:=LoxyEffectHandlers.All,
                     initializeScript:="
-character:AddItem(ItemInitializer.CreateItem(character.World,""RatTail""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""RatTail""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""RatTail""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""RatTail""))
-character:AddItem(ItemInitializer.CreateItem(character.World,""RatTail""))",
+character:AddItem(ItemInitializer.CreateItem(character.World,""ClayPot""))",
                     effectScripts:=New Dictionary(Of String, String) From
                     {
+                        {
+                            "BumpRiver",
+                            "
+        local msg = character.World:CreateMessage():
+            AddLine(7, CharacterExtensions.Name(character) .. "" visits the river bank.""):
+            AddChoice(""Cool story, bro!"", ""ExitDialog"")
+        if CharacterExtensions.HasItemTypeInInventory(character, ""ClayPot"") then
+            msg:AddChoice(""Fill Clay Pot with Water"", ""FillClayPot"")
+        end"
+                        },
                         {
                             "CompleteRatQuest",
                             "
@@ -192,7 +198,7 @@ character.World:CreateMessage():
                             "FillClayPot",
                             "
 RecipeTypes.Craft(""WaterPot"", character)
-character.World.CreateMessage().AddLine(7, CharacterExtensions.Name(character) .. "" fills a "" .. ToItemTypeDescriptor(""ClayPot"").Name .. "" with water."")"
+character.World:CreateMessage():AddLine(7, CharacterExtensions.Name(character) .. "" fills a "" .. ItemTypes.ToItemTypeDescriptor(""ClayPot"").Name .. "" with water."")"
                         },
                         {
                             "EnergyTrainerTalk",

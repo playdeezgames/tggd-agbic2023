@@ -1,12 +1,12 @@
 ﻿Public Class CharacterTypeDescriptor
     Inherits VisibleEntityDescriptor
-    Friend ReadOnly Property MaskGlyph As Char
-    Friend ReadOnly Property MaskHue As Integer
-    Friend ReadOnly Property Statistics As IReadOnlyDictionary(Of String, Integer)
-    Friend ReadOnly Property InitializeScript As String
-    Friend ReadOnly Property LegacyEffectHandlers As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect))
-    Friend ReadOnly Property EffectScripts As IReadOnlyDictionary(Of String, String)
-    Private ReadOnly Flags As HashSet(Of String)
+    Public ReadOnly Property MaskGlyph As Char
+    Public ReadOnly Property MaskHue As Integer
+    Public ReadOnly Property Statistics As IReadOnlyDictionary(Of String, Integer)
+    Public ReadOnly Property InitializeScript As String
+    Public ReadOnly Property LegacyEffectHandlers As IReadOnlyDictionary(Of String, Action(Of ICharacter, IEffect))
+    Public ReadOnly Property EffectScripts As IReadOnlyDictionary(Of String, String)
+    Public ReadOnly Flags As HashSet(Of String)
     Friend ReadOnly Property HasFlag(flagType As String) As Boolean
         Get
             Return Flags.Contains(flagType)
@@ -31,10 +31,6 @@
         Me.Flags = New HashSet(Of String)(If(flags, New List(Of String)))
         Me.LegacyEffectHandlers = If(effectHandlers, New Dictionary(Of String, Action(Of ICharacter, IEffect)))
         Me.EffectScripts = If(effectScripts, New Dictionary(Of String, String))
-    End Sub
-
-    Private Sub DoNothing(character As ICharacter)
-        'as ordered!
     End Sub
 
     Private Const CharacterIdentifier = "character"

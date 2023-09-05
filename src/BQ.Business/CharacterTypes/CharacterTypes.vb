@@ -22,7 +22,7 @@
                         {"XPGoal", 10},
                         {"XPLevel", 1},
                         {"AdvancementPointsPerLevel", 10},
-                        {"AdvancementPoints", 1},
+                        {"AdvancementPoints", 0},
                         {"Energy", 10},
                         {"MaximumEnergy", 10},
                         {"Jools", 20}
@@ -722,6 +722,11 @@ end")
     Friend Function ToCharacterTypeDescriptor(characterType As String) As CharacterTypeDescriptor
         Return descriptors(characterType)
     End Function
+
+    Friend Sub Save(filename As String)
+        File.WriteAllText(filename, JsonSerializer.Serialize(descriptors))
+    End Sub
+
     Friend ReadOnly Property All As IEnumerable(Of String)
         Get
             Return descriptors.Keys

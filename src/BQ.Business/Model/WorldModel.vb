@@ -46,6 +46,7 @@ Public Class WorldModel
     Const messagesFilename = "Content/messages.json"
     Const effectTypesFilename = "Content/effectTypes.json"
     Const equipSlotFilename = "Content/equipSlots.json"
+    Const characterTypesFilename = "Content/characterTypes.json"
 
     Private Shared Function MakeLuaState() As Lua
         TerrainTypes.Load(terrainTypesFileName)
@@ -53,6 +54,7 @@ Public Class WorldModel
         MessageTypes.Load(messagesFilename)
         EffectTypes.Load(effectTypesFilename)
         EquipSlotTypes.Load(equipSlotFilename)
+        CharacterTypes.Save(characterTypesFilename)
         'ItemTypes.Save(itemTypesFilename)
         Dim lua As New Lua()
         lua.LoadCLRPackage()

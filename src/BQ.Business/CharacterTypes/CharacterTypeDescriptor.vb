@@ -1,37 +1,18 @@
 ﻿Public Class CharacterTypeDescriptor
     Inherits VisibleEntityDescriptor
-    Public ReadOnly Property MaskGlyph As Char
-    Public ReadOnly Property MaskHue As Integer
-    Public ReadOnly Property Statistics As IReadOnlyDictionary(Of String, Integer)
-    Public ReadOnly Property InitializeScript As String
-    Public ReadOnly Property EffectScripts As IReadOnlyDictionary(Of String, String)
-    Public ReadOnly Flags As HashSet(Of String)
-    Friend ReadOnly Property HasFlag(flagType As String) As Boolean
-        Get
-            Return Flags.Contains(flagType)
-        End Get
-    End Property
-    Friend Sub New(
-                  name As String,
-                  glyph As Char,
-                  hue As Integer,
-                  Optional MaskGlyph As Char = ChrW(0),
-                  Optional maskHue As Integer = 0,
-                  Optional statistics As IReadOnlyDictionary(Of String, Integer) = Nothing,
-                  Optional flags As IEnumerable(Of String) = Nothing,
-                  Optional effectScripts As IReadOnlyDictionary(Of String, String) = Nothing,
-                  Optional initializeScript As String = Nothing)
-        MyBase.New(name, glyph, hue)
-        Me.InitializeScript = initializeScript
-        Me.MaskGlyph = MaskGlyph
-        Me.MaskHue = maskHue
-        Me.Statistics = If(statistics, New Dictionary(Of String, Integer))
-        Me.Flags = New HashSet(Of String)(If(flags, New List(Of String)))
-        Me.EffectScripts = If(effectScripts, New Dictionary(Of String, String))
-    End Sub
+    Public Property MaskGlyph As Char
+    Public Property MaskHue As Integer
+    Public Property Statistics As IReadOnlyDictionary(Of String, Integer)
+    Public Property InitializeScript As String
+    Public Property EffectScripts As IReadOnlyDictionary(Of String, String)
+    Public Flags As HashSet(Of String)
+    Friend Function HasFlag(flagType As String) As Boolean
+        Return Flags.Contains(flagType)
+    End Function
 
     Private Const CharacterIdentifier = "character"
     Private Const EffectIdentifier = "effect"
+
     Friend Sub RunInitializeScript(luaState As Lua, character As ICharacter)
         If Not String.IsNullOrEmpty(InitializeScript) Then
             luaState(CharacterIdentifier) = character

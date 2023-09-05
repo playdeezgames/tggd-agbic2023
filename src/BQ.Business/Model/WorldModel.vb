@@ -54,7 +54,7 @@ Public Class WorldModel
         MessageTypes.Load(messagesFilename)
         EffectTypes.Load(effectTypesFilename)
         EquipSlotTypes.Load(equipSlotFilename)
-        CharacterTypes.Save(characterTypesFilename)
+        CharacterTypes.Load(characterTypesFilename)
         'ItemTypes.Save(itemTypesFilename)
         Dim lua As New Lua()
         lua.LoadCLRPackage()

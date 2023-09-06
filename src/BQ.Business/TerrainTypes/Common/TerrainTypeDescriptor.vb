@@ -29,36 +29,6 @@
             Return
         End If
     End Sub
-    Sub New(
-           name As String,
-           glyph As Char,
-           hue As Integer,
-           Optional tenable As Boolean = True,
-           Optional peril As Integer = 0,
-           Optional depletedTerrainType As String = Nothing,
-           Optional foragables As IReadOnlyDictionary(Of String, Integer) = Nothing,
-           Optional effects As IReadOnlyDictionary(Of String, EffectData) = Nothing,
-           Optional hasFire As Boolean = False,
-           Optional creatureTypeGenerator As IReadOnlyDictionary(Of String, Integer) = Nothing,
-           Optional isWaterSource As Boolean = False,
-           Optional canBuildFurnace As Boolean = False,
-           Optional canSleep As Boolean = True,
-           Optional isFurnace As Boolean = False,
-           Optional initializerScript As String = Nothing)
-        MyBase.New(name, glyph, hue)
-        Me.IsFurnace = isFurnace
-        Me.CanBuildFurnace = canBuildFurnace
-        Me.IsWaterSource = isWaterSource
-        Me.HasFire = hasFire
-        Me.Tenable = tenable
-        Me.DepletedTerrainType = depletedTerrainType
-        Me.InitializerScript = initializerScript
-        Me.Foragables = If(foragables, New Dictionary(Of String, Integer) From {{"", 1}})
-        Me.Effects = If(effects, New Dictionary(Of String, EffectData))
-        Me.Peril = peril
-        Me.CreatureTypeGenerator = If(creatureTypeGenerator, New Dictionary(Of String, Integer))
-        Me.CanSleep = canSleep
-    End Sub
     Friend Function HasEffect(effectType As String) As Boolean
         Return Effects.ContainsKey(effectType)
     End Function

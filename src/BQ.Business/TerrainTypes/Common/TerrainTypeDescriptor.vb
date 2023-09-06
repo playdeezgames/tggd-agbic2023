@@ -1,7 +1,9 @@
 ﻿Public Class TerrainTypeDescriptor
     Inherits VisibleEntityDescriptor
-    Implements IFlagHolder
+    Implements IFlagHolder, IStatisticsHolder, IMetadataHolder
     Public Property Flags As New HashSet(Of String)
+    Public Property Statistics As New Dictionary(Of String, Integer)
+    Public Property Metadatas As New Dictionary(Of String, String)
     Public Property CanBuildFurnace As Boolean
     Public Property CanSleep As Boolean
     Public Property IsFurnace As Boolean
@@ -53,4 +55,41 @@
     Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag
         Return Flags.Contains(flagType)
     End Function
+
+    Public Sub SetStatistic(statisticType As String, value As Integer) Implements IStatisticsHolder.SetStatistic
+        Statistics(statisticType) = value
+    End Sub
+
+    Public Function AddStatistic(statisticType As String, delta As Integer) As Integer Implements IStatisticsHolder.AddStatistic
+        SetStatistic(statisticType, GetStatistic(statisticType) + delta)
+        Return GetStatistic(statisticType)
+    End Function
+
+    Public Sub RemoveStatistic(statisticType As String) Implements IStatisticsHolder.RemoveStatistic
+        Statistics.Remove(statisticType)
+    End Sub
+
+    Public Function HasStatistic(statisticType As String) As Boolean Implements IStatisticsHolder.HasStatistic
+        Return Statistics.ContainsKey(statisticType)
+    End Function
+
+    Public Function GetStatistic(statisticType As String, Optional defaultValue As Integer = 0) As Integer Implements IStatisticsHolder.GetStatistic
+        Return If(HasStatistic(statisticType), Statistics(statisticType), defaultValue)
+    End Function
+
+    Public Function HasMetadata(identifier As String) As Boolean Implements IMetadataHolder.HasMetadata
+        Return Metadatas.ContainsKey(identifier)
+    End Function
+
+    Public Sub SetMetadata(identifier As String, value As String) Implements IMetadataHolder.SetMetadata
+        Metadatas(identifier) = value
+    End Sub
+
+    Public Function GetMetadata(identifier As String) As String Implements IMetadataHolder.GetMetadata
+        Return If(HasMetadata(identifier), Metadatas(identifier), Nothing)
+    End Function
+
+    Public Sub RemoveMetadata(identifier As String) Implements IMetadataHolder.RemoveMetadata
+        Metadatas.Remove(identifier)
+    End Sub
 End Class

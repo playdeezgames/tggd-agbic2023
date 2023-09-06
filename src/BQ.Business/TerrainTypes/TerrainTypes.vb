@@ -8,7 +8,6 @@
         For Each entry In descriptors
             entry.Value.SetFlag("IsFurnace", entry.Value.IsFurnace)
             entry.Value.SetFlag("IsWaterSource", entry.Value.IsWaterSource)
-            entry.Value.SetFlag("CanBuildFurnace", entry.Value.CanBuildFurnace)
             entry.Value.SetFlag("CanSleep", entry.Value.CanSleep)
             entry.Value.SetFlag("HasFire", entry.Value.HasFire)
             If entry.Value.Peril <> 0 Then

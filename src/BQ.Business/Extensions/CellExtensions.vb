@@ -1,6 +1,6 @@
 ﻿Public Module CellExtensions
     Public Function CanBuildFurnace(cell As ICell) As Boolean
-        Return TerrainTypes.Descriptor(cell).CanBuildFurnace
+        Return TerrainTypes.Descriptor(cell).GetFlag("CanBuildFurnace")
     End Function
     Public Function CanCookBagel(cell As ICell) As Boolean
         Return TerrainTypes.Descriptor(cell).HasEffect("CookBagel")

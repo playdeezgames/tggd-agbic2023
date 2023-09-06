@@ -61,7 +61,7 @@
     End Function
 
     Private Function CheckForFire(character As ICharacter, taskName As String) As Boolean
-        If Not TerrainTypes.Descriptor(character.Cell).HasFire Then
+        If Not TerrainTypes.Descriptor(character.Cell).GetFlag("HasFire") Then
             character.World.CreateMessage().
                 AddLine(7, $"{CharacterExtensions.Name(character)} needs a fire to {taskName}.")
             Return False

@@ -62,7 +62,7 @@ Module WildernessInitializer
         Next
         Dim riverEffect = map.CreateEffect
         SetEffectType(riverEffect, "BumpRiver")
-        For Each cell In map.Cells.Where(Function(x) TerrainTypes.Descriptor(x).IsWaterSource)
+        For Each cell In map.Cells.Where(Function(x) TerrainTypes.Descriptor(x).GetFlag("IsWaterSource"))
             cell.Effect = riverEffect
         Next
     End Sub

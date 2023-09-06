@@ -6,8 +6,6 @@
     Friend Sub Load(filename As String)
         descriptors = JsonSerializer.Deserialize(Of Dictionary(Of String, TerrainTypeDescriptor))(File.ReadAllText(filename))
         For Each entry In descriptors
-            entry.Value.SetFlag("IsWaterSource", entry.Value.IsWaterSource)
-            entry.Value.SetFlag("HasFire", entry.Value.HasFire)
             If entry.Value.Peril <> 0 Then
                 entry.Value.SetStatistic("Peril", entry.Value.Peril)
             End If

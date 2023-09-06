@@ -5,9 +5,7 @@
     Public Property Statistics As New Dictionary(Of String, Integer)
     Public Property Metadatas As New Dictionary(Of String, String)
     Public Property DepletedTerrainType As String
-    Public Property HasFire As Boolean
     Public Property Peril As Integer
-    Public Property IsWaterSource As Boolean
     Public Property CreatureTypeGenerator As IReadOnlyDictionary(Of String, Integer)
     Public Property Effects As IReadOnlyDictionary(Of String, EffectData)
     Friend Function CanInteract() As Boolean

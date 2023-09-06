@@ -1,29 +1,25 @@
-﻿Imports System.Threading
-
-Public Class TerrainTypeDescriptor
+﻿Public Class TerrainTypeDescriptor
     Inherits VisibleEntityDescriptor
-    Public ReadOnly Property CanBuildFurnace As Boolean
-    Public ReadOnly Property CanSleep As Boolean
-    Public ReadOnly Property IsFurnace As Boolean
-    Public ReadOnly Property DepletedTerrainType As String
-    Public ReadOnly Property HasFire As Boolean
-    Public ReadOnly Property Peril As Integer
-    Public ReadOnly Property IsWaterSource As Boolean
-    Public ReadOnly Property CreatureTypeGenerator As IReadOnlyDictionary(Of String, Integer)
-    Public ReadOnly Property Effects As IReadOnlyDictionary(Of String, EffectData)
-    Public ReadOnly Property Tenable As Boolean
-    Friend ReadOnly Property CanInteract As Boolean
-        Get
-            Return Effects.Any
-        End Get
-    End Property
-    Public ReadOnly Property Foragables As IReadOnlyDictionary(Of String, Integer)
+    Public Property CanBuildFurnace As Boolean
+    Public Property CanSleep As Boolean
+    Public Property IsFurnace As Boolean
+    Public Property DepletedTerrainType As String
+    Public Property HasFire As Boolean
+    Public Property Peril As Integer
+    Public Property IsWaterSource As Boolean
+    Public Property CreatureTypeGenerator As IReadOnlyDictionary(Of String, Integer)
+    Public Property Effects As IReadOnlyDictionary(Of String, EffectData)
+    Public Property Tenable As Boolean
+    Friend Function CanInteract() As Boolean
+        Return Effects.Any
+    End Function
+    Public Property Foragables As IReadOnlyDictionary(Of String, Integer)
     Friend ReadOnly Property AllEffectTypes As IEnumerable(Of String)
         Get
             Return Effects.Keys
         End Get
     End Property
-    Public ReadOnly Property InitializerScript As String
+    Public Property InitializerScript As String
     Friend Sub Initialize(luaState As Lua, cell As ICell)
         If Not String.IsNullOrEmpty(InitializerScript) Then
             Dim oldCell = luaState("cell")

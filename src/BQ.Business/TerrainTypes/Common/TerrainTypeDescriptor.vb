@@ -1,5 +1,7 @@
 ﻿Public Class TerrainTypeDescriptor
     Inherits VisibleEntityDescriptor
+    Implements IFlagHolder
+    Public Property Flags As New HashSet(Of String)
     Public Property CanBuildFurnace As Boolean
     Public Property CanSleep As Boolean
     Public Property IsFurnace As Boolean
@@ -38,5 +40,17 @@
     End Sub
     Friend Function GenerateCreatureType() As String
         Return RNG.FromGenerator(CreatureTypeGenerator)
+    End Function
+
+    Public Sub SetFlag(flagType As String, value As Boolean) Implements IFlagHolder.SetFlag
+        If value Then
+            Flags.Add(flagType)
+        Else
+            Flags.Remove(flagType)
+        End If
+    End Sub
+
+    Public Function GetFlag(flagType As String) As Boolean Implements IFlagHolder.GetFlag
+        Return Flags.Contains(flagType)
     End Function
 End Class

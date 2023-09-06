@@ -5,11 +5,6 @@
     End Sub
     Friend Sub Load(filename As String)
         descriptors = JsonSerializer.Deserialize(Of Dictionary(Of String, TerrainTypeDescriptor))(File.ReadAllText(filename))
-        For Each entry In descriptors
-            If entry.Value.Peril <> 0 Then
-                entry.Value.SetStatistic("Peril", entry.Value.Peril)
-            End If
-        Next
         Save(filename)
     End Sub
     Public Function Descriptor(cell As ICell) As TerrainTypeDescriptor

@@ -28,7 +28,7 @@
         Return TerrainTypes.Descriptor(cell).GetFlag("Tenable")
     End Function
     Public Function Peril(cell As ICell) As Integer
-        Return TerrainTypes.Descriptor(cell).Peril
+        Return TerrainTypes.Descriptor(cell).GetStatistic("Peril")
     End Function
     Public Sub DoEffect(cell As ICell, effectType As String, character As ICharacter)
         Dim descriptor = TerrainTypes.Descriptor(cell)

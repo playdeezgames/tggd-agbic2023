@@ -4,7 +4,6 @@
     Public Property Flags As New HashSet(Of String)
     Public Property Statistics As New Dictionary(Of String, Integer)
     Public Property Metadatas As New Dictionary(Of String, String)
-    Public Property IsFurnace As Boolean
     Public Property DepletedTerrainType As String
     Public Property HasFire As Boolean
     Public Property Peril As Integer

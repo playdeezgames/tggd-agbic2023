@@ -52,7 +52,7 @@
     End Sub
 
     Private Function CheckForFurnace(character As ICharacter, taskName As String) As Boolean
-        If Not TerrainTypes.Descriptor(character.Cell).IsFurnace Then
+        If Not TerrainTypes.Descriptor(character.Cell).GetFlag("IsFurnace") Then
             character.World.CreateMessage().
                 AddLine(7, $"{CharacterExtensions.Name(character)} needs a furnace to {taskName}.")
             Return False

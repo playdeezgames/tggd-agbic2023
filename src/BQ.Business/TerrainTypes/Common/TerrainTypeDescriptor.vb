@@ -4,7 +4,6 @@
     Public Property Flags As New HashSet(Of String)
     Public Property Statistics As New Dictionary(Of String, Integer)
     Public Property Metadatas As New Dictionary(Of String, String)
-    Public Property DepletedTerrainType As String
     Public Property Peril As Integer
     Public Property CreatureTypeGenerator As IReadOnlyDictionary(Of String, Integer)
     Public Property Effects As IReadOnlyDictionary(Of String, EffectData)

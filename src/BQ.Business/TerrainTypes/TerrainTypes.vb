@@ -9,9 +9,6 @@
             If entry.Value.Peril <> 0 Then
                 entry.Value.SetStatistic("Peril", entry.Value.Peril)
             End If
-            If Not String.IsNullOrEmpty(entry.Value.DepletedTerrainType) Then
-                entry.Value.SetMetadata("DepletedTerrainType", entry.Value.DepletedTerrainType)
-            End If
         Next
         Save(filename)
     End Sub

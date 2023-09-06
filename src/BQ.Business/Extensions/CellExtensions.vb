@@ -25,7 +25,7 @@
         Return TerrainTypes.Descriptor(cell).HasEffect("Forage") AndAlso cell.GetStatistic("ForageRemaining") > 0
     End Function
     Public Function IsTenable(cell As ICell) As Boolean
-        Return TerrainTypes.Descriptor(cell).Tenable
+        Return TerrainTypes.Descriptor(cell).GetFlag("Tenable")
     End Function
     Public Function Peril(cell As ICell) As Integer
         Return TerrainTypes.Descriptor(cell).Peril

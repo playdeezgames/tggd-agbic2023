@@ -11,7 +11,6 @@
             entry.Value.SetFlag("CanBuildFurnace", entry.Value.CanBuildFurnace)
             entry.Value.SetFlag("CanSleep", entry.Value.CanSleep)
             entry.Value.SetFlag("HasFire", entry.Value.HasFire)
-            entry.Value.SetFlag("Tenable", entry.Value.Tenable)
             If entry.Value.Peril <> 0 Then
                 entry.Value.SetStatistic("Peril", entry.Value.Peril)
             End If

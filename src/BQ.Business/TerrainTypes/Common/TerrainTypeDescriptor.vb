@@ -13,7 +13,6 @@
     Public Property IsWaterSource As Boolean
     Public Property CreatureTypeGenerator As IReadOnlyDictionary(Of String, Integer)
     Public Property Effects As IReadOnlyDictionary(Of String, EffectData)
-    Public Property Tenable As Boolean
     Friend Function CanInteract() As Boolean
         Return Effects.Any
     End Function

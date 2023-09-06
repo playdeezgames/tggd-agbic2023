@@ -1,5 +1,14 @@
 {
   "Grass": {
+    "Flags": [
+      "CanSleep",
+      "Tenable"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+      "DepletedTerrainType": "DepletedGrass"
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -31,6 +40,16 @@
     "Name": "Grass"
   },
   "ClayPit": {
+    "Flags": [
+      "CanSleep",
+      "Tenable"
+    ],
+    "Statistics": {
+      "Peril": 2
+    },
+    "Metadatas": {
+      "DepletedTerrainType": "Empty"
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -63,6 +82,16 @@
     "Name": "Clay Pit"
   },
   "RockQuarry": {
+    "Flags": [
+      "CanSleep",
+      "Tenable"
+    ],
+    "Statistics": {
+      "Peril": 2
+    },
+    "Metadatas": {
+      "DepletedTerrainType": "Empty"
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -95,6 +124,14 @@
     "Name": "Rock Quarry"
   },
   "DepletedGrass": {
+    "Flags": [
+      "CanSleep",
+      "Tenable"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -116,6 +153,16 @@
     "Name": "Grass"
   },
   "Tree": {
+    "Flags": [
+      "CanSleep",
+      "Tenable"
+    ],
+    "Statistics": {
+      "Peril": 1
+    },
+    "Metadatas": {
+      "DepletedTerrainType": "DepletedTree"
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -150,6 +197,15 @@
     "Name": "Tree"
   },
   "DepletedTree": {
+    "Flags": [
+      "CanSleep",
+      "Tenable"
+    ],
+    "Statistics": {
+      "Peril": 1
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -173,6 +229,15 @@
     "Name": "Tree"
   },
   "Empty": {
+    "Flags": [
+      "CanBuildFurnace",
+      "CanSleep",
+      "Tenable"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": true,
     "CanSleep": true,
     "IsFurnace": false,
@@ -212,6 +277,15 @@
     "Name": "Empty"
   },
   "CellarFloor": {
+    "Flags": [
+      "CanSleep",
+      "Tenable"
+    ],
+    "Statistics": {
+      "Peril": 1
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -234,6 +308,16 @@
     "Name": "Cellar Floor"
   },
   "Farm": {
+    "Flags": [
+      "CanSleep",
+      "Tenable"
+    ],
+    "Statistics": {
+      "Peril": 1
+    },
+    "Metadatas": {
+      "DepletedTerrainType": "Empty"
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -268,6 +352,13 @@
     "Name": "Farm"
   },
   "Wall": {
+    "Flags": [
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -289,6 +380,14 @@
     "Name": "Wall"
   },
   "Gravel": {
+    "Flags": [
+      "CanSleep",
+      "Tenable"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -310,6 +409,13 @@
     "Name": "Gravel"
   },
   "Fence": {
+    "Flags": [
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -331,6 +437,13 @@
     "Name": "Fence"
   },
   "House": {
+    "Flags": [
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -352,6 +465,13 @@
     "Name": "House"
   },
   "Town": {
+    "Flags": [
+      "Tenable"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": false,
     "IsFurnace": false,
@@ -373,6 +493,13 @@
     "Name": "Town"
   },
   "Sign": {
+    "Flags": [
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -394,6 +521,14 @@
     "Name": "Sign"
   },
   "RiverN": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -415,6 +550,14 @@
     "Name": "River"
   },
   "RiverE": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -436,6 +579,14 @@
     "Name": "River"
   },
   "RiverS": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -457,6 +608,14 @@
     "Name": "River"
   },
   "RiverW": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -478,6 +637,14 @@
     "Name": "River"
   },
   "RiverNE": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -499,6 +666,14 @@
     "Name": "River"
   },
   "RiverSE": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -520,6 +695,14 @@
     "Name": "River"
   },
   "RiverSW": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -541,6 +724,14 @@
     "Name": "River"
   },
   "RiverNW": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -562,6 +753,14 @@
     "Name": "River"
   },
   "RiverNES": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -583,6 +782,14 @@
     "Name": "River"
   },
   "RiverESW": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -604,6 +811,14 @@
     "Name": "River"
   },
   "RiverSWN": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -625,6 +840,14 @@
     "Name": "River"
   },
   "RiverWNE": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -646,6 +869,14 @@
     "Name": "River"
   },
   "RiverNESW": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -667,6 +898,14 @@
     "Name": "River"
   },
   "RiverNS": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -688,6 +927,14 @@
     "Name": "River"
   },
   "RiverEW": {
+    "Flags": [
+      "IsWaterSource",
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -709,6 +956,14 @@
     "Name": "River"
   },
   "Door": {
+    "Flags": [
+      "CanSleep",
+      "Tenable"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -730,6 +985,13 @@
     "Name": "Door"
   },
   "Basin": {
+    "Flags": [
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -751,6 +1013,13 @@
     "Name": "Basin"
   },
   "OldMan": {
+    "Flags": [
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -772,6 +1041,13 @@
     "Name": "Old Man"
   },
   "StrongMan": {
+    "Flags": [
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -793,6 +1069,13 @@
     "Name": "Strong Man"
   },
   "Potter": {
+    "Flags": [
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -814,6 +1097,13 @@
     "Name": "Potter"
   },
   "Druid": {
+    "Flags": [
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -835,6 +1125,13 @@
     "Name": "Druid"
   },
   "Bed": {
+    "Flags": [
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -856,6 +1153,13 @@
     "Name": "Bed"
   },
   "Gorachan": {
+    "Flags": [
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -877,6 +1181,13 @@
     "Name": "Gorachan"
   },
   "EnergyTrainer": {
+    "Flags": [
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -898,6 +1209,13 @@
     "Name": "Plucky Man"
   },
   "StairsUp": {
+    "Flags": [
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -919,6 +1237,13 @@
     "Name": "Up Stairs"
   },
   "StairsDown": {
+    "Flags": [
+      "CanSleep"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -940,6 +1265,15 @@
     "Name": "Down Stairs"
   },
   "CookingFire": {
+    "Flags": [
+      "CanSleep",
+      "HasFire",
+      "Tenable"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": false,
@@ -981,6 +1315,15 @@
     "Name": "Cooking Fire"
   },
   "Furnace": {
+    "Flags": [
+      "IsFurnace",
+      "CanSleep",
+      "Tenable"
+    ],
+    "Statistics": {
+    },
+    "Metadatas": {
+    },
     "CanBuildFurnace": false,
     "CanSleep": true,
     "IsFurnace": true,

@@ -9,7 +9,7 @@
         Return TerrainTypes.Descriptor(cell).HasFire
     End Function
     Public Function CanSleep(cell As ICell) As Boolean
-        Return TerrainTypes.Descriptor(cell).CanSleep
+        Return TerrainTypes.Descriptor(cell).GetFlag("CanSleep")
     End Function
     Public Function CanMakeTorch(cell As ICell) As Boolean
         Return TerrainTypes.Descriptor(cell).HasEffect("MakeTorch")

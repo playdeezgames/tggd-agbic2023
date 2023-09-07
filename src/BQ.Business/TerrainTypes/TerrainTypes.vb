@@ -5,7 +5,9 @@
     End Sub
     Friend Sub Load(filename As String)
         descriptors = JsonSerializer.Deserialize(Of Dictionary(Of String, TerrainTypeDescriptor))(File.ReadAllText(filename))
-        Save(filename)
+        For Each entry In descriptors
+            entry.Value.InitializerScript = File.ReadAllText(entry.Value.InitializerScript)
+        Next
     End Sub
     Public Function Descriptor(cell As ICell) As TerrainTypeDescriptor
         Return descriptors(cell.TerrainType)

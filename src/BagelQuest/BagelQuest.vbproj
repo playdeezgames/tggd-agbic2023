@@ -104,6 +104,49 @@
     <None Remove="Content\Scripts\Characters\Rat\Initialize.lua" />
     <None Remove="Content\Scripts\Characters\Scarecrow\Initialize.lua" />
     <None Remove="Content\Scripts\maze.lua" />
+    <None Remove="Content\Scripts\Terrain\Basin\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Bed\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\CellarFloor\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\ClayPit\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\CookingFire\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\DepletedGrass\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\DepletedTree\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Door\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Druid\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Empty\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\EnergyTrainer\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Farm\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Fence\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Furnace\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Gorachan\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Grass\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Gravel\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\House\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\OldMan\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Potter\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverESW\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverEW\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverE\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverNESW\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverNES\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverNE\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverNS\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverNW\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverN\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverSE\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverSWN\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverSW\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverS\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverWNE\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RiverW\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\RockQuarry\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Sign\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\StairsDown\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\StairsUp\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\StrongMan\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Town\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Tree\Initialize.lua" />
+    <None Remove="Content\Scripts\Terrain\Wall\Initialize.lua" />
     <None Remove="Content\sfx.json" />
     <None Remove="Content\Shucks.wav" />
     <None Remove="Content\Take.wav" />
@@ -390,6 +433,135 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Scripts\maze.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Basin\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Bed\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\CellarFloor\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\ClayPit\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\CookingFire\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\DepletedGrass\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\DepletedTree\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Door\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Druid\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Empty\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\EnergyTrainer\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Farm\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Fence\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Furnace\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Gorachan\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Grass\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Gravel\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\House\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\OldMan\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Potter\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverESW\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverEW\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverE\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverNESW\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverNES\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverNE\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverNS\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverNW\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverN\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverSE\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverSWN\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverSW\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverS\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverWNE\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RiverW\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\RockQuarry\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Sign\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\StairsDown\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\StairsUp\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\StrongMan\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Town\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Tree\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Terrain\Wall\Initialize.lua">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\sfx.json">

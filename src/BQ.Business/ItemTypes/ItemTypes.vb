@@ -11,7 +11,11 @@
     Friend Sub Load(filename As String)
         descriptors = JsonSerializer.Deserialize(Of Dictionary(Of String, ItemTypeDescriptor))(File.ReadAllText(filename))
         For Each entry In descriptors
-            entry.Value.FullNameScript = File.ReadAllText(entry.Value.FullNameScript)
+            Try
+                entry.Value.FullNameScript = File.ReadAllText(entry.Value.FullNameScript)
+            Catch
+                entry.Value.FullNameScript = Nothing
+            End Try
         Next
     End Sub
 

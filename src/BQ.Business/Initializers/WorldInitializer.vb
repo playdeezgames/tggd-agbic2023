@@ -15,8 +15,8 @@ Friend Module WorldInitializer
     End Sub
 
     Private Sub StitchPotterToTown(world As IWorld)
-        Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
-        Dim potterMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Potter)
+        Dim townMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.Town)
+        Dim potterMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.Potter)
         townMap.GetCell(13, 13).Effect =
             townMap.CreateEffect()
         TriggerExtensions.SetEffectType(townMap.GetCell(13, 13).Effect, "Teleport")
@@ -28,8 +28,8 @@ Friend Module WorldInitializer
     End Sub
 
     Private Sub StitchEnergyTrainerToTown(world As IWorld)
-        Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
-        Dim trainerMap = world.Maps.Single(Function(x) x.MapType = MapTypes.EnergyTrainer)
+        Dim townMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.Town)
+        Dim trainerMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.EnergyTrainer)
         townMap.GetCell(6, 6).Effect = townMap.CreateEffect()
         TriggerExtensions.SetEffectType(townMap.GetCell(6, 6).Effect, "Teleport")
         TriggerExtensions.SetDestination(townMap.GetCell(6, 6).Effect, trainerMap.GetCell(EnergyTrainerColumns \ 2, 1))
@@ -39,9 +39,9 @@ Friend Module WorldInitializer
     End Sub
 
     Private Sub StitchInnToTown(world As IWorld)
-        Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
-        Dim innMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Inn)
-        Dim cellarMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Cellar)
+        Dim townMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.Town)
+        Dim innMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.Inn)
+        Dim cellarMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.Cellar)
         townMap.GetCell(3, 3).Effect = townMap.CreateEffect()
         TriggerExtensions.SetEffectType(townMap.GetCell(3, 3).Effect, "Teleport")
         TriggerExtensions.SetDestination(townMap.GetCell(3, 3).Effect, innMap.GetCell(InnColumns \ 2, InnRows - 2))
@@ -56,8 +56,8 @@ Friend Module WorldInitializer
     End Sub
 
     Private Sub StitchDruidHouseToTown(world As IWorld)
-        Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
-        Dim druidMap = world.Maps.Single(Function(x) x.MapType = MapTypes.DruidHouse)
+        Dim townMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.Town)
+        Dim druidMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.DruidHouse)
         townMap.GetCell(10, 10).Effect =
             townMap.CreateEffect()
         TriggerExtensions.SetEffectType(townMap.GetCell(10, 10).Effect, "Teleport")
@@ -69,8 +69,8 @@ Friend Module WorldInitializer
     End Sub
 
     Private Sub StitchHealthTrainerToTown(world As IWorld)
-        Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
-        Dim trainerMap = world.Maps.Single(Function(x) x.MapType = MapTypes.HealthTrainer)
+        Dim townMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.Town)
+        Dim trainerMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.HealthTrainer)
         townMap.GetCell(8, 4).Effect =
             townMap.CreateEffect()
         TriggerExtensions.SetEffectType(townMap.GetCell(8, 4).Effect, "Teleport")
@@ -82,8 +82,8 @@ Friend Module WorldInitializer
     End Sub
 
     Private Sub StitchHealerToTown(world As IWorld)
-        Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
-        Dim healerMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Healer)
+        Dim townMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.Town)
+        Dim healerMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.Healer)
         FromTownToHealerHouse(townMap, healerMap)
         FromHealerHouseToTown(townMap, healerMap)
     End Sub
@@ -105,8 +105,8 @@ Friend Module WorldInitializer
     End Sub
 
     Private Sub StitchTownToWilderness(world As IWorld)
-        Dim townMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Town)
-        Dim wildernessMap = world.Maps.Single(Function(x) x.MapType = MapTypes.Wilderness)
+        Dim townMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.Town)
+        Dim wildernessMap = WorldExtensions.GetSingleMapByMapType(world, MapTypes.Wilderness)
         Dim townCell = wildernessMap.Cells.Single(Function(x) x.TerrainType = "Town")
         townMap.GetCell(townMap.Columns \ 2, townMap.Rows - 1).Effect =
             townMap.CreateEffect()

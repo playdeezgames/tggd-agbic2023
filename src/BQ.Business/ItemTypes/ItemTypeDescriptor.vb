@@ -1,46 +1,22 @@
 ﻿Public Class ItemTypeDescriptor
     Inherits VisibleEntityDescriptor
-    Public ReadOnly Property Effects As IReadOnlyDictionary(Of String, EffectData)
-    Public ReadOnly Property Statistics As IReadOnlyDictionary(Of String, Integer)
-    Public ReadOnly Property Flags As IReadOnlyList(Of String)
-    Public ReadOnly Property EquipSlotType As String
-    Friend ReadOnly Property LegacyFullName As Func(Of IItem, String)
+    Public Property Effects As New Dictionary(Of String, EffectData)
+    Public Property Statistics As New Dictionary(Of String, Integer)
+    Public Property Flags As New HashSet(Of String)
+    Public Property EquipSlotType As String
     Public Function FullName(luaState As Lua, item As IItem) As String
         If Not String.IsNullOrEmpty(FullNameScript) Then
             luaState("item") = item
             Dim result = luaState.DoString(FullNameScript)
             luaState("item") = Nothing
             Return result.ToString()
-            'Else
-            '   Return DefaultFullName(item)
         End If
-        Return LegacyFullName(item)
+        Return DefaultFullName(item)
     End Function
-    Public ReadOnly FullNameScript As String
-    Friend ReadOnly Property CanEquip As Boolean
-        Get
-            Return EquipSlotType IsNot Nothing
-        End Get
-    End Property
-    Friend Sub New(
-                  name As String,
-                  glyph As Char,
-                  hue As Integer,
-                  Optional statistics As IReadOnlyDictionary(Of String, Integer) = Nothing,
-                  Optional equipSlotType As String = Nothing,
-                  Optional fullName As Func(Of IItem, String) = Nothing,
-                  Optional canTake As Boolean = True,
-                  Optional flags As IReadOnlyList(Of String) = Nothing,
-                  Optional effects As IReadOnlyDictionary(Of String, EffectData) = Nothing,
-                  Optional fullNameScript As String = Nothing)
-        MyBase.New(name, glyph, hue)
-        Me.EquipSlotType = equipSlotType
-        Me.Statistics = If(statistics, New Dictionary(Of String, Integer))
-        Me.LegacyFullName = If(fullName, AddressOf DefaultFullName)
-        Me.Flags = If(flags, New List(Of String))
-        Me.Effects = If(effects, New Dictionary(Of String, EffectData))
-        Me.FullNameScript = fullNameScript
-    End Sub
+    Public Property FullNameScript As String
+    Friend Function CanEquip() As Boolean
+        Return EquipSlotType IsNot Nothing
+    End Function
 
     Private Function DefaultFullName(item As IItem) As String
         Return ItemExtensions.Name(item)

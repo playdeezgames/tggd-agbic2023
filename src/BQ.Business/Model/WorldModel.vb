@@ -42,7 +42,7 @@ Public Class WorldModel
     Friend Shared LuaState As Lua = MakeLuaState()
     Const terrainTypesFileName = "Content/terrainTypes.json"
     Const recipesFilename = "Content/recipes.json"
-    'Const itemTypesFilename = "Content/itemTypes.json"
+    Const itemTypesFilename = "Content/itemTypes.json"
     Const messagesFilename = "Content/messages.json"
     Const effectTypesFilename = "Content/effectTypes.json"
     Const equipSlotFilename = "Content/equipSlots.json"
@@ -55,7 +55,7 @@ Public Class WorldModel
         EffectTypes.Load(effectTypesFilename)
         EquipSlotTypes.Load(equipSlotFilename)
         CharacterTypes.Load(characterTypesFilename)
-        'ItemTypes.Save(itemTypesFilename)
+        ItemTypes.Load(itemTypesFilename)
         Dim lua As New Lua()
         lua.LoadCLRPackage()
         lua.DoString("import('SPLORR.Game')

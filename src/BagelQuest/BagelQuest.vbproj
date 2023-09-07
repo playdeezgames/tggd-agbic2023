@@ -34,6 +34,7 @@
     <None Remove="Content\equipSlots.json" />
     <None Remove="Content\font.json" />
     <None Remove="Content\hue.json" />
+    <None Remove="Content\itemTypes.json" />
     <None Remove="Content\keys.json" />
     <None Remove="Content\MainTheme.ogg" />
     <None Remove="Content\messages.json" />
@@ -103,6 +104,33 @@
     <None Remove="Content\Scripts\Characters\OliveGlop\Initialize.lua" />
     <None Remove="Content\Scripts\Characters\Rat\Initialize.lua" />
     <None Remove="Content\Scripts\Characters\Scarecrow\Initialize.lua" />
+    <None Remove="Content\Scripts\Items\Bagel\FullName.lua" />
+    <None Remove="Content\Scripts\Items\Charcoal\FullName.lua" />
+    <None Remove="Content\Scripts\Items\ClayPot\FullName.lua" />
+    <None Remove="Content\Scripts\Items\Clay\FullName.lua" />
+    <None Remove="Content\Scripts\Items\CookedRat\FullName.lua" />
+    <None Remove="Content\Scripts\Items\CrackedPot\FullName.lua" />
+    <None Remove="Content\Scripts\Items\Dough\FullName.lua" />
+    <None Remove="Content\Scripts\Items\EnergyHerb\FullName.lua" />
+    <None Remove="Content\Scripts\Items\Flour\FullName.lua" />
+    <None Remove="Content\Scripts\Items\Hatchet\FullName.lua" />
+    <None Remove="Content\Scripts\Items\Paprika\FullName.lua" />
+    <None Remove="Content\Scripts\Items\Pepper\FullName.lua" />
+    <None Remove="Content\Scripts\Items\PlantFiber\FullName.lua" />
+    <None Remove="Content\Scripts\Items\RatBody\FullName.lua" />
+    <None Remove="Content\Scripts\Items\RatCorpse\FullName.lua" />
+    <None Remove="Content\Scripts\Items\RatTail\FullName.lua" />
+    <None Remove="Content\Scripts\Items\Rock\FullName.lua" />
+    <None Remove="Content\Scripts\Items\SeasonedRat\FullName.lua" />
+    <None Remove="Content\Scripts\Items\SharpRock\FullName.lua" />
+    <None Remove="Content\Scripts\Items\SmokedPepper\FullName.lua" />
+    <None Remove="Content\Scripts\Items\Stick\FullName.lua" />
+    <None Remove="Content\Scripts\Items\StrawHat\FullName.lua" />
+    <None Remove="Content\Scripts\Items\Torch\FullName.lua" />
+    <None Remove="Content\Scripts\Items\Twine\FullName.lua" />
+    <None Remove="Content\Scripts\Items\UnfiredPot\FullName.lua" />
+    <None Remove="Content\Scripts\Items\WaterPot\FullName.lua" />
+    <None Remove="Content\Scripts\Items\Wheat\FullName.lua" />
     <None Remove="Content\Scripts\maze.lua" />
     <None Remove="Content\Scripts\Terrain\Basin\Initialize.lua" />
     <None Remove="Content\Scripts\Terrain\Bed\Initialize.lua" />
@@ -238,6 +266,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\hue.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\itemTypes.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\keys.json">
@@ -430,6 +461,87 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Scripts\Characters\Scarecrow\Initialize.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\Bagel\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\Charcoal\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\ClayPot\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\Clay\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\CookedRat\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\CrackedPot\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\Dough\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\EnergyHerb\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\Flour\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\Hatchet\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\Paprika\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\Pepper\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\PlantFiber\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\RatBody\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\RatCorpse\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\RatTail\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\Rock\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\SeasonedRat\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\SharpRock\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\SmokedPepper\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\Stick\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\StrawHat\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\Torch\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\Twine\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\UnfiredPot\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\WaterPot\FullName.lua">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Scripts\Items\Wheat\FullName.lua">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Scripts\maze.lua">

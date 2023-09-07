@@ -1,0 +1,1 @@
+cell:SetStatistic("ForageRemaining", 50)

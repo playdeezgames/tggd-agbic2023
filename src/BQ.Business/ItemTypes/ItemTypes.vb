@@ -1,7 +1,4 @@
 ﻿Public Module ItemTypes
-    Private Sub Save(filename As String)
-        File.WriteAllText(filename, JsonSerializer.Serialize(descriptors))
-    End Sub
     Private descriptors As IReadOnlyDictionary(Of String, ItemTypeDescriptor)
 
     Public Function ToItemTypeDescriptor(itemType As String) As ItemTypeDescriptor

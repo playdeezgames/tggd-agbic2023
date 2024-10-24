@@ -1,1 +1,0 @@
-return ItemExtensions.Name(item) .. "(" .. ItemExtensions.Durability(item) .. "/" .. ItemExtensions.MaximumDurability(item) .. ")"

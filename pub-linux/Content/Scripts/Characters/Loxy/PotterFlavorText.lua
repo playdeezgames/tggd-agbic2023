@@ -1,1 +1,0 @@
-world:CreateMessage():AddLine(7, "Um. Thanks!"):AddLine(7, "..."):AddLine(7, "What's a 'Movie'?"):AddChoice("Nevermind!", "ExitDialog")

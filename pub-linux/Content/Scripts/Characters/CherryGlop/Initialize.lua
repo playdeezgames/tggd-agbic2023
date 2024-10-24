@@ -1,1 +1,0 @@
-character:SetStatistic('Jools', RNG.RollDice('6d6/6'))

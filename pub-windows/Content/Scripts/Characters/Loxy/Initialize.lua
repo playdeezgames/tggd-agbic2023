@@ -1,1 +1,0 @@
-character:AddItem(ItemInitializer.CreateItem(character.World,"PlantFiber"))

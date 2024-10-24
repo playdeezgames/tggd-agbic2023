@@ -1,1 +1,0 @@
-CharacterExtensions.CookFurnaceRecipe(character, "Bagel", "cook a bagel", "cooks a bagel")

@@ -7,6 +7,7 @@ Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "BagelQuest", "BagelQuest\Ba
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_STUFF", "_STUFF", "{11358AC6-CE58-4586-B380-F14F90818D4E}"
 	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
 		..\README.md = ..\README.md
 		..\shippit.sh = ..\shippit.sh
 		FontMaker\source.png = FontMaker\source.png

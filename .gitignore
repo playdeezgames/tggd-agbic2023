@@ -396,4 +396,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-/pub-linux/Content/Audio/Mux/CombatTheme.ogg
+
+/pub-linux
+/pub-mac
+/pub-windows

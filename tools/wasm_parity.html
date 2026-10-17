@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>wasm parity</title>
+<pre id="result">running</pre>
+<script src="odin.js"></script>
+<script src="storage.js"></script>
+<script>
+// The same scripted game as odin/tests/parity_test.odin, played through the built wasm. Writes "frames=... state=... steps=..." to #result.
+(async function () {
+	const STEPS = 4000, W = 384, H = 216;
+	localStorage.clear();
+	const fnv = (h, b) => (Math.imul(h ^ (b & 255), 16777619) >>> 0);
+	let lcg = 12345;
+	const next = () => { lcg = (Math.imul(lcg, 1664525) + 1013904223) >>> 0; return lcg; };
+	const mem = new odin.WasmMemoryInterface();
+	let half = 0;
+	const platform = { js_entropy_u32() { half ^= 1; return half ? 0 : 7; }, js_log() {}, js_download_text() {}, js_request_file() {} };
+	await odin.runWasm("platform.wasm", null, { ...storageImports(mem), platform }, mem);
+	const ex = mem.exports;
+	let now = 1790000000000, acc = 2166136261;
+	for (let step = 0; step < STEPS; step++) {
+		const cmd = 1 + (next() >>> 16) % 6;
+		now += 16;
+		if (step % 97 === 0) now += 1500;
+		ex.platform_command(cmd);
+		ex.platform_frame(0.016, now);
+		if (!ex.platform_frame_changed()) acc = fnv(acc, 0);
+		else {
+			const bytes = new Uint8Array(mem.memory.buffer, ex.platform_frame_ptr(), W * H * 4);
+			if (step % 25 === 0) for (let i = 0; i < bytes.length; i++) acc = fnv(acc, bytes[i]);
+			else for (let i = 0; i < bytes.length; i += 509) acc = fnv(acc, bytes[i]);
+		}
+		for (let i = 0, n = ex.platform_sfx_count(); i < n; i++) acc = fnv(acc, ex.platform_sfx(i));
+		acc = fnv(acc, ex.platform_mux());
+		if (step % 500 === 499) { const s = ex.platform_state_hash(); for (let k = 0; k < 4; k++) acc = fnv(acc, (s >>> (8 * k)) & 255); }
+	}
+	document.getElementById("result").textContent = `RESULT frames=${acc} state=${ex.platform_state_hash() >>> 0} steps=${STEPS}`;
+})().catch((e) => { document.getElementById("result").textContent = "FAILED " + e + " " + (e.stack || ""); });
+</script>

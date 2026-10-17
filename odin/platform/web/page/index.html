@@ -1,0 +1,19 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Bagel Quest</title>
+<style>
+	html, body { margin: 0; height: 100%; overflow: hidden; background: #000; overscroll-behavior: none; touch-action: none;
+		-webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+	#touchpad { display: none; position: fixed; left: 8px; bottom: 8px; right: 8px; height: 192px; pointer-events: none; }
+	#touchpad button { position: absolute; width: 60px; height: 60px; border-radius: 12px; border: 2px solid #ff9233; background: rgba(0,0,0,.45);
+		color: #ff9233; font: bold 22px monospace; pointer-events: auto; touch-action: none; opacity: .75; }
+	#screen { position: absolute; image-rendering: pixelated; touch-action: none; }
+</style>
+<canvas id="screen" width="384" height="216"></canvas>
+<script src="odin.js"></script>
+<script src="keys.js"></script>
+<script src="storage.js"></script>
+<script src="sounds.js"></script>
+<script src="music.js"></script>
+<script src="platform.js"></script>

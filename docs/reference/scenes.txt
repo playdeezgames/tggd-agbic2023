@@ -1,0 +1,527 @@
+# Scenes recorded from the original VB game (tools/oracle.sh) and replayed on the Odin core (odin/tests/screens_test.odin).
+# One DSL, two interpreters. Frames land in docs/reference/vb/<shot>.txt (216 lines of 384 hue digits).
+#
+#   scene NAME            a fresh game at the splash screen (a new controller)
+#   keys CMD...           press commands, one after another; CMD is Up Down Left Right A B; the screen is drawn after each
+#   embark                keys A A: from the splash through the main menu to a new world (lands on the map)
+#   neutral               make the game look at the world again (after staging a fight, a death, a win)
+#   wait MS               let that many milliseconds pass (the end screens ignore input for the first second)
+#   shot NAME             draw once and record the frame
+# Staging (the world is random; these make a scene exact). MAP is one of
+#   Town Wilderness Healer HealthTrainer Potter DruidHouse Inn EnergyTrainer Cellar
+#   avatar MAP COL ROW        put Loxy there
+#   terrain MAP COL ROW T     set one cell's terrain      fill MAP C0 R0 C1 R1 T   set a rectangle
+#   give ITEM [N]             N items into Loxy's pack     ground ITEM [N]   N items on the cell Loxy stands on
+#   equip SLOT ITEM           Loxy wears/wields it (SLOT is Weapon or Head)
+#   stat NAME VALUE           a statistic of Loxy (Health, MaximumHealth, Energy, Jools, AdvancementPoints, ...)
+#   flag NAME 0|1             a flag of Loxy (KnowsForaging, RatQuest, ...)
+#   enemy TYPE                a creature in the cell Loxy stands on (Rat, OliveGlop, CherryGlop, Scarecrow)
+#   forage N                  how many finds are left in the cell Loxy stands on
+# Scenes avoid anything random on screen: no wilderness left unstaged, no dice.
+
+# ---- boilerplate ---------------------------------------------------------------------------------------------
+scene splash
+shot splash
+
+scene main_menu
+keys A
+shot main_menu
+keys Down
+shot main_menu_down1
+keys Down Down Down Down
+shot main_menu_down5
+keys Down
+shot main_menu_wrapped
+
+scene about
+keys A Down Down Down Down A
+shot about
+
+scene options
+keys A Down Down Down A
+shot options
+keys Down
+shot options_down1
+keys Down Down Down
+shot options_wrapped
+
+scene window_size
+keys A Down Down Down A Down A
+shot window_size
+keys Down Down
+shot window_size_down2
+
+scene sfx_volume
+keys A Down Down Down A Down Down A
+shot sfx_volume
+keys Down Down Down
+shot sfx_volume_down3
+
+scene mux_volume
+keys A Down Down Down A Down Down Down A
+shot mux_volume
+
+scene confirm_quit
+keys A B
+shot confirm_quit
+keys Down
+shot confirm_quit_yes
+
+scene load_none
+keys A Down Down A
+shot load_none
+
+# ---- the town and the buildings -------------------------------------------------------------------------------------
+scene town
+embark
+avatar Town 8 8
+shot town_center
+avatar Town 3 2
+shot town_inn_door
+avatar Town 1 1
+shot town_corner
+avatar Town 8 15
+shot town_south_gate
+
+scene rooms
+embark
+avatar Inn 3 5
+shot room_inn
+avatar Healer 3 5
+shot room_healer
+avatar Potter 3 5
+shot room_potter
+avatar DruidHouse 2 3
+shot room_druid
+avatar HealthTrainer 3 5
+shot room_health_trainer
+avatar EnergyTrainer 3 2
+shot room_energy_trainer
+avatar Cellar 3 3
+shot room_cellar
+
+scene game_menu
+embark
+avatar Town 8 8
+keys B
+shot game_menu
+keys Down Down A
+shot save_slots
+keys B Down Down Down Down Down A
+shot confirm_abandon
+
+# ---- the wilderness, with things on the ground -----------------------------------------------------------------------
+scene wilderness
+embark
+fill Wilderness 8 15 42 35 Grass
+terrain Wilderness 24 26 Tree
+terrain Wilderness 26 27 Farm
+terrain Wilderness 22 25 ClayPit
+terrain Wilderness 28 24 RockQuarry
+terrain Wilderness 25 22 Empty
+terrain Wilderness 27 22 CookingFire
+terrain Wilderness 29 22 Furnace
+terrain Wilderness 20 25 RiverNS
+terrain Wilderness 20 26 RiverNESW
+terrain Wilderness 20 24 RiverSE
+avatar Wilderness 25 25
+shot wild_plain
+ground Rock 3
+ground Stick 2
+shot wild_items
+keys Right
+shot wild_moved
+
+scene action_menus
+embark
+fill Wilderness 8 15 42 35 Grass
+avatar Wilderness 25 25
+keys A
+shot actions_bare
+keys B
+stat Energy 4
+give Rock 3
+give Stick 5
+give Hatchet
+flag KnowsForaging 1
+forage 20
+ground Rock 3
+ground Clay 1
+keys A
+shot actions_full
+keys Down
+shot actions_full_down1
+keys Up A
+shot ground_list
+keys A
+shot ground_detail
+keys B B B
+
+scene inventory
+embark
+fill Wilderness 8 15 42 35 Grass
+avatar Wilderness 25 25
+give Rock 3
+give Stick 5
+give Hatchet
+give Clay 12
+give Pepper 2
+give Wheat 4
+give Torch
+give StrawHat
+keys A A
+shot inventory_grid
+keys Right Right
+shot inventory_grid_right2
+keys Down
+shot inventory_grid_down
+keys Left Left Left
+shot inventory_grid_left3
+keys A
+shot item_detail_stack
+keys B Down Down Down Down A
+shot item_detail_stack2
+
+scene item_detail_verbs
+embark
+fill Wilderness 8 15 42 35 Grass
+avatar Wilderness 25 25
+give Hatchet
+give Stick 3
+give Pepper
+keys A A
+shot inventory_four
+keys Right A
+shot item_detail_pepper
+keys B Left A
+shot item_detail_hatchet
+keys B Left Left A
+shot item_detail_stick
+
+scene equip_choice
+embark
+fill Wilderness 8 15 42 35 Grass
+avatar Wilderness 25 25
+give Stick 2
+keys A A
+shot equip_inventory
+keys A
+shot equip_stick_detail
+keys Down Down A
+shot equip_list
+keys A
+shot equip_done
+keys A
+shot equip_actions
+keys Down A
+shot equip_equipment
+
+scene equipment
+embark
+avatar Town 8 8
+equip Weapon Hatchet
+equip Head StrawHat
+keys A
+shot actions_with_equipment
+keys Down A
+shot equipment_list
+
+scene statistics
+embark
+avatar Town 8 8
+keys A Down A
+shot statistics
+stat Health 1
+stat Jools 7
+stat XP 4
+shot statistics_changed
+
+scene craft
+embark
+fill Wilderness 8 15 42 35 Grass
+terrain Wilderness 25 25 Empty
+avatar Wilderness 25 25
+flag KnowsTwineMaking 1
+flag KnowsFireMaking 1
+flag KnowsRockSharpening 1
+flag KnowsHatchetMaking 1
+give Rock 6
+give Stick 6
+keys A
+shot craft_actions
+keys A
+shot craft_menu
+
+scene forage_grid
+embark
+fill Wilderness 8 15 42 35 Grass
+avatar Wilderness 25 25
+flag KnowsForaging 1
+forage 20
+keys A Down A
+shot forage_grass
+keys Right Down Down
+shot forage_grass_cursor
+scene forage_farm
+embark
+fill Wilderness 8 15 42 35 Farm
+avatar Wilderness 25 25
+flag KnowsForaging 1
+forage 30
+keys A Down A
+shot forage_farm
+
+# ---- dialogues ------------------------------------------------------------------------------------------------------------
+scene signs
+embark
+avatar Town 2 2
+keys Down
+shot message_sign_inn
+keys A
+shot sign_gone
+
+scene healer
+embark
+avatar Healer 4 5
+keys Right
+shot healer_talk
+keys Down
+shot healer_talk_down
+keys A
+shot nihilist_prices
+keys A
+avatar Healer 3 2
+stat Health 1
+keys Up
+shot basin_heals
+keys A
+keys Up
+shot basin_nothing
+
+scene innkeeper
+embark
+avatar Inn 4 5
+keys Right
+shot gorachan_talk
+keys Down Down Down
+shot gorachan_job
+keys A
+shot rat_quest_offer
+keys Down A
+keys Right
+keys Down Down
+shot gorachan_after
+
+scene druid
+embark
+avatar DruidHouse 4 3
+keys Right
+shot druid_talk
+keys Down Down A
+shot druid_teach
+keys Down Down Down Down Down Down
+shot druid_teach_hatchet
+keys Up Up Up Up Up Up Down Down
+shot druid_teach_twine_choice
+keys Up Up
+keys A
+shot druid_learn_twine_needs
+keys A
+keys Right
+keys Down Down Down A
+shot druid_prices
+
+scene trainers
+embark
+avatar HealthTrainer 3 2
+keys Up
+shot health_trainer_talk
+keys Down A
+shot health_trainer_no_ap
+keys A
+avatar EnergyTrainer 3 4
+keys Down
+shot energy_trainer_talk
+keys Down A
+shot energy_trainer_no_ap
+
+scene potter
+embark
+avatar Potter 3 2
+keys Up
+shot potter_talk
+keys Down Down A
+shot potter_needs
+keys A
+
+scene cellar_door
+embark
+avatar Inn 2 5
+keys Left
+shot cellar_door_closed
+keys A
+flag RatQuest 1
+keys Left
+shot cellar_entered
+
+# ---- fights and the end screens ---------------------------------------------------------------------------------------------
+scene combat
+embark
+fill Wilderness 8 15 42 35 Grass
+avatar Wilderness 25 25
+enemy Rat
+neutral
+shot combat_rat
+keys Down
+shot combat_run_selected
+keys Up
+enemy OliveGlop
+enemy Scarecrow
+neutral
+shot combat_three
+keys Right
+shot combat_three_right1
+keys Right Right
+shot combat_three_wrapped
+keys Left
+shot combat_three_left
+
+scene dead
+embark
+avatar Town 8 8
+stat Health 0
+neutral
+shot dead_waiting
+wait 1100
+shot dead_ready
+
+scene winner
+embark
+avatar Town 8 8
+give Bagel
+neutral
+shot winner_waiting
+wait 1100
+shot winner_ready
+
+# ---- doing things -----------------------------------------------------------------------------------------------------------
+scene take_and_drop
+embark
+fill Wilderness 8 15 42 35 Grass
+avatar Wilderness 25 25
+ground Rock 3
+ground Stick 2
+keys A A
+shot take_list
+keys A
+shot take_detail_rock
+keys A
+shot take_after_all
+keys A
+shot take_detail_single
+keys A A
+shot take_inventory
+keys A
+shot drop_detail_rock
+keys Down A
+shot drop_one_done
+
+scene eating
+embark
+fill Wilderness 8 15 42 35 Grass
+avatar Wilderness 25 25
+give CookedRat
+give EnergyHerb
+stat Health 1
+stat MaximumHealth 5
+stat Energy 2
+keys A A
+shot eat_inventory
+keys A
+shot eat_detail_rat
+keys Down A
+shot eat_rat_message
+keys A
+shot eat_back_on_map
+keys A A Right A
+shot eat_herb_detail
+keys Down A
+shot eat_herb_message
+
+scene building
+embark
+fill Wilderness 8 15 42 35 Grass
+terrain Wilderness 25 25 Empty
+avatar Wilderness 25 25
+flag KnowsFireMaking 1
+flag KnowsTorchMaking 1
+flag KnowsTwineMaking 1
+flag KnowsRockSharpening 1
+flag KnowsHatchetMaking 1
+give Rock 5
+give Stick 6
+give Charcoal
+give PlantFiber 2
+keys A A
+shot build_craft_menu
+keys A
+shot twine_message
+keys A
+keys A A Down A
+shot fire_message
+keys A
+shot fire_built
+keys A
+shot fire_actions
+
+scene knap_and_hatchet
+embark
+fill Wilderness 8 15 42 35 Grass
+avatar Wilderness 25 25
+flag KnowsRockSharpening 1
+flag KnowsHatchetMaking 1
+give Rock 1
+keys A A
+shot knap_menu
+keys Down A
+shot hatchet_needs
+
+scene sleeping
+embark
+fill Wilderness 8 15 42 35 Grass
+avatar Wilderness 25 25
+stat Energy 3
+keys A
+shot sleep_actions
+keys A
+shot sleep_message
+keys A
+shot after_sleep
+
+scene unequip
+embark
+fill Wilderness 8 15 42 35 Grass
+avatar Wilderness 25 25
+equip Weapon Stick
+keys A Down A
+shot unequip_list
+keys A
+shot unequip_message
+
+scene learn
+embark
+avatar DruidHouse 4 3
+stat AdvancementPoints 3
+keys Right Down Down A Down A
+shot learn_foraging_message
+keys A Right Down Down A Down A
+shot learn_forage_again
+
+scene end_of_the_game
+embark
+avatar Town 8 8
+stat Health 0
+neutral
+wait 1100
+keys A
+shot back_at_main_menu

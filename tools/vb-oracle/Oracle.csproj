@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Throwaway harness: drives the real VB UI (AOS.UI + BQ.Presentation) headlessly and records screens as hue text.
+       Removed after the port ships (recoverable from git history). Run with tools/oracle.sh. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/AOS.UI/AOS.UI.vbproj" />
+    <ProjectReference Include="../../src/BQ.Presentation/BQ.Presentation.vbproj" />
+  </ItemGroup>
+</Project>

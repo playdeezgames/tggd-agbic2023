@@ -223,3 +223,10 @@ Each phase ends at an approval gate: `tools/test.sh` green, a findings entry, th
 2. **Sound effects credit: yours.** The page says the sound effects are by TheGrumpyGameDev.
 3. **Music: keep my synthesized tunes** (`page/music.js`), placeholders you can edit; the page text says they are simple chiptune loops written for the 2026 port.
 4. **About screen: the "See 'aboot.txt'" line is removed** (the `about` frame is a known difference of 242 pixels, listed in the screens test).
+
+### Pre-release checklist, first half (checked by script in the browser pane, audio switched off)
+
+- **Gamepad:** a faked standard pad: A moved the splash on to the main menu, d-pad down moved the cursor. Works.
+- **Touch buttons:** they appear after a touch (or on a coarse pointer); pressing the on-screen buttons moved the menu cursor; a tap shorter than a frame still counts once. Works. On a wide screen they sit under the picture; on a phone in landscape they will overlap the picture's bottom corners (not seen on a real phone).
+- **Export:** Game Menu, Save..., Export... produced a download named `bagel-quest-save.json` whose text is the save (format, version, content hash). Works. (The import panel was checked in phase 6.)
+- **Still needs a person:** hearing the music and effects, a real phone, the real file chooser dialog, Safari, and a full playthrough.

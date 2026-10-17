@@ -400,3 +400,6 @@ FodyWeavers.xsd
 /pub-linux
 /pub-mac
 /pub-windows
+
+# Odin port build output
+/build/

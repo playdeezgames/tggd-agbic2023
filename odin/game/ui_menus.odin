@@ -223,7 +223,7 @@ activate_menu :: proc(core: ^Core, s: UI_State, item: Pick_Item) {
 // ---- splash and about --------------------------------------------------------------------------------------------------------------------------------
 ABOUT_LINES := [?]struct { line: int, text: string, hue: Hue }{
 	{0, "About Bagel Quest", .Orange}, {2, "Art:", .White}, {3, "https://kenney.nl/assets/1-bit-pack", .White},
-	{5, "A Production of TheGrumpyGameDev", .White}, {7, "For A Game By Its Cover 2023", .White}, {9, "See 'aboot.txt'", .White},
+	{5, "A Production of TheGrumpyGameDev", .White}, {7, "For A Game By Its Cover 2023", .White}
 }
 
 render_about :: proc(core: ^Core) {

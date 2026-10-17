@@ -57,5 +57,5 @@ dotnet test src/BQ.Persistence.Tests                        # only the persisten
 The repo follows the vault's release standard (`Tech/release-audit.sh /home/yermom/git/tggd-agbic2023` shows all OK): `ITCH_DESCRIPTION.md`, `assets/cover.png` (630 by 500), `assets/screenshots/` (made by `tools/make_screenshots.py` from the compared frames), `devlog/20261017/devlog.md` (a draft for the user to post), `tools/ship.sh` and a one-line `shippit.sh` wrapper. `assets/source/` holds the old cover source and the 2023 window screenshots.
 
 - `tools/ship.sh` runs the full tests, builds `-o:size`, zips `build/web` to `build/bagel-quest-html5.zip` (index.html at the root, about 1.2 MB) and **pushes only with `--push`**. It never commits.
-- The itch page is live with channels `thegrumpygamedev/bagel-quest:windows`, `:linux`, `:mac`. **Never rename those.** The web build goes to a new `:html` channel; whether the old native downloads stay is the user's call.
+- The itch page is live with channels `thegrumpygamedev/bagel-quest:windows`, `:linux`, `:mac` (2023 VB builds). **Never rename or push to those.** The web build goes to a new `:html` channel; the user decided to remove the old downloads by hand on itch.
 - Never `git push`, `butler push` or `shippit.sh --push` unless the user says so.

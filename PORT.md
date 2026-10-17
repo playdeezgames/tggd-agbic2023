@@ -216,3 +216,10 @@ Each phase ends at an approval gate: `tools/test.sh` green, a findings entry, th
 **For you to decide before posting:** (1) whether the old windows/linux/mac downloads stay on the page next to the new html channel; (2) the credit for the sound effects (the page text does not claim them) and what to do about music; (3) the About screen's last line "See 'aboot.txt'" (a file the web build does not have; it is pixel-compared, so changing it means re-recording one frame); (4) the page's generative-AI disclosure field, if it has one; (5) deleting `src/`, the old oracle harness and the VB reference once you no longer need them (they are all recoverable from git history; the Murder Hobo port removed its VB after shipping).
 
 **Not done on purpose:** no commit, no push, nothing uploaded; the vault page for the game (the standard asks for a line "Release layout follows [[Release standard]]") does not exist yet, so I did not write one.
+
+### Release decisions (settled with you after phase 8)
+
+1. **Old downloads: remove.** The page becomes browser-only; you delete the windows, linux and mac uploads by hand on itch. The repo never touches those channels. (The native SDL2 client is therefore not needed for release.)
+2. **Sound effects credit: yours.** The page says the sound effects are by TheGrumpyGameDev.
+3. **Music: keep my synthesized tunes** (`page/music.js`), placeholders you can edit; the page text says they are simple chiptune loops written for the 2026 port.
+4. **About screen: the "See 'aboot.txt'" line is removed** (the `about` frame is a known difference of 242 pixels, listed in the screens test).

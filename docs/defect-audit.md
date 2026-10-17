@@ -48,7 +48,7 @@ Found by reading the VB and Lua source in phase 0 (nothing was run). Per decisio
 | D16 | `EquipState` | with two or more equippable stacks the header reads `<placeholder>` | fixed: the item's name |
 | D17 | `MakeHatchet.lua` | the 1-energy "make a hatchet" effect is never reached; the Craft menu's Make Hatchet is `DoMakeItem` (no energy). Same for Knap and Make Twine | kept: the Craft menu's version is the one ported (`do_make_item`); the effect stays as written |
 | D18 | `ItemTypeDescriptor.FullName` | the Equipment list and the Equip list show **`System.Object[]`** for every item with a name script (Hatchet, Stick, Straw Hat): `DoString` returns an array and the code calls `ToString` on it | fixed: `Hatchet(20/20)` |
-| D19 | main menu `About` | the About text ends "See 'aboot.txt'", a file the web build does not have | kept for now (it is pixel-compared); decide with the release text |
+| D19 | main menu `About` | the About text ends "See 'aboot.txt'", a file the web build does not have | **removed** (user decision, phase 8); the `about` frame is a known difference of 242 pixels |
 
 ## Phase 4 decisions and findings
 

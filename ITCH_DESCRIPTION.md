@@ -1,6 +1,6 @@
 # Itch.io page text
 
-Page: https://thegrumpygamedev.itch.io/bagel-quest (the page exists; its windows, linux and mac downloads are the 2023 originals).
+Page: https://thegrumpygamedev.itch.io/bagel-quest (the page exists; it becomes browser-only: you remove the 2023 windows, linux and mac downloads by hand on itch).
 Pasted in by hand; nothing here is published by the repo.
 
 ## Short description
@@ -19,13 +19,12 @@ The town has an inn, a healer, a health trainer, an endurance trainer, a druid a
 
 **Saving:** pick Save in the game menu: five slots, plus a quick save, are kept in yer browser. You can also export a save to a file and load it back from the Load screen.
 
-Art: Kenney's 1-bit pack (kenney.nl). Made for A Game By Its Cover 2023 by TheGrumpyGameDev. The game was written in VB.NET in 2023 and rebuilt in Odin for the browser in 2026. The 2026 Odin port was written with Claude Code (generative AI).
+Art: Kenney's 1-bit pack (kenney.nl). Sound effects and the original game by TheGrumpyGameDev, made for A Game By Its Cover 2023. The music is a handful of simple chiptune loops the game makes for itself in the browser, written for the 2026 port. The game was written in VB.NET in 2023 and rebuilt in Odin for the browser in 2026. The 2026 Odin port was written with Claude Code (generative AI).
 
 ## Notes (not for the page)
 
-- Push target: `thegrumpygamedev/bagel-quest:html`, a new channel next to the live windows, linux and mac ones (those are left alone). `tools/ship.sh` builds and zips; it only pushes with `--push`.
-- On the page's Edit game screen: tick "This file will be played in the browser" on the html upload and make the embed 1152 by 648 (or larger, it scales to fit). Decide whether the old native downloads stay.
+- Push target: `thegrumpygamedev/bagel-quest:html`, a new channel. The old `windows`, `linux` and `mac` channels are left as they are by the repo: **you remove those three uploads by hand on itch** (decided; the repo never renames or touches them). `tools/ship.sh` builds and zips; it only pushes with `--push`.
+- On the page's Edit game screen: set "Kind of project" to HTML, tick "This file will be played in the browser" on the html upload and make the embed 1152 by 648 (or larger, it scales to fit).
 - The cover is `assets/cover.png` (630 by 500, the 2023 cover); screenshots come from `tools/make_screenshots.py` (regenerable, 1152 by 648).
-- **Check before posting:** the credits for the sound effects (the page does not claim them), and the music: the original music is not in this build; the in-game music is a placeholder synthesized in the page (`page/music.js`).
+- Credits (decided): the user made the sound effects, so the page says so. Music: the original is not in this build; the page's own tunes (`page/music.js`) are kept; edit `THEMES` to change them.
 - The page text discloses that the Odin port was written with Claude Code. If the edit screen has a generative-AI disclosure field, fill it in to match.
-- The About screen still ends "See 'aboot.txt'", a file the web build does not have (audit D19).

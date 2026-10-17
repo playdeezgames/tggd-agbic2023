@@ -141,6 +141,7 @@ run_line :: proc(r: ^Runner, line: string) -> (shot: string) {
 // number fails the test, so nothing else can hide behind these.
 Known_Difference :: struct { shot: string, pixels: int, why: string }
 KNOWN_DIFFERENCES := [?]Known_Difference{
+	{"about", 242, "D19: the last line 'See \'aboot.txt\'' is gone (the web build has no such file)"},
 	{"healer_talk", 18, "D5: 'And wash' is 'and wash'"},
 	{"healer_talk_down", 18, "D5: 'And wash' is 'and wash'"},
 	{"basin_heals", 604, "D1: the original shows '{jools}' literally"},

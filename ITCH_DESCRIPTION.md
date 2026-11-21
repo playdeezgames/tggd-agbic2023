@@ -9,6 +9,8 @@ Forage, craft and cook yer way to a bagel. A tiny survival quest from A Game By 
 
 ## Paste this as the page description
 
+**Latest version:** https://playdeezgames.github.io/tggd-agbic2023/
+
 Loxy wants a bagel. Loxy has two hit points, ten energy and twenty jools.
 
 Walk the wilderness, learn to forage from the druid, and gather sticks, rocks, clay, wheat and peppers. Build a fire, put it out for charcoal, make a torch, throw up a furnace, grind flour, get a pot from the potter and fill it at a river for dough. Cook the bagel and you win. Meet anything on the way (glops, scarecrows, rats) and it is a fight: attack, or run.

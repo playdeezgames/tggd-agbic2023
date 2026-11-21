@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Writes assets/screenshots/ from frames of the original game recorded by tools/oracle.sh (docs/reference/vb), which the port
+"""Writes assets/screenshots/ from frames of the original game recorded by tools/oracle.sh (design/reference/vb), which the port
 reproduces pixel for pixel (odin/tests/screens_test.odin). Each is the 384 by 216 frame at 3x, plain nearest-neighbour (1152 by 648).
 Usage: tools/make_screenshots.py   (needs Pillow)"""
 import os

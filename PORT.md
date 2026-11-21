@@ -28,7 +28,7 @@ odin/platform/native/ (optional, #+build !js) SDL2 dev client; also what makes Q
 odin/tests/          odin test natively; same cases checked as wasm under node
 web/                 index.html, platform.js, storage.js
 tools/               build.sh, test.sh, serve.sh, ship.sh, gen/ (content generator), run_wasm_node.js
-docs/reference/vb/   frames recorded from the VB game
+design/reference/vb/   frames recorded from the VB game
 src/                 the VB original, kept until the port ships
 ```
 
@@ -41,10 +41,10 @@ src/                 the VB original, kept until the port ships
 
 ## Decisions settled (user, this session)
 
-1. **Fidelity:** faithful port; clear bugs (crashes, unreachable states, unwinnable quest paths) are fixed as found and every one is logged in `docs/defect-audit.md`. Content and balance questions are listed, not changed, without the user.
+1. **Fidelity:** faithful port; clear bugs (crashes, unreachable states, unwinnable quest paths) are fixed as found and every one is logged in `design/defect-audit.md`. Content and balance questions are listed, not changed, without the user.
 2. **Native client:** web plus SDL2 (Murder Hobo split: `odin/platform/native`, `--script`, `--dump`, `--seed`, `--data`).
 3. **Channels:** **web only** release. Add `thegrumpygamedev/bagel-quest:html`; the live `windows`/`linux`/`mac` channels are left untouched and not renamed. The SDL2 client is therefore a dev and QA tool, not shipped.
-4. **Oracle:** VB oracle harness records reference screens into `docs/reference/vb/`; tests require pixel matches; harness removed after shipping.
+4. **Oracle:** VB oracle harness records reference screens into `design/reference/vb/`; tests require pixel matches; harness removed after shipping.
 5. **Dice:** seed search, as in Kordanor's, to reproduce recorded fights.
 6. **Saves:** no import of VB saves.
 7. **Controls:** keys + gamepad + touch (touch in phase 7).
@@ -67,7 +67,7 @@ The list below is the original question set, kept for reference.
 
 Each phase ends at an approval gate: `tools/test.sh` green, a findings entry, the user plays the build.
 
-0. **Read and inventory.** Read the unread code listed above; write `docs/game-reference.md` (map list and sizes, every effect/terrain/item/character with its Lua behaviour, recipes, quest flow, win condition). Output is the list of every Lua behaviour that needs a hand-written Odin procedure versus pure data. *Gate:* the user confirms the inventory and answers decisions 1 to 4.
+0. **Read and inventory.** Read the unread code listed above; write `design/game-reference.md` (map list and sizes, every effect/terrain/item/character with its Lua behaviour, recipes, quest flow, win condition). Output is the list of every Lua behaviour that needs a hand-written Odin procedure versus pure data. *Gate:* the user confirms the inventory and answers decisions 1 to 4.
 1. **Skeleton and rasterizer.** `odin/game` with `core_step`, framebuffer, font/glyph/hue drawing, `web` platform + page, `build.sh`, `serve.sh`, `test.sh` (native `odin test -o:speed`, `odin check -vet` on both targets, `-vet-shadowing -vet-unused`). Draw the splash. *Gate:* splash matches the VB frame.
 2. **Content generator.** `tools/gen/gen_content.py` (stdlib only) turns the JSON tables into enums and tables; `CONTENT_HASH` goes into saves; `test.sh` fails on stale output. Lua stays out of this step.
 3. **World, maps, rules.** Flat `World`, cell/terrain/item/character model, map initializers (town, buildings, cellar, wilderness, rivers, maze), movement, foraging, crafting, equipment, inventory, statistics, energy, combat, messages. Soak test plays thousands of random commands with `world_validate`; a tracking allocator makes leaks fail.
@@ -89,7 +89,7 @@ Each phase ends at an approval gate: `tools/test.sh` green, a findings entry, th
 
 ### Phase 0: read and inventory (done, awaiting your approval)
 
-**Done.** Read all of `BQ.Business`, `BQ.Presentation`, the generic `AOS.UI` controller/picker/font/buffer code, `SPLORR.Game` RNG and maze, all JSON tables and all 132 Lua scripts. Wrote `docs/game-reference.md` and `docs/defect-audit.md`.
+**Done.** Read all of `BQ.Business`, `BQ.Presentation`, the generic `AOS.UI` controller/picker/font/buffer code, `SPLORR.Game` RNG and maze, all JSON tables and all 132 Lua scripts. Wrote `design/game-reference.md` and `design/defect-audit.md`.
 
 **Findings that change the plan:**
 - **No interpreter is needed.** The 56 Loxy effect scripts are recipe calls, flag/stat checks, messages and teleports; they fit an enum `switch`. Estimated Odin size is similar to the VB (about 4,000 lines plus generated tables).
@@ -110,7 +110,7 @@ Each phase ends at an approval gate: `tools/test.sh` green, a findings entry, th
 - `odin/game`: `api.odin` (platform interface, same shape as Murder Hobo), `render.odin` (hue-indexed rasterizer: fill, UI-font text, 16 by 16 tile draw, status bar, header, `controls_text`), `core.odin` (`core_init`/`core_step`, splash), generated `assets_data.odin`.
 - `tools/gen/gen_assets.py` turns `hue.json`, `CyFont8x8.json` and `BagelQuest.json` into Odin tables; `tools/test.sh` fails if the output is stale.
 - `odin/platform/web` + `page/` (canvas, whole-number scaling, key and tap input), `tools/build.sh`, `tools/serve.sh`, `tools/test.sh`.
-- **The VB oracle works** (`tools/vb-oracle`, `tools/oracle.sh`): a small C# harness drives the real `GameController` and `BagelQuestContext` headlessly and records hue frames into `docs/reference/vb/` (splash, main menu, main menu down 1, about, options). The VB libraries build with the .NET 10 SDK as netstandard2.1, so no roll-forward was needed after all.
+- **The VB oracle works** (`tools/vb-oracle`, `tools/oracle.sh`): a small C# harness drives the real `GameController` and `BagelQuestContext` headlessly and records hue frames into `design/reference/vb/` (splash, main menu, main menu down 1, about, options). The VB libraries build with the .NET 10 SDK as netstandard2.1, so no roll-forward was needed after all.
 - Tests (5): palette, no-redraw when idle, off-frame drawing is ignored, `controls_text`, and **the splash matches the VB frame pixel for pixel**. I broke the outline colour on purpose and the test failed with a pixel count, then restored it.
 - Checked in the Claude browser pane: the splash draws, no console errors.
 
@@ -161,7 +161,7 @@ Each phase ends at an approval gate: `tools/test.sh` green, a findings entry, th
 
 **Done.**
 - `odin/game/effects.odin`: **all 55 effect kinds** are real code now, one `switch` over `Effect_Kind` with no default, so a new effect in the data is a compile error. That covers the plumbing (teleport, signs, cellar), 12 dialogues, the rat quest, inn, shops (Buy), the basin, both trainers, the potter, the river, the Druid's skill menu and six skills, every crafting verb, and all six ways to eat. Texts are the originals'. Screen entry points: `do_terrain_verb`, `do_item_effect`, `message_choose`.
-- **Your decisions applied:** C1 kept (no depletion). C2: the four placeholder signs now read "Home of Barry the Forager", "For Rent: One Hut", "Beware of Rat" and "Bagel Appreciation Society" (generator `MESSAGE_TEXT_FIXES`; edit the strings there and regenerate). C6: the six silent sounds are used; the full map is in `docs/defect-audit.md` (crafting = Craft, eating = Eat or Tasty, picking up = Take, purchases and pots = Yoink, level up, learning, training, healing and the rat reward = WooHoo, refusals = the original "Shucks"). Sounds without a message (pick-ups, level-up) go through a small queue the platform will drain (`sfx_drain`).
+- **Your decisions applied:** C1 kept (no depletion). C2: the four placeholder signs now read "Home of Barry the Forager", "For Rent: One Hut", "Beware of Rat" and "Bagel Appreciation Society" (generator `MESSAGE_TEXT_FIXES`; edit the strings there and regenerate). C6: the six silent sounds are used; the full map is in `design/defect-audit.md` (crafting = Craft, eating = Eat or Tasty, picking up = Take, purchases and pots = Yoink, level up, learning, training, healing and the rat reward = WooHoo, refusals = the original "Shucks"). Sounds without a message (pick-ups, level-up) go through a small queue the platform will drain (`sfx_drain`).
 - **Fixed from the audit:** D1 (`{jools}` shown literally), D2 (stray bracket), D4 ("already know"), D5 ("And wash"), plus two found now: D13 (seasoned rat showed "That was a spicy one!" every time, sometimes twice) and D14 (filling a pot you no longer have claimed success).
 - **Found while testing:** the message choice buffer was 40 characters and cut the Druid's longer menu labels (45 chars); it is 48 now, the screen's width.
 - **New content questions, kept as the original** (C13 to C15 in the audit): the Fire and Torch menu labels say "-5 Rock" but only require the materials, building a fire, furnace or torch spends the energy before checking the materials, and the basin heals only up to 5 health at any maximum.
@@ -171,9 +171,9 @@ Each phase ends at an approval gate: `tools/test.sh` green, a findings entry, th
 
 ### Phase 5: the screens (IN PROGRESS, stopped at a usage limit)
 
-**Done.** `odin/game/ui*.odin` port the whole state machine (stack, pickers, menus, Navigation, Actions, Craft, Ground, Inventory, Forage, Combat, Message, Statistics, Dead, Winner); `core.odin` now owns the world and the UI and reports sounds/music/volumes. The oracle replays `docs/reference/scenes.txt` (a small DSL) against the real VB UI and `odin/tests/screens_test.odin` replays the same file on the port: **127 shots, all matching pixel for pixel except 5 listed known differences** (each with its exact pixel count). `tools/frame2png.py` shows a diff.
+**Done.** `odin/game/ui*.odin` port the whole state machine (stack, pickers, menus, Navigation, Actions, Craft, Ground, Inventory, Forage, Combat, Message, Statistics, Dead, Winner); `core.odin` now owns the world and the UI and reports sounds/music/volumes. The oracle replays `design/reference/scenes.txt` (a small DSL) against the real VB UI and `odin/tests/screens_test.odin` replays the same file on the port: **127 shots, all matching pixel for pixel except 5 listed known differences** (each with its exact pixel count). `tools/frame2png.py` shows a diff.
 
-**Found in the original:** it crashes when you drop your last stack (D15), shows `System.Object[]` as the name of every worn or wielded item (D18), and has a `<placeholder>` header (D16); all fixed in the port and logged in `docs/defect-audit.md`. Two of my scripted scenes (putting out a fire and a failed knap, then emptying the pack) crashed the VB for the same reason and were cut from the scene file.
+**Found in the original:** it crashes when you drop your last stack (D15), shows `System.Object[]` as the name of every worn or wielded item (D18), and has a `<placeholder>` header (D16); all fixed in the port and logged in `design/defect-audit.md`. Two of my scripted scenes (putting out a fire and a failed knap, then emptying the pack) crashed the VB for the same reason and were cut from the scene file.
 
 **Not done:** the web page is not updated for the new core (sound/music output, key repeat 1.0 s then 0.3 s, full screen), nothing has been run in the browser since the core changed, the wasm build with the world has not been size or parity checked, save slots are stubs (phase 6), the native SDL2 client is not started, `tools/test.sh` was last run only as `odin test` (65 pass); run it in full before approving.
 

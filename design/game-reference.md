@@ -1,6 +1,6 @@
 # Bagel Quest: game reference (from the VB source)
 
-Written in phase 0 of the Odin port (`PORT.md`) by reading the VB.NET and Lua source. Source paths are under `src/`. Behaviour here is what the **code** does; nothing was run (no VB build, no play-through). Anything marked **(unverified)** needs the oracle or a play test. Defects and content questions are in `docs/defect-audit.md`.
+Written in phase 0 of the Odin port (`PORT.md`) by reading the VB.NET and Lua source. Source paths are under `src/`. Behaviour here is what the **code** does; nothing was run (no VB build, no play-through). Anything marked **(unverified)** needs the oracle or a play test. Defects and content questions are in `design/defect-audit.md`.
 
 ## 1. The game in one paragraph
 

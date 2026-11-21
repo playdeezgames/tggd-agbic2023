@@ -16,7 +16,7 @@ from common import ROOT, CONTENT, HUE_NAMES, load, read_text, snake, Strict
 
 # ---- departures from the source data (complete list) ---------------------------------------------------------------
 IGNORED = {
-    # dead in the original (docs/defect-audit.md, "Dead code")
+    # dead in the original (design/defect-audit.md, "Dead code")
     "terrain effect Forage": "superseded by the forage grid; ForagingModel does not read the terrain effect",
     "messages HealerTalk, HealthTrainerTalk, DruidTalk, TownSign4": "stale: the Lua scripts replace the first three (different text); TownSign4 is never placed",
     "Content/Config/keys.json": "an older, unused copy of the key table (lacks Q and Z); only checked to be a subset of keys.json",
@@ -271,7 +271,7 @@ TERRAIN_VERBS = {"BuildFire": "Build_Fire", "BuildFurnace": "Build_Furnace", "Pu
 terrain_flags = sorted({f for v in terrain_json.values() for f in v["Flags"]})
 emit(enum_decl("Terrain_Type", TERRAIN.values()), "",
      enum_decl("Terrain_Flag", [snake(f) for f in terrain_flags]),
-     "// Tenable: can be walked on. Peril is the chance weight of meeting a creature (see docs/game-reference.md).", "",
+     "// Tenable: can be walked on. Peril is the chance weight of meeting a creature (see design/game-reference.md).", "",
      enum_decl("Terrain_Verb", TERRAIN_VERBS.values()), "",
      "Creature_Weight :: struct { type: Character_Type, weight: i32 }",
      "Forage_Weight :: struct { item: Item_Type, weight: i32 } // item None means a forage that finds nothing", "",
@@ -279,7 +279,7 @@ emit(enum_decl("Terrain_Type", TERRAIN.values()), "",
      "\tflags:          bit_set[Terrain_Flag],", "\tverbs:          bit_set[Terrain_Verb],", "\tperil:          i32,",
      "\tcreatures:      Range, // into CREATURE_WEIGHTS", "\tforage:         Range, // into FORAGE_WEIGHTS",
      "\tforage_count:   i32,   // what a new cell starts with (the original's Initialize.lua)",
-     "\tdepleted:       Terrain_Type, // the original lists it but never uses it (docs/defect-audit.md C1); itself when none",
+     "\tdepleted:       Terrain_Type, // the original lists it but never uses it (design/defect-audit.md C1); itself when none",
      "\tput_out_into:   Terrain_Type, // Put_Out_Fire only", "\tput_out_drops:  Item_Type,    // Put_Out_Fire only", "}", "")
 creature_pool, forage_pool, terrain_lits = [], [], []
 INIT_FORAGE = re.compile(r'^cell:SetStatistic\("ForageRemaining", (\d+)\)$')

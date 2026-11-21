@@ -4,7 +4,7 @@ import "core:fmt"
 
 // The software rasterizer: a port of the original's pixel sink (BasePixelSink, OffscreenBuffer), Font and the UIContext
 // helpers. The picture is kept as hue indexes, like the original, and converted to RGBA at the end, so tests can compare
-// it with the frames recorded from the VB game (docs/reference/vb, made by tools/oracle.sh).
+// it with the frames recorded from the VB game (design/reference/vb, made by tools/oracle.sh).
 
 Hue_Frame :: [FRAME_WIDTH * FRAME_HEIGHT]Hue
 

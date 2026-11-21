@@ -1,8 +1,8 @@
 #+build !js
 package tests
 
-// The screens against the original: replay docs/reference/scenes.txt on the port and compare every shot with the frame the VB
-// game drew (docs/reference/vb, recorded by tools/oracle.sh). Both sides read the same scene file.
+// The screens against the original: replay design/reference/scenes.txt on the port and compare every shot with the frame the VB
+// game drew (design/reference/vb, recorded by tools/oracle.sh). Both sides read the same scene file.
 
 import "core:fmt"
 import "core:os"
@@ -10,8 +10,8 @@ import "core:strings"
 import "core:testing"
 import "bq:game"
 
-SCENES :: #load("../../docs/reference/scenes.txt", string)
-VB_FRAMES := #load_directory("../../docs/reference/vb")
+SCENES :: #load("../../design/reference/scenes.txt", string)
+VB_FRAMES := #load_directory("../../design/reference/vb")
 
 // "RockQuarry" for Rock_Quarry: the VB names have no underscores.
 no_underscores :: proc(s: string) -> string {

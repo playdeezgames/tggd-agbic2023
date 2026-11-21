@@ -1,7 +1,7 @@
 #+build !js
 package tests
 
-// Compares the port's screens with frames recorded from the original VB game (docs/reference/vb, made by tools/oracle.sh).
+// Compares the port's screens with frames recorded from the original VB game (design/reference/vb, made by tools/oracle.sh).
 // A reference file is 216 lines of 384 hue digits (hex).
 
 import "core:testing"
@@ -55,7 +55,7 @@ step :: proc(core: ^game.Core, commands: ..game.Command) -> game.Step_Output {
 splash_matches_vb :: proc(t: ^testing.T) {
 	want := new(game.Hue_Frame)
 	defer free(want)
-	testing.expect(t, parse_reference(#load("../../docs/reference/vb/splash.txt", string), want), "splash.txt is malformed")
+	testing.expect(t, parse_reference(#load("../../design/reference/vb/splash.txt", string), want), "splash.txt is malformed")
 	core := new_core()
 	defer free(core)
 	out := step(core)

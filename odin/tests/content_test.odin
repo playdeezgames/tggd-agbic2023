@@ -1,7 +1,7 @@
 #+build !js
 package tests
 
-// Checks on the generated content tables against facts read from the original data and code (docs/game-reference.md).
+// Checks on the generated content tables against facts read from the original data and code (design/game-reference.md).
 // The generator itself is strict (unknown properties and dangling references fail the run); these tests pin the results.
 
 import "core:testing"

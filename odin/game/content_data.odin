@@ -4,7 +4,7 @@ package game
 // equipSlots, recipes, messages, sfx, mux and the Scripts tree). Do not edit. The generator lists every departure from the data.
 
 // Hash of the generated text below; saves record it so a save only loads against the content that made it.
-CONTENT_HASH :: u64(0xB0A420F9F622D384)
+CONTENT_HASH :: u64(0xE27FF20E2C2931C2)
 
 // Index and count of a run of entries in one of the pool arrays below (weighted lists, ingredient lists, text lines).
 Range :: struct { start, count: u16 }
@@ -267,7 +267,7 @@ CHARACTERS := [Character_Type]Character_Info{
 Terrain_Type :: enum u8 { Grass, Clay_Pit, Rock_Quarry, Depleted_Grass, Tree, Depleted_Tree, Empty, Cellar_Floor, Farm, Wall, Gravel, Fence, House, Town, Sign, River_N, River_E, River_S, River_W, River_NE, River_SE, River_SW, River_NW, River_NES, River_ESW, River_SWN, River_WNE, River_NESW, River_NS, River_EW, Door, Basin, Old_Man, Strong_Man, Potter, Druid, Bed, Gorachan, Energy_Trainer, Stairs_Up, Stairs_Down, Cooking_Fire, Furnace }
 
 Terrain_Flag :: enum u8 { Can_Build_Furnace, Can_Sleep, Has_Fire, Is_Furnace, Is_Water_Source, Tenable }
-// Tenable: can be walked on. Peril is the chance weight of meeting a creature (see docs/game-reference.md).
+// Tenable: can be walked on. Peril is the chance weight of meeting a creature (see design/game-reference.md).
 
 Terrain_Verb :: enum u8 { Build_Fire, Build_Furnace, Put_Out_Fire, Make_Torch, Cook_Bagel }
 
@@ -284,7 +284,7 @@ Terrain_Info :: struct {
 	creatures:      Range, // into CREATURE_WEIGHTS
 	forage:         Range, // into FORAGE_WEIGHTS
 	forage_count:   i32,   // what a new cell starts with (the original's Initialize.lua)
-	depleted:       Terrain_Type, // the original lists it but never uses it (docs/defect-audit.md C1); itself when none
+	depleted:       Terrain_Type, // the original lists it but never uses it (design/defect-audit.md C1); itself when none
 	put_out_into:   Terrain_Type, // Put_Out_Fire only
 	put_out_drops:  Item_Type,    // Put_Out_Fire only
 }

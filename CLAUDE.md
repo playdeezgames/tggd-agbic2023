@@ -36,11 +36,11 @@ Audio: `Content/Audio/Sfx/*.wav`, `Mux/*.ogg` (and `sourcematerial/` has the MID
 ```bash
 tools/test.sh          # generated-asset freshness, odin test (native), web build with vet flags; must end ALL TESTS PASSED
 tools/build.sh web     # build/web (wasm + page); tools/serve.sh serves it on :8080 (PORT= to change)
-tools/oracle.sh        # re-record reference screens from the original VB UI into docs/reference/vb/
+tools/oracle.sh        # re-record reference screens from the original VB UI into design/reference/vb/
 python3 tools/gen/gen_assets.py   # regenerate odin/game/assets_data.odin from src/BagelQuest/Content
 ```
 
-Odin code lives in `odin/game` (portable core, imported as `bq:game` via `-collection:bq=odin`) and `odin/platform/web`. Reference-frame tests compare hue indexes with `docs/reference/vb/*.txt`. Plan, decisions and per-phase findings are in `PORT.md`; the original's behaviour is in `docs/game-reference.md` and its defects in `docs/defect-audit.md`.
+Odin code lives in `odin/game` (portable core, imported as `bq:game` via `-collection:bq=odin`) and `odin/platform/web`. Reference-frame tests compare hue indexes with `design/reference/vb/*.txt`. Plan, decisions and per-phase findings are in `PORT.md`; the original's behaviour is in `design/game-reference.md` and its defects in `design/defect-audit.md`.
 
 ## Commands (original VB game)
 

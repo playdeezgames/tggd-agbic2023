@@ -3,7 +3,7 @@ package game
 // Effects: what bumping a cell, picking a dialogue choice, using an item or doing a crafting verb does for the avatar.
 // The original ran a Lua script per effect type (the avatar's script table, Content/Scripts/Characters/Loxy); here each is a case
 // of one switch over Effect_Kind, which tools/gen/gen_content.py generates from exactly that table, so a missing case is a
-// compile error. Texts are the originals', with the fixes listed in docs/defect-audit.md (D1 to D5, D13, D14).
+// compile error. Texts are the originals', with the fixes listed in design/defect-audit.md (D1 to D5, D13, D14).
 // The sounds are the C6 decision: each message carries the sound that fits (see the audit's sound map).
 
 // Everything an effect may need. Cell effects fill dest/message/number/cell; item verbs fill item_id; choices fill item/number/again.
